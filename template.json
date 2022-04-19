@@ -1,0 +1,154 @@
+{
+  "Actor": {
+    "types": ["character", "container", "creature", "follower"],
+    "templates": {
+      "common": {
+        "abilities": {
+          "agility": {
+            "value": 0
+          },
+          "presence": {
+            "value": 0
+          },
+          "strength": {
+            "value": 0
+          },
+          "toughness": {
+            "value": 0
+          }
+        },
+        "description": "",
+        "hp": {
+          "max": 1,
+          "value": 1
+        }
+      }
+    },
+    "character": {
+      "templates": ["common"],
+      "miseries": {
+        "min": 0,
+        "max": 7,
+        "value": 0
+      },
+      "omens": {
+        "min": 0,
+        "max": 0,
+        "value": 0
+      },
+      "powerUses": {
+        "min": 0,
+        "max": 0,
+        "value": 0
+      },
+      "powerUsesRemaining": 0,
+      "silver": 0
+    },
+    "container": {
+      "capacity": {
+        "max": 0,
+        "value": 0
+      },
+      "description": "",
+      "price": 0
+    },
+    "creature": {
+      "templates": ["common"],
+      "alternateName": "",
+      "armor": "",
+      "attack": "",
+      "morale": 7,
+      "special": ""
+    },
+    "follower": {
+      "templates": ["common"],
+      "alternateName": "",
+      "morale": 7,
+      "silver": 0,
+      "speciality": "",
+      "trait": "",
+      "value": ""
+    }
+  },
+  "Item": {
+    "types": [
+      "ammo",
+      "armor",
+      "class",
+      "container",
+      "feat",
+      "misc",
+      "scroll",
+      "shield",
+      "weapon"
+    ],
+    "templates": {
+      "baseEquipment": {
+        "containerSpace": 1,
+        "description": "",
+        "carryWeight": 1,
+        "equipped": false,
+        "carried": true,
+        "price": 0,
+        "quantity": 1
+      }
+    },
+    "ammo": {
+      "templates": ["baseEquipment"]
+    },
+    "armor": {
+      "templates": ["baseEquipment"],
+      "currentTier": 1,
+      "maxTier": 1,
+      "tier": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      }
+    },
+    "class": {
+      "abilities": "",
+      "armorTableDie": "1d4",
+      "description": "",
+      "omenDie": "1d2",
+      "startingAgility": "3d6",
+      "startingHitPoints": "1d8",
+      "startingItems": null,
+      "startingPresence": "3d6",
+      "startingRolls": null,
+      "startingSilver": "2d6*10",
+      "startingStrength": "3d6",
+      "startingToughness": "3d6",
+      "weaponTableDie": "1d10"
+    },
+    "container": {
+      "templates": ["baseEquipment"],
+      "capacity": 1
+    },
+    "feat": {
+      "description": "",
+      "rollFormula": "",
+      "rollMacro": "",
+      "rollLabel": ""
+    },
+    "misc": {
+      "templates": ["baseEquipment"]
+    },
+    "scroll": {
+      "templates": ["baseEquipment"],
+      "scrollType": "unclean"
+    },
+    "shield": {
+      "templates": ["baseEquipment"]
+    },
+    "weapon": {
+      "templates": ["baseEquipment"],
+      "critOn": 20,
+      "damageDie": "1d1",
+      "handed": 1,
+      "fumbleOn": 1,
+      "usesAmmo": false,
+      "weaponType": "melee"
+    }
+  }
+}
