@@ -1,6 +1,6 @@
-# MÖRK BORG for Foundry VTT
+# PIRATE BORG for Foundry VTT
 
-An unoffical, community-supported system for playing [PIRATE BOTH](https://www.limithron.com/pirateborg) on [Foundry VTT](http://foundryvtt.com/).
+An unoffical, community-supported system for playing [PIRATE BORG](https://www.limithron.com/pirateborg) on [Foundry VTT](http://foundryvtt.com/).
 
 PIRATE BORG and pirate-borg-system is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
 
