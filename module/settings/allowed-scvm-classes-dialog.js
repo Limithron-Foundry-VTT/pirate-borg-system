@@ -9,10 +9,10 @@ export class AllowedScvmClassesDialog extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       id: "allowed-scvm-classes-dialog",
-      title: game.i18n.localize("MB.AllowedScvmClassesEdit"),
+      title: game.i18n.localize("PB.AllowedScvmClassesEdit"),
       template:
-        "systems/morkborg/templates/dialog/allowed-scvm-classes-dialog.html",
-      classes: ["form", "morkborg"],
+        "systems/pirateborg/templates/dialog/allowed-scvm-classes-dialog.html",
+      classes: ["form", "pirateborg"],
       popOut: true,
       width: 420,
     });

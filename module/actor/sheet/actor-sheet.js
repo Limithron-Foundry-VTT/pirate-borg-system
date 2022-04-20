@@ -1,10 +1,10 @@
-import * as editor from "../../editor.js";
+import * as editor from "../../system/configure-editor.js";
 import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
 
 /**
  * @extends {ActorSheet}
  */
-export default class MBActorSheet extends ActorSheet {
+export default class PBActorSheet extends ActorSheet {
   /** @override */
   activateEditor(name, options = {}, initialContent = "") {
     editor.setCustomEditorOptions(options);
@@ -61,19 +61,19 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/morkborg/templates/dialog/add-item-dialog.html";
+    const template = "systems/pirateborg/templates/dialog/add-item-dialog.html";
     const dialogData = {
-      config: CONFIG.MorkBorg,
+      config: CONFIG.pirateborg,
     };
     const html = await renderTemplate(template, dialogData);
     return new Promise((resolve) => {
       new Dialog({
-        title: game.i18n.localize("MB.CreateNewItem"),
+        title: game.i18n.localize("PB.CreateNewItem"),
         content: html,
         buttons: {
           create: {
             icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize("MB.CreateNewItem"),
+            label: game.i18n.localize("PB.CreateNewItem"),
             callback: (html) =>
               resolve(_createItem(this.actor, html[0].querySelector("form"))),
           },
@@ -95,8 +95,8 @@ export default class MBActorSheet extends ActorSheet {
     const item = this.actor.items.get(itemId);
     if (item.isContainer && item.hasItems) {
       Dialog.confirm({
-        title: game.i18n.localize("MB.ItemDelete"),
-        content: "<p>" + game.i18n.localize("MB.ItemDeleteMessage") + "</p>",
+        title: game.i18n.localize("PB.ItemDelete"),
+        content: "<p>" + game.i18n.localize("PB.ItemDeleteMessage") + "</p>",
         yes: async () => {
           await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
         },

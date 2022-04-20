@@ -1,6 +1,6 @@
 <form class="roll-card attack-roll-card">
   <div class="card-title">
-    {{localize weaponTypeKey}} {{localize 'MB.Attack'}}
+    {{localize weaponTypeKey}} {{localize 'PB.Attack'}}
   </div>
   {{#each items as |item id|}}
   <div class="item-row">
@@ -11,8 +11,8 @@
   <div class="attack-roll">
     <div class="roll-title">
       <span
-        >{{localize 'MB.Attack'}}: {{attackFormula}} {{localize 'MB.Vs'}}
-        {{localize 'MB.DR'}} {{attackDR}}</span
+        >{{localize 'PB.Attack'}}: {{attackFormula}} {{localize 'PB.Vs'}}
+        {{localize 'PB.DR'}} {{attackDR}}</span
       >
     </div>
     <div class="roll-result">
@@ -25,7 +25,7 @@
   {{#if damageRoll}}
   <div class="damage-roll">
     <div class="roll-title">
-      <span>{{localize 'MB.Damage'}}: {{damageRoll._formula}}</span>
+      <span>{{localize 'PB.Damage'}}: {{damageRoll._formula}}</span>
     </div>
     <div class="roll-result">
       <span>{{xtotal damageRoll}}</span>
@@ -34,7 +34,7 @@
   {{/if}} {{#if targetArmorRoll}}
   <div class="target-armor-roll">
     <div class="roll-title">
-      <span>{{localize 'MB.TargetArmor'}}: {{targetArmorRoll.formula}}</span>
+      <span>{{localize 'PB.TargetArmor'}}: {{targetArmorRoll.formula}}</span>
     </div>
     <div class="roll-result">
       <span>{{xtotal targetArmorRoll}}</span>

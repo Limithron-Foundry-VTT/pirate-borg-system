@@ -1,9 +1,9 @@
 import { diceSound, showDice } from "./dice.js";
 
 const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/individual-initiative-roll-card.html";
+  "systems/pirateborg/templates/chat/individual-initiative-roll-card.html";
 const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/party-initiative-roll-card.html";
+  "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
 
 export const rollPartyInitiative = async () => {
   const initiativeRoll = new Roll("d6", {});
@@ -12,9 +12,9 @@ export const rollPartyInitiative = async () => {
 
   let outcomeText = "";
   if (initiativeRoll.total <= 3) {
-    outcomeText = game.i18n.localize("MB.InitiativeEnemiesBegin");
+    outcomeText = game.i18n.localize("PB.InitiativeEnemiesBegin");
   } else {
-    outcomeText = game.i18n.localize("MB.InitiativePlayerCharactersBegin");
+    outcomeText = game.i18n.localize("PB.InitiativePlayerCharactersBegin");
   }
 
   const rollResult = {
@@ -47,7 +47,7 @@ export const rollIndividualInitiative = async (actor) => {
       game.combat.rollInitiative(combatant.id);
     } else {
       // the actor hasn't been added to the combat
-      ui.notifications.warn(`${game.i18n.localize("MB.ActorNotInEncounter")}!`);
+      ui.notifications.warn(`${game.i18n.localize("PB.ActorNotInEncounter")}!`);
     }
     return;
   }
@@ -74,7 +74,7 @@ export const rollIndividualInitiative = async (actor) => {
   });
 };
 
-export class MBCombat extends Combat {
+export class PBCombat extends Combat {
   async setPartyInitiative(rollTotal) {
     game.combat.partyInitiative = rollTotal;
     await game.combat.resortCombatants();

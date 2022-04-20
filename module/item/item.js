@@ -1,28 +1,28 @@
 /**
  * @extends {Item}
  */
-export class MBItem extends Item {
+export class PBItem extends Item {
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
     this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
 
-    if (this.type === CONFIG.MB.itemTypes.armor) {
+    if (this.type === CONFIG.PB.itemTypes.armor) {
       this.data.data.damageReductionDie =
-        CONFIG.MB.armorTiers[this.data.data.tier.value].damageReductionDie;
+        CONFIG.PB.armorTiers[this.data.data.tier.value].damageReductionDie;
     }
   }
 
   /** @override */
   prepareActorItemDerivedData(actor) {
     if (actor.type === "character" || actor.type === "follower") {
-      this.data.data.equippable = CONFIG.MB.equippableItemTypes.includes(
+      this.data.data.equippable = CONFIG.PB.equippableItemTypes.includes(
         this.type
       );
       this.data.data.droppable =
-        CONFIG.MB.droppableItemTypes.includes(this.type) &&
+        CONFIG.PB.droppableItemTypes.includes(this.type) &&
         this.data.data.carryWeight !== 0;
-      this.data.data.canPlusMinus = CONFIG.MB.plusMinusItemTypes.includes(
+      this.data.data.canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(
         this.type
       );
     } else {
@@ -43,15 +43,15 @@ export class MBItem extends Item {
   }
 
   get isContainer() {
-    return this.type === CONFIG.MB.itemTypes.container;
+    return this.type === CONFIG.PB.itemTypes.container;
   }
 
   get isEquipment() {
-    return CONFIG.MB.itemEquipmentTypes.includes(this.type);
+    return CONFIG.PB.itemEquipmentTypes.includes(this.type);
   }
 
   get isContainerizable() {
-    return CONFIG.MB.allowedContainerItemTypes.includes(this.type);
+    return CONFIG.PB.allowedContainerItemTypes.includes(this.type);
   }
 
   get hasContainer() {

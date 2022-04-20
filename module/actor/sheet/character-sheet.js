@@ -1,16 +1,16 @@
-import MBActorSheet from "./actor-sheet.js";
+import PBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
 
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetCharacter extends MBActorSheet {
+export class PBActorSheetCharacter extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "character"],
-      template: "systems/morkborg/templates/actor/character-sheet.html",
+      classes: ["pirateborg", "sheet", "actor", "character"],
+      template: "systems/pirateborg/templates/actor/character-sheet.html",
       width: 750,
       height: 690,
       tabs: [
@@ -28,11 +28,11 @@ export class MBActorSheetCharacter extends MBActorSheet {
   getData() {
     const superData = super.getData();
     const data = superData.data;
-    data.config = CONFIG.MB;
+    data.config = CONFIG.PB;
 
     // Ability Scores
     for (const [a, abl] of Object.entries(data.data.abilities)) {
-      const translationKey = CONFIG.MB.abilities[a];
+      const translationKey = CONFIG.PB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
@@ -59,37 +59,37 @@ export class MBActorSheetCharacter extends MBActorSheet {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
     sheetData.data.feats = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.feat)
       .sort(byName);
 
     sheetData.data.class = sheetData.items.find(
-      (item) => item.type === CONFIG.MB.itemTypes.class
+      (item) => item.type === CONFIG.PB.itemTypes.class
     );
 
     sheetData.data.scrolls = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.scroll)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.scroll)
       .sort(byName);
 
     sheetData.data.equipment = sheetData.items
-      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
     sheetData.data.equippedArmor = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.armor)
       .find((item) => item.data.equipped);
 
     sheetData.data.equippedShield = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.shield)
       .find((item) => item.data.equipped);
 
     sheetData.data.equippedWeapons = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
     sheetData.data.ammo = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
       .sort(byName);
   }
 
@@ -182,16 +182,16 @@ export class MBActorSheetCharacter extends MBActorSheet {
     event.preventDefault();
     // confirm before doing get better
     const d = new Dialog({
-      title: game.i18n.localize("MB.GetBetter"),
+      title: game.i18n.localize("PB.GetBetter"),
       content:
         "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
       buttons: {
         cancel: {
-          label: game.i18n.localize("MB.Cancel"),
+          label: game.i18n.localize("PB.Cancel"),
         },
         getbetter: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("MB.GetBetter"),
+          label: game.i18n.localize("PB.GetBetter"),
           callback: () => this.actor.getBetter(),
         },
       },

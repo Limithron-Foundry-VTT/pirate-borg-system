@@ -4,7 +4,7 @@ export const registerSystemSettings = () => {
   /**
    * Track the system version upon which point a migration was last applied.
    */
-  game.settings.register("morkborg", "systemMigrationVersion", {
+  game.settings.register("pirateborg", "systemMigrationVersion", {
     name: "System Migration Version",
     scope: "world",
     config: false,
@@ -13,9 +13,9 @@ export const registerSystemSettings = () => {
   });
 
   /** Whether to keep track of carrying capacity */
-  game.settings.register("morkborg", "trackCarryingCapacity", {
-    name: "MB.SettingsApplyOvercapacityPenalty",
-    hint: "MB.SettingsApplyOvercapacityPenaltyHint",
+  game.settings.register("pirateborg", "trackCarryingCapacity", {
+    name: "PB.SettingsApplyOvercapacityPenalty",
+    hint: "PB.SettingsApplyOvercapacityPenaltyHint",
     scope: "world",
     config: true,
     type: Boolean,
@@ -23,65 +23,27 @@ export const registerSystemSettings = () => {
   });
 
   /** Whether to keep track of ranged weapon ammo */
-  game.settings.register("morkborg", "trackAmmo", {
-    name: "MB.SettingsTrackAmmo",
-    hint: "MB.SettingsTrackAmmoHint",
+  game.settings.register("pirateborg", "trackAmmo", {
+    name: "PB.SettingsTrackAmmo",
+    hint: "PB.SettingsTrackAmmoHint",
     scope: "world",
     config: true,
     type: Boolean,
     default: true,
   });
 
-  /** UI Color scheme */
-  game.settings.register("morkborg", "colorScheme", {
-    name: "MB.SettingsColorScheme",
-    hint: "MB.SettingsColorSchemeHint",
-    scope: "client",
-    config: true,
-    default: "whiteOnBlackYellow",
-    type: String,
-    choices: {
-      blackOnYellowWhite: "MB.SettingsBlackOnYellowWhite",
-      blackOnWhiteBlack: "MB.SettingsBlackOnWhiteBlack",
-      foundryDefault: "MB.SettingsFoundryDefault",
-      whiteOnBlackYellow: "MB.SettingsWhiteOnBlackYellow",
-      whiteOnBlackPink: "MB.SettingsWhiteOnBlackPink",
-      whiteOnPinkWhite: "MB.SettingsWhiteOnPinkWhite",
-    },
-    onChange: () => {
-      location.reload();
-    },
-  });
-
-  /** UI Font scheme */
-  game.settings.register("morkborg", "fontScheme", {
-    name: "MB.SettingsFontScheme",
-    hint: "MB.SettingsFontSchemeHint",
-    scope: "client",
-    config: true,
-    default: "blackletter",
-    type: String,
-    choices: {
-      blackletter: "MB.SettingsBlackletter",
-      legible: "MB.SettingsLegible",
-    },
-    onChange: () => {
-      location.reload();
-    },
-  });
-
   /** The allowed classes menu */
-  game.settings.registerMenu("morkborg", "EditAllowedScvmClassesMenu", {
-    name: "MB.EditAllowedScvmClassesMenu",
-    hint: "MB.EditAllowedScvmClassesMenuHint",
-    label: "MB.EditAllowedScvmClassesMenuButtonLabel",
+  game.settings.registerMenu("pirateborg", "EditAllowedScvmClassesMenu", {
+    name: "PB.EditAllowedScvmClassesMenu",
+    hint: "PB.EditAllowedScvmClassesMenuHint",
+    label: "PB.EditAllowedScvmClassesMenuButtonLabel",
     icon: "fas fa-cog",
     type: AllowedScvmClassesDialog,
     restricted: true,
   });
 
   /** The allowed classes menu for scvmfactory */
-  game.settings.register("morkborg", "allowedScvmClasses", {
+  game.settings.register("pirateborg", "allowedScvmClasses", {
     name: "",
     default: {},
     type: Object,
@@ -90,7 +52,7 @@ export const registerSystemSettings = () => {
   });
 
   /** The client scvmfactory selected classes  */
-  game.settings.register("morkborg", "lastScvmfactorySelection", {
+  game.settings.register("pirateborg", "lastScvmfactorySelection", {
     name: "",
     default: [],
     type: Array,
@@ -100,16 +62,16 @@ export const registerSystemSettings = () => {
 };
 
 export const trackCarryingCapacity = () => {
-  return game.settings.get("morkborg", "trackCarryingCapacity");
+  return game.settings.get("pirateborg", "trackCarryingCapacity");
 };
 
 export const trackAmmo = () => {
-  return game.settings.get("morkborg", "trackAmmo");
+  return game.settings.get("pirateborg", "trackAmmo");
 };
 
 export const isScvmClassAllowed = (classPack) => {
   const allowedScvmClasses = game.settings.get(
-    "morkborg",
+    "pirateborg",
     "allowedScvmClasses"
   );
   return typeof allowedScvmClasses[classPack] === "undefined"
@@ -119,19 +81,19 @@ export const isScvmClassAllowed = (classPack) => {
 
 export const setAllowedScvmClasses = (allowedScvmClasses) => {
   return game.settings.set(
-    "morkborg",
+    "pirateborg",
     "allowedScvmClasses",
     allowedScvmClasses
   );
 };
 
 export const getLastScvmfactorySelection = () => {
-  return game.settings.get("morkborg", "lastScvmfactorySelection");
+  return game.settings.get("pirateborg", "lastScvmfactorySelection");
 };
 
 export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
   return game.settings.set(
-    "morkborg",
+    "pirateborg",
     "lastScvmfactorySelection",
     lastScvmfactorySelection
   );

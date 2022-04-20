@@ -3,10 +3,10 @@ const gulp = require("gulp");
 const prefix = require("gulp-autoprefixer");
 const gsass = require("gulp-sass")(require("sass"));
 
-// concatenate all morkborg scss into an uber morkborg.css
-gulp.task("mork-sass", function () {
+// concatenate all pirateborg scss into an uber pirateborg.css
+gulp.task("pirate-sass", function () {
   return gulp
-    .src("scss/morkborg/**/*.scss")
+    .src("scss/pirateborg/**/*.scss")
     .pipe(
       gsass({
         outputStyle: "expanded",
@@ -18,7 +18,7 @@ gulp.task("mork-sass", function () {
         cascade: false,
       })
     )
-    .pipe(concat("morkborg.css"))
+    .pipe(concat("pirateborg.css"))
     .pipe(gulp.dest("./css"));
 });
 
@@ -40,12 +40,12 @@ gulp.task("skin-sass", function () {
     .pipe(gulp.dest("./css/skins"));
 });
 
-gulp.task("sass", gulp.parallel("mork-sass", "skin-sass"));
+gulp.task("sass", gulp.parallel("pirate-sass", "skin-sass"));
 
 gulp.task(
   "watch",
-  gulp.parallel(["mork-sass", "skin-sass"], () => {
-    gulp.watch("scss/morkborg/**/*.scss", gulp.series(["mork-sass"]));
+  gulp.parallel(["pirate-sass", "skin-sass"], () => {
+    gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["mork-sass"]));
     gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
   })
 );

@@ -17,11 +17,11 @@
           name="name"
           type="text"
           value="{{actor.name}}"
-          placeholder="{{ localize 'MB.Name' }}"
+          placeholder="{{ localize 'PB.Name' }}"
         />
       </div>
       <div class="hitpoints-row">
-        <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
+        <span class="stat-label">{{ localize "PB.HitPoints" }}:</span>
         <input
           class="stat-input"
           name="data.hp.value"
@@ -40,10 +40,10 @@
       </div>
       <div class="buttons-row">
         <button type="button" class="roll-button reaction rollable">
-          {{localize "MB.Reaction"}}
+          {{localize "PB.Reaction"}}
         </button>
         <button type="button" class="roll-button morale rollable">
-          {{localize "MB.Morale"}}
+          {{localize "PB.Morale"}}
         </button>
       </div>
     </div>
@@ -52,9 +52,9 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description"
-      >{{ localize "MB.TabDescription" }}</a
+      >{{ localize "PB.TabDescription" }}</a
     >
-    <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
+    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -69,7 +69,7 @@
     <div class="tab" data-group="primary" data-tab="details">
       {{!-- Morale --}}
       <div class="form-group">
-        <label>{{ localize "MB.Morale" }}:</label>
+        <label>{{ localize "PB.Morale" }}:</label>
         <input
           name="data.morale"
           type="text"
@@ -81,7 +81,7 @@
 
       {{!-- Armor --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureArmor" }}:</label>
+        <label>{{ localize "PB.CreatureArmor" }}:</label>
         <input
           type="text"
           name="data.armor.name"
@@ -93,7 +93,7 @@
 
       {{!-- Attack --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureAttack" }}:</label>
+        <label>{{ localize "PB.CreatureAttack" }}:</label>
         <input
           type="text"
           name="data.attack.name"
@@ -105,7 +105,7 @@
 
       {{!-- Special --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureSpecial" }}:</label>
+        <label>{{ localize "PB.CreatureSpecial" }}:</label>
         <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
       </div>
     </div>

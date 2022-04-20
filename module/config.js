@@ -1,41 +1,41 @@
 // Namespace Configuration Values
-export const MB = {};
+export const PB = {};
 
-MB.abilities = {
-  agility: "MB.AbilityAgility",
-  presence: "MB.AbilityPresence",
-  strength: "MB.AbilityStrength",
-  toughness: "MB.AbilityToughness",
+PB.abilities = {
+  agility: "PB.AbilityAgility",
+  presence: "PB.AbilityPresence",
+  strength: "PB.AbilityStrength",
+  toughness: "PB.AbilityToughness",
 };
 
-MB.armorTiers = {
+PB.armorTiers = {
   0: {
-    key: "MB.ArmorTierNone",
+    key: "PB.ArmorTierNone",
     damageReductionDie: "1d0",
     agilityModifier: 0,
     defenseModifier: 0,
   },
   1: {
-    key: "MB.ArmorTierLight",
+    key: "PB.ArmorTierLight",
     damageReductionDie: "1d2",
     agilityModifier: 0,
     defenseModifier: 0,
   },
   2: {
-    key: "MB.ArmorTierMedium",
+    key: "PB.ArmorTierMedium",
     damageReductionDie: "1d4",
     agilityModifier: 2,
     defenseModifier: 2,
   },
   3: {
-    key: "MB.ArmorTierHeavy",
+    key: "PB.ArmorTierHeavy",
     damageReductionDie: "1d6",
     agilityModifier: 4,
     defenseModifier: 2,
   },
 };
 
-MB.colorSchemes = {
+PB.colorSchemes = {
   blackOnYellowWhite: {
     background: "#ffe900",
     foreground: "#000000",
@@ -110,16 +110,16 @@ MB.colorSchemes = {
   },
 };
 
-MB.flagScope = "morkborg"; // must match system name
+PB.flagScope = "pirateborg"; // must match system name
 
-MB.flags = {
+PB.flags = {
   ATTACK_DR: "attackDR",
   DEFEND_DR: "defendDR",
   INCOMING_ATTACK: "incomingAttack",
   TARGET_ARMOR: "targetArmor",
 };
 
-MB.fontSchemes = {
+PB.fontSchemes = {
   blackletter: {
     chat: "Alegreya",
     chatInfo: "Oswald",
@@ -138,18 +138,18 @@ MB.fontSchemes = {
   },
 };
 
-MB.handed = {
-  1: "MB.HandedOne",
-  2: "MB.HandedTwo",
+PB.handed = {
+  1: "PB.HandedOne",
+  2: "PB.HandedTwo",
 };
 
-MB.ammoTypes = {
-  arrow: "MB.AmmoTypeArrow",
-  bolt: "MB.AmmoTypeBolt",
-  slingstone: "MB.AmmoTypeSlingstone",
+PB.ammoTypes = {
+  arrow: "PB.AmmoTypeArrow",
+  bolt: "PB.AmmoTypeBolt",
+  slingstone: "PB.AmmoTypeSlingstone",
 };
 
-MB.itemTypes = {
+PB.itemTypes = {
   ammo: "ammo",
   armor: "armor",
   class: "class",
@@ -161,66 +161,66 @@ MB.itemTypes = {
   weapon: "weapon",
 };
 
-MB.itemTypeKeys = {
-  ammo: "MB.ItemTypeAmmo",
-  armor: "MB.ItemTypeArmor",
-  class: "MB.ItemTypeClass",
-  container: "MB.ItemTypeContainer",
-  feat: "MB.ItemTypeFeat",
-  misc: "MB.ItemTypeMisc",
-  scroll: "MB.ItemTypeScroll",
-  shield: "MB.ItemTypeShield",
-  weapon: "MB.ItemTypeWeapon",
+PB.itemTypeKeys = {
+  ammo: "PB.ItemTypeAmmo",
+  armor: "PB.ItemTypeArmor",
+  class: "PB.ItemTypeClass",
+  container: "PB.ItemTypeContainer",
+  feat: "PB.ItemTypeFeat",
+  misc: "PB.ItemTypeMisc",
+  scroll: "PB.ItemTypeScroll",
+  shield: "PB.ItemTypeShield",
+  weapon: "PB.ItemTypeWeapon",
 };
 
 // these Item types are "equipment"
-MB.itemEquipmentTypes = [
-  MB.itemTypes.ammo,
-  MB.itemTypes.armor,
-  MB.itemTypes.container,
-  MB.itemTypes.misc,
-  MB.itemTypes.scroll,
-  MB.itemTypes.shield,
-  MB.itemTypes.weapon,
+PB.itemEquipmentTypes = [
+  PB.itemTypes.ammo,
+  PB.itemTypes.armor,
+  PB.itemTypes.container,
+  PB.itemTypes.misc,
+  PB.itemTypes.scroll,
+  PB.itemTypes.shield,
+  PB.itemTypes.weapon,
 ];
 
-MB.allowedContainerItemTypes = [
-  MB.itemTypes.ammo,
-  MB.itemTypes.armor,
-  MB.itemTypes.misc,
-  MB.itemTypes.scroll,
-  MB.itemTypes.shield,
-  MB.itemTypes.weapon,
+PB.allowedContainerItemTypes = [
+  PB.itemTypes.ammo,
+  PB.itemTypes.armor,
+  PB.itemTypes.misc,
+  PB.itemTypes.scroll,
+  PB.itemTypes.shield,
+  PB.itemTypes.weapon,
 ];
 
-MB.equippableItemTypes = [
-  MB.itemTypes.armor,
-  MB.itemTypes.shield,
-  MB.itemTypes.weapon,
+PB.equippableItemTypes = [
+  PB.itemTypes.armor,
+  PB.itemTypes.shield,
+  PB.itemTypes.weapon,
 ];
 
-MB.droppableItemTypes = [MB.itemTypes.container];
+PB.droppableItemTypes = [PB.itemTypes.container];
 
-MB.plusMinusItemTypes = [MB.itemTypes.ammo, MB.itemTypes.misc];
+PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc];
 
-MB.scrollTypes = {
-  sacred: "MB.ScrollTypeSacred",
-  tablet: "MB.ScrollTypeTablet",
-  unclean: "MB.ScrollTypeUnclean",
+PB.scrollTypes = {
+  sacred: "PB.ScrollTypeSacred",
+  tablet: "PB.ScrollTypeTablet",
+  unclean: "PB.ScrollTypeUnclean",
 };
 
-MB.weaponTypes = {
-  melee: "MB.WeaponTypeMelee",
-  ranged: "MB.WeaponTypeRanged",
+PB.weaponTypes = {
+  melee: "PB.WeaponTypeMelee",
+  ranged: "PB.WeaponTypeRanged",
 };
 
 // Config variables for the Scvmfactory character generator
-MB.scvmFactory = {
-  foodAndWaterPack: "morkborg.equipment-misc",
+PB.scvmFactory = {
+  foodAndWaterPack: "pirateborg.equipment-misc",
   foodItemName: "Dried food",
   waterItemName: "Waterskin",
 
-  characterCreationPack: "morkborg.character-creation",
+  characterCreationPack: "pirateborg.character-creation",
   startingEquipmentTable1: "Starting Equipment (1)",
   startingEquipmentTable2: "Starting Equipment (2)",
   startingEquipmentTable3: "Starting Equipment (3)",

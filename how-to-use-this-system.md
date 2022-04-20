@@ -27,7 +27,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 ## Inventory
 
 - All items in your possession show up on your _Treasures_ tab.
-- Carrying capacity (encumbrance) is calculated as per the Mork Borg rules.
+- Carrying capacity (encumbrance) is calculated as per the Pirate Borg rules.
 - Items have a _carryWeight_ field for how much they contribute to the total.
   - Most items are 1, with a few exceptions (e.g., the Wretched Royalty's Jester is an item with 0 carryWeight, since he can walk).
   - If you are encumbered (i.e., you are carrying more than your capacity), the rules for encumbrance will change color to alert you. You'll also see the effects on the DR for STR, AGI, and defense tests.
@@ -98,7 +98,3 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 - There are user-configurable settings for alternate font and color schemes (upper right _Game Settings_ icon button => _Configure Settings_ button => _System Settings_ tab). This can be helpful if anyone find the default fonts or colors hard to read, or if more eye-bleeding colors are desired :)
 - Pratar du svenska? Check out _Configure Settings_ => _Core Settings_ => _Language Preference_ => **Svenska**.
-
-## More Third-Party Content
-
-If you want some third-party content, be sure to check out the [MÖRK BORG Third-Party Content](https://foundryvtt.com/packages/morkborg-3p) module, also installable from within Foundry. It includes additional classes, optional feats, roll tables, etc.

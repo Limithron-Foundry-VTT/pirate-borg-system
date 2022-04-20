@@ -1,8 +1,8 @@
 <li class="items-header flexrow">
-  <h3 class="item-name flexrow">{{localize "MB.Equipment"}}</h3>
+  <h3 class="item-name flexrow">{{localize "PB.Equipment"}}</h3>
   <div class="item-controls">
-    <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
-      {{localize "MB.Add"}} <i class="fas fa-plus"></i>
+    <a class="item-control item-create" title='{{localize "PB.ItemCreate"}}'>
+      {{localize "PB.Add"}} <i class="fas fa-plus"></i>
     </a>
   </div>
 </li>
@@ -32,14 +32,14 @@
       item.data.equippable}}
       <a
         class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
-        title="{{ifPrintElse item.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+        title="{{ifPrintElse item.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
       >
         <i class="fas fa-shield-alt"></i
       ></a>
       {{/if}} {{#if item.data.droppable}}
       <a
         class="item-control item-toggle item-toggle-carried {{ifPrint item.data.carried 'carried'}}"
-        title="{{ifPrintElse item.data.carried (localize 'MB.ItemCarried') (localize 'MB.ItemDropped')}}"
+        title="{{ifPrintElse item.data.carried (localize 'PB.ItemCarried') (localize 'PB.ItemDropped')}}"
       >
         <i class="fas fa-user-check"></i
       ></a>
@@ -57,7 +57,7 @@
   |item|}} {{> item-row item=item class="item-container-item"
   disableCarryAndEquipButton=true}} {{else}}
   <li class="item empty-container" data-item-id="{{item._id}}">
-    <div class="rule-text">{{localize 'MB.ContainerEmptyHelpText'}}</div>
+    <div class="rule-text">{{localize 'PB.ContainerEmptyHelpText'}}</div>
   </li>
   {{/each}} {{/ifEq}} {{/each}}
 </ol>

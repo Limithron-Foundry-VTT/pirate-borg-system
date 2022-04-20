@@ -1,6 +1,6 @@
-import { MBActor } from "../actor/actor.js";
-import { MB } from "../config.js";
-import { MBItem } from "../item/item.js";
+import { PBActor } from "../actor/actor.js";
+import { PB } from "../config.js";
+import { PBItem } from "../item/item.js";
 import { randomName } from "./names.js";
 
 export const createRandomScvm = async () => {
@@ -90,13 +90,13 @@ const rollScvmForClass = async (clazz) => {
 
   const allDocs = [clazz];
 
-  if (MB.scvmFactory.foodAndWaterPack) {
+  if (PB.scvmFactory.foodAndWaterPack) {
     // everybody gets food and water
-    const miscPack = game.packs.get(MB.scvmFactory.foodAndWaterPack);
+    const miscPack = game.packs.get(PB.scvmFactory.foodAndWaterPack);
     const miscContent = await miscPack.getDocuments();
-    if (MB.scvmFactory.foodItemName) {
+    if (PB.scvmFactory.foodItemName) {
       const food = miscContent.find(
-        (i) => i.data.name === MB.scvmFactory.foodItemName
+        (i) => i.data.name === PB.scvmFactory.foodItemName
       );
       const foodRoll = new Roll("1d4", {}).evaluate({ async: false });
       // TODO: need to mutate _data to get it to change for our owned item creation.
@@ -104,38 +104,38 @@ const rollScvmForClass = async (clazz) => {
       food.data._source.data.quantity = foodRoll.total;
       allDocs.push(food);
     }
-    if (MB.scvmFactory.waterItemName) {
+    if (PB.scvmFactory.waterItemName) {
       const waterskin = miscContent.find(
-        (i) => i.data.name === MB.scvmFactory.waterItemName
+        (i) => i.data.name === PB.scvmFactory.waterItemName
       );
       allDocs.push(waterskin);
     }
   }
 
   // starting equipment, weapons, armor, and traits etc all come from the same pack
-  const ccPack = game.packs.get(MB.scvmFactory.characterCreationPack);
+  const ccPack = game.packs.get(PB.scvmFactory.characterCreationPack);
   const ccContent = await ccPack.getDocuments();
 
   // 3 starting equipment tables
-  if (MB.scvmFactory.startingEquipmentTable1) {
+  if (PB.scvmFactory.startingEquipmentTable1) {
     const equipTable1 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable1
+      (i) => i.name === PB.scvmFactory.startingEquipmentTable1
     );
     const eqDraw1 = await equipTable1.draw({ displayChat: false });
     const eq1 = await docsFromResults(eqDraw1.results);
     allDocs.push(...eq1);
   }
-  if (MB.scvmFactory.startingEquipmentTable1) {
+  if (PB.scvmFactory.startingEquipmentTable1) {
     const equipTable2 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable2
+      (i) => i.name === PB.scvmFactory.startingEquipmentTable2
     );
     const eqDraw2 = await equipTable2.draw({ displayChat: false });
     const eq2 = await docsFromResults(eqDraw2.results);
     allDocs.push(...eq2);
   }
-  if (MB.scvmFactory.startingEquipmentTable1) {
+  if (PB.scvmFactory.startingEquipmentTable1) {
     const equipTable3 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable3
+      (i) => i.name === PB.scvmFactory.startingEquipmentTable3
     );
     const eqDraw3 = await equipTable3.draw({ displayChat: false });
     const eq3 = await docsFromResults(eqDraw3.results);
@@ -146,18 +146,18 @@ const rollScvmForClass = async (clazz) => {
     allDocs.filter((i) => i.data.type === "scroll").length > 0;
 
   // starting weapon
-  if (MB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
+  if (PB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
     let weaponDie = clazz.data.data.weaponTableDie;
     if (rolledScroll) {
       // TODO: this check for "is it a higher die roll" assumes a d10 weapon table,
       // and doesn't handle not having a leading 1 in the string
       if (weaponDie === "1d8" || weaponDie === "2d4" || weaponDie === "1d10") {
-        weaponDie = MB.scvmFactory.weaponDieIfRolledScroll;
+        weaponDie = PB.scvmFactory.weaponDieIfRolledScroll;
       }
     }
     const weaponRoll = new Roll(weaponDie);
     const weaponTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingWeaponTable
+      (i) => i.name === PB.scvmFactory.startingWeaponTable
     );
     const weaponDraw = await weaponTable.draw({
       roll: weaponRoll,
@@ -168,18 +168,18 @@ const rollScvmForClass = async (clazz) => {
   }
 
   // starting armor
-  if (MB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
+  if (PB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
     let armorDie = clazz.data.data.armorTableDie;
     if (rolledScroll) {
       // TODO: this check for "is it a higher die roll" assumes a d4 armor table
       // and doesn't handle not having a leading 1 in the string
       if (armorDie === "1d3" || armorDie === "1d4") {
-        armorDie = MB.scvmFactory.armorDieIfRolledScroll;
+        armorDie = PB.scvmFactory.armorDieIfRolledScroll;
       }
     }
     const armorRoll = new Roll(armorDie);
     const armorTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingArmorTable
+      (i) => i.name === PB.scvmFactory.startingArmorTable
     );
     const armorDraw = await armorTable.draw({
       roll: armorRoll,
@@ -213,9 +213,9 @@ const rollScvmForClass = async (clazz) => {
   descriptionLines.push("<p>&nbsp;</p>");
 
   let descriptionLine = "";
-  if (MB.scvmFactory.terribleTraitsTable) {
+  if (PB.scvmFactory.terribleTraitsTable) {
     const ttTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.terribleTraitsTable
+      (i) => i.name === PB.scvmFactory.terribleTraitsTable
     );
     const ttResults = await compendiumTableDrawMany(ttTable, 2);
     const terribleTrait1 = ttResults[0].data.text;
@@ -225,17 +225,17 @@ const rollScvmForClass = async (clazz) => {
       .charAt(0)
       .toLowerCase()}${terribleTrait2.slice(1)}.`;
   }
-  if (MB.scvmFactory.brokenBodiesTable) {
+  if (PB.scvmFactory.brokenBodiesTable) {
     const bbTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.brokenBodiesTable
+      (i) => i.name === PB.scvmFactory.brokenBodiesTable
     );
     const bbDraw = await bbTable.draw({ displayChat: false });
     const brokenBody = bbDraw.results[0].data.text;
     descriptionLine += ` ${brokenBody}`;
   }
-  if (MB.scvmFactory.badHabitsTable) {
+  if (PB.scvmFactory.badHabitsTable) {
     const bhTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.badHabitsTable
+      (i) => i.name === PB.scvmFactory.badHabitsTable
     );
     const bhDraw = await bhTable.draw({ displayChat: false });
     const badHabit = bhDraw.results[0].data.text;
@@ -289,9 +289,9 @@ const rollScvmForClass = async (clazz) => {
   allDocs.push(...startingRollItems);
 
   // add items as owned items
-  const items = allDocs.filter((e) => e instanceof MBItem);
+  const items = allDocs.filter((e) => e instanceof PBItem);
   // for other non-item documents, just add some description text (ITEMTYPE: Item Name)
-  const nonItems = allDocs.filter((e) => !(e instanceof MBItem));
+  const nonItems = allDocs.filter((e) => !(e instanceof PBItem));
   for (const nonItem of nonItems) {
     if (nonItem && nonItem.data && nonItem.data.type) {
       const upperType = nonItem.data.type.toUpperCase();
@@ -369,8 +369,8 @@ const scvmToActorData = (s) => {
 
 const createActorWithScvm = async (s) => {
   const data = scvmToActorData(s);
-  // use MBActor.create() so we get default disposition, actor link, vision, etc
-  const actor = await MBActor.create(data);
+  // use PBActor.create() so we get default disposition, actor link, vision, etc
+  const actor = await PBActor.create(data);
   actor.sheet.render(true);
 };
 
@@ -413,14 +413,14 @@ const entityFromResult = async (result) => {
     // hack for not having recursive roll tables set up
     // TODO: set up recursive roll tables :P
     if (result.data.text === "Roll on Random Unclean Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
+      const collection = game.packs.get("pirateborg.random-scrolls");
       const content = await collection.getDocuments();
       const table = content.find((i) => i.name === "Unclean Scrolls");
       const draw = await table.draw({ displayChat: false });
       const items = await docsFromResults(draw.results);
       return items[0];
     } else if (result.data.text === "Roll on Random Sacred Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
+      const collection = game.packs.get("pirateborg.random-scrolls");
       const content = await collection.getDocuments();
       const table = content.find((i) => i.name === "Sacred Scrolls");
       const draw = await table.draw({ displayChat: false });

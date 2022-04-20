@@ -3,34 +3,34 @@ import ScvmDialog from "../scvm/scvm-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 
 const ATTACK_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/attack-dialog.html";
+  "systems/pirateborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/attack-roll-card.html";
+  "systems/pirateborg/templates/chat/attack-roll-card.html";
 const BROKEN_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/broken-roll-card.html";
+  "systems/pirateborg/templates/chat/broken-roll-card.html";
 const DEFEND_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/defend-dialog.html";
+  "systems/pirateborg/templates/dialog/defend-dialog.html";
 const DEFEND_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/defend-roll-card.html";
+  "systems/pirateborg/templates/chat/defend-roll-card.html";
 const GET_BETTER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/get-better-roll-card.html";
+  "systems/pirateborg/templates/chat/get-better-roll-card.html";
 const MORALE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/morale-roll-card.html";
+  "systems/pirateborg/templates/chat/morale-roll-card.html";
 const OUTCOME_ONLY_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/outcome-only-roll-card.html";
+  "systems/pirateborg/templates/chat/outcome-only-roll-card.html";
 const OUTCOME_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/outcome-roll-card.html";
+  "systems/pirateborg/templates/chat/outcome-roll-card.html";
 const REACTION_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/reaction-roll-card.html";
+  "systems/pirateborg/templates/chat/reaction-roll-card.html";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/test-ability-roll-card.html";
+  "systems/pirateborg/templates/chat/test-ability-roll-card.html";
 const WIELD_POWER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/wield-power-roll-card.html";
+  "systems/pirateborg/templates/chat/wield-power-roll-card.html";
 
 /**
  * @extends {Actor}
  */
-export class MBActor extends Actor {
+export class PBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
     data.token = data.token || {};
@@ -78,10 +78,10 @@ export class MBActor extends Actor {
       const hasAClass =
         this.items.filter((i) => i.data.type === "class").length > 0;
       if (!hasAClass) {
-        const pack = game.packs.get("morkborg.class-classless-adventurer");
+        const pack = game.packs.get("pirateborg.class-classless-adventurer");
         if (!pack) {
           console.error(
-            "Could not find compendium morkborg.class-classless-adventurer"
+            "Could not find compendium pirateborg.class-classless-adventurer"
           );
           return;
         }
@@ -120,8 +120,8 @@ export class MBActor extends Actor {
 
   /** @override */
   _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
-    if (documents[0].data.type === CONFIG.MB.itemTypes.class) {
-      this._deleteEarlierItems(CONFIG.MB.itemTypes.class);
+    if (documents[0].data.type === CONFIG.PB.itemTypes.class) {
+      this._deleteEarlierItems(CONFIG.PB.itemTypes.class);
     }
     super._onCreateEmbeddedDocuments(
       embeddedName,
@@ -184,7 +184,7 @@ export class MBActor extends Actor {
 
   async equipItem(item) {
     if (
-      [CONFIG.MB.itemTypes.armor, CONFIG.MB.itemTypes.shield].includes(
+      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.shield].includes(
         item.type
       )
     ) {
@@ -256,15 +256,15 @@ export class MBActor extends Actor {
     const drModifiers = [];
     if (this.isEncumbered()) {
       drModifiers.push(
-        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
-          "MB.DR"
+        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
+          "PB.DR"
         )} +2`
       );
     }
     await this._testAbility(
       "strength",
-      "MB.AbilityStrength",
-      "MB.AbilityStrengthAbbrev",
+      "PB.AbilityStrength",
+      "PB.AbilityStrengthAbbrev",
       drModifiers
     );
   }
@@ -273,10 +273,10 @@ export class MBActor extends Actor {
     const drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.data.data.tier.max];
+      const armorTier = CONFIG.PB.armorTiers[armor.data.data.tier.max];
       if (armorTier.agilityModifier) {
         drModifiers.push(
-          `${armor.name}: ${game.i18n.localize("MB.DR")} +${
+          `${armor.name}: ${game.i18n.localize("PB.DR")} +${
             armorTier.agilityModifier
           }`
         );
@@ -284,15 +284,15 @@ export class MBActor extends Actor {
     }
     if (this.isEncumbered()) {
       drModifiers.push(
-        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
-          "MB.DR"
+        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
+          "PB.DR"
         )} +2`
       );
     }
     await this._testAbility(
       "agility",
-      "MB.AbilityAgility",
-      "MB.AbilityAgilityAbbrev",
+      "PB.AbilityAgility",
+      "PB.AbilityAgilityAbbrev",
       drModifiers
     );
   }
@@ -300,8 +300,8 @@ export class MBActor extends Actor {
   async testPresence() {
     await this._testAbility(
       "presence",
-      "MB.AbilityPresence",
-      "MB.AbilityPresenceAbbrev",
+      "PB.AbilityPresence",
+      "PB.AbilityPresenceAbbrev",
       null
     );
   }
@@ -309,8 +309,8 @@ export class MBActor extends Actor {
   async testToughness() {
     await this._testAbility(
       "toughness",
-      "MB.AbilityToughness",
-      "MB.AbilityToughnessAbbrev",
+      "PB.AbilityToughness",
+      "PB.AbilityToughnessAbbrev",
       null
     );
   }
@@ -320,31 +320,31 @@ export class MBActor extends Actor {
    */
   async attack(itemId) {
     let attackDR = await this.getFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.ATTACK_DR
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.ATTACK_DR
     );
     if (!attackDR) {
       attackDR = 12; // default
     }
     const targetArmor = await this.getFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.TARGET_ARMOR
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.TARGET_ARMOR
     );
     const dialogData = {
       attackDR,
-      config: CONFIG.MorkBorg,
+      config: CONFIG.pirateborg,
       itemId,
       targetArmor,
     };
     const html = await renderTemplate(ATTACK_DIALOG_TEMPLATE, dialogData);
     return new Promise((resolve) => {
       new Dialog({
-        title: game.i18n.localize("MB.Attack"),
+        title: game.i18n.localize("PB.Attack"),
         content: html,
         buttons: {
           roll: {
             icon: '<i class="fas fa-dice-d20"></i>',
-            label: game.i18n.localize("MB.Roll"),
+            label: game.i18n.localize("PB.Roll"),
             // callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
             callback: (html) => this._attackDialogCallback(html),
           },
@@ -368,13 +368,13 @@ export class MBActor extends Actor {
       return;
     }
     await this.setFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.ATTACK_DR,
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.ATTACK_DR,
       attackDR
     );
     await this.setFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.TARGET_ARMOR,
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.TARGET_ARMOR,
       targetArmor
     );
     this._rollAttack(itemId, attackDR, targetArmor);
@@ -416,7 +416,7 @@ export class MBActor extends Actor {
     if (isHit) {
       // HIT!!!
       attackOutcome = game.i18n.localize(
-        isCrit ? "MB.AttackCritText" : "MB.Hit"
+        isCrit ? "PB.AttackCritText" : "PB.Hit"
       );
       // roll 2: damage.
       // Use parentheses for critical 2x in case damage die something like 1d6+1
@@ -437,22 +437,22 @@ export class MBActor extends Actor {
         await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize(
-        "MB.Inflict"
-      )} ${damage} ${game.i18n.localize("MB.Damage")}`;
+        "PB.Inflict"
+      )} ${damage} ${game.i18n.localize("PB.Damage")}`;
     } else {
       // MISS!!!
       attackOutcome = game.i18n.localize(
-        isFumble ? "MB.AttackFumbleText" : "MB.Miss"
+        isFumble ? "PB.AttackFumbleText" : "PB.Miss"
       );
     }
 
     // TODO: decide keys in handlebars/template?
     const abilityAbbrevKey = isRanged
-      ? "MB.AbilityPresenceAbbrev"
-      : "MB.AbilityStrengthAbbrev";
+      ? "PB.AbilityPresenceAbbrev"
+      : "PB.AbilityStrengthAbbrev";
     const weaponTypeKey = isRanged
-      ? "MB.WeaponTypeRanged"
-      : "MB.WeaponTypeMelee";
+      ? "PB.WeaponTypeRanged"
+      : "PB.WeaponTypeMelee";
     const rollResult = {
       actor: this,
       attackDR,
@@ -504,15 +504,15 @@ export class MBActor extends Actor {
   async defend() {
     // look up any previous DR or incoming attack value
     let defendDR = await this.getFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.DEFEND_DR
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.DEFEND_DR
     );
     if (!defendDR) {
       defendDR = 12; // default
     }
     let incomingAttack = await this.getFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.INCOMING_ATTACK
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.INCOMING_ATTACK
     );
     if (!incomingAttack) {
       incomingAttack = "1d4"; // default
@@ -524,17 +524,17 @@ export class MBActor extends Actor {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
       const maxTier = parseInt(armor.data.data.tier.max);
-      const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
+      const defenseModifier = CONFIG.PB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) {
         drModifiers.push(
-          `${armor.name}: ${game.i18n.localize("MB.DR")} +${defenseModifier}`
+          `${armor.name}: ${game.i18n.localize("PB.DR")} +${defenseModifier}`
         );
       }
     }
     if (this.isEncumbered()) {
       drModifiers.push(
-        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
-          "MB.DR"
+        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
+          "PB.DR"
         )} +2`
       );
     }
@@ -548,12 +548,12 @@ export class MBActor extends Actor {
 
     return new Promise((resolve) => {
       new Dialog({
-        title: game.i18n.localize("MB.Defend"),
+        title: game.i18n.localize("PB.Defend"),
         content: html,
         buttons: {
           roll: {
             icon: '<i class="fas fa-dice-d20"></i>',
-            label: game.i18n.localize("MB.Roll"),
+            label: game.i18n.localize("PB.Roll"),
             callback: (html) => this._defendDialogCallback(html),
           },
         },
@@ -577,7 +577,7 @@ export class MBActor extends Actor {
     if (armor) {
       // TODO: maxTier is getting stored as a string
       const maxTier = parseInt(armor.data.data.tier.max);
-      const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
+      const defenseModifier = CONFIG.PB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) {
         drModifier += defenseModifier;
       }
@@ -606,10 +606,10 @@ export class MBActor extends Actor {
       // TODO: prevent dialog/form submission w/ required field(s)
       return;
     }
-    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, baseDR);
+    await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, baseDR);
     await this.setFlag(
-      CONFIG.MB.flagScope,
-      CONFIG.MB.flags.INCOMING_ATTACK,
+      CONFIG.PB.flagScope,
+      CONFIG.PB.flags.INCOMING_ATTACK,
       incomingAttack
     );
     this._rollDefend(modifiedDR, incomingAttack);
@@ -640,16 +640,16 @@ export class MBActor extends Actor {
 
     if (isCrit) {
       // critical success
-      defendOutcome = game.i18n.localize("MB.DefendCritText");
+      defendOutcome = game.i18n.localize("PB.DefendCritText");
     } else if (defendRoll.total >= defendDR) {
       // success
-      defendOutcome = game.i18n.localize("MB.Dodge");
+      defendOutcome = game.i18n.localize("PB.Dodge");
     } else {
       // failure
       if (isFumble) {
-        defendOutcome = game.i18n.localize("MB.DefendFumbleText");
+        defendOutcome = game.i18n.localize("PB.DefendFumbleText");
       } else {
-        defendOutcome = game.i18n.localize("MB.YouAreHit");
+        defendOutcome = game.i18n.localize("PB.YouAreHit");
       }
 
       // roll 2: incoming damage
@@ -667,7 +667,7 @@ export class MBActor extends Actor {
       let damageReductionDie = "";
       if (armor) {
         damageReductionDie =
-          CONFIG.MB.armorTiers[armor.data.data.tier.value].damageReductionDie;
+          CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }
       if (shield) {
@@ -684,8 +684,8 @@ export class MBActor extends Actor {
         await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize(
-        "MB.Take"
-      )} ${damage} ${game.i18n.localize("MB.Damage")}`;
+        "PB.Take"
+      )} ${damage} ${game.i18n.localize("PB.Damage")}`;
     }
 
     const rollResult = {
@@ -693,7 +693,7 @@ export class MBActor extends Actor {
       armorRoll,
       damageRoll,
       defendDR,
-      defendFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
+      defendFormula: `1d20 + ${game.i18n.localize("PB.AbilityAgilityAbbrev")}`,
       defendOutcome,
       defendRoll,
       items,
@@ -740,9 +740,9 @@ export class MBActor extends Actor {
     let outcomeKey = null;
     if (outcomeRoll) {
       outcomeKey =
-        outcomeRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";
+        outcomeRoll.total <= 3 ? "PB.MoraleFlees" : "PB.MoraleSurrenders";
     } else {
-      outcomeKey = "MB.StandsFirm";
+      outcomeKey = "PB.StandsFirm";
     }
     const outcomeText = game.i18n.localize(outcomeKey);
     const rollResult = {
@@ -776,15 +776,15 @@ export class MBActor extends Actor {
   async _renderReactionRollCard(reactionRoll) {
     let key = "";
     if (reactionRoll.total <= 3) {
-      key = "MB.ReactionKill";
+      key = "PB.ReactionKill";
     } else if (reactionRoll.total <= 6) {
-      key = "MB.ReactionAngered";
+      key = "PB.ReactionAngered";
     } else if (reactionRoll.total <= 8) {
-      key = "MB.ReactionIndifferent";
+      key = "PB.ReactionIndifferent";
     } else if (reactionRoll.total <= 10) {
-      key = "MB.ReactionAlmostFriendly";
+      key = "PB.ReactionAlmostFriendly";
     } else {
-      key = "MB.ReactionHelpful";
+      key = "PB.ReactionHelpful";
     }
     const reactionText = game.i18n.localize(key);
     const rollResult = {
@@ -803,7 +803,7 @@ export class MBActor extends Actor {
   async wieldPower() {
     if (this.data.data.powerUses.value < 1) {
       ui.notifications.warn(
-        `${game.i18n.localize("MB.NoPowerUsesRemaining")}!`
+        `${game.i18n.localize("PB.NoPowerUsesRemaining")}!`
       );
       return;
     }
@@ -826,27 +826,27 @@ export class MBActor extends Actor {
     if (wieldRoll.total >= wieldDR) {
       // SUCCESS!!!
       wieldOutcome = game.i18n.localize(
-        isCrit ? "MB.CriticalSuccess" : "MB.Success"
+        isCrit ? "PB.CriticalSuccess" : "PB.Success"
       );
     } else {
       // FAILURE
       wieldOutcome = game.i18n.localize(
-        isFumble ? "MB.WieldAPowerFumble" : "MB.Failure"
+        isFumble ? "PB.WieldAPowerFumble" : "PB.Failure"
       );
       damageRoll = new Roll("1d2", this.getRollData());
       damageRoll.evaluate({ async: false });
       await showDice(damageRoll);
-      takeDamage = `${game.i18n.localize("MB.Take")} ${
+      takeDamage = `${game.i18n.localize("PB.Take")} ${
         damageRoll.total
-      } ${game.i18n.localize("MB.Damage")}, ${game.i18n.localize(
-        "MB.WieldAPowerDizzy"
+      } ${game.i18n.localize("PB.Damage")}, ${game.i18n.localize(
+        "PB.WieldAPowerDizzy"
       )}`;
     }
 
     const rollResult = {
       damageRoll,
       wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`,
+      wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilityPresenceAbbrev")}`,
       wieldOutcome,
       wieldRoll,
       takeDamage,
@@ -863,14 +863,14 @@ export class MBActor extends Actor {
 
     if (isFumble) {
       // Fumbles roll on the Arcane Catastrophes table
-      const pack = game.packs.get("morkborg.random-scrolls");
+      const pack = game.packs.get("pirateborg.random-scrolls");
       const content = await pack.getDocuments();
       const table = content.find((i) => i.name === "Arcane Catastrophes");
       await table.draw();
     } else if (isCrit) {
       // Criticals roll on Eldritch Elevations table, if available
       // TODO: this could be moved into the 3p module and implemented as a hook
-      const pack = game.packs.get("morkborg-3p.eldritch-elevations");
+      const pack = game.packs.get("pirateborg-3p.eldritch-elevations");
       if (pack) {
         const content = await pack.getDocuments();
         const table = content.find((i) => i.name === "Eldritch Elevations");
@@ -964,8 +964,8 @@ export class MBActor extends Actor {
     const roll = await this._rollOutcome(
       "@omenDie",
       classItem.getRollData(),
-      `${game.i18n.localize("MB.Omens")}`,
-      (roll) => ` ${game.i18n.localize("MB.Omens")}: ${Math.max(0, roll.total)}`
+      `${game.i18n.localize("PB.Omens")}`,
+      (roll) => ` ${game.i18n.localize("PB.Omens")}: ${Math.max(0, roll.total)}`
     );
     const newOmens = Math.max(0, roll.total);
     await this.update({ ["data.omens"]: { max: newOmens, value: newOmens } });
@@ -975,13 +975,13 @@ export class MBActor extends Actor {
     const roll = await this._rollOutcome(
       "d4+@abilities.presence.value",
       this.getRollData(),
-      `${game.i18n.localize("MB.Powers")} ${game.i18n.localize("MB.PerDay")}`,
+      `${game.i18n.localize("PB.Powers")} ${game.i18n.localize("PB.PerDay")}`,
       (roll) =>
-        ` ${game.i18n.localize("MB.PowerUsesRemaining")}: ${Math.max(
+        ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(
           0,
           roll.total
         )}`,
-      `1d4 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`
+      `1d4 + ${game.i18n.localize("PB.AbilityPresenceAbbrev")}`
     );
     const newUses = Math.max(0, roll.total);
     await this.update({
@@ -1026,8 +1026,8 @@ export class MBActor extends Actor {
 
   async showRestNoEffect() {
     const result = {
-      cardTitle: game.i18n.localize("MB.Rest"),
-      outcomeText: game.i18n.localize("MB.NoEffect"),
+      cardTitle: game.i18n.localize("PB.Rest"),
+      outcomeText: game.i18n.localize("PB.NoEffect"),
     };
     const html = await renderTemplate(OUTCOME_ONLY_ROLL_CARD_TEMPLATE, result);
     await ChatMessage.create({
@@ -1041,10 +1041,10 @@ export class MBActor extends Actor {
     const roll = await this._rollOutcome(
       dieRoll,
       this.getRollData(),
-      game.i18n.localize("MB.Rest"),
+      game.i18n.localize("PB.Rest"),
       (roll) =>
-        `${game.i18n.localize("MB.Heal")} ${roll.total} ${game.i18n.localize(
-          "MB.HP"
+        `${game.i18n.localize("PB.Heal")} ${roll.total} ${game.i18n.localize(
+          "PB.HP"
         )}`
     );
     const newHP = Math.min(
@@ -1058,10 +1058,10 @@ export class MBActor extends Actor {
     const roll = await this._rollOutcome(
       "d4",
       this.getRollData(),
-      game.i18n.localize("MB.Starvation"),
+      game.i18n.localize("PB.Starvation"),
       (roll) =>
-        `${game.i18n.localize("MB.Take")} ${roll.total} ${game.i18n.localize(
-          "MB.Damage"
+        `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize(
+          "PB.Damage"
         )}`
     );
     const newHP = this.data.data.hp.value - roll.total;
@@ -1072,10 +1072,10 @@ export class MBActor extends Actor {
     const roll = await this._rollOutcome(
       "d6",
       this.getRollData(),
-      game.i18n.localize("MB.Infection"),
+      game.i18n.localize("PB.Infection"),
       (roll) =>
-        `${game.i18n.localize("MB.Take")} ${roll.total} ${game.i18n.localize(
-          "MB.Damage"
+        `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize(
+          "PB.Damage"
         )}`
     );
     const newHP = this.data.data.hp.value - roll.total;
@@ -1096,27 +1096,27 @@ export class MBActor extends Actor {
     let newSilver = this.data.data.silver;
 
     const hpOutcome = this._abilityOutcome(
-      game.i18n.localize("MB.HP"),
+      game.i18n.localize("PB.HP"),
       oldHp,
       newHp
     );
     const strOutcome = this._abilityOutcome(
-      game.i18n.localize("MB.AbilityStrength"),
+      game.i18n.localize("PB.AbilityStrength"),
       oldStr,
       newStr
     );
     const agiOutcome = this._abilityOutcome(
-      game.i18n.localize("MB.AbilityAgility"),
+      game.i18n.localize("PB.AbilityAgility"),
       oldAgi,
       newAgi
     );
     const preOutcome = this._abilityOutcome(
-      game.i18n.localize("MB.AbilityPresence"),
+      game.i18n.localize("PB.AbilityPresence"),
       oldPre,
       newPre
     );
     const touOutcome = this._abilityOutcome(
-      game.i18n.localize("MB.AbilityToughness"),
+      game.i18n.localize("PB.AbilityToughness"),
       oldTou,
       newTou
     );
@@ -1161,7 +1161,7 @@ export class MBActor extends Actor {
 
     if (scrollTableName) {
       // roll a scroll
-      const pack = game.packs.get("morkborg.random-scrolls");
+      const pack = game.packs.get("pirateborg.random-scrolls");
       const content = await pack.getDocuments();
       const table = content.find((i) => i.name === scrollTableName);
       await table.draw();
@@ -1229,11 +1229,11 @@ export class MBActor extends Actor {
     if (brokenRoll.total === 1) {
       const unconsciousRoll = new Roll("1d4").evaluate({ async: false });
       const roundsWord = game.i18n.localize(
-        unconsciousRoll.total > 1 ? "MB.Rounds" : "MB.Round"
+        unconsciousRoll.total > 1 ? "PB.Rounds" : "PB.Round"
       );
       const hpRoll = new Roll("1d4").evaluate({ async: false });
       outcomeLines = [
-        game.i18n.format("MB.BrokenFallUnconscious", {
+        game.i18n.format("PB.BrokenFallUnconscious", {
           rounds: unconsciousRoll.total,
           roundsWord,
           hp: hpRoll.total,
@@ -1245,11 +1245,11 @@ export class MBActor extends Actor {
       const actRoll = new Roll("1d4").evaluate({ async: false });
       const hpRoll = new Roll("1d4").evaluate({ async: false });
       const roundsWord = game.i18n.localize(
-        actRoll.total > 1 ? "MB.Rounds" : "MB.Round"
+        actRoll.total > 1 ? "PB.Rounds" : "PB.Round"
       );
       if (limbRoll.total <= 5) {
         outcomeLines = [
-          game.i18n.format("MB.BrokenSeveredLimb", {
+          game.i18n.format("PB.BrokenSeveredLimb", {
             rounds: actRoll.total,
             roundsWord,
             hp: hpRoll.total,
@@ -1257,7 +1257,7 @@ export class MBActor extends Actor {
         ];
       } else {
         outcomeLines = [
-          game.i18n.format("MB.BrokenLostEye", {
+          game.i18n.format("PB.BrokenLostEye", {
             rounds: actRoll.total,
             roundsWord,
             hp: hpRoll.total,
@@ -1268,14 +1268,14 @@ export class MBActor extends Actor {
     } else if (brokenRoll.total === 3) {
       const hemorrhageRoll = new Roll("1d2").evaluate({ async: false });
       const hoursWord = game.i18n.localize(
-        hemorrhageRoll.total > 1 ? "MB.Hours" : "MB.Hour"
+        hemorrhageRoll.total > 1 ? "PB.Hours" : "PB.Hour"
       );
       const lastHour =
         hemorrhageRoll.total == 2
-          ? game.i18n.localize("MB.BrokenHemorrhageLastHour")
+          ? game.i18n.localize("PB.BrokenHemorrhageLastHour")
           : "";
       outcomeLines = [
-        game.i18n.format("MB.BrokenHemorrhage", {
+        game.i18n.format("PB.BrokenHemorrhage", {
           hours: hemorrhageRoll.total,
           hoursWord,
           lastHour,
@@ -1283,7 +1283,7 @@ export class MBActor extends Actor {
       ];
       additionalRolls = [hemorrhageRoll];
     } else {
-      outcomeLines = [game.i18n.localize("MB.BrokenYouAreDead")];
+      outcomeLines = [game.i18n.localize("PB.BrokenYouAreDead")];
     }
 
     const data = {

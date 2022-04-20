@@ -1,5 +1,5 @@
 <form class="roll-card defend-roll-card">
-  <div class="card-title">{{localize 'MB.Defend'}}</div>
+  <div class="card-title">{{localize 'PB.Defend'}}</div>
   {{#each items as |item id|}}
   <div class="item-row">
     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
@@ -9,8 +9,8 @@
   <div class="defend-roll">
     <div class="roll-title">
       <span
-        >{{localize 'MB.Defend'}}: {{defendFormula}} {{localize 'MB.Vs'}}
-        {{localize 'MB.DR'}} {{defendDR}}</span
+        >{{localize 'PB.Defend'}}: {{defendFormula}} {{localize 'PB.Vs'}}
+        {{localize 'PB.DR'}} {{defendDR}}</span
       >
     </div>
     <div class="roll-result">
@@ -23,7 +23,7 @@
   {{#if damageRoll}}
   <div class="damage-roll">
     <div class="roll-title">
-      <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
+      <span>{{localize 'PB.Damage'}}: {{damageRoll.formula}}</span>
     </div>
     <div class="roll-result">
       <span>{{xtotal damageRoll}}</span>
@@ -31,7 +31,7 @@
   </div>
   {{/if}} {{#if armorRoll}}
   <div class="armor-roll">
-    <div class="roll-title">{{localize 'MB.Armor'}}: {{armorRoll.formula}}</div>
+    <div class="roll-title">{{localize 'PB.Armor'}}: {{armorRoll.formula}}</div>
     <div class="roll-result">
       <span>{{xtotal armorRoll}}</span>
     </div>

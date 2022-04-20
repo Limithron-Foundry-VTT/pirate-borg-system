@@ -1,14 +1,14 @@
-import MBActorSheet from "./actor-sheet.js";
+import PBActorSheet from "./actor-sheet.js";
 
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetCreature extends MBActorSheet {
+export class PBActorSheetCreature extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "creature"],
-      template: "systems/morkborg/templates/actor/creature-sheet.html",
+      classes: ["pirateborg", "sheet", "actor", "creature"],
+      template: "systems/pirateborg/templates/actor/creature-sheet.html",
       width: 720,
       height: 680,
       tabs: [

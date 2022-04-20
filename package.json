@@ -1,7 +1,7 @@
 {
-  "name": "morkborg",
+  "name": "pirateborg",
   "version": "1.0.0",
-  "description": "Unofficial system for MÖRK BORG on Foundry VTT.",
+  "description": "Unofficial system for PIRATE BORG on Foundry VTT.",
   "scripts": {
     "lint": "eslint --fix --ext .js ./module",
     "precommit": "npm run validate",
@@ -12,16 +12,15 @@
     "validate": "npm-run-all pretty-check lint",
     "watch": "sass --watch ./scss:./css"
   },
-  "repository": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt.git",
-  "author": "mcglincy",
+  "repository": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
+  "author": "maqloner",
   "license": "MIT",
   "devDependencies": {
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.2",
     "sass": "^1.49.0"
-  },
-  "dependencies": {}
+  }
 }

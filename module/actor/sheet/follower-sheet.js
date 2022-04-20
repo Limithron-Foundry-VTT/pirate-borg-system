@@ -1,14 +1,14 @@
-import MBActorSheet from "./actor-sheet.js";
+import PBActorSheet from "./actor-sheet.js";
 
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetFollower extends MBActorSheet {
+export class PBActorSheetFollower extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "follower"],
-      template: "systems/morkborg/templates/actor/follower-sheet.html",
+      classes: ["pirateborg", "sheet", "actor", "follower"],
+      template: "systems/pirateborg/templates/actor/follower-sheet.html",
       width: 720,
       height: 690,
       tabs: [
@@ -26,7 +26,7 @@ export class MBActorSheetFollower extends MBActorSheet {
   getData() {
     const superData = super.getData();
     const data = superData.data;
-    data.config = CONFIG.MB;
+    data.config = CONFIG.PB;
     if (this.actor.data.type == "follower") {
       this._prepareFollowerItems(data);
     }
@@ -44,25 +44,25 @@ export class MBActorSheetFollower extends MBActorSheet {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
     sheetData.data.equipment = sheetData.items
-      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
     sheetData.data.equippedArmor = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.armor)
       .find((item) => item.data.equipped);
 
     sheetData.data.equippedShield = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.shield)
       .find((item) => item.data.equipped);
 
     sheetData.data.equippedWeapons = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
     sheetData.data.ammo = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
       .sort(byName);
   }
 

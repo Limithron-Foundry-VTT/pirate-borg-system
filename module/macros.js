@@ -5,7 +5,7 @@
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-export async function createMorkBorgMacro(data, slot) {
+export async function createPirateBorgMacro(data, slot) {
   if (data.type !== "Item") {
     return;
   }
@@ -32,7 +32,7 @@ export async function createMorkBorgMacro(data, slot) {
   }
 
   // Create the macro command
-  const command = `game.morkborg.rollItemMacro("${item.name}");`;
+  const command = `game.pirateborg.rollItemMacro("${item.name}");`;
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
@@ -42,7 +42,7 @@ export async function createMorkBorgMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "morkborg.itemMacro": true },
+      flags: { "pirateborg.itemMacro": true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);

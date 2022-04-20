@@ -37,9 +37,9 @@ export default class ScvmDialog extends Application {
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.id = "scvm-dialog";
-    options.classes = ["morkborg"];
-    options.title = game.i18n.localize("MB.TheScvmfactory");
-    options.template = "systems/morkborg/templates/dialog/scvm-dialog.html";
+    options.classes = ["pirateborg"];
+    options.title = game.i18n.localize("PB.TheScvmfactory");
+    options.template = "systems/pirateborg/templates/dialog/scvm-dialog.html";
     options.width = 420;
     options.height = "auto";
     return options;

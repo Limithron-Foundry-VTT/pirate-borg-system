@@ -1,14 +1,14 @@
-import MBActorSheet from "./actor-sheet.js";
+import PBActorSheet from "./actor-sheet.js";
 
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetContainer extends MBActorSheet {
+export class PBActorSheetContainer extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "container"],
-      template: "systems/morkborg/templates/actor/container-sheet.html",
+      classes: ["pirateborg", "sheet", "actor", "container"],
+      template: "systems/pirateborg/templates/actor/container-sheet.html",
       width: 720,
       height: 680,
       tabs: [
@@ -26,7 +26,7 @@ export class MBActorSheetContainer extends MBActorSheet {
   getData() {
     const superData = super.getData();
     const data = superData.data;
-    data.config = CONFIG.MB;
+    data.config = CONFIG.PB;
     if (this.actor.data.type == "container") {
       this._prepareContainerItems(data);
     }
@@ -44,7 +44,7 @@ export class MBActorSheetContainer extends MBActorSheet {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
     sheetData.data.equipment = sheetData.items
-      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
   }

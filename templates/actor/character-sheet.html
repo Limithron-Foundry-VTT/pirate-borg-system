@@ -17,7 +17,7 @@
           name="name"
           type="text"
           value="{{actor.name}}"
-          placeholder="{{ localize 'MB.Name' }}"
+          placeholder="{{ localize 'PB.Name' }}"
           spellcheck="false"
         />
       </div>
@@ -25,7 +25,7 @@
       LI elements, so we can get the item _id to be found by the common click
       handler --}}
       <div class="classname-row item" data-item-id="{{data.data.class._id}}">
-        <span class="stat-label">{{ localize "MB.Class" }}:</span>
+        <span class="stat-label">{{ localize "PB.Class" }}:</span>
         <label class="classname item-edit rollable"
           >{{data.data.class.name}}</label
         >
@@ -40,7 +40,7 @@
       </div>
       <div class="hitpoints-row">
         <div class="hp-entries">
-          <span class="stat-label">{{ localize "MB.HP" }}:</span>
+          <span class="stat-label">{{ localize "PB.HP" }}:</span>
           <input
             class="stat-input"
             name="data.hp.value"
@@ -61,24 +61,24 @@
           <button
             type="button"
             class="button item-button broken-button rollable"
-            title="{{localize 'MB.Broken'}}"
+            title="{{localize 'PB.Broken'}}"
           >
-            {{localize 'MB.Broken'}}
+            {{localize 'PB.Broken'}}
           </button>
           <button
             type="button"
             class="button item-button rest-button rollable"
-            title="{{localize 'MB.Rest'}}"
+            title="{{localize 'PB.Rest'}}"
           >
-            {{localize 'MB.Rest'}}
+            {{localize 'PB.Rest'}}
           </button>
         </div>
       </div>
       <div class="omens-row">
         <span
           class="stat-label omens-label"
-          title="{{ localize 'MB.OmensHelpText' }}"
-          >{{ localize "MB.Omens" }}:</span
+          title="{{ localize 'PB.OmensHelpText' }}"
+          >{{ localize "PB.Omens" }}:</span
         >
         <input
           class="stat-input"
@@ -88,19 +88,19 @@
           data-dtype="Number"
         />
         <span class="rule-text omen-rule rollable"
-          >{{data.data.class.data.omenDie}} {{ localize "MB.PerRest"}}</span
+          >{{data.data.class.data.omenDie}} {{ localize "PB.PerRest"}}</span
         >
         <button
           type="button"
           class="button item-button get-better-button rollable"
-          title="{{localize 'MB.GetBetter'}}"
+          title="{{localize 'PB.GetBetter'}}"
         >
-          {{localize 'MB.GetBetter'}}
+          {{localize 'PB.GetBetter'}}
         </button>
       </div>
       <div class="miseries-row">
         <label class="stat-label miseries-label"
-          >{{ localize "MB.Miseries" }}:</label
+          >{{ localize "PB.Miseries" }}:</label
         >
         <ul class="miseries">
           <li>
@@ -174,7 +174,7 @@
           size="3"
         />
         <span class="ability-label rollable strength"
-          >{{ localize 'MB.AbilityStrengthAbbrev' }}</span
+          >{{ localize 'PB.AbilityStrengthAbbrev' }}</span
         >
       </div>
       <div class="ability-row">
@@ -187,7 +187,7 @@
           size="3"
         />
         <span class="ability-label rollable agility"
-          >{{ localize 'MB.AbilityAgilityAbbrev' }}</span
+          >{{ localize 'PB.AbilityAgilityAbbrev' }}</span
         >
       </div>
       <div class="ability-row">
@@ -200,7 +200,7 @@
           size="3"
         />
         <span class="ability-label rollable presence"
-          >{{ localize 'MB.AbilityPresenceAbbrev' }}</span
+          >{{ localize 'PB.AbilityPresenceAbbrev' }}</span
         >
       </div>
       <div class="ability-row">
@@ -213,7 +213,7 @@
           size="3"
         />
         <span class="ability-label rollable toughness"
-          >{{ localize 'MB.AbilityToughnessAbbrev' }}</span
+          >{{ localize 'PB.AbilityToughnessAbbrev' }}</span
         >
       </div>
     </div>
@@ -221,11 +221,11 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="obituary">{{ localize 'MB.TabObituary' }}</a>
-    <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
-    <a class="item" data-tab="feats">{{ localize 'MB.TabFeats' }}</a>
-    <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
-    <a class="item" data-tab="equipment">{{ localize 'MB.TabTreasures' }}</a>
+    <a class="item" data-tab="obituary">{{ localize 'PB.TabObituary' }}</a>
+    <a class="item" data-tab="violence">{{ localize 'PB.TabViolence' }}</a>
+    <a class="item" data-tab="feats">{{ localize 'PB.TabFeats' }}</a>
+    <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>
+    <a class="item" data-tab="equipment">{{ localize 'PB.TabTreasures' }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -241,21 +241,21 @@
       {{!-- Initiative buttons --}}
       <div class="initiative">
         <span class="roll-initiative"
-          >{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span
+          >{{localize "PB.Roll"}} {{localize "PB.Initiative"}}:</span
         >
         <button
           type="button"
           class="button item-button rollable initiative-button party-initiative-button"
-          title="{{localize 'MB.Party'}}"
+          title="{{localize 'PB.Party'}}"
         >
-          {{localize "MB.Party"}}
+          {{localize "PB.Party"}}
         </button>
         <button
           type="button"
           class="button item-button rollable initiative-button individual-initiative-button"
-          title="{{localize 'MB.Individual'}}"
+          title="{{localize 'PB.Individual'}}"
         >
-          {{localize "MB.Individual"}}
+          {{localize "PB.Individual"}}
         </button>
       </div>
 
@@ -263,7 +263,7 @@
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
           <h3 class="item-name flexrow">
-            {{localize "MB.ItemTypeWeaponPlural"}}
+            {{localize "PB.ItemTypeWeaponPlural"}}
           </h3>
         </li>
         <ol class="item-list weapon-list">
@@ -286,7 +286,7 @@
                   data-item-id="{{item._id}}"
                 >
                   {{#select item.data.ammoId}}
-                  <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
+                  <option value="">{{localize 'PB.ItemTypeAmmo'}}</option>
                   {{#each ../data.data.ammo as |ammo ammoId|}}
                   <option value="{{ammo._id}}">
                     {{ammo.name}} ({{ammo.data.quantity}})
@@ -308,15 +308,15 @@
                 class="item-button rollable attack-button"
                 data-roll="d20+@abilities.strength.value"
                 data-label="attack_{{item._id}}"
-                title="{{localize 'MB.Attack'}}"
+                title="{{localize 'PB.Attack'}}"
               >
-                {{localize 'MB.Attack'}}
+                {{localize 'PB.Attack'}}
               </button>
             </div>
             <div class="item-controls">
               <a
                 class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
-                title="{{ifPrintElse item.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                title="{{ifPrintElse item.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -331,11 +331,11 @@
         </ol>
         {{#if data.data.equippedWeapons.length}}
         <div class="rule-text attack-rule">
-          {{localize 'MB.AttackCritText'}} {{localize 'MB.AttackFumbleText'}}
+          {{localize 'PB.AttackCritText'}} {{localize 'PB.AttackFumbleText'}}
         </div>
         {{else}}
         <div class="rule-text you-have-no">
-          {{localize 'MB.EquipAWeaponToAttack'}}
+          {{localize 'PB.EquipAWeaponToAttack'}}
         </div>
         {{/if}}
         <div class="violence-gutter"></div>
@@ -343,7 +343,7 @@
         {{!-- Armor --}}
         <li class="items-header flexrow">
           <h3 class="item-name flexrow">
-            {{localize "MB.ItemTypeArmorPlural"}}
+            {{localize "PB.ItemTypeArmorPlural"}}
           </h3>
           <div class="item-controls flexrow"></div>
         </li>
@@ -366,7 +366,7 @@
               <div class="armor-tiers">
                 <div class="tiers">
                   <label class="stat-label tier-label"
-                    >{{ localize "MB.Tier" }}:</label
+                    >{{ localize "PB.Tier" }}:</label
                   >
                   <ul class="tiers">
                     <li>
@@ -418,7 +418,7 @@
             <div class="item-controls">
               <a
                 class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedArmor.data.equipped 'equipped'}}"
-                title="{{ifPrintElse data.data.equippedArmor.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                title="{{ifPrintElse data.data.equippedArmor.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -445,13 +445,13 @@
             </h4>
             <div class="item-buttons">
               <span class="rule-text shield-rule"
-                >{{localize 'MB.ShieldUseText'}}</span
+                >{{localize 'PB.ShieldUseText'}}</span
               >
             </div>
             <div class="item-controls">
               <a
                 class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedShield.data.equipped 'equipped'}}"
-                title="{{ifPrintElse data.data.equippedShield.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                title="{{ifPrintElse data.data.equippedShield.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -465,7 +465,7 @@
           {{/if}} {{#unless data.data.equippedArmor}} {{#unless
           data.data.equippedShield}}
           <div class="rule-text you-have-no">
-            {{localize 'MB.EquipArmorToAbsorb'}}
+            {{localize 'PB.EquipArmorToAbsorb'}}
           </div>
           {{/unless}} {{/unless}}
         </ol>
@@ -476,13 +476,13 @@
             <button
               type="button"
               class="item-button rollable defend-button"
-              title="{{localize 'MB.Defend'}}"
+              title="{{localize 'PB.Defend'}}"
             >
-              {{localize "MB.Defend"}}
+              {{localize "PB.Defend"}}
             </button>
           </div>
           <div class="rule-text defend-rule">
-            {{localize 'MB.DefendCritText'}} {{localize 'MB.DefendFumbleText'}}
+            {{localize 'PB.DefendCritText'}} {{localize 'PB.DefendFumbleText'}}
           </div>
         </div>
       </div>
@@ -527,7 +527,7 @@
         </ol>
         {{#unless data.data.feats.length}}
         <div class="rule-text you-have-no">
-          {{localize 'MB.YouHaveNoFeats'}}
+          {{localize 'PB.YouHaveNoFeats'}}
         </div>
         {{/unless}}
       </ol>
@@ -539,17 +539,17 @@
         <div class="powers-gutter"></div>
         <div class="wield-power">
           <button type="button" class="rollable wield-power-button">
-            {{localize "MB.WieldAPower"}}
+            {{localize "PB.WieldAPower"}}
           </button>
           <span class="rule-text wield-rule"
-            >{{localize 'MB.WieldAPowerText'}}</span
+            >{{localize 'PB.WieldAPowerText'}}</span
           >
         </div>
         <div class="powers-gutter"></div>
         <div class="uses-remaining">
           <div>
             <label class="stat-label uses-remaining-label"
-              >{{localize "MB.PowerUsesRemaining"}}:</label
+              >{{localize "PB.PowerUsesRemaining"}}:</label
             >
             <input
               class="stat-input"
@@ -560,14 +560,14 @@
             />
           </div>
           <span class="rule-text rollable powers-per-day-text"
-            >{{localize "MB.PowersPerDayText"}}</span
+            >{{localize "PB.PowersPerDayText"}}</span
           >
         </div>
       </div>
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
           <h3 class="item-name flexrow">
-            {{localize "MB.ItemTypeScrollPlural"}}
+            {{localize "PB.ItemTypeScrollPlural"}}
           </h3>
           <div class="item-controls flexrow"></div>
         </li>
@@ -595,7 +595,7 @@
         </ol>
         {{#unless data.data.scrolls.length}}
         <div class="rule-text you-have-no">
-          {{localize 'MB.YouHaveNoScrolls'}}
+          {{localize 'PB.YouHaveNoScrolls'}}
         </div>
         {{/unless}}
       </ol>
@@ -606,7 +606,7 @@
       <div class="equipment-top-row">
         <div class="silver">
           <span class="stat-label silver-label"
-            >{{ localize "MB.Silver" }}:</span
+            >{{ localize "PB.Silver" }}:</span
           >
           <input
             class="stat-input silver-input"
@@ -619,7 +619,7 @@
         <div class="carry-block">
           <div>
             <span class="stat-label carrying-label"
-              >{{ localize "MB.Carrying" }}:</span
+              >{{ localize "PB.Carrying" }}:</span
             >
             <span class="stat-value">{{data.data.carryingWeight}}</span>
             /
@@ -630,15 +630,15 @@
               class="rule-text {{ifPrint data.data.encumbered 'encumbered'}}"
             >
               {{#if data.data.trackCarryingCapacity}} {{localize
-              'MB.CarryingRule'}} {{else}} {{localize
-              'MB.CarryingRuleNoPenalty'}} {{/if}}
+              'PB.CarryingRule'}} {{else}} {{localize
+              'PB.CarryingRuleNoPenalty'}} {{/if}}
             </span>
           </div>
         </div>
       </div>
       <ol class="items-list equipment-list">
         {{>
-        "systems/morkborg/templates/actor/common/actor-equipment-list.html"}}
+        "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
     </div>
   </section>

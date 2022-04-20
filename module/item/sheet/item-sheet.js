@@ -1,14 +1,14 @@
-import { MB } from "../../config.js";
-import * as editor from "../../editor.js";
+import { PB } from "../../config.js";
+import * as editor from "../../system/configure-editor.js";
 
 /*
  * @extends {ItemSheet}
  */
-export class MBItemSheet extends ItemSheet {
+export class PBItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "item"],
+      classes: ["pirateborg", "sheet", "item"],
       width: 600,
       height: 560,
       tabs: [
@@ -23,8 +23,8 @@ export class MBItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/morkborg/templates/item";
-    if (Object.keys(MB.itemTypeKeys).includes(this.item.data.type)) {
+    const path = "systems/pirateborg/templates/item";
+    if (Object.keys(PB.itemTypeKeys).includes(this.item.data.type)) {
       // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
     } else {
@@ -36,10 +36,10 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   async getData(options) {
     const data = super.getData(options);
-    data.config = CONFIG.MB;
+    data.config = CONFIG.PB;
     if (data.data.data.scrollType) {
       data.data.data.localizedScrollType = game.i18n.localize(
-        MB.scrollTypes[data.data.data.scrollType]
+        PB.scrollTypes[data.data.data.scrollType]
       );
     }
     return data;
