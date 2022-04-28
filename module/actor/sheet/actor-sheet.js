@@ -41,7 +41,7 @@ export default class PBActorSheet extends ActorSheet {
       .find(".item-toggle-carried")
       .click(this._onToggleCarriedItem.bind(this));
 
-    // Violence-related buttons
+    // Combat-related buttons
     html
       .find(".party-initiative-button")
       .on("click", this._onPartyInitiativeRoll.bind(this));
@@ -244,10 +244,10 @@ export default class PBActorSheet extends ActorSheet {
     const armorItemId = sheetData.data.equippedArmor
       ? sheetData.data.equippedArmor.id
       : null;
-    const shieldItemId = sheetData.data.equippedShield
-      ? sheetData.data.equippedShield.id
+    const hatItemId = sheetData.data.equippedHat
+      ? sheetData.data.equippedHat.id
       : null;
-    this.actor.defend(armorItemId, shieldItemId);
+    this.actor.defend(armorItemId, hatItemId);
   }
 
   _onInlineEdit(event) {

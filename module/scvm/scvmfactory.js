@@ -1,7 +1,6 @@
 import { PBActor } from "../actor/actor.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
-import { randomName } from "./names.js";
 
 export const createRandomScvm = async () => {
   const clazz = await pickRandomClass();
@@ -35,12 +34,10 @@ export const findClassPacks = () => {
   const classPacks = [];
   const packKeys = game.packs.keys();
   for (const packKey of packKeys) {
-    // moduleOrSystemName.packName
     const keyParts = packKey.split(".");
     if (keyParts.length === 2) {
       const packName = keyParts[1];
       if (packName.startsWith("class-") && packName.length > 6) {
-        // class pack
         classPacks.push(packKey);
       }
     }
@@ -48,263 +45,241 @@ export const findClassPacks = () => {
   return classPacks;
 };
 
-export const classItemFromPack = async (packName) => {
-  const pack = game.packs.get(packName);
-  const content = await pack.getDocuments();
-  return content.find((i) => i.data.type === "class");
+export const classItemFromPack = async (compendiumName) => {
+  const compendium = game.packs.get(compendiumName);
+  const documents = await compendium.getDocuments();
+  return documents.find((i) => i.data.type === "class");
 };
 
-const rollScvmForClass = async (clazz) => {
+/// new
+const compendiumInfoFromString = (value) => {
+  return value.split(';');
+}
+
+const drawTable = async (compendium, table) => {
+  const rollTable = await findCompendiumItem(compendium, table);
+  return await rollTable.draw({ displayChat: false });
+} 
+
+const rollAbility = (roll, bonus) => {
+  const abilityRoll = new Roll(roll).evaluate({
+    async: false,
+  });
+  const ability = abilityBonus(abilityRoll.total)  
+  return bonus ? (ability + parseInt(bonus, 10)) : ability;
+}
+
+const findItems = async (items) => {
+  const compendiumsItems = items.split('\n').filter(item => item);  
+  let results = [];
+  for (const compendiumsItem of compendiumsItems) {
+    const [compendium, table] = compendiumInfoFromString(compendiumsItem);
+    results.push(await findCompendiumItem(compendium, table));
+  }
+  return results;
+}
+
+const findCompendiumItem = async (compendiumName, itemName) => {
+  const compendium = game.packs.get(compendiumName);
+  if (compendium) {
+    const documents = await compendium.getDocuments();
+    const item = documents.find((i) => i.name === itemName);
+    if (!item) {
+      console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);  
+    }
+    return item; 
+  } else {
+    console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
+  }
+}
+
+export const drawTableItems = async (compendium, table, amount) => {
+  let results = [];
+  for(let i = 0; i < amount; i++) {
+    results = results.concat(await drawTableItem(compendium, table));
+  }
+  return results;
+}
+
+export const drawTableItem = async (compendium, table) => {
+  const draw = await drawTable(compendium, table);
+  return await findTableItems(draw.results);
+}
+
+export const drawTableSingleTextResult = async (compendium, table) => {
+  return (await drawTable(compendium, table)).results[0].getChatText();
+}
+
+export const rollTable = async (compendium, table, roll) => {
+  const rollTable = await findCompendiumItem(compendium, table);
+  const draw = await rollTable.roll(roll);
+  return await findTableItems(draw.results);
+}
+
+export const rollName = async () => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.namesPack);
+  return await drawTableSingleTextResult(compendium, table);
+}
+
+export const rollAbilities = (data) => {
+  return {
+    strength: rollAbility(data.startingAbilityScoreFormula, data.startingStrengthBonus),
+    agility: rollAbility(data.startingAbilityScoreFormula, data.startingAgilityBonus),
+    presence: rollAbility(data.startingAbilityScoreFormula, data.startingPresenceBonus),
+    toughness: rollAbility(data.startingAbilityScoreFormula, data.startingToughnessBonus),
+    spirit: rollAbility(data.startingAbilityScoreFormula, data.startingSpiritBonus),
+  }
+}
+
+export const rollLuck = (luckDie) => {
+  return new Roll(luckDie).evaluate({
+    async: false,
+  }).total;
+}
+
+export const rollHitPoints = (startingHitPoints, toughness) => {
+  return new Roll(startingHitPoints).evaluate({
+    async: false,
+  }).total + toughness;
+}
+
+export const rollSilver = (background) => {
+  return new Roll(background.data.data.startingGold).evaluate({
+    async: false,
+  }).total;
+}
+
+export const rollArmor = async (roll)  => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.armorsRollTable);
+  return await rollTable(compendium, table, roll);
+}
+
+export const rollHat = async (roll)  => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.hatsRollTable);
+  return await rollTable(compendium, table, roll);
+}
+
+export const rollWeapon = async (roll)  => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.weaponsRollTable);
+  return await rollTable(compendium, table, roll);
+}
+
+export const rollAncientRelics = async (roll)  => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.ancientRelicsRollTable);
+  return await rollTable(compendium, table, roll);
+}
+
+export const rollArcaneRituals = async (roll)  => {
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.arcaneRitualsRollTable);
+  return await rollTable(compendium, table, roll);
+}
+
+export const rollBaseTables = async () => {
+  let items = [];
+  for (const compendiumTable of PB.scvmFactory.baseTables) {
+    const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
+    items = items.concat(await drawTableItems(compendium, table, quantity));
+  }
+  return items;
+}
+
+export const rollRollItems = async (rolls) => {
+  const compendiumTables = rolls.split('\n').filter(item => item);    
+  let results = [];
+  for (const compendiumTable of compendiumTables) {
+    const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
+    results = results.concat(await drawTableItems(compendium, table, quantity));
+  }
+  return results;
+}
+
+export const findFeatureBonusItems = async (features) => {
+  const results = [];
+  for (const feature of features) {
+    if (feature.data.data.startingBonusItems) {
+      results = results.concat(await findItems(feature.data.data.startingBonusItems));
+    }
+  }
+  return results;
+}
+
+export const drawClassGettingBetterTable = async (actor) => {   
+  const clazz = actor.items.find((item) => item.type === CONFIG.PB.itemTypes.class)   
+  const [compendium, table] = compendiumInfoFromString(clazz.data.data.gettingBetterRolls);
+  let items = [];
+  if (compendium) {
+    const compendiumRollTable = await findCompendiumItem(compendium, table);
+    const rollTable = compendiumRollTable.clone({ replacement: false });  
+    while(true) {
+      const draw =  await rollTable.draw({ displayChat: false });    
+      items = await findTableItems(draw.results);
+      draw.results.forEach((result) => result.data.drawn = true);
+      if (!items.length || !actor.items.some((item) => item.data.name === items[0].data.name)) {
+        break;
+      }
+    }
+  }
+  return items;
+}
+
+export const generateDescription = (clazz, items) => {
+  const thingOfImportance = items.find((item) => item.data.data.featureType === 'Thing of Importance');
+  const description = items
+    .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
+    .filter((item) => item.data.data.featureType !== 'Thing of Importance')
+    .map((doc) => doc.data.name)
+    .concat([game.i18n.format("PB.YouOwn", {
+      item: thingOfImportance.data.name,
+    })])
+    .join('...');
+
+  return `<p>${clazz.data.data.flavorText}</p><p>${description}</p>`;
+}
+
+export const rollScvmForClass = async (clazz) => {
   console.log(`Creating new ${clazz.data.name}`);
+  
+  const data = clazz.data.data;
 
-  const silverRoll = new Roll(clazz.data.data.startingSilver).evaluate({
-    async: false,
-  });
-  const omensRoll = new Roll(clazz.data.data.omenDie).evaluate({
-    async: false,
-  });
-  const hpRoll = new Roll(clazz.data.data.startingHitPoints).evaluate({
-    async: false,
-  });
-  const powerUsesRoll = new Roll("1d4").evaluate({ async: false });
+  const name = await rollName();
+  const abilities = rollAbilities(data);
+  const luck = rollLuck(data.luckDie);
+  const hitPoints = rollHitPoints(data.startingHitPoints, abilities.toughness);
+  const baseTables = await rollBaseTables();
 
-  const strRoll = new Roll(clazz.data.data.startingStrength).evaluate({
-    async: false,
-  });
-  const strength = abilityBonus(strRoll.total);
-  const agiRoll = new Roll(clazz.data.data.startingAgility).evaluate({
-    async: false,
-  });
-  const agility = abilityBonus(agiRoll.total);
-  const preRoll = new Roll(clazz.data.data.startingPresence).evaluate({
-    async: false,
-  });
-  const presence = abilityBonus(preRoll.total);
-  const touRoll = new Roll(clazz.data.data.startingToughness).evaluate({
-    async: false,
-  });
-  const toughness = abilityBonus(touRoll.total);
+  const background = baseTables.find((item) => item.type === CONFIG.PB.itemTypes.background);
+  const features = baseTables.filter((item) => item.type === CONFIG.PB.itemTypes.feature);
+  const hasRelic = baseTables.some((item) => item.data.data.invokableType === 'Ancient Relic');
 
-  const hitPoints = Math.max(1, hpRoll.total + toughness);
-  const powerUses = Math.max(0, powerUsesRoll.total + presence);
+  const silver = rollSilver(background);
 
-  const allDocs = [clazz];
+  const armor = await rollArmor(!hasRelic ? clazz.data.data.startingArmorTableFormula : '1d6') ;
+  const hat = await rollHat(clazz.data.data.startingHatTableFormula);
+  const weapon = await rollWeapon(clazz.data.data.startingWeaponTableFormula) ;
 
-  if (PB.scvmFactory.foodAndWaterPack) {
-    // everybody gets food and water
-    const miscPack = game.packs.get(PB.scvmFactory.foodAndWaterPack);
-    const miscContent = await miscPack.getDocuments();
-    if (PB.scvmFactory.foodItemName) {
-      const food = miscContent.find(
-        (i) => i.data.name === PB.scvmFactory.foodItemName
-      );
-      const foodRoll = new Roll("1d4", {}).evaluate({ async: false });
-      // TODO: need to mutate _data to get it to change for our owned item creation.
-      // Is there a better way to do this?
-      food.data._source.data.quantity = foodRoll.total;
-      allDocs.push(food);
-    }
-    if (PB.scvmFactory.waterItemName) {
-      const waterskin = miscContent.find(
-        (i) => i.data.name === PB.scvmFactory.waterItemName
-      );
-      allDocs.push(waterskin);
-    }
-  }
+  const startingRollItems = await rollRollItems(clazz.data.data.startingRolls);
+  const startingItems = await findItems(clazz.data.data.startingItems);
 
-  // starting equipment, weapons, armor, and traits etc all come from the same pack
-  const ccPack = game.packs.get(PB.scvmFactory.characterCreationPack);
-  const ccContent = await ccPack.getDocuments();
+  const backgroundBonusItems = await findItems(background.data.data.startingBonusItems);    
+  const featuresBonusItems = await findFeatureBonusItems(features);
 
-  // 3 starting equipment tables
-  if (PB.scvmFactory.startingEquipmentTable1) {
-    const equipTable1 = ccContent.find(
-      (i) => i.name === PB.scvmFactory.startingEquipmentTable1
-    );
-    const eqDraw1 = await equipTable1.draw({ displayChat: false });
-    const eq1 = await docsFromResults(eqDraw1.results);
-    allDocs.push(...eq1);
-  }
-  if (PB.scvmFactory.startingEquipmentTable1) {
-    const equipTable2 = ccContent.find(
-      (i) => i.name === PB.scvmFactory.startingEquipmentTable2
-    );
-    const eqDraw2 = await equipTable2.draw({ displayChat: false });
-    const eq2 = await docsFromResults(eqDraw2.results);
-    allDocs.push(...eq2);
-  }
-  if (PB.scvmFactory.startingEquipmentTable1) {
-    const equipTable3 = ccContent.find(
-      (i) => i.name === PB.scvmFactory.startingEquipmentTable3
-    );
-    const eqDraw3 = await equipTable3.draw({ displayChat: false });
-    const eq3 = await docsFromResults(eqDraw3.results);
-    allDocs.push(...eq3);
-  }
+  const description = generateDescription(clazz, baseTables)
+  
+  const allDocs = [
+    ...baseTables,
+    ...(armor || []),
+    ...(hat || []),
+    ...(weapon || []),
+    ...(startingRollItems || []),
+    ...(startingItems || []),
+    ...(backgroundBonusItems || []),    
+    ...(featuresBonusItems || []),        
+    clazz
+  ];
+   
+  // power uses
 
-  const rolledScroll =
-    allDocs.filter((i) => i.data.type === "scroll").length > 0;
-
-  // starting weapon
-  if (PB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
-    let weaponDie = clazz.data.data.weaponTableDie;
-    if (rolledScroll) {
-      // TODO: this check for "is it a higher die roll" assumes a d10 weapon table,
-      // and doesn't handle not having a leading 1 in the string
-      if (weaponDie === "1d8" || weaponDie === "2d4" || weaponDie === "1d10") {
-        weaponDie = PB.scvmFactory.weaponDieIfRolledScroll;
-      }
-    }
-    const weaponRoll = new Roll(weaponDie);
-    const weaponTable = ccContent.find(
-      (i) => i.name === PB.scvmFactory.startingWeaponTable
-    );
-    const weaponDraw = await weaponTable.draw({
-      roll: weaponRoll,
-      displayChat: false,
-    });
-    const weapons = await docsFromResults(weaponDraw.results);
-    allDocs.push(...weapons);
-  }
-
-  // starting armor
-  if (PB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
-    let armorDie = clazz.data.data.armorTableDie;
-    if (rolledScroll) {
-      // TODO: this check for "is it a higher die roll" assumes a d4 armor table
-      // and doesn't handle not having a leading 1 in the string
-      if (armorDie === "1d3" || armorDie === "1d4") {
-        armorDie = PB.scvmFactory.armorDieIfRolledScroll;
-      }
-    }
-    const armorRoll = new Roll(armorDie);
-    const armorTable = ccContent.find(
-      (i) => i.name === PB.scvmFactory.startingArmorTable
-    );
-    const armorDraw = await armorTable.draw({
-      roll: armorRoll,
-      displayChat: false,
-    });
-    const armor = await docsFromResults(armorDraw.results);
-    allDocs.push(...armor);
-  }
-
-  // class-specific starting items
-  if (clazz.data.data.startingItems) {
-    const startingItems = [];
-    const lines = clazz.data.data.startingItems.split("\n");
-    for (const line of lines) {
-      const [packName, itemName] = line.split(",");
-      const pack = game.packs.get(packName);
-      if (pack) {
-        const content = await pack.getDocuments();
-        const item = content.find((i) => i.data.name === itemName);
-        if (item) {
-          startingItems.push(item);
-        }
-      }
-    }
-    allDocs.push(...startingItems);
-  }
-
-  // start accumulating character description, starting with the class description
-  const descriptionLines = [];
-  descriptionLines.push(clazz.data.data.description);
-  descriptionLines.push("<p>&nbsp;</p>");
-
-  let descriptionLine = "";
-  if (PB.scvmFactory.terribleTraitsTable) {
-    const ttTable = ccContent.find(
-      (i) => i.name === PB.scvmFactory.terribleTraitsTable
-    );
-    const ttResults = await compendiumTableDrawMany(ttTable, 2);
-    const terribleTrait1 = ttResults[0].data.text;
-    const terribleTrait2 = ttResults[1].data.text;
-    // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
-    descriptionLine += `${terribleTrait1} and ${terribleTrait2
-      .charAt(0)
-      .toLowerCase()}${terribleTrait2.slice(1)}.`;
-  }
-  if (PB.scvmFactory.brokenBodiesTable) {
-    const bbTable = ccContent.find(
-      (i) => i.name === PB.scvmFactory.brokenBodiesTable
-    );
-    const bbDraw = await bbTable.draw({ displayChat: false });
-    const brokenBody = bbDraw.results[0].data.text;
-    descriptionLine += ` ${brokenBody}`;
-  }
-  if (PB.scvmFactory.badHabitsTable) {
-    const bhTable = ccContent.find(
-      (i) => i.name === PB.scvmFactory.badHabitsTable
-    );
-    const bhDraw = await bhTable.draw({ displayChat: false });
-    const badHabit = bhDraw.results[0].data.text;
-    descriptionLine += ` ${badHabit}`;
-  }
-  if (descriptionLine) {
-    descriptionLines.push(descriptionLine);
-    descriptionLines.push("<p>&nbsp;</p>");
-  }
-
-  // class-specific starting rolls
-  const startingRollItems = [];
-  if (clazz.data.data.startingRolls) {
-    const lines = clazz.data.data.startingRolls.split("\n");
-    for (const line of lines) {
-      const [packName, tableName, rolls] = line.split(",");
-      // assume 1 roll unless otherwise specified in the csv
-      const numRolls = rolls ? parseInt(rolls) : 1;
-      const pack = game.packs.get(packName);
-      if (pack) {
-        const content = await pack.getDocuments();
-        const table = content.find((i) => i.name === tableName);
-        if (table) {
-          // const tableDraw = await table.drawMany(numRolls, {displayChat: false});
-          // const results = tableDraw.results;
-          const results = await compendiumTableDrawMany(table, numRolls);
-          for (const result of results) {
-            // draw result type: text (0), entity (1), or compendium (2)
-            if (result.data.type === 0) {
-              // text
-              descriptionLines.push(
-                `<p>${table.data.name}: ${result.data.text}</p>`
-              );
-            } else if (result.data.type === 1) {
-              // entity
-              // TODO: what do we want to do here?
-            } else if (result.data.type === 2) {
-              // compendium
-              const entity = await entityFromResult(result);
-              startingRollItems.push(entity);
-            }
-          }
-        } else {
-          console.log(`Could not find RollTable ${tableName}`);
-        }
-      } else {
-        console.log(`Could not find compendium ${packName}`);
-      }
-    }
-  }
-  allDocs.push(...startingRollItems);
-
-  // add items as owned items
-  const items = allDocs.filter((e) => e instanceof PBItem);
-  // for other non-item documents, just add some description text (ITEMTYPE: Item Name)
-  const nonItems = allDocs.filter((e) => !(e instanceof PBItem));
-  for (const nonItem of nonItems) {
-    if (nonItem && nonItem.data && nonItem.data.type) {
-      const upperType = nonItem.data.type.toUpperCase();
-      descriptionLines.push(
-        `<p>&nbsp;</p><p>${upperType}: ${nonItem.data.name}</p>`
-      );
-    } else {
-      console.log(`Skipping non-item ${nonItem}`);
-    }
-  }
-
-  // make simple data structure for embedded items
-  const itemData = items.map((i) => ({
+  const items = allDocs.map((i) => ({
     data: i.data.data,
     img: i.data.img,
     name: i.data.name,
@@ -312,28 +287,21 @@ const rollScvmForClass = async (clazz) => {
   }));
 
   return {
+    name,
     actorImg: clazz.img,
-    agility,
-    description: descriptionLines.join(""),
-    hitPoints,
-    items: itemData,
-    omens: omensRoll.total,
-    powerUses,
-    presence,
-    silver: silverRoll.total,
-    strength,
     tokenImg: clazz.img,
-    toughness,
+    hitPoints,
+    luck,
+    ...abilities,
+    items,
+    description,
+    silver,   
   };
 };
 
 const scvmToActorData = (s) => {
-  const newName = randomName();
   return {
-    name: newName,
-    // TODO: do we need to set folder or sort?
-    // folder: folder.data._id,
-    // sort: 12000,
+    name: s.name,
     data: {
       abilities: {
         strength: { value: s.strength },
@@ -346,9 +314,9 @@ const scvmToActorData = (s) => {
         max: s.hitPoints,
         value: s.hitPoints,
       },
-      omens: {
-        max: s.omens,
-        value: s.omens,
+      luck: {
+        max: s.luck,
+        value: s.luck,
       },
       powerUses: {
         max: s.powerUses,
@@ -361,7 +329,7 @@ const scvmToActorData = (s) => {
     flags: {},
     token: {
       img: s.actorImg,
-      name: newName,
+      name: s.name,
     },
     type: "character",
   };
@@ -369,20 +337,14 @@ const scvmToActorData = (s) => {
 
 const createActorWithScvm = async (s) => {
   const data = scvmToActorData(s);
-  // use PBActor.create() so we get default disposition, actor link, vision, etc
   const actor = await PBActor.create(data);
   actor.sheet.render(true);
 };
 
 const updateActorWithScvm = async (actor, s) => {
   const data = scvmToActorData(s);
-  // Explicitly nuke all items before updating.
-  // Before Foundry 0.8.x, actor.update() used to overwrite items,
-  // but now doesn't. Maybe because we're passing items: [item.data]?
-  // Dunno.
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
   await actor.update(data);
-  // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
       img: actor.data.img,
@@ -391,56 +353,28 @@ const updateActorWithScvm = async (actor, s) => {
   }
 };
 
-const docsFromResults = async (results) => {
-  const ents = [];
+const findTableItems = async (results) => {
+  const items = [];
+  let item = null;
   for (const result of results) {
-    const entity = await entityFromResult(result);
-    if (entity) {
-      ents.push(entity);
+    if (result.data.type === 2) {
+      item = await findCompendiumItem(result.data.collection, result.data.text);
+      if (item) {
+        items.push(item);
+      }
+    } else if (result.data.type === 0 && item) {
+      const [property, value] = result.getChatText().split(': ');
+      const enrichHtml = TextEditor.enrichHTML(value, {options: {command: true}});
+      if (property === 'description') {           
+        item.data.data.description = enrichHtml;
+      }
+      else if (property === 'quantity') {            
+        item.data.data.quantity = parseInt($(`<span>${enrichHtml}</span>`).text().trim(), 10);
+      }  
     }
   }
-  return ents;
-};
-
-const entityFromResult = async (result) => {
-  // draw result type: text (0), entity (1), or compendium (2)
-  // TODO: figure out how we want to handle an entity result
-
-  // TODO: handle scroll lookup / rolls
-  // TODO: can we make a recursive random scroll thingy
-
-  if (result.data.type === 0) {
-    // hack for not having recursive roll tables set up
-    // TODO: set up recursive roll tables :P
-    if (result.data.text === "Roll on Random Unclean Scrolls") {
-      const collection = game.packs.get("pirateborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Unclean Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    } else if (result.data.text === "Roll on Random Sacred Scrolls") {
-      const collection = game.packs.get("pirateborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Sacred Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    }
-  } else if (result.data.type === 2) {
-    // grab the item from the compendium
-    const collection = game.packs.get(result.data.collection);
-    if (collection) {
-      // TODO: should we use pack.getEntity(entryId) ?
-      // const item = await collection.getEntity(result._id);
-      const content = await collection.getDocuments();
-      const entity = content.find((i) => i.name === result.data.text);
-      return entity;
-    } else {
-      console.log(`Could not find pack ${result.data.collection}`);
-    }
-  }
-};
+  return items;
+}
 
 const abilityBonus = (rollTotal) => {
   if (rollTotal <= 4) {
@@ -459,20 +393,4 @@ const abilityBonus = (rollTotal) => {
     // 17 - 20+
     return 3;
   }
-};
-
-/** Workaround for compendium RollTables not honoring replacement=false */
-const compendiumTableDrawMany = async (rollTable, numDesired) => {
-  const rollTotals = [];
-  let results = [];
-  while (rollTotals.length < numDesired) {
-    const tableDraw = await rollTable.draw({ displayChat: false });
-    if (rollTotals.includes(tableDraw.roll.total)) {
-      // already rolled this, so roll again
-      continue;
-    }
-    rollTotals.push(tableDraw.roll.total);
-    results = results.concat(tableDraw.results);
-  }
-  return results;
 };

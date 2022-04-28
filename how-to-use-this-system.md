@@ -10,7 +10,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 - If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet.
   - Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
 - Use the RollTables in the _Character Creation_ RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
-- Manually roll and update your abilities, hit points, silver, and omens.
+- Manually roll and update your abilities, hit points, silver, and Devil's Luck.
 - If buying equipment, drag items from the various _Equipment_ compendiums onto your character sheet.
 - Equip some items on your _Treasure_ tab (using the little shield icon on the right of each item row), and they'll show up for use on your _Violence_ tab.
 - Go kill stuff!

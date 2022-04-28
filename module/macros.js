@@ -15,19 +15,19 @@ export async function createPirateBorgMacro(data, slot) {
     );
   }
   const item = data.data;
-  const supportedItemTypes = ["armor", "feat", "scroll", "shield", "weapon"];
+  const supportedItemTypes = ["armor", "feat", "scroll", "hat", "weapon"];
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(
       `Macros only supported for item types: ${supportedItemTypes.join(", ")}`
     );
   }
   if (
-    item.type === "feat" &&
+    item.type === "feature" &&
     (!item.data.rollLabel || (!item.data.rollFormula && !item.data.rollMacro))
   ) {
     // we only allow rollable feats
     return ui.notifications.warn(
-      "Macros only supported for feats with roll label and either a formula or macro."
+      "Macros only supported for features with roll label and either a formula or macro."
     );
   }
 
@@ -80,7 +80,7 @@ export function rollItemMacro(itemName) {
 
   if (item.data.type === "weapon") {
     actor.attack(item.id);
-  } else if (item.data.type === "armor" || item.data.type === "shield") {
+  } else if (item.data.type === "armor" || item.data.type === "hat") {
     actor.defend();
   } else if (item.data.type === "scroll") {
     actor.wieldPower();

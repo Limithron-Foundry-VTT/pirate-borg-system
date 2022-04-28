@@ -15,7 +15,7 @@ export class PBItem extends Item {
 
   /** @override */
   prepareActorItemDerivedData(actor) {
-    if (actor.type === "character" || actor.type === "follower") {
+    if (actor.type === "character") {
       this.data.data.equippable = CONFIG.PB.equippableItemTypes.includes(
         this.type
       );

@@ -87,6 +87,18 @@
           data-dtype="Number"
         />
       </div>
+
+      {{!-- Damage Die --}}
+      <div class="form-group">
+        <label>{{ localize "PB.ItemDamageDie" }}:</label>
+        <input
+          type="text"
+          name="data.damageDie"
+          value="{{data.data.damageDie}}"
+          placeholder="1d4"
+          data-dtype="String"
+        />
+      </div>
     </div>
   </section>
 </form>

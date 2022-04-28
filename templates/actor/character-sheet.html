@@ -25,7 +25,6 @@
       LI elements, so we can get the item _id to be found by the common click
       handler --}}
       <div class="classname-row item" data-item-id="{{data.data.class._id}}">
-        <span class="stat-label">{{ localize "PB.Class" }}:</span>
         <label class="classname item-edit rollable"
           >{{data.data.class.name}}</label
         >
@@ -74,21 +73,21 @@
           </button>
         </div>
       </div>
-      <div class="omens-row">
+      <div class="luck-row">
         <span
-          class="stat-label omens-label"
-          title="{{ localize 'PB.OmensHelpText' }}"
-          >{{ localize "PB.Omens" }}:</span
+          class="stat-label luck-label"
+          title="{{ localize 'PB.LuckHelpText' }}"
+          >{{ localize "PB.Luck" }}:</span
         >
         <input
           class="stat-input"
-          name="data.omens.value"
+          name="data.luck.value"
           type="number"
-          value="{{data.data.omens.value}}"
+          value="{{data.data.luck.value}}"
           data-dtype="Number"
         />
-        <span class="rule-text omen-rule rollable"
-          >{{data.data.class.data.omenDie}} {{ localize "PB.PerRest"}}</span
+        <span class="rule-text luck-rule rollable"
+          >{{data.data.class.data.luckDie}} {{ localize "PB.PerRest"}}</span
         >
         <button
           type="button"
@@ -97,69 +96,6 @@
         >
           {{localize 'PB.GetBetter'}}
         </button>
-      </div>
-      <div class="miseries-row">
-        <label class="stat-label miseries-label"
-          >{{ localize "PB.Miseries" }}:</label
-        >
-        <ul class="miseries">
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="0"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              0}}checked{{/ifEq}}/><span>0</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="1"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              1}}checked{{/ifEq}}/><span>1</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="2"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              2}}checked{{/ifEq}}/><span>2</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="3"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              3}}checked{{/ifEq}}/><span>3</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="4"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              4}}checked{{/ifEq}}/><span>4</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="5"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              5}}checked{{/ifEq}}/><span>5</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="6"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              6}}checked{{/ifEq}}/><span>6</span></label
-            >
-          </li>
-          <li>
-            <label
-              ><input type="radio" name="data.miseries.value" value="7"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
-              7}}checked{{/ifEq}}/><span>X</span></label
-            >
-          </li>
-        </ul>
       </div>
     </div>
     <div class="header-gutter-col"></div>
@@ -216,28 +152,41 @@
           >{{ localize 'PB.AbilityToughnessAbbrev' }}</span
         >
       </div>
+      <div class="ability-row">
+        <input
+          class="ability-input"
+          type="text"
+          name="data.abilities.spirit.value"
+          value="{{numberFormat data.data.abilities.spirit.value decimals=0 sign=true}}"
+          data-dtype="Number"
+          size="3"
+        />
+        <span class="ability-label rollable spirit"
+          >{{ localize 'PB.AbilitySpiritAbbrev' }}</span
+        >
+      </div>      
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="obituary">{{ localize 'PB.TabObituary' }}</a>
-    <a class="item" data-tab="violence">{{ localize 'PB.TabViolence' }}</a>
-    <a class="item" data-tab="feats">{{ localize 'PB.TabFeats' }}</a>
-    <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>
-    <a class="item" data-tab="equipment">{{ localize 'PB.TabTreasures' }}</a>
+    <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
+    <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>    
+    <a class="item" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>    
+    <a class="item" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
+    <a class="item" data-tab="history">{{ localize 'PB.TabHistory' }}</a>    
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    {{!-- Obituary Tab --}}
-    <div class="tab class-tab" data-group="primary" data-tab="obituary">
+    {{!-- History Tab --}}
+    <div class="tab class-tab" data-group="primary" data-tab="history">
       {{editor content=data.data.description target="data.description"
       button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Violence Tab --}}
-    <div class="tab violence-tab" data-group="primary" data-tab="violence">
+    {{!-- Combat Tab --}}
+    <div class="tab combat-tab" data-group="primary" data-tab="combat">
       {{!-- Initiative buttons --}}
       <div class="initiative">
         <span class="roll-initiative"
@@ -338,7 +287,7 @@
           {{localize 'PB.EquipAWeaponToAttack'}}
         </div>
         {{/if}}
-        <div class="violence-gutter"></div>
+        <div class="combaT-gutter"></div>
 
         {{!-- Armor --}}
         <li class="items-header flexrow">
@@ -429,30 +378,30 @@
               ></a>
             </div>
           </li>
-          {{/if}} {{#if data.data.equippedShield}}
+          {{/if}} {{#if data.data.equippedHat}}
           <li
             class="item flexrow"
-            data-item-id="{{data.data.equippedShield._id}}"
+            data-item-id="{{data.data.equippedHat._id}}"
           >
             <img
-              src="{{data.data.equippedShield.img}}"
-              title="{{data.data.equippedShield.name}}"
+              src="{{data.data.equippedHat.img}}"
+              title="{{data.data.equippedHat.name}}"
               width="24"
               height="24"
             />
             <h4 class="item-name item-edit rollable">
-              {{data.data.equippedShield.name}}
+              {{data.data.equippedHat.name}}
             </h4>
             <div class="item-buttons">
-              <span class="rule-text shield-rule"
-                >{{localize 'PB.ShieldUseText'}}</span
+              <span class="rule-text hat-rule"
+                >{{localize 'PB.HatUseText'}}</span
               >
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedShield.data.equipped 'equipped'}}"
-                title="{{ifPrintElse data.data.equippedShield.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
-                ><i class="fas fa-shield-alt"></i
+                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedHat.data.equipped 'equipped'}}"
+                title="{{ifPrintElse data.data.equippedHat.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
+                ><i class="fas fa-hat-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
                 ><i class="fas fa-edit"></i
@@ -463,7 +412,7 @@
             </div>
           </li>
           {{/if}} {{#unless data.data.equippedArmor}} {{#unless
-          data.data.equippedShield}}
+          data.data.equippedHat}}
           <div class="rule-text you-have-no">
             {{localize 'PB.EquipArmorToAbsorb'}}
           </div>
@@ -489,45 +438,53 @@
     </div>
 
     {{!-- Feats Tab --}}
-    <div class="tab specials-tab" data-group="primary" data-tab="feats">
+    <div class="tab specials-tab" data-group="primary" data-tab="features">
       <ol class="items-list inventory-list">
         <ol class="item-list">
-          {{#each data.data.feats as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
-            <img
-              src="{{item.img}}"
-              title="{{item.name}}"
-              width="24"
-              height="24"
-            />
-            <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-            <div class="item-buttons">
-              {{#if item.data.rollLabel}}
-              <button
-                type="button"
-                class="item-button rollable feat-button"
-                data-roll="{{item.data.rollFormula}}"
-                data-label="{{item.data.rollLabel}}"
-                title="{{item.data.rollLabel}}"
-              >
-                {{item.data.rollLabel}}
-              </button>
-              {{/if}}
-            </div>
-            <div class="item-controls">
-              <a class="item-control item-edit" title="Edit Item"
-                ><i class="fas fa-edit"></i
-              ></a>
-              <a class="item-control item-delete" title="Delete Item"
-                ><i class="fas fa-trash"></i
-              ></a>
-            </div>
+          {{#each data.data.features as |item id|}}
+
+          <li class="items-header flexrow">
+            <h3 class="item-name flexrow">
+              {{item.type}}
+            </h3>
           </li>
+            {{#each item.items as |item id|}}
+            <li class="item flexrow" data-item-id="{{item._id}}">
+              <img
+                src="{{item.img}}"
+                title="{{item.name}}"
+                width="24"
+                height="24"
+              />
+              <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+              <div class="item-buttons">
+                {{#if item.data.actionMacroLabel}}
+                <button
+                  type="button"
+                  class="item-button rollable feature-button"
+                  data-roll="{{item.data.actionMacro}}"
+                  data-label="{{item.data.actionMacroLabel}}"
+                  title="{{item.data.actionMacroLabel}}"
+                >
+                  {{item.data.actionMacroLabel}}
+                </button>
+                {{/if}}
+              </div>
+              <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"
+                  ><i class="fas fa-edit"></i
+                ></a>
+                <a class="item-control item-delete" title="Delete Item"
+                  ><i class="fas fa-trash"></i
+                ></a>
+              </div>
+            </li>
+            {{/each}}
           {{/each}}
         </ol>
-        {{#unless data.data.feats.length}}
+        {{#unless data.data.features.length}}
         <div class="rule-text you-have-no">
-          {{localize 'PB.YouHaveNoFeats'}}
+          {{localize 'PB.YouHaveNoFeatures'}}
         </div>
         {{/unless}}
       </ol>
@@ -572,7 +529,7 @@
           <div class="item-controls flexrow"></div>
         </li>
         <ol class="item-list">
-          {{#each data.data.scrolls as |item id|}}
+          {{#each data.data.invokables as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <img
               src="{{item.img}}"

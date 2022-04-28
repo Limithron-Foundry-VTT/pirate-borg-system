@@ -31,43 +31,65 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Abilities Tab --}}
-    <div class="tab" data-group="primary" data-tab="abilities">
-      {{editor content=data.data.abilities target="data.abilities" button=true
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor content=data.data.description target="data.description" button=true
       owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Description --}}
+      {{!-- Flavor Text --}}
       <div class="form-group">
-        <label>{{ localize "PB.Description" }}:</label>
-        <textarea name="data.description" rows="8">
-{{data.data.description}}</textarea
-        >
+        <label>{{ localize "PB.FlavorText" }}:</label>
+        <textarea name="data.flavorText" rows="8">
+{{data.data.flavorText}}</textarea>
       </div>
 
       <br />
 
-      {{!-- Starting silver --}}
+
+      {{!-- Luck Die --}}
       <div class="form-group">
-        <label>{{ localize "PB.Silver" }}:</label>
+        <label>{{ localize "PB.Luck" }}:</label>
         <input
           type="text"
-          name="data.startingSilver"
-          value="{{data.data.startingSilver}}"
-          placeholder="2d6*10"
+          name="data.luckDie"
+          value="{{data.data.luckDie}}"
+          placeholder="1d2"
           data-dtype="String"
         />
       </div>
 
-      {{!-- Omen Die --}}
+      {{!-- Starting equipment --}}
       <div class="form-group">
-        <label>{{ localize "PB.Omens" }}:</label>
+        <label>{{ localize "PB.WeaponTable" }}:</label>
         <input
           type="text"
-          name="data.omenDie"
-          value="{{data.data.omenDie}}"
-          placeholder="1d2"
+          name="data.startingWeaponTableFormula"
+          value="{{data.data.startingWeaponTableFormula}}"
+          placeholder="1d10"
+          data-dtype="String"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.HatTable" }}:</label>
+        <input
+          type="text"
+          name="data.startingHatTableFormula"
+          value="{{data.data.startingHatTableFormula}}"
+          placeholder="1d4"
+          data-dtype="String"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ArmorTable" }}:</label>
+        <input
+          type="text"
+          name="data.startingArmorTableFormula"
+          value="{{data.data.startingArmorTableFormula}}"
+          placeholder="1d4"
           data-dtype="String"
         />
       </div>
@@ -88,22 +110,34 @@
 
       {{!-- Starting abilities --}}
       <div class="form-group">
-        <label>{{ localize "PB.AbilityStrength" }}:</label>
+        <label>{{ localize "PB.AbilityScoreFormula" }}:</label>
         <input
           type="text"
-          name="data.startingStrength"
-          value="{{data.data.startingStrength}}"
+          name="data.startingAbilityScoreFormula"
+          value="{{data.data.startingAbilityScoreFormula}}"
           placeholder="3d6"
           data-dtype="String"
         />
       </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.AbilityStrength" }}:</label>
+        <input
+          type="text"
+          name="data.startingStrengthBonus"
+          value="{{data.data.startingStrengthBonus}}"
+          placeholder="0"
+          data-dtype="String"
+        />
+      </div>
+
       <div class="form-group">
         <label>{{ localize "PB.AbilityAgility" }}:</label>
         <input
           type="text"
-          name="data.startingAgility"
-          value="{{data.data.startingAgility}}"
-          placeholder="3d6"
+          name="data.startingAgilityBonus"
+          value="{{data.data.startingAgilityBonus}}"
+          placeholder="0"
           data-dtype="String"
         />
       </div>
@@ -111,9 +145,9 @@
         <label>{{ localize "PB.AbilityPresence" }}:</label>
         <input
           type="text"
-          name="data.startingPresence"
-          value="{{data.data.startingPresence}}"
-          placeholder="3d6"
+          name="data.startingPresenceBonus"
+          value="{{data.data.startingPresenceBonus}}"
+          placeholder="0"
           data-dtype="String"
         />
       </div>
@@ -121,48 +155,99 @@
         <label>{{ localize "PB.AbilityToughness" }}:</label>
         <input
           type="text"
-          name="data.startingToughness"
-          value="{{data.data.startingToughness}}"
-          placeholder="3d6"
+          name="data.startingToughnessBonus"
+          value="{{data.data.startingToughnessBonus}}"
+          placeholder="0"
+          data-dtype="String"
+        />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.AbilitySpirit" }}:</label>
+        <input
+          type="text"
+          name="data.startingSpiritBonus"
+          value="{{data.data.startingSpiritBonus}}"
+          placeholder="0"
           data-dtype="String"
         />
       </div>
 
       <br />
 
-      {{!-- Starting equipment --}}
       <div class="form-group">
-        <label>{{ localize "PB.WeaponTable" }}:</label>
+        <label>{{ localize "PB.StartingItems" }}:</label>
+        <textarea name="data.startingItems" placeholder="compendium;item" rows="4">{{data.data.startingItems}}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.StartingRolls" }}:</label>
+        <textarea name="data.startingRolls" placeholder="compendium;table;count" rows="4">{{data.data.startingRolls}}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.StartingMacro" }}:</label>
         <input
           type="text"
-          name="data.weaponTableDie"
-          value="{{data.data.weaponTableDie}}"
-          placeholder="1d10"
+          name="data.startingMacro"
+          value="{{data.data.startingMacro}}"
+          placeholder="compendium;macro"
           data-dtype="String"
         />
       </div>
+
+      <br />
+
       <div class="form-group">
-        <label>{{ localize "PB.ArmorTable" }}:</label>
+        <label>{{ localize "PB.GettingBetterRolls" }}:</label>
+        <textarea name="data.gettingBetterRolls" placeholder="compendium;table;count" rows="4">{{data.data.gettingBetterRolls}}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.GettingBetterMacro" }}:</label>
         <input
           type="text"
-          name="data.armorTableDie"
-          value="{{data.data.armorTableDie}}"
-          placeholder="1d4"
+          name="data.gettingBetterMacro"
+          value="{{data.data.gettingBetterMacro}}"
+          placeholder="compendium;macro"
           data-dtype="String"
         />
       </div>
+
+      <br />
+
       <div class="form-group">
-        <label>{{ localize "PB.Items" }}:</label>
-        <textarea name="data.startingItems" rows="4">
-{{data.data.startingItems}}</textarea
-        >
+        <label>{{ localize "PB.ExtraResourceUse" }}:</label>
+        <input
+          type="checkbox"
+          name="data.useExtraResource"
+          {{checked
+          data.data.useExtraResource}}
+          data-dtype="Boolean"
+        />
       </div>
+
       <div class="form-group">
-        <label>{{ localize "PB.Rolls" }}:</label>
-        <textarea name="data.startingRolls" rows="4">
-{{data.data.startingRolls}}</textarea
-        >
+        <label>{{ localize "PB.ExtraResourceLabel" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceLabel"
+          value="{{data.data.extraResourceLabel}}"
+          placeholder=""
+          data-dtype="String"
+        />
       </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ExtraResourceFormula" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceFormula"
+          value="{{data.data.extraResourceFormula}}"
+          placeholder="1d6"
+          data-dtype="String"
+        />
+      </div>
+
     </div>
   </section>
 </form>

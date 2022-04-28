@@ -87,6 +87,31 @@
           data-dtype="Number"
         />
       </div>
+
+      {{!-- Action Macro --}}
+      <div class="form-group">
+        <label>{{ localize "PB.actionMacro" }}:</label>
+        <input
+          type="text"
+          name="data.actionMacro"
+          value="{{data.data.actionMacro}}"
+          placeholder="compendium;macro"
+          data-dtype="String"
+        />
+      </div>
+      
+      {{!-- Action Macro Label --}}
+      <div class="form-group">
+        <label>{{ localize "PB.actionMacroLabel" }}:</label>
+        <input
+          type="text"
+          name="data.actionMacroLabel"
+          value="{{data.data.actionMacroLabel}}"
+          placeholder="Use"
+          data-dtype="String"
+        />
+      </div>
+
     </div>
   </section>
 </form>

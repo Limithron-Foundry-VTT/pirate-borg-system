@@ -101,20 +101,20 @@
           margin-bottom: 7px;
         }
 
-        .omens-row {
+        .luck-row {
           display: flex;
           flex: 0 0 30px;
           margin-bottom: 7px;
           width: 100%;
 
-          .omens-label:hover {
+          .luck-label:hover {
             color: var(--highlight-foreground-color);
             text-shadow: 0 0 10px var(--highlight-background-color);
             cursor: pointer;
           }
         }
 
-        .omen-rule {
+        .luck-rule {
           flex: 0 0 90px;
           margin-left: 10px;
           margin-right: 11px;
@@ -122,62 +122,8 @@
           text-transform: lowercase;
         }
 
-        .miseries-row {
-          flex: 0 0 30px;
-        }
-
-        .stat-label,
-        .miseries-label {
+        .stat-label {
           float: left;
-        }
-
-        ul.miseries {
-          list-style-type: none;
-          margin: 0;
-          margin-top: 3px;
-          padding: 0;
-          float: left;
-
-          li {
-            float: left;
-          }
-
-          label {
-            display: block;
-            padding: 4px;
-            position: relative;
-            padding-left: 20px;
-
-            input[type="radio"] {
-              display: none;
-            }
-          }
-
-          input[type="radio"]:checked + span {
-            background: var(--highlight-background-color);
-            color: var(--highlight-foreground-color);
-            border: none;
-          }
-
-          label span {
-            border: 1px solid #7a7971;
-            width: 17px;
-            height: 17px;
-            position: absolute;
-            overflow: hidden;
-            line-height: 1.5;
-            text-align: center;
-            border-radius: 100%;
-            font-size: 10pt;
-            font-family: var(--item-font);
-            left: 0;
-            top: 50%;
-          }
-
-          li:last-child label span {
-            background: var(--foreground-color);
-            color: var(--background-color);
-          }
         }
 
         .ability-row {
@@ -213,7 +159,7 @@
       }
 
       .sheet-body {
-        .feat-button {
+        .feature-button {
           min-width: 120px;
         }
 

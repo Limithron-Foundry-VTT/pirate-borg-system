@@ -1,43 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet");
 
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
   --foreground-alt-color: #ffe900;
-  --highlight-background-color: #ffe900;
-  --highlight-foreground-color: #000000;
+
+  --highlight-background-color: #ff0000;
+  --highlight-foreground-color: #FFFFFF;
   --sidebar-background-color: #000000;
   --sidebar-foreground-color: #ffffff;
   --sidebar-button-background-color: #000000;
   --sidebar-button-foreground-color: #ffffff;
+  --color-bg-option: #000000;
   --window-background: #000000;
-  --chat-font: "Alegreya";
-  --chat-info-font: "Oswald";
-  --h1-font: "Blood Crow";
-  --h2-font: "FetteTrumpDeutsch";
-  --h3-font: "Old Cupboard";
-  --item-font: "Special Elite";
+
+  --h1-font: "Roman Antique Regular";
+  --h2-font: "IM Fell English SC";
+  --h3-font: "IM Fell English SC";
+ 
+  --chat-font: "Alegreya"; 
+  --chat-info-font: "Alegreya";
+  --item-font: "Alegreya";
 }
 
 /* ====================== */
 /* Fonts */
 /* ====================== */
 @font-face {
-  font-family: "Blood Crow";
-  src: url("../fonts/bloodcrow.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Calling Code Regular";
-  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "FetteTrumpDeutsch";
-  src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Old Cupboard";
-  src: url("../fonts/OldCupboard.otf") format("opentype");
+  font-family: "Roman Antique Regular";
+  src: url("../fonts/Roman Antique Regular.ttf") format("truetype");
 }

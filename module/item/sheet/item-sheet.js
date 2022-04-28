@@ -37,11 +37,12 @@ export class PBItemSheet extends ItemSheet {
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.PB;
-    if (data.data.data.scrollType) {
+    // TODO
+    /*if (data.data.data.scrollType) {
       data.data.data.localizedScrollType = game.i18n.localize(
         PB.scrollTypes[data.data.data.scrollType]
       );
-    }
+    }*/
     return data;
   }
 

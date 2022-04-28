@@ -1,4 +1,4 @@
-export const configureEditor = (options) => {
+export const setCustomEditorOptions = (options) => {
   options.relative_urls = true;
   options.skin_url = "/systems/pirateborg/css/skins/pb";
   options.skin = "pirateborg";

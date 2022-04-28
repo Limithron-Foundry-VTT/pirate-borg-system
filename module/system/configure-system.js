@@ -2,7 +2,6 @@ import { PBActor } from "../actor/actor.js";
 import { PBActorSheetCharacter } from "../actor/sheet/character-sheet.js";
 import { PBActorSheetContainer } from "../actor/sheet/container-sheet.js";
 import { PBActorSheetCreature } from "../actor/sheet/creature-sheet.js";
-import { PBActorSheetFollower } from "../actor/sheet/follower-sheet.js";
 import { PBCombat } from "../combat.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
@@ -46,12 +45,6 @@ export const configureSystem = () => {
     types: ["creature"],
     makeDefault: true,
     label: "PB.SheetClassCreature",
-  });
-
-  Actors.registerSheet("pirateborg", PBActorSheetFollower, {
-    types: ["follower"],
-    makeDefault: true,
-    label: "PB.SheetClassFollower",
   });
 
   Items.unregisterSheet("core", ItemSheet);

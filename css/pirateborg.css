@@ -1,41 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
   --foreground-alt-color: #ffe900;
-  --highlight-background-color: #ffe900;
-  --highlight-foreground-color: #000000;
+  --highlight-background-color: #ff0000;
+  --highlight-foreground-color: #FFFFFF;
   --sidebar-background-color: #000000;
   --sidebar-foreground-color: #ffffff;
   --sidebar-button-background-color: #000000;
   --sidebar-button-foreground-color: #ffffff;
+  --color-bg-option: #000000;
   --window-background: #000000;
+  --h1-font: "Roman Antique Regular";
+  --h2-font: "IM Fell English SC";
+  --h3-font: "IM Fell English SC";
   --chat-font: "Alegreya";
-  --chat-info-font: "Oswald";
-  --h1-font: "Blood Crow";
-  --h2-font: "FetteTrumpDeutsch";
-  --h3-font: "Old Cupboard";
-  --item-font: "Special Elite";
+  --chat-info-font: "Alegreya";
+  --item-font: "Alegreya";
 }
 
 /* ====================== */
 /* Fonts */
 /* ====================== */
 @font-face {
-  font-family: "Blood Crow";
-  src: url("../fonts/bloodcrow.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Calling Code Regular";
-  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "FetteTrumpDeutsch";
-  src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Old Cupboard";
-  src: url("../fonts/OldCupboard.otf") format("opentype");
+  font-family: "Roman Antique Regular";
+  src: url("../fonts/Roman Antique Regular.ttf") format("truetype");
 }
 /* ====================== */
 /* Flex */
@@ -192,7 +182,8 @@
   border: 1px solid #7a7971;
   color: var(--foreground-color);
   font-family: var(--item-font);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 20px;
   padding: 0 8px;
 }
 .pirateborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
@@ -302,16 +293,16 @@
 .pirateborg.sheet.actor .sheet-body .item-controls .item-toggle.carried, .pirateborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
   color: var(--highlight-background-color);
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab div.initiative {
+.pirateborg.sheet.actor .sheet-body .combat-tab div.initiative {
   margin-top: 10px;
   text-align: center;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .roll-initiative {
+.pirateborg.sheet.actor .sheet-body .combat-tab .roll-initiative {
   font-family: var(--item-font);
   font-size: 16px;
   margin-right: 10px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .initiative-button {
+.pirateborg.sheet.actor .sheet-body .combat-tab .initiative-button {
   background-color: var(--foreground-color);
   border: none;
   border-bottom: 2px solid #777;
@@ -321,91 +312,91 @@
   font-size: 20px;
   width: 150px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .items-list {
+.pirateborg.sheet.actor .sheet-body .combat-tab .items-list {
   margin-top: 0px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item {
   align-items: center;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col {
   display: flex;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
   flex: 0 0 100px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
   font-size: 10pt;
   margin-top: 5px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item-button {
   font-size: 20px;
   width: 120px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;
   font-size: 16px;
   margin-top: 5px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-fields {
   flex: 0.5;
   font-size: 16px;
   margin-top: 6px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
+.pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.damage-die {
   text-align: right;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.weapon-type {
+.pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.weapon-type {
   text-align: right;
   width: 60px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .attack-rule {
+.pirateborg.sheet.actor .sheet-body .combat-tab .attack-rule {
   text-align: center;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+.pirateborg.sheet.actor .sheet-body .combat-tab .combat-gutter {
   height: 10px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .tier-label {
+.pirateborg.sheet.actor .sheet-body .combat-tab .tier-label {
   float: left;
   font-size: 20;
   margin-right: 10px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers li {
   float: left;
   height: 45px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 32px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio] {
   display: none;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:checked + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
   color: #444444;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers span.tier-num {
   border: 1px solid #7a7971;
   width: 24px;
   height: 24px;
@@ -420,7 +411,7 @@
   /*top: 50%; */
   top: 0%;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers span.tier-dmg {
   width: 30px;
   height: 15px;
   position: absolute;
@@ -432,11 +423,11 @@
   left: -5px;
   top: 30px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+.pirateborg.sheet.actor .sheet-body .combat-tab .underarmor-row {
   margin-top: 0px;
   text-align: center;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .underarmor-row button {
+.pirateborg.sheet.actor .sheet-body .combat-tab .underarmor-row button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
@@ -448,13 +439,13 @@
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+.pirateborg.sheet.actor .sheet-body .combat-tab .hat-rule {
   margin-top: 5px;
 }
-.pirateborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+.pirateborg.sheet.actor .sheet-body .combat-tab .defend-rule {
   text-align: center;
 }
-.pirateborg.sheet.actor .feat-button {
+.pirateborg.sheet.actor .feature-button {
   min-width: 120px;
 }
 .pirateborg.sheet.actor .roll-button {
@@ -572,72 +563,26 @@
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
-.pirateborg.sheet.actor.character .sheet-header .omens-row {
+.pirateborg.sheet.actor.character .sheet-header .luck-row {
   display: flex;
   flex: 0 0 30px;
   margin-bottom: 7px;
   width: 100%;
 }
-.pirateborg.sheet.actor.character .sheet-header .omens-row .omens-label:hover {
+.pirateborg.sheet.actor.character .sheet-header .luck-row .luck-label:hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.pirateborg.sheet.actor.character .sheet-header .omen-rule {
+.pirateborg.sheet.actor.character .sheet-header .luck-rule {
   flex: 0 0 90px;
   margin-left: 10px;
   margin-right: 11px;
   margin-top: 10px;
   text-transform: lowercase;
 }
-.pirateborg.sheet.actor.character .sheet-header .miseries-row {
-  flex: 0 0 30px;
-}
-.pirateborg.sheet.actor.character .sheet-header .stat-label,
-.pirateborg.sheet.actor.character .sheet-header .miseries-label {
+.pirateborg.sheet.actor.character .sheet-header .stat-label {
   float: left;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries {
-  list-style-type: none;
-  margin: 0;
-  margin-top: 3px;
-  padding: 0;
-  float: left;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries li {
-  float: left;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries label {
-  display: block;
-  padding: 4px;
-  position: relative;
-  padding-left: 20px;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
-  display: none;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-  border: none;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries label span {
-  border: 1px solid #7a7971;
-  width: 17px;
-  height: 17px;
-  position: absolute;
-  overflow: hidden;
-  line-height: 1.5;
-  text-align: center;
-  border-radius: 100%;
-  font-size: 10pt;
-  font-family: var(--item-font);
-  left: 0;
-  top: 50%;
-}
-.pirateborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
-  background: var(--foreground-color);
-  color: var(--background-color);
 }
 .pirateborg.sheet.actor.character .sheet-header .ability-row {
   margin-bottom: 10px;
@@ -666,7 +611,7 @@
   border-radius: 0;
   color: var(--foreground-color);
 }
-.pirateborg.sheet.actor.character .sheet-body .feat-button {
+.pirateborg.sheet.actor.character .sheet-body .feature-button {
   min-width: 120px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
@@ -875,43 +820,6 @@
 .pirateborg.sheet.item .sheet-body {
   margin-top: 8px;
   padding: 5px;
-}
-
-.pirateborg.sheet.actor.follower .sheet-header {
-  margin-top: 0;
-  flex: 0 0 90px;
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
-}
-.pirateborg.sheet.actor.follower .sheet-header .header-col1 {
-  flex: 0 0 200px;
-}
-.pirateborg.sheet.actor.follower .sheet-header .header-col2 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  margin: 5px;
-}
-.pirateborg.sheet.actor.follower .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
-}
-.pirateborg.sheet.actor.follower .sheet-header .name-row {
-  flex: 0 0 45px;
-  margin-bottom: 10px;
-  padding-left: 12px;
-  width: 100%;
-}
-.pirateborg.sheet.actor.follower .sheet-header input[type=text].follower-name {
-  height: 45px;
-}
-.pirateborg.sheet.actor.follower .sheet-header .hitpoints-row {
-  flex: 0 0 35px;
-  margin-bottom: 10px;
-  margin-left: 14px;
 }
 
 .pirateborg.sheet.actor.container .sheet-header {

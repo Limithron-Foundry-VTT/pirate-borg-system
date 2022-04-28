@@ -1,5 +1,6 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
+import { rollAncientRelics, rollArcaneRituals, drawClassGettingBetterTable } from "../scvm/scvmfactory.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 
 const ATTACK_DIALOG_TEMPLATE =
@@ -52,12 +53,6 @@ export class PBActor extends Actor {
         actorLink: false,
         disposition: -1,
         vision: false,
-      };
-    } else if (data.type === "follower") {
-      defaults = {
-        actorLink: true,
-        disposition: 1,
-        vision: true,
       };
     }
     mergeObject(data.token, defaults, { overwrite: false });
@@ -178,13 +173,13 @@ export class PBActor extends Actor {
     return this._firstEquipped("armor");
   }
 
-  equippedShield() {
-    return this._firstEquipped("shield");
+  equippedHat() {
+    return this._firstEquipped("hat");
   }
 
   async equipItem(item) {
     if (
-      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.shield].includes(
+      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(
         item.type
       )
     ) {
@@ -315,6 +310,15 @@ export class PBActor extends Actor {
     );
   }
 
+  async testSpirit() {
+    await this._testAbility(
+      "spirit",
+      "PB.AbilitySpirit",
+      "PB.AbilitySpiritAbbrev",
+      null
+    );
+  }
+
   /**
    * Attack!
    */
@@ -420,6 +424,7 @@ export class PBActor extends Actor {
       );
       // roll 2: damage.
       // Use parentheses for critical 2x in case damage die something like 1d6+1
+      
       const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
@@ -621,7 +626,7 @@ export class PBActor extends Actor {
   async _rollDefend(defendDR, incomingAttack) {
     const rollData = this.getRollData();
     const armor = this.equippedArmor();
-    const shield = this.equippedShield();
+    const haty = this.equippedHat();
 
     // roll 1: defend
     const defendRoll = new Roll("d20+@abilities.agility.value", rollData);
@@ -663,16 +668,16 @@ export class PBActor extends Actor {
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
 
-      // roll 3: damage reduction from equipped armor and shield
+      // roll 3: damage reduction from equipped armor and hat
       let damageReductionDie = "";
       if (armor) {
         damageReductionDie =
           CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }
-      if (shield) {
+      if (hat) {
         damageReductionDie += "+1";
-        items.push(shield);
+        items.push(hat);
       }
       if (damageReductionDie) {
         armorRoll = new Roll("@die", { die: damageReductionDie });
@@ -956,19 +961,19 @@ export class PBActor extends Actor {
     return roll;
   }
 
-  async rollOmens() {
+  async rollLuck() {
     const classItem = this.items.filter((x) => x.type === "class").pop();
     if (!classItem) {
       return;
     }
     const roll = await this._rollOutcome(
-      "@omenDie",
+      "@luckDie",
       classItem.getRollData(),
-      `${game.i18n.localize("PB.Omens")}`,
-      (roll) => ` ${game.i18n.localize("PB.Omens")}: ${Math.max(0, roll.total)}`
+      `${game.i18n.localize("PB.Luck")}`,
+      (roll) => ` ${game.i18n.localize("PB.Luck")}: ${Math.max(0, roll.total)}`
     );
-    const newOmens = Math.max(0, roll.total);
-    await this.update({ ["data.omens"]: { max: newOmens, value: newOmens } });
+    const newLuck = Math.max(0, roll.total);
+    await this.update({ ["data.luck"]: { max: newLuck, value: newLuck } });
   }
 
   async rollPowersPerDay() {
@@ -1015,8 +1020,8 @@ export class PBActor extends Actor {
       if (canRestore && foodAndDrink === "eat") {
         await this.rollHealHitPoints("d6");
         await this.rollPowersPerDay();
-        if (this.data.data.omens.value === 0) {
-          await this.rollOmens();
+        if (this.data.data.luck.value === 0) {
+          await this.rollLuck();
         }
       } else if (canRestore && foodAndDrink === "donteat") {
         await this.showRestNoEffect();
@@ -1093,6 +1098,8 @@ export class PBActor extends Actor {
     const newPre = this._betterAbility(oldPre);
     const oldTou = this.data.data.abilities.toughness.value;
     const newTou = this._betterAbility(oldTou);
+    const oldSpi = this.data.data.abilities.spirit.value;
+    const newSpi = this._betterAbility(oldSpi);    
     let newSilver = this.data.data.silver;
 
     const hpOutcome = this._abilityOutcome(
@@ -1120,10 +1127,15 @@ export class PBActor extends Actor {
       oldTou,
       newTou
     );
+    const spiOutcome = this._abilityOutcome(
+      game.i18n.localize("PB.AbilitySpirit"),
+      oldSpi,
+      newSpi
+    );
 
     // Left in the debris you find...
     let debrisOutcome = null;
-    let scrollTableName = null;
+    let relicOrRitual = null;
     const debrisRoll = new Roll("1d6", this.getRollData()).evaluate({
       async: false,
     });
@@ -1136,22 +1148,32 @@ export class PBActor extends Actor {
       debrisOutcome = `${silverRoll.total} silver`;
       newSilver += silverRoll.total;
     } else if (debrisRoll.total === 5) {
-      debrisOutcome = "an unclean scroll";
-      scrollTableName = "Unclean Scrolls";
+      debrisOutcome = "an ancient relic";
+      relicOrRitual = (await rollAncientRelics())[0];      
     } else {
-      debrisOutcome = "a sacred scroll";
-      scrollTableName = "Sacred Scrolls";
+      debrisOutcome = "an arcane ritual"
+      relicOrRitual = (await rollArcaneRituals())[0];      
     }
 
-    // show a single chat message for everything
+    const classFeatures = await drawClassGettingBetterTable(this);
+    const classFeaturesData = classFeatures.map((classFeature) => classFeature.data);
+
+    console.log(relicOrRitual, classFeatures);
+
     const data = {
+      hpOutcome,      
       agiOutcome,
-      debrisOutcome,
-      hpOutcome,
       preOutcome,
       strOutcome,
       touOutcome,
+      spiOutcome,
+      debrisOutcome,      
+      relicOrRitual: relicOrRitual ? relicOrRitual.data : null,
+      classFeatures: classFeaturesData,
     };
+
+    console.log(data);
+    
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
       content: html,
@@ -1159,24 +1181,24 @@ export class PBActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
 
-    if (scrollTableName) {
-      // roll a scroll
-      const pack = game.packs.get("pirateborg.random-scrolls");
-      const content = await pack.getDocuments();
-      const table = content.find((i) => i.name === scrollTableName);
-      await table.draw();
-    }
-
     // set new stats on the actor
-
     await this.update({
       ["data.abilities.strength.value"]: newStr,
       ["data.abilities.agility.value"]: newAgi,
       ["data.abilities.presence.value"]: newPre,
       ["data.abilities.toughness.value"]: newTou,
+      ["data.abilities.spirit.value"]: newSpi,
       ["data.hp.max"]: newHp,
       ["data.silver"]: newSilver,
     });
+
+    if (relicOrRitual) {
+      await this.createEmbeddedDocuments('Item', [relicOrRitual.data]);    
+    }
+
+    if (classFeatures) {
+      await this.createEmbeddedDocuments('Item', classFeaturesData);    
+    }
   }
 
   _betterHp(oldHp) {

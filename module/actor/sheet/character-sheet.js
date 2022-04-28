@@ -17,7 +17,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "violence",
+          initial: "combat",
         },
       ],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
@@ -43,8 +43,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     data.data.trackCarryingCapacity = trackCarryingCapacity();
     data.data.trackAmmo = trackAmmo();
-    console.log(`***************`);
-    console.log(data.data);
 
     return superData;
   }
@@ -57,17 +55,14 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-
-    sheetData.data.feats = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.feat)
-      .sort(byName);
+    const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0)
 
     sheetData.data.class = sheetData.items.find(
       (item) => item.type === CONFIG.PB.itemTypes.class
     );
 
-    sheetData.data.scrolls = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.scroll)
+    sheetData.data.invokables = sheetData.items
+      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
       .sort(byName);
 
     sheetData.data.equipment = sheetData.items
@@ -79,8 +74,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .filter((item) => item.type === CONFIG.PB.itemTypes.armor)
       .find((item) => item.data.equipped);
 
-    sheetData.data.equippedShield = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.shield)
+    sheetData.data.equippedHat = sheetData.items
+      .filter((item) => item.type === CONFIG.PB.itemTypes.hat)
       .find((item) => item.data.equipped);
 
     sheetData.data.equippedWeapons = sheetData.items
@@ -91,6 +86,22 @@ export class PBActorSheetCharacter extends PBActorSheet {
     sheetData.data.ammo = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
       .sort(byName);
+
+    sheetData.data.features = sheetData.items
+      .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
+      .reduce((items, item) => {
+        const key = item.data.featureType || item.type;        
+        let group = items.find((i) => i.type === key);
+        if (!group) {
+          group = { type: key, items: []}
+          items.push(group);
+        }
+        group.items.push(item)
+        return items;
+      }, [])
+      .sort(byType);
+
+      console.log(sheetData.data);
   }
 
   /** @override */
@@ -113,15 +124,18 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html
       .find(".ability-label.rollable.toughness")
       .on("click", this._onToughnessRoll.bind(this));
+      html
+      .find(".ability-label.rollable.spirit")
+      .on("click", this._onSpiritRoll.bind(this));      
     html.find(".item-scvmify").click(this._onScvmify.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
     html
-      .find(".omens-row span.rollable")
-      .on("click", this._onOmensRoll.bind(this));
+      .find(".luck-row span.rollable")
+      .on("click", this._onLuckRoll.bind(this));
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
     // feats tab
-    html.find(".feat-button").on("click", this._onFeatRoll.bind(this));
+    html.find(".feature-button").on("click", this._onFeatRoll.bind(this));
     // powers tab
     html
       .find(".wield-power-button")
@@ -149,9 +163,14 @@ export class PBActorSheetCharacter extends PBActorSheet {
     this.actor.testToughness();
   }
 
-  _onOmensRoll(event) {
+  _onSpiritRoll(event) {
     event.preventDefault();
-    this.actor.rollOmens();
+    this.actor.testSpirit();
+  }
+
+  _onLuckRoll(event) {
+    event.preventDefault();
+    this.actor.rollLuck();
   }
 
   _onPowersPerDayRoll(event) {
