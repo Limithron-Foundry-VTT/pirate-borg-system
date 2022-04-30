@@ -3,45 +3,57 @@
 /* ====================== */
 
 .roll-card {
-  border: 1px solid var(--highlight-background-color);
 
   .card-title {
-    background: var(--highlight-background-color);
-    color: var(--highlight-foreground-color);
+    background: url(/systems/pirateborg/ui/parchment-2.jpg);
+    color: var(--background-color);
     font-family: var(--h2-font);
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 16px;
     text-align: center;
   }
 
   .item-row {
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      border: none;
+      border-radius: 0;
+      margin-right: 8px;
+    }
 
     span.item-name {
       color: var(--foreground-color);
       font-family: var(--item-font);
-      font-size: 14px;
+      font-size: 20px;
+      font-weight: 600;
     }
   }
 
   .roll-title {
     font-family: var(--chat-font);
     font-size: 16px;
-    font-weight: bold;
     text-align: center;
-    text-transform: capitalize;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    &.getting-better {
+      margin-bottom: 0px;
+    }
   }
 
   .roll-result {
-    border: 1px solid gray;
     font-family: var(--chat-font);
     font-size: 18px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
     text-align: center;
+    background-color: #111;
 
     span {
       color: var(--foreground-color);
@@ -51,9 +63,11 @@
 
   .outcome-text {
     font-family: var(--h3-font);
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin: 8px;
+    margin-top: 0;  
     text-align: center;
+    line-height: 28px;
   }
 
   .reaction-text {
@@ -63,18 +77,8 @@
   }
 
   .outcome-text {
-    .attack-outcome,
-    .defend-outcome {
-      margin-left: 10px;
-    }
-
-    .attack-outcome,
-    .defend-outcome,
-    .take-damage {
-      background-color: var(--highlight-background-color);
-      color: var(--highlight-foreground-color);
-      padding-left: 4px;
-      padding-right: 4px;
+    .getting-better {
+      display: block;
     }
   }
 }

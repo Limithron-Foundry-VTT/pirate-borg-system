@@ -1,3 +1,16 @@
+body {
+  background: url(/systems/pirateborg/ui/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.window-app {
+  .window-header {
+    background: url(/systems/pirateborg/ui/parchment-2.jpg);
+    color: var(--background-color);
+  }
+}
+
 .form-group {
   input[type="text"] {
     color: var(--foreground-color);
@@ -23,7 +36,15 @@
 }
 
 form button {
-  color: var(--foreground-color);
+  background: var(--button-color);
+  color: var(--background-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 0 16px;
+  font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 10px var(--highlight-background-color);
@@ -217,14 +238,21 @@ form.editable .results {
 #chat-log {
   background: var(--sidebar-background-color);
 
+  .message-header {
+    align-items: center;
+    line-height: normal;
+    margin-bottom: 4px;
+  }
+
   .chat-message {
     background: var(--window-background);
-    border: 3px solid #252525;
+    border: 3px solid #222;
     border-radius: 0;
     color: var(--foreground-color);
-    margin-top: 6px;
+    margin-top: 8px;
     font-family: var(--chat-font);
     font-size: 16px;
+    padding: 8px;
   }
 
   .message {
@@ -247,7 +275,7 @@ form.editable .results {
   .chat-message .message-header {
     .message-sender {
       font-family: var(--h1-font);
-      font-size: 20px;
+      font-size: 24px;
     }
 
     .message-metadata {
@@ -267,8 +295,10 @@ form.editable .results {
     .dice-formula,
     .dice-total {
       font-size: 16px;
-      border: 1px solid #252525;
       border-radius: 0;
+      background-color: #111;
+      border: 0;
+      box-shadow: none;
     }
   }
 }
@@ -294,9 +324,9 @@ form.editable .results {
 
   h2 {
     border-bottom: none;
-    background: var(--highlight-background-color);
     color: var(--highlight-foreground-color);
     font-family: var(--h2-font);
+    margin-bottom: 16px;
   }
 
   select {
@@ -324,14 +354,14 @@ form.editable .results {
 
     &.active {
       background: var(--background-color);
-      text-shadow: 0 0 10px var(--highlight-background-color);
-      box-shadow: 0 0 10px var(--highlight-background-color);
+      text-shadow: 0 0 16px var(--highlight-background-color);
+      box-shadow: 0 0 16px var(--highlight-background-color);
     }
 
     &:hover {
       background: unset;
-      text-shadow: 0 0 10px var(--highlight-background-color);
-      box-shadow: 0 0 10px var(--highlight-background-color);
+      text-shadow: 0 0 16px var(--highlight-background-color);
+      box-shadow: 0 0 16px var(--highlight-background-color);
     }
   }
 
@@ -374,14 +404,29 @@ form.editable .results {
 }
 
 .dialog .dialog-buttons button {
-  background: var(--foreground-color);
+  background: var(--button-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  cursor: pointer;
 
   &.default {
-    background: var(--foreground-color);
+    background: var(--button-color);
     color: var(--background-color);
-    font-family: var(--h2-font);
+    font-family: var(--button-font);
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    width: auto;
+    padding: 0 16px;
+    font-weight: 500;
+    margin-top: 8px;
   }
 }
 
@@ -436,7 +481,8 @@ select:focus {
 #settings button {
   color: var(--background-color);
   background: var(--foreground-color);
-  font-family: var(--h2-font);
+  font-family: var(--item-font);
+  font-weight: 500;
 }
 
 #sidebar {
@@ -460,17 +506,24 @@ select:focus {
     background: var(--highlight-background-color);
     border: 1px solid var(--highlight-background-color);
     border-bottom: none;
-    box-shadow: 0 0 6px inset var(--highlight-background-color);
-    text-shadow: 0 0 10px var(--highlight-background-color);
+    box-shadow: 0 0 16px inset var(--highlight-background-color);
+    text-shadow: 0 0 16px var(--highlight-background-color);
   }
 }
 
 .sidebar-tab {
   .action-buttons button {
-    background: var(--sidebar-button-background-color);
-    color: var(--sidebar-button-foreground-color);
-    border-radius: 0;
-    font-family: var(--h2-font);
+    cursor: pointer;
+    background: var(--button-color);
+    color: var(--background-color);
+    font-family: var(--button-font);
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    width: auto;
+    padding: 0 16px;
+    font-weight: 500;
+    cursor: pointer;
   }
 
   .directory-header .header-search input {
@@ -478,7 +531,7 @@ select:focus {
     color: var(--sidebar-button-foreground-color);
     border: 1px solid #252525;
     border-radius: 0;
-    font-family: var(--h2-font);
+    font-family: var(--button-font);
 
     &[type="text"]:focus {
       box-shadow: 0 0 5px var(--highlight-background-color);
@@ -487,13 +540,15 @@ select:focus {
 
   .directory-list .directory-item h4 {
     font-family: var(--item-font);
+    font-weight: 600;
+    font-size: 14px;
   }
 }
 
 .tabs .item {
   &.active,
   &:hover {
-    text-shadow: 0 0 10px var(--highlight-background-color);
+    text-shadow: 0 0 16px var(--highlight-background-color);
   }
 }
 
@@ -563,7 +618,7 @@ a {
     padding: 1px 4px;
     border: 1px solid var(--background-color);
     border-radius: 2px;
-    white-space: nowrap;
+    white-space: unset;
     word-break: break-all;
   }
 }

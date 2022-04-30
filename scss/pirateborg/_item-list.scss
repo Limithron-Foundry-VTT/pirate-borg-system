@@ -1,39 +1,42 @@
 .pirateborg {
-  .items-list .items-header {
-    height: 28px;
-    margin: 2px 0;
+  .items-list .items-header {    
+    margin: 0;
     padding: 0;
     align-items: center;
 
-    > * {
-      font-size: 16px;
-      text-align: right;
-      padding-right: 6px;
-    }
-
     .item-name {
-      /*padding-left: 5px;*/
       font-family: var(--h2-font);
-      font-size: 24px;
+      font-size: 20px;
+      text-transform: capitalize;
+      margin: 0;
     }
+  }
+
+  .items-list {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 16px;
   }
 
   .item-list {
     list-style: none;
-    margin: 7px 0;
     padding: 0;
+    margin: 0;
     overflow-y: auto;
-
     .item {
       min-height: 30px;
       line-height: 24px;
-      padding: 3px 3px 3px 0;
-      border-bottom: 1px solid #7a7971;
-      align-items: stretch;
+      padding: 8px 8px 8px 0;
+      border-bottom: 1px solid #333;
+      align-items: center;
+      gap: 8px;
+
+      &:first-of-type {
+        border-top: 1px solid #333;
+      }
 
       img {
         flex: 0 0 24px;
-        margin-right: 5px;
       }
 
       &.item-container-item {
@@ -58,20 +61,24 @@
     }
 
     .item-field {
-      margin-right: 20px;
+     
     }
 
     .item-buttons {
       align-items: right;
       display: flex;
-      flex: 1;
+      flex: 0 0 102px;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start;
+
+      button {
+        width: 100%;
+      }
     }
 
     .item-controls {
-      flex: 0 0 70px;
+      flex: 0 0 100px;
       text-align: right;
       display: flex;
       justify-content: flex-end;
@@ -83,15 +90,7 @@
     }
 
     .item-button {
-      background-color: var(--foreground-color);
-      border: none;
-      border-bottom: 2px solid #777;
-      border-radius: 0;
-      color: var(--background-color);
-      flex: none;
-      font-family: var(--h2-font);
-      font-size: 20px;
-      width: auto;
+
     }
 
     .equipped {

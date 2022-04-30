@@ -6,7 +6,9 @@
         flex: 0 0 90px;
         display: flex;
         flex-direction: row;
-        padding: 5px;
+        padding: 16px;
+        align-items: flex-start;
+        gap: 16px;
 
         .profile-img {
           height: 150px;
@@ -14,24 +16,34 @@
         }
 
         .item-name input[type="text"] {
+          flex: 1;
+          border: none;
           font-family: var(--h1-font);
           font-size: 38px;
-          flex: 1;
-          height: 45px;
-          margin-bottom: 10px;
+          text-transform: uppercase;
+          border: none;
+          height: 46px;
+          font-weight: 600;
+          margin: 0;
+          padding: 0;
         }
 
         .item-subtitle {
           font-family: var(--h3-font);
           font-size: 24px;
           text-transform: uppercase;
-          margin-left: 13px;
-        }
+
+          .item-type {
+            font-family: var(--h3-font);
+            font-size: 24px;
+            width: 100%;
+            margin: 0;
+          }
+        }        
       }
 
       .sheet-body {
-        margin-top: 8px;
-        padding: 5px;
+
       }
     }
   }

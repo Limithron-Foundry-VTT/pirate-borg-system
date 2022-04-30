@@ -142,7 +142,8 @@
       "templates": [
         "equipment"
       ],
-      "reduceDamage": false
+      "reduceDamage": false,
+      "ruleText": ""
     },
     "invokable": {
       "templates": [

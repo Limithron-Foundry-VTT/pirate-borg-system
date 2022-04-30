@@ -24,6 +24,18 @@ export class PBActorSheetCharacter extends PBActorSheet {
     });
   }
 
+  _getHeaderButtons() {
+    return [
+      {
+        class: `regenerate-character-button-${this.actor.id}`,
+        label: game.i18n.localize("PB.RegenerateCharacter"),
+        icon: "fas fa-skull",
+        onclick: this._onScvmify.bind(this),
+      },  
+      ...super._getHeaderButtons()
+    ];
+  }
+
   /** @override */
   getData() {
     const superData = super.getData();
@@ -127,7 +139,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
       html
       .find(".ability-label.rollable.spirit")
       .on("click", this._onSpiritRoll.bind(this));      
-    html.find(".item-scvmify").click(this._onScvmify.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
     html

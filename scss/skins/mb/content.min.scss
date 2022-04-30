@@ -166,9 +166,11 @@ pre[class*="language-"] {
 .mce-content-body {
   color: white;
   background-color: black;
-  font-family: "Special Elite";
+  font-family: "Alegreya";
   overflow-wrap: break-word;
   word-wrap: break-word;
+  font-size: 16px;
+  line-height: 20px;
 }
 .mce-content-body .mce-visual-caret {
   background-color: #000;
@@ -721,7 +723,7 @@ table[style*="border-width: 0px"] th {
   content: "-";
 }
 body {
-  font-family: "Special Elite";
+  font-family: "Alegreya";
 }
 table {
   border-collapse: collapse;

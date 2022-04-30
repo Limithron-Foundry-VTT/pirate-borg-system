@@ -21,7 +21,7 @@
   select {
     height: 27px;
     background: rgba(0, 0, 0, 0.05);
-    border: 1px solid #7a7971;
+    border: 1px solid #333;
     border-radius: 0px;
     padding: 0 3px;
     text-overflow: ellipsis;
@@ -49,9 +49,15 @@
   }
 
   .button {
-    background: var(--foreground-color);
+    background: var(--button-color);
     color: var(--background-color);
-    font-family: var(--h2-font);
+    font-family: var(--button-font);
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    width: auto;
+    padding: 0 16px;
+    font-weight: 500;
   }
 }
 

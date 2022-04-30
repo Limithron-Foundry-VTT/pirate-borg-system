@@ -2,7 +2,7 @@ export const setCustomEditorOptions = (options) => {
   options.relative_urls = true;
   options.skin_url = "/systems/pirateborg/css/skins/pb";
   options.skin = "pirateborg";
-  options.toolbar_location = "bottom";
+  options.toolbar_location = "top";
   options.plugins = "lists table link image save";
   options.toolbar =
     "formatselect | bold italic underline strikethrough numlist bullist image link save";

@@ -470,6 +470,7 @@ export class PBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
     };
+    console.log(rollResult);
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);
   }
@@ -626,7 +627,7 @@ export class PBActor extends Actor {
   async _rollDefend(defendDR, incomingAttack) {
     const rollData = this.getRollData();
     const armor = this.equippedArmor();
-    const haty = this.equippedHat();
+    const hat = this.equippedHat();
 
     // roll 1: defend
     const defendRoll = new Roll("d20+@abilities.agility.value", rollData);
@@ -675,7 +676,8 @@ export class PBActor extends Actor {
           CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }
-      if (hat) {
+
+      if (hat && hat.data.data.reduceDamage) {
         damageReductionDie += "+1";
         items.push(hat);
       }

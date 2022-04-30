@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet");
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
@@ -12,12 +12,14 @@
   --sidebar-button-foreground-color: #ffffff;
   --color-bg-option: #000000;
   --window-background: #000000;
+  --button-color: #FFF;
   --h1-font: "Roman Antique Regular";
   --h2-font: "IM Fell English SC";
   --h3-font: "IM Fell English SC";
   --chat-font: "Alegreya";
   --chat-info-font: "Alegreya";
   --item-font: "Alegreya";
+  --button-font: "Alegreya" ;
 }
 
 /* ====================== */
@@ -87,7 +89,7 @@
 .pirateborg select {
   height: 27px;
   background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
   border-radius: 0px;
   padding: 0 3px;
   text-overflow: ellipsis;
@@ -110,9 +112,15 @@
   height: 100%;
 }
 .pirateborg .button {
-  background: var(--foreground-color);
+  background: var(--button-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
 }
 
 .mce-content-body {
@@ -126,22 +134,21 @@
 }
 .pirateborg.sheet .window-content {
   overflow-y: hidden;
-  padding: 5px;
+  padding: 0;
   /* inherited background is parchment img bg */
   background: var(--window-background);
   font-size: 13px;
   color: var(--foreground-color);
-  border-bottom: 1px solid #222222;
-  border-left: 1px solid #222222;
-  border-right: 1px solid #222222;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 .pirateborg.sheet .window-content form {
   height: 100%;
   overflow: hidden;
 }
 .pirateborg.sheet .editable .rollable:hover {
-  color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
   cursor: pointer;
 }
 .pirateborg.sheet input[type=text], .pirateborg.sheet input[type=number], .pirateborg.sheet input[type=password], .pirateborg.sheet input[type=date] {
@@ -161,7 +168,7 @@
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 .pirateborg.sheet textarea {
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
   border-radius: 0;
   color: var(--foreground-color);
   font-family: var(--item-font);
@@ -179,7 +186,7 @@
   border: none;
 }
 .pirateborg.sheet .editor {
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
   color: var(--foreground-color);
   font-family: var(--item-font);
   font-size: 16px;
@@ -190,31 +197,29 @@
   background: var(--background-color);
 }
 .pirateborg.sheet .sheet-tabs {
-  flex: 0 0 30px;
-  margin-bottom: 5px;
-  /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
+  flex: none;
   font-size: 20px;
-  font-weight: 700;
-  /* TODO: track down the border-top and border-bottom getting inherited on these */
   border-top: none;
   border-bottom: none;
+  padding: 0;
+  margin: 8px 16px 8px 16px;
 }
 .pirateborg.sheet .sheet-tabs .item {
   font-family: var(--h2-font);
   font-size: 22px;
   height: 30px;
   line-height: 32px;
-  margin: 0 5px;
-  width: 120px;
+  width: 100%;
+  border-radius: 16px;
 }
 .pirateborg.sheet .sheet-tabs .item:hover {
   color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 .pirateborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  color: var(--background-color);
 }
 .pirateborg .sheet-body {
   overflow: hidden;
@@ -222,6 +227,7 @@
 .pirateborg .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
+  padding: 16px 16px 16px 16px;
 }
 .pirateborg.sheet .sheet-body .form-group {
   margin-bottom: 8px;
@@ -243,21 +249,25 @@
 
 .pirateborg.sheet.actor .rule-text {
   font-family: var(--item-font);
-  font-size: 10pt;
+  font-size: 14px;
+  line-height: 20px;
 }
 .pirateborg.sheet.actor .stat-label {
-  font-family: var(--h2-font);
-  font-size: 22px;
-  margin-right: 10px;
+  font-family: var(--item-font);
+  font-size: 16px;
+  line-height: 16px;
 }
 .pirateborg.sheet.actor .stat-input {
-  border: 1px solid #7a7971;
+  border: none;
   font-family: var(--item-font);
-  font-size: 14pt;
   text-align: center;
-  padding-top: 8px;
-  width: 50px;
   color: var(--foreground-color);
+  font-size: 32px;
+  width: 42px;
+  height: 32px;
+  font-weight: 600;
+  padding: 0;
+  padding-bottom: 8px;
 }
 .pirateborg.sheet.actor .stat-value {
   font-family: var(--item-font);
@@ -268,12 +278,11 @@
 }
 .pirateborg.sheet.actor .sheet-header {
   margin-top: 0;
-  padding: 5px;
+  padding: 16px 16px 16px 16px;
   display: flex;
   flex-direction: row;
-}
-.pirateborg.sheet.actor .sheet-header .header-gutter-col {
-  flex: 0 0 10px;
+  flex: none;
+  align-items: flex-start;
 }
 .pirateborg.sheet.actor .sheet-header .profile-img {
   height: 200px;
@@ -286,6 +295,9 @@
   font-size: 24px;
   text-transform: uppercase;
   margin-left: 13px;
+}
+.pirateborg.sheet.actor .sheet-body {
+  flex: 1;
 }
 .pirateborg.sheet.actor .sheet-body .item-controls .item-toggle {
   color: darkgray;
@@ -303,51 +315,30 @@
   margin-right: 10px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .initiative-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: 150px;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab .items-list {
-  margin-top: 0px;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item {
-  align-items: center;
+  width: 100px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col {
   display: flex;
+  align-items: center;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
   flex: 0 0 100px;
+  margin-top: 0;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
   font-size: 10pt;
-  margin-top: 5px;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item-buttons {
-  flex: 0.5;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .item-button {
-  font-size: 20px;
-  width: 120px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;
-  font-size: 16px;
-  margin-top: 5px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-fields {
-  flex: 0.5;
-  font-size: 16px;
-  margin-top: 6px;
+  flex: 0 0 120px;
+  gap: 16px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.damage-die {
   text-align: right;
+  width: 60px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.weapon-type {
   text-align: right;
@@ -359,6 +350,16 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab .combat-gutter {
   height: 10px;
 }
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-armor-tier {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0;
+}
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-hat-rule {
+  flex: 0 0 250px;
+  text-align: right;
+}
 .pirateborg.sheet.actor .sheet-body .combat-tab .tier-label {
   float: left;
   font-size: 20;
@@ -367,19 +368,19 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers {
   list-style-type: none;
   margin: 0;
-  margin-top: 3px;
   padding: 0;
-  float: left;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers li {
-  float: left;
-  height: 45px;
+  display: flex;
+  align-content: center;
+  gap: 12px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers label {
-  display: block;
-  padding: 4px;
-  position: relative;
-  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers label .tier-dmg {
+  line-height: 13px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio] {
   display: none;
@@ -387,7 +388,7 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:checked + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
-  border: none;
+  border-color: var(--highlight-background-color);
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
@@ -397,85 +398,67 @@
   color: #444444;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers span.tier-num {
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
+  border-radius: 100%;
+  font-family: var(--item-font);
   width: 24px;
   height: 24px;
-  position: absolute;
-  overflow: hidden;
-  line-height: 1.5;
   text-align: center;
-  border-radius: 100%;
-  font-size: 14pt;
-  font-family: var(--item-font);
-  left: 0;
-  /*top: 50%; */
-  top: 0%;
-}
-.pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers span.tier-dmg {
-  width: 30px;
-  height: 15px;
-  position: absolute;
-  overflow: hidden;
-  line-height: 1;
-  text-align: center;
-  font-family: var(--item-font);
-  font-size: 10pt;
-  left: -5px;
-  top: 30px;
+  line-height: 21px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .underarmor-row {
-  margin-top: 0px;
-  text-align: center;
+  padding: 8px 8px 8px 0;
+  text-align: right;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .underarmor-row button {
-  margin-left: 10px;
-  width: 120px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
+  width: 100px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .hat-rule {
   margin-top: 5px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .defend-rule {
   text-align: center;
-}
-.pirateborg.sheet.actor .feature-button {
-  min-width: 120px;
+  margin-top: 16px;
 }
 .pirateborg.sheet.actor .roll-button {
-  margin-left: 10px;
-  width: 120px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
+  background-color: var(--button-color);
   border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
+  border-radius: 16px;
+  color: var(--foreground-color);
+  font-family: var(--button-font);
+  font-size: 20px;
+  width: 160px;
 }
 .pirateborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
   text-transform: uppercase;
+  border: none;
+  height: 46px;
+  font-weight: 600;
 }
 .pirateborg.sheet.actor .sheet-body .equipment-top-row {
-  margin-top: 10px;
-  margin-left: 20px;
   display: flex;
+  align-items: flex-start;
   flex-direction: row;
+  margin-bottom: 16px;
+}
+.pirateborg.sheet.actor .sheet-body .equipment-list .item-create-button {
+  flex: 0 0 80px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+  padding: 0 8px 0 0;
 }
 .pirateborg.sheet.actor .sheet-body .silver {
-  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .pirateborg.sheet.actor .sheet-body .silver-input {
-  width: 70px;
+  width: 74px;
+  text-align: left;
+  padding-left: 8px;
 }
 
 .pirateborg.sheet.actor.character {
@@ -483,62 +466,41 @@
   min-height: 650px;
 }
 .pirateborg.sheet.actor.character .sheet-header {
-  flex: 0 0 200px;
+  gap: 16px;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col1 {
   flex: 0 0 200px;
-  margin: 5px;
   padding: 0;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 {
-  flex: 1 0 350px;
-  margin: 5px;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
-  margin-left: 14px;
-  width: 170px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 button {
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  font-family: var(--h2-font);
-  font-size: 14px;
-  height: 28px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 .broken-button,
-.pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
-  width: 80px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 .get-better-button {
-  width: 90px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
-  margin: 5px;
   display: flex;
   flex-direction: column;
+  gap: 11px;
 }
 .pirateborg.sheet.actor.character .sheet-header .profile-img {
   height: 200px;
   width: 200px;
 }
 .pirateborg.sheet.actor.character .sheet-header .name-row {
-  flex: 0 0 50px;
-  margin-bottom: 7px;
-}
-.pirateborg.sheet.actor.character .sheet-header .name-row input[type=text] {
-  height: 45px;
-  width: 100%;
+  margin-left: -4px;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row {
   display: flex;
-  flex: 0 0 30px;
   flex-direction: row;
-  margin-bottom: 7px;
+  margin-bottom: 19px;
   width: 100%;
+  margin-left: 0px;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row img.classimg {
   height: 24px;
@@ -548,7 +510,7 @@
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row label.classname {
   font-family: var(--h3-font);
-  font-size: 28px;
+  font-size: 24px;
   width: 100%;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row .item-controls {
@@ -560,59 +522,56 @@
 }
 .pirateborg.sheet.actor.character .sheet-header .hitpoints-row {
   display: flex;
-  flex: 0 0 30px;
-  margin-bottom: 7px;
+  align-items: center;
+  margin-bottom: 4px;
+  gap: 4px;
+}
+.pirateborg.sheet.actor.character .sheet-header .hp-entries {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pirateborg.sheet.actor.character .sheet-header .hp-entries span {
+  font-size: 18px;
+  margin-top: 3px;
 }
 .pirateborg.sheet.actor.character .sheet-header .luck-row {
   display: flex;
-  flex: 0 0 30px;
-  margin-bottom: 7px;
-  width: 100%;
+  margin-bottom: 12px;
+  align-items: center;
+  gap: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-header .luck-row .luck-label:hover {
   color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
   cursor: pointer;
 }
-.pirateborg.sheet.actor.character .sheet-header .luck-rule {
-  flex: 0 0 90px;
-  margin-left: 10px;
-  margin-right: 11px;
-  margin-top: 10px;
-  text-transform: lowercase;
-}
-.pirateborg.sheet.actor.character .sheet-header .stat-label {
-  float: left;
-}
 .pirateborg.sheet.actor.character .sheet-header .ability-row {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .pirateborg.sheet.actor.character .sheet-header .ability-row:last-child {
   margin-bottom: 0;
 }
 .pirateborg.sheet.actor.character .sheet-header .ability-label {
-  font-family: var(--h2-font);
-  font-size: 24px;
+  font-family: var(--item-font);
+  font-size: 16px;
   margin-left: 5px;
-  margin-top: 5px;
-  float: left;
+  display: block;
+  padding-top: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-header .ability-input {
-  border: 1px solid #7a7971;
+  border: none;
   font-family: var(--item-font);
-  font-size: 14pt;
+  font-size: 32px;
   text-align: center;
-  padding: 5px;
-  padding-top: 10px;
-  line-height: 1.5;
   width: 42px;
-  height: 42px;
-  float: left;
+  height: 32px;
   border-radius: 0;
   color: var(--foreground-color);
-}
-.pirateborg.sheet.actor.character .sheet-body .feature-button {
-  min-width: 120px;
+  font-weight: 600;
+  padding-bottom: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-top: 15px;
@@ -631,14 +590,6 @@
 }
 .pirateborg.sheet.actor.character .sheet-body .wield-power-button {
   width: 200px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 24px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
 }
 .pirateborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
@@ -654,47 +605,70 @@
 }
 .pirateborg.sheet.actor.character .sheet-body .carry-block {
   flex: 1;
-  text-align: center;
+  text-align: end;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.pirateborg.sheet.actor.character .sheet-body .carry-block .carry-block-carrying {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.pirateborg.sheet.actor.character .sheet-body .carry-block .carry-block-carrying span {
+  font-size: 18px;
+}
+.pirateborg.sheet.actor.character .sheet-body .carry-block .carry-block-carrying .stat-value {
+  color: var(--foreground-color);
+  font-size: 32px;
+  font-weight: 600;
+  padding: 0;
+  margin-top: -8px;
+  line-height: 32px;
 }
 .pirateborg.sheet.actor.character .sheet-body .container-label {
   margin-left: 40px;
 }
 .pirateborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
+  font-weight: 600;
 }
 
 .pirateborg .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
+  margin: 0;
   padding: 0;
   align-items: center;
 }
-.pirateborg .items-list .items-header > * {
-  font-size: 16px;
-  text-align: right;
-  padding-right: 6px;
-}
 .pirateborg .items-list .items-header .item-name {
-  /*padding-left: 5px;*/
   font-family: var(--h2-font);
-  font-size: 24px;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 0;
+}
+.pirateborg .items-list {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 16px;
 }
 .pirateborg .item-list {
   list-style: none;
-  margin: 7px 0;
   padding: 0;
+  margin: 0;
   overflow-y: auto;
 }
 .pirateborg .item-list .item {
   min-height: 30px;
   line-height: 24px;
-  padding: 3px 3px 3px 0;
-  border-bottom: 1px solid #7a7971;
-  align-items: stretch;
+  padding: 8px 8px 8px 0;
+  border-bottom: 1px solid #333;
+  align-items: center;
+  gap: 8px;
+}
+.pirateborg .item-list .item:first-of-type {
+  border-top: 1px solid #333;
 }
 .pirateborg .item-list .item img {
   flex: 0 0 24px;
-  margin-right: 5px;
 }
 .pirateborg .item-list .item.item-container-item {
   padding-left: 29px;
@@ -713,19 +687,19 @@
   margin-right: 10px;
   flex: 2;
 }
-.pirateborg .item-list .item-field {
-  margin-right: 20px;
-}
 .pirateborg .item-list .item-buttons {
   align-items: right;
   display: flex;
-  flex: 1;
+  flex: 0 0 102px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+.pirateborg .item-list .item-buttons button {
+  width: 100%;
+}
 .pirateborg .item-list .item-controls {
-  flex: 0 0 70px;
+  flex: 0 0 100px;
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -734,17 +708,6 @@
   width: 17px;
   margin-left: 3px;
   text-align: center;
-}
-.pirateborg .item-list .item-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  flex: none;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: auto;
 }
 .pirateborg .item-list .equipped {
   color: var(--foreground-color);
@@ -798,30 +761,37 @@
   flex: 0 0 90px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
 }
 .pirateborg.sheet.item .sheet-header .profile-img {
   height: 150px;
   width: 150px;
 }
 .pirateborg.sheet.item .sheet-header .item-name input[type=text] {
+  flex: 1;
+  border: none;
   font-family: var(--h1-font);
   font-size: 38px;
-  flex: 1;
-  height: 45px;
-  margin-bottom: 10px;
+  text-transform: uppercase;
+  border: none;
+  height: 46px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 .pirateborg.sheet.item .sheet-header .item-subtitle {
   font-family: var(--h3-font);
   font-size: 24px;
   text-transform: uppercase;
-  margin-left: 13px;
 }
-.pirateborg.sheet.item .sheet-body {
-  margin-top: 8px;
-  padding: 5px;
+.pirateborg.sheet.item .sheet-header .item-subtitle .item-type {
+  font-family: var(--h3-font);
+  font-size: 24px;
+  width: 100%;
+  margin: 0;
 }
-
 .pirateborg.sheet.actor.container .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -859,6 +829,17 @@
   margin-left: 14px;
 }
 
+body {
+  background: url(/systems/pirateborg/ui/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.window-app .window-header {
+  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  color: var(--background-color);
+}
+
 .form-group input[type=text] {
   color: var(--foreground-color);
 }
@@ -877,7 +858,15 @@
 }
 
 form button {
-  color: var(--foreground-color);
+  background: var(--button-color);
+  color: var(--background-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 0 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1009,14 +998,20 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 #chat-log {
   background: var(--sidebar-background-color);
 }
+#chat-log .message-header {
+  align-items: center;
+  line-height: normal;
+  margin-bottom: 4px;
+}
 #chat-log .chat-message {
   background: var(--window-background);
-  border: 3px solid #252525;
+  border: 3px solid #222;
   border-radius: 0;
   color: var(--foreground-color);
-  margin-top: 6px;
+  margin-top: 8px;
   font-family: var(--chat-font);
   font-size: 16px;
+  padding: 8px;
 }
 #chat-log .message h4,
 #chat-log .message h3,
@@ -1032,7 +1027,7 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
-  font-size: 20px;
+  font-size: 24px;
 }
 #chat-log .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
@@ -1047,8 +1042,10 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
   font-size: 16px;
-  border: 1px solid #252525;
   border-radius: 0;
+  background-color: #111;
+  border: 0;
+  box-shadow: none;
 }
 
 #chat-form textarea {
@@ -1069,9 +1066,9 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 #client-settings h2 {
   border-bottom: none;
-  background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
+  margin-bottom: 16px;
 }
 #client-settings select {
   color: var(--foreground-color);
@@ -1094,13 +1091,13 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 #controls .control-tool.toggle.active {
   background: var(--background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
+  box-shadow: 0 0 16px var(--highlight-background-color);
 }
 #controls .control-tool.toggle:hover {
   background: unset;
-  text-shadow: 0 0 10px var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
+  box-shadow: 0 0 16px var(--highlight-background-color);
 }
 #controls .control-tools {
   color: var(--foreground-color);
@@ -1129,14 +1126,29 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 
 .dialog .dialog-buttons button {
-  background: var(--foreground-color);
+  background: var(--button-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  cursor: pointer;
 }
 .dialog .dialog-buttons button.default {
-  background: var(--foreground-color);
+  background: var(--button-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
 form .form-group select {
@@ -1181,7 +1193,8 @@ select:focus {
 #settings button {
   color: var(--background-color);
   background: var(--foreground-color);
-  font-family: var(--h2-font);
+  font-family: var(--item-font);
+  font-weight: 500;
 }
 
 #sidebar {
@@ -1204,32 +1217,41 @@ select:focus {
   background: var(--highlight-background-color);
   border: 1px solid var(--highlight-background-color);
   border-bottom: none;
-  box-shadow: 0 0 6px inset var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  box-shadow: 0 0 16px inset var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
 .sidebar-tab .action-buttons button {
-  background: var(--sidebar-button-background-color);
-  color: var(--sidebar-button-foreground-color);
-  border-radius: 0;
-  font-family: var(--h2-font);
+  cursor: pointer;
+  background: var(--button-color);
+  color: var(--background-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 .sidebar-tab .directory-header .header-search input {
   background: var(--sidebar-button-background-color);
   color: var(--sidebar-button-foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
 }
 .sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .sidebar-tab .directory-list .directory-item h4 {
   font-family: var(--item-font);
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .tabs .item.active, .tabs .item:hover {
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -1286,7 +1308,7 @@ a.entity-link, a.inline-roll {
   padding: 1px 4px;
   border: 1px solid var(--background-color);
   border-radius: 2px;
-  white-space: nowrap;
+  white-space: unset;
   word-break: break-all;
 }
 
@@ -1297,42 +1319,51 @@ a.entity-link, a.inline-roll {
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
-.roll-card {
-  border: 1px solid var(--highlight-background-color);
-}
 .roll-card .card-title {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  color: var(--background-color);
   font-family: var(--h2-font);
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 16px;
   text-align: center;
 }
 .roll-card .item-row {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roll-card .item-row img {
+  border: none;
+  border-radius: 0;
+  margin-right: 8px;
 }
 .roll-card .item-row span.item-name {
   color: var(--foreground-color);
   font-family: var(--item-font);
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .roll-card .roll-title {
   font-family: var(--chat-font);
   font-size: 16px;
-  font-weight: bold;
   text-align: center;
-  text-transform: capitalize;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.roll-card .roll-title.getting-better {
+  margin-bottom: 0px;
 }
 .roll-card .roll-result {
-  border: 1px solid gray;
   font-family: var(--chat-font);
   font-size: 18px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
   text-align: center;
+  background-color: #111;
 }
 .roll-card .roll-result span {
   color: var(--foreground-color);
@@ -1340,26 +1371,19 @@ a.entity-link, a.inline-roll {
 }
 .roll-card .outcome-text {
   font-family: var(--h3-font);
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin: 8px;
+  margin-top: 0;
   text-align: center;
+  line-height: 28px;
 }
 .roll-card .reaction-text {
   font-family: var(--h3-font);
   font-size: 28px;
   text-align: center;
 }
-.roll-card .outcome-text .attack-outcome,
-.roll-card .outcome-text .defend-outcome {
-  margin-left: 10px;
-}
-.roll-card .outcome-text .attack-outcome,
-.roll-card .outcome-text .defend-outcome,
-.roll-card .outcome-text .take-damage {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-  padding-left: 4px;
-  padding-right: 4px;
+.roll-card .outcome-text .getting-better {
+  display: block;
 }
 
 .dr-modifier {
@@ -1387,14 +1411,14 @@ a.entity-link, a.inline-roll {
 
 .dialog-buttons button.dialog-button:active, .dialog-buttons button.dialog-button:focus, .dialog-buttons button.dialog-button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
 /* ====================== */
 /* Rest and Scvm Dialogs */
 /* ====================== */
 .custom-dialog {
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
   font-size: 14px;
   margin: 0;
 }
@@ -1426,20 +1450,24 @@ a.entity-link, a.inline-roll {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 8px;
+  gap: 8px;
 }
 .custom-dialog .button-row button {
+  background: var(--button-color);
+  color: var(--background-color);
+  font-family: var(--button-font);
   border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: 150px;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  width: 100%;
 }
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
+  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
 .allowed-scvm-classes-dialog .class-name,

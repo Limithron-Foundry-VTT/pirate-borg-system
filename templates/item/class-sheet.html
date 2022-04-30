@@ -24,13 +24,13 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="abilities">{{ localize "PB.Abilities" }}</a>
+    <a class="item" data-tab="description">{{ localize "PB.TabDescription" }}</a>
     <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    {{!-- Abilities Tab --}}
+    {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
       {{editor content=data.data.description target="data.description" button=true
       owner=owner editable=true}}

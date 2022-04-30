@@ -2,28 +2,21 @@
   <div class="card-title">Get Better</div>
   <div class="test-roll">
     <div class="outcome-text">
-      <span class="take-damage">{{hpOutcome}}</span>
+      <span class="getting-better">{{hpOutcome}}</span>
     </div>
     <div class="outcome-text">
-      <span class="take-damage">{{strOutcome}}</span>
+      <span class="getting-better">{{strOutcome}}</span>
+      <span class="getting-better">{{agiOutcome}}</span>
+      <span class="getting-better">{{preOutcome}}</span>
+      <span class="getting-better">{{touOutcome}}</span>
+      <span class="getting-better">{{spiOutcome}}</span>
     </div>
+
     <div class="outcome-text">
-      <span class="take-damage">{{agiOutcome}}</span>
-    </div>
-    <div class="outcome-text">
-      <span class="take-damage">{{preOutcome}}</span>
-    </div>
-    <div class="outcome-text">
-      <span class="take-damage">{{touOutcome}}</span>
-    </div>
-    <div class="outcome-text">
-      <span class="take-damage">{{spiOutcome}}</span>
-    </div>
-    <div class="roll-title">
-      <span>Left in the debris you find:</span>
-    </div>
-    <div class="outcome-text">
-      <span class="take-damage">{{debrisOutcome}}</span>
+      <div class="roll-title getting-better">
+        <span>Left in the debris you find:</span>
+      </div>  
+      <span class="getting-better">{{debrisOutcome}}</span>
       {{#if relicOrRitual}}
         @Item[{{relicOrRitual._id}}]
       {{/if}}
@@ -31,7 +24,9 @@
 
     {{#if classFeatures.length}}
     <div class="outcome-text">
-      <span class="take-damage">{{localize 'PB.GettingBetterClassFeatures'}}</span>
+      <div class="roll-title getting-better">
+        <span>{{localize 'PB.GettingBetterClassFeatures'}}</span>
+      </div>      
       {{#each classFeatures as |classFeature|}}
         @Item[{{classFeature._id}}]
       {{/each}}              

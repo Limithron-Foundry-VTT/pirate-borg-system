@@ -26,7 +26,7 @@
   &:focus,
   &:hover {
     box-shadow: 0 0 5px var(--highlight-background-color);
-    text-shadow: 0 0 10px var(--highlight-background-color);
+    text-shadow: 0 0 16px var(--highlight-background-color);
   }
 }
 
@@ -35,7 +35,7 @@
 /* ====================== */
 
 .custom-dialog {
-  border: 1px solid #7a7971;
+  border: 1px solid #333;
   font-size: 14px;
   margin: 0;
 
@@ -77,22 +77,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 8px;
+    gap: 8px;
 
     button {
+      background: var(--button-color);
+      color: var(--background-color);
+      font-family: var(--button-font);
       border: none;
-      border-bottom: 2px solid #777;
-      border-radius: 0;
-      font-family: var(--h2-font);
-      font-size: 20px;
-      width: 150px;
+      border-radius: 24px;
+      font-size: 14px;
+      width: auto;
+      padding: 0 16px;
+      font-weight: 500;
+      width: 100%;
 
       &:active,
       &:focus,
       &:hover {
         box-shadow: 0 0 5px var(--highlight-background-color);
-        text-shadow: 0 0 10px var(--highlight-background-color);
+        text-shadow: 0 0 16px var(--highlight-background-color);
       }
     }
   }

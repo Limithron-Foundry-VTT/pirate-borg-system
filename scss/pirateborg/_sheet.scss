@@ -2,15 +2,15 @@
   &.sheet {
     .window-content {
       overflow-y: hidden;
-      padding: 5px;
+      padding: 0;
 
       /* inherited background is parchment img bg */
       background: var(--window-background);
       font-size: 13px;
       color: var(--foreground-color);
-      border-bottom: 1px solid #222222;
-      border-left: 1px solid #222222;
-      border-right: 1px solid #222222;
+      border-bottom: 1px solid #333;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
 
       form {
         height: 100%;
@@ -21,8 +21,7 @@
     margin-top: 0;
 
     .editable .rollable:hover {
-      color: var(--highlight-foreground-color);
-      text-shadow: 0 0 10px var(--highlight-background-color);
+      text-shadow: 0 0 16px var(--highlight-background-color);
       cursor: pointer;
     }
 
@@ -65,7 +64,7 @@
     }
 
     textarea {
-      border: 1px solid #7a7971;
+      border: 1px solid #333;
       border-radius: 0;
       color: var(--foreground-color);
       font-family: var(--item-font);
@@ -87,7 +86,7 @@
     }
 
     .editor {
-      border: 1px solid #7a7971;
+      border: 1px solid #333;
       color: var(--foreground-color);
       font-family: var(--item-font);
       font-size: 16px;
@@ -100,34 +99,30 @@
     }
 
     .sheet-tabs {
-      flex: 0 0 30px;
-      margin-bottom: 5px;
-
-      /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
+      flex: none;
       font-size: 20px;
-      font-weight: 700;
-
-      /* TODO: track down the border-top and border-bottom getting inherited on these */
       border-top: none;
       border-bottom: none;
+      padding: 0;
+      margin: 8px 16px 8px 16px;
 
       .item {
         font-family: var(--h2-font);
         font-size: 22px;
         height: 30px;
         line-height: 32px;
-        margin: 0 5px;
-        width: 120px;
+        width: 100%;
+        border-radius: 16px;
 
         &:hover {
           color: var(--highlight-foreground-color);
-          text-shadow: 0 0 10px var(--highlight-background-color);
+          text-shadow: 0 0 16px var(--highlight-background-color);
         }
 
         &.active {
           text-shadow: none;
-          background-color: var(--highlight-background-color);
-          color: var(--highlight-foreground-color);
+          background: url(/systems/pirateborg/ui/parchment-2.jpg);
+          color: var(--background-color);
         }
       }
     }
@@ -139,6 +134,7 @@
     .tab {
       height: 100%;
       overflow-y: auto;
+      padding: 16px 16px 16px 16px; 
     }
   }
 

@@ -2,23 +2,27 @@
   &.sheet.actor {
     .rule-text {
       font-family: var(--item-font);
-      font-size: 10pt;
+      font-size: 14px;
+      line-height: 20px;
     }
 
     .stat-label {
-      font-family: var(--h2-font);
-      font-size: 22px;
-      margin-right: 10px;
+      font-family: var(--item-font);
+      font-size: 16px;
+      line-height: 16px;
     }
 
     .stat-input {
-      border: 1px solid #7a7971;
+      border: none;
       font-family: var(--item-font);
-      font-size: 14pt;
       text-align: center;
-      padding-top: 8px;
-      width: 50px;
       color: var(--foreground-color);
+      font-size: 32px;
+      width: 42px;
+      height: 32px;
+      font-weight: 600;
+      padding: 0;
+      padding-bottom: 8px;
     }
 
     .stat-value {
@@ -31,13 +35,11 @@
 
     .sheet-header {
       margin-top: 0;
-      padding: 5px;
+      padding: 16px 16px 16px 16px;
       display: flex;
       flex-direction: row;
-
-      .header-gutter-col {
-        flex: 0 0 10px;
-      }
+      flex: none;
+      align-items: flex-start;
 
       .profile-img {
         height: 200px;
@@ -55,6 +57,8 @@
     }
 
     .sheet-body {
+      flex: 1;
+
       .item-controls .item-toggle {
         color: darkgray;
 
@@ -77,67 +81,54 @@
         }
 
         .initiative-button {
-          background-color: var(--foreground-color);
-          border: none;
-          border-bottom: 2px solid #777;
-          border-radius: 0;
-          color: var(--background-color);
-          font-family: var(--h2-font);
-          font-size: 20px;
-          width: 150px;
-        }
-
-        .items-list {
-          margin-top: 0px;
+          width: 100px;
         }
 
         .item-list {
           &.weapon-list {
             .item {
-              align-items: center;
+              
             }
 
             .weapon-name-col {
               display: flex;
+              align-items: center;
               .ammo-select-col {
                 flex: 0 0 100px;
+                margin-top: 0;
                 select.ammo-select {
                   font-family: var(--item-font);
                   font-size: 10pt;
-                  margin-top: 5px;
                 }
               }
             }
 
             .item-buttons {
-              flex: 0.5;
+              
             }
 
             .item-button {
-              font-size: 20px;
-              width: 120px;
+
             }
           }
 
           .item-name {
             flex: 1;
-            font-size: 16px;
-            margin-top: 5px;
           }
 
           .item-fields {
-            flex: 0.5;
-            font-size: 16px;
-            margin-top: 6px;
+            flex: 0 0 120px;
+            gap: 16px;
           }
         }
 
         .weapon-list .item-field {
           &.damage-die {
             text-align: right;
+            width: 60px;
           }
 
-          &.weapon-type {
+          &.weapon-type {            
             text-align: right;
             width: 60px;
           }
@@ -151,6 +142,18 @@
           height: 10px;
         }
 
+        .item-armor-tier {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex: 0;
+        }
+
+        .item-hat-rule {
+          flex: 0 0 250px;
+          text-align: right;
+        }
+
         .tier-label {
           float: left;
           font-size: 20;
@@ -160,20 +163,24 @@
         ul.tiers {
           list-style-type: none;
           margin: 0;
-          margin-top: 3px;
           padding: 0;
-          float: left;
+          display: flex;
+          align-content: center;
+          gap: 12px;
 
           li {
-            float: left;
-            height: 45px;
+
           }
 
           label {
-            display: block;
-            padding: 4px;
-            position: relative;
-            padding-left: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            .tier-dmg {
+              line-height: 13px;
+            }
           }
 
           input[type="radio"] {
@@ -182,7 +189,7 @@
             &:checked + span.tier-num {
               background: var(--highlight-background-color);
               color: var(--highlight-foreground-color);
-              border: none;
+              border-color: var(--highlight-background-color);
             }
 
             &:disabled {
@@ -199,52 +206,27 @@
 
           span {
             &.tier-num {
-              border: 1px solid #7a7971;
+              border: 1px solid #333;
+              border-radius: 100%;
+              font-family: var(--item-font);
               width: 24px;
               height: 24px;
-              position: absolute;
-              overflow: hidden;
-              line-height: 1.5;
               text-align: center;
-              border-radius: 100%;
-              font-size: 14pt;
-              font-family: var(--item-font);
-              left: 0;
-
-              /*top: 50%; */
-              top: 0%;
+              line-height: 21px;
             }
 
             &.tier-dmg {
-              width: 30px;
-              height: 15px;
-              position: absolute;
-              overflow: hidden;
-              line-height: 1;
-              text-align: center;
-              font-family: var(--item-font);
-              font-size: 10pt;
-              left: -5px;
-              top: 30px;
+
             }
           }
         }
 
         .underarmor-row {
-          margin-top: 0px;
-          text-align: center;
+          padding: 8px 8px 8px 0;
+          text-align: right;
 
           button {
-            margin-left: 10px;
-            width: 120px;
-            margin-bottom: 10px;
-            font-family: var(--h2-font);
-            font-size: 20px;
-            background-color: var(--foreground-color);
-            color: var(--background-color);
-            border: none;
-            border-bottom: 2px solid #777;
-            border-radius: 0;
+            width: 100px;
           }
         }
 
@@ -253,48 +235,60 @@
         }
 
         .defend-rule {
-          text-align: center;
+          text-align: center;          
+          margin-top: 16px;
         }
       }
     }
 
-    .feature-button {
-      min-width: 120px;
-    }
 
     .roll-button {
-      margin-left: 10px;
-      width: 120px;
-      margin-bottom: 10px;
-      font-family: var(--h2-font);
-      font-size: 20px;
-      background-color: var(--foreground-color);
-      color: var(--background-color);
+      background-color: var(--button-color);
       border: none;
-      border-bottom: 2px solid #777;
-      border-radius: 0;
+      border-radius: 16px;
+      color: var(--foreground-color);
+      font-family: var(--button-font);
+      font-size: 20px;
+      width: 160px;
     }
 
     input[type="text"].actor-name {
       font-family: var(--h1-font);
       font-size: 38px;
       text-transform: uppercase;
+      border: none;
+      height: 46px;
+      font-weight: 600;
     }
 
     .sheet-body {
       .equipment-top-row {
-        margin-top: 10px;
-        margin-left: 20px;
         display: flex;
+        align-items: flex-start;
         flex-direction: row;
+        margin-bottom: 16px;
+      }
+
+      .equipment-list {
+        .item-create-button {
+          flex: 0 0 80px;
+          display: flex;
+          justify-content: flex-end;
+          font-size: 16px;
+          padding: 0 8px 0 0;
+        }
       }
 
       .silver {
-        flex: 0 0 200px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
       .silver-input {
-        width: 70px;
+        width: 74px;
+        text-align: left;
+        padding-left: 8px;
       }
     }
   }
