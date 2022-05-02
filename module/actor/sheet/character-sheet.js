@@ -73,12 +73,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
       (item) => item.type === CONFIG.PB.itemTypes.class
     );
 
-    sheetData.data.invokables = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
-      .sort(byName);
-
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
@@ -103,6 +100,20 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
       .reduce((items, item) => {
         const key = item.data.featureType || item.type;        
+        let group = items.find((i) => i.type === key);
+        if (!group) {
+          group = { type: key, items: []}
+          items.push(group);
+        }
+        group.items.push(item)
+        return items;
+      }, [])
+      .sort(byType);
+
+      sheetData.data.invokables = sheetData.items
+      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable || item.data.actionMacroLabel)
+      .reduce((items, item) => {
+        const key = item.data.invokableType || item.data.featureType || 'Equipment';        
         let group = items.find((i) => i.type === key);
         if (!group) {
           group = { type: key, items: []}
@@ -139,18 +150,20 @@ export class PBActorSheetCharacter extends PBActorSheet {
       html
       .find(".ability-label.rollable.spirit")
       .on("click", this._onSpiritRoll.bind(this));      
+
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html
-      .find(".luck-row span.rollable")
-      .on("click", this._onLuckRoll.bind(this));
+    html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
+
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
+
     // feats tab
-    html.find(".feature-button").on("click", this._onFeatRoll.bind(this));
-    // powers tab
-    html
-      .find(".wield-power-button")
-      .on("click", this._onWieldPowerRoll.bind(this));
+    html.find(".action-macro-button").on("click", this._onActionMacroRoll.bind(this));
+    html.find(".action-invokable").on("click", this._onActionInvokable.bind(this));
+
+    html.find(".ritual-per-day-text").on("click", this._onRitualPerDay.bind(this));
+    html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));  
+
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
   }
 
@@ -230,16 +243,29 @@ export class PBActorSheetCharacter extends PBActorSheet {
     d.render(true);
   }
 
-  _onFeatRoll(event) {
+  _onRitualPerDay() {
+    event.preventDefault();
+    this.actor.rollRitualPerDay();
+  }
+  
+  _onExtraResourcePerDay() {
+    event.preventDefault();
+    this.actor.rollExtraResourcePerDay();
+  }
+
+  _onActionInvokable(event) {
     event.preventDefault();
     const button = $(event.currentTarget);
     const li = button.parents(".item");
-    const itemId = li.data("itemId");
-    this.actor.useFeat(itemId);
+    const itemId = li.data("item-id");
+    this.actor.invokeInvokable(itemId);
   }
 
-  _onWieldPowerRoll(event) {
+  _onActionMacroRoll(event) {
     event.preventDefault();
-    this.actor.wieldPower();
+    const button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const itemId = li.data("item-id");
+    this.actor.useActionMacro(itemId);
   }
 }

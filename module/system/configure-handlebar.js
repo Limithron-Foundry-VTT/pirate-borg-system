@@ -48,5 +48,6 @@ export const configureHandlebar = () => {
 
   loadTemplates([
     "systems/pirateborg/templates/actor/common/actor-equipment-list.html",
+    "systems/pirateborg/templates/actor/common/actor-item-button.html",
   ]);
 };

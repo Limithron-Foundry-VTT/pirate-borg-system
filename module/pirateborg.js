@@ -5,9 +5,11 @@ import { createPirateBorgMacro } from "./macros.js";
 import { migrate } from "./migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
-import { configureCombatTracker } from "./system/configure-combat-tracker.js";
-import { configureActorDirectory } from "./system/configure-actor-directory.js";
+import { renderCombatTracker } from "./system/render-combat-tracker.js";
+import { renderChatMessage } from "./system/render-chat-message.js";
+import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./settings.js";
+
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -29,6 +31,8 @@ Hooks.once("ready", () => {
   Hooks.call("pirateborgReady");
 });
 
-Hooks.on("renderActorDirectory", configureActorDirectory);
+Hooks.on("renderActorDirectory", renderActorDirectory);
 
-Hooks.on("renderCombatTracker", configureCombatTracker);
+Hooks.on("renderCombatTracker", renderCombatTracker);
+
+Hooks.on("renderChatMessage", renderChatMessage);

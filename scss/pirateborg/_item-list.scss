@@ -1,7 +1,7 @@
 .pirateborg {
   .items-list .items-header {    
     margin: 0;
-    padding: 0;
+    padding: 0 0 4px 0;
     align-items: center;
 
     .item-name {
@@ -26,7 +26,7 @@
     .item {
       min-height: 30px;
       line-height: 24px;
-      padding: 8px 8px 8px 0;
+      padding: 8px;
       border-bottom: 1px solid #333;
       align-items: center;
       gap: 8px;

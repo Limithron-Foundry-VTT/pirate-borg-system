@@ -1,0 +1,23 @@
+<form class="roll-card">
+  <div class="card-title">{{title}}</div>
+  <div class="card-description">{{{description}}}</div>
+
+  <div class="test-roll">
+    <div class="attack-roll">
+      {{#if rollTitle}}
+      <div class="roll-title">
+        <span>{{rollTitle}}</span
+        >
+      </div>
+      {{/if}}
+      {{#if roll}}
+      <div class="roll-result">
+        <span>{{xtotal roll}}</span>
+      </div>
+      {{/if}}
+    </div>
+    <div class="outcome-text">
+      <span class="attack-outcome">{{outcome}}</span>
+    </div>
+  </div>
+</form>

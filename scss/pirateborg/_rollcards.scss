@@ -5,8 +5,8 @@
 .roll-card {
 
   .card-title {
-    background: url(/systems/pirateborg/ui/parchment-2.jpg);
-    color: var(--background-color);
+    background: var(--highlight-background-color);
+    color: var(--foreground-color);
     font-family: var(--h2-font);
     font-size: 24px;
     margin-bottom: 16px;
@@ -46,6 +46,14 @@
     }
   }
 
+  .card-description {
+    font-family: var(--chat-font);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
   .roll-result {
     font-family: var(--chat-font);
     font-size: 18px;
@@ -79,6 +87,18 @@
   .outcome-text {
     .getting-better {
       display: block;
+    }
+  }
+
+  .outcome-action {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 16px;
+
+    button {
+      height: 28px;
     }
   }
 }

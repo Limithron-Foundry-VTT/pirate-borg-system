@@ -135,25 +135,5 @@ PB.scvmFactory = {
     "pirateborg.rolls-character-creation;d20 Idiosyncrasies",
     "pirateborg.rolls-character-creation;d20 Unfortunate Incidents & Conditions",
     "pirateborg.rolls-character-creation;d100 Thing of Importance",
-  ],
-
-
-
-
-
-
-  foodAndWaterPack: "pirateborg.equipment-misc",
-  foodItemName: "Dried food",
-  waterItemName: "Waterskin",
-
-  startingEquipmentTable1: "Starting Equipment (1)",
-  startingEquipmentTable2: "Starting Equipment (2)",
-  startingEquipmentTable3: "Starting Equipment (3)",
-  startingWeaponTable: "Starting Weapon",
-  weaponDieIfRolledScroll: "1d6",
-  startingArmorTable: "Starting Armor",
-  armorDieIfRolledScroll: "1d2",
-  terribleTraitsTable: "Terribler Traits",
-  brokenBodiesTable: "Brokener Bodies",
-  badHabitsTable: "Badder Habits",
+  ]
 };

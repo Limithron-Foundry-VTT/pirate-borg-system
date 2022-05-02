@@ -1,6 +1,7 @@
 import { PBActor } from "../actor/actor.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
+import { executeMacro } from "../macro-helpers.js";
 
 export const createRandomScvm = async () => {
   const clazz = await pickRandomClass();
@@ -79,7 +80,7 @@ const findItems = async (items) => {
   return results;
 }
 
-const findCompendiumItem = async (compendiumName, itemName) => {
+export const findCompendiumItem = async (compendiumName, itemName) => {
   const compendium = game.packs.get(compendiumName);
   if (compendium) {
     const documents = await compendium.getDocuments();
@@ -236,6 +237,24 @@ export const generateDescription = (clazz, items) => {
   return `<p>${clazz.data.data.flavorText}</p><p>${description}</p>`;
 }
 
+export const invokeStartingMacro = async (actor) => {
+  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
+  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.startingMacro);  
+  if (compendium && macroName) {
+    const macro = await findCompendiumItem(compendium, macroName);
+    executeMacro(macro, { actor, item: clazz})
+  }
+}
+
+export const invokeGettingBetterMacro = async (actor) => {
+  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
+  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.gettingBetterMacro);  
+  if (compendium && macroName) {
+    const macro = await findCompendiumItem(compendium, macroName);
+    executeMacro(macro, { actor, item: clazz})
+  }
+}
+
 export const rollScvmForClass = async (clazz) => {
   console.log(`Creating new ${clazz.data.name}`);
   
@@ -278,6 +297,8 @@ export const rollScvmForClass = async (clazz) => {
   ];
    
   // power uses
+  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
+  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
 
   const items = allDocs.map((i) => ({
     data: i.data.data,
@@ -296,6 +317,8 @@ export const rollScvmForClass = async (clazz) => {
     items,
     description,
     silver,   
+    powerUses: powerUsesRoll.total,
+    extraResourceUses: extraResourceRoll.total
   };
 };
 
@@ -322,6 +345,10 @@ const scvmToActorData = (s) => {
         max: s.powerUses,
         value: s.powerUses,
       },
+      extraResourceUses: {
+        max: s.extraResourceUses,
+        value: s.extraResourceUses,
+      },
       silver: s.silver,
     },
     img: s.actorImg,
@@ -339,6 +366,7 @@ const createActorWithScvm = async (s) => {
   const data = scvmToActorData(s);
   const actor = await PBActor.create(data);
   actor.sheet.render(true);
+  await invokeStartingMacro(actor);
 };
 
 const updateActorWithScvm = async (actor, s) => {
@@ -351,6 +379,7 @@ const updateActorWithScvm = async (actor, s) => {
       name: actor.name,
     });
   }
+  await invokeStartingMacro(actor);
 };
 
 const findTableItems = async (results) => {

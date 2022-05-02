@@ -1,0 +1,25 @@
+<form class="roll-card">
+  <div class="card-title">{{title}}</div>
+  <div class="test-roll">
+    <div class="attack-roll">
+      {{#if formula}}
+      <div class="roll-title">
+        <span>{{formula}}</span
+        >
+      </div>
+      {{/if}}
+      {{#if roll}}
+      <div class="roll-result">
+        <span>{{xtotal roll}}</span>
+      </div>
+      {{/if}}
+    </div>
+    {{#each items as |item|}}
+    <div class="outcome-text">
+      <span class="attack-outcome">
+        {{ item.data.text }}
+      </span>
+    </div>
+    {{/each}}
+  </div>
+</form>

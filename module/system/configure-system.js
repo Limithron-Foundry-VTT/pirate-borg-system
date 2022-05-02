@@ -7,6 +7,8 @@ import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
 import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
+import * as pirateFactory from "../scvm/scvmfactory.js";
+import * as macroHelpers from "../macro-helpers.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
@@ -15,6 +17,8 @@ export const configureSystem = () => {
     PBActor,
     PBItem,
     rollItemMacro,
+    pirateFactory,
+    macroHelpers
   };
 
   CONFIG.Actor.documentClass = PBActor;

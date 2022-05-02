@@ -226,17 +226,29 @@
         />
       </div>
 
+
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceLabel" }}:</label>
+        <label>{{ localize "PB.ExtraResourceNameSingular" }}:</label>
         <input
           type="text"
-          name="data.extraResourceLabel"
-          value="{{data.data.extraResourceLabel}}"
+          name="data.extraResourceNameSingular"
+          value="{{data.data.extraResourceNameSingular}}"
           placeholder=""
           data-dtype="String"
         />
       </div>
 
+      <div class="form-group">
+        <label>{{ localize "PB.ExtraResourceNamePlural" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceNamePlural"
+          value="{{data.data.extraResourceNamePlural}}"
+          placeholder=""
+          data-dtype="String"
+        />
+      </div>
+      
       <div class="form-group">
         <label>{{ localize "PB.ExtraResourceFormula" }}:</label>
         <input
@@ -244,6 +256,39 @@
           name="data.extraResourceFormula"
           value="{{data.data.extraResourceFormula}}"
           placeholder="1d6"
+          data-dtype="String"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ExtraResourceFormulaLabel" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceFormulaLabel"
+          value="{{data.data.extraResourceFormulaLabel}}"
+          placeholder=""
+          data-dtype="String"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ExtraResourceTestFormula" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceTestFormula"
+          value="{{data.data.extraResourceTestFormula}}"
+          placeholder="1d6"
+          data-dtype="String"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ExtraResourceTestFormulaLabel" }}:</label>
+        <input
+          type="text"
+          name="data.extraResourceTestFormulaLabel"
+          value="{{data.data.extraResourceTestFormulaLabel}}"
+          placeholder=""
           data-dtype="String"
         />
       </div>

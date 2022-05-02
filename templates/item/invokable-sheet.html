@@ -88,6 +88,17 @@
         />
       </div>
 
+      {{!-- Uses ammo --}}
+      <div class="form-group">
+        <label>{{ localize "PB.ItemIsEquipment" }}:</label>
+        <input
+          type="checkbox"
+          name="data.isEquipment"
+          {{checked
+          data.data.isEquipment}}
+          data-dtype="Boolean"
+        />
+      </div>
 
       {{!-- Action Macro --}}
       <div class="form-group">

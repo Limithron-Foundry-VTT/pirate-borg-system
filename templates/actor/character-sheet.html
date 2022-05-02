@@ -385,7 +385,7 @@
               ></a>
             </div>
           </li>
-          {{/if}} {{#unless data.equippedArmor}} {{#unless
+          {{/if}} {{#unless data.data.equippedArmor }} {{#unless
           data.data.equippedHat}}
           <li class="item flexrow empty-container">
             <div class="rule-text you-have-no">{{localize 'PB.EquipArmorToAbsorb'}}</div>
@@ -408,7 +408,7 @@
       </div>
     </div>
 
-    {{!-- Feats Tab --}}
+    {{!-- Features Tab --}}
     <div class="tab specials-tab" data-group="primary" data-tab="features">      
       {{#each data.data.features as |item id|}}      
       
@@ -429,17 +429,7 @@
           />
           <h4 class="item-name item-edit rollable">{{item.name}}</h4>
           <div class="item-buttons">
-            {{#if item.data.actionMacroLabel}}
-            <button
-              type="button"
-              class="item-button rollable feature-button"
-              data-roll="{{item.data.actionMacro}}"
-              data-label="{{item.data.actionMacroLabel}}"
-              title="{{item.data.actionMacroLabel}}"
-            >
-              {{item.data.actionMacroLabel}}
-            </button>
-            {{/if}}
+            {{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}
           </div>
           <div class="item-controls">
             <a class="item-control item-edit" title="Edit Item"
@@ -454,80 +444,90 @@
         </ol>
       </ol>
       {{/each}}
-
       {{#unless data.data.features.length}}
-      <div class="rule-text you-have-no">
-        {{localize 'PB.YouHaveNoFeatures'}}
-      </div>
+      <ol class="items-list inventory-list">
+        <ol class="item-list weapon-list">
+          <li class="item flexrow empty-container">
+            <div class="rule-text you-have-no">{{localize 'PB.YouHaveNoFeatures'}}</div>
+          </li>
+        </ol>
+      </ol>
       {{/unless}}      
     </div>
 
     {{!-- Powers Tab --}}
     <div class="tab powers-tab" data-group="primary" data-tab="powers">
-      <div class="powers-top-row">
-        <div class="powers-gutter"></div>
-        <div class="wield-power">
-          <button type="button" class="rollable wield-power-button button">
-            {{localize "PB.WieldAPower"}}
-          </button>
-          <span class="rule-text wield-rule"
-            >{{localize 'PB.WieldAPowerText'}}</span
-          >
-        </div>
-        <div class="powers-gutter"></div>
+      <div class="powers-top-row">       
         <div class="uses-remaining">
-          <div>
-            <label class="stat-label uses-remaining-label"
-              >{{localize "PB.PowerUsesRemaining"}}:</label
-            >
+          <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
+          <input
+            class="stat-input"
+            name="data.powerUses.value"
+            type="number"
+            value="{{data.data.powerUses.value}}"
+            data-dtype="Number"
+          />
+          <span class="rule-text rollable ritual-per-day-text">{{localize "PB.RitualPerday"}}</span>
+        </div>
+
+        {{#if data.data.class.data.useExtraResource}}
+          <div class="uses-remaining">
+            <label class="stat-label uses-remaining-label">{{ data.data.class.data.extraResourceNamePlural }}</label>
             <input
               class="stat-input"
-              name="data.powerUses.value"
+              name="data.extraResourceUses.value"
               type="number"
-              value="{{data.data.powerUses.value}}"
+              value="{{data.data.extraResourceUses.value}}"
               data-dtype="Number"
             />
+            <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.class.data.extraResourceFormulaLabel }}</span>
           </div>
-          <span class="rule-text rollable powers-per-day-text"
-            >{{localize "PB.PowersPerDayText"}}</span
-          >
-        </div>
+        {{/if}}
       </div>
-      <ol class="items-list inventory-list">
-        <li class="items-header flexrow">
-          <h3 class="item-name flexrow">
-            {{localize "PB.ItemTypeScrollPlural"}}
-          </h3>
-          <div class="item-controls flexrow"></div>
-        </li>
-        <ol class="item-list">
-          {{#each data.data.invokables as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
-            <img
-              src="{{item.img}}"
-              title="{{item.name}}"
-              width="24"
-              height="24"
-            />
-            <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-            <div class="item-buttons"></div>
-            <div class="item-controls">
-              <a class="item-control item-edit" title="Edit Item"
-                ><i class="fas fa-edit"></i
-              ></a>
-              <a class="item-control item-delete" title="Delete Item"
-                ><i class="fas fa-trash"></i
-              ></a>
-            </div>
-          </li>
-          {{/each}}
+
+      {{#each data.data.invokables as |group|}}
+        <ol class="items-list inventory-list">
+          <li class="items-header flexrow">
+            <h3 class="item-name flexrow">{{ group.type }}</h3>
+            <div class="item-controls flexrow"></div>
+          </li>     
+          <ol class="item-list">               
+            {{#each group.items as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <img
+                  src="{{item.img}}"
+                  title="{{item.name}}"
+                  width="24"
+                  height="24"
+                />
+                <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+                <div class="item-buttons">
+                  {{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}
+                </div>
+                <div class="item-controls">
+                  <a class="item-control item-edit" title="Edit Item"
+                    ><i class="fas fa-edit"></i
+                  ></a>
+                  <a class="item-control item-delete" title="Delete Item"
+                    ><i class="fas fa-trash"></i
+                  ></a>
+                </div>
+              </li>
+            {{/each}}
+          </ol>         
+        </ol>               
+        {{/each}}
+
+        {{#unless data.data.invokables.length}}
+        <ol class="items-list inventory-list"></ol>
+          <ol class="item-list weapon-list">
+            <li class="item flexrow empty-container">
+              <div class="rule-text you-have-no">{{localize 'PB.YouHaveNoUsableItems'}}</div>
+            </li>
+          </ol>
         </ol>
-        {{#unless data.data.scrolls.length}}
-        <div class="rule-text you-have-no">
-          {{localize 'PB.YouHaveNoScrolls'}}
-        </div>
         {{/unless}}
-      </ol>
+
     </div>
 
     {{!-- Equipment Tab --}}

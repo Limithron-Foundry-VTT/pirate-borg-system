@@ -4,7 +4,7 @@
   --background-color: #000000;
   --foreground-color: #ffffff;
   --foreground-alt-color: #ffe900;
-  --highlight-background-color: #ff0000;
+  --highlight-background-color: #d20608;
   --highlight-foreground-color: #FFFFFF;
   --sidebar-background-color: #000000;
   --sidebar-foreground-color: #ffffff;
@@ -218,8 +218,8 @@
 }
 .pirateborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
-  color: var(--background-color);
+  background: var(--highlight-background-color);
+  color: var(--foreground-color);
 }
 .pirateborg .sheet-body {
   overflow: hidden;
@@ -574,10 +574,9 @@
   padding-bottom: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 }
 .pirateborg.sheet.actor.character .sheet-body .wield-power {
   flex: 0 0 300px;
@@ -595,10 +594,10 @@
   text-align: center;
 }
 .pirateborg.sheet.actor.character .sheet-body div.uses-remaining {
-  flex: 0 0 320px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 8px;
 }
 .pirateborg.sheet.actor.character .sheet-body .uses-remaining div {
   margin-bottom: 20px;
@@ -636,7 +635,7 @@
 
 .pirateborg .items-list .items-header {
   margin: 0;
-  padding: 0;
+  padding: 0 0 4px 0;
   align-items: center;
 }
 .pirateborg .items-list .items-header .item-name {
@@ -659,7 +658,7 @@
 .pirateborg .item-list .item {
   min-height: 30px;
   line-height: 24px;
-  padding: 8px 8px 8px 0;
+  padding: 8px;
   border-bottom: 1px solid #333;
   align-items: center;
   gap: 8px;
@@ -836,8 +835,8 @@ body {
 }
 
 .window-app .window-header {
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
-  color: var(--background-color);
+  background: var(--highlight-background-color);
+  color: var(--foreground-color);
 }
 
 .form-group input[type=text] {
@@ -1320,8 +1319,8 @@ a.entity-link, a.inline-roll {
 /* Roll Cards */
 /* ====================== */
 .roll-card .card-title {
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
-  color: var(--background-color);
+  background: var(--highlight-background-color);
+  color: var(--foreground-color);
   font-family: var(--h2-font);
   font-size: 24px;
   margin-bottom: 16px;
@@ -1356,6 +1355,13 @@ a.entity-link, a.inline-roll {
 .roll-card .roll-title.getting-better {
   margin-bottom: 0px;
 }
+.roll-card .card-description {
+  font-family: var(--chat-font);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
 .roll-card .roll-result {
   font-family: var(--chat-font);
   font-size: 18px;
@@ -1384,6 +1390,16 @@ a.entity-link, a.inline-roll {
 }
 .roll-card .outcome-text .getting-better {
   display: block;
+}
+.roll-card .outcome-action {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 8px 16px;
+}
+.roll-card .outcome-action button {
+  height: 28px;
 }
 
 .dr-modifier {

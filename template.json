@@ -149,7 +149,8 @@
       "templates": [
         "equipment"
       ],
-      "invokableType": ""
+      "invokableType": "",
+      "isEquipment": true
     },    
     "background": {
       "description": "",
@@ -191,8 +192,13 @@
       "gettingBetterMacro": null,
 
       "useExtraResource": false,   
-      "extraResourceLabel": null,   
-      "extraResourceFormula": null
+      "extraResourceNameSingular": null,   
+      "extraResourceNamePlural": null,   
+      "extraResourceFormula": null,
+      "extraResourceFormulaLabel": null,
+
+      "extraResourceTestFormula": null,
+      "extraResourceTestFormulaLabel": null
     }
   }
 }

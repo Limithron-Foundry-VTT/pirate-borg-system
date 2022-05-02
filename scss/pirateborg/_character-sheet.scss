@@ -139,15 +139,11 @@
       }
 
       .sheet-body {
-        .feature-button {
-          
-        }
 
         .powers-top-row {
-          margin-top: 15px;
-          margin-bottom: 10px;
+          margin-bottom: 16px;
           display: flex;
-          flex-direction: row;
+          justify-content: space-between;
         }
 
         .wield-power {
@@ -170,10 +166,10 @@
         }
 
         div.uses-remaining {
-          flex: 0 0 320px;
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
+          gap: 8px;
         }
 
         .uses-remaining div {

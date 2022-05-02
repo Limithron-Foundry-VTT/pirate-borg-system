@@ -1,6 +1,6 @@
 import ScvmDialog from "../scvm/scvm-dialog.js";
 
-export const configureActorDirectory = (app, html) => {
+export const renderActorDirectory = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");

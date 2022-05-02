@@ -84,7 +84,7 @@
       "name": "equipment-hats",
       "label": "Equipment - Hats",
       "system": "pirateborg",
-      "path": "./packs/equipement-hats.db",
+      "path": "./packs/equipment-hats.db",
       "entity": "Item"
     },                
     
@@ -98,11 +98,19 @@
 
     {
       "name": "backgrounds-items",
-      "label": "Backgrounds Items",
+      "label": "Backgrounds - Items",
       "system": "pirateborg",
       "path": "./packs/backgrounds-items.db",
       "entity": "Item"
     },  
+
+    {
+      "name": "macros-pirateborg",
+      "label": "Macros - Pirate Borg",
+      "system": "pirateborg",
+      "path": "./packs/macros-pirateborg.db",
+      "entity": "Macro"
+    },
 
     {
       "name": "feature-distinctive-flaws",
@@ -154,6 +162,22 @@
       "path": "./packs/invokable-arcane-rituals.db",
       "entity": "Item"
     },
+    
+    {
+      "name": "macros-ancient-relics",
+      "label": "Macros - Ancient relics",
+      "system": "pirateborg",
+      "path": "./packs/macros-ancient-relics.db",
+      "entity": "Macro"
+    },
+
+    {
+      "name": "macros-arcane-rituals",
+      "label": "Macros - Arcane Rituals",
+      "system": "pirateborg",
+      "path": "./packs/macros-arcane-rituals.db",
+      "entity": "Macro"
+    },
 
     {
       "name": "rolls-character-creation",
@@ -192,7 +216,14 @@
       "system": "pirateborg",
       "path": "./packs/rolls-brute.db",
       "entity": "RollTable"
-    }
+    },
+    {
+      "name": "macros-brute",
+      "label": "Macros - Brute",
+      "system": "pirateborg",
+      "path": "./packs/macros-brute.db",
+      "entity": "Macro"
+    }    
   ],
   "languages": [
     {

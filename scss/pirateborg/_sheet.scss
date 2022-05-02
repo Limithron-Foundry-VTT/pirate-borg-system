@@ -121,8 +121,8 @@
 
         &.active {
           text-shadow: none;
-          background: url(/systems/pirateborg/ui/parchment-2.jpg);
-          color: var(--background-color);
+          background: var(--highlight-background-color);
+          color: var(--foreground-color);
         }
       }
     }
