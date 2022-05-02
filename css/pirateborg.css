@@ -1,25 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
 :root {
-  --background-color: #000000;
-  --foreground-color: #ffffff;
-  --foreground-alt-color: #ffe900;
+  /* try to deprecated */
+  --background-color: #000;
+  --foreground-color: #000;
+  --foreground-alt-color: #FFF;
   --highlight-background-color: #d20608;
   --highlight-foreground-color: #FFFFFF;
-  --sidebar-background-color: #000000;
-  --sidebar-foreground-color: #ffffff;
-  --sidebar-button-background-color: #000000;
-  --sidebar-button-foreground-color: #ffffff;
-  --color-bg-option: #000000;
-  --window-background: #000000;
-  --button-color: #FFF;
+  --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
+  --window-header-color: #FFFFFF;
+  --window-header-background-color: #000000;
+  --sidebar-tab-background: #000000;
+  --sidebar-tab-color: #FFFFFF;
+  --light-border-color: #f6dec2;
+  --sidebar-background: var(--window-background);
+  --sidebar-color: #000000;
+  --button-background: #000000;
+  --button-color: #FFFFFF;
+  --icon-backgroud-color: #000000;
   --h1-font: "Roman Antique Regular";
   --h2-font: "IM Fell English SC";
   --h3-font: "IM Fell English SC";
   --chat-font: "Alegreya";
   --chat-info-font: "Alegreya";
   --item-font: "Alegreya";
-  --button-font: "Alegreya" ;
+  --button-font: "Alegreya"
+  /* foundry core */
+  --color-text-light-6: var(--foreground-color);
+  --color-text-light-5: var(--foreground-color);
+  --color-text-light-primary: var(--foreground-color);
+  --color-border-light-1: var(--light-border-color);
+  --color-text-light-6: var(--foreground-color);
+  --color-border-light-tertiary: var(--light-border-color);
+  --color-border-dark-4: var(--light-border-color);
+  --color-border-light-primary: var(--light-border-color);
 }
 
 /* ====================== */
@@ -79,17 +93,16 @@
   height: 100%;
 }
 .pirateborg ::-webkit-scrollbar-thumb {
-  background: darkgray;
+  background: var(--highlight-background-color);
   border: 1px solid lightgray;
 }
 .pirateborg ::selection {
   background: var(--highlight-background-color);
-  color: var(--background-color);
 }
 .pirateborg select {
   height: 27px;
   background: rgba(0, 0, 0, 0.05);
-  border: 1px solid #333;
+  border: 2px groove var(--light-border-color);
   border-radius: 0px;
   padding: 0 3px;
   text-overflow: ellipsis;
@@ -103,17 +116,16 @@
   height: auto;
   padding: 3px;
 }
-.pirateborg select > option {
-  background-color: var(--background-color) !important;
-  color: var(--foreground-color) !important;
-}
 .pirateborg .editor,
 .pirateborg .editor-content {
   height: 100%;
 }
+.pirateborg .editor-content {
+  padding: 8px;
+}
 .pirateborg .button {
-  background: var(--button-color);
-  color: var(--background-color);
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
@@ -121,6 +133,8 @@
   width: auto;
   padding: 0 16px;
   font-weight: 500;
+  line-height: 24px;
+  padding-top: 1px;
 }
 
 .mce-content-body {
@@ -139,9 +153,7 @@
   background: var(--window-background);
   font-size: 13px;
   color: var(--foreground-color);
-  border-bottom: 1px solid #333;
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
+  border: none;
 }
 .pirateborg.sheet .window-content form {
   height: 100%;
@@ -168,7 +180,7 @@
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 .pirateborg.sheet textarea {
-  border: 1px solid #333;
+  border: 1px solid var(--light-border-color);
   border-radius: 0;
   color: var(--foreground-color);
   font-family: var(--item-font);
@@ -186,15 +198,11 @@
   border: none;
 }
 .pirateborg.sheet .editor {
-  border: 1px solid #333;
+  border: 2px groove var(--light-border-color);
   color: var(--foreground-color);
   font-family: var(--item-font);
   font-size: 16px;
   line-height: 20px;
-  padding: 0 8px;
-}
-.pirateborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
-  background: var(--background-color);
 }
 .pirateborg.sheet .sheet-tabs {
   flex: none;
@@ -216,13 +224,12 @@
   padding-right: 16px;
 }
 .pirateborg.sheet .sheet-tabs .item:hover {
-  color: var(--highlight-foreground-color);
   text-shadow: 0 0 16px var(--highlight-background-color);
 }
 .pirateborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
   background: var(--highlight-background-color);
-  color: var(--foreground-color);
+  color: var(--highlight-foreground-color);
 }
 .pirateborg .sheet-body {
   overflow: hidden;
@@ -265,12 +272,14 @@
   font-family: var(--item-font);
   text-align: center;
   color: var(--foreground-color);
+  background: transparent;
   font-size: 32px;
   width: 42px;
   height: 32px;
   font-weight: 600;
   padding: 0;
   padding-bottom: 8px;
+  border-radius: 4px;
 }
 .pirateborg.sheet.actor .stat-value {
   font-family: var(--item-font);
@@ -281,7 +290,7 @@
 }
 .pirateborg.sheet.actor .sheet-header {
   margin-top: 0;
-  padding: 16px 16px 16px 16px;
+  margin: 16px;
   display: flex;
   flex-direction: row;
   flex: none;
@@ -389,19 +398,20 @@
   display: none;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:checked + span.tier-num {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-  border-color: var(--highlight-background-color);
+  background: var(--button-background);
+  color: var(--button-color);
+  border-color: var(--button-background);
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
-  border: 1px solid #444444;
+  border: 1px solid var(--light-border-color);
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
   color: #444444;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers span.tier-num {
-  border: 1px solid #333;
+  cursor: pointer;
+  border: 1px solid black;
   border-radius: 100%;
   font-family: var(--item-font);
   width: 24px;
@@ -422,15 +432,6 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab .defend-rule {
   text-align: center;
   margin-top: 16px;
-}
-.pirateborg.sheet.actor .roll-button {
-  background-color: var(--button-color);
-  border: none;
-  border-radius: 16px;
-  color: var(--foreground-color);
-  font-family: var(--button-font);
-  font-size: 20px;
-  width: 160px;
 }
 .pirateborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
@@ -474,6 +475,8 @@
 .pirateborg.sheet.actor.character .sheet-header .header-col1 {
   flex: 0 0 200px;
   padding: 0;
+  margin-right: 8px;
+  line-height: 0;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 {
   flex: 1;
@@ -489,11 +492,12 @@
   flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 10px;
 }
 .pirateborg.sheet.actor.character .sheet-header .profile-img {
   height: 200px;
   width: 200px;
+  border-radius: 24px;
 }
 .pirateborg.sheet.actor.character .sheet-header .name-row {
   margin-left: -4px;
@@ -540,7 +544,7 @@
 }
 .pirateborg.sheet.actor.character .sheet-header .luck-row {
   display: flex;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   align-items: center;
   gap: 4px;
 }
@@ -562,7 +566,7 @@
   font-size: 16px;
   margin-left: 5px;
   display: block;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 .pirateborg.sheet.actor.character .sheet-header .ability-input {
   border: none;
@@ -575,6 +579,7 @@
   color: var(--foreground-color);
   font-weight: 600;
   padding-bottom: 4px;
+  border-radius: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-bottom: 16px;
@@ -662,15 +667,18 @@
   min-height: 30px;
   line-height: 24px;
   padding: 8px;
-  border-bottom: 1px solid #333;
+  border-bottom: 2px groove var(--light-border-color);
   align-items: center;
   gap: 8px;
 }
 .pirateborg .item-list .item:first-of-type {
-  border-top: 1px solid #333;
+  border-top: 2px groove var(--light-border-color);
 }
 .pirateborg .item-list .item img {
   flex: 0 0 24px;
+  background: black;
+  padding: 2px;
+  border-radius: 4px;
 }
 .pirateborg .item-list .item.item-container-item {
   padding-left: 29px;
@@ -770,6 +778,7 @@
 .pirateborg.sheet.item .sheet-header .profile-img {
   height: 150px;
   width: 150px;
+  border-radius: 24px;
 }
 .pirateborg.sheet.item .sheet-header .item-name input[type=text] {
   flex: 1;
@@ -838,8 +847,8 @@ body {
 }
 
 .window-app .window-header {
-  background: var(--highlight-background-color);
-  color: var(--foreground-color);
+  background: var(--window-header-background-color);
+  color: var(--window-header-color);
 }
 
 .form-group input[type=text] {
@@ -860,15 +869,18 @@ body {
 }
 
 form button {
-  background: var(--button-color);
-  color: var(--background-color);
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
   font-size: 14px;
   padding: 0 16px;
   font-weight: 500;
+  line-height: 24px;
+  padding-top: 1px;
   cursor: pointer;
+  height: 28px;
 }
 form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -880,6 +892,7 @@ a:hover {
 
 input[type=text] {
   color: var(--foreground-color);
+  background: none;
 }
 input[type=text]:hover, input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -920,23 +933,9 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 
 /* Fixes hard-to-read dark text on various system Dialogs */
-.window-app .window-content .notes {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-.window-app .window-content form .form-header {
-  color: var(--foreground-color);
-}
-.window-app .window-content form .notes {
-  background-color: var(--background-color);
-  color: var(--foreground-alt-color);
-}
-.window-app .window-content .form-group span.units {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
 }
 .window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -991,29 +990,27 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 #chat-controls .roll-type-select {
   color: var(--foreground-color);
-  background: var(--background-color);
+  border: 2px groove var(--light-border-color);
+  background: transparent;
 }
 #chat-controls select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-#chat-log {
-  background: var(--sidebar-background-color);
-}
 #chat-log .message-header {
   align-items: center;
   line-height: normal;
-  margin-bottom: 4px;
 }
 #chat-log .chat-message {
   background: var(--window-background);
-  border: 3px solid #222;
+  border: 2px groove var(--light-border-color);
   border-radius: 0;
   color: var(--foreground-color);
-  margin-top: 8px;
+  margin-bottom: 8px;
   font-family: var(--chat-font);
   font-size: 16px;
   padding: 8px;
+  padding-bottom: 24px;
 }
 #chat-log .message h4,
 #chat-log .message h3,
@@ -1027,33 +1024,49 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
 }
+#chat-log .chat-message .message-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
   font-size: 24px;
+  margin-bottom: 8px;
 }
 #chat-log .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
   font-size: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
 }
 #chat-log .chat-message .message-header span.flavor-text {
-  font-family: var(--chat-info-font);
-  font-size: 14px;
-  font-weight: bold;
+  font-family: var(--h3-font);
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 4px;
   color: var(--foreground-color);
 }
 #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
   font-size: 16px;
   border-radius: 0;
-  background-color: #111;
+  background-color: var(--background-color);
+  color: var(--foreground-alt-color);
   border: 0;
   box-shadow: none;
 }
 
 #chat-form textarea {
   color: var(--foreground-color);
-  background: var(--background-color);
-  border: 2px solid #252525;
+  background: transparent;
+  border: 2px groove var(--light-border-color);
   font-family: var(--chat-font);
   font-size: 16px;
 }
@@ -1062,19 +1075,25 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
+#client-settings section.content .submenu > button,
 #client-settings button {
-  color: var(--background-color);
-  background: var(--foreground-color);
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 0 16px;
+  font-weight: 500;
+  cursor: pointer;
+  height: auto;
 }
 #client-settings h2 {
   border-bottom: none;
-  color: var(--highlight-foreground-color);
+  color: var(--foreground-color);
   font-family: var(--h2-font);
   margin-bottom: 16px;
-}
-#client-settings select {
-  color: var(--foreground-color);
-  background: var(--background-color);
+  font-weight: 600;
 }
 #client-settings select:focus {
   outline: none;
@@ -1128,8 +1147,9 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 
 .dialog .dialog-buttons button {
-  background: var(--button-color);
-  color: var(--background-color);
+  margin-top: 8px;
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
@@ -1137,28 +1157,25 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   width: auto;
   padding: 0 16px;
   font-weight: 500;
-  margin-top: 8px;
   cursor: pointer;
 }
 .dialog .dialog-buttons button.default {
-  background: var(--button-color);
-  color: var(--background-color);
-  font-family: var(--button-font);
+  background: var(--button-background);
   border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  width: auto;
-  padding: 0 16px;
-  font-weight: 500;
-  margin-top: 8px;
 }
 
 form .form-group select {
   color: var(--foreground-color);
-  background: var(--background-color);
+  background: transparent;
+  border: 2px groove var(--light-border-color);
 }
 form .form-group select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
+}
+
+form .form-group,
+form .form-group-stacked {
+  margin: 8px 0;
 }
 
 #hotbar #hotbar-directory-controls,
@@ -1187,21 +1204,25 @@ form .form-group select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-select:focus {
-  color: var(--foreground-color);
-  background: var(--background-color);
+#settings h2 {
+  border-top: 2px groove var(--color-border-dark-4) !important;
+  border-bottom: 2px groovesolid var(--color-border-dark-4) !important;
 }
-
 #settings button {
-  color: var(--background-color);
-  background: var(--foreground-color);
-  font-family: var(--item-font);
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 0 16px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 #sidebar {
-  background: var(--sidebar-background-color);
-  color: var(--sidebar-foreground-color);
+  background: var(--sidebar-background);
+  color: var(--sidebar-color);
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
   border-bottom: 1px solid var(--highlight-background-color);
@@ -1209,8 +1230,8 @@ select:focus {
 }
 
 #sidebar-tabs {
-  background: var(--sidebar-background-color);
-  color: var(--sidebar-foreground-color);
+  background: var(--sidebar-tab-background);
+  color: var(--sidebar-tab-color);
   border-bottom: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1225,8 +1246,8 @@ select:focus {
 
 .sidebar-tab .action-buttons button {
   cursor: pointer;
-  background: var(--button-color);
-  color: var(--background-color);
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
@@ -1237,19 +1258,59 @@ select:focus {
   cursor: pointer;
 }
 .sidebar-tab .directory-header .header-search input {
-  background: var(--sidebar-button-background-color);
-  color: var(--sidebar-button-foreground-color);
-  border: 1px solid #252525;
+  background: transparent;
   border-radius: 0;
   font-family: var(--button-font);
+  border: 2px groove var(--light-border-color);
 }
 .sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.sidebar-tab .directory-list .directory-item h4 {
+.sidebar-tab.directory .folder-header {
+  border: none;
+}
+.sidebar-tab.directory .directory-header {
+  border-bottom: 2px groove var(--light-border-color);
+}
+.sidebar-tab.directory li.folder > .folder-header {
+  background: none;
+  border-bottom: 2px groove var(--light-border-color);
+}
+.sidebar-tab.directory li.folder > .folder-header h3 {
+  color: var(--foreground-color);
+}
+.sidebar-tab.directory li.folder {
+  background: none;
+}
+.sidebar-tab.directory li.folder.collapsed > .folder-header {
+  background: none;
+  border: none;
+}
+.sidebar-tab.directory .directory-list .directory-item:last-child {
+  border-bottom: 2px groove var(--light-border-color);
+}
+.sidebar-tab.directory .directory-list .subdirectory {
+  padding-left: 16px;
+  border: none;
+}
+.sidebar-tab.directory .directory-list .subdirectory .directory-item:last-child {
+  border: none;
+}
+.sidebar-tab.directory .directory-list .directory-item {
+  border-bottom: 2px groove var(--light-border-color);
+  border-top: 0;
+}
+.sidebar-tab.directory .directory-list .directory-item.document-name {
+  border: none;
+}
+.sidebar-tab.directory .directory-list .directory-item h4 {
   font-family: var(--item-font);
   font-weight: 600;
   font-size: 14px;
+}
+.sidebar-tab.directory .directory-list .directory-item img {
+  padding: 2px;
+  border-radius: 8px;
 }
 
 .tabs .item.active, .tabs .item:hover {
@@ -1265,11 +1326,10 @@ select:focus {
 }
 
 .window-app .window-content {
-  background: var(--background-color);
+  background: var(--window-background);
   color: var(--foreground-color);
 }
 .window-app.app.journal-sheet .window-content {
-  background: var(--foreground-color);
   color: var(--background-color);
   background-position: -43px -120px;
   display: flex;
@@ -1292,9 +1352,6 @@ select:focus {
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
-.journal-sheet form button[type=submit] {
-  background: var(--background-color);
-}
 .journal-sheet form input[name=name] {
   color: var(--background-color);
   font-family: var(--h2-font);
@@ -1305,10 +1362,10 @@ select:focus {
 }
 
 a.entity-link, a.inline-roll {
-  background: var(--background-color);
+  background: transparent;
   color: var(--foreground-color);
   padding: 1px 4px;
-  border: 1px solid var(--background-color);
+  border: none;
   border-radius: 2px;
   white-space: unset;
   word-break: break-all;
@@ -1318,45 +1375,73 @@ a.entity-link, a.inline-roll {
   background: #d8d8cc;
 }
 
+.sheet nav.sheet-tabs {
+  border-top: 2px groove var(--light-border-color);
+  border-bottom: 2px groove var(--light-border-color);
+}
+
+hr {
+  border-top: 2px groove var(--color-border-light-primary);
+  border-bottom: none;
+}
+
+#combat li.combatant .token-initiative .initiative {
+  text-shadow: none;
+}
+#combat li.combatant .token-name {
+  text-shadow: none;
+}
+
+#playlists .global-control .playlist-header {
+  background: none;
+  border-top: none;
+  border-bottom: 2px groove var(--light-border-color);
+}
+
+#compendium h3 {
+  border: none;
+  background: var(--background-color);
+  color: var(--foreground-alt-color);
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
 .roll-card .card-title {
   background: var(--highlight-background-color);
-  color: var(--foreground-color);
+  color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
   font-size: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   text-align: center;
+  padding-top: 4px;
+  line-height: 28px;
+}
+.roll-card .dr-modifiers {
+  margin-bottom: 16px;
 }
 .roll-card .item-row {
-  text-align: center;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .roll-card .item-row img {
   border: none;
-  border-radius: 0;
+  border-radius: 4px;
   margin-right: 8px;
+  padding: 2px;
+  background-color: var(--icon-backgroud-color);
 }
 .roll-card .item-row span.item-name {
   color: var(--foreground-color);
   font-family: var(--item-font);
-  font-size: 20px;
-  font-weight: 600;
 }
 .roll-card .roll-title {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin-bottom: 8px;
-  margin-top: 16px;
-}
-.roll-card .roll-title.getting-better {
-  margin-bottom: 0px;
+  margin-bottom: 2px;
 }
 .roll-card .card-description {
   font-family: var(--chat-font);
@@ -1365,26 +1450,32 @@ a.entity-link, a.inline-roll {
   margin-bottom: 8px;
   margin-top: 16px;
 }
+.roll-card .card-description p:last-of-type {
+  margin-bottom: 0;
+}
 .roll-card .roll-result {
   font-family: var(--chat-font);
   font-size: 18px;
-  margin-bottom: 8px;
-  margin-left: 8px;
-  margin-right: 8px;
   text-align: center;
-  background-color: #111;
+  background-color: var(--button-background);
+  line-height: 24px;
+  padding-bottom: 2px;
 }
 .roll-card .roll-result span {
-  color: var(--foreground-color);
+  color: var(--button-color);
   font-size: 20px;
 }
 .roll-card .outcome-text {
   font-family: var(--h3-font);
   font-size: 24px;
-  margin: 8px;
-  margin-top: 0;
+  margin: 0;
   text-align: center;
-  line-height: 28px;
+  line-height: 24px;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+.roll-card .outcome-text:last-of-type {
+  margin-bottom: 0;
 }
 .roll-card .reaction-text {
   font-family: var(--h3-font);
@@ -1399,10 +1490,13 @@ a.entity-link, a.inline-roll {
   align-items: center;
   width: 100%;
   justify-content: center;
-  padding: 8px 16px;
+  margin: 16px 0;
 }
 .roll-card .outcome-action button {
-  height: 28px;
+  width: 100%;
+}
+.roll-card > *:last-of-type {
+  margin-bottom: 0;
 }
 
 .dr-modifier {
@@ -1437,7 +1531,7 @@ a.entity-link, a.inline-roll {
 /* Rest and Scvm Dialogs */
 /* ====================== */
 .custom-dialog {
-  border: 1px solid #333;
+  border: 2px groove var(--light-border-color);
   font-size: 14px;
   margin: 0;
 }
@@ -1473,8 +1567,8 @@ a.entity-link, a.inline-roll {
   gap: 8px;
 }
 .custom-dialog .button-row button {
-  background: var(--button-color);
-  color: var(--background-color);
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
@@ -1494,11 +1588,6 @@ a.entity-link, a.inline-roll {
   text-transform: capitalize;
 }
 
-.window-app .window-content textarea {
-  color: var(--foreground-color);
-  background: var(--background-color);
-  border: 2px solid #252525;
-}
 .window-app .window-content textarea:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1507,8 +1596,26 @@ a.entity-link, a.inline-roll {
   outline: none;
 }
 
+.dice-tray button {
+  background: var(--button-background) !important;
+  color: var(--button-color) !important;
+  font-family: var(--button-font) !important;
+}
+
+.dice-tray input[type=text] {
+  color: var(--foreground-color) !important;
+}
+
 button.dice-calculator--button {
-  color: var(--foreground-color);
+  color: var(--foreground-color) !important;
+}
+
+#settings {
+  padding: 0 !important;
+}
+#settings button {
+  padding: 0 16px !important;
+  margin: 4px 0 !important;
 }
 
 /*# sourceMappingURL=pirateborg.css.map */

@@ -6,6 +6,9 @@
     <span class="item-name">{{item.name}}</span>
   </div>
   {{/each}}
+  <div class="outcome-text">
+    <span class="defend-outcome">{{defendOutcome}}</span>
+  </div>
   <div class="defend-roll">
     <div class="roll-title">
       <span
@@ -17,9 +20,11 @@
       <span>{{xtotal defendRoll}}</span>
     </div>
   </div>
+  {{#if takeDamage}}
   <div class="outcome-text">
-    <span class="defend-outcome">{{defendOutcome}}</span>
+    <span class="take-damage">{{takeDamage}}</span>
   </div>
+  {{/if}}
   {{#if damageRoll}}
   <div class="damage-roll">
     <div class="roll-title">
@@ -36,9 +41,5 @@
       <span>{{xtotal armorRoll}}</span>
     </div>
   </div>
-  {{/if}} {{#if takeDamage}}
-  <div class="outcome-text">
-    <span class="take-damage">{{takeDamage}}</span>
-  </div>
-  {{/if}}
+  {{/if}} 
 </form>

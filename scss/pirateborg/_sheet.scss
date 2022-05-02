@@ -8,9 +8,7 @@
       background: var(--window-background);
       font-size: 13px;
       color: var(--foreground-color);
-      border-bottom: 1px solid #333;
-      border-left: 1px solid #333;
-      border-right: 1px solid #333;
+      border: none;
 
       form {
         height: 100%;
@@ -64,7 +62,7 @@
     }
 
     textarea {
-      border: 1px solid #333;
+      border: 1px solid var(--light-border-color);
       border-radius: 0;
       color: var(--foreground-color);
       font-family: var(--item-font);
@@ -86,16 +84,11 @@
     }
 
     .editor {
-      border: 1px solid #333;
+      border: 2px groove var(--light-border-color);
       color: var(--foreground-color);
       font-family: var(--item-font);
       font-size: 16px;
       line-height: 20px;
-      padding: 0 8px;
-    }
-
-    .tox.tox-tinymce .tox-edit-area__iframe {
-      background: var(--background-color);
     }
 
     .sheet-tabs {
@@ -116,16 +109,15 @@
         white-space: nowrap;
         padding-left: 16px;
         padding-right: 16px;
-        
+
         &:hover {
-          color: var(--highlight-foreground-color);
           text-shadow: 0 0 16px var(--highlight-background-color);
         }
 
         &.active {
           text-shadow: none;
           background: var(--highlight-background-color);
-          color: var(--foreground-color);
+          color: var(--highlight-foreground-color);
         }
       }
     }

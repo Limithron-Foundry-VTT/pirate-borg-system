@@ -1,6 +1,7 @@
 <form class="roll-card morale-roll-card">
   <div class="card-title">{{localize 'PB.Morale'}}</div>
   <div class="morale-roll">
+    <div class="outcome-text">{{actor.name}} {{outcomeText}}</div>
     <div class="roll-title">
       <span>{{localize 'PB.Morale'}}: {{moraleRoll.formula}}</span>
     </div>
@@ -17,6 +18,5 @@
       </div>
     </div>
     {{/if}}
-    <div class="outcome-text">{{actor.name}} {{outcomeText}}</div>
   </div>
 </form>

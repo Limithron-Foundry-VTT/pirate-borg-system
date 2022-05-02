@@ -3,35 +3,38 @@
 /* ====================== */
 
 .roll-card {
-
   .card-title {
     background: var(--highlight-background-color);
-    color: var(--foreground-color);
+    color: var(--highlight-foreground-color);
     font-family: var(--h2-font);
     font-size: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     text-align: center;
+    padding-top: 4px;
+    line-height: 28px;
+  }
+
+  .dr-modifiers {
+    margin-bottom: 16px;
   }
 
   .item-row {
-    text-align: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     img {
       border: none;
-      border-radius: 0;
+      border-radius: 4px;
       margin-right: 8px;
+      padding: 2px;
+      background-color: var(--icon-backgroud-color);
     }
 
     span.item-name {
       color: var(--foreground-color);
       font-family: var(--item-font);
-      font-size: 20px;
-      font-weight: 600;
     }
   }
 
@@ -39,11 +42,7 @@
     font-family: var(--chat-font);
     font-size: 16px;
     text-align: center;
-    margin-bottom: 8px;
-    margin-top: 16px;
-    &.getting-better {
-      margin-bottom: 0px;
-    }
+    margin-bottom: 2px;
   }
 
   .card-description {
@@ -52,19 +51,22 @@
     text-align: center;
     margin-bottom: 8px;
     margin-top: 16px;
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   .roll-result {
     font-family: var(--chat-font);
     font-size: 18px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
     text-align: center;
-    background-color: #111;
+    background-color: var(--button-background);
+    line-height: 24px;
+    padding-bottom: 2px;
 
     span {
-      color: var(--foreground-color);
+      color: var(--button-color);
       font-size: 20px;
     }
   }
@@ -72,10 +74,15 @@
   .outcome-text {
     font-family: var(--h3-font);
     font-size: 24px;
-    margin: 8px;
-    margin-top: 0;  
+    margin: 0;
     text-align: center;
-    line-height: 28px;
+    line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 4px;
+  }
+
+  .outcome-text:last-of-type {
+    margin-bottom: 0;
   }
 
   .reaction-text {
@@ -95,11 +102,14 @@
     align-items: center;
     width: 100%;
     justify-content: center;
-    padding: 8px 16px;
+    margin: 16px 0;
 
     button {
-      height: 28px;
+      width: 100%;
     }
+  }
+  > *:last-of-type {
+    margin-bottom: 0;
   }
 }
 

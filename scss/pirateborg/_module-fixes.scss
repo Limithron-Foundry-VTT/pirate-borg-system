@@ -2,9 +2,6 @@
 .window-app {
   .window-content {
     textarea {
-      color: var(--foreground-color);
-      background: var(--background-color);
-      border: 2px solid #252525;
       &:hover {
         box-shadow: 0 0 10px var(--highlight-background-color);
       }
@@ -15,6 +12,26 @@
     }
   }
 }
+
+.dice-tray button {
+  background: var(--button-background) !important; 
+  color: var(--button-color) !important;
+  font-family: var(--button-font) !important;
+}
+
+.dice-tray input[type="text"] {
+  color: var(--foreground-color) !important;
+}
+
 button.dice-calculator--button {
-  color: var(--foreground-color);
+  color: var(--foreground-color) !important;
+}
+
+
+#settings {
+  padding: 0 !important;
+  button {
+    padding: 0 16px !important;
+    margin: 4px 0 !important;
+  }
 }

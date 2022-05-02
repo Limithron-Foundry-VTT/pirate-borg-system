@@ -1,8 +1,11 @@
 <form class="roll-card">
   <div class="card-title">{{title}}</div>
   <div class="card-description">{{{description}}}</div>
-
+  {{#if outcome}}
   <div class="test-roll">
+    <div class="outcome-text">
+      <span class="attack-outcome">{{outcome}}</span>
+    </div>
     <div class="attack-roll">
       {{#if rollTitle}}
       <div class="roll-title">
@@ -14,10 +17,8 @@
       <div class="roll-result">
         <span>{{xtotal roll}}</span>
       </div>
-      {{/if}}
-    </div>
-    <div class="outcome-text">
-      <span class="attack-outcome">{{outcome}}</span>
+      {{/if}}    
     </div>
   </div>
+  {{/if}}      
 </form>

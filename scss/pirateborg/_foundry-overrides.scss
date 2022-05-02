@@ -6,8 +6,8 @@ body {
 
 .window-app {
   .window-header {
-    background: var(--highlight-background-color);
-    color: var(--foreground-color);
+    background: var(--window-header-background-color);
+    color: var(--window-header-color);
   }
 }
 
@@ -36,15 +36,18 @@ body {
 }
 
 form button {
-  background: var(--button-color);
-  color: var(--background-color);
+  background: var(--button-background);
+  color: var(--button-color);
   font-family: var(--button-font);
   border: none;
   border-radius: 24px;
   font-size: 14px;
   padding: 0 16px;
   font-weight: 500;
+  line-height: 24px;
+  padding-top: 1px;
   cursor: pointer;
+  height: 28px;
 
   &:hover {
     box-shadow: 0 0 10px var(--highlight-background-color);
@@ -57,6 +60,7 @@ a:hover {
 
 input[type="text"] {
   color: var(--foreground-color);
+  background: none;
 
   &:hover,
   &:focus {
@@ -118,29 +122,23 @@ form.editable .results {
 
 .window-app .window-content {
   .notes {
-    background-color: var(--highlight-background-color);
-    color: var(--highlight-foreground-color);
+
   }
 
   form {
     .form-header {
-      color: var(--foreground-color);
+
     }
 
     .notes {
-      background-color: var(--background-color);
-      color: var(--foreground-alt-color);
+
     }
   }
 
   .form-group {
-    span.units {
-      background-color: var(--highlight-background-color);
-      color: var(--highlight-foreground-color);
-    }
-
     input {
       color: var(--foreground-color);
+      border: 2px groove var(--light-border-color);
 
       &:hover,
       &:focus {
@@ -219,7 +217,7 @@ form.editable .results {
 
 #chat-controls {
   color: var(--foreground-color);
-
+  
   i.fas:hover {
     color: var(--highlight-background-color);
     text-shadow: 0 0 5px var(--highlight-background-color);
@@ -227,7 +225,8 @@ form.editable .results {
 
   .roll-type-select {
     color: var(--foreground-color);
-    background: var(--background-color);
+    border: 2px groove var(--light-border-color);
+    background: transparent;
   }
 
   select:focus {
@@ -236,23 +235,21 @@ form.editable .results {
 }
 
 #chat-log {
-  background: var(--sidebar-background-color);
-
   .message-header {
     align-items: center;
     line-height: normal;
-    margin-bottom: 4px;
   }
 
   .chat-message {
     background: var(--window-background);
-    border: 3px solid #222;
+    border: 2px groove var(--light-border-color);
     border-radius: 0;
     color: var(--foreground-color);
-    margin-top: 8px;
+    margin-bottom: 8px;
     font-family: var(--chat-font);
     font-size: 16px;
     padding: 8px;
+    padding-bottom: 24px;
   }
 
   .message {
@@ -273,20 +270,34 @@ form.editable .results {
   }
 
   .chat-message .message-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+
     .message-sender {
       font-family: var(--h1-font);
       font-size: 24px;
+      margin-bottom: 8px;
     }
 
     .message-metadata {
       font-family: var(--chat-info-font);
       font-size: 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 8px;
     }
 
     span.flavor-text {
-      font-family: var(--chat-info-font);
-      font-size: 14px;
-      font-weight: bold;
+      font-family: var(--h3-font);
+      font-size: 24px;
+      margin: 0;
+      text-align: center;
+      line-height: 24px;
+      margin-top: 8px;
+      margin-bottom: 4px;
       color: var(--foreground-color);
     }
   }
@@ -296,7 +307,8 @@ form.editable .results {
     .dice-total {
       font-size: 16px;
       border-radius: 0;
-      background-color: #111;
+      background-color: var(--background-color);
+      color: var(--foreground-alt-color);
       border: 0;
       box-shadow: none;
     }
@@ -305,8 +317,8 @@ form.editable .results {
 
 #chat-form textarea {
   color: var(--foreground-color);
-  background: var(--background-color);
-  border: 2px solid #252525;
+  background: transparent;
+  border: 2px groove var(--light-border-color);
   font-family: var(--chat-font);
   font-size: 16px;
 
@@ -317,21 +329,29 @@ form.editable .results {
 }
 
 #client-settings {
+  section.content .submenu > button,
   button {
-    color: var(--background-color);
-    background: var(--foreground-color);
+    background: var(--button-background);
+    color: var(--button-color);
+    font-family: var(--button-font);
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    padding: 0 16px;
+    font-weight: 500;
+    cursor: pointer;
+    height: auto;
   }
 
   h2 {
     border-bottom: none;
-    color: var(--highlight-foreground-color);
+    color: var(--foreground-color);
     font-family: var(--h2-font);
     margin-bottom: 16px;
+    font-weight: 600;
   }
 
   select {
-    color: var(--foreground-color);
-    background: var(--background-color);
 
     &:focus {
       outline: none;
@@ -403,22 +423,12 @@ form.editable .results {
   }
 }
 
-.dialog .dialog-buttons button {
-  background: var(--button-color);
-  color: var(--background-color);
-  font-family: var(--button-font);
-  border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  width: auto;
-  padding: 0 16px;
-  font-weight: 500;
-  margin-top: 8px;
-  cursor: pointer;
+.dialog .dialog-buttons {
 
-  &.default {
-    background: var(--button-color);
-    color: var(--background-color);
+  button {
+    margin-top: 8px;
+    background: var(--button-background);
+    color: var(--button-color);
     font-family: var(--button-font);
     border: none;
     border-radius: 24px;
@@ -426,18 +436,30 @@ form.editable .results {
     width: auto;
     padding: 0 16px;
     font-weight: 500;
-    margin-top: 8px;
+    
+    cursor: pointer;
+
+    &.default {
+      background: var(--button-background);
+      border: none;
+    }
   }
 }
 
 form .form-group select {
   color: var(--foreground-color);
-  background: var(--background-color);
+  background: transparent;
+  border: 2px groove var(--light-border-color);
 
   &:focus {
     box-shadow: 0 0 10px var(--highlight-background-color);
   }
 }
+
+form .form-group,
+form .form-group-stacked {
+   margin: 8px 0;
+ }
 
 #hotbar {
   #hotbar-directory-controls,
@@ -473,21 +495,27 @@ form .form-group select {
   }
 }
 
-select:focus {
-  color: var(--foreground-color);
-  background: var(--background-color);
-}
+#settings {
+  h2 {
+    border-top: 2px groove var(--color-border-dark-4) !important;
+    border-bottom: 2px groovesolid var(--color-border-dark-4) !important;
+  }
 
-#settings button {
-  color: var(--background-color);
-  background: var(--foreground-color);
-  font-family: var(--item-font);
-  font-weight: 500;
+  button {
+    background: var(--button-background);
+    color: var(--button-color);
+    font-family: var(--button-font);
+    border: none;
+    border-radius: 24px;
+    font-size: 14px;
+    padding: 0 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
 }
-
 #sidebar {
-  background: var(--sidebar-background-color);
-  color: var(--sidebar-foreground-color);
+  background: var(--sidebar-background);  
+  color: var(--sidebar-color);
 
   &.collapsed #sidebar-tabs > .item.active {
     border-bottom: 1px solid var(--highlight-background-color);
@@ -496,8 +524,9 @@ select:focus {
 }
 
 #sidebar-tabs {
-  background: var(--sidebar-background-color);
-  color: var(--sidebar-foreground-color);
+  background: var(--sidebar-tab-background);
+  color: var(--sidebar-tab-color);
+
   border-bottom: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 
@@ -514,8 +543,8 @@ select:focus {
 .sidebar-tab {
   .action-buttons button {
     cursor: pointer;
-    background: var(--button-color);
-    color: var(--background-color);
+    background: var(--button-background);
+    color: var(--button-color);
     font-family: var(--button-font);
     border: none;
     border-radius: 24px;
@@ -527,21 +556,75 @@ select:focus {
   }
 
   .directory-header .header-search input {
-    background: var(--sidebar-button-background-color);
-    color: var(--sidebar-button-foreground-color);
-    border: 1px solid #252525;
+    background: transparent;
     border-radius: 0;
     font-family: var(--button-font);
+    border: 2px groove var(--light-border-color);
 
     &[type="text"]:focus {
       box-shadow: 0 0 5px var(--highlight-background-color);
     }
   }
 
-  .directory-list .directory-item h4 {
-    font-family: var(--item-font);
-    font-weight: 600;
-    font-size: 14px;
+  &.directory {
+    
+    .folder-header {
+      border: none;
+    }
+
+    .directory-header {
+      border-bottom: 2px groove var(--light-border-color);
+    }
+
+    li {
+      &.folder > .folder-header {
+        background: none;
+        border-bottom: 2px groove var(--light-border-color);
+        h3 {
+        color: var(--foreground-color);
+        }
+      }      
+      &.folder {
+        background: none;
+        &.collapsed > .folder-header {
+          background: none;
+          border: none;
+        }
+      }      
+    }
+
+    .directory-list {
+      .directory-item:last-child {
+        border-bottom: 2px groove var(--light-border-color);
+      }
+      
+      .subdirectory {
+        padding-left: 16px;
+        border: none;
+        .directory-item:last-child {
+          border: none;
+        }
+      }
+
+      .directory-item {
+        border-bottom: 2px groove var(--light-border-color);
+        border-top: 0;
+
+        &.document-name {
+          border: none;
+        }
+
+        h4 {
+          font-family: var(--item-font);
+          font-weight: 600;
+          font-size: 14px;
+        }
+        img {
+          padding: 2px;
+          border-radius: 8px;
+        }
+      } 
+    }
   }
 }
 
@@ -562,12 +645,11 @@ select:focus {
 
 .window-app {
   .window-content {
-    background: var(--background-color);
+    background: var(--window-background);
     color: var(--foreground-color);
   }
 
   &.app.journal-sheet .window-content {
-    background: var(--foreground-color);
     color: var(--background-color);
     background-position: -43px -120px;
     display: flex;
@@ -596,7 +678,7 @@ select:focus {
 
 .journal-sheet form {
   button[type="submit"] {
-    background: var(--background-color);
+
   }
 
   input[name="name"] {
@@ -613,10 +695,10 @@ select:focus {
 a {
   &.entity-link,
   &.inline-roll {
-    background: var(--background-color);
+    background: transparent;
     color: var(--foreground-color);
     padding: 1px 4px;
-    border: 1px solid var(--background-color);
+    border: none;
     border-radius: 2px;
     white-space: unset;
     word-break: break-all;
@@ -630,4 +712,39 @@ a {
       background: #d8d8cc;
     }
   }
+}
+
+.sheet {
+  nav.sheet-tabs {
+    border-top: 2px groove var(--light-border-color);
+    border-bottom: 2px groove var(--light-border-color);
+  }
+}
+
+hr {
+  border-top: 2px groove var(--color-border-light-primary);
+  border-bottom: none;
+}
+
+#combat {
+  li.combatant {
+    .token-initiative .initiative {
+      text-shadow: none;
+    }
+    .token-name {
+      text-shadow: none;
+    }
+  }
+}
+
+#playlists .global-control .playlist-header {
+  background: none;
+  border-top: none;
+  border-bottom: 2px groove var(--light-border-color);
+}
+
+#compendium h3 {
+  border: none;
+  background: var(--background-color);
+  color: var(--foreground-alt-color);
 }

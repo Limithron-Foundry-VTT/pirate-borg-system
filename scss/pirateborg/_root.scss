@@ -2,20 +2,32 @@
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
 
 :root {
-  --background-color: #000000;
-  --foreground-color: #ffffff;
-  --foreground-alt-color: #ffe900;
+  /* try to deprecated */
+  --background-color: #000;
+
+
+  --foreground-color: #000;
+  --foreground-alt-color: #FFF;
 
   --highlight-background-color: #d20608;
   --highlight-foreground-color: #FFFFFF;
-  --sidebar-background-color: #000000;
-  --sidebar-foreground-color: #ffffff;
-  --sidebar-button-background-color: #000000;
-  --sidebar-button-foreground-color: #ffffff;
-  --color-bg-option: #000000;
-  --window-background: #000000;
+ 
+  --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
+  --window-header-color: #FFFFFF;
+  --window-header-background-color: #000000;
 
-  --button-color: #FFF;
+  --sidebar-tab-background: #000000;
+  --sidebar-tab-color: #FFFFFF;
+
+  --light-border-color: #f6dec2;
+
+  --sidebar-background: var(--window-background);
+  --sidebar-color: #000000;
+
+  --button-background: #000000;
+  --button-color: #FFFFFF;
+
+  --icon-backgroud-color: #000000;
 
   --h1-font: "Roman Antique Regular";
   --h2-font: "IM Fell English SC";
@@ -26,6 +38,16 @@
   --item-font: "Alegreya";
 
   --button-font: "Alegreya"
+
+  /* foundry core */
+  --color-text-light-6: var(--foreground-color);
+  --color-text-light-5: var(--foreground-color);
+  --color-text-light-primary: var(--foreground-color);
+  --color-border-light-1: var(--light-border-color);
+  --color-text-light-6: var(--foreground-color);
+  --color-border-light-tertiary: var(--light-border-color);
+  --color-border-dark-4: var(--light-border-color);
+  --color-border-light-primary: var(--light-border-color);
 }
 
 /* ====================== */

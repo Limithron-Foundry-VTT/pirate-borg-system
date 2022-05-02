@@ -35,7 +35,7 @@
 /* ====================== */
 
 .custom-dialog {
-  border: 1px solid #333;
+  border: 2px groove var(--light-border-color);
   font-size: 14px;
   margin: 0;
 
@@ -81,8 +81,8 @@
     gap: 8px;
 
     button {
-      background: var(--button-color);
-      color: var(--background-color);
+      background: var(--button-background);
+      color: var(--button-color);
       font-family: var(--button-font);
       border: none;
       border-radius: 24px;

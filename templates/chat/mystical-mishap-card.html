@@ -1,6 +1,13 @@
 <form class="roll-card">
   <div class="card-title">{{title}}</div>
   <div class="test-roll">
+    {{#each items as |item|}}
+    <div class="outcome-text">
+      <span class="attack-outcome">
+        {{ item.data.text }}
+      </span>
+    </div>
+    {{/each}}     
     <div class="attack-roll">
       {{#if formula}}
       <div class="roll-title">
@@ -14,12 +21,5 @@
       </div>
       {{/if}}
     </div>
-    {{#each items as |item|}}
-    <div class="outcome-text">
-      <span class="attack-outcome">
-        {{ item.data.text }}
-      </span>
-    </div>
-    {{/each}}
   </div>
 </form>

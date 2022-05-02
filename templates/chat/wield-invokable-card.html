@@ -1,6 +1,9 @@
 <form class="roll-card wield-power-roll-card">
   <div class="card-title">{{ title }}</div>
   <div class="wield-roll">
+    <div class="outcome-text">
+      <span class="attack-outcome">{{wieldOutcome}}</span>
+    </div>
     <div class="roll-title">
       <span
         >{{wieldFormula}} {{localize 'PB.Vs'}}
@@ -10,9 +13,6 @@
     <div class="roll-result">
       <span>{{xtotal wieldRoll}}</span>
     </div>
-  </div>
-  <div class="outcome-text">
-    <span class="attack-outcome">{{wieldOutcome}}</span>
   </div>
 
   {{#if isFailure }}

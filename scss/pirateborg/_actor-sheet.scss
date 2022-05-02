@@ -17,12 +17,14 @@
       font-family: var(--item-font);
       text-align: center;
       color: var(--foreground-color);
+      background: transparent;
       font-size: 32px;
       width: 42px;
       height: 32px;
       font-weight: 600;
       padding: 0;
       padding-bottom: 8px;
+      border-radius: 4px;
     }
 
     .stat-value {
@@ -35,7 +37,7 @@
 
     .sheet-header {
       margin-top: 0;
-      padding: 16px 16px 16px 16px;
+      margin: 16px;
       display: flex;
       flex-direction: row;
       flex: none;
@@ -86,10 +88,6 @@
 
         .item-list {
           &.weapon-list {
-            .item {
-              
-            }
-
             .weapon-name-col {
               display: flex;
               align-items: center;
@@ -101,14 +99,6 @@
                   font-size: 10pt;
                 }
               }
-            }
-
-            .item-buttons {
-              
-            }
-
-            .item-button {
-
             }
           }
 
@@ -187,15 +177,15 @@
             display: none;
 
             &:checked + span.tier-num {
-              background: var(--highlight-background-color);
-              color: var(--highlight-foreground-color);
-              border-color: var(--highlight-background-color);
+              background: var(--button-background);
+              color: var(--button-color);
+              border-color: var(--button-background);
             }
 
             &:disabled {
               + span.tier-num {
                 color: #444444;
-                border: 1px solid #444444;
+                border: 1px solid var(--light-border-color);
               }
 
               ~ span.tier-dmg {
@@ -206,7 +196,8 @@
 
           span {
             &.tier-num {
-              border: 1px solid #333;
+              cursor: pointer;
+              border: 1px solid black;
               border-radius: 100%;
               font-family: var(--item-font);
               width: 24px;
@@ -239,17 +230,6 @@
           margin-top: 16px;
         }
       }
-    }
-
-
-    .roll-button {
-      background-color: var(--button-color);
-      border: none;
-      border-radius: 16px;
-      color: var(--foreground-color);
-      font-family: var(--button-font);
-      font-size: 20px;
-      width: 160px;
     }
 
     input[type="text"].actor-name {
