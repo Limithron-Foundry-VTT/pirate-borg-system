@@ -97,9 +97,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byName);
 
     sheetData.data.features = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background || item.type === CONFIG.PB.itemTypes.invokable)
+      .filter((item) => !(item.data.invokableType === 'Arcane Ritual' || item.data.invokableType === 'Ancient Relic'))
       .reduce((items, item) => {
-        const key = item.data.featureType || item.type;        
+        const key = item.data.featureType || item.data.invokableType || item.type;        
         let group = items.find((i) => i.type === key);
         if (!group) {
           group = { type: key, items: []}
@@ -111,9 +112,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byType);
 
       sheetData.data.invokables = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable || item.data.actionMacroLabel)
+      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
+      .filter((item) => item.data.invokableType === 'Arcane Ritual' || item.data.invokableType === 'Ancient Relic')
       .reduce((items, item) => {
-        const key = item.data.invokableType || item.data.featureType || 'Equipment';        
+        const key = item.data.invokableType;        
         let group = items.find((i) => i.type === key);
         if (!group) {
           group = { type: key, items: []}

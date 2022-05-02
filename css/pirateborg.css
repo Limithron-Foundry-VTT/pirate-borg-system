@@ -211,6 +211,9 @@
   line-height: 32px;
   width: 100%;
   border-radius: 16px;
+  white-space: nowrap;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .pirateborg.sheet .sheet-tabs .item:hover {
   color: var(--highlight-foreground-color);

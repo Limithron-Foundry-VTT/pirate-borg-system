@@ -409,7 +409,24 @@
     </div>
 
     {{!-- Features Tab --}}
-    <div class="tab specials-tab" data-group="primary" data-tab="features">      
+    <div class="tab specials-tab" data-group="primary" data-tab="features">     
+      
+      {{#if data.data.class.data.useExtraResource}}
+        <div class="powers-top-row">     
+          <div class="uses-remaining">
+            <label class="stat-label uses-remaining-label">{{ data.data.class.data.extraResourceNamePlural }}</label>
+            <input
+              class="stat-input"
+              name="data.extraResourceUses.value"
+              type="number"
+              value="{{data.data.extraResourceUses.value}}"
+              data-dtype="Number"
+            />
+            <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.class.data.extraResourceFormulaLabel }}</span>
+          </div>
+        </div>          
+      {{/if}}
+
       {{#each data.data.features as |item id|}}      
       
       <ol class="items-list inventory-list">
@@ -457,6 +474,7 @@
 
     {{!-- Powers Tab --}}
     <div class="tab powers-tab" data-group="primary" data-tab="powers">
+
       <div class="powers-top-row">       
         <div class="uses-remaining">
           <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
@@ -469,20 +487,6 @@
           />
           <span class="rule-text rollable ritual-per-day-text">{{localize "PB.RitualPerday"}}</span>
         </div>
-
-        {{#if data.data.class.data.useExtraResource}}
-          <div class="uses-remaining">
-            <label class="stat-label uses-remaining-label">{{ data.data.class.data.extraResourceNamePlural }}</label>
-            <input
-              class="stat-input"
-              name="data.extraResourceUses.value"
-              type="number"
-              value="{{data.data.extraResourceUses.value}}"
-              data-dtype="Number"
-            />
-            <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.class.data.extraResourceFormulaLabel }}</span>
-          </div>
-        {{/if}}
       </div>
 
       {{#each data.data.invokables as |group|}}
