@@ -223,7 +223,118 @@
       "system": "pirateborg",
       "path": "./packs/macros-brute.db",
       "entity": "Macro"
-    }    
+    },
+
+    {
+      "name": "class-rapscallion",
+      "label": "Class - Rapscallion",
+      "system": "pirateborg",
+      "path": "./packs/class-rapscallion.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-rapscallion",
+      "label": "Rolls - Rapscallion",
+      "system": "pirateborg",
+      "path": "./packs/rolls-rapscallion.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-rapscallion",
+      "label": "Macros - Rapscallion",
+      "system": "pirateborg",
+      "path": "./packs/macros-rapscallion.db",
+      "entity": "Macro"
+    },
+
+    {
+      "name": "class-buccaneer",
+      "label": "Class - Buccaneer",
+      "system": "pirateborg",
+      "path": "./packs/class-buccaneer.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-buccaneer",
+      "label": "Rolls - Buccaneer",
+      "system": "pirateborg",
+      "path": "./packs/rolls-buccaneer.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-buccaneer",
+      "label": "Macros - Buccaneer",
+      "system": "pirateborg",
+      "path": "./packs/macros-buccaneer.db",
+      "entity": "Macro"
+    }, 
+    
+    {
+      "name": "class-swashbuckler",
+      "label": "Class - Swashbuckler",
+      "system": "pirateborg",
+      "path": "./packs/class-swashbuckler.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-swashbuckler",
+      "label": "Rolls - Swashbuckler",
+      "system": "pirateborg",
+      "path": "./packs/rolls-swashbuckler.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-swashbuckler",
+      "label": "Macros - Swashbuckler",
+      "system": "pirateborg",
+      "path": "./packs/macros-swashbuckler.db",
+      "entity": "Macro"
+    }, 
+
+    {
+      "name": "class-zealot",
+      "label": "Class - Zealot",
+      "system": "pirateborg",
+      "path": "./packs/class-zealot.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-zealot",
+      "label": "Rolls - Zealot",
+      "system": "pirateborg",
+      "path": "./packs/rolls-zealot.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-zealot",
+      "label": "Macros - Zealot",
+      "system": "pirateborg",
+      "path": "./packs/macros-zealot.db",
+      "entity": "Macro"
+    },
+
+    {
+      "name": "class-sorcerer",
+      "label": "Class - Sorcerer",
+      "system": "pirateborg",
+      "path": "./packs/class-sorcerer.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-sorcerer",
+      "label": "Rolls - Sorcerer",
+      "system": "pirateborg",
+      "path": "./packs/rolls-sorcerer.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-sorcerer",
+      "label": "Macros - Sorcerer",
+      "system": "pirateborg",
+      "path": "./packs/macros-sorcerer.db",
+      "entity": "Macro"
+    }       
+    
   ],
   "languages": [
     {

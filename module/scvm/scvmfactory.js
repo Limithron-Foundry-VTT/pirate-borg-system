@@ -57,7 +57,7 @@ const compendiumInfoFromString = (value) => {
   return value.split(';');
 }
 
-const drawTable = async (compendium, table) => {
+export const drawTable = async (compendium, table) => {
   const rollTable = await findCompendiumItem(compendium, table);
   return await rollTable.draw({ displayChat: false });
 } 
@@ -195,7 +195,7 @@ export const rollRollItems = async (rolls) => {
 }
 
 export const findFeatureBonusItems = async (features) => {
-  const results = [];
+  let results = [];
   for (const feature of features) {
     if (feature.data.data.startingBonusItems) {
       results = results.concat(await findItems(feature.data.data.startingBonusItems));
@@ -204,20 +204,39 @@ export const findFeatureBonusItems = async (features) => {
   return results;
 }
 
-export const drawClassGettingBetterTable = async (actor) => {   
+export const handleClassGettingBetterRollTable = async (actor) => {   
   const clazz = actor.items.find((item) => item.type === CONFIG.PB.itemTypes.class)   
   const [compendium, table] = compendiumInfoFromString(clazz.data.data.gettingBetterRolls);
-  let items = [];
+
+  let items = [];  
   if (compendium) {
     const compendiumRollTable = await findCompendiumItem(compendium, table);
     const rollTable = compendiumRollTable.clone({ replacement: false });  
+  
     while(true) {
       const draw =  await rollTable.draw({ displayChat: false });    
       items = await findTableItems(draw.results);
-      draw.results.forEach((result) => result.data.drawn = true);
-      if (!items.length || !actor.items.some((item) => item.data.name === items[0].data.name)) {
+      console.log(items);
+
+      if (!items.length) { 
+        break;
+      }     
+
+      const item = items[0];      
+      const actorItem = actor.items.find((i) => i.data.name === item.data.name); 
+      const noLimits = item.data.data.maxQuantity === 0;
+      const actorItemQuantity = actorItem ? (actorItem.data.data.quantity || 1) : 0;
+      const itemMaxQuantity = item.data.data.maxQuantity || 1
+ 
+      if (noLimits || actorItemQuantity < itemMaxQuantity) {
+        if (actorItem) {
+          await actorItem.update({['data.quantity']: actorItemQuantity + 1});
+        } else {
+          await actor.createEmbeddedDocuments('Item', items.map(item => item.data));    
+        }
         break;
       }
+      draw.results.forEach((result) => result.data.drawn = true);
     }
   }
   return items;
@@ -272,17 +291,17 @@ export const rollScvmForClass = async (clazz) => {
 
   const silver = rollSilver(background);
 
-  const armor = await rollArmor(!hasRelic ? clazz.data.data.startingArmorTableFormula : '1d6') ;
-  const hat = await rollHat(clazz.data.data.startingHatTableFormula);
-  const weapon = await rollWeapon(clazz.data.data.startingWeaponTableFormula) ;
+  const armor = clazz.data.data.startingArmorTableFormula ? (await rollArmor(!hasRelic ? clazz.data.data.startingArmorTableFormula : '1d6')) : [];
+  const hat = clazz.data.data.startingHatTableFormula ? (await rollHat(clazz.data.data.startingHatTableFormula)) : [];
+  const weapon = clazz.data.data.startingWeaponTableFormula ? (await rollWeapon(clazz.data.data.startingWeaponTableFormula)) : [];
 
   const startingRollItems = await rollRollItems(clazz.data.data.startingRolls);
   const startingItems = await findItems(clazz.data.data.startingItems);
 
   const backgroundBonusItems = await findItems(background.data.data.startingBonusItems);    
-  const featuresBonusItems = await findFeatureBonusItems(features);
+  const featuresBonusItems = await findFeatureBonusItems([...(features || []), ...(startingRollItems || [])]);
 
-  const description = generateDescription(clazz, baseTables)
+  const description = generateDescription(clazz, baseTables);
   
   const allDocs = [
     ...baseTables,
@@ -331,6 +350,7 @@ const scvmToActorData = (s) => {
         agility: { value: s.agility },
         presence: { value: s.presence },
         toughness: { value: s.toughness },
+        spirit: { value: s.spirit },
       },
       description: s.description,
       hp: {
@@ -382,7 +402,7 @@ const updateActorWithScvm = async (actor, s) => {
   await invokeStartingMacro(actor);
 };
 
-const findTableItems = async (results) => {
+export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   for (const result of results) {

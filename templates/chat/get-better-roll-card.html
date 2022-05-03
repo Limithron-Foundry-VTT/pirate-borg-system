@@ -14,11 +14,11 @@
 
     <div class="outcome-text">
       <div class="roll-title getting-better">
-        <span>Left in the debris you find:</span>
+        <span>Left in the debris you find</span>
       </div>  
       <span class="getting-better">{{debrisOutcome}}</span>
       {{#if relicOrRitual}}
-        @Item[{{relicOrRitual._id}}]
+        {{relicOrRitual.document.link}}
       {{/if}}
     </div>
 
@@ -28,7 +28,7 @@
         <span>{{localize 'PB.GettingBetterClassFeatures'}}</span>
       </div>      
       {{#each classFeatures as |classFeature|}}
-        @Item[{{classFeature._id}}]
+        {{classFeature.document.link}}
       {{/each}}              
     </div>
     {{/if}}

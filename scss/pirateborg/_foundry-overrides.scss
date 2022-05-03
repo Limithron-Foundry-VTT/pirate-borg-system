@@ -48,6 +48,7 @@ form button {
   padding-top: 1px;
   cursor: pointer;
   height: 28px;
+  width: auto;
 
   &:hover {
     box-shadow: 0 0 10px var(--highlight-background-color);
@@ -250,7 +251,14 @@ form.editable .results {
     font-size: 16px;
     padding: 8px;
     padding-bottom: 24px;
+    .table-draw .table-results {
+      margin: 0;
+      display: flex;
+      margin-top: 20px;
+      justify-content: center;
+    }
   }
+  
 
   .message {
     h4,
@@ -273,7 +281,6 @@ form.editable .results {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 8px;
 
     .message-sender {
       font-family: var(--h1-font);
@@ -291,14 +298,14 @@ form.editable .results {
     }
 
     span.flavor-text {
-      font-family: var(--h3-font);
+      background: var(--highlight-background-color);
+      color: var(--highlight-foreground-color);
+      font-family: var(--h2-font);
       font-size: 24px;
-      margin: 0;
+      margin-bottom: 24px;
       text-align: center;
-      line-height: 24px;
-      margin-top: 8px;
-      margin-bottom: 4px;
-      color: var(--foreground-color);
+      padding-top: 4px;
+      line-height: 28px;
     }
   }
 

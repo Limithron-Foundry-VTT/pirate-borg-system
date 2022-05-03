@@ -19,9 +19,7 @@
           placeholder="{{ localize 'PB.Name' }}"
         />
       </div>
-      <div class="actor-subtitle">
-        <h4 class="actor-type">{{actor.type}}</h4>
-      </div>
+      <div class="actor-type">{{actor.type}}</div>
       <div class="holding-row">
         <span class="stat-label container-label"
           >{{ localize "PB.ContainerHolding" }}:</span
@@ -35,11 +33,11 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="contents">{{ localize "PB.TabContents" }}</a>
+    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
     <a class="item" data-tab="description"
       >{{ localize "PB.TabDescription" }}</a
     >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
-    <a class="item" data-tab="contents">{{ localize "PB.TabContents" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}

@@ -1,4 +1,5 @@
 import { diceSound, showDice as rollDice} from "./dice.js";
+import { findCompendiumItem } from "./scvm/scvmfactory.js";
 
 export const GENERIC_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
 
@@ -37,3 +38,8 @@ export const executeMacro = async (macro, {actor, token, item}={}) => {
       console.error(err);
     }
 }
+
+export const drawTable = async (compendium, table) => {
+  const rollTable = await findCompendiumItem(compendium, table);
+  return await rollTable.draw();
+} 

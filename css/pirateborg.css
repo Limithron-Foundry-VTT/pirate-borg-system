@@ -308,6 +308,13 @@
   text-transform: uppercase;
   margin-left: 13px;
 }
+.pirateborg.sheet.actor .sheet-header .actor-type {
+  font-family: var(--h3-font);
+  font-size: 24px;
+  width: 100%;
+  margin-bottom: 51px;
+  margin-left: 0px;
+}
 .pirateborg.sheet.actor .sheet-body {
   flex: 1;
 }
@@ -730,31 +737,32 @@
 }
 
 .pirateborg.sheet.actor.creature .sheet-header {
+  margin: 16px;
   display: flex;
-  flex: 0 0 90px;
   flex-direction: row;
-  margin-top: 0;
-  padding: 5px;
+  flex: none;
+  align-items: flex-start;
+  gap: 16px;
 }
 .pirateborg.sheet.actor.creature .sheet-header .header-col1 {
   flex: 0 0 200px;
+  margin-right: 8px;
+  line-height: 0;
 }
 .pirateborg.sheet.actor.creature .sheet-header .header-col2 {
   display: flex;
   flex: 1;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
-  margin: 5px;
+  justify-content: flex-start;
 }
 .pirateborg.sheet.actor.creature .sheet-header .profile-img {
   height: 200px;
   width: 200px;
+  border-radius: 24px;
 }
 .pirateborg.sheet.actor.creature .sheet-header .name-row {
   flex: 0 0 45px;
-  margin-bottom: 10px;
-  padding-left: 12px;
   width: 100%;
 }
 .pirateborg.sheet.actor.creature .sheet-header input[type=text].creature-name {
@@ -763,7 +771,6 @@
 .pirateborg.sheet.actor.creature .sheet-header .hitpoints-row {
   flex: 0 0 35px;
   margin-bottom: 10px;
-  margin-left: 14px;
 }
 
 .pirateborg.sheet.item .sheet-header {
@@ -804,31 +811,32 @@
   margin: 0;
 }
 .pirateborg.sheet.actor.container .sheet-header {
-  margin-top: 0;
-  flex: 0 0 90px;
+  margin: 16px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  flex: none;
+  align-items: flex-start;
+  gap: 16px;
 }
 .pirateborg.sheet.actor.container .sheet-header .header-col1 {
   flex: 0 0 200px;
+  margin-right: 8px;
+  line-height: 0;
 }
 .pirateborg.sheet.actor.container .sheet-header .header-col2 {
   display: flex;
   flex: 1;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
-  margin: 5px;
+  justify-content: flex-start;
 }
 .pirateborg.sheet.actor.container .sheet-header .profile-img {
   height: 200px;
   width: 200px;
+  border-radius: 24px;
 }
 .pirateborg.sheet.actor.container .sheet-header .name-row {
   flex: 0 0 45px;
-  margin-bottom: 10px;
-  padding-left: 12px;
   width: 100%;
 }
 .pirateborg.sheet.actor.container .sheet-header input[type=text].container-name {
@@ -836,8 +844,6 @@
 }
 .pirateborg.sheet.actor.container .sheet-header .holding-row {
   flex: 0 0 35px;
-  margin-bottom: 10px;
-  margin-left: 14px;
 }
 
 body {
@@ -881,6 +887,7 @@ form button {
   padding-top: 1px;
   cursor: pointer;
   height: 28px;
+  width: auto;
 }
 form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1012,6 +1019,12 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   padding: 8px;
   padding-bottom: 24px;
 }
+#chat-log .chat-message .table-draw .table-results {
+  margin: 0;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
 #chat-log .message h4,
 #chat-log .message h3,
 #chat-log .message h2 {
@@ -1028,7 +1041,6 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
@@ -1044,14 +1056,14 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   gap: 8px;
 }
 #chat-log .chat-message .message-header span.flavor-text {
-  font-family: var(--h3-font);
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+  font-family: var(--h2-font);
   font-size: 24px;
-  margin: 0;
+  margin-bottom: 24px;
   text-align: center;
-  line-height: 24px;
-  margin-top: 8px;
-  margin-bottom: 4px;
-  color: var(--foreground-color);
+  padding-top: 4px;
+  line-height: 28px;
 }
 #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
@@ -1447,8 +1459,7 @@ hr {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin-bottom: 8px;
-  margin-top: 16px;
+  margin: 24px 0;
 }
 .roll-card .card-description p:last-of-type {
   margin-bottom: 0;
@@ -1586,6 +1597,7 @@ hr {
 .allowed-scvm-classes-dialog .class-name,
 .scvm-dialog .class-name {
   text-transform: capitalize;
+  padding-top: 2px;
 }
 
 .window-app .window-content textarea:hover {

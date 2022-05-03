@@ -150,11 +150,13 @@
         "equipment"
       ],
       "invokableType": "",
-      "isEquipment": true
+      "isEquipment": true,
+      "maxQuantity": 1
     },    
     "background": {
       "description": "",
       "startingGold": "2d6 * 10",
+      "quantity": 1,
       "startingBonusItems": ""
     },       
     "feature": {

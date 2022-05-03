@@ -63,6 +63,28 @@
           data-dtype="Number"
         />
       </div>
+      
+      <div class="form-group">
+        <label>{{ localize "PB.Quantity" }}:</label>
+        <input
+          type="text"
+          name="data.quantity"
+          value="{{data.data.quantity}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.MaxQuantity" }}:</label>
+        <input
+          type="text"
+          name="data.maxQuantity"
+          value="{{data.data.maxQuantity}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
 
       {{!-- Container space --}}
       <div class="form-group">

@@ -1,14 +1,17 @@
 .pirateborg {
   &.sheet {
     &.actor.creature .sheet-header {
+      margin: 16px;
       display: flex;
-      flex: 0 0 90px;
       flex-direction: row;
-      margin-top: 0;
-      padding: 5px;
+      flex: none;
+      align-items: flex-start;
+      gap: 16px;
 
       .header-col1 {
         flex: 0 0 200px;
+        margin-right: 8px;
+        line-height: 0;
       }
 
       .header-col2 {
@@ -16,19 +19,17 @@
         flex: 1;
         flex-direction: column;
         height: 100%;
-        justify-content: center;
-        margin: 5px;
+        justify-content: flex-start;
       }
 
       .profile-img {
         height: 200px;
         width: 200px;
+        border-radius: 24px;
       }
 
       .name-row {
         flex: 0 0 45px;
-        margin-bottom: 10px;
-        padding-left: 12px;
         width: 100%;
       }
 
@@ -39,7 +40,6 @@
       .hitpoints-row {
         flex: 0 0 35px;
         margin-bottom: 10px;
-        margin-left: 14px;
       }
     }
   }

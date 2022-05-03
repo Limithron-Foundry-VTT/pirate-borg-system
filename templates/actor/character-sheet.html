@@ -444,7 +444,10 @@
             width="24"
             height="24"
           />
-          <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+          <h4 class="item-name item-edit rollable">
+            {{item.name}}
+            {{#ifGt item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}
+          </h4>
           <div class="item-buttons">
             {{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}
           </div>

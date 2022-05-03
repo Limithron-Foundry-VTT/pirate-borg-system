@@ -19,6 +19,7 @@
           placeholder="{{ localize 'PB.Name' }}"
         />
       </div>
+      <div class="actor-type">{{actor.type}}</div>
       <div class="hitpoints-row">
         <span class="stat-label">{{ localize "PB.HitPoints" }}:</span>
         <input
@@ -50,10 +51,10 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
     <a class="item" data-tab="description"
       >{{ localize "PB.TabDescription" }}</a
     >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}

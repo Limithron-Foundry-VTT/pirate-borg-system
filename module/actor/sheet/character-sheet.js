@@ -229,7 +229,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     const d = new Dialog({
       title: game.i18n.localize("PB.GetBetter"),
       content:
-        "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
+        "<p>The game master decides when a character should be improved.</p><p>It might be after: a raid, acquiring treasure, dividing the plunder, burying treasure, or acquiring a new ship</p>",
       buttons: {
         cancel: {
           label: game.i18n.localize("PB.Cancel"),

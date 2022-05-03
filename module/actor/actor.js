@@ -1,6 +1,6 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import { rollAncientRelics, rollArcaneRituals, drawClassGettingBetterTable } from "../scvm/scvmfactory.js";
+import { rollAncientRelics, rollArcaneRituals, handleClassGettingBetterRollTable } from "../scvm/scvmfactory.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
@@ -778,34 +778,19 @@ export class PBActor extends Actor {
    * Check reaction!
    */
   async checkReaction() {
-    const actorRollData = this.getRollData();
-    const reactionRoll = new Roll("2d6", actorRollData);
-    reactionRoll.evaluate({ async: false });
-    await showDice(reactionRoll);
-    await this._renderReactionRollCard(reactionRoll);
+    const table = await findCompendiumItem('pirateborg.rolls-gamemaster', 'Reaction');
+    const result = await table.draw({ displayChat: false })
+    await this._renderReactionRollCard(result);
   }
 
   /**
    * Show reaction roll/result in a chat roll card.
    */
-  async _renderReactionRollCard(reactionRoll) {
-    let key = "";
-    if (reactionRoll.total <= 3) {
-      key = "PB.ReactionKill";
-    } else if (reactionRoll.total <= 6) {
-      key = "PB.ReactionAngered";
-    } else if (reactionRoll.total <= 8) {
-      key = "PB.ReactionIndifferent";
-    } else if (reactionRoll.total <= 10) {
-      key = "PB.ReactionAlmostFriendly";
-    } else {
-      key = "PB.ReactionHelpful";
-    }
-    const reactionText = game.i18n.localize(key);
+  async _renderReactionRollCard(result) {
     const rollResult = {
       actor: this,
-      reactionRoll,
-      reactionText,
+      reactionRoll: result.roll,
+      reactionText: result.results[0].data.text,
     };
     const html = await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
@@ -1141,7 +1126,7 @@ export class PBActor extends Actor {
         canRestore = false;
       }
       if (canRestore && foodAndDrink === "eat") {
-        await this.rollHealHitPoints("d6");
+        await this.rollHealHitPoints("d8");
         await this.rollRitualPerDay();
         await this.rollExtraResourcePerDay();
         if (this.data.data.luck.value === 0) {
@@ -1212,6 +1197,7 @@ export class PBActor extends Actor {
   }
 
   async getBetter() {
+
     const oldHp = this.data.data.hp.max;
     const newHp = this._betterHp(oldHp);
     const oldStr = this.data.data.abilities.strength.value;
@@ -1279,8 +1265,8 @@ export class PBActor extends Actor {
       relicOrRitual = (await rollArcaneRituals())[0];      
     }
 
-    const classFeatures = await drawClassGettingBetterTable(this);
-    const classFeaturesData = classFeatures.map((classFeature) => classFeature.data);
+    const gettingBetterItems = await handleClassGettingBetterRollTable(this);
+    const gettingBetterItemsData = gettingBetterItems.map((item) => item.data);
 
     const data = {
       hpOutcome,      
@@ -1291,7 +1277,7 @@ export class PBActor extends Actor {
       spiOutcome,
       debrisOutcome,      
       relicOrRitual: relicOrRitual ? relicOrRitual.data : null,
-      classFeatures: classFeaturesData,
+      classFeatures: gettingBetterItemsData,
     };
     
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
@@ -1314,10 +1300,6 @@ export class PBActor extends Actor {
 
     if (relicOrRitual) {
       await this.createEmbeddedDocuments('Item', [relicOrRitual.data]);    
-    }
-
-    if (classFeatures) {
-      await this.createEmbeddedDocuments('Item', classFeaturesData);    
     }
 
     await invokeGettingBetterMacro(this);
@@ -1365,76 +1347,14 @@ export class PBActor extends Actor {
   }
 
   async rollBroken() {
-    const brokenRoll = new Roll("1d4").evaluate({ async: false });
-    await showDice(brokenRoll);
-
-    let outcomeLines = [];
-    let additionalRolls = [];
-    if (brokenRoll.total === 1) {
-      const unconsciousRoll = new Roll("1d4").evaluate({ async: false });
-      const roundsWord = game.i18n.localize(
-        unconsciousRoll.total > 1 ? "PB.Rounds" : "PB.Round"
-      );
-      const hpRoll = new Roll("1d4").evaluate({ async: false });
-      outcomeLines = [
-        game.i18n.format("PB.BrokenFallUnconscious", {
-          rounds: unconsciousRoll.total,
-          roundsWord,
-          hp: hpRoll.total,
-        }),
-      ];
-      additionalRolls = [unconsciousRoll, hpRoll];
-    } else if (brokenRoll.total === 2) {
-      const limbRoll = new Roll("1d6").evaluate({ async: false });
-      const actRoll = new Roll("1d4").evaluate({ async: false });
-      const hpRoll = new Roll("1d4").evaluate({ async: false });
-      const roundsWord = game.i18n.localize(
-        actRoll.total > 1 ? "PB.Rounds" : "PB.Round"
-      );
-      if (limbRoll.total <= 5) {
-        outcomeLines = [
-          game.i18n.format("PB.BrokenSeveredLimb", {
-            rounds: actRoll.total,
-            roundsWord,
-            hp: hpRoll.total,
-          }),
-        ];
-      } else {
-        outcomeLines = [
-          game.i18n.format("PB.BrokenLostEye", {
-            rounds: actRoll.total,
-            roundsWord,
-            hp: hpRoll.total,
-          }),
-        ];
-      }
-      additionalRolls = [limbRoll, actRoll, hpRoll];
-    } else if (brokenRoll.total === 3) {
-      const hemorrhageRoll = new Roll("1d2").evaluate({ async: false });
-      const hoursWord = game.i18n.localize(
-        hemorrhageRoll.total > 1 ? "PB.Hours" : "PB.Hour"
-      );
-      const lastHour =
-        hemorrhageRoll.total == 2
-          ? game.i18n.localize("PB.BrokenHemorrhageLastHour")
-          : "";
-      outcomeLines = [
-        game.i18n.format("PB.BrokenHemorrhage", {
-          hours: hemorrhageRoll.total,
-          hoursWord,
-          lastHour,
-        }),
-      ];
-      additionalRolls = [hemorrhageRoll];
-    } else {
-      outcomeLines = [game.i18n.localize("PB.BrokenYouAreDead")];
-    }
+    const table = await findCompendiumItem('pirateborg.rolls-gamemaster', 'Broken');
+    const result = await table.draw({ displayChat: false })
 
     const data = {
-      additionalRolls,
-      brokenRoll,
-      outcomeLines,
+      brokenRoll: result.roll,
+      outcomes: result.results.map((r) => r.data.text),
     };
+
     const html = await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
       content: html,
