@@ -311,6 +311,15 @@ export class PBActor extends Actor {
 
     // roll 1: attack
     const isRanged = itemRollData.weaponType === "ranged";
+    const isGunpowderWeapon = itemRollData.isGunpowderWeapon === true;
+    const useAmmoDamage = itemRollData.useAmmoDamage === true;
+    const hasAmmo = !!item.data.data.ammoId;
+
+    if (useAmmoDamage && !hasAmmo) {
+      ui.notifications.warn(game.i18n.format("PB.NoAmmoEquipped"));
+      return;
+    }
+
     // ranged weapons use presence; melee weapons use strength
     const ability = isRanged ? "presence" : "strength";
     const attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
@@ -329,18 +338,26 @@ export class PBActor extends Actor {
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
+
     if (isHit) {
       // HIT!!!
       attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCritText" : "PB.Hit");
-      // roll 2: damage.
-      // Use parentheses for critical 2x in case damage die something like 1d6+1
+      const extraCritDamage = itemRollData.critExtraDamage || 0;
 
-      const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
+      if (useAmmoDamage) {
+        const ammo = this.items.get(item.data.data.ammoId);
+        itemRollData.damageDie = ammo.data.data.damageDie || "1d0";
+      }
+
+      // roll 2: damage.
+      const damageFormula = isCrit ? (extraCritDamage ? `((@damageDie) * 2) + ${extraCritDamage}` : "((@damageDie) * 2)") : "@damageDie";
+
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
       const dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
+
       // roll 3: target damage reduction
       if (targetArmor) {
         targetArmorRoll = new Roll(targetArmor, {});
@@ -354,7 +371,17 @@ export class PBActor extends Actor {
       takeDamage = `${game.i18n.localize("PB.Inflict")} ${damage} ${game.i18n.localize("PB.Damage")}`;
     } else {
       // MISS!!!
-      attackOutcome = game.i18n.localize(isFumble ? "PB.AttackFumbleText" : "PB.Miss");
+      if (isFumble) {
+        if (isGunpowderWeapon) {
+          const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
+          const draw = await table.draw({ displayChat: false });
+          attackOutcome = draw.results[0].data.text;
+        } else {
+          attackOutcome = game.i18n.localize("PB.AttackFumbleText");
+        }
+      } else {
+        attackOutcome = game.i18n.localize("PB.Miss");
+      }
     }
 
     // TODO: decide keys in handlebars/template?
@@ -371,6 +398,7 @@ export class PBActor extends Actor {
       takeDamage,
       targetArmorRoll,
       weaponTypeKey,
+      isFumble,
     };
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);

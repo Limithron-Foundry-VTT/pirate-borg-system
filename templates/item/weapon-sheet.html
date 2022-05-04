@@ -47,6 +47,8 @@
         <input type="text" name="data.containerSpace" value="{{data.data.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
 
+      <br />
+
       {{! Weapon Type }}
       <div class="form-group">
         <label>{{localize "PB.ItemWeaponType"}}:</label>
@@ -73,6 +75,13 @@
         </select>
       </div>
 
+      <div class="form-group">
+        <label>{{localize "PB.ItemIsGunpowderWeapon"}}:</label>
+        <input type="checkbox" name="data.isGunpowderWeapon" {{checked data.data.isGunpowderWeapon}} data-dtype="Boolean" />
+      </div>
+
+      <br />
+
       {{! Uses ammo }}
       <div class="form-group">
         <label>{{localize "PB.ItemUsesAmmo"}}:</label>
@@ -83,6 +92,8 @@
         <label>{{localize "PB.ItemUseAmmoDamage"}}:</label>
         <input type="checkbox" name="data.useAmmoDamage" {{checked data.data.useAmmoDamage}} data-dtype="Boolean" />
       </div>
+
+      <br />
 
       <div class="form-group">
         <label>{{localize "PB.ItemCritOn"}}:</label>

@@ -44,7 +44,8 @@
         "value": 0
       },
       "extraResourceUsesRemaining": 0,
-      "silver": 0
+      "silver": 0,
+      "baseClass": ""
     },
     "container": {
       "description": "",
@@ -89,7 +90,7 @@
       "handed": 1,
       "fumbleOn": 1,
       "usesAmmo": false,
-      "userAmmoDamage": true,
+      "useAmmoDamage": false,
       "weaponType": "melee",
       "isGunpowderWeapon": false
     },
@@ -172,7 +173,10 @@
       "extraResourceFormulaLabel": null,
 
       "extraResourceTestFormula": null,
-      "extraResourceTestFormulaLabel": null
+      "extraResourceTestFormulaLabel": null,
+
+      "requireBaseClass": false,
+      "skipCharacterGenerator": false
     }
   }
 }

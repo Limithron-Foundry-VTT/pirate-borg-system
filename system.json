@@ -333,6 +333,50 @@
       "system": "pirateborg",
       "path": "./packs/macros-sorcerer.db",
       "entity": "Macro"
+    },
+
+    {
+      "name": "class-tall-tale",
+      "label": "Class - Tall Tale",
+      "system": "pirateborg",
+      "path": "./packs/class-tall-tale.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-tall-tale",
+      "label": "Rolls - Tall Tale",
+      "system": "pirateborg",
+      "path": "./packs/rolls-tall-tale.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-tall-tale",
+      "label": "Macros - Tall Tale",
+      "system": "pirateborg",
+      "path": "./packs/macros-tall-tale.db",
+      "entity": "Macro"
+    },
+
+    {
+      "name": "class-haunted-soul",
+      "label": "Class - Haunted Soul",
+      "system": "pirateborg",
+      "path": "./packs/class-haunted-soul.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-haunted-soul",
+      "label": "Rolls - Haunted Soul",
+      "system": "pirateborg",
+      "path": "./packs/rolls-haunted-soul.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros-haunted-soul",
+      "label": "Macros - Haunted Soul",
+      "system": "pirateborg",
+      "path": "./packs/macros-haunted-soul.db",
+      "entity": "Macro"
     }
   ],
   "languages": [

@@ -238,8 +238,8 @@
   text-shadow: none;
   border: 1px solid var(--dark-border-color);
   border-bottom: 0;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   background: rgba(255, 255, 255, 0.2);
   border-bottom: 0;
 }
