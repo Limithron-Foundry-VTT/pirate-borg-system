@@ -181,8 +181,8 @@
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 .pirateborg.sheet textarea {
-  border: 1px solid var(--light-border-color);
-  border-radius: 0;
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--foreground-color);
   font-family: var(--item-font);
   font-size: 14px;
@@ -200,6 +200,7 @@
 }
 .pirateborg.sheet .editor {
   border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--foreground-color);
   font-family: var(--item-font);
   font-size: 16px;
@@ -359,6 +360,8 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
   font-size: 10pt;
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;
@@ -886,6 +889,8 @@ body {
 }
 .form-group textarea {
   color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 .form-group textarea:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -934,16 +939,20 @@ form.editable .results .result-type select {
 form.editable .results .result-type select:hover, form.editable .results .result-type select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-form.editable .results .result-details select {
+form.editable .results select {
   color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
-form.editable .results .result-details select:hover, form.editable .results .result-details select:focus {
+form.editable .results select:hover, form.editable .results select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-form.editable .results .result-details input[type=text] {
+form.editable .results input[type=text] {
   color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
-form.editable .results .result-details input[type=text]:hover, form.editable .results .result-details input[type=text]:focus {
+form.editable .results input[type=text]:hover, form.editable .results input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -963,6 +972,7 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 .window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1018,7 +1028,7 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 #chat-controls .roll-type-select {
   color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
 }
 #chat-controls select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1097,8 +1107,8 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 
 #chat-form textarea {
   color: var(--foreground-color);
-  background: transparent;
   border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
   font-family: var(--chat-font);
   font-size: 16px;
 }
@@ -1198,8 +1208,8 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 
 form .form-group select {
   color: var(--foreground-color);
-  background: transparent;
   border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 form .form-group select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1290,10 +1300,10 @@ form .form-group-stacked {
   cursor: pointer;
 }
 .sidebar-tab .directory-header .header-search input {
-  background: transparent;
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 0;
   font-family: var(--button-font);
-  border: 2px groove var(--light-border-color);
 }
 .sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
@@ -1388,9 +1398,17 @@ form .form-group-stacked {
   color: var(--background-color);
   font-family: var(--h2-font);
   font-size: 32px;
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 .journal-sheet form select {
   font-family: var(--item-font);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
+}
+.journal-sheet form .editor {
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 a.entity-link, a.inline-roll {

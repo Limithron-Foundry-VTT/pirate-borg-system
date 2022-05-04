@@ -105,6 +105,8 @@
                 select.ammo-select {
                   font-family: var(--item-font);
                   font-size: 10pt;
+                  border: 2px groove var(--light-border-color);
+                  background: rgba(255, 255, 255, 0.2);
                 }
               }
             }
