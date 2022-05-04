@@ -6,8 +6,8 @@
     </div>
     <div class="roll-title">
       <span
-        >{{wieldFormula}} {{localize 'PB.Vs'}}
-        {{localize 'PB.DR'}} {{wieldDR}}</span
+        >{{wieldFormula}} {{localize 'PB.Vs'}} {{localize 'PB.DR'}}
+        {{wieldDR}}</span
       >
     </div>
     <div class="roll-result">
@@ -16,12 +16,16 @@
   </div>
 
   {{#if isFailure }}
-    <div class="outcome-action">
-      <button type="button" class="button item-button" data-is-mystical-mishap="true" data-item-id="{{item._id}}" data-actor-id="{{actor._id}}">
-        {{localize 'PB.InvokableRitualFailureButton'}}
-      </button>
-    </div>
+  <div class="outcome-action">
+    <button
+      type="button"
+      class="button item-button"
+      data-is-mystical-mishap="true"
+      data-item-id="{{item._id}}"
+      data-actor-id="{{actor._id}}"
+    >
+      {{localize 'PB.InvokableRitualFailureButton'}}
+    </button>
+  </div>
   {{/if}}
-
-
 </form>

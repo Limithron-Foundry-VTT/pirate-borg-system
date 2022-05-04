@@ -2,7 +2,8 @@
   <h4 class="item-name">{{localize "PB.Equipment"}}</h4>
   <div class="item-create-button">
     <a class="item-control item-create" title='{{localize "PB.ItemCreate"}}'>
-      <i class="fas fa-plus"></i></a>
+      <i class="fas fa-plus"></i
+    ></a>
   </div>
 </li>
 
@@ -19,7 +20,8 @@
       {{#ifGt item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}
     </h4>
     <div class="item-buttons">
-      {{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}
+      {{> "systems/pirateborg/templates/actor/common/actor-item-button.html"
+      item=item}}
     </div>
     <div class="item-controls">
       {{#if item.data.canPlusMinus}}

@@ -86,15 +86,15 @@
       "system": "pirateborg",
       "path": "./packs/equipment-hats.db",
       "entity": "Item"
-    },                
-    
+    },
+
     {
       "name": "backgrounds",
       "label": "Backgrounds",
       "system": "pirateborg",
       "path": "./packs/backgrounds.db",
       "entity": "Item"
-    },   
+    },
 
     {
       "name": "backgrounds-items",
@@ -102,7 +102,7 @@
       "system": "pirateborg",
       "path": "./packs/backgrounds-items.db",
       "entity": "Item"
-    },  
+    },
 
     {
       "name": "macros-pirateborg",
@@ -118,43 +118,43 @@
       "system": "pirateborg",
       "path": "./packs/feature-distinctive-flaws.db",
       "entity": "Item"
-    },  
+    },
     {
       "name": "feature-physical-ailments",
       "label": "Feature - Physical ailments",
       "system": "pirateborg",
       "path": "./packs/feature-physical-ailments.db",
       "entity": "Item"
-    },  
+    },
     {
       "name": "feature-idiosyncrasies",
       "label": "Feature - Idiosyncrasies",
       "system": "pirateborg",
       "path": "./packs/feature-idiosyncrasies.db",
       "entity": "Item"
-    },  
+    },
     {
       "name": "feature-unfortunate-incidents-conditions",
       "label": "Feature - Unfortunate incidents & conditions",
       "system": "pirateborg",
       "path": "./packs/feature-unfortunate-incidents-conditions.db",
       "entity": "Item"
-    },  
+    },
     {
       "name": "feature-thing-of-importance",
       "label": "Feature - Thing of importance",
       "system": "pirateborg",
       "path": "./packs/feature-thing-of-importance.db",
       "entity": "Item"
-    },                  
-    
+    },
+
     {
       "name": "invokable-ancient-relics",
       "label": "Invokable - Ancient relics",
       "system": "pirateborg",
       "path": "./packs/invokable-ancient-relics.db",
       "entity": "Item"
-    },   
+    },
     {
       "name": "invokable-arcane-rituals",
       "label": "Invokable - Arcane Rituals",
@@ -162,7 +162,7 @@
       "path": "./packs/invokable-arcane-rituals.db",
       "entity": "Item"
     },
-    
+
     {
       "name": "macros-ancient-relics",
       "label": "Macros - Ancient relics",
@@ -193,7 +193,7 @@
       "system": "pirateborg",
       "path": "./packs/rolls-gamemaster.db",
       "entity": "RollTable"
-    },    
+    },
 
     {
       "name": "class-landlubber",
@@ -201,7 +201,7 @@
       "system": "pirateborg",
       "path": "./packs/class-landlubber.db",
       "entity": "Item"
-    }, 
+    },
 
     {
       "name": "class-brute",
@@ -267,8 +267,8 @@
       "system": "pirateborg",
       "path": "./packs/macros-buccaneer.db",
       "entity": "Macro"
-    }, 
-    
+    },
+
     {
       "name": "class-swashbuckler",
       "label": "Class - Swashbuckler",
@@ -289,7 +289,7 @@
       "system": "pirateborg",
       "path": "./packs/macros-swashbuckler.db",
       "entity": "Macro"
-    }, 
+    },
 
     {
       "name": "class-zealot",
@@ -333,8 +333,7 @@
       "system": "pirateborg",
       "path": "./packs/macros-sorcerer.db",
       "entity": "Macro"
-    }       
-    
+    }
   ],
   "languages": [
     {

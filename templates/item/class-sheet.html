@@ -25,7 +25,9 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="description">{{ localize "PB.TabDescription" }}</a>
+    <a class="item" data-tab="description"
+      >{{ localize "PB.TabDescription" }}</a
+    >
     <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
     <span class="spacer"></span>
   </nav>
@@ -34,8 +36,8 @@
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true
-      owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description"
+      button=true owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
@@ -44,11 +46,11 @@
       <div class="form-group">
         <label>{{ localize "PB.FlavorText" }}:</label>
         <textarea name="data.flavorText" rows="8">
-{{data.data.flavorText}}</textarea>
+{{data.data.flavorText}}</textarea
+        >
       </div>
 
       <br />
-
 
       {{!-- Luck Die --}}
       <div class="form-group">
@@ -178,12 +180,24 @@
 
       <div class="form-group">
         <label>{{ localize "PB.StartingItems" }}:</label>
-        <textarea name="data.startingItems" placeholder="compendium;item" rows="4">{{data.data.startingItems}}</textarea>
+        <textarea
+          name="data.startingItems"
+          placeholder="compendium;item"
+          rows="4"
+        >
+{{data.data.startingItems}}</textarea
+        >
       </div>
 
       <div class="form-group">
         <label>{{ localize "PB.StartingRolls" }}:</label>
-        <textarea name="data.startingRolls" placeholder="compendium;table;count" rows="4">{{data.data.startingRolls}}</textarea>
+        <textarea
+          name="data.startingRolls"
+          placeholder="compendium;table;count"
+          rows="4"
+        >
+{{data.data.startingRolls}}</textarea
+        >
       </div>
 
       <div class="form-group">
@@ -201,7 +215,13 @@
 
       <div class="form-group">
         <label>{{ localize "PB.GettingBetterRolls" }}:</label>
-        <textarea name="data.gettingBetterRolls" placeholder="compendium;table;count" rows="4">{{data.data.gettingBetterRolls}}</textarea>
+        <textarea
+          name="data.gettingBetterRolls"
+          placeholder="compendium;table;count"
+          rows="4"
+        >
+{{data.data.gettingBetterRolls}}</textarea
+        >
       </div>
 
       <div class="form-group">
@@ -228,7 +248,6 @@
         />
       </div>
 
-
       <div class="form-group">
         <label>{{ localize "PB.ExtraResourceNameSingular" }}:</label>
         <input
@@ -250,7 +269,7 @@
           data-dtype="String"
         />
       </div>
-      
+
       <div class="form-group">
         <label>{{ localize "PB.ExtraResourceFormula" }}:</label>
         <input
@@ -294,7 +313,6 @@
           data-dtype="String"
         />
       </div>
-
     </div>
   </section>
 </form>

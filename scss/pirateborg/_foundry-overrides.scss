@@ -122,16 +122,13 @@ form.editable .results {
 
 .window-app .window-content {
   .notes {
-
   }
 
   form {
     .form-header {
-
     }
 
     .notes {
-
     }
   }
 
@@ -217,7 +214,7 @@ form.editable .results {
 
 #chat-controls {
   color: var(--foreground-color);
-  
+
   i.fas:hover {
     color: var(--highlight-background-color);
     text-shadow: 0 0 5px var(--highlight-background-color);
@@ -257,7 +254,6 @@ form.editable .results {
       justify-content: center;
     }
   }
-  
 
   .message {
     h4,
@@ -358,7 +354,6 @@ form.editable .results {
   }
 
   select {
-
     &:focus {
       outline: none;
       box-shadow: 0 0 5px var(--highlight-background-color);
@@ -430,7 +425,6 @@ form.editable .results {
 }
 
 .dialog .dialog-buttons {
-
   button {
     margin-top: 8px;
     background: var(--button-background);
@@ -442,7 +436,7 @@ form.editable .results {
     width: auto;
     padding: 0 16px;
     font-weight: 500;
-    
+
     cursor: pointer;
 
     &.default {
@@ -464,8 +458,8 @@ form .form-group select {
 
 form .form-group,
 form .form-group-stacked {
-   margin: 8px 0;
- }
+  margin: 8px 0;
+}
 
 #hotbar {
   #hotbar-directory-controls,
@@ -520,7 +514,7 @@ form .form-group-stacked {
   }
 }
 #sidebar {
-  background: var(--sidebar-background);  
+  background: var(--sidebar-background);
   color: var(--sidebar-color);
 
   &.collapsed #sidebar-tabs > .item.active {
@@ -573,7 +567,6 @@ form .form-group-stacked {
   }
 
   &.directory {
-    
     .folder-header {
       border: none;
     }
@@ -587,23 +580,23 @@ form .form-group-stacked {
         background: none;
         border-bottom: 2px groove var(--light-border-color);
         h3 {
-        color: var(--foreground-color);
+          color: var(--foreground-color);
         }
-      }      
+      }
       &.folder {
         background: none;
         &.collapsed > .folder-header {
           background: none;
           border: none;
         }
-      }      
+      }
     }
 
     .directory-list {
       .directory-item:last-child {
         border-bottom: 2px groove var(--light-border-color);
       }
-      
+
       .subdirectory {
         padding-left: 16px;
         border: none;
@@ -629,7 +622,7 @@ form .form-group-stacked {
           padding: 2px;
           border-radius: 8px;
         }
-      } 
+      }
     }
   }
 }
@@ -684,7 +677,6 @@ form .form-group-stacked {
 
 .journal-sheet form {
   button[type="submit"] {
-
   }
 
   input[name="name"] {

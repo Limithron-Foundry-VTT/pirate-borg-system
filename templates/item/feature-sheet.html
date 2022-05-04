@@ -42,7 +42,6 @@
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-
       {{!-- Feature Type --}}
       <div class="form-group">
         <label>{{ localize "PB.FeatureType" }}:</label>
@@ -88,7 +87,7 @@
           data-dtype="String"
         />
       </div>
-      
+
       {{!-- Action Macro Label --}}
       <div class="form-group">
         <label>{{ localize "PB.actionMacroLabel" }}:</label>
@@ -103,9 +102,14 @@
 
       <div class="form-group">
         <label>{{ localize "PB.StartingBonusItems" }}:</label>
-        <textarea name="data.startingBonusItems" placeholder="compendium;item" rows="4">{{data.data.startingBonusItems}}</textarea>
+        <textarea
+          name="data.startingBonusItems"
+          placeholder="compendium;item"
+          rows="4"
+        >
+{{data.data.startingBonusItems}}</textarea
+        >
       </div>
-      
     </div>
   </section>
 </form>

@@ -31,8 +31,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
         label: game.i18n.localize("PB.RegenerateCharacter"),
         icon: "fas fa-skull",
         onclick: this._onScvmify.bind(this),
-      },  
-      ...super._getHeaderButtons()
+      },
+      ...super._getHeaderButtons(),
     ];
   }
 
@@ -67,7 +67,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0)
+    const byType = (a, b) =>
+      a.type.toLowerCase() > b.type.toLowerCase()
+        ? 1
+        : b.type.toLowerCase() > a.type.toLowerCase()
+        ? -1
+        : 0;
 
     sheetData.data.class = sheetData.items.find(
       (item) => item.type === CONFIG.PB.itemTypes.class
@@ -75,7 +80,13 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
+      .filter(
+        (item) =>
+          !(
+            item.type === CONFIG.PB.itemTypes.invokable &&
+            !item.data.isEquipment
+          )
+      )
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
@@ -97,36 +108,52 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byName);
 
     sheetData.data.features = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background || item.type === CONFIG.PB.itemTypes.invokable)
-      .filter((item) => !(item.data.invokableType === 'Arcane Ritual' || item.data.invokableType === 'Ancient Relic'))
+      .filter(
+        (item) =>
+          item.type === CONFIG.PB.itemTypes.feature ||
+          item.type === CONFIG.PB.itemTypes.background ||
+          item.type === CONFIG.PB.itemTypes.invokable
+      )
+      .filter(
+        (item) =>
+          !(
+            item.data.invokableType === "Arcane Ritual" ||
+            item.data.invokableType === "Ancient Relic"
+          )
+      )
       .reduce((items, item) => {
-        const key = item.data.featureType || item.data.invokableType || item.type;        
+        const key =
+          item.data.featureType || item.data.invokableType || item.type;
         let group = items.find((i) => i.type === key);
         if (!group) {
-          group = { type: key, items: []}
+          group = { type: key, items: [] };
           items.push(group);
         }
-        group.items.push(item)
+        group.items.push(item);
         return items;
       }, [])
       .sort(byType);
 
-      sheetData.data.invokables = sheetData.items
+    sheetData.data.invokables = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
-      .filter((item) => item.data.invokableType === 'Arcane Ritual' || item.data.invokableType === 'Ancient Relic')
+      .filter(
+        (item) =>
+          item.data.invokableType === "Arcane Ritual" ||
+          item.data.invokableType === "Ancient Relic"
+      )
       .reduce((items, item) => {
-        const key = item.data.invokableType;        
+        const key = item.data.invokableType;
         let group = items.find((i) => i.type === key);
         if (!group) {
-          group = { type: key, items: []}
+          group = { type: key, items: [] };
           items.push(group);
         }
-        group.items.push(item)
+        group.items.push(item);
         return items;
       }, [])
       .sort(byType);
 
-      console.log(sheetData.data);
+    console.log(sheetData.data);
   }
 
   /** @override */
@@ -149,22 +176,32 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html
       .find(".ability-label.rollable.toughness")
       .on("click", this._onToughnessRoll.bind(this));
-      html
+    html
       .find(".ability-label.rollable.spirit")
-      .on("click", this._onSpiritRoll.bind(this));      
+      .on("click", this._onSpiritRoll.bind(this));
 
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
+    html
+      .find(".luck-row span.rollable")
+      .on("click", this._onLuckRoll.bind(this));
 
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
 
     // feats tab
-    html.find(".action-macro-button").on("click", this._onActionMacroRoll.bind(this));
-    html.find(".action-invokable").on("click", this._onActionInvokable.bind(this));
+    html
+      .find(".action-macro-button")
+      .on("click", this._onActionMacroRoll.bind(this));
+    html
+      .find(".action-invokable")
+      .on("click", this._onActionInvokable.bind(this));
 
-    html.find(".ritual-per-day-text").on("click", this._onRitualPerDay.bind(this));
-    html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));  
+    html
+      .find(".ritual-per-day-text")
+      .on("click", this._onRitualPerDay.bind(this));
+    html
+      .find(".extra-resources-per-day-text")
+      .on("click", this._onExtraResourcePerDay.bind(this));
 
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
   }
@@ -249,7 +286,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     event.preventDefault();
     this.actor.rollRitualPerDay();
   }
-  
+
   _onExtraResourcePerDay() {
     event.preventDefault();
     this.actor.rollExtraResourcePerDay();

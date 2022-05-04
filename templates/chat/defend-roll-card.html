@@ -24,8 +24,7 @@
   <div class="outcome-text">
     <span class="take-damage">{{takeDamage}}</span>
   </div>
-  {{/if}}
-  {{#if damageRoll}}
+  {{/if}} {{#if damageRoll}}
   <div class="damage-roll">
     <div class="roll-title">
       <span>{{localize 'PB.Damage'}}: {{damageRoll.formula}}</span>
@@ -41,5 +40,5 @@
       <span>{{xtotal armorRoll}}</span>
     </div>
   </div>
-  {{/if}} 
+  {{/if}}
 </form>

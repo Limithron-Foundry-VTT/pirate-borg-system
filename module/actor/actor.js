@@ -1,8 +1,15 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import { rollAncientRelics, rollArcaneRituals, handleClassGettingBetterRollTable } from "../scvm/scvmfactory.js";
+import {
+  rollAncientRelics,
+  rollArcaneRituals,
+  handleClassGettingBetterRollTable,
+} from "../scvm/scvmfactory.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
-import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
+import {
+  findCompendiumItem,
+  invokeGettingBetterMacro,
+} from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
 
 const ATTACK_DIALOG_TEMPLATE =
@@ -33,7 +40,6 @@ const WIELD_INVOKABLE_CARD_TEMPLATE =
 
 const MYSTICAL_MISHAP_CARD_TEMPLATE =
   "systems/pirateborg/templates/chat/mystical-mishap-card.html";
-
 
 /**
  * @extends {Actor}
@@ -186,9 +192,7 @@ export class PBActor extends Actor {
 
   async equipItem(item) {
     if (
-      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(
-        item.type
-      )
+      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)
     ) {
       for (const otherItem of this.items) {
         if (otherItem.type === item.type) {
@@ -214,8 +218,8 @@ export class PBActor extends Actor {
   carryingWeight() {
     return this.data.items
       .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
-      .filter(item => !(item.isHat && item.equipped))
-      .filter(item => !(item.isArmor && item.equipped))
+      .filter((item) => !(item.isHat && item.equipped))
+      .filter((item) => !(item.isArmor && item.equipped))
       .reduce((weight, item) => weight + item.totalCarryWeight, 0);
   }
 
@@ -433,7 +437,7 @@ export class PBActor extends Actor {
       );
       // roll 2: damage.
       // Use parentheses for critical 2x in case damage die something like 1d6+1
-      
+
       const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
@@ -778,8 +782,11 @@ export class PBActor extends Actor {
    * Check reaction!
    */
   async checkReaction() {
-    const table = await findCompendiumItem('pirateborg.rolls-gamemaster', 'Reaction');
-    const result = await table.draw({ displayChat: false })
+    const table = await findCompendiumItem(
+      "pirateborg.rolls-gamemaster",
+      "Reaction"
+    );
+    const result = await table.draw({ displayChat: false });
     await this._renderReactionRollCard(result);
   }
 
@@ -806,11 +813,11 @@ export class PBActor extends Actor {
       return;
     }
 
-    switch(item.data.data.invokableType) {
-      case 'Arcane Ritual': 
+    switch (item.data.data.invokableType) {
+      case "Arcane Ritual":
         await this.invokeArcaneRitual(item);
         break;
-      case 'Ancient Relic': 
+      case "Ancient Relic":
         await this.invokeAncientRelic(item);
         break;
       default:
@@ -823,14 +830,19 @@ export class PBActor extends Actor {
     if (this.data.data.extraResourceUses.value < 1) {
       ui.notifications.warn(
         `${game.i18n.format("PB.NoResourceUsesRemaining", {
-            type: item.data.data.invokableType
+          type: item.data.data.invokableType,
         })}!`
       );
       return;
     }
-    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class)   
+    const clazz = this.items.find(
+      (item) => item.type === CONFIG.PB.itemTypes.class
+    );
 
-    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula, this.getRollData());
+    const wieldRoll = new Roll(
+      clazz.data.data.extraResourceTestFormula,
+      this.getRollData()
+    );
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -844,9 +856,13 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess");
+      wieldOutcome = game.i18n.localize(
+        isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess"
+      );
     } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure");
+      wieldOutcome = game.i18n.localize(
+        isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure"
+      );
     }
 
     const rollResult = {
@@ -858,10 +874,13 @@ export class PBActor extends Actor {
       wieldDR,
       wieldFormula: clazz.data.data.extraResourceTestFormulaLabel,
       wieldOutcome,
-      wieldRoll
+      wieldRoll,
     };
 
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      WIELD_INVOKABLE_CARD_TEMPLATE,
+      rollResult
+    );
 
     await ChatMessage.create({
       content: html,
@@ -869,7 +888,10 @@ export class PBActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
 
-    const extraResourceUses = Math.max(0, this.data.data.extraResourceUses.value - 1);
+    const extraResourceUses = Math.max(
+      0,
+      this.data.data.extraResourceUses.value - 1
+    );
     await this.update({ ["data.extraResourceUses.value"]: extraResourceUses });
 
     if (isSuccess) {
@@ -877,9 +899,11 @@ export class PBActor extends Actor {
     }
   }
 
-
-  async invokeAncientRelic(item)  {
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
+  async invokeAncientRelic(item) {
+    const wieldRoll = new Roll(
+      "d20+@abilities.spirit.value",
+      this.getRollData()
+    );
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -893,9 +917,13 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess");
+      wieldOutcome = game.i18n.localize(
+        isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess"
+      );
     } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
+      wieldOutcome = game.i18n.localize(
+        isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure"
+      );
     }
 
     const rollResult = {
@@ -907,10 +935,13 @@ export class PBActor extends Actor {
       wieldDR,
       wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
       wieldOutcome,
-      wieldRoll
+      wieldRoll,
     };
 
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      WIELD_INVOKABLE_CARD_TEMPLATE,
+      rollResult
+    );
 
     await ChatMessage.create({
       content: html,
@@ -931,7 +962,10 @@ export class PBActor extends Actor {
       return;
     }
 
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
+    const wieldRoll = new Roll(
+      "d20+@abilities.spirit.value",
+      this.getRollData()
+    );
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -946,9 +980,15 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRitualCriticalSuccess" : "PB.InvokableRitualSuccess");
+      wieldOutcome = game.i18n.localize(
+        isCrit
+          ? "PB.InvokableRitualCriticalSuccess"
+          : "PB.InvokableRitualSuccess"
+      );
     } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure");
+      wieldOutcome = game.i18n.localize(
+        isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure"
+      );
     }
 
     const rollResult = {
@@ -965,15 +1005,18 @@ export class PBActor extends Actor {
       isFumble,
     };
 
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      WIELD_INVOKABLE_CARD_TEMPLATE,
+      rollResult
+    );
 
     await ChatMessage.create({
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
-        hasButton: isFailure || isFumble
-      }
+        hasButton: isFailure || isFumble,
+      },
     });
 
     const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
@@ -988,38 +1031,39 @@ export class PBActor extends Actor {
     const pack = game.packs.get("pirateborg.rolls-gamemaster");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === "Mystical Mishaps");
-    const draw = await table.draw({displayChat: false});
+    const draw = await table.draw({ displayChat: false });
 
     console.log(draw);
 
     const result = {
       title: game.i18n.format("PB.MysticalMishaps"),
-      formula: '1d20',
+      formula: "1d20",
       roll: draw.roll,
-      items: draw.results
-    }
+      items: draw.results,
+    };
 
     const html = await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, result);
 
     await ChatMessage.create({
       content: html,
       sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this })
+      speaker: ChatMessage.getSpeaker({ actor: this }),
     });
   }
 
-  async useActionMacro(itemId) {    
+  async useActionMacro(itemId) {
     const item = this.items.get(itemId);
     if (!item || !item.data.data.actionMacro) {
       return;
     }
-    const [ compendium, macroName = null ] = item.data.data.actionMacro.split(';');
+    const [compendium, macroName = null] =
+      item.data.data.actionMacro.split(";");
     if (compendium && macroName) {
       const macro = await findCompendiumItem(compendium, macroName);
       await executeMacro(macro, { actor: this, item });
     } else {
       const macro = game.macros.find((m) => m.name === macroName);
-      await executeMacro(macro, { actor: this, item });      
+      await executeMacro(macro, { actor: this, item });
     }
   }
 
@@ -1067,7 +1111,9 @@ export class PBActor extends Actor {
     const roll = await this._rollOutcome(
       "d4+@abilities.spirit.value",
       this.getRollData(),
-      `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize("PB.PerDay")}`,
+      `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize(
+        "PB.PerDay"
+      )}`,
       (roll) =>
         ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(
           0,
@@ -1082,18 +1128,22 @@ export class PBActor extends Actor {
   }
 
   async rollExtraResourcePerDay() {
-    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class)   
+    const clazz = this.items.find(
+      (item) => item.type === CONFIG.PB.itemTypes.class
+    );
     if (clazz.data.data.useExtraResource) {
       const roll = await this._rollOutcome(
         clazz.data.data.extraResourceFormula,
         this.getRollData(),
-        `${clazz.data.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
+        `${clazz.data.data.extraResourceNamePlural} ${game.i18n.localize(
+          "PB.PerDay"
+        )}`,
         (roll) =>
           ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(
             0,
             roll.total
           )}`,
-          clazz.data.data.extraResourceFormulaLabel
+        clazz.data.data.extraResourceFormulaLabel
       );
       const newUses = Math.max(0, roll.total);
       await this.update({
@@ -1101,7 +1151,7 @@ export class PBActor extends Actor {
       });
     }
   }
- 
+
   /**
    *
    * @param {*} restLength "short" or "long"
@@ -1197,7 +1247,6 @@ export class PBActor extends Actor {
   }
 
   async getBetter() {
-
     const oldHp = this.data.data.hp.max;
     const newHp = this._betterHp(oldHp);
     const oldStr = this.data.data.abilities.strength.value;
@@ -1209,7 +1258,7 @@ export class PBActor extends Actor {
     const oldTou = this.data.data.abilities.toughness.value;
     const newTou = this._betterAbility(oldTou);
     const oldSpi = this.data.data.abilities.spirit.value;
-    const newSpi = this._betterAbility(oldSpi);    
+    const newSpi = this._betterAbility(oldSpi);
     let newSilver = this.data.data.silver;
 
     const hpOutcome = this._abilityOutcome(
@@ -1259,27 +1308,27 @@ export class PBActor extends Actor {
       newSilver += silverRoll.total;
     } else if (debrisRoll.total === 5) {
       debrisOutcome = "an ancient relic";
-      relicOrRitual = (await rollAncientRelics())[0];      
+      relicOrRitual = (await rollAncientRelics())[0];
     } else {
-      debrisOutcome = "an arcane ritual"
-      relicOrRitual = (await rollArcaneRituals())[0];      
+      debrisOutcome = "an arcane ritual";
+      relicOrRitual = (await rollArcaneRituals())[0];
     }
 
     const gettingBetterItems = await handleClassGettingBetterRollTable(this);
     const gettingBetterItemsData = gettingBetterItems.map((item) => item.data);
 
     const data = {
-      hpOutcome,      
+      hpOutcome,
       agiOutcome,
       preOutcome,
       strOutcome,
       touOutcome,
       spiOutcome,
-      debrisOutcome,      
+      debrisOutcome,
       relicOrRitual: relicOrRitual ? relicOrRitual.data : null,
       classFeatures: gettingBetterItemsData,
     };
-    
+
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
       content: html,
@@ -1299,7 +1348,7 @@ export class PBActor extends Actor {
     });
 
     if (relicOrRitual) {
-      await this.createEmbeddedDocuments('Item', [relicOrRitual.data]);    
+      await this.createEmbeddedDocuments("Item", [relicOrRitual.data]);
     }
 
     await invokeGettingBetterMacro(this);
@@ -1347,8 +1396,11 @@ export class PBActor extends Actor {
   }
 
   async rollBroken() {
-    const table = await findCompendiumItem('pirateborg.rolls-gamemaster', 'Broken');
-    const result = await table.draw({ displayChat: false })
+    const table = await findCompendiumItem(
+      "pirateborg.rolls-gamemaster",
+      "Broken"
+    );
+    const result = await table.draw({ displayChat: false });
 
     const data = {
       brokenRoll: result.roll,

@@ -7,8 +7,7 @@
 >
   {{localize 'PB.Invoke'}}
 </button>
-{{/ifEq}}
-{{#ifEq item.data.invokableType 'Ancient Relic'}}
+{{/ifEq}} {{#ifEq item.data.invokableType 'Ancient Relic'}}
 <button
   type="button"
   class="item-button rollable action-invokable"
@@ -17,29 +16,23 @@
 >
   {{localize 'PB.Invoke'}}
 </button>
-{{/ifEq}}
-{{#ifNe item.data.invokableType 'Arcane Ritual'}}
-{{#ifNe item.data.invokableType 'Ancient Relic'}}
-  {{#if item.data.invokableType}}
-    <button
-      type="button"
-      class="item-button rollable action-invokable"
-      data-label="{{localize 'PB.Invoke'}}"
-      title="{{item.data.actionMacroLabel}}"
-    >
-      {{localize 'PB.Invoke'}}
-    </button>
-  {{else}}
-    {{#if item.data.actionMacroLabel}}
-      <button
-        type="button"
-        class="item-button rollable action-macro-button"
-        data-label="{{item.data.actionMacroLabel}}"
-        title="{{item.data.actionMacroLabel}}"
-      >
-        {{item.data.actionMacroLabel}}
-      </button>    
-    {{/if}}
-  {{/if}}
-{{/ifNe}}
-{{/ifNe}}
+{{/ifEq}} {{#ifNe item.data.invokableType 'Arcane Ritual'}} {{#ifNe
+item.data.invokableType 'Ancient Relic'}} {{#if item.data.invokableType}}
+<button
+  type="button"
+  class="item-button rollable action-invokable"
+  data-label="{{localize 'PB.Invoke'}}"
+  title="{{item.data.actionMacroLabel}}"
+>
+  {{localize 'PB.Invoke'}}
+</button>
+{{else}} {{#if item.data.actionMacroLabel}}
+<button
+  type="button"
+  class="item-button rollable action-macro-button"
+  data-label="{{item.data.actionMacroLabel}}"
+  title="{{item.data.actionMacroLabel}}"
+>
+  {{item.data.actionMacroLabel}}
+</button>
+{{/if}} {{/if}} {{/ifNe}} {{/ifNe}}

@@ -39,7 +39,6 @@
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-
       {{!-- Starting Gold --}}
       <div class="form-group">
         <label>{{ localize "PB.ItemStartingGold" }}:</label>
@@ -54,9 +53,14 @@
 
       <div class="form-group">
         <label>{{ localize "PB.StartingBonusItems" }}:</label>
-        <textarea name="data.startingBonusItems" placeholder="compendium;item" rows="4">{{data.data.startingBonusItems}}</textarea>
+        <textarea
+          name="data.startingBonusItems"
+          placeholder="compendium;item"
+          rows="4"
+        >
+{{data.data.startingBonusItems}}</textarea
+        >
       </div>
-
     </div>
   </section>
 </form>

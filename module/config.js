@@ -45,7 +45,6 @@ PB.flags = {
   TARGET_ARMOR: "targetArmor",
 };
 
-
 PB.handed = {
   1: "PB.HandedOne",
   2: "PB.HandedTwo",
@@ -56,11 +55,11 @@ PB.itemTypes = {
   armor: "armor",
   background: "background",
   class: "class",
-  container: "container",  
+  container: "container",
   feature: "feature",
-  hat: "hat",  
-  invokable: "invokable",  
-  misc: "misc",  
+  hat: "hat",
+  invokable: "invokable",
+  misc: "misc",
   weapon: "weapon",
 };
 
@@ -72,7 +71,7 @@ PB.itemTypeKeys = {
   container: "PB.ItemTypeContainer",
   feature: "PB.ItemTypeFeature",
   hat: "PB.ItemTypeHat",
-  invokable: "PB.ItemTypeInvokable",  
+  invokable: "PB.ItemTypeInvokable",
   misc: "PB.ItemTypeMisc",
   weapon: "PB.ItemTypeWeapon",
 };
@@ -105,7 +104,11 @@ PB.equippableItemTypes = [
 
 PB.droppableItemTypes = [PB.itemTypes.container];
 
-PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc, PB.itemTypes.feature];
+PB.plusMinusItemTypes = [
+  PB.itemTypes.ammo,
+  PB.itemTypes.misc,
+  PB.itemTypes.feature,
+];
 
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
@@ -118,11 +121,14 @@ PB.scvmFactory = {
 
   namesPack: "pirateborg.rolls-character-creation;Names",
 
-  armorsRollTable: "pirateborg.rolls-character-creation;d10 Starting clothing & armor",
+  armorsRollTable:
+    "pirateborg.rolls-character-creation;d10 Starting clothing & armor",
   weaponsRollTable: "pirateborg.rolls-character-creation;d10 Starting weapons",
   hatsRollTable: "pirateborg.rolls-character-creation;d12 Starting hats",
-  arcaneRitualsRollTable: "pirateborg.rolls-character-creation;d20 Arcane rituals",
-  ancientRelicsRollTable: "pirateborg.rolls-character-creation;d20 Ancient relics",
+  arcaneRitualsRollTable:
+    "pirateborg.rolls-character-creation;d20 Arcane rituals",
+  ancientRelicsRollTable:
+    "pirateborg.rolls-character-creation;d20 Ancient relics",
 
   // compendium;table;amount
   baseTables: [
@@ -135,5 +141,5 @@ PB.scvmFactory = {
     "pirateborg.rolls-character-creation;d20 Idiosyncrasies",
     "pirateborg.rolls-character-creation;d20 Unfortunate Incidents & Conditions",
     "pirateborg.rolls-character-creation;d100 Thing of Importance",
-  ]
+  ],
 };

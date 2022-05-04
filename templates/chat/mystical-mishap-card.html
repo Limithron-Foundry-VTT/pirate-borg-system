@@ -3,19 +3,15 @@
   <div class="test-roll">
     {{#each items as |item|}}
     <div class="outcome-text">
-      <span class="attack-outcome">
-        {{ item.data.text }}
-      </span>
+      <span class="attack-outcome"> {{ item.data.text }} </span>
     </div>
-    {{/each}}     
+    {{/each}}
     <div class="attack-roll">
       {{#if formula}}
       <div class="roll-title">
-        <span>{{formula}}</span
-        >
+        <span>{{formula}}</span>
       </div>
-      {{/if}}
-      {{#if roll}}
+      {{/if}} {{#if roll}}
       <div class="roll-result">
         <span>{{xtotal roll}}</span>
       </div>

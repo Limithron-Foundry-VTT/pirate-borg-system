@@ -18,7 +18,7 @@ export const configureSystem = () => {
     PBItem,
     rollItemMacro,
     pirateFactory,
-    macroHelpers
+    macroHelpers,
   };
 
   CONFIG.Actor.documentClass = PBActor;
@@ -53,7 +53,7 @@ export const configureSystem = () => {
 
   Items.unregisterSheet("core", ItemSheet);
 
-  Items.registerSheet("pirateborg", PBItemSheet, { 
+  Items.registerSheet("pirateborg", PBItemSheet, {
     makeDefault: true,
     label: "PB.SheetItem",
   });

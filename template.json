@@ -1,10 +1,6 @@
 {
   "Actor": {
-    "types": [
-      "character",
-      "container",
-      "creature"
-    ],
+    "types": ["character", "container", "creature"],
     "templates": {
       "common": {}
     },
@@ -63,7 +59,7 @@
       "hp": {
         "max": 1,
         "value": 1
-      },     
+      },
       "armor": "",
       "attack": "",
       "morale": 7,
@@ -97,10 +93,8 @@
       }
     },
     "weapon": {
-      "templates": [
-        "equipment"
-      ],
-      "damageDie": "1d1",      
+      "templates": ["equipment"],
+      "damageDie": "1d1",
       "critOn": 20,
       "critExtraDamage": "",
       "handed": 1,
@@ -111,26 +105,18 @@
       "isGunpowderWeapon": false
     },
     "misc": {
-      "templates": [
-        "equipment"
-      ]
-    },    
+      "templates": ["equipment"]
+    },
     "ammo": {
-      "templates": [
-        "equipment"
-      ],
+      "templates": ["equipment"],
       "damageDie": ""
     },
     "container": {
-      "templates": [
-        "equipment"
-      ],
+      "templates": ["equipment"],
       "capacity": 1
     },
     "armor": {
-      "templates": [
-        "equipment"
-      ],
+      "templates": ["equipment"],
       "currentTier": 1,
       "maxTier": 1,
       "tier": {
@@ -140,26 +126,22 @@
       }
     },
     "hat": {
-      "templates": [
-        "equipment"
-      ],
+      "templates": ["equipment"],
       "reduceDamage": false,
       "ruleText": ""
     },
     "invokable": {
-      "templates": [
-        "equipment"
-      ],
+      "templates": ["equipment"],
       "invokableType": "",
       "isEquipment": true,
       "maxQuantity": 1
-    },    
+    },
     "background": {
       "description": "",
       "startingGold": "2d6 * 10",
       "quantity": 1,
       "startingBonusItems": ""
-    },       
+    },
     "feature": {
       "description": "",
       "featureType": "",
@@ -168,7 +150,7 @@
       "actionMacro": "",
       "actionMacroLabel": "",
       "startingBonusItems": ""
-    },    
+    },
     "class": {
       "description": "",
       "flavorText": "",
@@ -188,15 +170,15 @@
 
       "startingHitPoints": "1d10",
 
-      "startingItems": null,      
+      "startingItems": null,
       "startingRolls": null,
       "startingMacro": null,
-      "gettingBetterRolls": null,      
+      "gettingBetterRolls": null,
       "gettingBetterMacro": null,
 
-      "useExtraResource": false,   
-      "extraResourceNameSingular": null,   
-      "extraResourceNamePlural": null,   
+      "useExtraResource": false,
+      "extraResourceNameSingular": null,
+      "extraResourceNamePlural": null,
       "extraResourceFormula": null,
       "extraResourceFormulaLabel": null,
 
