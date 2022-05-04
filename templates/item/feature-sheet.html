@@ -1,20 +1,10 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Sheet Header --}}
+  {{! Sheet Header }}
   <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
+    <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
     <div class="header-details">
       <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'PB.ItemName' }}"
-        />
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </h1>
       <div class="item-subtitle">
         <h4 class="item-type">{{item.type}}</h4>
@@ -22,93 +12,54 @@
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
+  {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="description"
-      >{{ localize "PB.TabDescription" }}</a
-    >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
     <span class="spacer"></span>
   </nav>
 
-  {{!-- Sheet Body --}}
+  {{! Sheet Body }}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
+    {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Details Tab --}}
+    {{! Details Tab }}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Feature Type --}}
+      {{! Feature Type }}
       <div class="form-group">
-        <label>{{ localize "PB.FeatureType" }}:</label>
-        <input
-          type="text"
-          name="data.featureType"
-          value="{{data.data.featureType}}"
-          placeholder=""
-          data-dtype="String"
-        />
+        <label>{{localize "PB.FeatureType"}}:</label>
+        <input type="text" name="data.featureType" value="{{data.data.featureType}}" placeholder="" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.Quantity" }}:</label>
-        <input
-          type="text"
-          name="data.quantity"
-          value="{{data.data.quantity}}"
-          placeholder="1"
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.Quantity"}}:</label>
+        <input type="text" name="data.quantity" value="{{data.data.quantity}}" placeholder="1" data-dtype="Number" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.MaxQuantity" }}:</label>
-        <input
-          type="text"
-          name="data.maxQuantity"
-          value="{{data.data.maxQuantity}}"
-          placeholder="1"
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.MaxQuantity"}}:</label>
+        <input type="text" name="data.maxQuantity" value="{{data.data.maxQuantity}}" placeholder="1" data-dtype="Number" />
       </div>
 
-      {{!-- Action Macro --}}
+      {{! Action Macro }}
       <div class="form-group">
-        <label>{{ localize "PB.actionMacro" }}:</label>
-        <input
-          type="text"
-          name="data.actionMacro"
-          value="{{data.data.actionMacro}}"
-          placeholder="compendium;macro"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.actionMacro"}}:</label>
+        <input type="text" name="data.actionMacro" value="{{data.data.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
       </div>
 
-      {{!-- Action Macro Label --}}
+      {{! Action Macro Label }}
       <div class="form-group">
-        <label>{{ localize "PB.actionMacroLabel" }}:</label>
-        <input
-          type="text"
-          name="data.actionMacroLabel"
-          value="{{data.data.actionMacroLabel}}"
-          placeholder="Use"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.actionMacroLabel"}}:</label>
+        <input type="text" name="data.actionMacroLabel" value="{{data.data.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.StartingBonusItems" }}:</label>
-        <textarea
-          name="data.startingBonusItems"
-          placeholder="compendium;item"
-          rows="4"
-        >
-{{data.data.startingBonusItems}}</textarea
-        >
+        <label>{{localize "PB.StartingBonusItems"}}:</label>
+        <textarea name="data.startingBonusItems" placeholder="compendium;item" rows="4">{{data.data.startingBonusItems}}</textarea>
       </div>
     </div>
   </section>

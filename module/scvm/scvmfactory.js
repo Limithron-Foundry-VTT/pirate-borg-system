@@ -1,6 +1,5 @@
 import { PBActor } from "../actor/actor.js";
 import { PB } from "../config.js";
-import { PBItem } from "../item/item.js";
 import { executeMacro } from "../macro-helpers.js";
 
 export const createRandomScvm = async () => {
@@ -86,15 +85,11 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
     const documents = await compendium.getDocuments();
     const item = documents.find((i) => i.name === itemName);
     if (!item) {
-      console.warn(
-        `findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`
-      );
+      console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
     }
     return item;
   } else {
-    console.warn(
-      `findCompendiumItem: Could not find compendium (${compendiumName})`
-    );
+    console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
   }
 };
 
@@ -122,34 +117,17 @@ export const rollTable = async (compendium, table, roll) => {
 };
 
 export const rollName = async () => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.namesPack
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.namesPack);
   return await drawTableSingleTextResult(compendium, table);
 };
 
 export const rollAbilities = (data) => {
   return {
-    strength: rollAbility(
-      data.startingAbilityScoreFormula,
-      data.startingStrengthBonus
-    ),
-    agility: rollAbility(
-      data.startingAbilityScoreFormula,
-      data.startingAgilityBonus
-    ),
-    presence: rollAbility(
-      data.startingAbilityScoreFormula,
-      data.startingPresenceBonus
-    ),
-    toughness: rollAbility(
-      data.startingAbilityScoreFormula,
-      data.startingToughnessBonus
-    ),
-    spirit: rollAbility(
-      data.startingAbilityScoreFormula,
-      data.startingSpiritBonus
-    ),
+    strength: rollAbility(data.startingAbilityScoreFormula, data.startingStrengthBonus),
+    agility: rollAbility(data.startingAbilityScoreFormula, data.startingAgilityBonus),
+    presence: rollAbility(data.startingAbilityScoreFormula, data.startingPresenceBonus),
+    toughness: rollAbility(data.startingAbilityScoreFormula, data.startingToughnessBonus),
+    spirit: rollAbility(data.startingAbilityScoreFormula, data.startingSpiritBonus),
   };
 };
 
@@ -174,45 +152,34 @@ export const rollSilver = (background) => {
 };
 
 export const rollArmor = async (roll) => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.armorsRollTable
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.armorsRollTable);
   return await rollTable(compendium, table, roll);
 };
 
 export const rollHat = async (roll) => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.hatsRollTable
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.hatsRollTable);
   return await rollTable(compendium, table, roll);
 };
 
 export const rollWeapon = async (roll) => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.weaponsRollTable
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.weaponsRollTable);
   return await rollTable(compendium, table, roll);
 };
 
 export const rollAncientRelics = async (roll) => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.ancientRelicsRollTable
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.ancientRelicsRollTable);
   return await rollTable(compendium, table, roll);
 };
 
 export const rollArcaneRituals = async (roll) => {
-  const [compendium, table] = compendiumInfoFromString(
-    PB.scvmFactory.arcaneRitualsRollTable
-  );
+  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.arcaneRitualsRollTable);
   return await rollTable(compendium, table, roll);
 };
 
 export const rollBaseTables = async () => {
   let items = [];
   for (const compendiumTable of PB.scvmFactory.baseTables) {
-    const [compendium, table, quantity = 1] =
-      compendiumInfoFromString(compendiumTable);
+    const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
     items = items.concat(await drawTableItems(compendium, table, quantity));
   }
   return items;
@@ -222,8 +189,7 @@ export const rollRollItems = async (rolls) => {
   const compendiumTables = rolls.split("\n").filter((item) => item);
   let results = [];
   for (const compendiumTable of compendiumTables) {
-    const [compendium, table, quantity = 1] =
-      compendiumInfoFromString(compendiumTable);
+    const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
     results = results.concat(await drawTableItems(compendium, table, quantity));
   }
   return results;
@@ -233,31 +199,25 @@ export const findFeatureBonusItems = async (features) => {
   let results = [];
   for (const feature of features) {
     if (feature.data.data.startingBonusItems) {
-      results = results.concat(
-        await findItems(feature.data.data.startingBonusItems)
-      );
+      results = results.concat(await findItems(feature.data.data.startingBonusItems));
     }
   }
   return results;
 };
 
 export const handleClassGettingBetterRollTable = async (actor) => {
-  const clazz = actor.items.find(
-    (item) => item.type === CONFIG.PB.itemTypes.class
-  );
-  const [compendium, table] = compendiumInfoFromString(
-    clazz.data.data.gettingBetterRolls
-  );
+  const clazz = actor.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+  const [compendium, table] = compendiumInfoFromString(clazz.data.data.gettingBetterRolls);
 
   let items = [];
   if (compendium) {
     const compendiumRollTable = await findCompendiumItem(compendium, table);
     const rollTable = compendiumRollTable.clone({ replacement: false });
 
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       const draw = await rollTable.draw({ displayChat: false });
       items = await findTableItems(draw.results);
-      console.log(items);
 
       if (!items.length) {
         break;
@@ -266,9 +226,7 @@ export const handleClassGettingBetterRollTable = async (actor) => {
       const item = items[0];
       const actorItem = actor.items.find((i) => i.data.name === item.data.name);
       const noLimits = item.data.data.maxQuantity === 0;
-      const actorItemQuantity = actorItem
-        ? actorItem.data.data.quantity || 1
-        : 0;
+      const actorItemQuantity = actorItem ? actorItem.data.data.quantity || 1 : 0;
       const itemMaxQuantity = item.data.data.maxQuantity || 1;
 
       if (noLimits || actorItemQuantity < itemMaxQuantity) {
@@ -289,15 +247,9 @@ export const handleClassGettingBetterRollTable = async (actor) => {
 };
 
 export const generateDescription = (clazz, items) => {
-  const thingOfImportance = items.find(
-    (item) => item.data.data.featureType === "Thing of Importance"
-  );
+  const thingOfImportance = items.find((item) => item.data.data.featureType === "Thing of Importance");
   const description = items
-    .filter(
-      (item) =>
-        item.type === CONFIG.PB.itemTypes.feature ||
-        item.type === CONFIG.PB.itemTypes.background
-    )
+    .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
     .filter((item) => item.data.data.featureType !== "Thing of Importance")
     .map((doc) => doc.data.name)
     .concat([
@@ -311,12 +263,8 @@ export const generateDescription = (clazz, items) => {
 };
 
 export const invokeStartingMacro = async (actor) => {
-  const clazz = actor.items.find(
-    (i) => i.data.type === CONFIG.PB.itemTypes.class
-  );
-  const [compendium, macroName] = compendiumInfoFromString(
-    clazz.data.data.startingMacro
-  );
+  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
+  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.startingMacro);
   if (compendium && macroName) {
     const macro = await findCompendiumItem(compendium, macroName);
     executeMacro(macro, { actor, item: clazz });
@@ -324,12 +272,8 @@ export const invokeStartingMacro = async (actor) => {
 };
 
 export const invokeGettingBetterMacro = async (actor) => {
-  const clazz = actor.items.find(
-    (i) => i.data.type === CONFIG.PB.itemTypes.class
-  );
-  const [compendium, macroName] = compendiumInfoFromString(
-    clazz.data.data.gettingBetterMacro
-  );
+  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
+  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.gettingBetterMacro);
   if (compendium && macroName) {
     const macro = await findCompendiumItem(compendium, macroName);
     executeMacro(macro, { actor, item: clazz });
@@ -347,40 +291,21 @@ export const rollScvmForClass = async (clazz) => {
   const hitPoints = rollHitPoints(data.startingHitPoints, abilities.toughness);
   const baseTables = await rollBaseTables();
 
-  const background = baseTables.find(
-    (item) => item.type === CONFIG.PB.itemTypes.background
-  );
-  const features = baseTables.filter(
-    (item) => item.type === CONFIG.PB.itemTypes.feature
-  );
-  const hasRelic = baseTables.some(
-    (item) => item.data.data.invokableType === "Ancient Relic"
-  );
+  const background = baseTables.find((item) => item.type === CONFIG.PB.itemTypes.background);
+  const features = baseTables.filter((item) => item.type === CONFIG.PB.itemTypes.feature);
+  const hasRelic = baseTables.some((item) => item.data.data.invokableType === "Ancient Relic");
 
   const silver = rollSilver(background);
 
-  const armor = clazz.data.data.startingArmorTableFormula
-    ? await rollArmor(
-        !hasRelic ? clazz.data.data.startingArmorTableFormula : "1d6"
-      )
-    : [];
-  const hat = clazz.data.data.startingHatTableFormula
-    ? await rollHat(clazz.data.data.startingHatTableFormula)
-    : [];
-  const weapon = clazz.data.data.startingWeaponTableFormula
-    ? await rollWeapon(clazz.data.data.startingWeaponTableFormula)
-    : [];
+  const armor = clazz.data.data.startingArmorTableFormula ? await rollArmor(!hasRelic ? clazz.data.data.startingArmorTableFormula : "1d6") : [];
+  const hat = clazz.data.data.startingHatTableFormula ? await rollHat(clazz.data.data.startingHatTableFormula) : [];
+  const weapon = clazz.data.data.startingWeaponTableFormula ? await rollWeapon(clazz.data.data.startingWeaponTableFormula) : [];
 
   const startingRollItems = await rollRollItems(clazz.data.data.startingRolls);
   const startingItems = await findItems(clazz.data.data.startingItems);
 
-  const backgroundBonusItems = await findItems(
-    background.data.data.startingBonusItems
-  );
-  const featuresBonusItems = await findFeatureBonusItems([
-    ...(features || []),
-    ...(startingRollItems || []),
-  ]);
+  const backgroundBonusItems = await findItems(background.data.data.startingBonusItems);
+  const featuresBonusItems = await findFeatureBonusItems([...(features || []), ...(startingRollItems || [])]);
 
   const description = generateDescription(clazz, baseTables);
 
@@ -504,10 +429,7 @@ export const findTableItems = async (results) => {
       if (property === "description") {
         item.data.data.description = enrichHtml;
       } else if (property === "quantity") {
-        item.data.data.quantity = parseInt(
-          $(`<span>${enrichHtml}</span>`).text().trim(),
-          10
-        );
+        item.data.data.quantity = parseInt($(`<span>${enrichHtml}</span>`).text().trim(), 10);
       }
     }
   }

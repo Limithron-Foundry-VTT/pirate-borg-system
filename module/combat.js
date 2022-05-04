@@ -1,9 +1,7 @@
 import { diceSound, showDice } from "./dice.js";
 
-const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/individual-initiative-roll-card.html";
-const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
+const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/individual-initiative-roll-card.html";
+const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
 
 export const rollPartyInitiative = async () => {
   const initiativeRoll = new Roll("d6", {});
@@ -21,10 +19,7 @@ export const rollPartyInitiative = async () => {
     initiativeRoll,
     outcomeText,
   };
-  const html = await renderTemplate(
-    PARTY_INITIATIVE_ROLL_CARD_TEMPLATE,
-    rollResult
-  );
+  const html = await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult);
   await ChatMessage.create({
     content: html,
     sound: diceSound(),
@@ -39,9 +34,7 @@ export const rollPartyInitiative = async () => {
 export const rollIndividualInitiative = async (actor) => {
   if (game.combats && game.combat) {
     // there is an encounter started in the Combat Tracker
-    const combatant = game.combat.combatants.find(
-      (i) => i.data.actorId === actor.id
-    );
+    const combatant = game.combat.combatants.find((i) => i.data.actorId === actor.id);
     if (combatant) {
       // the actor is part of the combat, so roll initiative
       game.combat.rollInitiative(combatant.id);
@@ -53,20 +46,14 @@ export const rollIndividualInitiative = async (actor) => {
   }
 
   // no encounter going on, so just show chat cards
-  const initiativeRoll = new Roll(
-    "d6+@abilities.agility.value",
-    actor.getRollData()
-  );
+  const initiativeRoll = new Roll("d6+@abilities.agility.value", actor.getRollData());
   initiativeRoll.evaluate({ async: false });
   await showDice(initiativeRoll);
 
   const rollResult = {
     initiativeRoll,
   };
-  const html = await renderTemplate(
-    INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE,
-    rollResult
-  );
+  const html = await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult);
   ChatMessage.create({
     content: html,
     sound: diceSound(),

@@ -1,65 +1,40 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Sheet Header --}}
+  {{! Sheet Header }}
   <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
+    <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
     <div class="header-details">
       <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'PB.ItemName' }}"
-        />
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </h1>
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
+  {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="description"
-      >{{ localize "PB.TabDescription" }}</a
-    >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
     <span class="spacer"></span>
   </nav>
 
-  {{!-- Sheet Body --}}
+  {{! Sheet Body }}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
+    {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Details Tab --}}
+    {{! Details Tab }}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Starting Gold --}}
+      {{! Starting Gold }}
       <div class="form-group">
-        <label>{{ localize "PB.ItemStartingGold" }}:</label>
-        <input
-          type="text"
-          name="data.startingGold"
-          value="{{data.data.startingGold}}"
-          placeholder="2d6"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ItemStartingGold"}}:</label>
+        <input type="text" name="data.startingGold" value="{{data.data.startingGold}}" placeholder="2d6" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.StartingBonusItems" }}:</label>
-        <textarea
-          name="data.startingBonusItems"
-          placeholder="compendium;item"
-          rows="4"
-        >
-{{data.data.startingBonusItems}}</textarea
-        >
+        <label>{{localize "PB.StartingBonusItems"}}:</label>
+        <textarea name="data.startingBonusItems" placeholder="compendium;item" rows="4">{{data.data.startingBonusItems}}</textarea>
       </div>
     </div>
   </section>

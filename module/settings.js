@@ -70,21 +70,12 @@ export const trackAmmo = () => {
 };
 
 export const isScvmClassAllowed = (classPack) => {
-  const allowedScvmClasses = game.settings.get(
-    "pirateborg",
-    "allowedScvmClasses"
-  );
-  return typeof allowedScvmClasses[classPack] === "undefined"
-    ? true
-    : !!allowedScvmClasses[classPack];
+  const allowedScvmClasses = game.settings.get("pirateborg", "allowedScvmClasses");
+  return typeof allowedScvmClasses[classPack] === "undefined" ? true : !!allowedScvmClasses[classPack];
 };
 
 export const setAllowedScvmClasses = (allowedScvmClasses) => {
-  return game.settings.set(
-    "pirateborg",
-    "allowedScvmClasses",
-    allowedScvmClasses
-  );
+  return game.settings.set("pirateborg", "allowedScvmClasses", allowedScvmClasses);
 };
 
 export const getLastScvmfactorySelection = () => {
@@ -92,9 +83,5 @@ export const getLastScvmfactorySelection = () => {
 };
 
 export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
-  return game.settings.set(
-    "pirateborg",
-    "lastScvmfactorySelection",
-    lastScvmfactorySelection
-  );
+  return game.settings.set("pirateborg", "lastScvmfactorySelection", lastScvmfactorySelection);
 };

@@ -1,6 +1,4 @@
-import { rollPartyInitiative } from "../combat.js";
-
-export const renderChatMessage = async (message, html, data) => {
+export const renderChatMessage = async (message, html) => {
   if (message.data.flags.hasButton) {
     const buttons = html.find(".item-button");
     if (buttons.length) {

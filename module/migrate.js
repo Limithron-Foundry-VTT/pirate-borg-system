@@ -3,16 +3,11 @@ export const migrate = () => {
   if (!game.user.isGM) {
     return;
   }
-  const currentVersion = game.settings.get(
-    "pirateborg",
-    "systemMigrationVersion"
-  );
+  const currentVersion = game.settings.get("pirateborg", "systemMigrationVersion");
 
   console.log(`Current version: ${currentVersion}`);
   const NEEDS_MIGRATION_VERSION = "0.2.0";
-  const needsMigration =
-    currentVersion === null ||
-    isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if (!needsMigration) {
     console.log(`Version doesn't need migration.`);
     return;
@@ -29,16 +24,9 @@ const migrateWorld = async () => {
   await migrateActors();
   await migrateItems();
 
-  game.settings.set(
-    "pirateborg",
-    "systemMigrationVersion",
-    game.system.data.version
-  );
+  game.settings.set("pirateborg", "systemMigrationVersion", game.system.data.version);
 
-  ui.notifications.info(
-    `MÖRK BORG System Migration to version ${game.system.data.version} completed!`,
-    { permanent: true }
-  );
+  ui.notifications.info(`MÖRK BORG System Migration to version ${game.system.data.version} completed!`, { permanent: true });
 };
 
 const migrateActors = async () => {
@@ -56,7 +44,7 @@ const migrateActors = async () => {
   }
 };
 
-const migrateActorData = (data) => {
+const migrateActorData = () => {
   const updateData = {};
   // for future migration
   return updateData;
@@ -77,7 +65,7 @@ const migrateItems = async () => {
   }
 };
 
-const migrateItemData = (data) => {
+const migrateItemData = () => {
   const updateData = {};
   // for future migration
   return updateData;

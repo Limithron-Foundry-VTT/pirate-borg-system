@@ -1,20 +1,10 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Item Sheet Header --}}
+  {{! Item Sheet Header }}
   <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
+    <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
     <div class="header-details">
       <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'PB.ItemName' }}"
-        />
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </h1>
       <div class="item-subtitle">
         <h4 class="item-type">{{item.type}}</h4>
@@ -22,296 +12,153 @@
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
+  {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="description"
-      >{{ localize "PB.TabDescription" }}</a
-    >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
     <span class="spacer"></span>
   </nav>
 
-  {{!-- Sheet Body --}}
+  {{! Sheet Body }}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
+    {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Details Tab --}}
+    {{! Details Tab }}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Flavor Text --}}
+      {{! Flavor Text }}
       <div class="form-group">
-        <label>{{ localize "PB.FlavorText" }}:</label>
-        <textarea name="data.flavorText" rows="8">
-{{data.data.flavorText}}</textarea
-        >
+        <label>{{localize "PB.FlavorText"}}:</label>
+        <textarea name="data.flavorText" rows="8">{{data.data.flavorText}}</textarea>
       </div>
 
       <br />
 
-      {{!-- Luck Die --}}
+      {{! Luck Die }}
       <div class="form-group">
-        <label>{{ localize "PB.Luck" }}:</label>
-        <input
-          type="text"
-          name="data.luckDie"
-          value="{{data.data.luckDie}}"
-          placeholder="1d2"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.Luck"}}:</label>
+        <input type="text" name="data.luckDie" value="{{data.data.luckDie}}" placeholder="1d2" data-dtype="String" />
       </div>
 
-      {{!-- Starting equipment --}}
+      {{! Starting equipment }}
       <div class="form-group">
-        <label>{{ localize "PB.WeaponTable" }}:</label>
-        <input
-          type="text"
-          name="data.startingWeaponTableFormula"
-          value="{{data.data.startingWeaponTableFormula}}"
-          placeholder="1d10"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.WeaponTable"}}:</label>
+        <input type="text" name="data.startingWeaponTableFormula" value="{{data.data.startingWeaponTableFormula}}" placeholder="1d10" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.HatTable" }}:</label>
-        <input
-          type="text"
-          name="data.startingHatTableFormula"
-          value="{{data.data.startingHatTableFormula}}"
-          placeholder="1d4"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.HatTable"}}:</label>
+        <input type="text" name="data.startingHatTableFormula" value="{{data.data.startingHatTableFormula}}" placeholder="1d4" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ArmorTable" }}:</label>
-        <input
-          type="text"
-          name="data.startingArmorTableFormula"
-          value="{{data.data.startingArmorTableFormula}}"
-          placeholder="1d4"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ArmorTable"}}:</label>
+        <input type="text" name="data.startingArmorTableFormula" value="{{data.data.startingArmorTableFormula}}" placeholder="1d4" data-dtype="String" />
       </div>
 
-      {{!-- Starting hit points --}}
+      {{! Starting hit points }}
       <div class="form-group">
-        <label>{{ localize "PB.HitPoints" }}:</label>
-        <input
-          type="text"
-          name="data.startingHitPoints"
-          value="{{data.data.startingHitPoints}}"
-          placeholder="1d8"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.HitPoints"}}:</label>
+        <input type="text" name="data.startingHitPoints" value="{{data.data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
       </div>
 
       <br />
 
-      {{!-- Starting abilities --}}
+      {{! Starting abilities }}
       <div class="form-group">
-        <label>{{ localize "PB.AbilityScoreFormula" }}:</label>
-        <input
-          type="text"
-          name="data.startingAbilityScoreFormula"
-          value="{{data.data.startingAbilityScoreFormula}}"
-          placeholder="3d6"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilityScoreFormula"}}:</label>
+        <input type="text" name="data.startingAbilityScoreFormula" value="{{data.data.startingAbilityScoreFormula}}" placeholder="3d6" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.AbilityStrength" }}:</label>
-        <input
-          type="text"
-          name="data.startingStrengthBonus"
-          value="{{data.data.startingStrengthBonus}}"
-          placeholder="0"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilityStrength"}}:</label>
+        <input type="text" name="data.startingStrengthBonus" value="{{data.data.startingStrengthBonus}}" placeholder="0" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.AbilityAgility" }}:</label>
-        <input
-          type="text"
-          name="data.startingAgilityBonus"
-          value="{{data.data.startingAgilityBonus}}"
-          placeholder="0"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilityAgility"}}:</label>
+        <input type="text" name="data.startingAgilityBonus" value="{{data.data.startingAgilityBonus}}" placeholder="0" data-dtype="String" />
       </div>
       <div class="form-group">
-        <label>{{ localize "PB.AbilityPresence" }}:</label>
-        <input
-          type="text"
-          name="data.startingPresenceBonus"
-          value="{{data.data.startingPresenceBonus}}"
-          placeholder="0"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilityPresence"}}:</label>
+        <input type="text" name="data.startingPresenceBonus" value="{{data.data.startingPresenceBonus}}" placeholder="0" data-dtype="String" />
       </div>
       <div class="form-group">
-        <label>{{ localize "PB.AbilityToughness" }}:</label>
-        <input
-          type="text"
-          name="data.startingToughnessBonus"
-          value="{{data.data.startingToughnessBonus}}"
-          placeholder="0"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilityToughness"}}:</label>
+        <input type="text" name="data.startingToughnessBonus" value="{{data.data.startingToughnessBonus}}" placeholder="0" data-dtype="String" />
       </div>
       <div class="form-group">
-        <label>{{ localize "PB.AbilitySpirit" }}:</label>
-        <input
-          type="text"
-          name="data.startingSpiritBonus"
-          value="{{data.data.startingSpiritBonus}}"
-          placeholder="0"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.AbilitySpirit"}}:</label>
+        <input type="text" name="data.startingSpiritBonus" value="{{data.data.startingSpiritBonus}}" placeholder="0" data-dtype="String" />
       </div>
 
       <br />
 
       <div class="form-group">
-        <label>{{ localize "PB.StartingItems" }}:</label>
-        <textarea
-          name="data.startingItems"
-          placeholder="compendium;item"
-          rows="4"
-        >
-{{data.data.startingItems}}</textarea
-        >
+        <label>{{localize "PB.StartingItems"}}:</label>
+        <textarea name="data.startingItems" placeholder="compendium;item" rows="4">{{data.data.startingItems}}</textarea>
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.StartingRolls" }}:</label>
-        <textarea
-          name="data.startingRolls"
-          placeholder="compendium;table;count"
-          rows="4"
-        >
-{{data.data.startingRolls}}</textarea
-        >
+        <label>{{localize "PB.StartingRolls"}}:</label>
+        <textarea name="data.startingRolls" placeholder="compendium;table;count" rows="4">{{data.data.startingRolls}}</textarea>
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.StartingMacro" }}:</label>
-        <input
-          type="text"
-          name="data.startingMacro"
-          value="{{data.data.startingMacro}}"
-          placeholder="compendium;macro"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.StartingMacro"}}:</label>
+        <input type="text" name="data.startingMacro" value="{{data.data.startingMacro}}" placeholder="compendium;macro" data-dtype="String" />
       </div>
 
       <br />
 
       <div class="form-group">
-        <label>{{ localize "PB.GettingBetterRolls" }}:</label>
-        <textarea
-          name="data.gettingBetterRolls"
-          placeholder="compendium;table;count"
-          rows="4"
-        >
-{{data.data.gettingBetterRolls}}</textarea
-        >
+        <label>{{localize "PB.GettingBetterRolls"}}:</label>
+        <textarea name="data.gettingBetterRolls" placeholder="compendium;table;count" rows="4">{{data.data.gettingBetterRolls}}</textarea>
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.GettingBetterMacro" }}:</label>
-        <input
-          type="text"
-          name="data.gettingBetterMacro"
-          value="{{data.data.gettingBetterMacro}}"
-          placeholder="compendium;macro"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.GettingBetterMacro"}}:</label>
+        <input type="text" name="data.gettingBetterMacro" value="{{data.data.gettingBetterMacro}}" placeholder="compendium;macro" data-dtype="String" />
       </div>
 
       <br />
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceUse" }}:</label>
-        <input
-          type="checkbox"
-          name="data.useExtraResource"
-          {{checked
-          data.data.useExtraResource}}
-          data-dtype="Boolean"
-        />
+        <label>{{localize "PB.ExtraResourceUse"}}:</label>
+        <input type="checkbox" name="data.useExtraResource" {{checked data.data.useExtraResource}} data-dtype="Boolean" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceNameSingular" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceNameSingular"
-          value="{{data.data.extraResourceNameSingular}}"
-          placeholder=""
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceNameSingular"}}:</label>
+        <input type="text" name="data.extraResourceNameSingular" value="{{data.data.extraResourceNameSingular}}" placeholder="" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceNamePlural" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceNamePlural"
-          value="{{data.data.extraResourceNamePlural}}"
-          placeholder=""
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceNamePlural"}}:</label>
+        <input type="text" name="data.extraResourceNamePlural" value="{{data.data.extraResourceNamePlural}}" placeholder="" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceFormula" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceFormula"
-          value="{{data.data.extraResourceFormula}}"
-          placeholder="1d6"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceFormula"}}:</label>
+        <input type="text" name="data.extraResourceFormula" value="{{data.data.extraResourceFormula}}" placeholder="1d6" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceFormulaLabel" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceFormulaLabel"
-          value="{{data.data.extraResourceFormulaLabel}}"
-          placeholder=""
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceFormulaLabel"}}:</label>
+        <input type="text" name="data.extraResourceFormulaLabel" value="{{data.data.extraResourceFormulaLabel}}" placeholder="" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceTestFormula" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceTestFormula"
-          value="{{data.data.extraResourceTestFormula}}"
-          placeholder="1d6"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceTestFormula"}}:</label>
+        <input type="text" name="data.extraResourceTestFormula" value="{{data.data.extraResourceTestFormula}}" placeholder="1d6" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label>{{ localize "PB.ExtraResourceTestFormulaLabel" }}:</label>
-        <input
-          type="text"
-          name="data.extraResourceTestFormulaLabel"
-          value="{{data.data.extraResourceTestFormulaLabel}}"
-          placeholder=""
-          data-dtype="String"
-        />
+        <label>{{localize "PB.ExtraResourceTestFormulaLabel"}}:</label>
+        <input type="text" name="data.extraResourceTestFormulaLabel" value="{{data.data.extraResourceTestFormulaLabel}}" placeholder="" data-dtype="String" />
       </div>
     </div>
   </section>

@@ -8,23 +8,16 @@ export class PBItem extends Item {
     this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
 
     if (this.type === CONFIG.PB.itemTypes.armor) {
-      this.data.data.damageReductionDie =
-        CONFIG.PB.armorTiers[this.data.data.tier.value].damageReductionDie;
+      this.data.data.damageReductionDie = CONFIG.PB.armorTiers[this.data.data.tier.value].damageReductionDie;
     }
   }
 
   /** @override */
   prepareActorItemDerivedData(actor) {
     if (actor.type === "character") {
-      this.data.data.equippable = CONFIG.PB.equippableItemTypes.includes(
-        this.type
-      );
-      this.data.data.droppable =
-        CONFIG.PB.droppableItemTypes.includes(this.type) &&
-        this.data.data.carryWeight !== 0;
-      this.data.data.canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(
-        this.type
-      );
+      this.data.data.equippable = CONFIG.PB.equippableItemTypes.includes(this.type);
+      this.data.data.droppable = CONFIG.PB.droppableItemTypes.includes(this.type) && this.data.data.carryWeight !== 0;
+      this.data.data.canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(this.type);
     } else {
       this.data.data.equippable = false;
       this.data.data.droppable = false;
@@ -100,10 +93,7 @@ export class PBItem extends Item {
   }
 
   get totalSpace() {
-    return (
-      this.totalContainerSpace +
-      Math.ceil(this.containerSpace * this.data.data.quantity)
-    );
+    return this.totalContainerSpace + Math.ceil(this.containerSpace * this.data.data.quantity);
   }
 
   get quantity() {
@@ -190,8 +180,6 @@ export class PBItem extends Item {
   }
 
   _getItemContainer(actor) {
-    return actor.items
-      .filter((item) => item.isContainer)
-      .find((item) => item.items.includes(this.id));
+    return actor.items.filter((item) => item.isContainer).find((item) => item.items.includes(this.id));
   }
 }

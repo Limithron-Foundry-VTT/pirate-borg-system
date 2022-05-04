@@ -1,20 +1,10 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Item Sheet Header --}}
+  {{! Item Sheet Header }}
   <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
+    <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
     <div class="header-details">
       <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'PB.ItemName' }}"
-        />
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </h1>
       <div class="item-subtitle">
         <h4 class="item-type">{{item.type}}</h4>
@@ -22,84 +12,57 @@
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
+  {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="description"
-      >{{ localize "PB.TabDescription" }}</a
-    >
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
     <span class="spacer"></span>
   </nav>
 
-  {{!-- Sheet Body --}}
+  {{! Sheet Body }}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
+    {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Details Tab --}}
+    {{! Details Tab }}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Price --}}
+      {{! Price }}
       <div class="form-group">
-        <label>{{ localize "PB.ItemPrice" }}:</label>
-        <input
-          type="text"
-          name="data.price"
-          value="{{data.data.price}}"
-          placeholder="2"
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.ItemPrice"}}:</label>
+        <input type="text" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
-      {{!-- Carry weight --}}
+      {{! Carry weight }}
       <div class="form-group">
-        <label>{{ localize "PB.CarryWeight" }}:</label>
-        <input
-          type="text"
-          name="data.carryWeight"
-          value="{{data.data.carryWeight}}"
-          placeholder="1"
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.CarryWeight"}}:</label>
+        <input type="text" name="data.carryWeight" value="{{data.data.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
-      {{!-- Container space --}}
+      {{! Container space }}
       <div class="form-group">
-        <label>{{ localize "PB.ContainerSpace" }}:</label>
-        <input
-          type="text"
-          name="data.containerSpace"
-          value="{{data.data.containerSpace}}"
-          placeholder="1"
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.ContainerSpace"}}:</label>
+        <input type="text" name="data.containerSpace" value="{{data.data.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
 
-      {{!-- Armor Current Tier --}}
+      {{! Armor Current Tier }}
       <div class="form-group">
-        <label>{{ localize "PB.ArmorCurrentTier" }}:</label>
+        <label>{{localize "PB.ArmorCurrentTier"}}:</label>
         <select name="data.tier.value" data-dtype="Number">
-          {{#select data.data.tier.value}} {{#each config.armorTiers as |tierObj
-          tierNum|}}
-          <option value="{{tierNum}}">
-            {{tierNum}} ({{localize tierObj.key}})
-          </option>
+          {{#select data.data.tier.value}} {{#each config.armorTiers as |tierObj tierNum|}}
+          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
           {{/each}} {{/select}}
         </select>
       </div>
 
-      {{!-- Armor Max Tier --}}
+      {{! Armor Max Tier }}
       <div class="form-group">
-        <label>{{ localize "PB.ArmorMaxTier" }}:</label>
+        <label>{{localize "PB.ArmorMaxTier"}}:</label>
         <select name="data.tier.max" data-dtype="Number">
-          {{#select data.data.tier.max}} {{#each config.armorTiers as |tierObj
-          tierNum|}}
-          <option value="{{tierNum}}">
-            {{tierNum}} ({{localize tierObj.key}})
-          </option>
+          {{#select data.data.tier.max}} {{#each config.armorTiers as |tierObj tierNum|}}
+          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
           {{/each}} {{/select}}
         </select>
       </div>

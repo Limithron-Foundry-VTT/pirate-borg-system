@@ -4,8 +4,7 @@ export const setCustomEditorOptions = (options) => {
   options.skin = "pirateborg";
   options.toolbar_location = "top";
   options.plugins = "lists table link image save";
-  options.toolbar =
-    "formatselect | bold italic underline strikethrough numlist bullist image link save";
+  options.toolbar = "formatselect | bold italic underline strikethrough numlist bullist image link save";
   options.menubar = false;
   options.statusbar = false;
   options.content_style =

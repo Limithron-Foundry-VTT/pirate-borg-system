@@ -34,20 +34,12 @@ export default class PBActorSheet extends ActorSheet {
     // Additional item/inventory buttons
     html.find(".item-qty-plus").click(this._onItemAddQuantity.bind(this));
     html.find(".item-qty-minus").click(this._onItemSubtractQuantity.bind(this));
-    html
-      .find(".item-toggle-equipped")
-      .click(this._onToggleEquippedItem.bind(this));
-    html
-      .find(".item-toggle-carried")
-      .click(this._onToggleCarriedItem.bind(this));
+    html.find(".item-toggle-equipped").click(this._onToggleEquippedItem.bind(this));
+    html.find(".item-toggle-carried").click(this._onToggleCarriedItem.bind(this));
 
     // Combat-related buttons
-    html
-      .find(".party-initiative-button")
-      .on("click", this._onPartyInitiativeRoll.bind(this));
-    html
-      .find(".individual-initiative-button")
-      .on("click", this._onIndividualInitiativeRoll.bind(this));
+    html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
+    html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
@@ -74,8 +66,7 @@ export default class PBActorSheet extends ActorSheet {
           create: {
             icon: '<i class="fas fa-check"></i>',
             label: game.i18n.localize("PB.CreateNewItem"),
-            callback: (html) =>
-              resolve(_createItem(this.actor, html[0].querySelector("form"))),
+            callback: (html) => resolve(_createItem(this.actor, html[0].querySelector("form"))),
           },
         },
         default: "create",
@@ -241,12 +232,8 @@ export default class PBActorSheet extends ActorSheet {
   _onDefendRoll(event) {
     event.preventDefault();
     const sheetData = this.getData();
-    const armorItemId = sheetData.data.equippedArmor
-      ? sheetData.data.equippedArmor.id
-      : null;
-    const hatItemId = sheetData.data.equippedHat
-      ? sheetData.data.equippedHat.id
-      : null;
+    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
+    const hatItemId = sheetData.data.equippedHat ? sheetData.data.equippedHat.id : null;
     this.actor.defend(armorItemId, hatItemId);
   }
 
@@ -269,19 +256,14 @@ export default class PBActorSheet extends ActorSheet {
 
     const target = this._findDropTargetItem(event);
     const originalActor = game.actors.get(itemData.actorId);
-    const originalItem = originalActor
-      ? originalActor.items.get(itemData.data._id)
-      : null;
+    const originalItem = originalActor ? originalActor.items.get(itemData.data._id) : null;
     const isContainer = originalItem && originalItem.isContainer;
 
     await this._cleanDroppedItem(item);
 
     if (isContainer) {
       item.clearItems();
-      const newItems = await this.actor.createEmbeddedDocuments(
-        "Item",
-        originalItem.itemsData
-      );
+      const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.itemsData);
       await this._addItemsToItemContainer(newItems, item);
     }
 
@@ -308,9 +290,7 @@ export default class PBActorSheet extends ActorSheet {
 
   _findDropTargetItem(event) {
     const dropIntoItem = $(event.srcElement).closest(".item");
-    return dropIntoItem.length > 0
-      ? this.actor.items.get(dropIntoItem.attr("data-item-id"))
-      : null;
+    return dropIntoItem.length > 0 ? this.actor.items.get(dropIntoItem.attr("data-item-id")) : null;
   }
 
   async _cleanDroppedItem(item) {

@@ -21,9 +21,7 @@ export default class RestDialog extends Application {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".rest-dialog")[0];
     const restLength = $(form).find("input[name=rest-length]:checked").val();
-    const foodAndDrink = $(form)
-      .find("input[name=food-and-drink]:checked")
-      .val();
+    const foodAndDrink = $(form).find("input[name=food-and-drink]:checked").val();
     const infected = $(form).find("input[name=infected]").is(":checked");
     this.close();
     // TODO: await this?

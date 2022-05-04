@@ -1,45 +1,25 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import {
-  rollAncientRelics,
-  rollArcaneRituals,
-  handleClassGettingBetterRollTable,
-} from "../scvm/scvmfactory.js";
+import { rollAncientRelics, rollArcaneRituals, handleClassGettingBetterRollTable } from "../scvm/scvmfactory.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
-import {
-  findCompendiumItem,
-  invokeGettingBetterMacro,
-} from "../scvm/scvmfactory.js";
+import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
 
-const ATTACK_DIALOG_TEMPLATE =
-  "systems/pirateborg/templates/dialog/attack-dialog.html";
-const ATTACK_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/attack-roll-card.html";
-const BROKEN_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/broken-roll-card.html";
-const DEFEND_DIALOG_TEMPLATE =
-  "systems/pirateborg/templates/dialog/defend-dialog.html";
-const DEFEND_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/defend-roll-card.html";
-const GET_BETTER_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/get-better-roll-card.html";
-const MORALE_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/morale-roll-card.html";
-const OUTCOME_ONLY_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/outcome-only-roll-card.html";
-const OUTCOME_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/outcome-roll-card.html";
-const REACTION_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/reaction-roll-card.html";
-const TEST_ABILITY_ROLL_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/test-ability-roll-card.html";
+const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
+const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll-card.html";
+const BROKEN_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/broken-roll-card.html";
+const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
+const DEFEND_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/defend-roll-card.html";
+const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/get-better-roll-card.html";
+const MORALE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/morale-roll-card.html";
+const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-only-roll-card.html";
+const OUTCOME_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-roll-card.html";
+const REACTION_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/reaction-roll-card.html";
+const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/test-ability-roll-card.html";
 
-const WIELD_INVOKABLE_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/wield-invokable-card.html";
+const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-invokable-card.html";
 
-const MYSTICAL_MISHAP_CARD_TEMPLATE =
-  "systems/pirateborg/templates/chat/mystical-mishap-card.html";
+const MYSTICAL_MISHAP_CARD_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap-card.html";
 
 /**
  * @extends {Actor}
@@ -83,14 +63,11 @@ export class PBActor extends Actor {
 
   async _addDefaultClass() {
     if (game.packs) {
-      const hasAClass =
-        this.items.filter((i) => i.data.type === "class").length > 0;
+      const hasAClass = this.items.filter((i) => i.data.type === "class").length > 0;
       if (!hasAClass) {
         const pack = game.packs.get("pirateborg.class-classless-adventurer");
         if (!pack) {
-          console.error(
-            "Could not find compendium pirateborg.class-classless-adventurer"
-          );
+          console.error("Could not find compendium pirateborg.class-classless-adventurer");
           return;
         }
         const index = await pack.getIndex();
@@ -131,13 +108,7 @@ export class PBActor extends Actor {
     if (documents[0].data.type === CONFIG.PB.itemTypes.class) {
       this._deleteEarlierItems(CONFIG.PB.itemTypes.class);
     }
-    super._onCreateEmbeddedDocuments(
-      embeddedName,
-      documents,
-      result,
-      options,
-      userId
-    );
+    super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
 
   _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
@@ -150,13 +121,7 @@ export class PBActor extends Actor {
       }
     }
 
-    super._onDeleteEmbeddedDocuments(
-      embeddedName,
-      documents,
-      result,
-      options,
-      userId
-    );
+    super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
 
   async _deleteEarlierItems(itemType) {
@@ -191,9 +156,7 @@ export class PBActor extends Actor {
   }
 
   async equipItem(item) {
-    if (
-      [CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)
-    ) {
+    if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       for (const otherItem of this.items) {
         if (otherItem.type === item.type) {
           await otherItem.unequip();
@@ -231,16 +194,11 @@ export class PBActor extends Actor {
   }
 
   containerSpace() {
-    return this.data.items
-      .filter((item) => item.isEquipment && !item.hasContainer)
-      .reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
+    return this.data.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
 
   async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
-    const abilityRoll = new Roll(
-      `1d20+@abilities.${ability}.value`,
-      this.getRollData()
-    );
+    const abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate({ async: false });
     await showDice(abilityRoll);
     const rollResult = {
@@ -249,10 +207,7 @@ export class PBActor extends Actor {
       displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
       drModifiers,
     };
-    const html = await renderTemplate(
-      TEST_ABILITY_ROLL_CARD_TEMPLATE,
-      rollResult
-    );
+    const html = await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -263,18 +218,9 @@ export class PBActor extends Actor {
   async testStrength() {
     const drModifiers = [];
     if (this.isEncumbered()) {
-      drModifiers.push(
-        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
-          "PB.DR"
-        )} +2`
-      );
+      drModifiers.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} +2`);
     }
-    await this._testAbility(
-      "strength",
-      "PB.AbilityStrength",
-      "PB.AbilityStrengthAbbrev",
-      drModifiers
-    );
+    await this._testAbility("strength", "PB.AbilityStrength", "PB.AbilityStrengthAbbrev", drModifiers);
   }
 
   async testAgility() {
@@ -283,70 +229,36 @@ export class PBActor extends Actor {
     if (armor) {
       const armorTier = CONFIG.PB.armorTiers[armor.data.data.tier.max];
       if (armorTier.agilityModifier) {
-        drModifiers.push(
-          `${armor.name}: ${game.i18n.localize("PB.DR")} +${
-            armorTier.agilityModifier
-          }`
-        );
+        drModifiers.push(`${armor.name}: ${game.i18n.localize("PB.DR")} +${armorTier.agilityModifier}`);
       }
     }
     if (this.isEncumbered()) {
-      drModifiers.push(
-        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
-          "PB.DR"
-        )} +2`
-      );
+      drModifiers.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} +2`);
     }
-    await this._testAbility(
-      "agility",
-      "PB.AbilityAgility",
-      "PB.AbilityAgilityAbbrev",
-      drModifiers
-    );
+    await this._testAbility("agility", "PB.AbilityAgility", "PB.AbilityAgilityAbbrev", drModifiers);
   }
 
   async testPresence() {
-    await this._testAbility(
-      "presence",
-      "PB.AbilityPresence",
-      "PB.AbilityPresenceAbbrev",
-      null
-    );
+    await this._testAbility("presence", "PB.AbilityPresence", "PB.AbilityPresenceAbbrev", null);
   }
 
   async testToughness() {
-    await this._testAbility(
-      "toughness",
-      "PB.AbilityToughness",
-      "PB.AbilityToughnessAbbrev",
-      null
-    );
+    await this._testAbility("toughness", "PB.AbilityToughness", "PB.AbilityToughnessAbbrev", null);
   }
 
   async testSpirit() {
-    await this._testAbility(
-      "spirit",
-      "PB.AbilitySpirit",
-      "PB.AbilitySpiritAbbrev",
-      null
-    );
+    await this._testAbility("spirit", "PB.AbilitySpirit", "PB.AbilitySpiritAbbrev", null);
   }
 
   /**
    * Attack!
    */
   async attack(itemId) {
-    let attackDR = await this.getFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.ATTACK_DR
-    );
+    let attackDR = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR);
     if (!attackDR) {
       attackDR = 12; // default
     }
-    const targetArmor = await this.getFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.TARGET_ARMOR
-    );
+    const targetArmor = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR);
     const dialogData = {
       attackDR,
       config: CONFIG.pirateborg,
@@ -384,16 +296,8 @@ export class PBActor extends Actor {
       // TODO: prevent form submit via required fields
       return;
     }
-    await this.setFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.ATTACK_DR,
-      attackDR
-    );
-    await this.setFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.TARGET_ARMOR,
-      targetArmor
-    );
+    await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, attackDR);
+    await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, targetArmor);
     this._rollAttack(itemId, attackDR, targetArmor);
   }
 
@@ -409,10 +313,7 @@ export class PBActor extends Actor {
     const isRanged = itemRollData.weaponType === "ranged";
     // ranged weapons use presence; melee weapons use strength
     const ability = isRanged ? "presence" : "strength";
-    const attackRoll = new Roll(
-      `d20+@abilities.${ability}.value`,
-      actorRollData
-    );
+    const attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate({ async: false });
     await showDice(attackRoll);
 
@@ -422,9 +323,7 @@ export class PBActor extends Actor {
     const isFumble = d20Result <= fumbleTarget;
     const isCrit = d20Result >= critTarget;
     // nat 1 is always a miss, nat 20 is always a hit, otherwise check vs DR
-    const isHit =
-      attackRoll.total !== 1 &&
-      (attackRoll.total === 20 || attackRoll.total >= attackDR);
+    const isHit = attackRoll.total !== 1 && (attackRoll.total === 20 || attackRoll.total >= attackDR);
 
     let attackOutcome = null;
     let damageRoll = null;
@@ -432,9 +331,7 @@ export class PBActor extends Actor {
     let takeDamage = null;
     if (isHit) {
       // HIT!!!
-      attackOutcome = game.i18n.localize(
-        isCrit ? "PB.AttackCritText" : "PB.Hit"
-      );
+      attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCritText" : "PB.Hit");
       // roll 2: damage.
       // Use parentheses for critical 2x in case damage die something like 1d6+1
 
@@ -454,23 +351,15 @@ export class PBActor extends Actor {
       if (dicePromises) {
         await Promise.all(dicePromises);
       }
-      takeDamage = `${game.i18n.localize(
-        "PB.Inflict"
-      )} ${damage} ${game.i18n.localize("PB.Damage")}`;
+      takeDamage = `${game.i18n.localize("PB.Inflict")} ${damage} ${game.i18n.localize("PB.Damage")}`;
     } else {
       // MISS!!!
-      attackOutcome = game.i18n.localize(
-        isFumble ? "PB.AttackFumbleText" : "PB.Miss"
-      );
+      attackOutcome = game.i18n.localize(isFumble ? "PB.AttackFumbleText" : "PB.Miss");
     }
 
     // TODO: decide keys in handlebars/template?
-    const abilityAbbrevKey = isRanged
-      ? "PB.AbilityPresenceAbbrev"
-      : "PB.AbilityStrengthAbbrev";
-    const weaponTypeKey = isRanged
-      ? "PB.WeaponTypeRanged"
-      : "PB.WeaponTypeMelee";
+    const abilityAbbrevKey = isRanged ? "PB.AbilityPresenceAbbrev" : "PB.AbilityStrengthAbbrev";
+    const weaponTypeKey = isRanged ? "PB.WeaponTypeRanged" : "PB.WeaponTypeMelee";
     const rollResult = {
       actor: this,
       attackDR,
@@ -521,17 +410,11 @@ export class PBActor extends Actor {
    */
   async defend() {
     // look up any previous DR or incoming attack value
-    let defendDR = await this.getFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.DEFEND_DR
-    );
+    let defendDR = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR);
     if (!defendDR) {
       defendDR = 12; // default
     }
-    let incomingAttack = await this.getFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.INCOMING_ATTACK
-    );
+    let incomingAttack = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK);
     if (!incomingAttack) {
       incomingAttack = "1d4"; // default
     }
@@ -544,17 +427,11 @@ export class PBActor extends Actor {
       const maxTier = parseInt(armor.data.data.tier.max);
       const defenseModifier = CONFIG.PB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) {
-        drModifiers.push(
-          `${armor.name}: ${game.i18n.localize("PB.DR")} +${defenseModifier}`
-        );
+        drModifiers.push(`${armor.name}: ${game.i18n.localize("PB.DR")} +${defenseModifier}`);
       }
     }
     if (this.isEncumbered()) {
-      drModifiers.push(
-        `${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize(
-          "PB.DR"
-        )} +2`
-      );
+      drModifiers.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} +2`);
     }
 
     const dialogData = {
@@ -577,9 +454,7 @@ export class PBActor extends Actor {
         },
         default: "roll",
         render: (html) => {
-          html
-            .find("input[name='defensebasedr']")
-            .on("change", this._onDefenseBaseDRChange.bind(this));
+          html.find("input[name='defensebasedr']").on("change", this._onDefenseBaseDRChange.bind(this));
           html.find("input[name='defensebasedr']").trigger("change");
         },
         close: () => resolve(null),
@@ -605,10 +480,7 @@ export class PBActor extends Actor {
     }
     const modifiedDr = parseInt(baseInput[0].value) + drModifier;
     // TODO: this is a fragile way to find the other input field
-    const modifiedInput = baseInput
-      .parent()
-      .parent()
-      .find("input[name='defensemodifieddr']");
+    const modifiedInput = baseInput.parent().parent().find("input[name='defensemodifieddr']");
     modifiedInput.val(modifiedDr.toString());
   }
 
@@ -625,11 +497,7 @@ export class PBActor extends Actor {
       return;
     }
     await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, baseDR);
-    await this.setFlag(
-      CONFIG.PB.flagScope,
-      CONFIG.PB.flags.INCOMING_ATTACK,
-      incomingAttack
-    );
+    await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK, incomingAttack);
     this._rollDefend(modifiedDR, incomingAttack);
   }
 
@@ -684,8 +552,7 @@ export class PBActor extends Actor {
       // roll 3: damage reduction from equipped armor and hat
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie =
-          CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
+        damageReductionDie = CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }
 
@@ -702,9 +569,7 @@ export class PBActor extends Actor {
       if (dicePromises) {
         await Promise.all(dicePromises);
       }
-      takeDamage = `${game.i18n.localize(
-        "PB.Take"
-      )} ${damage} ${game.i18n.localize("PB.Damage")}`;
+      takeDamage = `${game.i18n.localize("PB.Take")} ${damage} ${game.i18n.localize("PB.Damage")}`;
     }
 
     const rollResult = {
@@ -758,8 +623,7 @@ export class PBActor extends Actor {
   async _renderMoraleRollCard(moraleRoll, outcomeRoll) {
     let outcomeKey = null;
     if (outcomeRoll) {
-      outcomeKey =
-        outcomeRoll.total <= 3 ? "PB.MoraleFlees" : "PB.MoraleSurrenders";
+      outcomeKey = outcomeRoll.total <= 3 ? "PB.MoraleFlees" : "PB.MoraleSurrenders";
     } else {
       outcomeKey = "PB.StandsFirm";
     }
@@ -782,10 +646,7 @@ export class PBActor extends Actor {
    * Check reaction!
    */
   async checkReaction() {
-    const table = await findCompendiumItem(
-      "pirateborg.rolls-gamemaster",
-      "Reaction"
-    );
+    const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Reaction");
     const result = await table.draw({ displayChat: false });
     await this._renderReactionRollCard(result);
   }
@@ -835,14 +696,9 @@ export class PBActor extends Actor {
       );
       return;
     }
-    const clazz = this.items.find(
-      (item) => item.type === CONFIG.PB.itemTypes.class
-    );
+    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
 
-    const wieldRoll = new Roll(
-      clazz.data.data.extraResourceTestFormula,
-      this.getRollData()
-    );
+    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula, this.getRollData());
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -856,13 +712,9 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(
-        isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess"
-      );
+      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess");
     } else {
-      wieldOutcome = game.i18n.localize(
-        isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure"
-      );
+      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure");
     }
 
     const rollResult = {
@@ -877,10 +729,7 @@ export class PBActor extends Actor {
       wieldRoll,
     };
 
-    const html = await renderTemplate(
-      WIELD_INVOKABLE_CARD_TEMPLATE,
-      rollResult
-    );
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
 
     await ChatMessage.create({
       content: html,
@@ -888,10 +737,7 @@ export class PBActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
 
-    const extraResourceUses = Math.max(
-      0,
-      this.data.data.extraResourceUses.value - 1
-    );
+    const extraResourceUses = Math.max(0, this.data.data.extraResourceUses.value - 1);
     await this.update({ ["data.extraResourceUses.value"]: extraResourceUses });
 
     if (isSuccess) {
@@ -900,10 +746,7 @@ export class PBActor extends Actor {
   }
 
   async invokeAncientRelic(item) {
-    const wieldRoll = new Roll(
-      "d20+@abilities.spirit.value",
-      this.getRollData()
-    );
+    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -917,13 +760,9 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(
-        isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess"
-      );
+      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess");
     } else {
-      wieldOutcome = game.i18n.localize(
-        isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure"
-      );
+      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
     }
 
     const rollResult = {
@@ -938,10 +777,7 @@ export class PBActor extends Actor {
       wieldRoll,
     };
 
-    const html = await renderTemplate(
-      WIELD_INVOKABLE_CARD_TEMPLATE,
-      rollResult
-    );
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
 
     await ChatMessage.create({
       content: html,
@@ -956,16 +792,11 @@ export class PBActor extends Actor {
 
   async invokeArcaneRitual(item) {
     if (this.data.data.powerUses.value < 1) {
-      ui.notifications.warn(
-        `${game.i18n.localize("PB.NoPowerUsesRemaining")}!`
-      );
+      ui.notifications.warn(`${game.i18n.localize("PB.NoPowerUsesRemaining")}!`);
       return;
     }
 
-    const wieldRoll = new Roll(
-      "d20+@abilities.spirit.value",
-      this.getRollData()
-    );
+    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -980,15 +811,9 @@ export class PBActor extends Actor {
     let wieldOutcome = null;
 
     if (isSuccess) {
-      wieldOutcome = game.i18n.localize(
-        isCrit
-          ? "PB.InvokableRitualCriticalSuccess"
-          : "PB.InvokableRitualSuccess"
-      );
+      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRitualCriticalSuccess" : "PB.InvokableRitualSuccess");
     } else {
-      wieldOutcome = game.i18n.localize(
-        isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure"
-      );
+      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure");
     }
 
     const rollResult = {
@@ -1005,10 +830,7 @@ export class PBActor extends Actor {
       isFumble,
     };
 
-    const html = await renderTemplate(
-      WIELD_INVOKABLE_CARD_TEMPLATE,
-      rollResult
-    );
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
 
     await ChatMessage.create({
       content: html,
@@ -1056,8 +878,7 @@ export class PBActor extends Actor {
     if (!item || !item.data.data.actionMacro) {
       return;
     }
-    const [compendium, macroName = null] =
-      item.data.data.actionMacro.split(";");
+    const [compendium, macroName = null] = item.data.data.actionMacro.split(";");
     if (compendium && macroName) {
       const macro = await findCompendiumItem(compendium, macroName);
       await executeMacro(macro, { actor: this, item });
@@ -1067,13 +888,7 @@ export class PBActor extends Actor {
     }
   }
 
-  async _rollOutcome(
-    dieRoll,
-    rollData,
-    cardTitle,
-    outcomeTextFn,
-    rollFormula = null
-  ) {
+  async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula = null) {
     const roll = new Roll(dieRoll, rollData);
     roll.evaluate({ async: false });
     await showDice(roll);
@@ -1111,14 +926,8 @@ export class PBActor extends Actor {
     const roll = await this._rollOutcome(
       "d4+@abilities.spirit.value",
       this.getRollData(),
-      `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize(
-        "PB.PerDay"
-      )}`,
-      (roll) =>
-        ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(
-          0,
-          roll.total
-        )}`,
+      `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize("PB.PerDay")}`,
+      (roll) => ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(0, roll.total)}`,
       `1d4 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`
     );
     const newUses = Math.max(0, roll.total);
@@ -1128,21 +937,13 @@ export class PBActor extends Actor {
   }
 
   async rollExtraResourcePerDay() {
-    const clazz = this.items.find(
-      (item) => item.type === CONFIG.PB.itemTypes.class
-    );
+    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
     if (clazz.data.data.useExtraResource) {
       const roll = await this._rollOutcome(
         clazz.data.data.extraResourceFormula,
         this.getRollData(),
-        `${clazz.data.data.extraResourceNamePlural} ${game.i18n.localize(
-          "PB.PerDay"
-        )}`,
-        (roll) =>
-          ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(
-            0,
-            roll.total
-          )}`,
+        `${clazz.data.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
+        (roll) => ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(0, roll.total)}`,
         clazz.data.data.extraResourceFormulaLabel
       );
       const newUses = Math.max(0, roll.total);
@@ -1206,15 +1007,9 @@ export class PBActor extends Actor {
       dieRoll,
       this.getRollData(),
       game.i18n.localize("PB.Rest"),
-      (roll) =>
-        `${game.i18n.localize("PB.Heal")} ${roll.total} ${game.i18n.localize(
-          "PB.HP"
-        )}`
+      (roll) => `${game.i18n.localize("PB.Heal")} ${roll.total} ${game.i18n.localize("PB.HP")}`
     );
-    const newHP = Math.min(
-      this.data.data.hp.max,
-      this.data.data.hp.value + roll.total
-    );
+    const newHP = Math.min(this.data.data.hp.max, this.data.data.hp.value + roll.total);
     await this.update({ ["data.hp.value"]: newHP });
   }
 
@@ -1223,10 +1018,7 @@ export class PBActor extends Actor {
       "d4",
       this.getRollData(),
       game.i18n.localize("PB.Starvation"),
-      (roll) =>
-        `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize(
-          "PB.Damage"
-        )}`
+      (roll) => `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`
     );
     const newHP = this.data.data.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
@@ -1237,10 +1029,7 @@ export class PBActor extends Actor {
       "d6",
       this.getRollData(),
       game.i18n.localize("PB.Infection"),
-      (roll) =>
-        `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize(
-          "PB.Damage"
-        )}`
+      (roll) => `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`
     );
     const newHP = this.data.data.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
@@ -1261,36 +1050,12 @@ export class PBActor extends Actor {
     const newSpi = this._betterAbility(oldSpi);
     let newSilver = this.data.data.silver;
 
-    const hpOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.HP"),
-      oldHp,
-      newHp
-    );
-    const strOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.AbilityStrength"),
-      oldStr,
-      newStr
-    );
-    const agiOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.AbilityAgility"),
-      oldAgi,
-      newAgi
-    );
-    const preOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.AbilityPresence"),
-      oldPre,
-      newPre
-    );
-    const touOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.AbilityToughness"),
-      oldTou,
-      newTou
-    );
-    const spiOutcome = this._abilityOutcome(
-      game.i18n.localize("PB.AbilitySpirit"),
-      oldSpi,
-      newSpi
-    );
+    const hpOutcome = this._abilityOutcome(game.i18n.localize("PB.HP"), oldHp, newHp);
+    const strOutcome = this._abilityOutcome(game.i18n.localize("PB.AbilityStrength"), oldStr, newStr);
+    const agiOutcome = this._abilityOutcome(game.i18n.localize("PB.AbilityAgility"), oldAgi, newAgi);
+    const preOutcome = this._abilityOutcome(game.i18n.localize("PB.AbilityPresence"), oldPre, newPre);
+    const touOutcome = this._abilityOutcome(game.i18n.localize("PB.AbilityToughness"), oldTou, newTou);
+    const spiOutcome = this._abilityOutcome(game.i18n.localize("PB.AbilitySpirit"), oldSpi, newSpi);
 
     // Left in the debris you find...
     let debrisOutcome = null;
@@ -1396,10 +1161,7 @@ export class PBActor extends Actor {
   }
 
   async rollBroken() {
-    const table = await findCompendiumItem(
-      "pirateborg.rolls-gamemaster",
-      "Broken"
-    );
+    const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Broken");
     const result = await table.draw({ displayChat: false });
 
     const data = {

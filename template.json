@@ -67,18 +67,7 @@
     }
   },
   "Item": {
-    "types": [
-      "weapon",
-      "misc",
-      "ammo",
-      "container",
-      "armor",
-      "hat",
-      "invokable",
-      "background",
-      "feature",
-      "class"
-    ],
+    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class"],
     "templates": {
       "equipment": {
         "description": "",

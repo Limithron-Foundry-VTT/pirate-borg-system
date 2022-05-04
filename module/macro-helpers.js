@@ -1,17 +1,11 @@
 import { diceSound, showDice as rollDice } from "./dice.js";
 import { findCompendiumItem } from "./scvm/scvmfactory.js";
 
-export const GENERIC_CHAT_MESSAGE_TEMPLATE =
-  "systems/pirateborg/templates/chat/generic-chat-message-card.html";
+export const GENERIC_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
 
 export const showDice = rollDice;
 
-export const createChatMessage = async (
-  actor,
-  template,
-  templateData,
-  { muted = false } = {}
-) => {
+export const createChatMessage = async (actor, template, templateData, { muted = false } = {}) => {
   const html = await renderTemplate(template, templateData);
   ChatMessage.create({
     content: html,
@@ -38,9 +32,7 @@ export const executeMacro = async (macro, { actor, token, item } = {}) => {
   try {
     fn.call(this, speaker, actor, token, character, item);
   } catch (err) {
-    ui.notifications.error(
-      `There was an error in your macro syntax. See the console (F12) for details`
-    );
+    ui.notifications.error(`There was an error in your macro syntax. See the console (F12) for details`);
     console.error(err);
   }
 };

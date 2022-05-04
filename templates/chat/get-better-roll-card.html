@@ -23,10 +23,9 @@
     {{#if classFeatures.length}}
     <div class="outcome-text">
       <div class="roll-title getting-better">
-        <span>{{localize 'PB.GettingBetterClassFeatures'}}</span>
+        <span>{{localize "PB.GettingBetterClassFeatures"}}</span>
       </div>
-      {{#each classFeatures as |classFeature|}} {{classFeature.document.link}}
-      {{/each}}
+      {{#each classFeatures as |classFeature|}} {{classFeature.document.link}} {{/each}}
     </div>
     {{/if}}
   </div>

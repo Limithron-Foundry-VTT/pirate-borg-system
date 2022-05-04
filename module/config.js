@@ -87,28 +87,13 @@ PB.itemEquipmentTypes = [
   PB.itemTypes.weapon,
 ];
 
-PB.allowedContainerItemTypes = [
-  PB.itemTypes.ammo,
-  PB.itemTypes.armor,
-  PB.itemTypes.misc,
-  PB.itemTypes.invokable,
-  PB.itemTypes.hat,
-  PB.itemTypes.weapon,
-];
+PB.allowedContainerItemTypes = [PB.itemTypes.ammo, PB.itemTypes.armor, PB.itemTypes.misc, PB.itemTypes.invokable, PB.itemTypes.hat, PB.itemTypes.weapon];
 
-PB.equippableItemTypes = [
-  PB.itemTypes.armor,
-  PB.itemTypes.hat,
-  PB.itemTypes.weapon,
-];
+PB.equippableItemTypes = [PB.itemTypes.armor, PB.itemTypes.hat, PB.itemTypes.weapon];
 
 PB.droppableItemTypes = [PB.itemTypes.container];
 
-PB.plusMinusItemTypes = [
-  PB.itemTypes.ammo,
-  PB.itemTypes.misc,
-  PB.itemTypes.feature,
-];
+PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc, PB.itemTypes.feature];
 
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
@@ -121,14 +106,11 @@ PB.scvmFactory = {
 
   namesPack: "pirateborg.rolls-character-creation;Names",
 
-  armorsRollTable:
-    "pirateborg.rolls-character-creation;d10 Starting clothing & armor",
+  armorsRollTable: "pirateborg.rolls-character-creation;d10 Starting clothing & armor",
   weaponsRollTable: "pirateborg.rolls-character-creation;d10 Starting weapons",
   hatsRollTable: "pirateborg.rolls-character-creation;d12 Starting hats",
-  arcaneRitualsRollTable:
-    "pirateborg.rolls-character-creation;d20 Arcane rituals",
-  ancientRelicsRollTable:
-    "pirateborg.rolls-character-creation;d20 Ancient relics",
+  arcaneRitualsRollTable: "pirateborg.rolls-character-creation;d20 Arcane rituals",
+  ancientRelicsRollTable: "pirateborg.rolls-character-creation;d20 Ancient relics",
 
   // compendium;table;amount
   baseTables: [

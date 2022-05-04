@@ -1,14 +1,5 @@
-import {
-  isScvmClassAllowed,
-  setLastScvmfactorySelection,
-  getLastScvmfactorySelection,
-} from "../settings.js";
-import {
-  classItemFromPack,
-  createScvm,
-  findClassPacks,
-  scvmifyActor,
-} from "./scvmfactory.js";
+import { isScvmClassAllowed, setLastScvmfactorySelection, getLastScvmfactorySelection } from "../settings.js";
+import { classItemFromPack, createScvm, findClassPacks, scvmifyActor } from "./scvmfactory.js";
 
 export default class ScvmDialog extends Application {
   constructor(actor = null, options = {}) {
@@ -21,10 +12,7 @@ export default class ScvmDialog extends Application {
         return {
           name: p.split("class-")[1].replace(/-/g, " "),
           pack: p,
-          checked:
-            lastScvmfactorySelection.length > 0
-              ? lastScvmfactorySelection.includes(p)
-              : true,
+          checked: lastScvmfactorySelection.length > 0 ? lastScvmfactorySelection.includes(p) : true,
         };
       })
       .filter((c) => {
@@ -112,9 +100,7 @@ export default class ScvmDialog extends Application {
       }
     } catch (err) {
       console.error(err);
-      ui.notifications.error(
-        `Error creating ${clazz.name}. Check console for error log.`
-      );
+      ui.notifications.error(`Error creating ${clazz.name}. Check console for error log.`);
     }
 
     this.close();

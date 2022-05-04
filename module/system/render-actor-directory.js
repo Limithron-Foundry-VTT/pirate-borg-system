@@ -17,10 +17,8 @@ export const renderActorDirectory = (app, html) => {
       </div>
       `
     );
-    section
-      .querySelector(".create-scvm-button")
-      .addEventListener("click", () => {
-        new ScvmDialog().render(true);
-      });
+    section.querySelector(".create-scvm-button").addEventListener("click", () => {
+      new ScvmDialog().render(true);
+    });
   }
 };

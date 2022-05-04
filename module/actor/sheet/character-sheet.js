@@ -67,63 +67,34 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    const byType = (a, b) =>
-      a.type.toLowerCase() > b.type.toLowerCase()
-        ? 1
-        : b.type.toLowerCase() > a.type.toLowerCase()
-        ? -1
-        : 0;
+    const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
 
-    sheetData.data.class = sheetData.items.find(
-      (item) => item.type === CONFIG.PB.itemTypes.class
-    );
+    sheetData.data.class = sheetData.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
 
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter(
-        (item) =>
-          !(
-            item.type === CONFIG.PB.itemTypes.invokable &&
-            !item.data.isEquipment
-          )
-      )
+      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
-    sheetData.data.equippedArmor = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.armor)
-      .find((item) => item.data.equipped);
+    sheetData.data.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
 
-    sheetData.data.equippedHat = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.hat)
-      .find((item) => item.data.equipped);
+    sheetData.data.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
 
     sheetData.data.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
-    sheetData.data.ammo = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
-      .sort(byName);
+    sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
     sheetData.data.features = sheetData.items
       .filter(
-        (item) =>
-          item.type === CONFIG.PB.itemTypes.feature ||
-          item.type === CONFIG.PB.itemTypes.background ||
-          item.type === CONFIG.PB.itemTypes.invokable
+        (item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background || item.type === CONFIG.PB.itemTypes.invokable
       )
-      .filter(
-        (item) =>
-          !(
-            item.data.invokableType === "Arcane Ritual" ||
-            item.data.invokableType === "Ancient Relic"
-          )
-      )
+      .filter((item) => !(item.data.invokableType === "Arcane Ritual" || item.data.invokableType === "Ancient Relic"))
       .reduce((items, item) => {
-        const key =
-          item.data.featureType || item.data.invokableType || item.type;
+        const key = item.data.featureType || item.data.invokableType || item.type;
         let group = items.find((i) => i.type === key);
         if (!group) {
           group = { type: key, items: [] };
@@ -136,11 +107,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     sheetData.data.invokables = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
-      .filter(
-        (item) =>
-          item.data.invokableType === "Arcane Ritual" ||
-          item.data.invokableType === "Ancient Relic"
-      )
+      .filter((item) => item.data.invokableType === "Arcane Ritual" || item.data.invokableType === "Ancient Relic")
       .reduce((items, item) => {
         const key = item.data.invokableType;
         let group = items.find((i) => i.type === key);
@@ -164,44 +131,24 @@ export class PBActorSheetCharacter extends PBActorSheet {
     if (!this.options.editable) return;
 
     // sheet header
-    html
-      .find(".ability-label.rollable.strength")
-      .on("click", this._onStrengthRoll.bind(this));
-    html
-      .find(".ability-label.rollable.agility")
-      .on("click", this._onAgilityRoll.bind(this));
-    html
-      .find(".ability-label.rollable.presence")
-      .on("click", this._onPresenceRoll.bind(this));
-    html
-      .find(".ability-label.rollable.toughness")
-      .on("click", this._onToughnessRoll.bind(this));
-    html
-      .find(".ability-label.rollable.spirit")
-      .on("click", this._onSpiritRoll.bind(this));
+    html.find(".ability-label.rollable.strength").on("click", this._onStrengthRoll.bind(this));
+    html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
+    html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
+    html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
+    html.find(".ability-label.rollable.spirit").on("click", this._onSpiritRoll.bind(this));
 
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html
-      .find(".luck-row span.rollable")
-      .on("click", this._onLuckRoll.bind(this));
+    html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
 
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
 
     // feats tab
-    html
-      .find(".action-macro-button")
-      .on("click", this._onActionMacroRoll.bind(this));
-    html
-      .find(".action-invokable")
-      .on("click", this._onActionInvokable.bind(this));
+    html.find(".action-macro-button").on("click", this._onActionMacroRoll.bind(this));
+    html.find(".action-invokable").on("click", this._onActionInvokable.bind(this));
 
-    html
-      .find(".ritual-per-day-text")
-      .on("click", this._onRitualPerDay.bind(this));
-    html
-      .find(".extra-resources-per-day-text")
-      .on("click", this._onExtraResourcePerDay.bind(this));
+    html.find(".ritual-per-day-text").on("click", this._onRitualPerDay.bind(this));
+    html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));
 
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
   }

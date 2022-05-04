@@ -1,38 +1,17 @@
 <form class="custom-dialog">
   <div class="form-group">
-    <label>{{localize 'PB.Defend'}} {{localize 'PB.DR'}}:</label>
-    <input
-      type="text"
-      name="defensebasedr"
-      value="{{defendDR}}"
-      placeholder="12"
-      data-dtype="Number"
-    />
+    <label>{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
+    <input type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
   </div>
   <div class="form-group">
-    <label>{{localize 'PB.Modified'}} {{localize 'PB.DR'}}:</label>
-    <input
-      type="text"
-      class="readonly"
-      name="defensemodifieddr"
-      value=""
-      placeholder="12"
-      readonly
-    />
+    <label>{{localize "PB.Modified"}} {{localize "PB.DR"}}:</label>
+    <input type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
   </div>
-  {{# if drModifiers}}
-  <div class="dr-modifier">
-    ( {{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}} )
-  </div>
+  {{#if drModifiers}}
+  <div class="dr-modifier">( {{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}} )</div>
   {{/if}}
   <div class="form-group">
-    <label>{{localize 'PB.IncomingAttack'}}:</label>
-    <input
-      type="text"
-      name="incomingattack"
-      value="{{incomingAttack}}"
-      placeholder="1d6"
-      data-dtype="String"
-    />
+    <label>{{localize "PB.IncomingAttack"}}:</label>
+    <input type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />
   </div>
 </form>

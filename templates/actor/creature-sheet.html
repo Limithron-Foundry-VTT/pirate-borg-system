@@ -1,113 +1,65 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  {{!-- Sheet Header --}}
+  {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
-      <img
-        class="profile-img"
-        src="{{actor.img}}"
-        data-edit="img"
-        title="{{actor.name}}"
-      />
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
     <div class="header-col2">
       <div class="name-row">
-        <input
-          class="actor-name creature-name"
-          name="name"
-          type="text"
-          value="{{actor.name}}"
-          placeholder="{{ localize 'PB.Name' }}"
-        />
+        <input class="actor-name creature-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'PB.Name'}}" />
       </div>
       <div class="actor-type">{{actor.type}}</div>
       <div class="hitpoints-row">
-        <span class="stat-label">{{ localize "PB.HitPoints" }}:</span>
-        <input
-          class="stat-input"
-          name="data.hp.value"
-          type="number"
-          value="{{data.data.hp.value}}"
-          data-dtype="Number"
-        />
+        <span class="stat-label">{{localize "PB.HitPoints"}}:</span>
+        <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
         /
-        <input
-          class="stat-input"
-          name="data.hp.max"
-          type="number"
-          value="{{data.data.hp.max}}"
-          data-dtype="Number"
-        />
+        <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
       </div>
       <div class="buttons-row">
-        <button type="button" class="roll-button reaction rollable">
-          {{localize "PB.Reaction"}}
-        </button>
-        <button type="button" class="roll-button morale rollable">
-          {{localize "PB.Morale"}}
-        </button>
+        <button type="button" class="roll-button reaction rollable">{{localize "PB.Reaction"}}</button>
+        <button type="button" class="roll-button morale rollable">{{localize "PB.Morale"}}</button>
       </div>
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
+  {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="details">{{ localize "PB.TabDetails" }}</a>
-    <a class="item" data-tab="description"
-      >{{ localize "PB.TabDescription" }}</a
-    >
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
     <span class="spacer"></span>
   </nav>
 
-  {{!-- Sheet Body --}}
+  {{! Sheet Body }}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
+    {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
-    {{!-- Details Tab --}}
+    {{! Details Tab }}
     <div class="tab" data-group="primary" data-tab="details">
-      {{!-- Morale --}}
+      {{! Morale }}
       <div class="form-group">
-        <label>{{ localize "PB.Morale" }}:</label>
-        <input
-          name="data.morale"
-          type="text"
-          value="{{data.data.morale}}"
-          placeholder=""
-          data-dtype="Number"
-        />
+        <label>{{localize "PB.Morale"}}:</label>
+        <input name="data.morale" type="text" value="{{data.data.morale}}" placeholder="" data-dtype="Number" />
       </div>
 
-      {{!-- Armor --}}
+      {{! Armor }}
       <div class="form-group">
-        <label>{{ localize "PB.CreatureArmor" }}:</label>
-        <input
-          type="text"
-          name="data.armor.name"
-          value="{{data.data.armor.name}}"
-          placeholder="None"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.CreatureArmor"}}:</label>
+        <input type="text" name="data.armor.name" value="{{data.data.armor.name}}" placeholder="None" data-dtype="String" />
       </div>
 
-      {{!-- Attack --}}
+      {{! Attack }}
       <div class="form-group">
-        <label>{{ localize "PB.CreatureAttack" }}:</label>
-        <input
-          type="text"
-          name="data.attack.name"
-          value="{{data.data.attack.name}}"
-          placeholder="None"
-          data-dtype="String"
-        />
+        <label>{{localize "PB.CreatureAttack"}}:</label>
+        <input type="text" name="data.attack.name" value="{{data.data.attack.name}}" placeholder="None" data-dtype="String" />
       </div>
 
-      {{!-- Special --}}
+      {{! Special }}
       <div class="form-group">
-        <label>{{ localize "PB.CreatureSpecial" }}:</label>
+        <label>{{localize "PB.CreatureSpecial"}}:</label>
         <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
       </div>
     </div>
