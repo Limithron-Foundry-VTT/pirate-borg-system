@@ -58,10 +58,6 @@ export class PBItem extends Item {
     return this.type === CONFIG.PB.itemTypes.armor;
   }
 
-  get isEquipment() {
-    return CONFIG.PB.itemEquipmentTypes.includes(this.type);
-  }
-
   get isContainerizable() {
     return CONFIG.PB.allowedContainerItemTypes.includes(this.type);
   }
