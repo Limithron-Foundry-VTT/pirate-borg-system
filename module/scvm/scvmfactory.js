@@ -72,7 +72,7 @@ const rollAbility = (roll, bonus) => {
 
 const findItems = async (items) => {
   const compendiumsItems = items.split("\n").filter((item) => item);
-  let results = [];
+  const results = [];
   for (const compendiumsItem of compendiumsItems) {
     const [compendium, table] = compendiumInfoFromString(compendiumsItem);
     results.push(await findCompendiumItem(compendium, table));

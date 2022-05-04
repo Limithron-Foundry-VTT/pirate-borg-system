@@ -18,6 +18,7 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
+      dragDrop: [{ dropSelector: "textarea" }],
     });
   }
 
@@ -72,5 +73,33 @@ export class PBItemSheet extends ItemSheet {
   activateEditor(name, options = {}, initialContent = "") {
     editor.setCustomEditorOptions(options);
     super.activateEditor(name, options, initialContent);
+  }
+
+  /** @inheritdoc */
+  async _onDrop(event) {
+    let data;
+    try {
+      data = JSON.parse(event?.dataTransfer?.getData("text/plain"));
+    } catch (err) {
+      return;
+    }
+
+    if (data?.type !== "Item" || !data?.id) {
+      return;
+    }
+
+    if (!data?.pack) {
+      ui.notifications.error(game.i18n.localize("PB.StartingBonusItemInvalid"));
+      return;
+    }
+
+    const item = await fromUuid(`Compendium.${data.pack}.${data.id}`);
+    if (!item) {
+      return;
+    }
+
+    let content = event.target.value ? "\n" : "";
+    content += `${data.pack};${item.name}`;
+    event.target.value += content;
   }
 }

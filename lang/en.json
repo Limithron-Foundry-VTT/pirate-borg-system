@@ -241,6 +241,7 @@
   "PB.Silver": "Silver",
   "PB.StandsFirm": "Stands firm",
   "PB.Starting": "Starting",
+  "PB.StartingBonusItemInvalid": "Item must exist in a compendium pack to be able to be used as a starting bonus item.",
   "PB.StartingBonusItems": "Starting Bonus Items",
   "PB.StartingMacro": "Starting Macro",
   "PB.StartingItems": "Starting Items",
