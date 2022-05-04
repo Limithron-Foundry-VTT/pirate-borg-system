@@ -18,7 +18,7 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
-      dragDrop: [{ dropSelector: "textarea" }],
+      dragDrop: [{ dropSelector: "textarea[name=\"data.startingBonusItems\"]" }],
     });
   }
 
@@ -77,6 +77,8 @@ export class PBItemSheet extends ItemSheet {
 
   /** @inheritdoc */
   async _onDrop(event) {
+    if (!this.options.editable) return;
+    
     let data;
     try {
       data = JSON.parse(event?.dataTransfer?.getData("text/plain"));
