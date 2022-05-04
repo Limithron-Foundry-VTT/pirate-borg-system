@@ -53,5 +53,8 @@ export const configureSystem = () => {
 
   Items.unregisterSheet("core", ItemSheet);
 
-  Items.registerSheet("morkpirateborgborg", PBItemSheet, { makeDefault: true });
+  Items.registerSheet("pirateborg", PBItemSheet, { 
+    makeDefault: true,
+    label: "PB.SheetItem",
+  });
 };

@@ -41,6 +41,16 @@
         flex: 0 0 35px;
         margin-bottom: 10px;
       }
+
+      .buttons-row {
+        display: flex;
+        justify-content: flex-start;
+        gap: 8px;
+
+        button {
+          width: auto;
+        }
+      }
     }
   }
 }

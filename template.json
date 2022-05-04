@@ -107,7 +107,8 @@
       "fumbleOn": 1,
       "usesAmmo": false,
       "userAmmoDamage": true,
-      "weaponType": "melee"
+      "weaponType": "melee",
+      "isGunpowderWeapon": false
     },
     "misc": {
       "templates": [
