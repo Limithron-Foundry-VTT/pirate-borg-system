@@ -130,7 +130,8 @@
       "description": "",
       "startingGold": "2d6 * 10",
       "quantity": 1,
-      "startingBonusItems": ""
+      "startingBonusItems": "",
+      "startingBonusRolls": ""
     },
     "feature": {
       "description": "",
@@ -139,7 +140,8 @@
       "quantity": 1,
       "actionMacro": "",
       "actionMacroLabel": "",
-      "startingBonusItems": ""
+      "startingBonusItems": "",
+      "startingBonusRolls": ""
     },
     "class": {
       "description": "",

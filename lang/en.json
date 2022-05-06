@@ -249,6 +249,8 @@
   "PB.Starting": "Starting",
   "PB.StartingBonusItemInvalid": "Item must exist in a compendium pack to be able to be used as a starting bonus item.",
   "PB.StartingBonusItems": "Starting Bonus Items",
+  "PB.StartingBonusRolls": "Starting Bonus Rolls",
+  
   "PB.StartingMacro": "Starting Macro",
   "PB.StartingItems": "Starting Items",
   "PB.StartingRolls": "Starting Rolls",

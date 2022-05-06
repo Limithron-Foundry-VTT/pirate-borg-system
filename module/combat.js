@@ -31,7 +31,6 @@ export const rollIndividualInitiative = async (actor) => {
   if (game.combats && game.combat) {
     const combatant = game.combat.combatants.find((i) => i.data.actorId === actor.id);
     if (combatant) {
-      console.log('rolling combat init');
       game.combat.rollInitiative(combatant.id);
       return;
     }
@@ -69,7 +68,6 @@ export class PBCombat extends Combat {
   }
 
   isFriendlyCombatant(combatant) {
-    console.log("isFriendlyCombatant", combatant);
     if (combatant._token) {
       // v8 compatible
       return combatant._token.data.disposition === 1;

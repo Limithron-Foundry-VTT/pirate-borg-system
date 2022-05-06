@@ -205,6 +205,16 @@ export const findStartingBonusItems = async (features) => {
   return results;
 };
 
+export const findStartingBonusRollsItems = async (features) => {
+  let results = [];
+  for (const feature of features) {
+    if (feature.data.data.startingBonusRolls) {
+      results = results.concat(await rollRollItems(feature.data.data.startingBonusRolls));
+    }
+  }
+  return results;
+};
+
 export const handleActorGettingBetterItems = async (actor) => {
   const actorClass = actor.getClass();
   const baseClass = await actor.getBaseClass();
@@ -346,6 +356,12 @@ export const rollScvmForClass = async (clazz) => {
     background
   ]);
 
+  const startingBonusRollItems = await findStartingBonusRollsItems([
+    ...(features || []), 
+    ...(startingRollItems || []),
+    background
+  ]);
+
   const description = generateDescription(clazz, baseTables);
 
   const allDocs = [
@@ -356,6 +372,7 @@ export const rollScvmForClass = async (clazz) => {
     ...(startingRollItems || []),
     ...(startingItems || []),
     ...(startingBonusItems || []),
+    ...(startingBonusRollItems || []),
     clazz,
   ];
 
