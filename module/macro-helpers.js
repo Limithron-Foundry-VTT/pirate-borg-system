@@ -16,7 +16,7 @@ export const createChatMessage = async (actor, template, templateData, { muted =
 
 export const createRoll = async (formula, rollData = {}) => {
   const roll = new Roll(formula, rollData);
-  roll.evaluate({ async: false });
+  await roll.evaluate();
   return roll;
 };
 

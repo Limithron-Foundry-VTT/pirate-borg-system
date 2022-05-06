@@ -174,7 +174,7 @@ export default class PBActorSheet extends ActorSheet {
    *
    * @param {MouseEvent} event    The originating left click event
    */
-  _onItemRoll(event) {
+  _onItemRoll(event) { 
     event.preventDefault();
     const button = $(event.currentTarget);
     const r = new Roll(button.data("roll"), this.actor.getRollData());
@@ -229,9 +229,9 @@ export default class PBActorSheet extends ActorSheet {
   /**
    * Handle a click on the Defend button.
    */
-  _onDefendRoll(event) {
+  async _onDefendRoll(event) {
     event.preventDefault();
-    const sheetData = this.getData();
+    const sheetData = await this.getData();
     const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
     const hatItemId = sheetData.data.equippedHat ? sheetData.data.equippedHat.id : null;
     this.actor.defend(armorItemId, hatItemId);

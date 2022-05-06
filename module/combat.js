@@ -4,24 +4,20 @@ const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/c
 const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
 
 export const rollPartyInitiative = async () => {
-  const initiativeRoll = new Roll("d6", {});
-  initiativeRoll.evaluate({ async: false });
-  await showDice(initiativeRoll);
+  const initiativeRoll = new Roll("d6");
+  await initiativeRoll.evaluate();
 
-  let outcomeText = "";
-  if (initiativeRoll.total <= 3) {
-    outcomeText = game.i18n.localize("PB.InitiativeEnemiesBegin");
-  } else {
-    outcomeText = game.i18n.localize("PB.InitiativePlayerCharactersBegin");
-  }
-
-  const rollResult = {
-    initiativeRoll,
-    outcomeText,
-  };
-  const html = await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult);
   await ChatMessage.create({
-    content: html,
+    content: await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, {
+      initiativeRoll,
+      outcomeText: game.i18n.localize(
+        initiativeRoll.total <= 3  
+        ? "PB.InitiativeEnemiesBegin" 
+        : "PB.InitiativePlayerCharactersBegin"
+      )
+    }),
+    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+    roll: initiativeRoll,
     sound: diceSound(),
   });
 
@@ -33,30 +29,23 @@ export const rollPartyInitiative = async () => {
 
 export const rollIndividualInitiative = async (actor) => {
   if (game.combats && game.combat) {
-    // there is an encounter started in the Combat Tracker
     const combatant = game.combat.combatants.find((i) => i.data.actorId === actor.id);
     if (combatant) {
-      // the actor is part of the combat, so roll initiative
+      console.log('rolling combat init');
       game.combat.rollInitiative(combatant.id);
-    } else {
-      // the actor hasn't been added to the combat
-      ui.notifications.warn(`${game.i18n.localize("PB.ActorNotInEncounter")}!`);
+      return;
     }
-    return;
   }
 
-  // no encounter going on, so just show chat cards
   const initiativeRoll = new Roll("d6+@abilities.agility.value", actor.getRollData());
-  initiativeRoll.evaluate({ async: false });
-  await showDice(initiativeRoll);
-
-  const rollResult = {
-    initiativeRoll,
-  };
-  const html = await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult);
+  await initiativeRoll.evaluate();
   ChatMessage.create({
-    content: html,
+    content: await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, {
+      initiativeRoll,
+    }),
+    roll: initiativeRoll,
     sound: diceSound(),
+    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     speaker: ChatMessage.getSpeaker({ actor: actor }),
   });
 };
@@ -80,12 +69,15 @@ export class PBCombat extends Combat {
   }
 
   isFriendlyCombatant(combatant) {
+    console.log("isFriendlyCombatant", combatant);
     if (combatant._token) {
       // v8 compatible
       return combatant._token.data.disposition === 1;
-    } else {
+    } else if (combatant._token) {
       // v9+
       return combatant.token.data.disposition === 1;
+    } else {
+      return false
     }
   }
 

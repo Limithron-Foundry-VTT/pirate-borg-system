@@ -195,7 +195,7 @@ export const rollRollItems = async (rolls) => {
   return results;
 };
 
-export const findFeatureBonusItems = async (features) => {
+export const findStartingBonusItems = async (features) => {
   let results = [];
   for (const feature of features) {
     if (feature.data.data.startingBonusItems) {
@@ -340,8 +340,11 @@ export const rollScvmForClass = async (clazz) => {
   const startingRollItems = await rollRollItems(clazz.data.data.startingRolls);
   const startingItems = await findItems(clazz.data.data.startingItems);
 
-  const backgroundBonusItems = await findItems(background.data.data.startingBonusItems);
-  const featuresBonusItems = await findFeatureBonusItems([...(features || []), ...(startingRollItems || [])]);
+  const startingBonusItems = await findStartingBonusItems([
+    ...(features || []), 
+    ...(startingRollItems || []),
+    background
+  ]);
 
   const description = generateDescription(clazz, baseTables);
 
@@ -352,18 +355,12 @@ export const rollScvmForClass = async (clazz) => {
     ...(weapon || []),
     ...(startingRollItems || []),
     ...(startingItems || []),
-    ...(backgroundBonusItems || []),
-    ...(featuresBonusItems || []),
+    ...(startingBonusItems || []),
     clazz,
   ];
 
-  // power uses
-  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({
-    async: false,
-  });
-  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({
-    async: false,
-  });
+  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({async: false});
+  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({async: false});
 
   return {
     name,

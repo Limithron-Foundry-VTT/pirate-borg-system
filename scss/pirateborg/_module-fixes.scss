@@ -13,14 +13,27 @@
   }
 }
 
-.dice-tray button {
-  background: var(--button-background) !important;
-  color: var(--button-color) !important;
-  font-family: var(--button-font) !important;
-}
+.dice-tray {
+  button {
+    background: var(--button-background) !important;
+    color: var(--button-color) !important;
+    font-family: var(--button-font) !important;
+    box-shadow: none !important;
+    cursor: pointer;
+  }
 
-.dice-tray input[type="text"] {
-  color: var(--foreground-color) !important;
+  button:hover {
+    color: var(--highlight-background-color) !important;
+    border-color: var(--highlight-background-color) !important;
+    svg * {
+      fill: var(--highlight-background-color) !important;
+    }
+  }
+
+  input[type="text"] {
+    color: var(--foreground-color) !important;
+  }
+  
 }
 
 button.dice-calculator--button {

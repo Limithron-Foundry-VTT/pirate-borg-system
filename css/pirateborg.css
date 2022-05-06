@@ -1221,7 +1221,7 @@ form .form-group-stacked {
 #hotbar #hotbar-directory-controls,
 #hotbar #hotbar-page-controls {
   background: var(--background-color);
-  color: var(--foreground-color);
+  color: var(--foreground-alt-color);
 }
 #hotbar #action-bar li.macro:hover {
   background: var(--background-color);
@@ -1232,14 +1232,14 @@ form .form-group-stacked {
 
 #navigation #nav-toggle {
   background: var(--background-color);
-  color: var(--foreground-color);
+  color: var(--foreground-alt-color);
 }
 #navigation #scene-list li.scene.nav-item {
   border: 1px solid #252525;
 }
 #navigation #scene-list li.scene.nav-item.active, #navigation #scene-list li.scene.nav-item:hover {
   background: var(--background-color);
-  color: var(--foreground-color);
+  color: var(--foreground-alt-color);
   border: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1648,8 +1648,16 @@ hr {
   background: var(--button-background) !important;
   color: var(--button-color) !important;
   font-family: var(--button-font) !important;
+  box-shadow: none !important;
+  cursor: pointer;
 }
-
+.dice-tray button:hover {
+  color: var(--highlight-background-color) !important;
+  border-color: var(--highlight-background-color) !important;
+}
+.dice-tray button:hover svg * {
+  fill: var(--highlight-background-color) !important;
+}
 .dice-tray input[type=text] {
   color: var(--foreground-color) !important;
 }

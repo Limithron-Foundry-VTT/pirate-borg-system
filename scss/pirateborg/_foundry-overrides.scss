@@ -470,7 +470,7 @@ form .form-group-stacked {
   #hotbar-directory-controls,
   #hotbar-page-controls {
     background: var(--background-color);
-    color: var(--foreground-color);
+    color: var(--foreground-alt-color);
   }
 
   #action-bar li.macro:hover {
@@ -484,7 +484,7 @@ form .form-group-stacked {
 #navigation {
   #nav-toggle {
     background: var(--background-color);
-    color: var(--foreground-color);
+    color: var(--foreground-alt-color);
   }
 
   #scene-list li.scene.nav-item {
@@ -493,7 +493,7 @@ form .form-group-stacked {
     &.active,
     &:hover {
       background: var(--background-color);
-      color: var(--foreground-color);
+      color: var(--foreground-alt-color);
       border: 1px solid var(--highlight-background-color);
       box-shadow: 0 0 10px var(--highlight-background-color);
     }

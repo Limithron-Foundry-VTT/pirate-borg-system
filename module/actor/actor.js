@@ -202,17 +202,16 @@ export class PBActor extends Actor {
   async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
     const abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate({ async: false });
-    await showDice(abilityRoll);
-    const rollResult = {
-      abilityKey,
-      abilityRoll,
-      displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
-      drModifiers,
-    };
-    const html = await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
-      content: html,
+      content: await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, {
+        abilityKey,
+        abilityRoll,
+        displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
+        drModifiers,
+      }),
       sound: diceSound(),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      roll: abilityRoll,
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
   }
@@ -883,20 +882,18 @@ export class PBActor extends Actor {
     const pack = game.packs.get("pirateborg.rolls-gamemaster");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === "Mystical Mishaps");
-    const draw = await table.draw({ displayChat: false });
-
-    const result = {
-      title: game.i18n.format("PB.MysticalMishaps"),
-      formula: "1d20",
-      roll: draw.roll,
-      items: draw.results,
-    };
-
-    const html = await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, result);
+    const draw = await table.draw({ displayChat: false});
 
     await ChatMessage.create({
-      content: html,
+      content: await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, {
+        title: game.i18n.format("PB.MysticalMishaps"),
+        formula: "1d20",
+        roll: draw.roll,
+        items: draw.results,
+      }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
       sound: diceSound(),
+      roll: draw.roll,
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
   }
@@ -919,17 +916,16 @@ export class PBActor extends Actor {
   async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula = null) {
     const roll = new Roll(dieRoll, rollData);
     roll.evaluate({ async: false });
-    await showDice(roll);
-    const rollResult = {
-      cardTitle: cardTitle,
-      outcomeText: outcomeTextFn(roll),
-      roll,
-      rollFormula: rollFormula ?? roll.formula,
-    };
-    const html = await renderTemplate(OUTCOME_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
-      content: html,
+      content: await renderTemplate(OUTCOME_ROLL_CARD_TEMPLATE, {
+        cardTitle: cardTitle,
+        outcomeText: outcomeTextFn(roll),
+        roll,
+        rollFormula: rollFormula ?? roll.formula,
+      }),
       sound: diceSound(),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      roll,
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
     return roll;
@@ -1124,7 +1120,7 @@ export class PBActor extends Actor {
 
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
-      content: html,
+      content: html,      
       sound: CONFIG.sounds.dice, // make a single dice sound
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
@@ -1196,14 +1192,13 @@ export class PBActor extends Actor {
     const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Broken");
     const result = await table.draw({ displayChat: false });
 
-    const data = {
-      brokenRoll: result.roll,
-      outcomes: result.results.map((r) => r.data.text),
-    };
-
-    const html = await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
-      content: html,
+      content: await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, {
+        brokenRoll: result.roll,
+        outcomes: result.results.map((r) => r.data.text),
+      }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      roll: result.roll,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
