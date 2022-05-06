@@ -350,15 +350,19 @@ export const rollScvmForClass = async (clazz) => {
   const startingRollItems = await rollRollItems(clazz.data.data.startingRolls);
   const startingItems = await findItems(clazz.data.data.startingItems);
 
+  // Both of the rolls should loop until nothing is returning to have a kind of recursive configuration
   const startingBonusItems = await findStartingBonusItems([
     ...(features || []), 
+    ...(startingItems || []),
     ...(startingRollItems || []),
     background
   ]);
 
   const startingBonusRollItems = await findStartingBonusRollsItems([
     ...(features || []), 
+    ...(startingItems || []),
     ...(startingRollItems || []),
+    ...(startingBonusItems || []),    
     background
   ]);
 
