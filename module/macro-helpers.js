@@ -37,6 +37,19 @@ export const executeMacro = async (macro, { actor, token, item } = {}) => {
   }
 };
 
+export const executeCharacterCreationMacro = async (macro, { actor, selectedClass, selectedClasses } = {}) => {
+  const body = `(async () => {
+      ${macro.data.command}
+    })()`;
+  const fn = Function("actor", "selectedClass", "selectedClasses", body);
+  try {
+    fn.call(this, actor, selectedClass, selectedClasses);
+  } catch (err) {
+    ui.notifications.error(`There was an error in your macro syntax. See the console (F12) for details`);
+    console.error(err);
+  }
+};
+
 export const drawTable = async (compendium, table) => {
   const rollTable = await findCompendiumItem(compendium, table);
   return await rollTable.draw();

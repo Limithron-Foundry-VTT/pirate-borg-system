@@ -1,24 +1,13 @@
+import { executeCharacterCreationMacro } from "../macro-helpers.js";
 import { isScvmClassAllowed, setLastScvmfactorySelection, getLastScvmfactorySelection } from "../settings.js";
-import { classItemFromPack, createScvm, findClassPacks, scvmifyActor } from "./scvmfactory.js";
+import { classItemFromPack, createScvm, findClassPacks, findCompendiumItem, scvmifyActor } from "./scvmfactory.js";
 
 export default class ScvmDialog extends Application {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
-    const classPacks = findClassPacks();
-    const lastScvmfactorySelection = getLastScvmfactorySelection();
-    this.classes = classPacks
-      .map((p) => {
-        return {
-          name: p.split("class-")[1].replace(/-/g, " "),
-          pack: p,
-          checked: lastScvmfactorySelection.length > 0 ? lastScvmfactorySelection.includes(p) : true,
-        };
-      })
-      .filter((c) => {
-        return isScvmClassAllowed(c.pack);
-      });
-    this.classes.sort((a, b) => (a.name > b.name ? 1 : -1));
+    this.classPacks = findClassPacks();
+    this.lastScvmfactorySelection = getLastScvmfactorySelection();
   }
 
   /** @override */
@@ -34,11 +23,34 @@ export default class ScvmDialog extends Application {
   }
 
   /** @override */
-  getData(options = {}) {
+  async getData(options = {}) {
     return mergeObject(super.getData(options), {
-      classes: this.classes,
+      classes: await this.getClassData(),
       forActor: this.actor !== undefined && this.actor !== null,
     });
+  }
+
+  async getClassData() {
+    return (await this.getClasses(this.classPacks))
+      .map((clazz) => ({
+        name: clazz.name,
+        pack: clazz.pack,
+        requireBaseClass: clazz.data.data.requireBaseClass,
+        checked: this.lastScvmfactorySelection.length > 0 ? this.lastScvmfactorySelection.includes(clazz.pack) : true,
+      }))
+      .filter((clazz) => isScvmClassAllowed(clazz.name))
+      .sort((a, b) => (a.name > b.name ? 1 : -1));
+  }
+
+  async getClasses(classPacks) {
+    const classses = [];
+    for (const classPack of classPacks) {
+      const clazz = await classItemFromPack(classPack);
+      if (clazz) {
+        classses.push(clazz);
+      }
+    }
+    return classses;
   }
 
   /** @override */
@@ -70,37 +82,48 @@ export default class ScvmDialog extends Application {
   async _onScvm(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".scvm-dialog")[0];
-    const selected = [];
+    const selection = [];
+
     $(form)
       .find("input:checked")
       .each(function () {
-        selected.push($(this).attr("name"));
+        selection.push($(this).attr("name"));
       });
 
-    if (selected.length === 0) {
+    if (selection.length === 0) {
       // nothing selected, so bail
       return;
     }
-    setLastScvmfactorySelection(selected);
-    const packName = selected[Math.floor(Math.random() * selected.length)];
-    const clazz = await classItemFromPack(packName);
-    if (!clazz) {
-      // couldn't find class item, so bail
-      const err = `No class item found in compendium ${packName}`;
-      console.error(err);
-      ui.notifications.error(err);
+
+    const selectedClasses = await this.getClasses(selection);
+    const isValid = selectedClasses.some((selectedClass) => !selectedClass.data.data.requireBaseClass);
+    if (!isValid) {
+      // require at least one normal class
+      return;
+    }
+
+    setLastScvmfactorySelection(selection);
+    const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
+
+    if (randomClass.data.data.characterGeneratorMacro) {
+      const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
+      if (compendium) {
+        const macro = await findCompendiumItem(compendium, macroName);
+        await executeCharacterCreationMacro(macro, { selectedClass: randomClass, selectedClasses, actor: this.actor });
+      }
+      this.close();
       return;
     }
 
     try {
       if (this.actor) {
-        await scvmifyActor(this.actor, clazz);
+        await scvmifyActor(this.actor, randomClass);
       } else {
-        await createScvm(clazz);
+        await createScvm(randomClass);
       }
     } catch (err) {
       console.error(err);
-      ui.notifications.error(`Error creating ${clazz.name}. Check console for error log.`);
+      ui.notifications.error(`Error creating ${randomClass.name}. Check console for error log.`);
     }
 
     this.close();

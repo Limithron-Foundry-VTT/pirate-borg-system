@@ -7,12 +7,12 @@ export const createRandomScvm = async () => {
   await createScvm(clazz);
 };
 
-export const createScvm = async (clazz) => {
+export const createScvm = async (clazz, selectedClasses) => {
   const scvm = await rollScvmForClass(clazz);
-  await createActorWithScvm(scvm);
+  return await createActorWithScvm(scvm);
 };
 
-export const scvmifyActor = async (actor, clazz) => {
+export const scvmifyActor = async (actor, clazz, selectedClasses) => {
   const scvm = await rollScvmForClass(clazz);
   await updateActorWithScvm(actor, scvm);
 };
@@ -69,7 +69,7 @@ const rollAbility = (roll, bonus) => {
   return bonus ? ability + parseInt(bonus, 10) : ability;
 };
 
-const findItems = async (items) => {
+export const findItems = async (items) => {
   const compendiumsItems = items.split("\n").filter((item) => item);
   const results = [];
   for (const compendiumsItem of compendiumsItems) {
@@ -205,15 +205,49 @@ export const findFeatureBonusItems = async (features) => {
   return results;
 };
 
-export const handleClassGettingBetterRollTable = async (actor) => {
-  const clazz = actor.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
-  const [compendium, table] = compendiumInfoFromString(clazz.data.data.gettingBetterRolls);
-
+export const handleActorGettingBetterItems = async (actor) => {
+  const actorClass = actor.getClass();
+  const baseClass = await actor.getBaseClass();
   let items = [];
-  if (compendium) {
+  if (actorClass.data.data.gettingBetterRolls) {
+    items = items.concat(await handleClassGettingBetterItems(actor, actorClass.data.data.gettingBetterRolls));
+  }
+  if (baseClass && baseClass.data.data.gettingBetterRolls) {
+    items = items.concat(await handleClassGettingBetterItems(actor, baseClass.data.data.gettingBetterRolls));
+  }
+  return items;
+};
+
+const handleClassGettingBetterItems = async (actor, table) => {
+  const items = await drawGettingBetterRollTable(actor, table);
+  await updateOrCreateActorItems(actor, items);
+  return items;
+};
+
+const updateOrCreateActorItems = async (actor, items) => {
+  // here we assume the first item is the "feature"
+  const item = items[0];
+  const actorItem = actor.items.find((i) => i.data.name === item?.data.name);
+  if (actorItem) {
+    const actorItemQuantity = actorItem ? actorItem.data.data.quantity || 1 : 0;
+    await actorItem.update({ ["data.quantity"]: actorItemQuantity + 1 });
+  } else {
+    await actor.createEmbeddedDocuments(
+      "Item",
+      items.map((item) => item.data)
+    );
+  }
+};
+
+const drawGettingBetterRollTable = async (actor, compendiumTable) => {
+  const [compendium, table] = compendiumInfoFromString(compendiumTable);
+  let items = [];
+
+  if (compendium && table) {
     const compendiumRollTable = await findCompendiumItem(compendium, table);
     const rollTable = compendiumRollTable.clone({ replacement: false });
 
+    // draw until we found a valid item
     // eslint-disable-next-line no-constant-condition
     while (true) {
       const draw = await rollTable.draw({ displayChat: false });
@@ -230,14 +264,6 @@ export const handleClassGettingBetterRollTable = async (actor) => {
       const itemMaxQuantity = item.data.data.maxQuantity || 1;
 
       if (noLimits || actorItemQuantity < itemMaxQuantity) {
-        if (actorItem) {
-          await actorItem.update({ ["data.quantity"]: actorItemQuantity + 1 });
-        } else {
-          await actor.createEmbeddedDocuments(
-            "Item",
-            items.map((item) => item.data)
-          );
-        }
         break;
       }
       draw.results.forEach((result) => (result.data.drawn = true));
@@ -262,21 +288,31 @@ export const generateDescription = (clazz, items) => {
   return `<p>${clazz.data.data.flavorText}</p><p>${description}</p>`;
 };
 
-export const invokeStartingMacro = async (actor) => {
-  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
-  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.startingMacro);
+const executeCompendiumMacro = async (compendiumMacro, parameters = {}) => {
+  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro);
   if (compendium && macroName) {
     const macro = await findCompendiumItem(compendium, macroName);
-    executeMacro(macro, { actor, item: clazz });
+    executeMacro(macro, parameters);
+  }
+};
+
+export const invokeStartingMacro = async (actor) => {
+  const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
+  await executeCompendiumMacro(clazz.data.data.startingMacro, { actor, item: clazz });
+
+  const baseClass = await actor.getBaseClass();
+  if (baseClass) {
+    await executeCompendiumMacro(baseClass.data.data.startingMacro, { actor, item: baseClass });
   }
 };
 
 export const invokeGettingBetterMacro = async (actor) => {
   const clazz = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
-  const [compendium, macroName] = compendiumInfoFromString(clazz.data.data.gettingBetterMacro);
-  if (compendium && macroName) {
-    const macro = await findCompendiumItem(compendium, macroName);
-    executeMacro(macro, { actor, item: clazz });
+  await executeCompendiumMacro(clazz.data.data.gettingBetterMacro, { actor, item: clazz });
+
+  const baseClass = await actor.getBaseClass();
+  if (baseClass) {
+    await executeCompendiumMacro(baseClass.data.data.gettingBetterMacro, { actor, item: baseClass });
   }
 };
 
@@ -329,13 +365,6 @@ export const rollScvmForClass = async (clazz) => {
     async: false,
   });
 
-  const items = allDocs.map((i) => ({
-    data: i.data.data,
-    img: i.data.img,
-    name: i.data.name,
-    type: i.data.type,
-  }));
-
   return {
     name,
     actorImg: clazz.img,
@@ -343,7 +372,7 @@ export const rollScvmForClass = async (clazz) => {
     hitPoints,
     luck,
     ...abilities,
-    items,
+    items: allDocs,
     description,
     silver,
     powerUses: powerUsesRoll.total,
@@ -380,9 +409,17 @@ const scvmToActorData = (s) => {
         value: s.extraResourceUses,
       },
       silver: s.silver,
+      baseClass: s.baseClass || "",
     },
     img: s.actorImg,
-    items: s.items,
+    items: s.items.map((i) => {
+      return {
+        data: i.data.data,
+        img: i.data.img,
+        name: i.data.name,
+        type: i.data.type,
+      };
+    }),
     flags: {},
     token: {
       img: s.actorImg,
@@ -392,14 +429,15 @@ const scvmToActorData = (s) => {
   };
 };
 
-const createActorWithScvm = async (s) => {
+export const createActorWithScvm = async (s) => {
   const data = scvmToActorData(s);
   const actor = await PBActor.create(data);
   actor.sheet.render(true);
   await invokeStartingMacro(actor);
+  return actor;
 };
 
-const updateActorWithScvm = async (actor, s) => {
+export const updateActorWithScvm = async (actor, s) => {
   const data = scvmToActorData(s);
   await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
   await actor.update(data);

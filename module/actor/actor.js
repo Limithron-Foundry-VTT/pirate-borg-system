@@ -1,6 +1,7 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import { rollAncientRelics, rollArcaneRituals, handleClassGettingBetterRollTable } from "../scvm/scvmfactory.js";
+import ActorBaseClassDialog from "../dialog/actor-base-class-dialog.js";
+import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../scvm/scvmfactory.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
@@ -65,20 +66,20 @@ export class PBActor extends Actor {
     if (game.packs) {
       const hasAClass = this.items.filter((i) => i.data.type === "class").length > 0;
       if (!hasAClass) {
-        const pack = game.packs.get("pirateborg.class-classless-adventurer");
+        const pack = game.packs.get("pirateborg.class-landlubber");
         if (!pack) {
-          console.error("Could not find compendium pirateborg.class-classless-adventurer");
+          console.error("Could not find compendium pirateborg.class-landlubber");
           return;
         }
         const index = await pack.getIndex();
-        const entry = index.find((e) => e.name === "Adventurer");
+        const entry = index.find((e) => e.name === "Landlubber");
         if (!entry) {
-          console.error("Could not find Adventurer class in compendium.");
+          console.error("Could not find Landlubber class in compendium.");
           return;
         }
         const entity = await pack.getDocument(entry._id);
         if (!entity) {
-          console.error("Could not get document for Adventurer class.");
+          console.error("Could not get document for Landlubber class.");
           return;
         }
         await this.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
@@ -104,8 +105,9 @@ export class PBActor extends Actor {
   }
 
   /** @override */
-  _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     if (documents[0].data.type === CONFIG.PB.itemTypes.class) {
+      this.setBaseClass("");
       this._deleteEarlierItems(CONFIG.PB.itemTypes.class);
     }
     super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
@@ -724,7 +726,7 @@ export class PBActor extends Actor {
       );
       return;
     }
-    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+    const clazz = this.getClass();
 
     const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula, this.getRollData());
 
@@ -883,8 +885,6 @@ export class PBActor extends Actor {
     const table = content.find((i) => i.name === "Mystical Mishaps");
     const draw = await table.draw({ displayChat: false });
 
-    console.log(draw);
-
     const result = {
       title: game.i18n.format("PB.MysticalMishaps"),
       formula: "1d20",
@@ -965,7 +965,7 @@ export class PBActor extends Actor {
   }
 
   async rollExtraResourcePerDay() {
-    const clazz = this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+    const clazz = this.getClass();
     if (clazz.data.data.useExtraResource) {
       const roll = await this._rollOutcome(
         clazz.data.data.extraResourceFormula,
@@ -1107,7 +1107,7 @@ export class PBActor extends Actor {
       relicOrRitual = (await rollArcaneRituals())[0];
     }
 
-    const gettingBetterItems = await handleClassGettingBetterRollTable(this);
+    const gettingBetterItems = await handleActorGettingBetterItems(this);
     const gettingBetterItemsData = gettingBetterItems.map((item) => item.data);
 
     const data = {
@@ -1188,6 +1188,10 @@ export class PBActor extends Actor {
     new ScvmDialog(this).render(true);
   }
 
+  async showBaseClassDialog() {
+    new ActorBaseClassDialog(this).render(true);
+  }
+
   async rollBroken() {
     const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Broken");
     const result = await table.draw({ displayChat: false });
@@ -1203,5 +1207,20 @@ export class PBActor extends Actor {
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
+  }
+
+  async getBaseClass() {
+    const [compendium, item] = this.data.data.baseClass.split(";");
+    if (compendium && item) {
+      return await findCompendiumItem(compendium, item);
+    }
+  }
+
+  getClass() {
+    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+  }
+
+  async setBaseClass(baseClass) {
+    await this.update({ ["data.baseClass"]: baseClass });
   }
 }

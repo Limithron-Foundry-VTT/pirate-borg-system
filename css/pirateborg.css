@@ -528,7 +528,6 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 19px;
-  width: 100%;
   margin-left: 0px;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row img.classimg {
@@ -540,7 +539,6 @@
 .pirateborg.sheet.actor.character .sheet-header .classname-row label.classname {
   font-family: var(--h3-font);
   font-size: 24px;
-  width: 100%;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row .item-controls {
   flex: 0 0 35px;

@@ -4,10 +4,10 @@
     <ul>
       {{#each this.classes}}
       <li>
-        <label
-          ><input name="{{this.pack}}" type="checkbox" class="class-checkbox" {{#if this.checked }}checked{{/if}} />
-          <div class="class-name">{{this.name}}</div></label
-        >
+        <label>
+          <input name="{{this.pack}}" type="checkbox" class="class-checkbox" {{#if this.checked }}checked{{/if}} />
+          <div class="class-name">{{this.name}} {{#if this.requireBaseClass }}*{{/if}}</div>
+        </label>
       </li>
       {{/each}}
     </ul>
@@ -19,6 +19,10 @@
     <p>{{localize "PB.ScvmfactoryWarning"}}</p>
   </div>
   {{/if}}
+
+  <div class="section">
+    <p>{{localize "PB.ScvmfactoryWarningBaseClass"}}</p>
+  </div>
 
   <div class="button-row">
     <button type="submit" class="button cancel-button" name="cancel" value="1">{{localize "PB.Cancel"}}</button>

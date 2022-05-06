@@ -1,6 +1,7 @@
 import PBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import { findCompendiumItem } from "../../scvm/scvmfactory.js";
 
 /**
  * @extends {ActorSheet}
@@ -27,6 +28,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
   _getHeaderButtons() {
     return [
       {
+        class: `actor-base-class-dialog-button-${this.actor.id}`,
+        label: game.i18n.localize("PB.BaseClass"),
+        icon: "fas fa-cog",
+        onclick: this._onBaseClass.bind(this),
+      },
+      {
         class: `regenerate-character-button-${this.actor.id}`,
         label: game.i18n.localize("PB.RegenerateCharacter"),
         icon: "fas fa-skull",
@@ -37,7 +44,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
   }
 
   /** @override */
-  getData() {
+  async getData() {
     const superData = super.getData();
     const data = superData.data;
     data.config = CONFIG.PB;
@@ -50,7 +57,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     // Prepare items.
     if (this.actor.data.type == "character") {
-      this._prepareCharacterItems(data);
+      await this._prepareCharacterItems(data);
     }
 
     data.data.trackCarryingCapacity = trackCarryingCapacity();
@@ -65,7 +72,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @param {Object} sheetData The sheet data to prepare.
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  async _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
 
@@ -120,6 +127,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
       }, [])
       .sort(byType);
 
+    if (sheetData.data.baseClass) {
+      sheetData.data.baseClass = (await this.actor.getBaseClass()).data;
+    }
+
     console.log(sheetData.data);
   }
 
@@ -151,6 +162,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));
 
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+    html.find(".item-base-class").on("click", async () => {
+      (await this.actor.getBaseClass()).sheet.render(true);
+    });
   }
 
   _onStrengthRoll(event) {
@@ -191,6 +205,11 @@ export class PBActorSheetCharacter extends PBActorSheet {
   _onScvmify(event) {
     event.preventDefault();
     this.actor.scvmify();
+  }
+
+  _onBaseClass(event) {
+    event.preventDefault();
+    this.actor.showBaseClassDialog();
   }
 
   _onBroken(event) {

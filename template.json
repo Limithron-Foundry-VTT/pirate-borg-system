@@ -151,12 +151,12 @@
       "startingWeaponTableFormula": "1d10",
       "startingHatTableFormula": "1d12",
 
-      "startingAbilityScoreFormula ": "3d6",
-      "startingAgilityBonus ": 0,
-      "startingPresenceBonus ": 0,
-      "startingStrengthBonus ": 0,
-      "startingToughnessBonus ": 0,
-      "startingSpiritBonus ": 0,
+      "startingAbilityScoreFormula": "3d6",
+      "startingAgilityBonus": 0,
+      "startingPresenceBonus": 0,
+      "startingStrengthBonus": 0,
+      "startingToughnessBonus": 0,
+      "startingSpiritBonus": 0,
 
       "startingHitPoints": "1d10",
 
@@ -176,7 +176,7 @@
       "extraResourceTestFormulaLabel": null,
 
       "requireBaseClass": false,
-      "skipCharacterGenerator": false
+      "characterGeneratorMacro": ""
     }
   }
 }

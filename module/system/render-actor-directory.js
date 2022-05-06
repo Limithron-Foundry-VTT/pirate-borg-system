@@ -13,7 +13,7 @@ export const renderActorDirectory = (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
+        <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Pirate</button>
       </div>
       `
     );

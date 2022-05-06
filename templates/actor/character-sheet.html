@@ -10,9 +10,15 @@
       </div>
       {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements, so we can get the item _id to be found by the common click handler
       --}}
-      <div class="classname-row item" data-item-id="{{data.data.class._id}}">
-        <label class="classname item-edit rollable">{{data.data.class.name}}</label>
+      <div class="classname-row">
+        <label class="classname item" data-item-id="{{data.data.class._id}}">
+          <span class="item-edit rollable">{{data.data.class.name}}</span>
+        </label>
+        {{#if data.data.baseClass }}
+        <label class="classname rollable item-base-class">&nbsp;-&nbsp;<span>{{data.data.baseClass.name}}</span></label>
+        {{/if}}
       </div>
+
       <div class="hitpoints-row">
         <span class="stat-label">{{ localize "PB.HP" }}</span>
         <div class="hp-entries">

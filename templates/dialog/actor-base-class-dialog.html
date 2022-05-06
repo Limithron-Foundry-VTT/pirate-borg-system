@@ -1,0 +1,23 @@
+<form class="custom-dialog">
+  {{#requireBaseClass}}
+  <div class="form-group">
+    <label>{{localize "PB.BaseClass"}}:</label>
+    <br />
+    <select id="baseClass" name="baseClass">
+      {{#each classes as |class|}}
+      <option value="{{class.baseClass}}" {{class.selected}}>{{class.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{/requireBaseClass}} {{^requireBaseClass}}
+  <div class="section">
+    <p>{{localize "PB.ActorBaseClassWarning"}}</p>
+  </div>
+  {{/requireBaseClass}}
+  <div class="button-row">
+    <button type="submit" class="button cancel-button">{{localize "PB.Cancel"}}</button>
+    {{#requireBaseClass}}
+    <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
+    {{/requireBaseClass}}
+  </div>
+</form>
