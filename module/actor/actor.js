@@ -107,23 +107,23 @@ export class PBActor extends Actor {
   /** @override */
   async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     if (documents[0].data.type === CONFIG.PB.itemTypes.class) {
-      this.setBaseClass("");
-      this._deleteEarlierItems(CONFIG.PB.itemTypes.class);
+      await this.setBaseClass("");
+      await this._deleteEarlierItems(CONFIG.PB.itemTypes.class);
     }
-    super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
 
-  _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     for (const document of documents) {
       if (document.isContainer) {
-        this.deleteEmbeddedDocuments("Item", document.items);
+        await this.deleteEmbeddedDocuments("Item", document.items);
       }
       if (document.hasContainer) {
         document.container.removeItem(document.id);
       }
     }
 
-    super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
 
   async _deleteEarlierItems(itemType) {
@@ -131,7 +131,7 @@ export class PBActor extends Actor {
     itemsOfType.pop(); // don't delete the last one
     const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
-    this.deleteEmbeddedDocuments("Item", deletions);
+    await this.deleteEmbeddedDocuments("Item", deletions);
   }
 
   /** @override */
@@ -656,16 +656,13 @@ export class PBActor extends Actor {
     } else {
       outcomeKey = "PB.StandsFirm";
     }
-    const outcomeText = game.i18n.localize(outcomeKey);
-    const rollResult = {
-      actor: this,
-      outcomeRoll,
-      outcomeText,
-      moraleRoll,
-    };
-    const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
-      content: html,
+      content: await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, {
+        actor: this,
+        outcomeRoll,
+        outcomeText: game.i18n.localize(outcomeKey),
+        moraleRoll,
+      }),
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
@@ -684,14 +681,14 @@ export class PBActor extends Actor {
    * Show reaction roll/result in a chat roll card.
    */
   async _renderReactionRollCard(result) {
-    const rollResult = {
-      actor: this,
-      reactionRoll: result.roll,
-      reactionText: result.results[0].data.text,
-    };
-    const html = await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
-      content: html,
+      content: await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, {
+        actor: this,
+        reactionRoll: result.roll,
+        reactionText: result.results[0].data.text,
+      }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      roll: result.roll,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
@@ -727,7 +724,7 @@ export class PBActor extends Actor {
     }
     const clazz = this.getClass();
 
-    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula, this.getRollData());
+    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula, this.getRollData());
 
     wieldRoll.evaluate({ async: false });
     await showDice(wieldRoll);
@@ -746,19 +743,17 @@ export class PBActor extends Actor {
       wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure");
     }
 
-    const rollResult = {
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
       title: game.i18n.format("PB.InvokableTitle", {
         type: item.data.data.invokableType,
       }),
       wieldDR,
-      wieldFormula: clazz.data.data.extraResourceTestFormulaLabel,
+      wieldFormula: clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel,
       wieldOutcome,
       wieldRoll,
-    };
-
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+    });
 
     await ChatMessage.create({
       content: html,
@@ -882,7 +877,7 @@ export class PBActor extends Actor {
     const pack = game.packs.get("pirateborg.rolls-gamemaster");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === "Mystical Mishaps");
-    const draw = await table.draw({ displayChat: false});
+    const draw = await table.draw({ displayChat: false });
 
     await ChatMessage.create({
       content: await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, {
@@ -915,7 +910,7 @@ export class PBActor extends Actor {
 
   async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula = null) {
     const roll = new Roll(dieRoll, rollData);
-    roll.evaluate({ async: false });
+    await roll.evaluate();
     ChatMessage.create({
       content: await renderTemplate(OUTCOME_ROLL_CARD_TEMPLATE, {
         cardTitle: cardTitle,
@@ -938,7 +933,7 @@ export class PBActor extends Actor {
     }
     const roll = await this._rollOutcome(
       "@luckDie",
-      classItem.getRollData(),
+      { luckDie: await this.getLuckDie() },
       `${game.i18n.localize("PB.Luck")}`,
       (roll) => ` ${game.i18n.localize("PB.Luck")}: ${Math.max(0, roll.total)}`
     );
@@ -962,13 +957,14 @@ export class PBActor extends Actor {
 
   async rollExtraResourcePerDay() {
     const clazz = this.getClass();
-    if (clazz.data.data.useExtraResource) {
+    const baseClass = await this.getBaseClass();
+    if (clazz.data.data.useExtraResource || baseClass.data?.data.useExtraResource) {
       const roll = await this._rollOutcome(
-        clazz.data.data.extraResourceFormula,
+        clazz.data.data.extraResourceFormula || baseClass.data?.data.extraResourceFormula,
         this.getRollData(),
-        `${clazz.data.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
+        `${clazz.data.data.extraResourceNamePlural || baseClass.data?.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
         (roll) => ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(0, roll.total)}`,
-        clazz.data.data.extraResourceFormulaLabel
+        clazz.data.data.extraResourceFormulaLabel || baseClass.data?.data.extraResourceNamePlural
       );
       const newUses = Math.max(0, roll.total);
       await this.update({
@@ -1120,7 +1116,7 @@ export class PBActor extends Actor {
 
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
-      content: html,      
+      content: html,
       sound: CONFIG.sounds.dice, // make a single dice sound
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
@@ -1204,6 +1200,14 @@ export class PBActor extends Actor {
     });
   }
 
+  getClass() {
+    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+  }
+
+  async setBaseClass(baseClass) {
+    await this.update({ ["data.baseClass"]: baseClass });
+  }
+
   async getBaseClass() {
     const [compendium, item] = this.data.data.baseClass.split(";");
     if (compendium && item) {
@@ -1211,11 +1215,34 @@ export class PBActor extends Actor {
     }
   }
 
-  getClass() {
-    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+  async getUseExtraResource() {
+    const currentClass = this.getClass();
+    const baseClass = await this.getBaseClass();
+    if (currentClass?.data?.data.useExtraResource || baseClass?.data?.data.useExtraResource) {
+      return true;
+    }
+    return false;
   }
 
-  async setBaseClass(baseClass) {
-    await this.update({ ["data.baseClass"]: baseClass });
+  async getExtraResourceNamePlural() {
+    const currentClass = this.getClass();
+    const baseClass = await this.getBaseClass();
+    if (await this.getUseExtraResource()) {
+      return currentClass?.data?.data.extraResourceNamePlural || baseClass?.data?.data.extraResourceNamePlural;
+    }
+  }
+
+  async getExtraResourceFormulaLabel() {
+    const currentClass = this.getClass();
+    const baseClass = await this.getBaseClass();
+    if (await this.getUseExtraResource()) {
+      return currentClass?.data?.data.extraResourceFormulaLabel || baseClass?.data?.data.extraResourceFormulaLabel;
+    }
+  }
+
+  async getLuckDie() {
+    const currentClass = this.getClass();
+    const baseClass = await this.getBaseClass();
+    return baseClass ? baseClass.data.data.luckDie : currentClass.data.data.luckDie;
   }
 }

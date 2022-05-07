@@ -18,7 +18,7 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }],
+      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
     });
   }
 
@@ -86,12 +86,15 @@ export class PBItemSheet extends ItemSheet {
       return;
     }
 
-    if (data?.type !== "Item" || !data?.id) {
+    if (!data?.pack || !data?.id) {
+      ui.notifications.error(game.i18n.localize("PB.StartingBonusDropInvalid"));
       return;
     }
 
-    if (!data?.pack) {
-      ui.notifications.error(game.i18n.localize("PB.StartingBonusItemInvalid"));
+    if (
+      (event.target?.name === "data.startingBonusItems" && data?.type !== "Item") ||
+      (event.target?.name === "data.startingBonusRolls" && data?.type !== "RollTable")
+    ) {
       return;
     }
 

@@ -11,7 +11,7 @@
       {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements, so we can get the item _id to be found by the common click handler
       --}}
       <div class="classname-row">
-        <label class="classname item" data-item-id="{{data.data.class._id}}">
+        <label class="classname item" data-item-id="{{data.data.class.id}}">
           <span class="item-edit rollable">{{data.data.class.name}}</span>
         </label>
         {{#if data.data.baseClass }}
@@ -30,7 +30,7 @@
       <div class="luck-row">
         <span class="stat-label luck-label" title="{{ localize 'PB.LuckHelpText' }}">{{ localize "PB.Luck" }}</span>
         <input class="stat-input" name="data.luck.value" type="number" value="{{data.data.luck.value}}" data-dtype="Number" />
-        <span class="rule-text luck-rule rollable">({{data.data.class.data.luckDie}} {{ localize "PB.PerRest"}})</span>
+        <span class="rule-text luck-rule rollable">({{data.data.luckDie}} {{ localize "PB.PerRest"}})</span>
       </div>
       <div class="rest-buttons">
         <button type="button" class="button item-button broken-button rollable" title="{{localize 'PB.Broken'}}">{{localize 'PB.Broken'}}</button>
@@ -282,12 +282,12 @@
 
     {{!-- Features Tab --}}
     <div class="tab specials-tab" data-group="primary" data-tab="features">
-      {{#if data.data.class.data.useExtraResource}}
+      {{#if data.data.useExtraResource}}
       <div class="powers-top-row">
         <div class="uses-remaining">
-          <label class="stat-label uses-remaining-label">{{ data.data.class.data.extraResourceNamePlural }}</label>
+          <label class="stat-label uses-remaining-label">{{ data.data.extraResourceNamePlural }}</label>
           <input class="stat-input" name="data.extraResourceUses.value" type="number" value="{{data.data.extraResourceUses.value}}" data-dtype="Number" />
-          <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.class.data.extraResourceFormulaLabel }}</span>
+          <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.extraResourceFormulaLabel }}</span>
         </div>
       </div>
       {{/if}} {{#each data.data.features as |item id|}}

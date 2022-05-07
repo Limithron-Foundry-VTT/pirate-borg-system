@@ -247,10 +247,10 @@
   "PB.CharacterGeneratorMacro": "Character Generator Macro",
   "PB.StandsFirm": "Stands firm",
   "PB.Starting": "Starting",
-  "PB.StartingBonusItemInvalid": "Item must exist in a compendium pack to be able to be used as a starting bonus item.",
+  "PB.StartingBonusDropInvalid": "Item must exist in a compendium pack",
   "PB.StartingBonusItems": "Starting Bonus Items",
   "PB.StartingBonusRolls": "Starting Bonus Rolls",
-  
+
   "PB.StartingMacro": "Starting Macro",
   "PB.StartingItems": "Starting Items",
   "PB.StartingRolls": "Starting Rolls",
@@ -267,7 +267,7 @@
   "PB.Take": "Take",
   "PB.TargetArmor": "Target Armor",
   "PB.Test": "Test",
-  "PB.TheScvmfactory": "The Pirate Factory",
+  "PB.TheScvmfactory": "The Tavern",
   "PB.Tier": "Tier",
   "PB.Title": "MÖRK BORG",
   "PB.Type": "Type",

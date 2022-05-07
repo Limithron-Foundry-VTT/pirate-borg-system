@@ -504,6 +504,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
   display: flex;
@@ -529,6 +530,8 @@
   flex-direction: row;
   margin-bottom: 19px;
   margin-left: 0px;
+  align-items: stretch;
+  flex-wrap: nowrap;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row img.classimg {
   height: 24px;
@@ -539,6 +542,11 @@
 .pirateborg.sheet.actor.character .sheet-header .classname-row label.classname {
   font-family: var(--h3-font);
   font-size: 24px;
+  white-space: nowrap;
+}
+.pirateborg.sheet.actor.character .sheet-header .classname-row label.item-base-class {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row .item-controls {
   flex: 0 0 35px;

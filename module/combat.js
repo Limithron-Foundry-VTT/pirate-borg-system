@@ -10,11 +10,7 @@ export const rollPartyInitiative = async () => {
   await ChatMessage.create({
     content: await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, {
       initiativeRoll,
-      outcomeText: game.i18n.localize(
-        initiativeRoll.total <= 3  
-        ? "PB.InitiativeEnemiesBegin" 
-        : "PB.InitiativePlayerCharactersBegin"
-      )
+      outcomeText: game.i18n.localize(initiativeRoll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
     }),
     type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     roll: initiativeRoll,
@@ -75,7 +71,7 @@ export class PBCombat extends Combat {
       // v9+
       return combatant.token.data.disposition === 1;
     } else {
-      return false
+      return false;
     }
   }
 

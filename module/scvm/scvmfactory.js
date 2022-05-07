@@ -137,12 +137,10 @@ export const rollLuck = (luckDie) => {
   }).total;
 };
 
-export const rollHitPoints = (startingHitPoints, toughness) => {
-  return (
-    new Roll(startingHitPoints).evaluate({
-      async: false,
-    }).total + toughness
-  );
+export const rollHitPoints = async (startingHitPoints, toughness) => {
+  const roll = new Roll(startingHitPoints);
+  const hp = (await roll.evaluate()).total + toughness;
+  return hp < 0 ? 1 : hp;
 };
 
 export const rollSilver = (background) => {
@@ -299,7 +297,7 @@ export const generateDescription = (clazz, items) => {
 };
 
 const executeCompendiumMacro = async (compendiumMacro, parameters = {}) => {
-  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro);
+  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro || "");
   if (compendium && macroName) {
     const macro = await findCompendiumItem(compendium, macroName);
     executeMacro(macro, parameters);
@@ -334,7 +332,7 @@ export const rollScvmForClass = async (clazz) => {
   const name = await rollName();
   const abilities = rollAbilities(data);
   const luck = rollLuck(data.luckDie);
-  const hitPoints = rollHitPoints(data.startingHitPoints, abilities.toughness);
+  const hitPoints = await rollHitPoints(data.startingHitPoints, abilities.toughness);
   const baseTables = await rollBaseTables();
 
   const background = baseTables.find((item) => item.type === CONFIG.PB.itemTypes.background);
@@ -351,19 +349,14 @@ export const rollScvmForClass = async (clazz) => {
   const startingItems = await findItems(clazz.data.data.startingItems);
 
   // Both of the rolls should loop until nothing is returning to have a kind of recursive configuration
-  const startingBonusItems = await findStartingBonusItems([
-    ...(features || []), 
-    ...(startingItems || []),
-    ...(startingRollItems || []),
-    background
-  ]);
+  const startingBonusItems = await findStartingBonusItems([...(features || []), ...(startingItems || []), ...(startingRollItems || []), background]);
 
   const startingBonusRollItems = await findStartingBonusRollsItems([
-    ...(features || []), 
+    ...(features || []),
     ...(startingItems || []),
     ...(startingRollItems || []),
-    ...(startingBonusItems || []),    
-    background
+    ...(startingBonusItems || []),
+    background,
   ]);
 
   const description = generateDescription(clazz, baseTables);
@@ -380,13 +373,12 @@ export const rollScvmForClass = async (clazz) => {
     clazz,
   ];
 
-  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({async: false});
-  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({async: false});
+  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
+  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
 
   return {
     name,
     actorImg: clazz.img,
-    tokenImg: clazz.img,
     hitPoints,
     luck,
     ...abilities,
@@ -432,7 +424,10 @@ const scvmToActorData = (s) => {
     img: s.actorImg,
     items: s.items.map((i) => {
       return {
-        data: i.data.data,
+        data: {
+          ...i.data.data,
+          ...([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type) ? { equipped: true } : {}),
+        },
         img: i.data.img,
         name: i.data.name,
         type: i.data.type,
@@ -457,7 +452,7 @@ export const createActorWithScvm = async (s) => {
 
 export const updateActorWithScvm = async (actor, s) => {
   const data = scvmToActorData(s);
-  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true });
+  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true, render: false });
   await actor.update(data);
   for (const token of actor.getActiveTokens()) {
     await token.document.update({

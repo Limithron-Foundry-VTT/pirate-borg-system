@@ -174,7 +174,7 @@ export default class PBActorSheet extends ActorSheet {
    *
    * @param {MouseEvent} event    The originating left click event
    */
-  _onItemRoll(event) { 
+  _onItemRoll(event) {
     event.preventDefault();
     const button = $(event.currentTarget);
     const r = new Roll(button.data("roll"), this.actor.getRollData());

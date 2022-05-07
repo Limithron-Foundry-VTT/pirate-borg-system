@@ -17,6 +17,7 @@
           flex: 1;
           display: flex;
           flex-direction: column;
+          overflow: hidden;
           .rest-buttons {
             display: flex;
             align-items: center;
@@ -46,6 +47,8 @@
           flex-direction: row;
           margin-bottom: 19px;
           margin-left: 0px;
+          align-items: stretch;
+          flex-wrap: nowrap;
 
           img.classimg {
             height: 24px;
@@ -57,6 +60,12 @@
           label.classname {
             font-family: var(--h3-font);
             font-size: 24px;
+            white-space: nowrap;
+          }
+
+          label.item-base-class {
+            text-overflow: ellipsis;
+            overflow: hidden;
           }
 
           .item-controls {

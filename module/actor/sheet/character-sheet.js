@@ -75,8 +75,18 @@ export class PBActorSheetCharacter extends PBActorSheet {
   async _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
+    const groupByType = (items, item) => {
+      const key = item.data.featureType || item.data.invokableType || item.type;
+      let group = items.find((i) => i.type === key);
+      if (!group) {
+        group = { type: key, items: [] };
+        items.push(group);
+      }
+      group.items.push(item);
+      return items;
+    };
 
-    sheetData.data.class = sheetData.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
+    sheetData.data.class = this.actor.getClass();
 
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
@@ -96,41 +106,22 @@ export class PBActorSheetCharacter extends PBActorSheet {
     sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
     sheetData.data.features = sheetData.items
-      .filter(
-        (item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background || item.type === CONFIG.PB.itemTypes.invokable
-      )
-      .filter((item) => !(item.data.invokableType === "Arcane Ritual" || item.data.invokableType === "Ancient Relic"))
-      .reduce((items, item) => {
-        const key = item.data.featureType || item.data.invokableType || item.type;
-        let group = items.find((i) => i.type === key);
-        if (!group) {
-          group = { type: key, items: [] };
-          items.push(group);
-        }
-        group.items.push(item);
-        return items;
-      }, [])
+      .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))
+      .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
+      .reduce(groupByType, [])
       .sort(byType);
 
     sheetData.data.invokables = sheetData.items
-      .filter((item) => item.type === CONFIG.PB.itemTypes.invokable)
-      .filter((item) => item.data.invokableType === "Arcane Ritual" || item.data.invokableType === "Ancient Relic")
-      .reduce((items, item) => {
-        const key = item.data.invokableType;
-        let group = items.find((i) => i.type === key);
-        if (!group) {
-          group = { type: key, items: [] };
-          items.push(group);
-        }
-        group.items.push(item);
-        return items;
-      }, [])
+      .filter((item) => [CONFIG.PB.itemTypes.invokable].includes(item.type))
+      .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
+      .reduce(groupByType, [])
       .sort(byType);
 
-    if (sheetData.data.baseClass) {
-      sheetData.data.baseClass = (await this.actor.getBaseClass()).data;
-    }
-
+    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
+    sheetData.data.useExtraResource = await this.actor.getUseExtraResource();
+    sheetData.data.extraResourceNamePlural = await this.actor.getExtraResourceNamePlural();
+    sheetData.data.extraResourceFormulaLabel = await this.actor.getExtraResourceFormulaLabel();
+    sheetData.data.luckDie = await this.actor.getLuckDie();
     console.log(sheetData.data);
   }
 
