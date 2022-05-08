@@ -1644,6 +1644,58 @@ hr {
   padding-top: 2px;
 }
 
+#help-dialog .sheet-header {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 8px 16px 8px;
+  padding: 8px;
+  border-radius: 8px;
+  height: 160px;
+  flex: 0 0 160px;
+}
+#help-dialog .sheet-header img {
+  height: 100%;
+  border: none;
+}
+#help-dialog .sheet-body {
+  font-family: var(--item-font);
+  font-size: 16px;
+  line-height: 20px;
+}
+#help-dialog .sheet-body h4 {
+  font-family: var(--h2-font);
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 16px 0 8px 0;
+}
+#help-dialog .sheet-body .section .buttons-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#help-dialog .sheet-body button,
+#help-dialog .sheet-body a {
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-top: 1px;
+  display: inline-block;
+  text-decoration: none;
+  margin: 8px;
+  text-align: center;
+  min-width: 200px;
+}
+
 .window-app .window-content textarea:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }

@@ -7,12 +7,12 @@ export const createRandomScvm = async () => {
   await createScvm(clazz);
 };
 
-export const createScvm = async (clazz, selectedClasses) => {
+export const createScvm = async (clazz) => {
   const scvm = await rollScvmForClass(clazz);
   return await createActorWithScvm(scvm);
 };
 
-export const scvmifyActor = async (actor, clazz, selectedClasses) => {
+export const scvmifyActor = async (actor, clazz) => {
   const scvm = await rollScvmForClass(clazz);
   await updateActorWithScvm(actor, scvm);
 };

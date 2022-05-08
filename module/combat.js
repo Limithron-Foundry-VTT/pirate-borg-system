@@ -1,4 +1,4 @@
-import { diceSound, showDice } from "./dice.js";
+import { diceSound } from "./dice.js";
 
 const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/individual-initiative-roll-card.html";
 const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
@@ -67,7 +67,7 @@ export class PBCombat extends Combat {
     if (combatant._token) {
       // v8 compatible
       return combatant._token.data.disposition === 1;
-    } else if (combatant._token) {
+    } else if (combatant.token) {
       // v9+
       return combatant.token.data.disposition === 1;
     } else {

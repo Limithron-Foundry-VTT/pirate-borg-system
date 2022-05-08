@@ -1,4 +1,4 @@
-import { classItemFromPack, createScvm, findClassPacks, findCompendiumItem, scvmifyActor } from "../scvm/scvmfactory.js";
+import { classItemFromPack, findClassPacks } from "../scvm/scvmfactory.js";
 import { isScvmClassAllowed } from "../settings.js";
 
 export default class ActorBaseClassDialog extends Application {
@@ -65,7 +65,6 @@ export default class ActorBaseClassDialog extends Application {
   async _onOk(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
-    const selection = [];
     const baseClass = $(form).find("#baseClass");
     await this.actor.setBaseClass(baseClass.val());
     this.close();

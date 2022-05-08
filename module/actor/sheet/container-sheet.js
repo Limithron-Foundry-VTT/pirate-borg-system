@@ -11,6 +11,7 @@ export class PBActorSheetContainer extends PBActorSheet {
       template: "systems/pirateborg/templates/actor/container-sheet.html",
       width: 720,
       height: 680,
+      scrollY: [".tab"],
       tabs: [
         {
           navSelector: ".sheet-tabs",

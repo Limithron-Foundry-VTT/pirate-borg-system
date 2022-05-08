@@ -1,7 +1,6 @@
 import PBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
-import { findCompendiumItem } from "../../scvm/scvmfactory.js";
 
 /**
  * @extends {ActorSheet}
@@ -14,6 +13,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       template: "systems/pirateborg/templates/actor/character-sheet.html",
       width: 750,
       height: 690,
+      scrollY: [".tab"],
       tabs: [
         {
           navSelector: ".sheet-tabs",

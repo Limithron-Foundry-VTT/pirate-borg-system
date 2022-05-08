@@ -183,6 +183,7 @@
   "PB.PartyInitiative": "Party Initiative",
   "PB.PerDay": "per Day",
   "PB.PerRest": "per Rest",
+  "PB.PirateBorg": "PIRATE BORG",
   "PB.RollMacro": "Roll Macro",
   "PB.Powers": "Relics & Rituals",
   "PB.PowersPerDayText": "SPI+d4 times per day",
@@ -194,7 +195,7 @@
   "PB.ReactionHelpful": "Helpful",
   "PB.ReactionIndifferent": "Indifferent",
   "PB.ReactionKill": "Kill!",
-  "PB.RegenerateCharacter": "Regenerate Character",
+  "PB.RegenerateCharacter": "The Tavern",
 
   "PB.Rest": "Rest",
   "PB.RestDialogDontEat": "Don't eat - Restore no stats.",

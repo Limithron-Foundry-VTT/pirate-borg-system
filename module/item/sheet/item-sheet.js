@@ -11,6 +11,7 @@ export class PBItemSheet extends ItemSheet {
       classes: ["pirateborg", "sheet", "item"],
       width: 600,
       height: 560,
+      scrollY: [".tab"],
       tabs: [
         {
           navSelector: ".sheet-tabs",

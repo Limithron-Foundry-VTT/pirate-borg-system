@@ -9,6 +9,8 @@ import { renderCombatTracker } from "./system/render-combat-tracker.js";
 import { renderChatMessage } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./settings.js";
+import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
+import { renderSettings } from "./system/render-settings.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -23,6 +25,7 @@ Hooks.once("init", async function () {
 
 Hooks.once("ready", () => {
   migrate();
+  showHelpDialogOnStartup();
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
   Hooks.call("pirateborgReady");
@@ -31,5 +34,7 @@ Hooks.once("ready", () => {
 Hooks.on("renderActorDirectory", renderActorDirectory);
 
 Hooks.on("renderCombatTracker", renderCombatTracker);
+
+Hooks.on("renderSettings", renderSettings);
 
 Hooks.on("renderChatMessage", renderChatMessage);

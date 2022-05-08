@@ -12,6 +12,17 @@ export const registerSystemSettings = () => {
     default: "",
   });
 
+  /**
+   * Track the last help dialog
+   */
+  game.settings.register("pirateborg", "systemHelpDialogVersion", {
+    name: "System Help Dialog Version",
+    scope: "client",
+    config: false,
+    type: String,
+    default: "",
+  });
+
   /** Whether to keep track of carrying capacity */
   game.settings.register("pirateborg", "trackCarryingCapacity", {
     name: "PB.SettingsApplyOvercapacityPenalty",
@@ -84,4 +95,20 @@ export const getLastScvmfactorySelection = () => {
 
 export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
   return game.settings.set("pirateborg", "lastScvmfactorySelection", lastScvmfactorySelection);
+};
+
+export const getSystemMigrationVersion = () => {
+  return game.settings.get("pirateborg", "systemMigrationVersion");
+};
+
+export const setSystemMigrationVersion = (systemMigrationVersion) => {
+  return game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
+};
+
+export const getSystemHelpDialogVersion = () => {
+  return game.settings.get("pirateborg", "systemHelpDialogVersion");
+};
+
+export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => {
+  return game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 };
