@@ -33,14 +33,14 @@
 - Add Buccaneer, Rapscallion, Sorcerer, Swashbuckler & Zealot classes
 - Bug fixes
 
-# v0.2.3 Released
+# v0.2.3
 
 - Foundry UI
 - Compendium Panels
 - System Settings
 - Bug fixes
 
-# v0.2.2 Released
+# v0.2.2
 
 - Add Brute class
 - Add Features and Relics & Rituals Tabs
