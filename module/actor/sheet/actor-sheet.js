@@ -1,5 +1,6 @@
 import * as editor from "../../system/configure-editor.js";
 import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
+import { findStartingBonusItems, findStartingBonusRollsItems } from '../../scvm/scvmfactory.js';
 
 /**
  * @extends {ActorSheet}
@@ -265,6 +266,13 @@ export default class PBActorSheet extends ActorSheet {
       item.clearItems();
       const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.itemsData);
       await this._addItemsToItemContainer(newItems, item);
+    }
+
+    if (item.type === CONFIG.PB.itemTypes.background) {
+      const additionalItems = [].concat((await findStartingBonusItems([item])).map(i => i.toObject()), (await findStartingBonusRollsItems([item])).map(i => i.toObject()));
+      if (additionalItems.length > 0) {
+        await this.actor.createEmbeddedDocuments("Item", additionalItems);
+      }
     }
 
     if (originalItem) {
