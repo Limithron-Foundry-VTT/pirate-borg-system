@@ -45,6 +45,8 @@ PB.flags = {
   TARGET_ARMOR: "targetArmor",
 };
 
+PB.premiumModuleName = "pirateborg";
+
 PB.handed = {
   1: "PB.HandedOne",
   2: "PB.HandedTwo",

@@ -13,7 +13,7 @@ export default class HelpDialog extends Application {
       template: "systems/pirateborg/templates/dialog/help-dialog.html",
       title: game.i18n.localize("PB.PirateBorg"),
       width: 600,
-      height: 560,
+      height: 690,
       scrollY: [".tab"],
       tabs: [
         {
@@ -24,6 +24,24 @@ export default class HelpDialog extends Application {
       ],
       dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
     });
+  }
+
+  getData() {
+    return {
+      pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
+      pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
+      pbModuleName: CONFIG.PB.premiumModuleName,
+      version: game.system.data.version,
+    }
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find("#help-dialog-enable-premium").click(this._enablePremiumModule.bind(this));
+  }
+
+  _enablePremiumModule() {
+    new ModuleManagement().render(true);
   }
 }
 

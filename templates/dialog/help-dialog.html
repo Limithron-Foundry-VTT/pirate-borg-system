@@ -19,9 +19,26 @@
           from hordes of skeletons and ghost ships...
         </p>
         <div class="buttons-row">
-          <a href="https://www.limithron.com/pirateborg">PIRATE BORG Website</a>
+          <a href="https://www.pirateb.org/">PIRATE BORG Website</a>
         </div>
       </div>
+
+      {{#unless pbModuleEnabled}}
+      <div class="section">
+        <h4>Premium Content</h4>
+        {{#unless pbModuleInstalled}}
+        <p>The PIRATE BORG system provides you with everything you need to be able to play. Save yourself some data-entry time and get a copy of the PIRATE BORG premium module, it's bursting with ships!</p>
+        <div class="buttons-row">
+          <a disabled>Coming Soon</a>
+        </div>
+        {{else}}
+        <p>The module "{{pbModuleName}}" is available to your world, but not yet enabled.</p>
+        <div class="buttons-row">
+          <a id="help-dialog-enable-premium">Enable Premium Module</a>
+        </div>
+        {{/unless}}
+      </div>
+      {{/unless}}
 
       <div class="section">
         <h4>Patreon</h4>
@@ -44,7 +61,7 @@
       </div>
 
       <div class="section">
-        <h4>Release Notes</h4>
+        <h4>Release Notes - {{version}}</h4>
         <div class="buttons-row">
           <a href="https://github.com/Limithron-Foundry-VTT/pirate-borg-system/blob/main/CHANGELOG.md">Release Notes</a>
         </div>
@@ -57,17 +74,6 @@
           <a href="https://discord.gg/ZbGPQ34XWU">Discord</a>
         </div>
       </div>
-    </div>
-    <div class="tab" data-group="primary" data-tab="release-notes">
-      <ol class="items-list">
-        <li class="items-header flexrow">
-          <h4 class="item-name">v0.29</h4>
-        </li>
-        <ul class="version-notes">
-          <li>Add Tall Tale class</li>
-          <li>Bug fixes</li>
-        </ul>
-      </ol>
     </div>
   </section>
 </form>
