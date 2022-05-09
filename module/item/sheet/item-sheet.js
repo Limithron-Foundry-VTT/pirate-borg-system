@@ -105,7 +105,11 @@ export class PBItemSheet extends ItemSheet {
     }
 
     let content = event.target.value ? "\n" : "";
-    content += `${data.pack};${item.name}`;
+    let droppedValue = `${data.pack};${item.name}`;
+    if (data.type === "RollTable") {
+      droppedValue += `;1`;
+    }
+    content += droppedValue;
     event.target.value += content;
   }
 }
