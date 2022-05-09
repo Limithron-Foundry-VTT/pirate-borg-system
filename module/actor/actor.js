@@ -1121,7 +1121,7 @@ export class PBActor extends Actor {
     });
 
     if (relicOrRitual) {
-      await this.createEmbeddedDocuments("Item", [relicOrRitual.data], {render: false});
+      await this.createEmbeddedDocuments("Item", [relicOrRitual.data], { render: false });
     }
 
     // set new stats on the actor

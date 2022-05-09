@@ -32,7 +32,7 @@ export default class HelpDialog extends Application {
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
       version: game.system.data.version,
-    }
+    };
   }
 
   activateListeners(html) {
