@@ -275,9 +275,15 @@ export class PBActor extends Actor {
           roll: {
             icon: '<i class="fas fa-dice-d20"></i>',
             label: game.i18n.localize("PB.Roll"),
-            // callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
             callback: (html) => this._attackDialogCallback(html),
           },
+        },
+        render: (content) => {
+          content.find(".tier-radio").on("change", (event) => {
+            event.preventDefault();
+            const input = $(event.currentTarget);
+            content.find("#targetArmor").val(input.val());
+          });
         },
         default: "roll",
         close: () => resolve(null),
@@ -402,7 +408,7 @@ export class PBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
       isFumble,
-      ammoOutcome: useAmmoDamage ? `<h4>${ammo.data.name}</h4><p>${ammo.data.data.description}</p>` : null,
+      ammoOutcome: useAmmoDamage && isHit ? `<h4>${ammo.data.name}</h4><span class="card-description">${ammo.data.data.description}</span>` : null,
     };
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);

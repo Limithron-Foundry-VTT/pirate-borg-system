@@ -1,3 +1,13 @@
+# v0.3.2
+
+- The Tavern should not generate character with an ability lower than -3
+- Improve attack dialog
+
+# v0.3.1
+
+- Improved ammo display
+- Character sheet was not updated after some specific conditions
+
 # v0.3.0
 
 - Add PIRATE BORG Help Dialog

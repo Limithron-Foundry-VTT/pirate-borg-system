@@ -28,6 +28,7 @@
   --item-font: "Alegreya";
   --compendium-font: "IM Fell English";
   --button-font: "Alegreya";
+  --color-text-hyperlink: var(--foreground-color);
   /* foundry core */
   --color-text-light-6: var(--foreground-color);
   --color-text-light-5: var(--foreground-color);
@@ -378,7 +379,7 @@
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.damage-die {
   text-align: right;
-  width: 60px;
+  width: 40px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.weapon-type {
   text-align: right;
@@ -1584,7 +1585,7 @@ hr {
   margin-bottom: 10px;
 }
 .custom-dialog .form-group label {
-  font-family: var(--h2-font);
+  font-family: var(--item-font);
   font-size: 20px;
   margin-right: 10px;
   text-align: right;
@@ -1660,6 +1661,50 @@ hr {
 .scvm-dialog .class-name {
   text-transform: capitalize;
   padding-top: 2px;
+}
+
+.attack-dialog .form-group {
+  display: flex;
+  align-items: flex-start;
+}
+.attack-dialog .item-armor-tier .tiers {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.attack-dialog .item-armor-tier .tiers li {
+  margin: 0;
+}
+.attack-dialog .item-armor-tier .tiers input[type=radio] {
+  display: none;
+}
+.attack-dialog .item-armor-tier .tiers input[type=radio]:checked + span.tier-num {
+  background: var(--button-background);
+  color: var(--button-color);
+  border-color: var(--button-background);
+}
+.attack-dialog .item-armor-tier .tiers label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  gap: 4px;
+}
+.attack-dialog .item-armor-tier .tiers .tier-num {
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 100%;
+  font-family: var(--item-font);
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 21px;
+}
+.attack-dialog .item-armor-tier .tiers .tier-dmg {
+  line-height: 13px;
 }
 
 #help-dialog .sheet-header {

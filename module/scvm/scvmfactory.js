@@ -66,7 +66,8 @@ const rollAbility = (roll, bonus) => {
     async: false,
   });
   const ability = abilityBonus(abilityRoll.total);
-  return bonus ? ability + parseInt(bonus, 10) : ability;
+  const abilityWithBonus = bonus ? ability + parseInt(bonus, 10) : ability;
+  return abilityWithBonus < -3 ? -3 : abilityWithBonus;
 };
 
 export const findItems = async (items) => {

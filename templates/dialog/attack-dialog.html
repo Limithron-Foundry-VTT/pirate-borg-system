@@ -1,4 +1,4 @@
-<form class="custom-dialog">
+<form class="custom-dialog attack-dialog">
   <input type="hidden" name="itemid" value="{{itemId}}" />
   <div class="form-group">
     <label>{{localize "PB.Attack"}} {{localize "PB.DR"}}:</label>
@@ -6,6 +6,48 @@
   </div>
   <div class="form-group">
     <label>{{localize "PB.TargetArmor"}}:</label>
-    <input type="text" name="targetarmor" value="{{targetArmor}}" placeholder="1d2" data-dtype="String" />
+    <input id="targetArmor" type="text" name="targetarmor" value="{{targetArmor}}" placeholder="1d2" data-dtype="String" />
+  </div>
+  <div class="form-group">
+    <label></label>
+    <div class="item-armor-tier">
+      <ul class="tiers">
+        <li>
+          <label>
+            <input class="tier-radio" type="radio" name="tier.value" value="0" />
+            <span class="tier-num">0</span>
+            <span class="tier-dmg">0</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="tier-radio" type="radio" name="tier.value" value="1d2" {{#ifEq targetArmor '1d2'}}checked{{/ifEq}}/>
+            <span class="tier-num">1</span>
+            <span class="tier-dmg">d2</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="tier-radio" type="radio" name="tier.value" value="1d4" {{#ifEq targetArmor '1d4'}}checked{{/ifEq}}/>
+            <span class="tier-num">2</span>
+            <span class="tier-dmg">d4</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="tier-radio" type="radio" name="tier.value" value="1d6" {{#ifEq targetArmor '1d6'}}checked{{/ifEq}}/>
+            <span class="tier-num">3</span>
+            <span class="tier-dmg">d6</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="tier-radio" type="radio" name="tier.value" value="1d8" {{#ifEq targetArmor '1d8'}}checked{{/ifEq}}/>
+            <span class="tier-num">4</span>
+            <span class="tier-dmg">d8</span>
+          </label>
+        </li>
+      </ul>
+    </div>
   </div>
 </form>
