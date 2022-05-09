@@ -1,10 +1,10 @@
 {{#ifEq item.data.invokableType "Arcane Ritual"}}
 <button type="button" class="item-button rollable action-invokable" data-label="{{localize 'PB.Invoke'}}" title="{{item.data.actionMacroLabel}}">
-  {{localize "PB.Invoke"}}
+  {{localize "PB.InvokeRitual"}}
 </button>
 {{/ifEq}} {{#ifEq item.data.invokableType "Ancient Relic"}}
 <button type="button" class="item-button rollable action-invokable" data-label="{{localize 'PB.Invoke'}}" title="{{item.data.actionMacroLabel}}">
-  {{localize "PB.Invoke"}}
+  {{localize "PB.InvokeRelic"}}
 </button>
 {{/ifEq}} {{#ifNe item.data.invokableType "Arcane Ritual"}} {{#ifNe item.data.invokableType "Ancient Relic"}} {{#if item.data.invokableType}}
 <button type="button" class="item-button rollable action-invokable" data-label="{{localize 'PB.Invoke'}}" title="{{item.data.actionMacroLabel}}">

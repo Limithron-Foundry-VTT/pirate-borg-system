@@ -10,13 +10,6 @@
   "styles": ["css/pirateborg.css"],
   "packs": [
     {
-      "name": "creatures",
-      "label": "Creatures",
-      "system": "pirateborg",
-      "path": "./packs/creatures.db",
-      "entity": "Actor"
-    },
-    {
       "name": "containers",
       "label": "Containers",
       "system": "pirateborg",
@@ -150,14 +143,14 @@
 
     {
       "name": "invokable-ancient-relics",
-      "label": "Invokable - Ancient relics",
+      "label": "Ancient relics",
       "system": "pirateborg",
       "path": "./packs/invokable-ancient-relics.db",
       "entity": "Item"
     },
     {
       "name": "invokable-arcane-rituals",
-      "label": "Invokable - Arcane Rituals",
+      "label": "Arcane Rituals",
       "system": "pirateborg",
       "path": "./packs/invokable-arcane-rituals.db",
       "entity": "Item"

@@ -21,10 +21,12 @@
   --icon-backgroud-color: #000000;
   --h1-font: "Roman Antique Regular";
   --h2-font: "IM Fell English SC";
-  --h3-font: "IM Fell English SC";
+  --h3-font: "IM Fell English";
+  --chat-card-header-font: "IM Fell English";
   --chat-font: "Alegreya";
   --chat-info-font: "Alegreya";
   --item-font: "Alegreya";
+  --compendium-font: "IM Fell English";
   --button-font: "Alegreya";
   /* foundry core */
   --color-text-light-6: var(--foreground-color);
@@ -356,6 +358,10 @@
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
   flex: 0 0 100px;
   margin-top: 0;
+  display: flex;
+}
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col .ammo-label {
+  margin-right: 8px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
@@ -458,7 +464,6 @@
 .pirateborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
-  text-transform: uppercase;
   border: none;
   height: 46px;
   font-weight: 600;
@@ -821,7 +826,6 @@
   border: none;
   font-family: var(--h1-font);
   font-size: 38px;
-  text-transform: uppercase;
   border: none;
   height: 46px;
   font-weight: 600;
@@ -1326,6 +1330,8 @@ form .form-group-stacked {
 }
 .sidebar-tab.directory li.folder > .folder-header h3 {
   color: var(--foreground-color);
+  font-family: var(--compendium-font);
+  font-size: 16px;
 }
 .sidebar-tab.directory li.folder {
   background: none;
@@ -1352,13 +1358,22 @@ form .form-group-stacked {
   border: none;
 }
 .sidebar-tab.directory .directory-list .directory-item h4 {
-  font-family: var(--item-font);
-  font-weight: 600;
+  font-family: var(--compendium-font);
   font-size: 14px;
 }
 .sidebar-tab.directory .directory-list .directory-item img {
   padding: 2px;
   border-radius: 8px;
+}
+
+#scenes .scene h3 {
+  color: var(--foreground-alt-color);
+}
+
+.compendium.directory .directory-list .directory-item {
+  color: var(--foreground-color);
+  font-family: var(--compendium-font);
+  font-size: 14px;
 }
 
 .tabs .item.active, .tabs .item:hover {
@@ -1466,7 +1481,7 @@ hr {
 .roll-card .card-title {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
-  font-family: var(--h2-font);
+  font-family: var(--chat-card-header-font);
   font-size: 24px;
   margin-bottom: 24px;
   text-align: center;
@@ -1528,6 +1543,9 @@ hr {
   line-height: 24px;
   margin-top: 24px;
   margin-bottom: 4px;
+}
+.roll-card .outcome-text p {
+  margin: 0;
 }
 .roll-card .outcome-text:last-of-type {
   margin-bottom: 0;

@@ -6,7 +6,7 @@
   .card-title {
     background: var(--highlight-background-color);
     color: var(--highlight-foreground-color);
-    font-family: var(--h2-font);
+    font-family: var(--chat-card-header-font);
     font-size: 24px;
     margin-bottom: 24px;
     text-align: center;
@@ -63,14 +63,13 @@
     background-color: var(--button-background);
     line-height: 24px;
     padding-bottom: 2px;
-
     span {
       color: var(--button-color);
       font-size: 20px;
     }
   }
 
-  .outcome-text {
+  .outcome-text { 
     font-family: var(--h3-font);
     font-size: 24px;
     margin: 0;
@@ -78,6 +77,10 @@
     line-height: 24px;
     margin-top: 24px;
     margin-bottom: 4px;
+
+    p { 
+      margin: 0;
+    }
   }
 
   .outcome-text:last-of-type {

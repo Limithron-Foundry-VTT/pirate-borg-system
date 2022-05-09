@@ -317,7 +317,7 @@ export class PBActor extends Actor {
     const hasAmmo = !!item.data.data.ammoId;
 
     if (useAmmoDamage && !hasAmmo) {
-      ui.notifications.warn(game.i18n.format("PB.NoAmmoEquipped"));
+      ui.notifications.error(game.i18n.format("PB.NoAmmoEquipped"));
       return;
     }
 
@@ -332,6 +332,9 @@ export class PBActor extends Actor {
     const critTarget = itemRollData.critOn ?? 20;
     const isFumble = d20Result <= fumbleTarget;
     const isCrit = d20Result >= critTarget;
+
+    const ammo = item.data.data.ammoId ? this.items.get(item.data.data.ammoId) : null;
+
     // nat 1 is always a miss, nat 20 is always a hit, otherwise check vs DR
     const isHit = attackRoll.total !== 1 && (attackRoll.total === 20 || attackRoll.total >= attackDR);
 
@@ -346,7 +349,6 @@ export class PBActor extends Actor {
       const extraCritDamage = itemRollData.critExtraDamage || 0;
 
       if (useAmmoDamage) {
-        const ammo = this.items.get(item.data.data.ammoId);
         itemRollData.damageDie = ammo.data.data.damageDie || "1d0";
       }
 
@@ -400,6 +402,7 @@ export class PBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
       isFumble,
+      ammoOutcome: useAmmoDamage ? `<h4>${ammo.data.name}</h4><p>${ammo.data.data.description}</p>` : null,
     };
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);
@@ -715,7 +718,7 @@ export class PBActor extends Actor {
 
   async invokeExtraResource(item) {
     if (this.data.data.extraResourceUses.value < 1) {
-      ui.notifications.warn(
+      ui.notifications.error(
         `${game.i18n.format("PB.NoResourceUsesRemaining", {
           type: item.data.data.invokableType,
         })}!`
@@ -792,9 +795,7 @@ export class PBActor extends Actor {
     const rollResult = {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokableTitle", {
-        type: item.data.data.invokableType,
-      }),
+      title: game.i18n.format("PB.InvokeRelic"),
       wieldDR,
       wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
       wieldOutcome,
@@ -816,7 +817,7 @@ export class PBActor extends Actor {
 
   async invokeArcaneRitual(item) {
     if (this.data.data.powerUses.value < 1) {
-      ui.notifications.warn(`${game.i18n.localize("PB.NoPowerUsesRemaining")}!`);
+      ui.notifications.error(`${game.i18n.localize("PB.NoPowerUsesRemaining")}!`);
       return;
     }
 
@@ -843,9 +844,7 @@ export class PBActor extends Actor {
     const rollResult = {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokableTitle", {
-        type: item.data.data.invokableType,
-      }),
+      title: game.i18n.format("PB.InvokeRitual"),
       wieldDR,
       wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
       wieldOutcome,
@@ -1121,6 +1120,10 @@ export class PBActor extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
 
+    if (relicOrRitual) {
+      await this.createEmbeddedDocuments("Item", [relicOrRitual.data], {render: false});
+    }
+
     // set new stats on the actor
     await this.update({
       ["data.abilities.strength.value"]: newStr,
@@ -1131,10 +1134,6 @@ export class PBActor extends Actor {
       ["data.hp.max"]: newHp,
       ["data.silver"]: newSilver,
     });
-
-    if (relicOrRitual) {
-      await this.createEmbeddedDocuments("Item", [relicOrRitual.data]);
-    }
 
     await invokeGettingBetterMacro(this);
   }

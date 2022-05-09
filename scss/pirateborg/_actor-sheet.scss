@@ -102,6 +102,10 @@
               .ammo-select-col {
                 flex: 0 0 100px;
                 margin-top: 0;
+                display: flex;
+                .ammo-label {
+                  margin-right: 8px;
+                }
                 select.ammo-select {
                   font-family: var(--item-font);
                   font-size: 10pt;
@@ -243,7 +247,6 @@
     input[type="text"].actor-name {
       font-family: var(--h1-font);
       font-size: 38px;
-      text-transform: uppercase;
       border: none;
       height: 46px;
       font-weight: 600;
