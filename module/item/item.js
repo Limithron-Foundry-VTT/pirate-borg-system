@@ -113,34 +113,34 @@ export class PBItem extends Item {
   }
 
   async equip() {
-    await this.update({ "data.equipped": true });
+    return await this.update({ "data.equipped": true });
   }
 
   async unequip() {
-    await this.update({ "data.equipped": false });
+    return await this.update({ "data.equipped": false });
   }
 
   async carry() {
-    await this.update({ "data.carried": true });
+    return await this.update({ "data.carried": true });
   }
 
   async drop() {
-    await this.update({ "data.carried": false });
+    return await this.update({ "data.carried": false });
   }
 
   async addItem(itemId) {
     if (!this.items.includes(itemId)) {
-      await this.update({ "data.items": [...this.items, itemId] });
+      return await this.update({ "data.items": [...this.items, itemId] });
     }
   }
 
   async removeItem(itemId) {
     const items = this.items.filter((item) => item !== itemId);
-    await this.update({ "data.items": items });
+    return await this.update({ "data.items": items });
   }
 
   async clearItems() {
-    await this.update({ "data.items": [] });
+    return await this.update({ "data.items": [] });
   }
 
   _getTotalCarryWeight(actor) {

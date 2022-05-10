@@ -58,6 +58,7 @@ form button {
 
 .chat-message form button.item-button {
   font-size: 16px;
+  margin-top: 24px;
 }
 
 a:hover {
@@ -285,11 +286,11 @@ form.editable .results {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: 8px;
 
     .message-sender {
       font-family: var(--h1-font);
       font-size: 24px;
-      margin-bottom: 8px;
     }
 
     .message-metadata {
@@ -774,4 +775,8 @@ hr {
   border: none;
   background: var(--background-color);
   color: var(--foreground-alt-color);
+}
+
+.notification-pip {
+  color: var(--highlight-background-color);
 }

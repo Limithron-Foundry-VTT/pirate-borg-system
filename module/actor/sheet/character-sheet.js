@@ -45,23 +45,16 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
   /** @override */
   async getData() {
-    const superData = super.getData();
+    const superData = await super.getData();
     const data = superData.data;
     data.config = CONFIG.PB;
 
-    // Ability Scores
     for (const [a, abl] of Object.entries(data.data.abilities)) {
       const translationKey = CONFIG.PB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
-    // Prepare items.
-    if (this.actor.data.type == "character") {
-      await this._prepareCharacterItems(data);
-    }
-
-    data.data.trackCarryingCapacity = trackCarryingCapacity();
-    data.data.trackAmmo = trackAmmo();
+    await this._prepareCharacterData(data);
 
     return superData;
   }
@@ -70,9 +63,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * Organize and classify Items for Character sheets.
    *
    * @param {Object} sheetData The sheet data to prepare.
-   * @return {undefined}
+   * @return {Promise}
    */
-  async _prepareCharacterItems(sheetData) {
+  async _prepareCharacterData(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
     const groupByType = (items, item) => {
@@ -118,10 +111,15 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byType);
 
     sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
-    sheetData.data.useExtraResource = await this.actor.getUseExtraResource();
-    sheetData.data.extraResourceNamePlural = await this.actor.getExtraResourceNamePlural();
-    sheetData.data.extraResourceFormulaLabel = await this.actor.getExtraResourceFormulaLabel();
-    sheetData.data.luckDie = await this.actor.getLuckDie();
+    sheetData.data.useExtraResource = sheetData.data.class?.data?.data?.useExtraResource || sheetData.data.baseClass?.data?.useExtraResource;
+    sheetData.data.extraResourceNamePlural =
+      sheetData.data.class?.data?.data?.extraResourceNamePlural || sheetData.data.baseClass?.data?.extraResourceNamePlural;
+    sheetData.data.extraResourceFormulaLabel =
+      sheetData.data.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.baseClass?.data?.extraResourceFormulaLabel;
+    sheetData.data.luckDie = sheetData.data.class?.data?.data?.luckDie || sheetData.data.baseClass?.data?.luckDie;
+    sheetData.data.trackCarryingCapacity = trackCarryingCapacity();
+    sheetData.data.trackAmmo = trackAmmo();
+
     console.log(sheetData.data);
   }
 
@@ -142,6 +140,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
     html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
+    html.find(".luck-label").on("click", this._onLuckLabel.bind(this));
 
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
 
@@ -263,5 +262,11 @@ export class PBActorSheetCharacter extends PBActorSheet {
     const li = button.parents(".item");
     const itemId = li.data("item-id");
     this.actor.useActionMacro(itemId);
+  }
+
+  async _onLuckLabel(event) {
+    await ChatMessage.create({
+      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html"),
+    });
   }
 }

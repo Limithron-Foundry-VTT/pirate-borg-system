@@ -1,4 +1,5 @@
-import {diceSound, showDice} from '../dice.js';
+import { diceSound, showDice } from "../dice.js";
+import { scrollChatToBottom } from "../sockets.js";
 
 export const WIELD_ROLL_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/wield-roll.html";
 
@@ -16,7 +17,7 @@ export const renderChatMessage = async (message, html) => {
  */
 async function wieldRoll(formula, wieldFormula, dr, rollData) {
   const wieldRoll = new Roll(formula, rollData);
-  wieldRoll.evaluate({async: false});
+  wieldRoll.evaluate({ async: false });
   await showDice(wieldRoll);
 
   const d20Result = wieldRoll.terms[0].results[0].result;
@@ -27,12 +28,12 @@ async function wieldRoll(formula, wieldFormula, dr, rollData) {
   let wieldOutcome;
 
   if (isSuccess) {
-    wieldOutcome = `<strong>${game.i18n.localize(isCrit ? 'PB.InvokableCriticalSuccess' : 'PB.InvokableSuccess')}</strong>`;
+    wieldOutcome = `${game.i18n.localize(isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess")}`;
   } else {
-    wieldOutcome = `<strong>${game.i18n.localize(isFumble ? 'PB.InvokableFumble' : 'PB.InvokableFailure')}</strong>`;
+    wieldOutcome = `${game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure")}`;
   }
 
-  return {wieldRoll, wieldFormula, d20Result, isFumble, isCrit, wieldDR: dr, isSuccess, wieldOutcome};
+  return { wieldRoll, wieldFormula, d20Result, isFumble, isCrit, wieldDR: dr, isSuccess, wieldOutcome };
 }
 
 export const onChatCardAction = async (event) => {
@@ -60,7 +61,7 @@ export const onChatCardAction = async (event) => {
 
   let needsToBeSaved = false;
 
-  let additionalContent = $('<div>');
+  let additionalContent = $("<div>");
 
   if (isArcaneRitual && actor) {
     const rollResults = await wieldRoll(formula, wieldFormula, wieldDR, actor.getRollData());
@@ -69,15 +70,15 @@ export const onChatCardAction = async (event) => {
       const newPowerUses = Math.max(0, actor.data.data.powerUses.value - 1);
       await actor.update({ ["data.powerUses.value"]: newPowerUses });
     } else {
-      rollResults.wieldOutcome += ` - ${game.i18n.localize('PB.InvokableRitualFailure')}`;
+      rollResults.wieldOutcomeText = game.i18n.localize("PB.InvokableRitualFailure");
       rollResults.buttons = [
         {
-          title: 'PB.InvokableRitualFailureButton',
+          title: "PB.InvokableRitualFailureButton",
           data: {
-            'is-fumble': rollResults.isFumble,
-            'is-mystical-mishap': true,
+            "is-fumble": rollResults.isFumble,
+            "is-mystical-mishap": true,
           },
-        }
+        },
       ];
     }
     const extraContent = await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, rollResults);
@@ -90,7 +91,7 @@ export const onChatCardAction = async (event) => {
     const rollResults = await wieldRoll(formula, wieldFormula, wieldDR, actor.getRollData());
 
     if (!rollResults.isSuccess) {
-      rollResults.wieldOutcome += ` - ${game.i18n.localize(rollResults.isFumble ? 'PB.InvokableRelicFumble' : 'PB.InvokableRelicFailure')}`;
+      rollResults.wieldOutcomeText = game.i18n.localize(rollResults.isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
     }
 
     const extraContent = await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, rollResults);
@@ -101,23 +102,32 @@ export const onChatCardAction = async (event) => {
 
   if (isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(isFumble);
-    const html = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap-card.html", mishapData);
-    await ChatMessage.create({
+    await showDice(mishapData.roll);
+    const extraContent = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap-card.html", mishapData);
+    additionalContent = additionalContent.append(extraContent);
+
+    /*await ChatMessage.create({
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
         itemId: item.id,
       },
-    });
+    });*/
 
     needsToBeSaved = true;
   }
 
   if (needsToBeSaved) {
-    messageContent = messageContent.find('form.roll-card').append(additionalContent).end();
+    messageContent = messageContent.find("form.roll-card").append(additionalContent).end();
     await message.update({
       content: messageContent.html(),
     });
+
+    const lastMessage = Array.from(ui.chat.collection).pop();
+    if (lastMessage && lastMessage.id === message.id) {
+      scrollChatToBottom();
+      ui.chat.scrollBottom();
+    }
   }
-}
+};

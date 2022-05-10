@@ -145,9 +145,9 @@ export default class PBActorSheet extends ActorSheet {
     const item = this.actor.items.get(itemId);
 
     if (item.equipped) {
-      await this.actor.unequipItem(item);
+      return await this.actor.unequipItem(item);
     } else {
-      await this.actor.equipItem(item);
+      return await this.actor.equipItem(item);
     }
   }
 

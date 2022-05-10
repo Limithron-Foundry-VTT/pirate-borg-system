@@ -162,16 +162,16 @@ export class PBActor extends Actor {
   async equipItem(item) {
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       for (const otherItem of this.items) {
-        if (otherItem.type === item.type) {
+        if (otherItem.type === item.type && otherItem.id !== item.id) {
           await otherItem.unequip();
         }
       }
     }
-    await item.equip();
+    return await item.equip();
   }
 
   async unequipItem(item) {
-    await item.unequip();
+    return await item.unequip();
   }
 
   normalCarryingCapacity() {
@@ -352,13 +352,15 @@ export class PBActor extends Actor {
     const isHit = attackRoll.total !== 1 && (attackRoll.total === 20 || attackRoll.total >= attackDR);
 
     let attackOutcome = null;
+    let attackOutcomeDescription = null;
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
 
     if (isHit) {
       // HIT!!!
-      attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCritText" : "PB.Hit");
+      attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCrit" : "PB.Hit");
+      attackOutcomeDescription = game.i18n.localize(isCrit ? "PB.AttackCritText" : null);
       const extraCritDamage = itemRollData.critExtraDamage || 0;
 
       if (useAmmoDamage) {
@@ -391,9 +393,11 @@ export class PBActor extends Actor {
         if (isGunpowderWeapon) {
           const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
           const draw = await table.draw({ displayChat: false });
-          attackOutcome = draw.results[0].data.text;
+          attackOutcome = game.i18n.localize("PB.AttackFumble");
+          attackOutcomeDescription = draw.results[0].data.text;
         } else {
-          attackOutcome = game.i18n.localize("PB.AttackFumbleText");
+          attackOutcome = game.i18n.localize("PB.AttackFumble");
+          attackOutcomeDescription = game.i18n.localize("PB.AttackFumbleText");
         }
       } else {
         attackOutcome = game.i18n.localize("PB.Miss");
@@ -415,7 +419,9 @@ export class PBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
       isFumble,
-      ammoOutcome: useAmmoDamage && isHit ? `<h4>${ammo.data.name}</h4><span class="card-description">${ammo.data.data.description}</span>` : null,
+      attackOutcomeDescription,
+      ammoOutcome: useAmmoDamage && isHit ? ammo.data.name : null,
+      ammoOutcomeDescription: useAmmoDamage && isHit ? ammo.data.data.description : null,
     };
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);
@@ -582,17 +588,20 @@ export class PBActor extends Actor {
     let armorRoll = null;
     let defendOutcome = null;
     let takeDamage = null;
+    let attackOutcomeDescription = null;
 
     if (isCrit) {
       // critical success
-      defendOutcome = game.i18n.localize("PB.DefendCritText");
+      defendOutcome = game.i18n.localize("PB.DefendCrit");
+      attackOutcomeDescription = game.i18n.localize("PB.DefendCritText");
     } else if (defendRoll.total >= defendDR) {
       // success
       defendOutcome = game.i18n.localize("PB.Dodge");
     } else {
       // failure
       if (isFumble) {
-        defendOutcome = game.i18n.localize("PB.DefendFumbleText");
+        defendOutcome = game.i18n.localize("PB.DefendFumble");
+        attackOutcomeDescription = game.i18n.localize("PB.DefendFumbleText");
       } else {
         defendOutcome = game.i18n.localize("PB.YouAreHit");
       }
@@ -641,6 +650,7 @@ export class PBActor extends Actor {
       defendRoll,
       items,
       takeDamage,
+      attackOutcomeDescription,
     };
     await this._renderDefendRollCard(rollResult);
   }
@@ -807,14 +817,14 @@ export class PBActor extends Actor {
       description: item.data.data.description,
       buttons: [
         {
-          title: 'PB.TestRelic',
+          title: "PB.TestRelic",
           data: {
             formula: "d20+@abilities.spirit.value",
-            'wield-formula': `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
             dr: 12,
-            'is-ancient-relic': true,
+            "is-ancient-relic": true,
           },
-        }
+        },
       ],
     });
 
@@ -843,14 +853,14 @@ export class PBActor extends Actor {
       description: item.data.data.description,
       buttons: [
         {
-          title: 'PB.InvokeRitual',
+          title: "PB.InvokeRitual",
           data: {
             formula: "d20+@abilities.spirit.value",
-            'wield-formula': `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
             dr: 12,
-            'is-arcane-ritual': true,
+            "is-arcane-ritual": true,
           },
-        }
+        },
       ],
     });
 
@@ -1202,34 +1212,8 @@ export class PBActor extends Actor {
 
   async getBaseClass() {
     const [compendium, item] = this.data.data.baseClass.split(";");
-    if (compendium && item) {
-      return await findCompendiumItem(compendium, item);
-    }
-  }
-
-  async getUseExtraResource() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (currentClass?.data?.data.useExtraResource || baseClass?.data?.data.useExtraResource) {
-      return true;
-    }
-    return false;
-  }
-
-  async getExtraResourceNamePlural() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (await this.getUseExtraResource()) {
-      return currentClass?.data?.data.extraResourceNamePlural || baseClass?.data?.data.extraResourceNamePlural;
-    }
-  }
-
-  async getExtraResourceFormulaLabel() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (await this.getUseExtraResource()) {
-      return currentClass?.data?.data.extraResourceFormulaLabel || baseClass?.data?.data.extraResourceFormulaLabel;
-    }
+    const baseClass = await findCompendiumItem(compendium, item);
+    return baseClass;
   }
 
   async getLuckDie() {
