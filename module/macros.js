@@ -13,7 +13,7 @@ export async function createPirateBorgMacro(data, slot) {
     return ui.notifications.warn("You can only create macro buttons for owned Items");
   }
   const item = data.data;
-  const supportedItemTypes = ["armor", "feat", "scroll", "hat", "weapon"];
+  const supportedItemTypes = ["armor", "feat", "scroll", "hat", "weapon", "invokable"];
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(", ")}`);
   }
