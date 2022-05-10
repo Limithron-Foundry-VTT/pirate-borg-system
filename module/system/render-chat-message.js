@@ -99,13 +99,6 @@ export const onChatCardAction = async (event) => {
     needsToBeSaved = true;
   }
 
-  if (needsToBeSaved) {
-    messageContent = messageContent.find('form.roll-card').append(additionalContent).end();
-    await message.update({
-      content: messageContent.html(),
-    });
-  }
-
   if (isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(isFumble);
     const html = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap-card.html", mishapData);
