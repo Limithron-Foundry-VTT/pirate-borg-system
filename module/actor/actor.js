@@ -20,8 +20,6 @@ const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/test-
 
 const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-invokable-card.html";
 
-const MYSTICAL_MISHAP_CARD_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap-card.html";
-
 /**
  * @extends {Actor}
  */
@@ -755,11 +753,7 @@ export class PBActor extends Actor {
 
   async invokeExtraResource(item) {
     if (this.data.data.extraResourceUses.value < 1) {
-      ui.notifications.error(
-        `${game.i18n.format("PB.NoResourceUsesRemaining", {
-          type: item.data.data.invokableType,
-        })}!`
-      );
+      ui.notifications.error(`${game.i18n.format("PB.NoResourceUsesRemaining", { type: item.data.data.invokableType })}!`);
       return;
     }
     const clazz = this.getClass();

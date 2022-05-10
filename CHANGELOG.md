@@ -1,3 +1,10 @@
+# v0.3.4
+
+- Relics & Rituals chat card improvements
+- Chat card styling improvements
+- Fix a bug when an actor was updating too often
+- The options for Devil's Luck is outputted into the chat when clicking the Fevil's Luck label in the character sheet
+
 # v0.3.3
 
 - Pirate Name Generator

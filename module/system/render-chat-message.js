@@ -103,17 +103,9 @@ export const onChatCardAction = async (event) => {
   if (isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(isFumble);
     await showDice(mishapData.roll);
-    const extraContent = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap-card.html", mishapData);
+    
+    const extraContent = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap.html", mishapData);
     additionalContent = additionalContent.append(extraContent);
-
-    /*await ChatMessage.create({
-      content: html,
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flags: {
-        itemId: item.id,
-      },
-    });*/
 
     needsToBeSaved = true;
   }
