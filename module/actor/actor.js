@@ -1235,6 +1235,10 @@ export class PBActor extends Actor {
   async getLuckDie() {
     const currentClass = this.getClass();
     const baseClass = await this.getBaseClass();
+    if (!baseClass && !currentClass) {
+      // Use the default from the template
+      return null;
+    }
     return baseClass ? baseClass.data.data.luckDie : currentClass.data.data.luckDie;
   }
 }
