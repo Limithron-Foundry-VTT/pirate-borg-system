@@ -56,6 +56,10 @@ form button {
   }
 }
 
+.chat-message form button.item-button {
+  font-size: 16px;
+}
+
 a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }

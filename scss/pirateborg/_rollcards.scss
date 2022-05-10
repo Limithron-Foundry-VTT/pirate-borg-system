@@ -70,7 +70,7 @@
   }
 
   .outcome-text {
-    font-family: var(--h3-font);
+    font-family: var(--chat-font);
     font-size: 24px;
     margin: 0;
     text-align: center;
@@ -80,6 +80,9 @@
 
     p {
       margin: 0;
+    }
+    .attack-outcome {
+      font-style: italic;
     }
   }
 

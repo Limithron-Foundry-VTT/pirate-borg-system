@@ -932,6 +932,10 @@ form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
+.chat-message form button.item-button {
+  font-size: 16px;
+}
+
 a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
@@ -1540,7 +1544,7 @@ hr {
   font-size: 20px;
 }
 .roll-card .outcome-text {
-  font-family: var(--h3-font);
+  font-family: var(--chat-font);
   font-size: 24px;
   margin: 0;
   text-align: center;
@@ -1550,6 +1554,9 @@ hr {
 }
 .roll-card .outcome-text p {
   margin: 0;
+}
+.roll-card .outcome-text .attack-outcome {
+  font-style: italic;
 }
 .roll-card .outcome-text:last-of-type {
   margin-bottom: 0;

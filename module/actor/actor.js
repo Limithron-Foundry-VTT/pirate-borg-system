@@ -798,46 +798,34 @@ export class PBActor extends Actor {
   }
 
   async invokeAncientRelic(item) {
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
-    }
-
-    const rollResult = {
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokeRelic"),
-      wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
-      wieldOutcome,
-      wieldRoll,
-    };
-
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: 'PB.TestRelic',
+          data: {
+            formula: "d20+@abilities.spirit.value",
+            'wield-formula': `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            dr: 12,
+            'is-ancient-relic': true,
+          },
+        }
+      ],
+    });
 
     await ChatMessage.create({
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
+      flags: {
+        itemId: item.id,
+      },
     });
 
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
   }
 
   async invokeArcaneRitual(item) {
@@ -846,75 +834,53 @@ export class PBActor extends Actor {
       return;
     }
 
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-    const isFailure = wieldRoll.total < wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRitualCriticalSuccess" : "PB.InvokableRitualSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure");
-    }
-
-    const rollResult = {
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokeRitual"),
-      wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
-      wieldOutcome,
-      wieldRoll,
-      isFailure,
-      isFumble,
-    };
-
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: 'PB.InvokeRitual',
+          data: {
+            formula: "d20+@abilities.spirit.value",
+            'wield-formula': `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            dr: 12,
+            'is-arcane-ritual': true,
+          },
+        }
+      ],
+    });
 
     await ChatMessage.create({
       content: html,
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
-        hasButton: isFailure || isFumble,
+        itemId: item.id,
       },
     });
 
-    const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
-    await this.update({ ["data.powerUses.value"]: newPowerUses });
-
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
   }
 
-  async rollMysticalMishap() {
+  /**
+   * Return the data for a Mystical Mishap
+   * @param {boolean} isFumble
+   * @returns {Promise<{roll, formula: string, title: string, items}>}
+   */
+  async rollMysticalMishap(isFumble = false) {
     const pack = game.packs.get("pirateborg.rolls-gamemaster");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === "Mystical Mishaps");
     const draw = await table.draw({ displayChat: false });
 
-    await ChatMessage.create({
-      content: await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, {
-        title: game.i18n.format("PB.MysticalMishaps"),
-        formula: "1d20",
-        roll: draw.roll,
-        items: draw.results,
-      }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: diceSound(),
+    return {
+      title: game.i18n.format("PB.MysticalMishaps"),
+      formula: isFumble ? "2d20kl" : "1d20",
       roll: draw.roll,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-    });
+      items: draw.results,
+    };
   }
 
   async useActionMacro(itemId) {
