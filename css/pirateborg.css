@@ -1551,12 +1551,10 @@ hr {
   line-height: 24px;
   margin-top: 24px;
   margin-bottom: 4px;
+  font-style: italic;
 }
 .roll-card .outcome-text p {
   margin: 0;
-}
-.roll-card .outcome-text .attack-outcome {
-  font-style: italic;
 }
 .roll-card .outcome-text:last-of-type {
   margin-bottom: 0;
