@@ -442,6 +442,8 @@ const scvmToActorData = (s) => {
     token: {
       img: s.actorImg,
       name: s.name,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
     },
     type: "character",
   };

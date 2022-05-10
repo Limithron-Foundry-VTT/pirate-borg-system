@@ -35,6 +35,8 @@ export class PBActor extends Actor {
         actorLink: true,
         disposition: 1,
         vision: true,
+        displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+        displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
       };
     } else if (data.type === "container") {
       defaults = {
