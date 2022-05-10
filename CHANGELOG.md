@@ -3,7 +3,6 @@
 - Pirate Name Generator
 - Improve attack and defend dialog
 
-
 # v0.3.2
 
 - The Tavern should not generate character with an ability lower than -3

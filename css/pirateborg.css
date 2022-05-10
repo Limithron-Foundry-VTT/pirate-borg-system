@@ -501,7 +501,7 @@
   gap: 16px;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col1 {
-  flex: 0 0 200px;
+  flex: 0 0 100px;
   padding: 0;
   margin-right: 8px;
   line-height: 0;
@@ -524,8 +524,8 @@
   gap: 10px;
 }
 .pirateborg.sheet.actor.character .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   border-radius: 24px;
 }
 .pirateborg.sheet.actor.character .sheet-header .name-row {
