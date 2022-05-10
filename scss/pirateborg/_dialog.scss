@@ -3,7 +3,7 @@
 /* ====================== */
 
 .custom-dialog .form-group {
-  margin-bottom: 10px;
+  margin: 8px;
 
   label {
     font-family: var(--item-font);
@@ -108,57 +108,57 @@
   padding-top: 2px;
 }
 
+.defense-dialog,
 .attack-dialog {
   .form-group {
     display: flex;
     align-items: flex-start;
   }
 
-  .item-armor-tier {
-    .tiers {
+  .radio-group-radio {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+
+    li {
       margin: 0;
-      padding: 0;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"]:checked + span.radio-label {
+      background: var(--button-background);
+      color: var(--button-color);
+      border-color: var(--button-background);
+    }
+
+    label {
       display: flex;
-      justify-content: flex-start;
-      gap: 12px;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      font-size: 16px;
+    }
 
-      li {
-        margin: 0;
-      }
+    .radio-label {
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 100%;
+      font-family: var(--item-font);
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      line-height: 21px;
+      font-size: 13px;
+    }
 
-      input[type="radio"] {
-        display: none;
-      }
-
-      input[type="radio"]:checked + span.tier-num {
-        background: var(--button-background);
-        color: var(--button-color);
-        border-color: var(--button-background);
-      }
-
-      label {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        font-size: 16px;
-        gap: 4px;
-      }
-
-      .tier-num {
-        cursor: pointer;
-        border: 1px solid black;
-        border-radius: 100%;
-        font-family: var(--item-font);
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        line-height: 21px;
-      }
-
-      .tier-dmg {
-        line-height: 13px;
-      }
+    .tier-dmg {
+      line-height: 13px;
     }
   }
 }

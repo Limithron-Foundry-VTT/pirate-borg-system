@@ -18,6 +18,10 @@
     margin-bottom: 16px;
   }
 
+  .items-list:last-of-type {
+    margin: 0;
+  }
+
   .item-list {
     list-style: none;
     padding: 0;
@@ -80,7 +84,7 @@
     }
 
     .item-controls {
-      flex: 0 0 100px;
+      flex: 0 0 60px;
       text-align: right;
       display: flex;
       justify-content: flex-end;

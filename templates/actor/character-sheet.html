@@ -184,7 +184,6 @@
                 title="{{ifPrintElse item.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-fist-raised"></i
               ></a>
-              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
           </li>
@@ -245,7 +244,6 @@
                 title="{{ifPrintElse data.data.equippedArmor.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-fist-raisedfa-raised"></i
               ></a>
-              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
           </li>
@@ -262,7 +260,6 @@
                 title="{{ifPrintElse data.data.equippedHat.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"
                 ><i class="fas fa-fist-raised"></i
               ></a>
-              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
           </li>
@@ -306,7 +303,6 @@
             <h4 class="item-name item-edit rollable">{{item.name}} {{#ifGt item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}</h4>
             <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
             <div class="item-controls">
-              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
           </li>
@@ -347,7 +343,6 @@
             <h4 class="item-name item-edit rollable">{{item.name}}</h4>
             <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
             <div class="item-controls">
-              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
               <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
           </li>

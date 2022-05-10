@@ -259,7 +259,7 @@ export class PBActor extends Actor {
     if (!attackDR) {
       attackDR = 12; // default
     }
-    const targetArmor = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR);
+    const targetArmor = (await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) || 0;
     const dialogData = {
       attackDR,
       config: CONFIG.pirateborg,
@@ -279,10 +279,15 @@ export class PBActor extends Actor {
           },
         },
         render: (content) => {
-          content.find(".tier-radio").on("change", (event) => {
+          content.find(".armor-tier .radio-input").on("change", (event) => {
             event.preventDefault();
             const input = $(event.currentTarget);
             content.find("#targetArmor").val(input.val());
+          });
+          content.find(".attack-dr .radio-input").on("change", (event) => {
+            event.preventDefault();
+            const input = $(event.currentTarget);
+            content.find("#attackDr").val(input.val());
           });
         },
         default: "roll",
@@ -480,23 +485,37 @@ export class PBActor extends Actor {
     const html = await renderTemplate(DEFEND_DIALOG_TEMPLATE, dialogData);
 
     return new Promise((resolve) => {
-      new Dialog({
-        title: game.i18n.localize("PB.Defend"),
-        content: html,
-        buttons: {
-          roll: {
-            icon: '<i class="fas fa-dice-d20"></i>',
-            label: game.i18n.localize("PB.Roll"),
-            callback: (html) => this._defendDialogCallback(html),
+      new Dialog(
+        {
+          title: game.i18n.localize("PB.Defend"),
+          content: html,
+          buttons: {
+            roll: {
+              icon: '<i class="fas fa-dice-d20"></i>',
+              label: game.i18n.localize("PB.Roll"),
+              callback: (html) => this._defendDialogCallback(html),
+            },
           },
+          default: "roll",
+          render: (html) => {
+            html.find(".defense-base-dr .radio-input").on("change", (event) => {
+              event.preventDefault();
+              const input = $(event.currentTarget);
+              html.find("#defendDr").val(input.val());
+              html.find("input[name='defensebasedr']").trigger("change");
+            });
+            html.find(".incoming-attack .radio-input").on("change", (event) => {
+              event.preventDefault();
+              const input = $(event.currentTarget);
+              html.find("#incomingAttack").val(input.val());
+            });
+            html.find("input[name='defensebasedr']").on("change", this._onDefenseBaseDRChange.bind(this));
+            html.find("input[name='defensebasedr']").trigger("change");
+          },
+          close: () => resolve(null),
         },
-        default: "roll",
-        render: (html) => {
-          html.find("input[name='defensebasedr']").on("change", this._onDefenseBaseDRChange.bind(this));
-          html.find("input[name='defensebasedr']").trigger("change");
-        },
-        close: () => resolve(null),
-      }).render(true);
+        { width: 460 }
+      ).render(true);
     });
   }
 

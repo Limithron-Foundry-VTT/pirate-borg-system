@@ -691,6 +691,9 @@
   padding: 0;
   margin-bottom: 16px;
 }
+.pirateborg .items-list:last-of-type {
+  margin: 0;
+}
 .pirateborg .item-list {
   list-style: none;
   padding: 0;
@@ -743,7 +746,7 @@
   width: 100%;
 }
 .pirateborg .item-list .item-controls {
-  flex: 0 0 100px;
+  flex: 0 0 60px;
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -1582,7 +1585,7 @@ hr {
 /* Attack/Defend Custom Dialogs */
 /* ====================== */
 .custom-dialog .form-group {
-  margin-bottom: 10px;
+  margin: 8px;
 }
 .custom-dialog .form-group label {
   font-family: var(--item-font);
@@ -1663,37 +1666,44 @@ hr {
   padding-top: 2px;
 }
 
+.defense-dialog .form-group,
 .attack-dialog .form-group {
   display: flex;
   align-items: flex-start;
 }
-.attack-dialog .item-armor-tier .tiers {
+.defense-dialog .radio-group-radio,
+.attack-dialog .radio-group-radio {
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: flex-start;
   gap: 12px;
+  margin-bottom: 8px;
 }
-.attack-dialog .item-armor-tier .tiers li {
+.defense-dialog .radio-group-radio li,
+.attack-dialog .radio-group-radio li {
   margin: 0;
 }
-.attack-dialog .item-armor-tier .tiers input[type=radio] {
+.defense-dialog .radio-group-radio input[type=radio],
+.attack-dialog .radio-group-radio input[type=radio] {
   display: none;
 }
-.attack-dialog .item-armor-tier .tiers input[type=radio]:checked + span.tier-num {
+.defense-dialog .radio-group-radio input[type=radio]:checked + span.radio-label,
+.attack-dialog .radio-group-radio input[type=radio]:checked + span.radio-label {
   background: var(--button-background);
   color: var(--button-color);
   border-color: var(--button-background);
 }
-.attack-dialog .item-armor-tier .tiers label {
+.defense-dialog .radio-group-radio label,
+.attack-dialog .radio-group-radio label {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   font-size: 16px;
-  gap: 4px;
 }
-.attack-dialog .item-armor-tier .tiers .tier-num {
+.defense-dialog .radio-group-radio .radio-label,
+.attack-dialog .radio-group-radio .radio-label {
   cursor: pointer;
   border: 1px solid black;
   border-radius: 100%;
@@ -1702,8 +1712,10 @@ hr {
   height: 24px;
   text-align: center;
   line-height: 21px;
+  font-size: 13px;
 }
-.attack-dialog .item-armor-tier .tiers .tier-dmg {
+.defense-dialog .radio-group-radio .tier-dmg,
+.attack-dialog .radio-group-radio .tier-dmg {
   line-height: 13px;
 }
 

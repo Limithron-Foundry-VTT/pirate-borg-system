@@ -1,7 +1,42 @@
-<form class="custom-dialog">
+<form class="custom-dialog defense-dialog">
   <div class="form-group">
     <label>{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
-    <input type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
+    <input id="defendDr" type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
+  </div>
+  <div class="form-group">
+    <label></label>
+    <ul class="radio-group-radio defense-base-dr">
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendDr.value" value="8" {{#ifEq defendDR '8'}}checked{{/ifEq}}/ />
+          <span class="radio-label">8</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendDr.value" value="10" {{#ifEq defendDR '10'}}checked{{/ifEq}}/>
+          <span class="radio-label">10</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendDr.value" value="12" {{#ifEq defendDR '12'}}checked{{/ifEq}}/>
+          <span class="radio-label">12</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendDr.value" value="14" {{#ifEq defendDR '14'}}checked{{/ifEq}}/>
+          <span class="radio-label">14</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendDr.value" value="16" {{#ifEq defendDR '16'}}checked{{/ifEq}}/>
+          <span class="radio-label">16</span>
+        </label>
+      </li>
+    </ul>
   </div>
   <div class="form-group">
     <label>{{localize "PB.Modified"}} {{localize "PB.DR"}}:</label>
@@ -12,6 +47,53 @@
   {{/if}}
   <div class="form-group">
     <label>{{localize "PB.IncomingAttack"}}:</label>
-    <input type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />
+    <input id="incomingAttack" type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />
+  </div>
+  <div class="form-group">
+    <label></label>
+    <ul class="radio-group-radio incoming-attack">
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d2" {{#ifEq incomingAttack '1d2'}}checked{{/ifEq}}/ />
+          <span class="radio-label">d2</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d4" {{#ifEq incomingAttack '1d4'}}checked{{/ifEq}}/>
+          <span class="radio-label">d4</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d6" {{#ifEq incomingAttack '1d6'}}checked{{/ifEq}}/>
+          <span class="radio-label">d6</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d8" {{#ifEq incomingAttack '1d8'}}checked{{/ifEq}}/>
+          <span class="radio-label">d8</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d10" {{#ifEq incomingAttack '1d10'}}checked{{/ifEq}}/>
+          <span class="radio-label">d10</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="1d12" {{#ifEq incomingAttack '1d12'}}checked{{/ifEq}}/>
+          <span class="radio-label">d12</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="attackDR.value" value="d20" {{#ifEq incomingAttack 'd20'}}checked{{/ifEq}}/>
+          <span class="radio-label">d20</span>
+        </label>
+      </li>
+    </ul>
   </div>
 </form>
