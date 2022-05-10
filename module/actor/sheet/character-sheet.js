@@ -45,7 +45,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
   /** @override */
   async getData() {
-    const superData = super.getData();
+    const superData = await super.getData();
     const data = superData.data;
     data.config = CONFIG.PB;
 
@@ -87,7 +87,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     };
 
     sheetData.data.class = this.actor.getClass();
-
+    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
+    sheetData.data.useExtraResource = await this.actor.getUseExtraResource();
+    sheetData.data.extraResourceNamePlural = await this.actor.getExtraResourceNamePlural();
+    sheetData.data.extraResourceFormulaLabel = await this.actor.getExtraResourceFormulaLabel();
+    sheetData.data.luckDie = await this.actor.getLuckDie();
+    
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
@@ -117,11 +122,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
-    sheetData.data.useExtraResource = await this.actor.getUseExtraResource();
-    sheetData.data.extraResourceNamePlural = await this.actor.getExtraResourceNamePlural();
-    sheetData.data.extraResourceFormulaLabel = await this.actor.getExtraResourceFormulaLabel();
-    sheetData.data.luckDie = await this.actor.getLuckDie();
     console.log(sheetData.data);
   }
 

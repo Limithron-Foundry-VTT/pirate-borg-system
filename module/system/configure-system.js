@@ -9,6 +9,7 @@ import { PBItemSheet } from "../item/sheet/item-sheet.js";
 import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
 import * as pirateFactory from "../scvm/scvmfactory.js";
 import * as macroHelpers from "../macro-helpers.js";
+import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
@@ -49,6 +50,12 @@ export const configureSystem = () => {
     types: ["creature"],
     makeDefault: true,
     label: "PB.SheetClassCreature",
+  });
+
+  Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
+    types: ["vehicle"],
+    makeDefault: true,
+    label: "PB.SheetClassVehicle",
   });
 
   Items.unregisterSheet("core", ItemSheet);

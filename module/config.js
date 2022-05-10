@@ -63,6 +63,8 @@ PB.itemTypes = {
   invokable: "invokable",
   misc: "misc",
   weapon: "weapon",
+  cargo: "cargo",
+  armament: "armament",
 };
 
 PB.itemTypeKeys = {
@@ -76,6 +78,8 @@ PB.itemTypeKeys = {
   invokable: "PB.ItemTypeInvokable",
   misc: "PB.ItemTypeMisc",
   weapon: "PB.ItemTypeWeapon",
+  cargo: "PB.ItemTypeCargo",
+  armament: "PB.ItemTypeArmament",  
 };
 
 // these Item types are "equipment"
@@ -100,6 +104,12 @@ PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc, PB.itemTypes.feat
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
   ranged: "PB.WeaponTypeRanged",
+};
+
+PB.armamentTypes = {
+  "small-arm": "PB.ArmamentTypeSmallRam",
+  "broadside": "PB.ArmamentTypeBroadside",
+  "ram": "PB.ArmamentTypeRam",
 };
 
 // Config variables for the Scvmfactory character generator

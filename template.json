@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "container", "creature"],
+    "types": ["character", "container", "creature", "vehicle"],
     "templates": {
       "common": {}
     },
@@ -65,10 +65,46 @@
       "attack": "",
       "morale": 7,
       "special": ""
-    }
+    },
+    "vehicle": {
+      "description": "",
+      "special": "",
+      "speed": 1,
+      "hp": {
+        "max": 1,
+        "value": 1
+      },
+      "abilities": {
+        "agility": {
+          "value": 0
+        },
+        "skill": {
+          "value": 0
+        }        
+      },
+      "cargo": {
+        "max": 0,
+        "value": 0
+      },
+      "crew": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      },
+      "hull": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      },
+      "shanties": {
+        "min": 0,
+        "max": 0,
+        "value": 0
+      }
+    }     
   },
   "Item": {
-    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class"],
+    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "armament"],
     "templates": {
       "equipment": {
         "description": "",
@@ -180,6 +216,16 @@
 
       "requireBaseClass": false,
       "characterGeneratorMacro": ""
+    },
+    "cargo": {
+      "description": "",
+      "value": 0
+    },
+    "armament": {
+      "description": "",
+      "price": 0,
+      "damageDie": "1d1",
+      "weaponType": "small-arms"      
     }
   }
 }

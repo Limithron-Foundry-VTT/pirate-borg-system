@@ -17,9 +17,7 @@ const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outco
 const OUTCOME_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-roll-card.html";
 const REACTION_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/reaction-roll-card.html";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/test-ability-roll-card.html";
-
 const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-invokable-card.html";
-
 const MYSTICAL_MISHAP_CARD_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap-card.html";
 
 /**
@@ -158,17 +156,21 @@ export class PBActor extends Actor {
   }
 
   async equipItem(item) {
+    console.log('equipItem', item);
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       for (const otherItem of this.items) {
-        if (otherItem.type === item.type) {
+        if (otherItem.type === item.type && otherItem.id != item.id) {
           await otherItem.unequip();
+          console.log('unequip equip hat armor', otherItem.id, otherItem.type, otherItem);
         }
       }
     }
+    console.log('equipItem', item.id, item);
     await item.equip();
   }
 
   async unequipItem(item) {
+    console.log('unequip equip', item.id, item.type, item);
     await item.unequip();
   }
 
@@ -1229,7 +1231,7 @@ export class PBActor extends Actor {
   }
 
   async setBaseClass(baseClass) {
-    await this.update({ ["data.baseClass"]: baseClass });
+    await this.update({ "data.baseClass": baseClass });
   }
 
   async getBaseClass() {

@@ -144,6 +144,9 @@ export default class PBActorSheet extends ActorSheet {
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
 
+
+    console.log('_onToggleEquippedItem', item.id, item.equipped, item);
+
     if (item.equipped) {
       await this.actor.unequipItem(item);
     } else {
