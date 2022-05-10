@@ -51,7 +51,6 @@ export const classItemFromPack = async (compendiumName) => {
   return documents.find((i) => i.data.type === "class");
 };
 
-/// new
 const compendiumInfoFromString = (value) => {
   return value.split(";");
 };
@@ -118,8 +117,13 @@ export const rollTable = async (compendium, table, roll) => {
 };
 
 export const rollName = async () => {
-  const [compendium, table] = compendiumInfoFromString(PB.scvmFactory.namesPack);
-  return await drawTableSingleTextResult(compendium, table);
+  const [fCompendium, fTable] = compendiumInfoFromString(PB.scvmFactory.firstNamesPack);
+  const firstName = await drawTableSingleTextResult(fCompendium, fTable);
+  const [nCompendium, nTable] = compendiumInfoFromString(PB.scvmFactory.nickNamesPack);
+  const nickName = await drawTableSingleTextResult(nCompendium, nTable);
+  const [lCompendium, lTable] = compendiumInfoFromString(PB.scvmFactory.lastNamesPack);
+  const lastName = await drawTableSingleTextResult(lCompendium, lTable);
+  return `${firstName} “${nickName}” ${lastName}`;
 };
 
 export const rollAbilities = (data) => {

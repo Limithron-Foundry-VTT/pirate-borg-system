@@ -106,7 +106,9 @@ PB.weaponTypes = {
 PB.scvmFactory = {
   characterCreationPack: "pirateborg.rolls-character-creation",
 
-  namesPack: "pirateborg.rolls-character-creation;Names",
+  firstNamesPack: "pirateborg.rolls-character-creation;First Names",
+  nickNamesPack: "pirateborg.rolls-character-creation;Nicknames",
+  lastNamesPack: "pirateborg.rolls-character-creation;Last Names",
 
   armorsRollTable: "pirateborg.rolls-character-creation;d10 Starting clothing & armor",
   weaponsRollTable: "pirateborg.rolls-character-creation;d10 Starting weapons",
