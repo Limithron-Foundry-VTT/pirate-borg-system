@@ -9,7 +9,7 @@ export const createChatMessage = async (actor, template, templateData, { muted =
   const html = await renderTemplate(template, templateData);
   ChatMessage.create({
     content: html,
-    sound: !muted ? diceSound() : false,
+    sound: !muted ? diceSound() : null,
     speaker: ChatMessage.getSpeaker({ actor }),
   });
 };
