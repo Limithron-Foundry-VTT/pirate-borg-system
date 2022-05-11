@@ -756,51 +756,38 @@ export class PBActor extends Actor {
       ui.notifications.error(`${game.i18n.format("PB.NoResourceUsesRemaining", { type: item.data.data.invokableType })}!`);
       return;
     }
+
     const clazz = this.getClass();
-
-    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula, this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure");
-    }
+    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel
+    const formula = clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula;
 
     const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokableTitle", {
-        type: item.data.data.invokableType,
-      }),
-      wieldDR,
-      wieldFormula: clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel,
-      wieldOutcome,
-      wieldRoll,
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: "PB.Invoke",
+          data: {
+            formula: formula,
+            "wield-formula": wieldFormulaLabel,
+            dr: 12,
+            "is-extra-resource": true,
+          },
+        },
+      ],
     });
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
+      flags: {
+        itemId: item.id,
+      },
     });
 
-    const extraResourceUses = Math.max(0, this.data.data.extraResourceUses.value - 1);
-    await this.update({ ["data.extraResourceUses.value"]: extraResourceUses });
-
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
   }
 
   async invokeAncientRelic(item) {
@@ -824,7 +811,6 @@ export class PBActor extends Actor {
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
         itemId: item.id,
@@ -832,6 +818,7 @@ export class PBActor extends Actor {
     });
 
     await this.useActionMacro(item.id);
+    
   }
 
   async invokeArcaneRitual(item) {
@@ -860,7 +847,6 @@ export class PBActor extends Actor {
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
         itemId: item.id,

@@ -1071,6 +1071,9 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   margin-top: 20px;
   justify-content: center;
 }
+#chat-log .chat-message .gm-only {
+  display: none;
+}
 #chat-log .message h4,
 #chat-log .message h3,
 #chat-log .message h2 {

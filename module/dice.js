@@ -30,3 +30,12 @@ export const diceSound = () => {
     return CONFIG.sounds.dice;
   }
 };
+
+/**
+ * Play a dice sound if Dice so Nice is not available
+ */
+ export const playDiceSound = () => {
+  if (!game.dice3d) {
+    AudioHelper.play({src: CONFIG.sounds.dice, volume: 0.8, autoplay: true, loop: false}, true);
+  }
+};

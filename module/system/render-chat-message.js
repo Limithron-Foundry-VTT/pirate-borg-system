@@ -1,10 +1,14 @@
-import { diceSound, showDice } from "../dice.js";
+import { diceSound, playDiceSound, showDice } from "../dice.js";
 import { scrollChatToBottom } from "../sockets.js";
 
 export const WIELD_ROLL_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/wield-roll.html";
+export const MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap.html";
 
 export const renderChatMessage = async (message, html) => {
   html.on("click", "button.item-button", onChatCardAction.bind(this));
+  if (game.user.isGM) {
+    html.find('.gm-only').removeClass('gm-only');
+  }  
 };
 
 /**
@@ -19,6 +23,8 @@ async function wieldRoll(formula, wieldFormula, dr, rollData) {
   const wieldRoll = new Roll(formula, rollData);
   wieldRoll.evaluate({ async: false });
   await showDice(wieldRoll);
+
+  playDiceSound();
 
   const d20Result = wieldRoll.terms[0].results[0].result;
   const isFumble = d20Result === 1;
@@ -57,6 +63,7 @@ export const onChatCardAction = async (event) => {
   const isArcaneRitual = !!button.dataset.isArcaneRitual;
   const isAncientRelic = !!button.dataset.isAncientRelic;
   const isMysticalMishap = !!button.dataset.isMysticalMishap;
+  const isExtraResource = !!button.dataset.isExtraResource;
   button.remove();
 
   let needsToBeSaved = false;
@@ -87,6 +94,15 @@ export const onChatCardAction = async (event) => {
     needsToBeSaved = true;
   }
 
+  if (isExtraResource && actor) {
+    const rollResults = await wieldRoll(formula, wieldFormula, wieldDR, actor.getRollData());
+
+    const extraContent = await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, rollResults);
+    additionalContent = additionalContent.append(extraContent);
+
+    needsToBeSaved = true;
+  }
+
   if (isAncientRelic && actor) {
     const rollResults = await wieldRoll(formula, wieldFormula, wieldDR, actor.getRollData());
 
@@ -100,11 +116,12 @@ export const onChatCardAction = async (event) => {
     needsToBeSaved = true;
   }
 
+
   if (isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(isFumble);
     await showDice(mishapData.roll);
-    
-    const extraContent = await renderTemplate("systems/pirateborg/templates/chat/mystical-mishap.html", mishapData);
+
+    const extraContent = await renderTemplate(MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE, mishapData);
     additionalContent = additionalContent.append(extraContent);
 
     needsToBeSaved = true;
@@ -114,6 +131,7 @@ export const onChatCardAction = async (event) => {
     messageContent = messageContent.find("form.roll-card").append(additionalContent).end();
     await message.update({
       content: messageContent.html(),
+      sound: diceSound(),
     });
 
     const lastMessage = Array.from(ui.chat.collection).pop();
