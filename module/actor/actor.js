@@ -758,7 +758,7 @@ export class PBActor extends Actor {
     }
 
     const clazz = this.getClass();
-    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel
+    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel;
     const formula = clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula;
 
     const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
@@ -818,7 +818,6 @@ export class PBActor extends Actor {
     });
 
     await this.useActionMacro(item.id);
-    
   }
 
   async invokeArcaneRitual(item) {

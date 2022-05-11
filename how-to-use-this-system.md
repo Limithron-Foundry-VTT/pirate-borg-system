@@ -76,7 +76,7 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
   - Failures on _Relics_ cause you to be Stunned, and cannot use the relic again that day, also shown in the chat message.
   - Failures on _Rituals_ cause you to not be able to cast the ritual again that day and require a roll on the _Mystical Mishaps_ table, also shown in the chat message.
   - It's up to you to manually roll an Arcane Catastrophe when you fumble.
-- It's up to you to prohibit using _Rituals_ when  the caster is carrying anything made of cold iron or touching metal.
+- It's up to you to prohibit using _Rituals_ when the caster is carrying anything made of cold iron or touching metal.
 
 ## Creatures
 

@@ -7,8 +7,8 @@ export const MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templat
 export const renderChatMessage = async (message, html) => {
   html.on("click", "button.item-button", onChatCardAction.bind(this));
   if (game.user.isGM) {
-    html.find('.gm-only').removeClass('gm-only');
-  }  
+    html.find(".gm-only").removeClass("gm-only");
+  }
 };
 
 /**
@@ -115,7 +115,6 @@ export const onChatCardAction = async (event) => {
 
     needsToBeSaved = true;
   }
-
 
   if (isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(isFumble);
