@@ -9,7 +9,6 @@
         .header-col1 {
           flex: 0 0 100px;
           padding: 0;
-          margin-right: 8px;
           line-height: 0;
         }
 
@@ -17,7 +16,8 @@
           flex: 1;
           display: flex;
           flex-direction: column;
-          overflow: hidden;
+          padding-left: 4px;
+
           .rest-buttons {
             display: flex;
             align-items: center;
@@ -59,7 +59,7 @@
 
           label.classname {
             font-family: var(--h3-font);
-            font-size: 24px;
+            font-size: 20px;
             white-space: nowrap;
           }
 
@@ -102,7 +102,6 @@
           gap: 4px;
 
           .luck-label:hover {
-            color: var(--highlight-foreground-color);
             text-shadow: 0 0 16px var(--highlight-background-color);
             cursor: pointer;
           }

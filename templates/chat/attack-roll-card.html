@@ -17,7 +17,9 @@
       <span>{{xtotal attackRoll}}</span>
     </div>
   </div>
-  {{#if takeDamage}}
+  {{#if attackOutcomeDescription}}
+  <div class="card-description">{{attackOutcomeDescription}}</div>
+  {{/if}} {{#if takeDamage}}
   <div class="outcome-text">
     <span class="take-damage">{{takeDamage}}</span>
   </div>
@@ -40,8 +42,7 @@
     </div>
   </div>
   {{/if}} {{#if ammoOutcome}}
-  <div class="outcome-text">
-    <span class="take-damage">{{{ammoOutcome}}}</span>
-  </div>
+  <div class="outcome-text">{{ammoOutcome}}</div>
+  <div class="card-description">{{{ammoOutcomeDescription}}}</div>
   {{/if}}
 </form>

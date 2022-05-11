@@ -1,3 +1,12 @@
+# v0.3.4
+
+- Relics & Rituals chat card improvements
+- Chat card styling improvements
+- Fix a bug when an actor was updating too often
+- The options for Devil's Luck is outputted into the chat when clicking the Devil's Luck label in the character sheet
+- Hide Mystical Mishaps for players
+- Add dice sound to chat card roll buttons
+
 # v0.3.3
 
 - Pirate Name Generator

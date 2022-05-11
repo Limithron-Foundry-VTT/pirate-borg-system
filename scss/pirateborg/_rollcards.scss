@@ -11,7 +11,6 @@
     margin-bottom: 24px;
     text-align: center;
     padding-top: 4px;
-    line-height: 28px;
   }
 
   .dr-modifiers {
@@ -49,10 +48,10 @@
     font-family: var(--chat-font);
     font-size: 16px;
     text-align: center;
-    margin: 24px 0;
+    margin: 24px 0 0 0;
 
-    p:last-of-type {
-      margin-bottom: 0;
+    p:first-of-type {
+      margin: 0;
     }
   }
 
@@ -70,17 +69,22 @@
   }
 
   .outcome-text {
-    font-family: var(--h3-font);
+    font-family: var(--chat-font);
     font-size: 24px;
     margin: 0;
     text-align: center;
     line-height: 24px;
     margin-top: 24px;
     margin-bottom: 4px;
-
+    font-style: italic;
+    font-weight: 600;
     p {
       margin: 0;
     }
+  }
+
+  .outcome-text + .card-description {
+    margin: 0;
   }
 
   .outcome-text:last-of-type {

@@ -18,7 +18,6 @@ const OUTCOME_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-ro
 const REACTION_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/reaction-roll-card.html";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/test-ability-roll-card.html";
 const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-invokable-card.html";
-const MYSTICAL_MISHAP_CARD_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap-card.html";
 
 /**
  * @extends {Actor}
@@ -33,6 +32,8 @@ export class PBActor extends Actor {
         actorLink: true,
         disposition: 1,
         vision: true,
+        displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+        displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
       };
     } else if (data.type === "container") {
       defaults = {
@@ -159,19 +160,17 @@ export class PBActor extends Actor {
     console.log('equipItem', item);
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       for (const otherItem of this.items) {
-        if (otherItem.type === item.type && otherItem.id != item.id) {
+        if (otherItem.type === item.type && otherItem.id !== item.id) {
           await otherItem.unequip();
           console.log('unequip equip hat armor', otherItem.id, otherItem.type, otherItem);
         }
       }
     }
-    console.log('equipItem', item.id, item);
-    await item.equip();
+    return await item.equip();
   }
 
   async unequipItem(item) {
-    console.log('unequip equip', item.id, item.type, item);
-    await item.unequip();
+    return await item.unequip();
   }
 
   normalCarryingCapacity() {
@@ -352,13 +351,15 @@ export class PBActor extends Actor {
     const isHit = attackRoll.total !== 1 && (attackRoll.total === 20 || attackRoll.total >= attackDR);
 
     let attackOutcome = null;
+    let attackOutcomeDescription = null;
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
 
     if (isHit) {
       // HIT!!!
-      attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCritText" : "PB.Hit");
+      attackOutcome = game.i18n.localize(isCrit ? "PB.AttackCrit" : "PB.Hit");
+      attackOutcomeDescription = game.i18n.localize(isCrit ? "PB.AttackCritText" : null);
       const extraCritDamage = itemRollData.critExtraDamage || 0;
 
       if (useAmmoDamage) {
@@ -391,9 +392,11 @@ export class PBActor extends Actor {
         if (isGunpowderWeapon) {
           const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
           const draw = await table.draw({ displayChat: false });
-          attackOutcome = draw.results[0].data.text;
+          attackOutcome = game.i18n.localize("PB.AttackFumble");
+          attackOutcomeDescription = draw.results[0].data.text;
         } else {
-          attackOutcome = game.i18n.localize("PB.AttackFumbleText");
+          attackOutcome = game.i18n.localize("PB.AttackFumble");
+          attackOutcomeDescription = game.i18n.localize("PB.AttackFumbleText");
         }
       } else {
         attackOutcome = game.i18n.localize("PB.Miss");
@@ -415,7 +418,9 @@ export class PBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
       isFumble,
-      ammoOutcome: useAmmoDamage && isHit ? `<h4>${ammo.data.name}</h4><span class="card-description">${ammo.data.data.description}</span>` : null,
+      attackOutcomeDescription,
+      ammoOutcome: useAmmoDamage && isHit ? ammo.data.name : null,
+      ammoOutcomeDescription: useAmmoDamage && isHit ? ammo.data.data.description : null,
     };
     await this._decrementWeaponAmmo(item);
     await this._renderAttackRollCard(rollResult);
@@ -582,17 +587,20 @@ export class PBActor extends Actor {
     let armorRoll = null;
     let defendOutcome = null;
     let takeDamage = null;
+    let attackOutcomeDescription = null;
 
     if (isCrit) {
       // critical success
-      defendOutcome = game.i18n.localize("PB.DefendCritText");
+      defendOutcome = game.i18n.localize("PB.DefendCrit");
+      attackOutcomeDescription = game.i18n.localize("PB.DefendCritText");
     } else if (defendRoll.total >= defendDR) {
       // success
       defendOutcome = game.i18n.localize("PB.Dodge");
     } else {
       // failure
       if (isFumble) {
-        defendOutcome = game.i18n.localize("PB.DefendFumbleText");
+        defendOutcome = game.i18n.localize("PB.DefendFumble");
+        attackOutcomeDescription = game.i18n.localize("PB.DefendFumbleText");
       } else {
         defendOutcome = game.i18n.localize("PB.YouAreHit");
       }
@@ -641,6 +649,7 @@ export class PBActor extends Actor {
       defendRoll,
       items,
       takeDamage,
+      attackOutcomeDescription,
     };
     await this._renderDefendRollCard(rollResult);
   }
@@ -745,101 +754,72 @@ export class PBActor extends Actor {
 
   async invokeExtraResource(item) {
     if (this.data.data.extraResourceUses.value < 1) {
-      ui.notifications.error(
-        `${game.i18n.format("PB.NoResourceUsesRemaining", {
-          type: item.data.data.invokableType,
-        })}!`
-      );
+      ui.notifications.error(`${game.i18n.format("PB.NoResourceUsesRemaining", { type: item.data.data.invokableType })}!`);
       return;
     }
+
     const clazz = this.getClass();
-
-    const wieldRoll = new Roll(clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula, this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure");
-    }
+    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel
+    const formula = clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula;
 
     const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokableTitle", {
-        type: item.data.data.invokableType,
-      }),
-      wieldDR,
-      wieldFormula: clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel,
-      wieldOutcome,
-      wieldRoll,
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: "PB.Invoke",
+          data: {
+            formula: formula,
+            "wield-formula": wieldFormulaLabel,
+            dr: 12,
+            "is-extra-resource": true,
+          },
+        },
+      ],
     });
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
+      flags: {
+        itemId: item.id,
+      },
     });
 
-    const extraResourceUses = Math.max(0, this.data.data.extraResourceUses.value - 1);
-    await this.update({ ["data.extraResourceUses.value"]: extraResourceUses });
-
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
   }
 
   async invokeAncientRelic(item) {
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRelicCriticalSuccess" : "PB.InvokableRelicSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
-    }
-
-    const rollResult = {
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokeRelic"),
-      wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
-      wieldOutcome,
-      wieldRoll,
-    };
-
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: "PB.TestRelic",
+          data: {
+            formula: "d20+@abilities.spirit.value",
+            "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            dr: 12,
+            "is-ancient-relic": true,
+          },
+        },
+      ],
+    });
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
+      flags: {
+        itemId: item.id,
+      },
     });
 
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
+    
   }
 
   async invokeArcaneRitual(item) {
@@ -848,75 +828,52 @@ export class PBActor extends Actor {
       return;
     }
 
-    const wieldRoll = new Roll("d20+@abilities.spirit.value", this.getRollData());
-
-    wieldRoll.evaluate({ async: false });
-    await showDice(wieldRoll);
-
-    const d20Result = wieldRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
-    const wieldDR = 12;
-    const isSuccess = wieldRoll.total >= wieldDR;
-    const isFailure = wieldRoll.total < wieldDR;
-
-    let wieldOutcome = null;
-
-    if (isSuccess) {
-      wieldOutcome = game.i18n.localize(isCrit ? "PB.InvokableRitualCriticalSuccess" : "PB.InvokableRitualSuccess");
-    } else {
-      wieldOutcome = game.i18n.localize(isFumble ? "PB.InvokableRitualFumble" : "PB.InvokableRitualFailure");
-    }
-
-    const rollResult = {
+    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
       item: item.data,
       actor: this.data,
-      title: game.i18n.format("PB.InvokeRitual"),
-      wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
-      wieldOutcome,
-      wieldRoll,
-      isFailure,
-      isFumble,
-    };
-
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, rollResult);
+      title: item.name,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: "PB.InvokeRitual",
+          data: {
+            formula: "d20+@abilities.spirit.value",
+            "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            dr: 12,
+            "is-arcane-ritual": true,
+          },
+        },
+      ],
+    });
 
     await ChatMessage.create({
       content: html,
-      sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
-        hasButton: isFailure || isFumble,
+        itemId: item.id,
       },
     });
 
-    const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
-    await this.update({ ["data.powerUses.value"]: newPowerUses });
-
-    if (isSuccess) {
-      await this.useActionMacro(item.id);
-    }
+    await this.useActionMacro(item.id);
   }
 
-  async rollMysticalMishap() {
+  /**
+   * Return the data for a Mystical Mishap
+   * @param {boolean} isFumble
+   * @returns {Promise<{roll, formula: string, title: string, items}>}
+   */
+  async rollMysticalMishap(isFumble = false) {
     const pack = game.packs.get("pirateborg.rolls-gamemaster");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === "Mystical Mishaps");
     const draw = await table.draw({ displayChat: false });
 
-    await ChatMessage.create({
-      content: await renderTemplate(MYSTICAL_MISHAP_CARD_TEMPLATE, {
-        title: game.i18n.format("PB.MysticalMishaps"),
-        formula: "1d20",
-        roll: draw.roll,
-        items: draw.results,
-      }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: diceSound(),
+    return {
+      title: game.i18n.format("PB.MysticalMishaps"),
+      formula: isFumble ? "2d20kl" : "1d20",
       roll: draw.roll,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-    });
+      items: draw.results,
+    };
   }
 
   async useActionMacro(itemId) {
@@ -1236,39 +1193,17 @@ export class PBActor extends Actor {
 
   async getBaseClass() {
     const [compendium, item] = this.data.data.baseClass.split(";");
-    if (compendium && item) {
-      return await findCompendiumItem(compendium, item);
-    }
-  }
-
-  async getUseExtraResource() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (currentClass?.data?.data.useExtraResource || baseClass?.data?.data.useExtraResource) {
-      return true;
-    }
-    return false;
-  }
-
-  async getExtraResourceNamePlural() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (await this.getUseExtraResource()) {
-      return currentClass?.data?.data.extraResourceNamePlural || baseClass?.data?.data.extraResourceNamePlural;
-    }
-  }
-
-  async getExtraResourceFormulaLabel() {
-    const currentClass = this.getClass();
-    const baseClass = await this.getBaseClass();
-    if (await this.getUseExtraResource()) {
-      return currentClass?.data?.data.extraResourceFormulaLabel || baseClass?.data?.data.extraResourceFormulaLabel;
-    }
+    const baseClass = await findCompendiumItem(compendium, item);
+    return baseClass;
   }
 
   async getLuckDie() {
     const currentClass = this.getClass();
     const baseClass = await this.getBaseClass();
+    if (!baseClass && !currentClass) {
+      // Use the default from the template
+      return null;
+    }
     return baseClass ? baseClass.data.data.luckDie : currentClass.data.data.luckDie;
   }
 }

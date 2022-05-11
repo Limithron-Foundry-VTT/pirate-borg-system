@@ -148,9 +148,9 @@ export default class PBActorSheet extends ActorSheet {
     console.log('_onToggleEquippedItem', item.id, item.equipped, item);
 
     if (item.equipped) {
-      await this.actor.unequipItem(item);
+      return await this.actor.unequipItem(item);
     } else {
-      await this.actor.equipItem(item);
+      return await this.actor.equipItem(item);
     }
   }
 

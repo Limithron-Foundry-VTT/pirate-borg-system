@@ -369,6 +369,7 @@
   font-size: 10pt;
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
+  min-width: 100px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;
@@ -464,10 +465,9 @@
 }
 .pirateborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
-  font-size: 38px;
+  font-size: 40px;
   border: none;
   height: 46px;
-  font-weight: 600;
 }
 .pirateborg.sheet.actor .sheet-body .equipment-top-row {
   display: flex;
@@ -503,14 +503,13 @@
 .pirateborg.sheet.actor.character .sheet-header .header-col1 {
   flex: 0 0 100px;
   padding: 0;
-  margin-right: 8px;
   line-height: 0;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  padding-left: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
   display: flex;
@@ -547,7 +546,7 @@
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row label.classname {
   font-family: var(--h3-font);
-  font-size: 24px;
+  font-size: 20px;
   white-space: nowrap;
 }
 .pirateborg.sheet.actor.character .sheet-header .classname-row label.item-base-class {
@@ -583,7 +582,6 @@
   gap: 4px;
 }
 .pirateborg.sheet.actor.character .sheet-header .luck-row .luck-label:hover {
-  color: var(--highlight-foreground-color);
   text-shadow: 0 0 16px var(--highlight-background-color);
   cursor: pointer;
 }
@@ -829,10 +827,9 @@
   flex: 1;
   border: none;
   font-family: var(--h1-font);
-  font-size: 38px;
+  font-size: 40px;
   border: none;
   height: 46px;
-  font-weight: 600;
   margin: 0;
   padding: 0;
 }
@@ -842,10 +839,10 @@
   text-transform: uppercase;
 }
 .pirateborg.sheet.item .sheet-header .item-subtitle .item-type {
-  font-family: var(--h3-font);
-  font-size: 24px;
+  font-size: 20px;
   width: 100%;
   margin: 0;
+  text-transform: capitalize;
 }
 
 .pirateborg.sheet.actor.container .sheet-header {
@@ -930,6 +927,11 @@ form button {
 }
 form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
+}
+
+.chat-message form button.item-button {
+  font-size: 16px;
+  margin-top: 24px;
 }
 
 a:hover {
@@ -1069,6 +1071,9 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   margin-top: 20px;
   justify-content: center;
 }
+#chat-log .chat-message .gm-only {
+  display: none;
+}
 #chat-log .message h4,
 #chat-log .message h3,
 #chat-log .message h2 {
@@ -1085,11 +1090,11 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-bottom: 8px;
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
   font-size: 24px;
-  margin-bottom: 8px;
 }
 #chat-log .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
@@ -1479,6 +1484,10 @@ hr {
   color: var(--foreground-alt-color);
 }
 
+.notification-pip {
+  color: var(--highlight-background-color);
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
@@ -1490,7 +1499,6 @@ hr {
   margin-bottom: 24px;
   text-align: center;
   padding-top: 4px;
-  line-height: 28px;
 }
 .roll-card .dr-modifiers {
   margin-bottom: 16px;
@@ -1522,10 +1530,10 @@ hr {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin: 24px 0;
+  margin: 24px 0 0 0;
 }
-.roll-card .card-description p:last-of-type {
-  margin-bottom: 0;
+.roll-card .card-description p:first-of-type {
+  margin: 0;
 }
 .roll-card .roll-result {
   font-family: var(--chat-font);
@@ -1540,15 +1548,20 @@ hr {
   font-size: 20px;
 }
 .roll-card .outcome-text {
-  font-family: var(--h3-font);
+  font-family: var(--chat-font);
   font-size: 24px;
   margin: 0;
   text-align: center;
   line-height: 24px;
   margin-top: 24px;
   margin-bottom: 4px;
+  font-style: italic;
+  font-weight: 600;
 }
 .roll-card .outcome-text p {
+  margin: 0;
+}
+.roll-card .outcome-text + .card-description {
   margin: 0;
 }
 .roll-card .outcome-text:last-of-type {

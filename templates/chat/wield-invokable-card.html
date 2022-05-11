@@ -1,5 +1,7 @@
 <form class="roll-card wield-power-roll-card">
   <div class="card-title">{{title}}</div>
+  {{#if description}}<div class="card-description">{{{description}}}</div>{{/if}}
+  {{#if wieldRoll}}
   <div class="wield-roll">
     <div class="outcome-text">
       <span class="attack-outcome">{{wieldOutcome}}</span>
@@ -11,12 +13,23 @@
       <span>{{xtotal wieldRoll}}</span>
     </div>
   </div>
+  {{/if}}
+
+  {{#if buttons}}
+    <div class="item-buttons">
+      {{#each buttons}}
+        <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
+          {{localize title}}
+        </button>
+      {{/each}}
+    </div>
+  {{/if}}
 
   {{#if isFailure}}
-  <div class="outcome-action">
-    <button type="button" class="button item-button" data-is-mystical-mishap="true" data-item-id="{{item._id}}" data-actor-id="{{actor._id}}">
-      {{localize "PB.InvokableRitualFailureButton"}}
-    </button>
-  </div>
+    <div class="outcome-action">
+      <button type="button" class="button item-button" data-is-mystical-mishap="true" data-item-id="{{item._id}}" data-actor-id="{{actor._id}}">
+        {{localize "PB.InvokableRitualFailureButton"}}
+      </button>
+    </div>
   {{/if}}
 </form>
