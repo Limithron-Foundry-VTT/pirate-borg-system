@@ -145,7 +145,7 @@ export const rollLuck = (luckDie) => {
 export const rollHitPoints = async (startingHitPoints, toughness) => {
   const roll = new Roll(startingHitPoints);
   const hp = (await roll.evaluate()).total + toughness;
-  return hp < 0 ? 1 : hp;
+  return hp <= 0 ? 1 : hp;
 };
 
 export const rollSilver = (background) => {
