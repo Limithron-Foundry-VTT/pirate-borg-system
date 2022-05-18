@@ -163,7 +163,8 @@ export const onChatCardAction = async (event) => {
   if (data.isMysticalMishap && actor) {
     const mishapData = await actor.rollMysticalMishap(data.isFumble);
     await showDice(mishapData.roll);
-
+    playDiceSound();
+    
     const extraContent = await renderTemplate(MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE, mishapData);
     additionalContent = additionalContent.append(extraContent);
 
