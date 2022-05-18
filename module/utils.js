@@ -1,6 +1,16 @@
 import { findCompendiumItem } from "./scvm/scvmfactory.js";
 
 /**
+ * @typedef {Object} RollOutcome
+ * @property {Roll} roll
+ * @property {Boolean} isSuccess
+ * @property {boolean} isFailure
+ * @property {Boolean} isFumble
+ * @property {Boolean} isCriticalSuccess
+ * @property {String} outcome
+ */
+
+/**
  * @param {String} compendiumName
  * @param {String} tableName
  * @returns {Promise.<RollTableDraw>}
@@ -9,6 +19,36 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
   const table = await findCompendiumItem(compendiumName, tableName);
   return await table.draw({ displayChat: false, ...options });
 };
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawMysticalMishaps = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawDerelictTakesDamage = async (options = {}) => await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawBroken = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Broken", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawReaction = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawGunpowderFumble = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);
 
 /**
  * @param {String} formula
@@ -23,12 +63,13 @@ export const evaluateFormula = async (formula, data) => {
 /**
  * @param {Roll} roll
  * @param {Number} dr
- * @returns {Promise.<{isSuccess: Boolean, isFailure: Boolean, isFumble: Boolean, isCriticalSuccess: Boolean, outcome: String}>}
+ * @returns {RollOutcome}
  */
 export const getRollOutcome = (roll, dr = 12) => {
-  const dieResult = roll.dice[0].total;
+  const dieResult = roll.terms[0].results[0].result;
 
   const rollResult = {
+    roll,
     isSuccess: roll.total >= dr,
     isFailure: roll.total < dr,
     isFumble: dieResult === 1,

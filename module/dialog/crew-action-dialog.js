@@ -80,7 +80,7 @@ class CrewActionDialog extends Application {
 
 /**
  * @param {Object} data
- * @returns {Promise.<Object>}
+ * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String}>}
  */
 export const showCrewActionDialog = (data = {}) => {
   return new Promise((resolve) => {

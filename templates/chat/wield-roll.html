@@ -1,26 +1,26 @@
 <div class="wield-roll">
-    <div class="outcome-text">
-        <span class="attack-outcome">{{{wieldOutcome}}}</span>
+  <div class="outcome-text">
+    <span class="attack-outcome">{{{wieldOutcome}}}</span>
+  </div>
+  <div class="roll-title">
+    <span>{{wieldFormula}} {{#if wieldDR}} {{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}} {{/if}}</span>
+  </div>
+  <div class="roll-result">
+    <span>{{xtotal wieldRoll}}</span>
+  </div>
+  {{#if wieldOutcomeText}}
+    <div class="card-description">
+      {{{wieldOutcomeText}}}
     </div>
-    <div class="roll-title">
-        <span>{{wieldFormula}} {{#if wieldDR}} {{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}} {{/if}}</span>
-    </div>
-    <div class="roll-result">
-        <span>{{xtotal wieldRoll}}</span>
-    </div>
-    {{#if wieldOutcomeText}}
-      <div class="card-description">
-        {{{wieldOutcomeText}}}
-      </div>
-    {{/if}}
+  {{/if}}
 </div>
 
 {{#if buttons}}
-<div class="item-buttons">
+  <div class="item-buttons">
     {{#each buttons}}
-    <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
-     {{localize title}}
-    </button>
+      <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
+        {{localize title}}
+      </button>
     {{/each}}
-</div>
+  </div>
 {{/if}}

@@ -6,9 +6,10 @@ import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
 import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
-import { drawTable, evaluateFormula, getRollOutcome } from "../utils.js";
+import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, evaluateFormula, getRollOutcome } from "../utils.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
 import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
+import { BUTTON_ACTIONS } from "../system/render-chat-message.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll-card.html";
@@ -378,8 +379,7 @@ export class PBActor extends Actor {
       // MISS!!!
       if (isFumble) {
         if (isGunpowderWeapon) {
-          const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
-          const draw = await table.draw({ displayChat: false });
+          const draw = await drawGunpowderFumble();
           attackOutcome = game.i18n.localize("PB.AttackFumble");
           attackOutcomeDescription = draw.results[0].data.text;
         } else {
@@ -677,7 +677,7 @@ export class PBActor extends Actor {
   }
 
   async checkReaction() {
-    const result = await drawTable("pirateborg.rolls-gamemaster", "Reaction");
+    const result = await drawReaction();
     await showGenericWieldCard({
       title: game.i18n.localize("PB.Reaction"),
       actor: this,
@@ -727,7 +727,7 @@ export class PBActor extends Actor {
             formula: formula,
             "wield-formula": wieldFormulaLabel,
             dr: 12,
-            "is-extra-resource": true,
+            action: BUTTON_ACTIONS.EXTRA_RESOURCE,
           },
         },
       ],
@@ -748,7 +748,7 @@ export class PBActor extends Actor {
             formula: "d20+@abilities.spirit.value",
             "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
             dr: 12,
-            "is-ancient-relic": true,
+            action: BUTTON_ACTIONS.ANCIENT_RELIC,
           },
         },
       ],
@@ -773,29 +773,13 @@ export class PBActor extends Actor {
             formula: "d20+@abilities.spirit.value",
             "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
             dr: 12,
-            "is-arcane-ritual": true,
+            action: BUTTON_ACTIONS.ARCANE_RITUAL,
           },
         },
       ],
     });
 
     await this.useActionMacro(item.id);
-  }
-
-  /**
-   * Return the data for a Mystical Mishap
-   * @param {boolean} isFumble
-   * @returns {Promise<{roll, formula: string, title: string, items}>}
-   */
-  async rollMysticalMishap(isFumble = false) {
-    const draw = await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps");
-
-    return {
-      title: game.i18n.format("PB.MysticalMishaps"),
-      formula: isFumble ? "2d20kl" : "1d20",
-      roll: draw.roll,
-      items: draw.results,
-    };
   }
 
   async useActionMacro(itemId) {
@@ -1069,7 +1053,7 @@ export class PBActor extends Actor {
   }
 
   async rollBroken() {
-    const draw = await drawTable("pirateborg.rolls-gamemaster", "Broken");
+    const draw = await drawBroken();
 
     await showGenericWieldCard({
       actor: this,
@@ -1176,7 +1160,7 @@ export class PBActor extends Actor {
   }
 
   async rollShipSink() {
-    const result = await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage");
+    const result = await drawDerelictTakesDamage();
     await showGenericWieldCard({
       title: game.i18n.localize("PB.ShipSinking"),
       actor: this,
@@ -1221,7 +1205,7 @@ export class PBActor extends Actor {
             formula: "d20",
             "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
             dr: 12,
-            "is-shanties": true,
+            action: BUTTON_ACTIONS.SHANTIES,
           },
         },
       ],
@@ -1264,7 +1248,7 @@ export class PBActor extends Actor {
           {
             title: "PB.ShipDealDamageButton",
             data: {
-              "is-damage": true,
+              action: BUTTON_ACTIONS.DAMAGE,
               armor: selectedArmor,
               "is-critical": rollOutcome.isCriticalSuccess,
               damage: this.broadsidesDie,
@@ -1312,7 +1296,7 @@ export class PBActor extends Actor {
           {
             title: "PB.ShipDealDamageButton",
             data: {
-              "is-damage": true,
+              action: BUTTON_ACTIONS.DAMAGE,
               armor: selectedArmor,
               "is-critical": rollOutcome.isCriticalSuccess,
               damage: this.smallArmsDie,
@@ -1353,7 +1337,7 @@ export class PBActor extends Actor {
         {
           title: "PB.ShipDealDamageButton",
           data: {
-            "is-damage": true,
+            action: BUTTON_ACTIONS.DAMAGE,
             armor: selectedArmor,
             damage: this.ramDie,
           },
@@ -1436,7 +1420,7 @@ export class PBActor extends Actor {
       const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
       const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
       const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
-      const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { "is-repair-crew-action": true } }] : [];
+      const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { action: BUTTON_ACTIONS.REPAIR_CREW_ACTION } }] : [];
 
       await showGenericWieldCard({
         title: game.i18n.localize("PB.ShipCrewActionRepair"),
