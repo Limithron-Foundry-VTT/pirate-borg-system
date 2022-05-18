@@ -145,7 +145,7 @@ export const rollLuck = (luckDie) => {
 export const rollHitPoints = async (startingHitPoints, toughness) => {
   const roll = new Roll(startingHitPoints);
   const hp = (await roll.evaluate()).total + toughness;
-  return hp < 0 ? 1 : hp;
+  return hp <= 0 ? 1 : hp;
 };
 
 export const rollSilver = (background) => {
@@ -474,12 +474,12 @@ export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   for (const result of results) {
-    if (result.data.type === 2) {
+    if (result.data.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
       item = await findCompendiumItem(result.data.collection, result.data.text);
       if (item) {
         items.push(item);
       }
-    } else if (result.data.type === 0 && item) {
+    } else if (result.data.type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
       const [property, value] = result.getChatText().split(": ");
       const enrichHtml = TextEditor.enrichHTML(value, {
         options: { command: true },
