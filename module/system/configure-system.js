@@ -9,6 +9,7 @@ import { PBItemSheet } from "../item/sheet/item-sheet.js";
 import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
 import * as pirateFactory from "../scvm/scvmfactory.js";
 import * as macroHelpers from "../macro-helpers.js";
+import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 
 export const configureSystem = () => {
@@ -53,9 +54,14 @@ export const configureSystem = () => {
   });
 
   Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
-    types: ["vehicle"],
+    types: ["vehicle", "vehicle_creature"],
     makeDefault: true,
     label: "PB.SheetClassVehicle",
+  });
+
+  Actors.registerSheet("pirateborg", PBActorSheetVehicleEdit, {
+    types: ["vehicle", "vehicle_creature"],
+    label: "PB.SheetClassVehicleEdit",
   });
 
   Items.unregisterSheet("core", ItemSheet);

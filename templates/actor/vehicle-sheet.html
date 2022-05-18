@@ -1,0 +1,231 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <div class="header-col1">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="header-col2">
+      <div class="name-row">
+        <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
+      </div>
+
+      <div class="stats-row">
+        <div class="stats-entries">
+          <span class="stat-label">{{ localize "PB.HP" }}</span>
+          <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
+          <span>/</span>
+          <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stats-entries">
+          <span class="stat-label">{{ localize "PB.ShipCrew" }}</span>
+          <input class="stat-input" name="data.crew.value" type="number" value="{{data.data.crew.value}}" data-dtype="Number" />
+          <span class="rule-text">{{data.data.crew.min}} / {{data.data.crew.max}}</span>  
+        </div>
+      </div>
+    </div>
+
+    <div class="header-col3">
+      <div class="ability-row">
+        <input
+          class="ability-input"
+          type="text"
+          name="data.abilities.agility.value"
+          value="{{numberFormat data.data.abilities.agility.value decimals=0 sign=true}}"
+          data-dtype="Number"
+          size="3"
+        />
+        <span class="ability-label rollable agility">{{ localize 'PB.AbilityAgility' }}</span>
+      </div>
+      <div class="ability-row">
+        <input
+          class="ability-input"
+          type="text"
+          name="data.abilities.strength.value"
+          value="{{numberFormat data.data.abilities.skill.value decimals=0 sign=true}}"
+          data-dtype="Number"
+          size="3"
+        />
+        <span class="ability-label rollable skill">{{ localize 'PB.AbilitySkill' }}</span>
+      </div>
+      <div class="ability-row">
+        <input
+          class="ability-input"
+          type="text"
+          name="data.speed.max"
+          value="{{data.data.speed.max}}"
+          data-dtype="Number"
+          size="3"
+        />
+        <span class="ability-label">{{ localize 'PB.ShipSpeed' }}</span>
+      </div>
+
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="tab combat-tab">      
+      <div class="description">
+        {{{data.data.description}}}
+      </div>      
+
+      {{#if special}}
+        <div class="special">
+          {{data.data.special}}
+        </div>
+      {{/if}}
+
+      {{#*inline "static-list-item"}}
+        {{#> "systems/pirateborg/templates/actor/common/static-list-item.html" }}
+          {{> @partial-block }}
+        {{/"systems/pirateborg/templates/actor/common/static-list-item.html"}}
+      {{/inline}} 
+
+      {{#*inline "static-list"}}
+        {{#> "systems/pirateborg/templates/actor/common/static-list.html" }}
+          {{> @partial-block }}
+        {{/"systems/pirateborg/templates/actor/common/static-list.html"}}
+      {{/inline}} 
+
+      {{#*inline "dynamic-list"}}
+        {{#> "systems/pirateborg/templates/actor/common/dynamic-list.html" }}
+          {{> @partial-block }}
+        {{/"systems/pirateborg/templates/actor/common/dynamic-list.html"}}
+      {{/inline}} 
+      
+      {{#*inline "crew-action"}}
+        {{#> static-list-item type="crew-action" class=class}}
+          <img src="{{img}}" title="{{localize name}}" width="24" height="24" />
+          <h4 class="item-name">
+            {{localize name}}
+          </h4>
+          
+          <div class="item-ship-damage">
+            {{#if quantity}}{{ quantity }} x {{/if}}{{ die }}
+          </div>
+
+          <div class="item-buttons">
+            {{#if has-pc-action}}
+              <button type="button" class="item-button rollable action-pc-action" data-action="{{class}}" title="PC Action">
+                {{localize "PB.ShipPCAction"}} 
+              </button>
+            {{/if}}
+            {{#if has-crew-action}}
+              <button type="button" class="item-button rollable action-crew-action" data-action="{{class}}" title="Crew Action">
+                {{localize "PB.ShipCrewAction"}}
+              </button>
+            {{/if}}
+          </div>
+        {{/static-list-item}}
+        
+        {{#if warning}}
+            {{#> static-list-item class="item-warning"}}
+            <div class="rule-text you-have-no {{#if enableWarning}}warning{{/if}}" >{{warning}}</div>  
+          {{/static-list-item}}
+        {{/if}}
+      {{/inline}}
+
+      <div class="ship-combat-row">
+        <div class="ship-hull">
+          <div class="ship-hull-label">{{localize "PB.ShipHull"}}</div>
+          <ul class="tiers">
+            <li>
+              <label>
+                <input class="tier-radio" type="radio" name="hull.value" value="0" {{#ifEq data.data.hull.value 0}}checked{{/ifEq}}/>
+                <span class="tier-num">0</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input class="tier-radio" type="radio" name="hull.value" value="1" {{#ifLt data.data.hull.max 1}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 1}}checked{{/ifEq}}/>
+                <span class="tier-num">d2</span>
+              </label>
+            </li>
+            <li>
+              <label
+                ><input class="tier-radio" type="radio" name="hull.value" value="2" {{#ifLt data.data.hull.max 2}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 2}}checked{{/ifEq}}/>
+                <span class="tier-num">d4</span>
+              </label>
+            </li>
+            <li>
+              <label
+                ><input class="tier-radio" type="radio" name="hull.value" value="3" {{#ifLt data.data.hull.max 3}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 3}}checked{{/ifEq}}/>
+                <span class="tier-num">d6</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="ship-actions">
+          <button type="button" class="button item-button icon-button rotate-left" title="{{localize 'PB.ShipRotateLeft'}}">
+            <i class="fas fa-undo"></i>
+          </button>   
+          <button type="button" class="button item-button icon-button rotate-right" title="{{localize 'PB.ShipRotateRight'}}">
+            <i class="fas fa-redo"></i>
+          </button>                 
+          <button type="button" class="button item-button sinking-button" title="{{localize 'PB.ShipSinking'}}">
+            {{localize "PB.ShipSinking"}}
+          </button>          
+          <button type="button" class="button item-button initiative-button" title="{{localize 'PB.Initiative'}}">
+            {{localize "PB.Initiative"}}
+          </button>
+        </div>
+      </div>
+
+      {{#> static-list label="PB.ShipCrewActions" }}
+        {{> crew-action 
+          name="PB.ShipCrewActionBroadsides" 
+          class="broadsides" 
+          img="systems/pirateborg/icons/misc/broadside.png" 
+          die=data.data.broadsidesDie 
+          quantity=data.data.broadsidesQuantity
+          warning=data.data.broadsidesWarning
+          enableWarning=data.data.hasBroadsidesPenalties
+          has-pc-action=data.data.hasCrew 
+          has-crew-action=true 
+        }}
+        {{> crew-action 
+          name="PB.ShipCrewActionSmallArms" 
+          class="small-arms" 
+          img="systems/pirateborg/icons/misc/small-arm.png" 
+          die=data.data.smallArmsDie 
+          quantity=data.data.smallArmsQuantity
+          warning=data.data.smallArmsWarning
+          enableWarning=data.data.hasSmallArmsPenalties
+          has-pc-action=data.data.hasCrew
+          has-crew-action=true
+         }}
+        {{> crew-action name="PB.ShipCrewActionFullSail" class="full-sail" img="systems/pirateborg/icons/misc/full-sail.png" has-pc-action=data.data.hasCrew has-crew-action=true }}
+        {{> crew-action name="PB.ShipCrewActionComeAbout" class="come-about" img="systems/pirateborg/icons/misc/come-about.png" has-pc-action=data.data.hasCrew has-crew-action=true  }}
+        {{> crew-action name="PB.ShipCrewActionDropAnchor" class="drop-anchor" img="systems/pirateborg/icons/misc/anchor.png" has-crew-action=true}}
+        {{> crew-action name="PB.ShipCrewActionWeighAnchor" class="weigh-anchor" img="systems/pirateborg/icons/misc/anchor.png" has-crew-action=true}}
+        {{> crew-action name="PB.ShipCrewActionRepair" class="repair" img="systems/pirateborg/icons/misc/repair.png" has-pc-action=data.data.hasCrew has-crew-action=true }}
+        {{> crew-action name="PB.ShipCrewActionBoardingParty" class="boarding-party" img="systems/pirateborg/icons/misc/boarding-party.png" has-crew-action=true}}
+        {{> crew-action name="PB.ShipCrewActionRam" class="ram" img="systems/pirateborg/icons/misc/ram.png" has-crew-action=true die=data.data.ramDie }}                
+      {{/static-list}}
+
+      {{> dynamic-list items=data.data.crews type="crew" label="PB.ShipCrew" emptyMessage="PB.EmptyCrew"}}
+
+      {{> dynamic-list items=data.data.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.data.cargo.max currentQuantity=data.data.cargo.value }}
+
+      {{#if (eq data.type 'vehicle')}}
+        {{#*inline "mystic-chanties"}}
+          {{#*inline "extra-header"}}
+            <div class="item-name-extra">
+              <span class="rule-text mystic-shanties-roll-button rollable">({{ localize "PB.ShipShantiesPerRest"}})</span>
+              <input class="stat-input" name="data.shanties.value" type="number" value="{{data.data.shanties.value}}" data-dtype="Number" />
+            </div>
+          {{/inline}} 
+          {{> dynamic-list items=data.data.mysticShanties type="mysticShanty" label="PB.ShipMysticShanties" emptyMessage="PB.ShipMysticShantiesEmpty" }}
+        {{/inline}}
+        {{> mystic-chanties}}
+      {{/if}}
+
+      {{> dynamic-list items=data.data.features type="feature" label="PB.ShipFeatures"}}
+      
+    </div>
+    
+  </section>
+</form>

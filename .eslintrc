@@ -10,7 +10,8 @@
   },
   "extends": ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js"],
   "globals": {
-    "PIXI": "readonly"
+    "PIXI": "readonly",
+    "PoolTerm": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": "latest",

@@ -1,5 +1,5 @@
 import PBActorSheet from "./actor-sheet.js";
-import RestDialog from "./rest-dialog.js";
+import RestDialog from "../../dialog/rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
 
 /**
@@ -80,12 +80,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     };
 
     sheetData.data.class = this.actor.getClass();
-    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
-    sheetData.data.useExtraResource = await this.actor.getUseExtraResource();
-    sheetData.data.extraResourceNamePlural = await this.actor.getExtraResourceNamePlural();
-    sheetData.data.extraResourceFormulaLabel = await this.actor.getExtraResourceFormulaLabel();
-    sheetData.data.luckDie = await this.actor.getLuckDie();
-    
+
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
@@ -269,7 +264,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     this.actor.useActionMacro(itemId);
   }
 
-  async _onLuckLabel(event) {
+  async _onLuckLabel() {
     await ChatMessage.create({
       content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html"),
     });

@@ -5,19 +5,16 @@ import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } f
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
 import { executeMacro } from "../macro-helpers.js";
+import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
+import { drawTable, evaluateFormula, getRollOutcome } from "../utils.js";
+import { showGenericCard } from "../chat-message/generic-card.js";
+import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll-card.html";
-const BROKEN_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/broken-roll-card.html";
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/defend-roll-card.html";
 const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/get-better-roll-card.html";
-const MORALE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/morale-roll-card.html";
-const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-only-roll-card.html";
-const OUTCOME_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/outcome-roll-card.html";
-const REACTION_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/reaction-roll-card.html";
-const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/test-ability-roll-card.html";
-const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-invokable-card.html";
 
 /**
  * @extends {Actor}
@@ -25,37 +22,13 @@ const WIELD_INVOKABLE_CARD_TEMPLATE = "systems/pirateborg/templates/chat/wield-i
 export class PBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
-    data.token = data.token || {};
-    let defaults = {};
-    if (data.type === "character") {
-      defaults = {
-        actorLink: true,
-        disposition: 1,
-        vision: true,
-        displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-        displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
-      };
-    } else if (data.type === "container") {
-      defaults = {
-        actorLink: false,
-        disposition: 0,
-        vision: false,
-      };
-    } else if (data.type === "creature") {
-      defaults = {
-        actorLink: false,
-        disposition: -1,
-        vision: false,
-      };
-    }
-    mergeObject(data.token, defaults, { overwrite: false });
+    mergeObject(data, CONFIG.PB.actorDefaults[data.type] || {}, { overwrite: false });
     return super.create(data, options);
   }
 
   /** @override */
   _onCreate(data, options, userId) {
     if (data.type === "character") {
-      // give Characters a default class
       this._addDefaultClass();
     }
     super._onCreate(data, options, userId);
@@ -100,6 +73,20 @@ export class PBActor extends Actor {
 
     if (this.type === "container") {
       this.data.data.containerSpace = this.containerSpace();
+    }
+
+    if (this.type === "vehicle") {
+      this.data.data.cargo.value = this.cargoItems.length;
+      if (this.data.data.broadsidesQuantity > 1) {
+        this.data.data.hasBroadsidesPenalties = this.data.data.hp.value < this.data.data.hp.max - this.data.data.hp.max / this.data.data.broadsidesQuantity;
+      } else {
+        this.data.data.hasBroadsidesPenalties = false;
+      }
+      if (this.data.data.broadsidesQuantity > 1) {
+        this.data.data.hasSmallArmsPenalties = this.data.data.hp.value < this.data.data.hp.max - this.data.data.hp.max / this.data.data.smallArmsQuantity;
+      } else {
+        this.data.data.hasSmallArmsPenalties = false;
+      }
     }
   }
 
@@ -157,12 +144,10 @@ export class PBActor extends Actor {
   }
 
   async equipItem(item) {
-    console.log('equipItem', item);
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       for (const otherItem of this.items) {
         if (otherItem.type === item.type && otherItem.id !== item.id) {
           await otherItem.unequip();
-          console.log('unequip equip hat armor', otherItem.id, otherItem.type, otherItem);
         }
       }
     }
@@ -201,19 +186,14 @@ export class PBActor extends Actor {
   }
 
   async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
-    const abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
-    abilityRoll.evaluate({ async: false });
-    ChatMessage.create({
-      content: await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, {
-        abilityKey,
-        abilityRoll,
-        displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
-        drModifiers,
-      }),
-      sound: diceSound(),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll: abilityRoll,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+    const roll = await evaluateFormula(`1d20+@abilities.${ability}.value`, this.getRollData());
+
+    await showGenericWieldCard({
+      title: game.i18n.localize(abilityKey),
+      actor: this,
+      description: drModifiers,
+      wieldFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
+      wieldRoll: roll,
     });
   }
 
@@ -250,6 +230,14 @@ export class PBActor extends Actor {
 
   async testSpirit() {
     await this._testAbility("spirit", "PB.AbilitySpirit", "PB.AbilitySpiritAbbrev", null);
+  }
+
+  async testShipSkill() {
+    await this._testAbility("skill", "PB.AbilitySkill", "PB.AbilitySkillAbbrev", null);
+  }
+
+  async testShipAgility() {
+    await this._testAbility("agility", "PB.AbilityAgility", "PB.AbilityAgilityAbbrev", null);
   }
 
   /**
@@ -666,70 +654,36 @@ export class PBActor extends Actor {
     });
   }
 
-  /**
-   * Check morale!
-   */
   async checkMorale() {
-    const actorRollData = this.getRollData();
-    const moraleRoll = new Roll("2d6", actorRollData);
-    moraleRoll.evaluate({ async: false });
-    await showDice(moraleRoll);
+    const moraleRoll = await evaluateFormula("2d6");
+    const wieldData = {};
 
-    let outcomeRoll = null;
-    // must have a non-zero morale to possibly fail a morale check
     if (this.data.data.morale && moraleRoll.total > this.data.data.morale) {
-      outcomeRoll = new Roll("1d6", actorRollData);
-      outcomeRoll.evaluate({ async: false });
-      await showDice(outcomeRoll);
-    }
-    await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
-  }
-
-  /**
-   * Show morale roll/result in a chat roll card.
-   */
-  async _renderMoraleRollCard(moraleRoll, outcomeRoll) {
-    let outcomeKey = null;
-    if (outcomeRoll) {
-      outcomeKey = outcomeRoll.total <= 3 ? "PB.MoraleFlees" : "PB.MoraleSurrenders";
+      const outcomeRoll = await evaluateFormula("1d6");
+      wieldData.secondaryWieldRoll = outcomeRoll;
+      wieldData.secondaryWieldFormula = outcomeRoll.formula;
+      wieldData.wieldOutcome = outcomeRoll.total <= 3 ? game.i18n.localize("PB.MoraleFlees") : game.i18n.localize("PB.MoraleSurrenders");
     } else {
-      outcomeKey = "PB.StandsFirm";
+      wieldData.wieldOutcome = game.i18n.localize("PB.StandsFirm");
     }
-    ChatMessage.create({
-      content: await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, {
-        actor: this,
-        outcomeRoll,
-        outcomeText: game.i18n.localize(outcomeKey),
-        moraleRoll,
-      }),
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.Morale"),
+      actor: this,
+      wieldFormula: moraleRoll.formula,
+      wieldRoll: moraleRoll,
+      ...wieldData,
     });
   }
 
-  /**
-   * Check reaction!
-   */
   async checkReaction() {
-    const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Reaction");
-    const result = await table.draw({ displayChat: false });
-    await this._renderReactionRollCard(result);
-  }
-
-  /**
-   * Show reaction roll/result in a chat roll card.
-   */
-  async _renderReactionRollCard(result) {
-    ChatMessage.create({
-      content: await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, {
-        actor: this,
-        reactionRoll: result.roll,
-        reactionText: result.results[0].data.text,
-      }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll: result.roll,
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+    const result = await drawTable("pirateborg.rolls-gamemaster", "Reaction");
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.Reaction"),
+      actor: this,
+      wieldOutcome: result.results.map((r) => r.data.text),
+      wieldFormula: result.roll.formula,
+      wieldRoll: result.roll,
     });
   }
 
@@ -759,12 +713,11 @@ export class PBActor extends Actor {
     }
 
     const clazz = this.getClass();
-    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel
+    const wieldFormulaLabel = clazz.data.data.extraResourceTestFormulaLabel || (await this.getBaseClass()).data?.data.extraResourceTestFormulaLabel;
     const formula = clazz.data.data.extraResourceTestFormula || (await this.getBaseClass()).data?.data.extraResourceTestFormula;
 
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
-      item: item.data,
-      actor: this.data,
+    await showGenericCard({
+      actor: this,
       title: item.name,
       description: item.data.data.description,
       buttons: [
@@ -780,21 +733,12 @@ export class PBActor extends Actor {
       ],
     });
 
-    await ChatMessage.create({
-      content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flags: {
-        itemId: item.id,
-      },
-    });
-
     await this.useActionMacro(item.id);
   }
 
   async invokeAncientRelic(item) {
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
-      item: item.data,
-      actor: this.data,
+    await showGenericCard({
+      actor: this,
       title: item.name,
       description: item.data.data.description,
       buttons: [
@@ -809,17 +753,7 @@ export class PBActor extends Actor {
         },
       ],
     });
-
-    await ChatMessage.create({
-      content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flags: {
-        itemId: item.id,
-      },
-    });
-
     await this.useActionMacro(item.id);
-    
   }
 
   async invokeArcaneRitual(item) {
@@ -828,9 +762,8 @@ export class PBActor extends Actor {
       return;
     }
 
-    const html = await renderTemplate(WIELD_INVOKABLE_CARD_TEMPLATE, {
-      item: item.data,
-      actor: this.data,
+    await showGenericCard({
+      actor: this,
       title: item.name,
       description: item.data.data.description,
       buttons: [
@@ -846,14 +779,6 @@ export class PBActor extends Actor {
       ],
     });
 
-    await ChatMessage.create({
-      content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flags: {
-        itemId: item.id,
-      },
-    });
-
     await this.useActionMacro(item.id);
   }
 
@@ -863,10 +788,7 @@ export class PBActor extends Actor {
    * @returns {Promise<{roll, formula: string, title: string, items}>}
    */
   async rollMysticalMishap(isFumble = false) {
-    const pack = game.packs.get("pirateborg.rolls-gamemaster");
-    const content = await pack.getDocuments();
-    const table = content.find((i) => i.name === "Mystical Mishaps");
-    const draw = await table.draw({ displayChat: false });
+    const draw = await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps");
 
     return {
       title: game.i18n.format("PB.MysticalMishaps"),
@@ -891,68 +813,46 @@ export class PBActor extends Actor {
     }
   }
 
-  async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula = null) {
-    const roll = new Roll(dieRoll, rollData);
-    await roll.evaluate();
-    ChatMessage.create({
-      content: await renderTemplate(OUTCOME_ROLL_CARD_TEMPLATE, {
-        cardTitle: cardTitle,
-        outcomeText: outcomeTextFn(roll),
-        roll,
-        rollFormula: rollFormula ?? roll.formula,
-      }),
-      sound: diceSound(),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-    });
-    return roll;
-  }
-
   async rollLuck() {
-    const classItem = this.items.filter((x) => x.type === "class").pop();
-    if (!classItem) {
+    if (!this.getClass()) {
       return;
     }
-    const roll = await this._rollOutcome(
-      "@luckDie",
-      { luckDie: await this.getLuckDie() },
-      `${game.i18n.localize("PB.Luck")}`,
-      (roll) => ` ${game.i18n.localize("PB.Luck")}: ${Math.max(0, roll.total)}`
-    );
+    const roll = await evaluateFormula("@luckDie", { luckDie: await this.getLuckDie() });
+    await showGenericWieldCard({
+      actor: this,
+      title: game.i18n.localize("PB.Luck"),
+      wieldFormula: roll.formula,
+      wieldRoll: roll,
+    });
     const newLuck = Math.max(0, roll.total);
     await this.update({ ["data.luck"]: { max: newLuck, value: newLuck } });
   }
 
   async rollRitualPerDay() {
-    const roll = await this._rollOutcome(
-      "d4+@abilities.spirit.value",
-      this.getRollData(),
-      `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize("PB.PerDay")}`,
-      (roll) => ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(0, roll.total)}`,
-      `1d4 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`
-    );
-    const newUses = Math.max(0, roll.total);
-    await this.update({
-      ["data.powerUses"]: { max: newUses, value: newUses },
+    const roll = await evaluateFormula("d4+@abilities.spirit.value", this.getRollData());
+    await showGenericWieldCard({
+      actor: this,
+      title: `${game.i18n.localize("PB.RitualRemaining")} ${game.i18n.localize("PB.PerDay")}`,
+      wieldFormula: game.i18n.localize("PB.RitualPerday"),
+      wieldRoll: roll,
     });
+    const newUses = Math.max(0, roll.total);
+    await this.update({ "data.powerUses": { max: newUses, value: newUses } });
   }
 
   async rollExtraResourcePerDay() {
     const clazz = this.getClass();
     const baseClass = await this.getBaseClass();
     if (clazz.data.data.useExtraResource || baseClass.data?.data.useExtraResource) {
-      const roll = await this._rollOutcome(
-        clazz.data.data.extraResourceFormula || baseClass.data?.data.extraResourceFormula,
-        this.getRollData(),
-        `${clazz.data.data.extraResourceNamePlural || baseClass.data?.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
-        (roll) => ` ${game.i18n.localize("PB.PowerUsesRemaining")}: ${Math.max(0, roll.total)}`,
-        clazz.data.data.extraResourceFormulaLabel || baseClass.data?.data.extraResourceNamePlural
-      );
-      const newUses = Math.max(0, roll.total);
-      await this.update({
-        ["data.extraResourceUses"]: { max: newUses, value: newUses },
+      const roll = await evaluateFormula(clazz.data.data.extraResourceFormula || baseClass.data?.data.extraResourceFormula, this.getRollData());
+      await showGenericWieldCard({
+        actor: this,
+        title: `${clazz.data.data.extraResourceNamePlural || baseClass.data?.data.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
+        wieldFormula: clazz.data.data.extraResourceFormulaLabel || baseClass.data?.data.extraResourceFormulaLabel,
+        wieldRoll: roll,
       });
+      const newUses = Math.max(0, roll.total);
+      await this.update({ "data.extraResourceUses": { max: newUses, value: newUses } });
     }
   }
 
@@ -993,47 +893,48 @@ export class PBActor extends Actor {
   }
 
   async showRestNoEffect() {
-    const result = {
-      cardTitle: game.i18n.localize("PB.Rest"),
-      outcomeText: game.i18n.localize("PB.NoEffect"),
-    };
-    const html = await renderTemplate(OUTCOME_ONLY_ROLL_CARD_TEMPLATE, result);
-    await ChatMessage.create({
-      content: html,
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+    await showGenericCard({
+      actor: this,
+      title: game.i18n.localize("PB.Rest"),
+      description: game.i18n.localize("PB.NoEffect"),
     });
   }
 
   async rollHealHitPoints(dieRoll) {
-    const roll = await this._rollOutcome(
-      dieRoll,
-      this.getRollData(),
-      game.i18n.localize("PB.Rest"),
-      (roll) => `${game.i18n.localize("PB.Heal")} ${roll.total} ${game.i18n.localize("PB.HP")}`
-    );
+    const roll = await evaluateFormula(dieRoll, this.getRollData());
+    await showGenericWieldCard({
+      actor: this,
+      title: game.i18n.localize("PB.Rest"),
+      wieldFormula: dieRoll,
+      wieldRoll: roll,
+      wieldOutcome: `${game.i18n.localize("PB.Heal")} ${roll.total} ${game.i18n.localize("PB.HP")}`,
+    });
     const newHP = Math.min(this.data.data.hp.max, this.data.data.hp.value + roll.total);
     await this.update({ ["data.hp.value"]: newHP });
   }
 
   async rollStarvation() {
-    const roll = await this._rollOutcome(
-      "d4",
-      this.getRollData(),
-      game.i18n.localize("PB.Starvation"),
-      (roll) => `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`
-    );
+    const roll = await evaluateFormula("d4");
+    await showGenericWieldCard({
+      actor: this,
+      title: game.i18n.localize("PB.Starvation"),
+      wieldFormula: "d4",
+      wieldRoll: roll,
+      wieldOutcome: `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`,
+    });
     const newHP = this.data.data.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
   }
 
   async rollInfection() {
-    const roll = await this._rollOutcome(
-      "d6",
-      this.getRollData(),
-      game.i18n.localize("PB.Infection"),
-      (roll) => `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`
-    );
+    const roll = await evaluateFormula("d6");
+    await showGenericWieldCard({
+      actor: this,
+      title: game.i18n.localize("PB.Infection"),
+      wieldFormula: "d6",
+      wieldRoll: roll,
+      wieldOutcome: `${game.i18n.localize("PB.Take")} ${roll.total} ${game.i18n.localize("PB.Damage")}`,
+    });
     const newHP = this.data.data.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
   }
@@ -1168,18 +1069,14 @@ export class PBActor extends Actor {
   }
 
   async rollBroken() {
-    const table = await findCompendiumItem("pirateborg.rolls-gamemaster", "Broken");
-    const result = await table.draw({ displayChat: false });
+    const draw = await drawTable("pirateborg.rolls-gamemaster", "Broken");
 
-    ChatMessage.create({
-      content: await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, {
-        brokenRoll: result.roll,
-        outcomes: result.results.map((r) => r.data.text),
-      }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      roll: result.roll,
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+    await showGenericWieldCard({
+      actor: this,
+      title: game.i18n.localize("PB.Broken"),
+      wieldFormula: draw.roll.formula,
+      wieldRoll: draw.roll,
+      wieldOutcomeDescription: draw.results.map((r) => r.data.text),
     });
   }
 
@@ -1188,13 +1085,15 @@ export class PBActor extends Actor {
   }
 
   async setBaseClass(baseClass) {
-    await this.update({ "data.baseClass": baseClass });
+    await this.update({ ["data.baseClass"]: baseClass });
   }
 
   async getBaseClass() {
     const [compendium, item] = this.data.data.baseClass.split(";");
-    const baseClass = await findCompendiumItem(compendium, item);
-    return baseClass;
+    if (compendium && item) {
+      const baseClass = await findCompendiumItem(compendium, item);
+      return baseClass;
+    }
   }
 
   async getLuckDie() {
@@ -1205,5 +1104,362 @@ export class PBActor extends Actor {
       return null;
     }
     return baseClass ? baseClass.data.data.luckDie : currentClass.data.data.luckDie;
+  }
+
+  // Ships
+
+  get cargoItems() {
+    return this.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo);
+  }
+
+  get broadsidesDie() {
+    return this.data.data.broadsidesDie;
+  }
+
+  get smallArmsDie() {
+    return this.data.data.smallArmsDie;
+  }
+
+  get ramDie() {
+    return this.data.data.ramDie;
+  }
+
+  get captain() {
+    return this.data.data.captain;
+  }
+
+  async setCaptain(actorId) {
+    return await this.update({ "data.captain": actorId });
+  }
+
+  get shanties() {
+    return this.data.data.shanties;
+  }
+
+  async setShanties({ value, max }) {
+    return await this.update({ "data.shanties": { max: value, value: max } });
+  }
+
+  get crews() {
+    return this.data.data.crews || [];
+  }
+
+  async setCrews(crews) {
+    return await this.update({ "data.crews": crews });
+  }
+
+  async addCrew(actorId) {
+    if (!this.crews.includes(actorId)) {
+      return await this.setCrews([...this.crews, actorId]);
+    }
+  }
+
+  async removeCrew(actorId) {
+    const crews = this.crews.filter((crew) => crew !== actorId);
+    if (this.captain === actorId) {
+      await this.setCaptain(null);
+    }
+    return await this.setCrews(crews);
+  }
+
+  async clearCrews() {
+    await this.setCaptain(null);
+    return await this.setCrews([]);
+  }
+
+  async rotateToken(angle) {
+    const token = this.token || game.scenes.current.tokens.find((token) => token.actor.id === this.id);
+    if (token) {
+      const currentRotation = token.data.rotation;
+      await token.update({ rotation: currentRotation + angle });
+    }
+  }
+
+  async rollShipSink() {
+    const result = await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage");
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipSinking"),
+      actor: this,
+      wieldOutcome: game.i18n.localize("PB.ShipSinkingMessage"),
+      wieldFormula: result.roll.formula,
+      wieldRoll: result.roll,
+      wieldOutcomeDescription: result.results.map((r) => r.data.text),
+    });
+  }
+
+  async rollMysticShantiesPerDay() {
+    const captain = game.actors.get(this.captain);
+    const roll = await evaluateFormula("@mysticShantiesDie + @captain.abilities.spirit.value", {
+      mysticShantiesDie: "d4",
+      captain: captain?.getRollData(),
+    });
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipMysticShanties"),
+      actor: this,
+      wieldFormula: "d4 + Captain Spirit",
+      wieldRoll: roll,
+    });
+
+    await this.setShanties({ max: Math.max(0, roll.total), value: Math.max(0, roll.total) });
+  }
+
+  async invokeShanties(item) {
+    if (this.shanties.value < 1) {
+      ui.notifications.error(`${game.i18n.localize("PB.ShipNoShantiesUsesRemaining")}!`);
+      return;
+    }
+
+    await showGenericCard({
+      title: item.name,
+      actor: this,
+      description: item.data.data.description,
+      buttons: [
+        {
+          title: "PB.TestShanties",
+          data: {
+            formula: "d20",
+            "wield-formula": `1d20 + ${game.i18n.localize("PB.AbilitySpiritAbbrev")}`,
+            dr: 12,
+            "is-shanties": true,
+          },
+        },
+      ],
+    });
+
+    await this.useActionMacro(item.id);
+  }
+
+  _shipActionOutcomeText(rollOutcome) {
+    switch (rollOutcome.outcome) {
+      case CONFIG.PB.outcome.fumble:
+        return game.i18n.localize("PB.OutcomeFumble");
+      case CONFIG.PB.outcome.critical_success:
+        return game.i18n.localize("PB.OutcomeCriticalSuccess");
+      case CONFIG.PB.outcome.success:
+        return game.i18n.localize("PB.OutcomeSuccess");
+      case CONFIG.PB.outcome.failure:
+        return game.i18n.localize("PB.OutcomeFailure");
+    }
+  }
+
+  async doBroadsidesAction(isPCAction) {
+    const {
+      selectedActor,
+      selectedDR: wieldDR,
+      selectedArmor,
+    } = await showCrewActionDialog({
+      actor: this,
+      enableCrewSelection: isPCAction,
+      enableDrSelection: true,
+      enableArmorSelection: true,
+    });
+
+    const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
+    const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
+    const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const buttons = rollOutcome.isSuccess
+      ? [
+          {
+            title: "PB.ShipDealDamageButton",
+            data: {
+              "is-damage": true,
+              armor: selectedArmor,
+              "is-critical": rollOutcome.isCriticalSuccess,
+              damage: this.broadsidesDie,
+            },
+          },
+        ]
+      : [];
+    const wieldOutcomeDescription = rollOutcome.isCriticalSuccess
+      ? game.i18n.localize("PB.ShipDealDamageCritical")
+      : rollOutcome.isFumble
+      ? game.i18n.localize("PB.ShipDealDamageFumble")
+      : "";
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipCrewActionBroadsides"),
+      description: game.i18n.localize("PB.ShipBroadsidesMessage"),
+      actor: this,
+      wieldDR,
+      wieldFormula,
+      wieldRoll,
+      buttons,
+      wieldOutcomeDescription,
+      wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+    });
+  }
+
+  async doSmallArmsAction(isPCAction) {
+    const {
+      selectedActor,
+      selectedDR: wieldDR,
+      selectedArmor,
+    } = await showCrewActionDialog({
+      actor: this,
+      enableCrewSelection: isPCAction,
+      enableDrSelection: true,
+      enableArmorSelection: true,
+    });
+
+    const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
+    const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
+    const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const buttons = rollOutcome.isSuccess
+      ? [
+          {
+            title: "PB.ShipDealDamageButton",
+            data: {
+              "is-damage": true,
+              armor: selectedArmor,
+              "is-critical": rollOutcome.isCriticalSuccess,
+              damage: this.smallArmsDie,
+            },
+          },
+        ]
+      : [];
+    const wieldOutcomeDescription = rollOutcome.isCriticalSuccess
+      ? game.i18n.localize("PB.ShipDealDamageCritical")
+      : rollOutcome.isFumble
+      ? game.i18n.localize("PB.ShipDealDamageFumble")
+      : "";
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipCrewActionSmallArms"),
+      description: game.i18n.localize("PB.ShipSmallArmsMessage"),
+      actor: this,
+      wieldDR,
+      wieldFormula,
+      wieldRoll,
+      buttons,
+      wieldOutcomeDescription,
+      wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+    });
+  }
+
+  async doRamAction() {
+    const { selectedArmor } = await showCrewActionDialog({
+      actor: this,
+      enableArmorSelection: true,
+    });
+
+    await showGenericCard({
+      title: game.i18n.localize("PB.ShipCrewActionRam"),
+      description: game.i18n.localize("PB.ShipRamMessage"),
+      actor: this,
+      buttons: [
+        {
+          title: "PB.ShipDealDamageButton",
+          data: {
+            "is-damage": true,
+            armor: selectedArmor,
+            damage: this.ramDie,
+          },
+        },
+      ],
+    });
+  }
+
+  async doFullSailAction(isPCAction) {
+    const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
+      actor: this,
+      enableCrewSelection: isPCAction,
+      enableDrSelection: true,
+    });
+
+    const wieldFormula = selectedActor ? "d20 + Ship Agility + PC Agility" : "d20 + Ship Agility";
+    const formula = selectedActor ? "d20 + @abilities.agility.value + @crew.abilities.agility.value" : "d20 + @abilities.agility.value";
+    const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipCrewActionFullSail"),
+      description: game.i18n.localize("PB.ShipFullSailMessage"),
+      actor: this,
+      wieldDR,
+      wieldFormula,
+      wieldRoll,
+      wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+    });
+  }
+
+  async doComeAboutAction(isPCAction) {
+    const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
+      actor: this,
+      enableCrewSelection: isPCAction,
+      enableDrSelection: true,
+    });
+
+    const wieldFormula = selectedActor ? "d20 + Ship Agility + PC Strength" : "d20 + Ship Agility";
+    const formula = selectedActor ? "d20 + @abilities.agility.value + @crew.abilities.strength.value" : "d20 + @abilities.agility.value";
+    const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipCrewActionComeAbout"),
+      description: game.i18n.localize("PB.ShipComeAboutMessage"),
+      actor: this,
+      wieldDR,
+      wieldFormula,
+      wieldRoll,
+      wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+    });
+  }
+
+  async doDropAnchorAction() {
+    await showGenericCard({
+      title: game.i18n.localize("PB.ShipCrewActionDropAnchor"),
+      description: game.i18n.localize("PB.ShipDropAnchorMessage"),
+    });
+  }
+
+  async doWeighAnchorAction() {
+    await showGenericCard({
+      title: game.i18n.localize("PB.ShipCrewActionWeighAnchor"),
+      description: game.i18n.localize("PB.ShipWeighAnchorMessage"),
+    });
+  }
+
+  async doRepairAction(isPCAction) {
+    const canHeal = this.data.data.hp.value < this.data.data.hp.max / 2;
+
+    if (canHeal) {
+      const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
+        actor: this,
+        enableCrewSelection: isPCAction,
+        enableDrSelection: true,
+      });
+
+      const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
+      const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
+      const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+      const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+      const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { "is-repair-crew-action": true } }] : [];
+
+      await showGenericWieldCard({
+        title: game.i18n.localize("PB.ShipCrewActionRepair"),
+        description: game.i18n.localize("PB.ShipRepairMessage"),
+        actor: this,
+        wieldDR,
+        wieldFormula,
+        wieldRoll,
+        wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+        buttons,
+      });
+    } else {
+      await showGenericCard({
+        title: game.i18n.localize("PB.ShipCrewActionRepair"),
+        description: game.i18n.localize("PB.ShipRepairMessage"),
+      });
+    }
+  }
+
+  async doBoardingPartyAction() {
+    await showGenericCard({
+      title: game.i18n.localize("PB.ShipCrewActionBoardingParty"),
+      description: game.i18n.localize("PB.ShipBoardingPartyMessage"),
+    });
   }
 }

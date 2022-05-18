@@ -1,23 +1,10 @@
-import { diceSound, showDice as rollDice } from "./dice.js";
+export { showGenericCard } from "./chat-message/generic-card.js";
+export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
 import { findCompendiumItem } from "./scvm/scvmfactory.js";
-
-export const GENERIC_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
-
-export const showDice = rollDice;
-
-export const createChatMessage = async (actor, template, templateData, { muted = false } = {}) => {
-  const html = await renderTemplate(template, templateData);
-  ChatMessage.create({
-    content: html,
-    sound: !muted ? diceSound() : null,
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
-};
+import { evaluateFormula } from "./utils.js";
 
 export const createRoll = async (formula, rollData = {}) => {
-  const roll = new Roll(formula, rollData);
-  await roll.evaluate();
-  return roll;
+  return await evaluateFormula(formula, rollData);
 };
 
 export const executeMacro = async (macro, { actor, token, item } = {}) => {

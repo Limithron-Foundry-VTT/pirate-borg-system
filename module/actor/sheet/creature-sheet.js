@@ -1,3 +1,4 @@
+import { rollIndividualInitiative } from "../../combat.js";
 import PBActorSheet from "./actor-sheet.js";
 
 /**
@@ -19,8 +20,6 @@ export class PBActorSheetCreature extends PBActorSheet {
           initial: "details",
         },
       ],
-      // is dragDrop needed?
-      // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
 
@@ -33,6 +32,12 @@ export class PBActorSheetCreature extends PBActorSheet {
 
     html.find(".morale").on("click", this._onMoraleRoll.bind(this));
     html.find(".reaction").on("click", this._onReactionRoll.bind(this));
+    html.find(".initiative-button").on("click", this._onInitiativeRoll.bind(this));
+  }
+
+  async _onInitiativeRoll(event) {
+    event.preventDefault();
+    rollIndividualInitiative(this.actor);
   }
 
   /**

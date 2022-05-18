@@ -1,0 +1,138 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <div class="header-col1">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="header-col2">
+      <div class="name-row">
+        <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
+      </div>
+      <div class="actor-type">{{actor.type}}</div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <span class="spacer"></span>
+    <a class="item" data-tab="description">{{ localize "PB.TabDescription" }}</a>
+    <a class="item" data-tab="items">{{ localize "PB.TabItems" }}</a>
+    <a class="item" data-tab="data">{{ localize "PB.TabData" }}</a>
+    <span class="spacer"></span>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+    </div>
+
+    <div class="tab equipment-tab" data-group="primary" data-tab="items">
+      <ol class="items-list equipment-list">
+        {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
+      </ol>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="data">
+      <div class="form-group">
+        <label>{{localize "PB.ItemSpecial"}}:</label>
+        <textarea name="data.special" rows="8">{{data.data.special}}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCurrentHp" }}:</label>
+        <input type="text" name="data.hp.value" value="{{data.data.hp.value}}" placeholder="2" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemMaxHp" }}:</label>
+        <input type="text" name="data.hp.max" value="{{data.data.hp.max}}" placeholder="2" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemAbilitiesAgility" }}:</label>
+        <input type="text" name="data.abilities.agility.value" value="{{data.data.abilities.agility.value}}" placeholder="0" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemAbilitiesSkill" }}:</label>
+        <input type="text" name="data.abilities.skill.value" value="{{data.data.abilities.skill.value}}" placeholder="0" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemSpeedMax" }}:</label>
+        <input type="text" name="data.speed.max" value="{{data.data.speed.max}}" placeholder="2" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCargo" }}:</label>
+        <input type="text" name="data.cargo.max" value="{{data.data.cargo.max}}" placeholder="0" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCrew" }}:</label>
+        <input type="text" name="data.crew.value" value="{{data.data.crew.value}}" placeholder="0" data-dtype="Number" />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCrewMin" }}:</label>
+        <input type="text" name="data.crew.min" value="{{data.data.crew.min}}" placeholder="0" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCrewMax" }}:</label>
+        <input type="text" name="data.crew.max" value="{{data.data.crew.max}}" placeholder="0" data-dtype="Number" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemSmallArmsDie" }}:</label>
+        <input type="text" name="data.smallArmsDie" value="{{data.data.smallArmsDie}}" placeholder="1d6" data-dtype="String" />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.ItemSmallArmsQuantity" }}:</label>
+        <input type="text" name="data.smallArmsQuantity" value="{{data.data.smallArmsQuantity}}" placeholder="1" data-dtype="Number" />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.ItemSmallArmsWarning" }}:</label>
+        <input type="text" name="data.smallArmsWarning" value="{{data.data.smallArmsWarning}}" placeholder="" data-dtype="String" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemBroadsidesDie" }}:</label>
+        <input type="text" name="data.broadsidesDie" value="{{data.data.broadsidesDie}}" placeholder="1d6" data-dtype="String" />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.ItemBroadsidesQuantity" }}:</label>
+        <input type="text" name="data.broadsidesQuantity" value="{{data.data.broadsidesQuantity}}" placeholder="1" data-dtype="Number" />
+      </div>
+      <div class="form-group">
+        <label>{{ localize "PB.ItemBroadsidesWarning" }}:</label>
+        <input type="text" name="data.broadsidesWarning" value="{{data.data.broadsidesWarning}}" placeholder="" data-dtype="String" />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "PB.ItemRamDie" }}:</label>
+        <input type="text" name="data.ramDie" value="{{data.data.ramDie}}" placeholder="1d6" data-dtype="String" />
+      </div>
+
+      {{! Armor Current Tier }}
+      <div class="form-group">
+        <label>{{localize "PB.ItemHullCurrentTier"}}:</label>
+        <select name="data.hull.value" data-dtype="Number">
+          {{#select data.data.hull.value}} {{#each config.armorTiers as |tierObj tierNum|}}
+          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
+          {{/each}} {{/select}}
+        </select>
+      </div>
+
+      {{! Armor Max Tier }}
+      <div class="form-group">
+        <label>{{ localize "PB.ItemHullMaxTier" }}:</label>
+        <select name="data.hull.max" data-dtype="Number">
+          {{#select data.data.hull.max}} {{#each config.armorTiers as |tierObj tierNum|}}
+          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
+          {{/each}} {{/select}}
+        </select>
+      </div>
+    </div>
+  </section>
+</form>

@@ -1,8 +1,54 @@
 {
   "Actor": {
-    "types": ["character", "container", "creature", "vehicle"],
+    "types": ["character", "container", "creature", "vehicle", "vehicle_creature"],
     "templates": {
-      "common": {}
+      "common": {},
+      "vehicule": {
+        "description": "",
+        "special": "",
+        "hp": {
+          "max": 1,
+          "value": 1
+        },
+        "abilities": {
+          "agility": {
+            "value": 0
+          },
+          "skill": {
+            "value": 0
+          }
+        },
+        "speed": {
+          "max": 0,
+          "value": 1
+        },
+        "cargo": {
+          "max": 0,
+          "value": 0
+        },
+        "crew": {
+          "min": 0,
+          "max": 1,
+          "value": 1
+        },
+        "hull": {
+          "min": 0,
+          "max": 1,
+          "value": 1
+        },
+        "shanties": {
+          "min": 0,
+          "max": 0,
+          "value": 0
+        },
+        "smallArmsDie": "",
+        "smallArmsQuantity": 1,
+        "smallArmsWarning": "",
+        "broadsidesDie": "",
+        "broadsidesQuantity": 1,
+        "broadsidesWarning": "",
+        "ramDie": ""
+      }
     },
     "character": {
       "description": "",
@@ -37,7 +83,6 @@
         "max": 0,
         "value": 0
       },
-      "powerUsesRemaining": 0,
       "extraResourceUses": {
         "min": 0,
         "max": 0,
@@ -67,44 +112,14 @@
       "special": ""
     },
     "vehicle": {
-      "description": "",
-      "special": "",
-      "speed": 1,
-      "hp": {
-        "max": 1,
-        "value": 1
-      },
-      "abilities": {
-        "agility": {
-          "value": 0
-        },
-        "skill": {
-          "value": 0
-        }        
-      },
-      "cargo": {
-        "max": 0,
-        "value": 0
-      },
-      "crew": {
-        "min": 0,
-        "max": 1,
-        "value": 1
-      },
-      "hull": {
-        "min": 0,
-        "max": 1,
-        "value": 1
-      },
-      "shanties": {
-        "min": 0,
-        "max": 0,
-        "value": 0
-      }
-    }     
+      "templates": ["vehicle"]
+    },
+    "vehicle_creature": {
+      "templates": ["vehicle"]
+    }
   },
   "Item": {
-    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "armament"],
+    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "shanty"],
     "templates": {
       "equipment": {
         "description": "",
@@ -161,6 +176,11 @@
       "invokableType": "",
       "isEquipment": true,
       "maxQuantity": 1
+    },
+    "shanty": {
+      "description": "",
+      "actionMacro": "",
+      "actionMacroLabel": ""
     },
     "background": {
       "description": "",
@@ -220,12 +240,6 @@
     "cargo": {
       "description": "",
       "value": 0
-    },
-    "armament": {
-      "description": "",
-      "price": 0,
-      "damageDie": "1d1",
-      "weaponType": "small-arms"      
     }
   }
 }

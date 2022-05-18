@@ -1,0 +1,190 @@
+.pirateborg {
+  &.sheet {
+    &.actor {
+      &.vehicle-edit .sheet-header {
+        margin: 16px;
+        display: flex;
+        flex-direction: row;
+        flex: none;
+        align-items: flex-start;
+        gap: 16px;
+
+        .header-col1 {
+          flex: 0 0 64px;
+          margin-right: 8px;
+          line-height: 0;
+        }
+
+        .header-col2 {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          height: 100%;
+          justify-content: flex-start;
+        }
+
+        .profile-img {
+          height: 64px;
+          width: 64px;
+          border-radius: 24px;
+        }
+
+        .name-row {
+          flex: 0 0 45px;
+          width: 100%;
+        }
+
+        .holding-row {
+          flex: 0 0 35px;
+        }
+
+        .actor-type {
+          margin-bottom: 0;
+        }
+      }
+
+      &.vehicle {
+        min-width: 560px;
+
+        .tab {
+          border-top: 2px groove var(--light-border-color);
+        }
+
+        .actor-name {
+          margin-bottom: 8px;
+        }
+
+        .stats-row {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .stats-entries {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          input {
+            width: 50px;
+          }
+        }
+
+        .ship-actions {
+          display: flex;
+          gap: 4px;
+          button {
+            min-width: 100px;
+
+            &.icon-button {
+              width: auto;
+              padding: 3px 5px 4px 7px;
+              margin: 0;
+              min-width: 0;
+              color: var(--foreground-color);
+              background: none;
+            }
+          }
+        }
+
+        .item-type-crew-action {
+          button {
+            width: 100px;
+          }
+        }
+
+        .description {
+          p {
+            margin: 16px;
+            margin-top: 0;
+            font-style: italic;
+            text-align: center;
+            font-size: 16px;
+            font-family: var(--item-font);
+          }
+        }
+        .special {
+          margin: 8px;
+          margin-top: 0;
+          font-style: italic;
+          text-align: center;
+          font-size: 14px;
+          font-family: var(--item-font);
+        }
+
+        .item-hull {
+          margin-right: 8px;
+          flex: 0;
+        }
+
+        .item-ship-damage {
+          flex: 0 0 100px;
+          text-align: right;
+        }
+
+        .item-warning {
+          text-align: center;
+          font-style: italic;
+        }
+
+        .item-name {
+          align-items: center;
+        }
+
+        .item-name-extra {
+          text-align: right;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          flex: 1;
+
+          .stat-input {
+            height: 24px;
+          }
+        }
+
+        .item-controls {
+          .item-toggle {
+            &.is-captain {
+              color: var(--highlight-background-color);
+            }
+          }
+        }
+
+        .warning {
+          color: var(--highlight-background-color);
+        }
+
+        .items-header-quantity {
+          font-family: var(--item-font);
+          font-size: 16px;
+          margin-left: 8px;
+        }
+
+        .ship-combat-row {
+          display: flex;
+          gap: 8px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          margin-right: 8px;
+
+          .ship-hull {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .ship-hull-label {
+              font-family: var(--h2-font);
+              font-size: 20px;
+              text-transform: capitalize;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<form class="roll-card wield-power-roll-card">
+  <div class="card-title">{{title}}</div>
+  {{#if description}}
+    <div class="card-description">{{{description}}}</div>
+  {{/if}}
+
+  {{#if wieldRoll}}
+    <div class="wield-roll">
+      <div class="outcome-text">
+        <span class="attack-outcome">{{wieldOutcome}}</span>
+      </div>
+      <div class="roll-title">
+        <span>{{wieldFormula}} {{#if wieldDR}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}}{{/if}}</span>
+      </div>
+      <div class="roll-result">
+        <span>{{xtotal wieldRoll}}</span>
+      </div>
+    </div>
+    {{#if wieldOutcomeDescription}}
+      <div class="card-outcome-description">{{{wieldOutcomeDescription}}}</div>
+    {{/if}}
+  {{/if}}
+
+  {{#if secondaryWieldRoll}}
+    <div class="wield-roll">
+      {{#if secondaryWieldOutcome}}
+        <div class="outcome-text">
+          <span class="attack-outcome">{{secondaryWieldOutcome}}</span>
+        </div>
+      {{/if}}
+      <div class="roll-title">
+        <span>{{secondaryWieldFormula}} {{#if secondaryWieldDR}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{secondaryWieldDR}}{{/if}}</span>
+      </div>
+      <div class="roll-result">
+        <span>{{xtotal secondaryWieldRoll}}</span>
+      </div>
+    </div>
+    {{#if secondaryWieldOutcomeDescription}}
+      <div class="card-outcome-description">{{{secondaryWieldOutcomeDescription}}}</div>
+    {{/if}}
+  {{/if}}
+
+  {{#if buttons}}
+    <div class="item-buttons">
+      {{#each buttons}}
+        <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
+          {{localize title}}
+        </button>
+      {{/each}}
+    </div>
+  {{/if}}
+</form>

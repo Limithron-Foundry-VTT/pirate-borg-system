@@ -22,7 +22,6 @@ export default class HelpDialog extends Application {
           initial: "about",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
     });
   }
 

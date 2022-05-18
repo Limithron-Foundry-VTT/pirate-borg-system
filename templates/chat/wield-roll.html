@@ -3,7 +3,7 @@
         <span class="attack-outcome">{{{wieldOutcome}}}</span>
     </div>
     <div class="roll-title">
-        <span>{{wieldFormula}} {{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}}</span>
+        <span>{{wieldFormula}} {{#if wieldDR}} {{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}} {{/if}}</span>
     </div>
     <div class="roll-result">
         <span>{{xtotal wieldRoll}}</span>

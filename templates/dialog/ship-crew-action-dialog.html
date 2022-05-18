@@ -1,0 +1,107 @@
+<form class="custom-dialog attack-dialog">
+  {{#if enableCrewSelection}}
+    <div class="form-group">
+      <label>{{localize "PB.ShipCrew"}}:</label>
+      <br />
+      <select id="crewActor" name="crewActor">
+        {{#each crews as |crew|}}
+          <option value="{{crew._id}}" {{#if (eq ../selectedCrewId crew._id)}}selected{{/if}}>{{crew.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+
+  {{#if enableDrSelection}}
+    <div class="form-group">
+      <label>{{localize "PB.DR"}}:</label>
+      <input id="dr" type="text" name="dr" value="{{selectedDR}}" placeholder="12" data-dtype="Number" />
+    </div>
+    <div class="form-group">
+      <label></label>
+      <ul class="radio-group-radio dr">
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="dr.value" value="8" {{#if (eq selectedDR '8')}}checked{{/if}} />
+            <span class="radio-label">8</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="dr.value" value="10" {{#if (eq selectedDR '10')}}checked{{/if}} />
+            <span class="radio-label">10</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="dr.value" value="12" {{#if (eq selectedDR '12')}}checked{{/if}} />
+            <span class="radio-label">12</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="dr.value" value="14" {{#if (eq selectedDR '14')}}checked{{/if}} />
+            <span class="radio-label">14</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="dr.value" value="16" {{#if (eq selectedDR '16')}}checked{{/if}} />
+            <span class="radio-label">16</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  {{/if}}
+
+  
+  {{#if enableArmorSelection}}
+    <div class="form-group">
+      <label>{{localize "PB.TargetArmor"}}:</label>
+      <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
+    </div>    
+    <div class="form-group">
+      <label></label>
+      <ul class="radio-group-radio armor-tier">
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="tier.value" value="0" {{#ifEq selectedArmor '0'}}checked{{/ifEq}}/>
+            <span class="radio-label">0</span>
+            <span class="radio-label-under">0</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="tier.value" value="1d2" {{#ifEq selectedArmor '1d2'}}checked{{/ifEq}}/>
+            <span class="radio-label">1</span>
+            <span class="radio-label-under">-d2</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="tier.value" value="1d4" {{#ifEq selectedArmor '1d4'}}checked{{/ifEq}}/>
+            <span class="radio-label">2</span>
+            <span class="radio-label-under">-d4</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="tier.value" value="1d6" {{#ifEq selectedArmor '1d6'}}checked{{/ifEq}}/>
+            <span class="radio-label">3</span>
+            <span class="radio-label-under">-d6</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="tier.value" value="1d8" {{#ifEq selectedArmor '1d8'}}checked{{/ifEq}}/>
+            <span class="radio-label">4</span>
+            <span class="radio-label-under">-d8</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  {{/if}}
+  <div class="button-row">
+    <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
+  </div>
+
+</form>

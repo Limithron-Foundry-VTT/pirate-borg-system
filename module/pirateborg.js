@@ -12,6 +12,7 @@ import { registerSystemSettings } from "./settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./sockets.js";
+import { preCreateItem } from "./system/pre-create-item.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -41,3 +42,5 @@ Hooks.on("renderCombatTracker", renderCombatTracker);
 Hooks.on("renderSettings", renderSettings);
 
 Hooks.on("renderChatMessage", renderChatMessage);
+
+Hooks.on("preCreateItem", preCreateItem);

@@ -50,6 +50,7 @@ form button {
   padding-top: 1px;
   cursor: pointer;
   height: 28px;
+  white-space: nowrap;
 
   &:hover {
     box-shadow: 0 0 10px var(--highlight-background-color);
@@ -614,10 +615,12 @@ form .form-group-stacked {
       }
 
       .subdirectory {
-        padding-left: 16px;
         border: none;
         .directory-item:last-child {
           border: none;
+        }
+        li {
+          padding-left: 16px;
         }
       }
 
@@ -642,8 +645,17 @@ form .form-group-stacked {
   }
 }
 
-#scenes .scene h3 {
-  color: var(--foreground-alt-color);
+#scenes {
+  .scene h3 {
+    color: var(--foreground-alt-color);
+  }
+  .subdirectory {
+    border: none;
+    padding: 0;
+    .scene {
+      margin: 8px;
+    }
+  }
 }
 
 .compendium.directory .directory-list .directory-item {

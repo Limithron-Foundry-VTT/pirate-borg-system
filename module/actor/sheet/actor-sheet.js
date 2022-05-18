@@ -24,9 +24,12 @@ export default class PBActorSheet extends ActorSheet {
 
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
+      event.preventDefault();
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.sheet.render(true);
+      if (item) {
+        item.sheet.render(true);
+      }
     });
 
     // Delete Inventory Item
@@ -143,9 +146,6 @@ export default class PBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-
-
-    console.log('_onToggleEquippedItem', item.id, item.equipped, item);
 
     if (item.equipped) {
       return await this.actor.unequipItem(item);

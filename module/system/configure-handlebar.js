@@ -28,6 +28,13 @@ export const configureHandlebar = () => {
     return cond ? v1 : v2;
   });
 
+  Handlebars.registerHelper("eq", function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.every(function (expression) {
+      return args[0] === expression;
+    });
+  });
+
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */
@@ -46,5 +53,11 @@ export const configureHandlebar = () => {
     }
   });
 
-  loadTemplates(["systems/pirateborg/templates/actor/common/actor-equipment-list.html", "systems/pirateborg/templates/actor/common/actor-item-button.html"]);
+  loadTemplates([
+    "systems/pirateborg/templates/actor/common/actor-equipment-list.html",
+    "systems/pirateborg/templates/actor/common/actor-item-button.html",
+    "systems/pirateborg/templates/actor/common/dynamic-list.html",
+    "systems/pirateborg/templates/actor/common/static-list.html",
+    "systems/pirateborg/templates/actor/common/static-list-item.html",
+  ]);
 };

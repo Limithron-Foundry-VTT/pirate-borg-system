@@ -67,19 +67,16 @@
       flex: 2;
     }
 
-    .item-field {
-    }
-
     .item-buttons {
-      align-items: right;
+      align-items: center;
       display: flex;
-      flex: 0 0 102px;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      flex: 0 0 0;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 4px;
 
       button {
-        width: 100%;
+        min-width: 100px;
       }
     }
 

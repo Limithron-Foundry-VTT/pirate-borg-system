@@ -2,21 +2,30 @@
   <div class="card-title">{{title}}</div>
   <div class="card-description">{{{description}}}</div>
   {{#if outcome}}
-  <div class="test-roll">
-    <div class="outcome-text">
-      <span class="attack-outcome">{{outcome}}</span>
-    </div>
-    <div class="attack-roll">
-      {{#if rollTitle}}
-      <div class="roll-title">
-        <span>{{rollTitle}}</span>
+    <div class="test-roll">
+      <div class="outcome-text">
+        <span class="attack-outcome">{{outcome}}</span>
       </div>
-      {{/if}} {{#if roll}}
-      <div class="roll-result">
-        <span>{{xtotal roll}}</span>
+      <div class="attack-roll">
+        {{#if rollTitle}}
+        <div class="roll-title">
+          <span>{{rollTitle}}</span>
+        </div>
+        {{/if}} {{#if roll}}
+        <div class="roll-result">
+          <span>{{xtotal roll}}</span>
+        </div>
+        {{/if}}
       </div>
-      {{/if}}
     </div>
-  </div>
+  {{/if}}
+  {{#if buttons}}
+    <div class="item-buttons">
+      {{#each buttons}}
+        <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
+          {{localize title}}
+        </button>
+      {{/each}}
+    </div>
   {{/if}}
 </form>

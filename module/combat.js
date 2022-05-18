@@ -1,20 +1,14 @@
-import { diceSound } from "./dice.js";
-
-const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/individual-initiative-roll-card.html";
-const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/party-initiative-roll-card.html";
+import { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
+import { evaluateFormula } from "./utils.js";
 
 export const rollPartyInitiative = async () => {
-  const initiativeRoll = new Roll("d6");
-  await initiativeRoll.evaluate();
-
-  await ChatMessage.create({
-    content: await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, {
-      initiativeRoll,
-      outcomeText: game.i18n.localize(initiativeRoll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
-    }),
-    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    roll: initiativeRoll,
-    sound: diceSound(),
+  const initiativeRoll = await evaluateFormula("d6");
+  await showGenericWieldCard({
+    actor: this,
+    title: game.i18n.localize("PB.PartyInitiative"),
+    wieldFormula: initiativeRoll.formula,
+    wieldRoll: initiativeRoll,
+    wieldOutcome: game.i18n.localize(initiativeRoll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
   });
 
   // if a combat/encounter is happening, apply player/enemy ordering
@@ -24,25 +18,20 @@ export const rollPartyInitiative = async () => {
 };
 
 export const rollIndividualInitiative = async (actor) => {
+  const initiativeRoll = await evaluateFormula("d6+@abilities.agility.value", actor.getRollData());
+  await showGenericWieldCard({
+    actor: this,
+    title: game.i18n.localize("PB.Initiative"),
+    wieldFormula: initiativeRoll.formula,
+    wieldRoll: initiativeRoll,
+  });
+
   if (game.combats && game.combat) {
-    const combatant = game.combat.combatants.find((i) => i.data.actorId === actor.id);
+    const combatant = actor.token?.combatant ?? game.combat.combatants.find((combatant) => combatant.actor.id === actor.id);
     if (combatant) {
-      game.combat.rollInitiative(combatant.id);
-      return;
+      combatant.update({ initiative: initiativeRoll.total });
     }
   }
-
-  const initiativeRoll = new Roll("d6+@abilities.agility.value", actor.getRollData());
-  await initiativeRoll.evaluate();
-  ChatMessage.create({
-    content: await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, {
-      initiativeRoll,
-    }),
-    roll: initiativeRoll,
-    sound: diceSound(),
-    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    speaker: ChatMessage.getSpeaker({ actor: actor }),
-  });
 };
 
 export class PBCombat extends Combat {
