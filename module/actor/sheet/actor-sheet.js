@@ -45,6 +45,7 @@ export default class PBActorSheet extends ActorSheet {
     html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
     html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
+    html.find(".item-control.item-reload").on("click", this._onReload.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
   }
@@ -239,6 +240,17 @@ export default class PBActorSheet extends ActorSheet {
     const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
     const hatItemId = sheetData.data.equippedHat ? sheetData.data.equippedHat.id : null;
     this.actor.defend(armorItemId, hatItemId);
+  }
+
+  /**
+   * Handle a click on the Reload button.
+   */
+  async _onReload(event) {
+    event.preventDefault();
+    const button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const itemId = li.data("itemId");
+    this.actor.reload(itemId);
   }
 
   _onInlineEdit(event) {

@@ -143,7 +143,10 @@
       "usesAmmo": false,
       "useAmmoDamage": false,
       "weaponType": "melee",
-      "isGunpowderWeapon": false
+      "isGunpowderWeapon": false,
+      "needsReloading": false,
+      "reloadTime": 0,
+      "loadingCount": 0
     },
     "misc": {
       "templates": ["equipment"]

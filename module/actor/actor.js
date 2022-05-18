@@ -654,6 +654,27 @@ export class PBActor extends Actor {
     });
   }
 
+  /**
+   * Increments the items reload counter.
+   * @param {string} itemId
+   */
+  async reload(itemId) {
+    const item = this.items.get(itemId);
+    const reloadTime = item.data.data.reloadTime;
+    if (!item.data.data.needsReloading || !reloadTime) {
+      return;
+    }
+
+    let loadingCount = item.data.data.loadingCount || 0;
+    loadingCount++;
+    if (loadingCount >= reloadTime) {
+      loadingCount = 0;
+    }
+    await item.update({
+      "data.loadingCount": loadingCount,
+    });
+  }
+
   async checkMorale() {
     const moraleRoll = await evaluateFormula("2d6");
     const wieldData = {};
