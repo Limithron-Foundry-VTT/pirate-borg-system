@@ -45,7 +45,7 @@ export default class PBActorSheet extends ActorSheet {
     html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
     html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
-    html.find(".item-control.item-reload").on("click", this._onReload.bind(this));
+    html.find(".reload-button").on("click", this._onReload.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
   }

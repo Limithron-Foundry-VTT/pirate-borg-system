@@ -96,6 +96,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .filter((item) => item.data.equipped)
       .sort(byName);
 
+    for (const weapon of sheetData.data.equippedWeapons) {
+      if (weapon.data.reloadTime) {
+        weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
+      }
+    }
+
     sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
     sheetData.data.features = sheetData.items

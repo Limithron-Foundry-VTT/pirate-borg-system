@@ -168,24 +168,28 @@
               <span class="item-field weapon-type">{{item.data.weaponType}}</span>
             </div>
             <div class="item-buttons">
+              {{#if item.data.loadingCount}}
               <button
-                type="button"
-                class="item-button rollable attack-button button"
-                data-roll="d20+@abilities.strength.value"
-                data-label="attack_{{item._id}}"
-                title="{{localize 'PB.Attack'}}"
+                      type="button"
+                      class="item-button reload-button button"
+                      data-label="reload_{{item._id}}"
+                      title="{{localize 'PB.Attack'}}"
+              >
+                {{localize 'PB.Reload'}} {{#if item.data.reloadTime}}({{item.data.loadingStatus}}/{{item.data.reloadTime}}){{/if}}
+              </button>
+              {{else}}
+              <button
+                      type="button"
+                      class="item-button rollable attack-button button"
+                      data-roll="d20+@abilities.strength.value"
+                      data-label="attack_{{item._id}}"
+                      title="{{localize 'PB.Attack'}}"
               >
                 {{localize 'PB.Attack'}}
               </button>
+              {{/if}}
             </div>
             <div class="item-controls">
-              {{#if item.data.needsReloading}}
-              <a
-                class="item-control item-reload {{ifPrint item.data.loadingCount 'loading'}}"
-                title="{{ifPrintElse item.data.reloadTime (localize 'PB.ReloadStatus' current=item.data.loadingCount max=item.data.reloadTime) (localize 'PB.Reload')}}"
-                ><i class="fas fa-bullseye"></i
-              ></a>
-              {{/if}}
               <a
                 class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
                 title="{{ifPrintElse item.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}"

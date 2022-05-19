@@ -16,6 +16,7 @@ const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/defend-roll-card.html";
 const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/get-better-roll-card.html";
+const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
 
 /**
  * @extends {Actor}
@@ -281,7 +282,18 @@ export class PBActor extends Actor {
           });
         },
         default: "roll",
-        close: () => resolve(null),
+        close: async () => {
+          resolve(null);
+          const item = this.items.get(itemId);
+          const reloadTime = item.data.data.reloadTime || 1;
+          if (!item.data.data.needsReloading) {
+            return;
+          }
+
+          await item.update({
+            "data.loadingCount": reloadTime,
+          });
+        },
       }).render(true);
     });
   }
@@ -661,15 +673,28 @@ export class PBActor extends Actor {
   async reload(itemId) {
     const item = this.items.get(itemId);
     const reloadTime = item.data.data.reloadTime;
-    if (!item.data.data.needsReloading || !reloadTime) {
+    if (!item.data.data.needsReloading) {
       return;
     }
 
     let loadingCount = item.data.data.loadingCount || 0;
-    loadingCount++;
-    if (loadingCount >= reloadTime) {
+    loadingCount--;
+    if (loadingCount <= 0) {
       loadingCount = 0;
     }
+
+    const html = await renderTemplate(GENERIC_CARD_TEMPLATE, {
+      title: item.name,
+      description: game.i18n.format("PB.Reloading", {
+        current: (reloadTime-loadingCount) || 1,
+        max: reloadTime || 1,
+      }),
+    });
+    ChatMessage.create({
+      content: html,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+    });
+
     await item.update({
       "data.loadingCount": loadingCount,
     });

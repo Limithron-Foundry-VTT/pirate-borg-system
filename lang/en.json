@@ -214,6 +214,7 @@
   "PB.ReactionIndifferent": "Indifferent",
   "PB.ReactionKill": "Kill!",
   "PB.Reload": "Reload",
+  "PB.Reloading": "Spent an action Reloading ({current}/{max})",
   "PB.ReloadStatus": "Reload ({current}/{max})",
   "PB.RegenerateCharacter": "The Tavern",
   "PB.Rest": "Rest",
