@@ -177,6 +177,7 @@
   "PB.Morale": "Morale",
   "PB.MoraleFlees": "Flees",
   "PB.MoraleSurrenders": "Surrenders",
+  "PB.Movement": "Movement",
   "PB.MysticalMishaps": "Mystical Mishaps",
   "PB.Name": "Name",
   "PB.NoActiveEncounter": "No Active Encounter",
@@ -185,14 +186,12 @@
   "PB.NoPowerUsesRemaining": "No Arcane Ritual uses remaining",
   "PB.NoResourceUsesRemaining": "No {type} uses remaining",
   "PB.Ok": "Ok",
-
   "PB.OutcomeFumble": "Fumble",
   "PB.OutcomeSuccess": "Success",
   "PB.OutcomeFailure": "Failure",
   "PB.OutcomeCriticalSuccess": "Critical Success",
   "PB.OutcomeHit": "Hit",
   "PB.OutcomeMiss": "Miss",
-
   "PB.Luck": "Devil's Luck",
   "PB.LuckHelpText": "Max damage, re-roll, -d6 damage, DR -4, no crit/fumble",
   "PB.Outcome": "Outcome",

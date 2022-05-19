@@ -34,9 +34,12 @@ export const showGenericWieldCard = async ({
   secondaryWieldFormula,
   secondaryWieldOutcome,
   secondaryWieldOutcomeDescription,
+  damageOutcome,
+  damageRoll,
+  armorRoll,
   buttons = [],
 } = {}) => {
-  const rolls = [wieldRoll, secondaryWieldRoll].filter((roll) => roll);
+  const rolls = [wieldRoll, secondaryWieldRoll, damageRoll, armorRoll].filter((roll) => roll);
   return await ChatMessage.create({
     content: await renderTemplate(GENERIC_WIELD_CARD_TEMPLATE, {
       title,
@@ -51,6 +54,9 @@ export const showGenericWieldCard = async ({
       secondaryWieldFormula,
       secondaryWieldOutcome,
       secondaryWieldOutcomeDescription,
+      damageOutcome,
+      damageRoll,
+      armorRoll,
       buttons: buttons,
     }),
     speaker: ChatMessage.getSpeaker({ actor }),

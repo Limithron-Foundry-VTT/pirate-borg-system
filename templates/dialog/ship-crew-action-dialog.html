@@ -1,4 +1,12 @@
 <form class="custom-dialog attack-dialog">
+  <div class="section">
+    {{#if crewActionTitle}}
+      <div class="subtitle">{{crewActionTitle}}</div>
+    {{/if}}
+    {{#if crewActionDescription}}
+      <div class="description">{{{crewActionDescription}}}</div>
+    {{/if}}  
+  </div>
   {{#if enableCrewSelection}}
     <div class="form-group">
       <label>{{localize "PB.ShipCrew"}}:</label>
@@ -53,7 +61,6 @@
     </div>
   {{/if}}
 
-  
   {{#if enableArmorSelection}}
     <div class="form-group">
       <label>{{localize "PB.TargetArmor"}}:</label>
@@ -100,8 +107,60 @@
       </ul>
     </div>
   {{/if}}
+
+  {{#if enableMovementSelection}}
+    <div class="form-group">
+      <label>{{localize "PB.Movement"}}:</label>
+      <input id="movement" type="text" name="movement" value="0" placeholder="0" data-dtype="Number" />
+    </div>
+    <div class="form-group">
+      <label></label>
+      <ul class="radio-group-radio movement">
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="0" checked />
+            <span class="radio-label">0</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="1"/>
+            <span class="radio-label">1</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="2" />
+            <span class="radio-label">2</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="3" />
+            <span class="radio-label">3</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="4" />
+            <span class="radio-label">4</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input class="radio-input" type="radio" name="movement.value" value="5" />
+            <span class="radio-label">5</span>
+          </label>
+        </li>               
+      </ul>
+    </div>
+  {{/if}}
+
   <div class="button-row">
-    <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
+    <button type="submit" class="button cancel-button">{{localize "PB.Cancel"}}</button>
+    {{#if canSubmit}}
+      <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
+    {{/if}}
   </div>
 
 </form>

@@ -11,7 +11,6 @@ export const rollPartyInitiative = async () => {
     wieldOutcome: game.i18n.localize(initiativeRoll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
   });
 
-  // if a combat/encounter is happening, apply player/enemy ordering
   if (game.combats && game.combat) {
     await game.combat.setPartyInitiative(initiativeRoll.total);
   }

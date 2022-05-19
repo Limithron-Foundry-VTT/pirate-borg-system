@@ -47,16 +47,9 @@ export class PBActorSheetVehicle extends PBActorSheet {
       ...(await this._prepareItems(superData.data)),
     };
     superData.data.data.hasCrew = !!this.actor.crews.length;
-    console.log(superData.data.data);
     return superData;
   }
 
-  /**
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
-   * @return {Object}
-   */
   async _prepareItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const items = {};

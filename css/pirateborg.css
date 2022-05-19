@@ -1806,6 +1806,10 @@ hr {
   font-family: var(--h2-font);
   font-size: 22px;
 }
+.custom-dialog .description {
+  font-family: var(--chat-font);
+  font-size: 16px;
+}
 .custom-dialog ul {
   list-style-type: none;
 }

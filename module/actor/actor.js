@@ -76,7 +76,7 @@ export class PBActor extends Actor {
       this.data.data.containerSpace = this.containerSpace();
     }
 
-    if (this.type === "vehicle") {
+    if (["vehicle", "vehicle_creature"].includes(this.type)) {
       this.data.data.cargo.value = this.cargoItems.length;
       if (this.data.data.broadsidesQuantity > 1) {
         this.data.data.hasBroadsidesPenalties = this.data.data.hp.value < this.data.data.hp.max - this.data.data.hp.max / this.data.data.broadsidesQuantity;
@@ -1234,6 +1234,8 @@ export class PBActor extends Actor {
       selectedArmor,
     } = await showCrewActionDialog({
       actor: this,
+      title: game.i18n.localize("PB.ShipCrewActionBroadsides"),
+      description: game.i18n.localize("PB.ShipBroadsidesMessage"),
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
       enableArmorSelection: true,
@@ -1282,6 +1284,8 @@ export class PBActor extends Actor {
       selectedArmor,
     } = await showCrewActionDialog({
       actor: this,
+      title: game.i18n.localize("PB.ShipCrewActionSmallArms"),
+      description: game.i18n.localize("PB.ShipSmallArmsMessage"),
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
       enableArmorSelection: true,
@@ -1324,31 +1328,33 @@ export class PBActor extends Actor {
   }
 
   async doRamAction() {
-    const { selectedArmor } = await showCrewActionDialog({
+    const { selectedArmor, selectedMovement } = await showCrewActionDialog({
       actor: this,
+      title: game.i18n.localize("PB.ShipCrewActionRam"),
+      description: game.i18n.localize("PB.ShipRamMessage"),
       enableArmorSelection: true,
+      enableMovementSelection: true,
     });
 
-    await showGenericCard({
+    const damageRoll = await evaluateFormula(`${this.ramDie} + ${selectedMovement}`);
+    const armorRoll = await evaluateFormula(selectedArmor);
+    const damageOutcome = `${game.i18n.localize("PB.Inflict")} ${Math.max(0, damageRoll.total - armorRoll.total)}  ${game.i18n.localize("PB.Damage")}`;
+
+    await showGenericWieldCard({
       title: game.i18n.localize("PB.ShipCrewActionRam"),
       description: game.i18n.localize("PB.ShipRamMessage"),
       actor: this,
-      buttons: [
-        {
-          title: "PB.ShipDealDamageButton",
-          data: {
-            action: BUTTON_ACTIONS.DAMAGE,
-            armor: selectedArmor,
-            damage: this.ramDie,
-          },
-        },
-      ],
+      damageOutcome,
+      damageRoll,
+      armorRoll,
     });
   }
 
   async doFullSailAction(isPCAction) {
     const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
       actor: this,
+      title: game.i18n.localize("PB.ShipCrewActionFullSail"),
+      description: game.i18n.localize("PB.ShipFullSailMessage"),
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
     });
@@ -1372,6 +1378,8 @@ export class PBActor extends Actor {
   async doComeAboutAction(isPCAction) {
     const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
       actor: this,
+      title: game.i18n.localize("PB.ShipCrewActionComeAbout"),
+      description: game.i18n.localize("PB.ShipComeAboutMessage"),
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
     });
@@ -1392,58 +1400,66 @@ export class PBActor extends Actor {
     });
   }
 
-  async doDropAnchorAction() {
+  async doRepairAction(isPCAction) {
+    const canHeal = this.data.data.hp.value < this.data.data.hp.max / 2;
+    const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
+      actor: this,
+      enableCrewSelection: isPCAction && canHeal,
+      enableDrSelection: true && canHeal,
+      title: game.i18n.localize("PB.ShipCrewActionRepair"),
+      description: game.i18n.localize("PB.ShipRepairMessage"),
+      canSubmit: canHeal,
+    });
+
+    const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
+    const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
+    const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
+    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { action: BUTTON_ACTIONS.REPAIR_CREW_ACTION } }] : [];
+
+    await showGenericWieldCard({
+      title: game.i18n.localize("PB.ShipCrewActionRepair"),
+      description: game.i18n.localize("PB.ShipRepairMessage"),
+      actor: this,
+      wieldDR,
+      wieldFormula,
+      wieldRoll,
+      wieldOutcome: this._shipActionOutcomeText(rollOutcome),
+      buttons,
+    });
+  }
+
+  async _showBasicCrewActionDialog({ title, description } = {}) {
+    await showCrewActionDialog({
+      actor: this,
+      title: title,
+      description: description,
+    });
     await showGenericCard({
+      actor: this,
+      title: title,
+      description: description,
+    });
+  }
+
+  async doBoardingPartyAction() {
+    await this._showBasicCrewActionDialog({
+      title: game.i18n.localize("PB.ShipCrewActionBoardingParty"),
+      description: game.i18n.localize("PB.ShipBoardingPartyMessage"),
+    });
+  }
+
+  async doDropAnchorAction() {
+    await this._showBasicCrewActionDialog({
       title: game.i18n.localize("PB.ShipCrewActionDropAnchor"),
       description: game.i18n.localize("PB.ShipDropAnchorMessage"),
     });
   }
 
   async doWeighAnchorAction() {
-    await showGenericCard({
+    await this._showBasicCrewActionDialog({
       title: game.i18n.localize("PB.ShipCrewActionWeighAnchor"),
       description: game.i18n.localize("PB.ShipWeighAnchorMessage"),
-    });
-  }
-
-  async doRepairAction(isPCAction) {
-    const canHeal = this.data.data.hp.value < this.data.data.hp.max / 2;
-
-    if (canHeal) {
-      const { selectedActor, selectedDR: wieldDR } = await showCrewActionDialog({
-        actor: this,
-        enableCrewSelection: isPCAction,
-        enableDrSelection: true,
-      });
-
-      const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
-      const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
-      const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-      const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
-      const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { action: BUTTON_ACTIONS.REPAIR_CREW_ACTION } }] : [];
-
-      await showGenericWieldCard({
-        title: game.i18n.localize("PB.ShipCrewActionRepair"),
-        description: game.i18n.localize("PB.ShipRepairMessage"),
-        actor: this,
-        wieldDR,
-        wieldFormula,
-        wieldRoll,
-        wieldOutcome: this._shipActionOutcomeText(rollOutcome),
-        buttons,
-      });
-    } else {
-      await showGenericCard({
-        title: game.i18n.localize("PB.ShipCrewActionRepair"),
-        description: game.i18n.localize("PB.ShipRepairMessage"),
-      });
-    }
-  }
-
-  async doBoardingPartyAction() {
-    await showGenericCard({
-      title: game.i18n.localize("PB.ShipCrewActionBoardingParty"),
-      description: game.i18n.localize("PB.ShipBoardingPartyMessage"),
     });
   }
 }

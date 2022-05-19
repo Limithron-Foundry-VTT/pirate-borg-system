@@ -1,13 +1,27 @@
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
 
 class CrewActionDialog extends Application {
-  constructor(data = {}) {
-    super(data);
-    this.actor = data.actor;
-    this.enableCrewSelection = data.enableCrewSelection;
-    this.enableDrSelection = data.enableDrSelection;
-    this.enableArmorSelection = data.enableArmorSelection;
-    this.callback = data.callback;
+  constructor({
+    actor,
+    title,
+    description,
+    canSubmit = true,
+    enableCrewSelection = false,
+    enableDrSelection = false,
+    enableArmorSelection = false,
+    enableMovementSelection = false,
+    callback,
+  } = {}) {
+    super();
+    this.actor = actor;
+    this.crewActionTitle = title;
+    this.crewActionDescription = description;
+    this.canSubmit = canSubmit;
+    this.enableCrewSelection = enableCrewSelection;
+    this.enableDrSelection = enableDrSelection;
+    this.enableArmorSelection = enableArmorSelection;
+    this.enableMovementSelection = enableMovementSelection;
+    this.callback = callback;
   }
 
   /** @override */
@@ -33,6 +47,10 @@ class CrewActionDialog extends Application {
       enableCrewSelection: this.enableCrewSelection,
       enableDrSelection: this.enableDrSelection,
       enableArmorSelection: this.enableArmorSelection,
+      enableMovementSelection: this.enableMovementSelection,
+      crewActionDescription: this.crewActionDescription,
+      crewActionTitle: this.crewActionTitle,
+      canSubmit: this.canSubmit,
       selectedDR,
       selectedCrewId,
       selectedArmor,
@@ -43,27 +61,42 @@ class CrewActionDialog extends Application {
   activateListeners(html) {
     super.activateListeners(html);
     html.find(".ok-button").click(this.onSubmit.bind(this));
+    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".dr .radio-input").on("change", this._onDrInputChanged.bind(this));
+    html.find(".armor-tier .radio-input").on("change", this._onArmorInputChanged.bind(this));
+    html.find(".movement .radio-input").on("change", this._onMovementInputChanged.bind(this));
+  }
 
-    html.find(".dr .radio-input").on("change", (event) => {
-      event.preventDefault();
-      const input = $(event.currentTarget);
-      html.find("#dr").val(input.val());
-    });
+  _onDrInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    this.element.find("#dr").val(input.val());
+  }
 
-    html.find(".armor-tier .radio-input").on("change", (event) => {
-      event.preventDefault();
-      const input = $(event.currentTarget);
-      html.find("#targetArmor").val(input.val());
-    });
+  _onArmorInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    this.element.find("#targetArmor").val(input.val());
+  }
+
+  _onMovementInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    this.element.find("#movement").val(input.val());
+  }
+
+  _onCancel(event) {
+    event.preventDefault();
+    this.close();
   }
 
   async onSubmit(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
-
     const selectedCrewId = $(form).find("#crewActor").val();
     const selectedDR = $(form).find("#dr").val();
     const selectedArmor = $(form).find("#targetArmor").val();
+    const selectedMovement = $(form).find("#movement").val();
 
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW, selectedCrewId);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, selectedDR);
@@ -73,6 +106,7 @@ class CrewActionDialog extends Application {
       selectedActor: game.actors.get(selectedCrewId),
       selectedDR: parseInt(selectedDR, 10),
       selectedArmor: selectedArmor,
+      selectedMovement: selectedMovement,
     });
     this.close();
   }
@@ -80,16 +114,21 @@ class CrewActionDialog extends Application {
 
 /**
  * @param {Object} data
- * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String}>}
+ * @param {Actor} data.actor
+ * @param {String} data.description
+ * @param {String} data.title
+ * @param {Boolean} data.enableCrewSelection
+ * @param {Boolean} data.enableDrSelection
+ * @param {Boolean} data.enableArmorSelection
+ * @param {Boolean} data.enableMovementSelection
+ * @param {Boolean} data.canSubmit
+ * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String, selectedMovement: Number}>}
  */
 export const showCrewActionDialog = (data = {}) => {
   return new Promise((resolve) => {
     new CrewActionDialog({
       ...data,
-      callback: (result) => {
-        console.log(result);
-        resolve(result);
-      },
+      callback: resolve,
     }).render(true);
   });
 };
