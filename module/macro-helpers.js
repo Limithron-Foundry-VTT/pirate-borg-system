@@ -1,6 +1,6 @@
 export { showGenericCard } from "./chat-message/generic-card.js";
 export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
-import { findCompendiumItem } from "./scvm/scvmfactory.js";
+import { findCompendiumItem } from "./generator/character-generator.js";
 import { evaluateFormula } from "./utils.js";
 
 export const createRoll = async (formula, rollData = {}) => {

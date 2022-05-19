@@ -269,6 +269,7 @@
   "PB.ShipShantyButton": "Sing",
   "PB.ShipCrew": "Crew",
   "PB.ShipPCAction": "PC Action",
+  "PB.ShipNPCAction": "NPC Action",
   "PB.ShipCrewAction": "Crew Action",
   "PB.ShipHull": "Hull",
   "PB.ShipDefend": "Defend",

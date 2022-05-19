@@ -1,6 +1,6 @@
 import * as editor from "../../system/configure-editor.js";
-import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
-import { findStartingBonusItems, findStartingBonusRollsItems } from "../../scvm/scvmfactory.js";
+import { rollIndividualInitiative, rollPartyInitiative } from "../../system/combat.js";
+import { findStartingBonusItems, findStartingBonusRollsItems } from "../../generator/character-generator.js";
 
 /**
  * @extends {ActorSheet}

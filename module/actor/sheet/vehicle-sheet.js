@@ -1,4 +1,4 @@
-import { rollIndividualInitiative } from "../../combat.js";
+import { rollIndividualInitiative } from "../../system/combat.js";
 import PBActorSheet from "./actor-sheet.js";
 import { PBActorSheetVehicleEdit } from "./vehicle-edit-sheet.js";
 
@@ -68,6 +68,12 @@ export class PBActorSheetVehicle extends PBActorSheet {
       return actorData.data || { _id: actorId, name: "<Deleted Character>", type: "character" };
     });
 
+    items.equipment = sheetData.items
+      .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
+      .filter((item) => !item.data.hasContainer)
+      .sort(byName);
+
     return items;
   }
 
@@ -98,6 +104,8 @@ export class PBActorSheetVehicle extends PBActorSheet {
     html.find(".mystic-shanties-roll-button").on("click", this._onRollMysticShanties.bind(this));
 
     html.find(".item-type-character .item-edit").on("click", this._onCrewClick.bind(this));
+
+    html.find(".item-type-creature .item-edit").on("click", this._onCrewClick.bind(this));
 
     html.find(".rotate-left").on("click", this._onRotateLeft.bind(this));
 
@@ -228,7 +236,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
 
   async _onDropActor(event, actorData) {
     const actor = game.actors.get(actorData.id);
-    if (actor.type === "character") {
+    if (["character", "creature"].includes(actor.type)) {
       await this.actor.addCrew(actor.id);
       if (!this.actor.captain) {
         await this.actor.setCaptain(actor.id);

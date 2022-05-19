@@ -3,6 +3,12 @@
  */
 export class PBItem extends Item {
   /** @override */
+  static async create(data, options = {}) {
+    mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, { overwrite: false });
+    return super.create(data, options);
+  }
+
+  /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
     this.data.img = this.data.img || CONST.DEFAULT_TOKEN;

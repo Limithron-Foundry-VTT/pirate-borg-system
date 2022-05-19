@@ -208,8 +208,8 @@ PB.weaponTypes = {
   ranged: "PB.WeaponTypeRanged",
 };
 
-// Config variables for the Scvmfactory character generator
-PB.scvmFactory = {
+// Config variables for the character generator
+PB.characterGenerator = {
   characterCreationPack: "pirateborg.rolls-character-creation",
 
   firstNamesPack: "pirateborg.rolls-character-creation;First Names",

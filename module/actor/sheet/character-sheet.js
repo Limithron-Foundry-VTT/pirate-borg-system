@@ -1,6 +1,6 @@
 import PBActorSheet from "./actor-sheet.js";
 import RestDialog from "../../dialog/rest-dialog.js";
-import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import { trackAmmo, trackCarryingCapacity } from "../../system/settings.js";
 
 /**
  * @extends {ActorSheet}

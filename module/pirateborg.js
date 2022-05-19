@@ -2,17 +2,16 @@
  * Pirate Borg module.
  */
 import { createPirateBorgMacro } from "./macros.js";
-import { migrate } from "./migrate.js";
+import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
 import { renderChatMessage } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
-import { registerSystemSettings } from "./settings.js";
+import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
-import { registerSocketHandler } from "./sockets.js";
-import { preCreateItem } from "./system/pre-create-item.js";
+import { registerSocketHandler } from "./system/sockets.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -43,4 +42,4 @@ Hooks.on("renderSettings", renderSettings);
 
 Hooks.on("renderChatMessage", renderChatMessage);
 
-Hooks.on("preCreateItem", preCreateItem);
+// Hooks.on("preCreateItem", preCreateItem);

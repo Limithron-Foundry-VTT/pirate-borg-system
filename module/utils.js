@@ -1,4 +1,4 @@
-import { findCompendiumItem } from "./scvm/scvmfactory.js";
+import { findCompendiumItem } from "./generator/character-generator.js";
 
 /**
  * @typedef {Object} RollOutcome

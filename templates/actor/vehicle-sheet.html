@@ -110,7 +110,11 @@
           <div class="item-buttons">
             {{#if has-pc-action}}
               <button type="button" class="item-button rollable action-pc-action" data-action="{{class}}" title="PC Action">
-                {{localize "PB.ShipPCAction"}} 
+                {{#if (eq ../data.type "vehicle_creature")}}
+                  {{localize "PB.ShipNPCAction"}} 
+                {{else}}
+                  {{localize "PB.ShipPCAction"}} 
+                {{/if}}
               </button>
             {{/if}}
             {{#if has-crew-action}}
@@ -224,6 +228,10 @@
       {{/if}}
 
       {{> dynamic-list items=data.data.features type="feature" label="PB.ShipFeatures"}}
+
+      <ol class="items-list equipment-list">
+        {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
+      </ol>
       
     </div>
     

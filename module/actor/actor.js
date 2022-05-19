@@ -1,9 +1,9 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
-import ScvmDialog from "../scvm/scvm-dialog.js";
+import ScvmDialog from "../dialog/character-generator-dialog.js";
 import ActorBaseClassDialog from "../dialog/actor-base-class-dialog.js";
-import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../scvm/scvmfactory.js";
-import { trackAmmo, trackCarryingCapacity } from "../settings.js";
-import { findCompendiumItem, invokeGettingBetterMacro } from "../scvm/scvmfactory.js";
+import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../generator/character-generator.js";
+import { trackAmmo, trackCarryingCapacity } from "../system/settings.js";
+import { findCompendiumItem, invokeGettingBetterMacro } from "../generator/character-generator.js";
 import { executeMacro } from "../macro-helpers.js";
 import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
 import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, evaluateFormula, getRollOutcome } from "../utils.js";

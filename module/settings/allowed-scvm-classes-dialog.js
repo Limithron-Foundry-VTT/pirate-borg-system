@@ -1,5 +1,5 @@
-import { findClassPacks } from "../scvm/scvmfactory.js";
-import { isScvmClassAllowed, setAllowedScvmClasses } from "../settings.js";
+import { findClassPacks } from "../generator/character-generator.js";
+import { isScvmClassAllowed, setAllowedScvmClasses } from "../system/settings.js";
 
 export class AllowedScvmClassesDialog extends FormApplication {
   constructor() {

@@ -1,4 +1,4 @@
-import ScvmDialog from "../scvm/scvm-dialog.js";
+import ScvmDialog from "../dialog/character-generator-dialog.js";
 
 export const renderActorDirectory = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {

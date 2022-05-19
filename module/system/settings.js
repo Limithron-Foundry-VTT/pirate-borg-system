@@ -1,4 +1,4 @@
-import { AllowedScvmClassesDialog } from "./settings/allowed-scvm-classes-dialog.js";
+import { AllowedScvmClassesDialog } from "../settings/allowed-scvm-classes-dialog.js";
 
 export const registerSystemSettings = () => {
   /**

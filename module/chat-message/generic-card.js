@@ -5,7 +5,7 @@ const GENERIC_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/generic
  * @param {Actor} obj.actor
  * @param {String} obj.title
  * @param {String} obj.description
- * @returns {Promise<Document>}
+ * @returns {Promise.<Document>}
  */
 export const showGenericCard = async ({ actor, title, description, buttons = [] } = {}) => {
   return await ChatMessage.create({

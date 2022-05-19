@@ -1,5 +1,5 @@
-import { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
-import { evaluateFormula } from "./utils.js";
+import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
+import { evaluateFormula } from "../utils.js";
 
 export const rollPartyInitiative = async () => {
   const initiativeRoll = await evaluateFormula("d6");

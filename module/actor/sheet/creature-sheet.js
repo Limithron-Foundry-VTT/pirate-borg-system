@@ -1,4 +1,4 @@
-import { rollIndividualInitiative } from "../../combat.js";
+import { rollIndividualInitiative } from "../../system/combat.js";
 import PBActorSheet from "./actor-sheet.js";
 
 /**
@@ -17,7 +17,7 @@ export class PBActorSheetCreature extends PBActorSheet {
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "details",
+          initial: "description",
         },
       ],
     });

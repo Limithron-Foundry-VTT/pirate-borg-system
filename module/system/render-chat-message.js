@@ -1,5 +1,5 @@
 import { diceSound, playDiceSound, showDice } from "../dice.js";
-import { scrollChatToBottom } from "../sockets.js";
+import { scrollChatToBottom } from "./sockets.js";
 import { drawMysticalMishaps, evaluateFormula, getRollOutcome } from "../utils.js";
 
 /**

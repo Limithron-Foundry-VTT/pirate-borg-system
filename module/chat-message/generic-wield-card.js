@@ -18,7 +18,7 @@ const GENERIC_WIELD_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-w
  * @param {String} obj.secondaryWieldOutcomeDescription
  * @param {String} obj.secondaryWieldOutcome
  * @param {Array} obj.buttons
- * @returns {Promise<Document>}
+ * @returns {Promise.<Document>}
  */
 export const showGenericWieldCard = async ({
   actor,
