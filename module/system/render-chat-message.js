@@ -1,6 +1,6 @@
 import { diceSound, playDiceSound, showDice } from "../dice.js";
 import { scrollChatToBottom } from "./sockets.js";
-import { drawMysticalMishaps, evaluateFormula, getRollOutcome } from "../utils.js";
+import { drawMysticalMishaps, evaluateFormula, getTestOutcome } from "../utils.js";
 
 /**
  * @typedef {import('../utils.js').RollOutcome} RollOutcome
@@ -99,7 +99,7 @@ const handleActions = async (actor, data) => {
  */
 const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
   const wieldRoll = await evaluateFormula(formula, rollData);
-  const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+  const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
 
   await showDice(wieldRoll);
   playDiceSound();

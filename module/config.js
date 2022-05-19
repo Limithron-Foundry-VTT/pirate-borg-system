@@ -1,4 +1,3 @@
-// Namespace Configuration Values
 export const PB = {};
 
 PB.outcome = {

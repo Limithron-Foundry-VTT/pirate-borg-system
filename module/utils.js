@@ -1,4 +1,4 @@
-import { findCompendiumItem } from "./generator/character-generator.js";
+import { drawTable } from "./compendium.js";
 
 /**
  * @typedef {Object} RollOutcome
@@ -9,16 +9,6 @@ import { findCompendiumItem } from "./generator/character-generator.js";
  * @property {Boolean} isCriticalSuccess
  * @property {String} outcome
  */
-
-/**
- * @param {String} compendiumName
- * @param {String} tableName
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawTable = async (compendiumName, tableName, options = {}) => {
-  const table = await findCompendiumItem(compendiumName, tableName);
-  return await table.draw({ displayChat: false, ...options });
-};
 
 /**
  * @param {Object} options
@@ -65,7 +55,7 @@ export const evaluateFormula = async (formula, data) => {
  * @param {Number} dr
  * @returns {RollOutcome}
  */
-export const getRollOutcome = (roll, dr = 12) => {
+export const getTestOutcome = (roll, dr = 12) => {
   const dieResult = roll.terms[0].results[0].result;
 
   const rollResult = {

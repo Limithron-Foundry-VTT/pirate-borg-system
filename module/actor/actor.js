@@ -1,15 +1,15 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
-import ScvmDialog from "../dialog/character-generator-dialog.js";
+import CharacterGeneratorDialog from "../dialog/character-generator-dialog.js";
 import ActorBaseClassDialog from "../dialog/actor-base-class-dialog.js";
 import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../generator/character-generator.js";
 import { trackAmmo, trackCarryingCapacity } from "../system/settings.js";
-import { findCompendiumItem, invokeGettingBetterMacro } from "../generator/character-generator.js";
-import { executeMacro } from "../macro-helpers.js";
 import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
-import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, evaluateFormula, getRollOutcome } from "../utils.js";
+import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, evaluateFormula, getTestOutcome } from "../utils.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
 import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
 import { BUTTON_ACTIONS } from "../system/render-chat-message.js";
+import { executeCompendiumMacro, findCompendiumItem } from "../compendium.js";
+import { executeMacro } from "../macro-helpers.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll-card.html";
@@ -830,6 +830,7 @@ export class PBActor extends Actor {
 
   async useActionMacro(itemId) {
     const item = this.items.get(itemId);
+    console.log(item, item.data.data.actionMacro);
     if (!item || !item.data.data.actionMacro) {
       return;
     }
@@ -1050,7 +1051,7 @@ export class PBActor extends Actor {
       ["data.silver"]: newSilver,
     });
 
-    await invokeGettingBetterMacro(this);
+    await this.invokeGettingBetterMacro();
   }
 
   _betterHp(oldHp) {
@@ -1091,7 +1092,7 @@ export class PBActor extends Actor {
   }
 
   async scvmify() {
-    new ScvmDialog(this).render(true);
+    new CharacterGeneratorDialog(this).render(true);
   }
 
   async showBaseClassDialog() {
@@ -1290,7 +1291,7 @@ export class PBActor extends Actor {
     const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
     const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
     const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
     const buttons = rollOutcome.isSuccess
       ? [
           {
@@ -1340,7 +1341,7 @@ export class PBActor extends Actor {
     const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
     const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
     const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
     const buttons = rollOutcome.isSuccess
       ? [
           {
@@ -1408,7 +1409,7 @@ export class PBActor extends Actor {
     const wieldFormula = selectedActor ? "d20 + Ship Agility + PC Agility" : "d20 + Ship Agility";
     const formula = selectedActor ? "d20 + @abilities.agility.value + @crew.abilities.agility.value" : "d20 + @abilities.agility.value";
     const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
 
     await showGenericWieldCard({
       title: game.i18n.localize("PB.ShipCrewActionFullSail"),
@@ -1433,7 +1434,7 @@ export class PBActor extends Actor {
     const wieldFormula = selectedActor ? "d20 + Ship Agility + PC Strength" : "d20 + Ship Agility";
     const formula = selectedActor ? "d20 + @abilities.agility.value + @crew.abilities.strength.value" : "d20 + @abilities.agility.value";
     const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
 
     await showGenericWieldCard({
       title: game.i18n.localize("PB.ShipCrewActionComeAbout"),
@@ -1460,7 +1461,7 @@ export class PBActor extends Actor {
     const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
     const formula = selectedActor ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value";
     const wieldRoll = await evaluateFormula(formula, { ...this.getRollData(), crew: selectedActor ? selectedActor.getRollData() : {} });
-    const rollOutcome = getRollOutcome(wieldRoll, wieldDR);
+    const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
     const buttons = rollOutcome.isSuccess ? [{ title: "PB.ShipRepairButton", data: { action: BUTTON_ACTIONS.REPAIR_CREW_ACTION } }] : [];
 
     await showGenericWieldCard({
@@ -1507,5 +1508,23 @@ export class PBActor extends Actor {
       title: game.i18n.localize("PB.ShipCrewActionWeighAnchor"),
       description: game.i18n.localize("PB.ShipWeighAnchorMessage"),
     });
+  }
+
+  async invokeStartingMacro() {
+    const cls = this.getClass();
+    await executeCompendiumMacro(cls.data.data.startingMacro, { actor: this, item: cls });
+    const baseClass = await this.getBaseClass();
+    if (baseClass) {
+      await executeCompendiumMacro(baseClass.data.data.startingMacro, { actor: this, item: baseClass });
+    }
+  }
+
+  async invokeGettingBetterMacro() {
+    const cls = this.getClass();
+    await executeCompendiumMacro(cls.data.data.gettingBetterMacro, { actor: this, item: cls });
+    const baseClass = await this.getBaseClass();
+    if (baseClass) {
+      await executeCompendiumMacro(baseClass.data.data.gettingBetterMacro, { actor: this, item: baseClass });
+    }
   }
 }

@@ -1,4 +1,4 @@
-import ScvmDialog from "../dialog/character-generator-dialog.js";
+import CharacterGeneratorDialog from "../dialog/character-generator-dialog.js";
 
 export const renderActorDirectory = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
@@ -18,7 +18,7 @@ export const renderActorDirectory = (app, html) => {
       `
     );
     section.querySelector(".create-scvm-button").addEventListener("click", () => {
-      new ScvmDialog().render(true);
+      new CharacterGeneratorDialog().render(true);
     });
   }
 };

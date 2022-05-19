@@ -1,168 +1,189 @@
-// characterfactory characterfactory.js
-// /character/
-// createRandomCharacter
-
 import { PBActor } from "../actor/actor.js";
+import {
+  classItemFromPack,
+  compendiumInfoFromString,
+  drawTableItems,
+  drawTableText,
+  findClassPacks,
+  findCompendiumItem,
+  findItemsFromCompendiumString,
+  findTableItems,
+  rollTableItems,
+} from "../compendium.js";
 import { PB } from "../config.js";
-import { executeMacro } from "../macro-helpers.js";
+import { evaluateFormula } from "../utils.js";
 
+/**
+ * @returns {Promise.<Actor>}
+ */
 export const createRandomCharacter = async () => {
-  await createCharacter(await selectRandomClass());
+  return await createCharacter(await selectRandomClass());
 };
 
+/**
+ * @param {String} cls
+ * @returns {Promise.<Actor>}
+ */
 export const createCharacter = async (cls) => {
   return await createActorWithCharacter(await rollCharacterForClass(cls));
 };
 
+/**
+ * @param {Actor} actor
+ * @param {String} cls
+ */
 export const regenerateActor = async (actor, cls) => {
-  const character = await rollCharacterForClass(cls);
-  await updateActorWithCharacter(actor, character);
+  await updateActorWithCharacter(actor, await rollCharacterForClass(cls));
 };
 
-const selectRandomClass = async () => {
+/**
+ * @param {Object} characterData
+ * @returns {Promise.<Actor>}
+ */
+export const createActorWithCharacter = async (characterData) => {
+  const data = characterToActorData(characterData);
+  const actor = await PBActor.create(data);
+  await actor.invokeStartingMacro();
+  return actor;
+};
+
+/**
+ * @param {Actor} actor
+ * @param {Object} characterData
+ */
+export const updateActorWithCharacter = async (actor, characterData) => {
+  const data = characterToActorData(characterData);
+  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true, render: false });
+  await actor.update(data);
+  for (const token of actor.getActiveTokens()) {
+    await token.document.update({
+      img: actor.data.img,
+      name: actor.name,
+    });
+  }
+  await actor.invokeStartingMacro();
+};
+
+/**
+ * @returns {Promise.<Item>}
+ */
+export const selectRandomClass = async () => {
   const classPacks = findClassPacks();
   const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
   return await classItemFromPack(packName);
 };
 
-export const findClassPacks = () => {
-  return [...game.packs.keys()].filter((pack) => pack.lastIndexOf(".class-") > 0);
-};
-
-export const classItemFromPack = async (compendiumName) => {
-  const compendium = game.packs.get(compendiumName);
-  const documents = await compendium.getDocuments();
-  return documents.find((i) => i.data.type === "class");
-};
-
-const compendiumInfoFromString = (value) => {
-  return value.split(";");
-};
-
-export const drawTable = async (compendium, table) => {
-  const rollTable = await findCompendiumItem(compendium, table);
-  return await rollTable.draw({ displayChat: false });
-};
-
-const rollAbility = (roll, bonus) => {
-  const abilityRoll = new Roll(roll).evaluate({
-    async: false,
-  });
+/**
+ * @param {String} formula
+ * @param {String} bonus
+ * @returns {Promise.<Number>}
+ */
+export const rollAbility = async (formula, bonus) => {
+  const abilityRoll = await evaluateFormula(formula);
   const ability = abilityBonus(abilityRoll.total);
   const abilityWithBonus = bonus ? ability + parseInt(bonus, 10) : ability;
   return abilityWithBonus < -3 ? -3 : abilityWithBonus;
 };
 
-export const findItems = async (items) => {
-  const compendiumsItems = items.split("\n").filter((item) => item);
-  const results = [];
-  for (const compendiumsItem of compendiumsItems) {
-    const [compendium, table] = compendiumInfoFromString(compendiumsItem);
-    results.push(await findCompendiumItem(compendium, table));
-  }
-  return results;
-};
-
-export const findCompendiumItem = async (compendiumName, itemName) => {
-  const compendium = game.packs.get(compendiumName);
-  if (compendium) {
-    const documents = await compendium.getDocuments();
-    const item = documents.find((i) => i.name === itemName);
-    if (!item) {
-      console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
-    }
-    return item;
-  } else {
-    console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
-  }
-};
-
-export const drawTableItems = async (compendium, table, amount) => {
-  let results = [];
-  for (let i = 0; i < amount; i++) {
-    results = results.concat(await drawTableItem(compendium, table));
-  }
-  return results;
-};
-
-export const drawTableItem = async (compendium, table) => {
-  const draw = await drawTable(compendium, table);
-  return await findTableItems(draw.results);
-};
-
-export const drawTableSingleTextResult = async (compendium, table) => {
-  return (await drawTable(compendium, table)).results[0].getChatText();
-};
-
-export const rollTable = async (compendium, table, roll) => {
-  const rollTable = await findCompendiumItem(compendium, table);
-  const draw = await rollTable.roll(roll);
-  return await findTableItems(draw.results);
-};
-
+/**
+ * @returns {Promise.<String>}
+ */
 export const rollName = async () => {
-  const [fCompendium, fTable] = compendiumInfoFromString(PB.characterGenerator.firstNamesPack);
-  const firstName = await drawTableSingleTextResult(fCompendium, fTable);
-  const [nCompendium, nTable] = compendiumInfoFromString(PB.characterGenerator.nickNamesPack);
-  const nickName = await drawTableSingleTextResult(nCompendium, nTable);
-  const [lCompendium, lTable] = compendiumInfoFromString(PB.characterGenerator.lastNamesPack);
-  const lastName = await drawTableSingleTextResult(lCompendium, lTable);
+  const firstName = await drawTableText(...compendiumInfoFromString(PB.characterGenerator.firstNamesPack));
+  const nickName = await drawTableText(...compendiumInfoFromString(PB.characterGenerator.nickNamesPack));
+  const lastName = await drawTableText(...compendiumInfoFromString(PB.characterGenerator.lastNamesPack));
   return `${firstName} “${nickName}” ${lastName}`;
 };
 
-export const rollAbilities = (data) => {
+/**
+ * @param {Object} data
+ * @returns {Promise.<Object>}
+ */
+export const rollAbilities = async (data) => {
   return {
-    strength: rollAbility(data.startingAbilityScoreFormula, data.startingStrengthBonus),
-    agility: rollAbility(data.startingAbilityScoreFormula, data.startingAgilityBonus),
-    presence: rollAbility(data.startingAbilityScoreFormula, data.startingPresenceBonus),
-    toughness: rollAbility(data.startingAbilityScoreFormula, data.startingToughnessBonus),
-    spirit: rollAbility(data.startingAbilityScoreFormula, data.startingSpiritBonus),
+    strength: await rollAbility(data.startingAbilityScoreFormula, data.startingStrengthBonus),
+    agility: await rollAbility(data.startingAbilityScoreFormula, data.startingAgilityBonus),
+    presence: await rollAbility(data.startingAbilityScoreFormula, data.startingPresenceBonus),
+    toughness: await rollAbility(data.startingAbilityScoreFormula, data.startingToughnessBonus),
+    spirit: await rollAbility(data.startingAbilityScoreFormula, data.startingSpiritBonus),
   };
 };
 
-export const rollLuck = (luckDie) => {
-  return new Roll(luckDie).evaluate({
-    async: false,
-  }).total;
+/**
+ * @param {String} luckDie
+ * @returns {Promise.<Number>}
+ */
+export const rollLuck = async (luckDie) => {
+  return (await evaluateFormula(luckDie)).total;
 };
 
+/**
+ * @param {String} startingHitPoints
+ * @param {Number} toughness
+ * @returns {Promise.<Number>}
+ */
 export const rollHitPoints = async (startingHitPoints, toughness) => {
-  const roll = new Roll(startingHitPoints);
-  const hp = (await roll.evaluate()).total + toughness;
+  const roll = await evaluateFormula(startingHitPoints);
+  const hp = roll.total + toughness;
   return hp <= 0 ? 1 : hp;
 };
 
-export const rollSilver = (background) => {
-  return new Roll(background.data.data.startingGold).evaluate({
-    async: false,
-  }).total;
+/**
+ * @param {item} background
+ * @returns {Promise.<Number>}
+ */
+export const rollSilver = async (background) => {
+  return (await evaluateFormula(background.data.data.startingGold)).total;
 };
 
-export const rollArmor = async (roll) => {
+/**
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollArmor = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.armorsRollTable);
-  return await rollTable(compendium, table, roll);
+  return await rollTableItems(compendium, table, formula);
 };
 
-export const rollHat = async (roll) => {
+/**
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollHat = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.hatsRollTable);
-  return await rollTable(compendium, table, roll);
+  return await rollTableItems(compendium, table, formula);
 };
 
-export const rollWeapon = async (roll) => {
+/**
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollWeapon = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.weaponsRollTable);
-  return await rollTable(compendium, table, roll);
+  return await rollTableItems(compendium, table, formula);
 };
 
-export const rollAncientRelics = async (roll) => {
+/**
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollAncientRelics = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.ancientRelicsRollTable);
-  return await rollTable(compendium, table, roll);
+  return await rollTableItems(compendium, table, formula);
 };
 
-export const rollArcaneRituals = async (roll) => {
+/**
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollArcaneRituals = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.arcaneRitualsRollTable);
-  return await rollTable(compendium, table, roll);
+  return await rollTableItems(compendium, table, formula);
 };
 
+/**
+ * @returns {Promise.<Array.<Item>>}
+ */
 export const rollBaseTables = async () => {
   let items = [];
   for (const compendiumTable of PB.characterGenerator.baseTables) {
@@ -172,8 +193,12 @@ export const rollBaseTables = async () => {
   return items;
 };
 
-export const rollRollItems = async (rolls) => {
-  const compendiumTables = rolls.split("\n").filter((item) => item);
+/**
+ * @param {String} rollString
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const rollRollItems = async (rollString) => {
+  const compendiumTables = rollString.split("\n").filter((item) => item);
   let results = [];
   for (const compendiumTable of compendiumTables) {
     const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
@@ -182,19 +207,27 @@ export const rollRollItems = async (rolls) => {
   return results;
 };
 
-export const findStartingBonusItems = async (features) => {
+/**
+ * @param {Array.<Item>} items
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const findStartingBonusItems = async (items) => {
   let results = [];
-  for (const feature of features) {
+  for (const feature of items) {
     if (feature.data.data.startingBonusItems) {
-      results = results.concat(await findItems(feature.data.data.startingBonusItems));
+      results = results.concat(await findItemsFromCompendiumString(feature.data.data.startingBonusItems));
     }
   }
   return results;
 };
 
-export const findStartingBonusRollsItems = async (features) => {
+/**
+ * @param {Array.<Item>} items
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const findStartingBonusRollsItems = async (items) => {
   let results = [];
-  for (const feature of features) {
+  for (const feature of items) {
     if (feature.data.data.startingBonusRolls) {
       results = results.concat(await rollRollItems(feature.data.data.startingBonusRolls));
     }
@@ -202,6 +235,10 @@ export const findStartingBonusRollsItems = async (features) => {
   return results;
 };
 
+/**
+ * @param {Actor} actor
+ * @returns {Promise.<Array.<Item>>}
+ */
 export const handleActorGettingBetterItems = async (actor) => {
   const actorClass = actor.getClass();
   const baseClass = await actor.getBaseClass();
@@ -215,12 +252,21 @@ export const handleActorGettingBetterItems = async (actor) => {
   return items;
 };
 
-const handleClassGettingBetterItems = async (actor, table) => {
-  const items = await drawGettingBetterRollTable(actor, table);
+/**
+ * @param {Actor} actor
+ * @param {String} compendiumTable
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const handleClassGettingBetterItems = async (actor, compendiumTable) => {
+  const items = await drawGettingBetterRollTable(actor, compendiumTable);
   await updateOrCreateActorItems(actor, items);
   return items;
 };
 
+/**
+ * @param {Actor} actor
+ * @param {Array.<Item>} items
+ */
 const updateOrCreateActorItems = async (actor, items) => {
   // here we assume the first item is the "feature"
   const item = items[0];
@@ -236,6 +282,11 @@ const updateOrCreateActorItems = async (actor, items) => {
   }
 };
 
+/**
+ * @param {Actor} actor
+ * @param {String} compendiumTable
+ * @returns {Promise.<Array.<Item>>}
+ */
 const drawGettingBetterRollTable = async (actor, compendiumTable) => {
   const [compendium, table] = compendiumInfoFromString(compendiumTable);
   let items = [];
@@ -269,6 +320,11 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
   return items;
 };
 
+/**
+ * @param {Item} cls
+ * @param {Array.<Item>} items
+ * @returns {String}
+ */
 export const generateDescription = (cls, items) => {
   const thingOfImportance = items.find((item) => item.data.data.featureType === "Thing of Importance");
   const description = items
@@ -285,42 +341,18 @@ export const generateDescription = (cls, items) => {
   return `<p>${cls.data.data.flavorText}</p><p>${description}</p>`;
 };
 
-const executeCompendiumMacro = async (compendiumMacro, parameters = {}) => {
-  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro || "");
-  if (compendium && macroName) {
-    const macro = await findCompendiumItem(compendium, macroName);
-    executeMacro(macro, parameters);
-  }
-};
-
-export const invokeStartingMacro = async (actor) => {
-  const cls = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
-  await executeCompendiumMacro(cls.data.data.startingMacro, { actor, item: cls });
-
-  const baseClass = await actor.getBaseClass();
-  if (baseClass) {
-    await executeCompendiumMacro(baseClass.data.data.startingMacro, { actor, item: baseClass });
-  }
-};
-
-export const invokeGettingBetterMacro = async (actor) => {
-  const cls = actor.items.find((i) => i.data.type === CONFIG.PB.itemTypes.class);
-  await executeCompendiumMacro(cls.data.data.gettingBetterMacro, { actor, item: cls });
-
-  const baseClass = await actor.getBaseClass();
-  if (baseClass) {
-    await executeCompendiumMacro(baseClass.data.data.gettingBetterMacro, { actor, item: baseClass });
-  }
-};
-
+/**
+ * @param {String} cls
+ * @returns {Object}
+ */
 export const rollCharacterForClass = async (cls) => {
   console.log(`Creating new ${cls.data.name}`);
 
   const data = cls.data.data;
 
   const name = await rollName();
-  const abilities = rollAbilities(data);
-  const luck = rollLuck(data.luckDie);
+  const abilities = await rollAbilities(data);
+  const luck = await rollLuck(data.luckDie);
   const hitPoints = await rollHitPoints(data.startingHitPoints, abilities.toughness);
   const baseTables = await rollBaseTables();
 
@@ -328,14 +360,14 @@ export const rollCharacterForClass = async (cls) => {
   const features = baseTables.filter((item) => item.type === CONFIG.PB.itemTypes.feature);
   const hasRelic = baseTables.some((item) => item.data.data.invokableType === "Ancient Relic");
 
-  const silver = rollSilver(background);
+  const silver = await rollSilver(background);
 
   const armor = cls.data.data.startingArmorTableFormula ? await rollArmor(!hasRelic ? cls.data.data.startingArmorTableFormula : "1d6") : [];
   const hat = cls.data.data.startingHatTableFormula ? await rollHat(cls.data.data.startingHatTableFormula) : [];
   const weapon = cls.data.data.startingWeaponTableFormula ? await rollWeapon(cls.data.data.startingWeaponTableFormula) : [];
 
   const startingRollItems = await rollRollItems(cls.data.data.startingRolls);
-  const startingItems = await findItems(cls.data.data.startingItems);
+  const startingItems = await findItemsFromCompendiumString(cls.data.data.startingItems);
 
   // Both of the rolls should loop until nothing is returning to have a kind of recursive configuration
   const startingBonusItems = await findStartingBonusItems([...(features || []), ...(startingItems || []), ...(startingRollItems || []), background]);
@@ -350,6 +382,9 @@ export const rollCharacterForClass = async (cls) => {
 
   const description = generateDescription(cls, baseTables);
 
+  const powerUsesRoll = await evaluateFormula(`1d4 + ${abilities.spirit}`);
+  const extraResourceRoll = await evaluateFormula(`1d4 + ${abilities.spirit}`);
+
   const allDocs = [
     ...baseTables,
     ...(armor || []),
@@ -361,9 +396,6 @@ export const rollCharacterForClass = async (cls) => {
     ...(startingBonusRollItems || []),
     cls,
   ];
-
-  const powerUsesRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
-  const extraResourceRoll = new Roll(`1d4 + ${abilities.spirit}`).evaluate({ async: false });
 
   return {
     name,
@@ -379,39 +411,43 @@ export const rollCharacterForClass = async (cls) => {
   };
 };
 
-const characterToActorData = (s) => {
+/**
+ * @param {Object} characterData
+ * @returns {Object}
+ */
+const characterToActorData = (characterData) => {
   return {
-    name: s.name,
+    name: characterData.name,
     data: {
       abilities: {
-        strength: { value: s.strength },
-        agility: { value: s.agility },
-        presence: { value: s.presence },
-        toughness: { value: s.toughness },
-        spirit: { value: s.spirit },
+        strength: { value: characterData.strength },
+        agility: { value: characterData.agility },
+        presence: { value: characterData.presence },
+        toughness: { value: characterData.toughness },
+        spirit: { value: characterData.spirit },
       },
-      description: s.description,
+      description: characterData.description,
       hp: {
-        max: s.hitPoints,
-        value: s.hitPoints,
+        max: characterData.hitPoints,
+        value: characterData.hitPoints,
       },
       luck: {
-        max: s.luck,
-        value: s.luck,
+        max: characterData.luck,
+        value: characterData.luck,
       },
       powerUses: {
-        max: s.powerUses,
-        value: s.powerUses,
+        max: characterData.powerUses,
+        value: characterData.powerUses,
       },
       extraResourceUses: {
-        max: s.extraResourceUses,
-        value: s.extraResourceUses,
+        max: characterData.extraResourceUses,
+        value: characterData.extraResourceUses,
       },
-      silver: s.silver,
-      baseClass: s.baseClass || "",
+      silver: characterData.silver,
+      baseClass: characterData.baseClass || "",
     },
-    img: s.actorImg,
-    items: s.items.map((i) => {
+    img: characterData.actorImg,
+    items: characterData.items.map((i) => {
       return {
         data: {
           ...i.data.data,
@@ -424,8 +460,8 @@ const characterToActorData = (s) => {
     }),
     flags: {},
     token: {
-      img: s.actorImg,
-      name: s.name,
+      img: characterData.actorImg,
+      name: characterData.name,
       displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
       displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
     },
@@ -433,52 +469,11 @@ const characterToActorData = (s) => {
   };
 };
 
-export const createActorWithCharacter = async (s) => {
-  const data = characterToActorData(s);
-  const actor = await PBActor.create(data);
-  actor.sheet.render(true);
-  await invokeStartingMacro(actor);
-  return actor;
-};
-
-export const updateActorWithCharacter = async (actor, s) => {
-  const data = characterToActorData(s);
-  await actor.deleteEmbeddedDocuments("Item", [], { deleteAll: true, render: false });
-  await actor.update(data);
-  for (const token of actor.getActiveTokens()) {
-    await token.document.update({
-      img: actor.data.img,
-      name: actor.name,
-    });
-  }
-  await invokeStartingMacro(actor);
-};
-
-export const findTableItems = async (results) => {
-  const items = [];
-  let item = null;
-  for (const result of results) {
-    if (result.data.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
-      item = await findCompendiumItem(result.data.collection, result.data.text);
-      if (item) {
-        items.push(item);
-      }
-    } else if (result.data.type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
-      const [property, value] = result.getChatText().split(": ");
-      const enrichHtml = TextEditor.enrichHTML(value, {
-        options: { command: true },
-      });
-      if (property === "description") {
-        item.data.data.description = enrichHtml;
-      } else if (property === "quantity") {
-        item.data.data.quantity = parseInt($(`<span>${enrichHtml}</span>`).text().trim(), 10);
-      }
-    }
-  }
-  return items;
-};
-
-const abilityBonus = (rollTotal) => {
+/**
+ * @param {Number} rollTotal
+ * @returns {Number}
+ */
+export const abilityBonus = (rollTotal) => {
   if (rollTotal <= 4) {
     return -3;
   } else if (rollTotal <= 6) {

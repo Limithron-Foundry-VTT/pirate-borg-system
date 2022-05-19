@@ -1,4 +1,4 @@
-import { AllowedScvmClassesDialog } from "../settings/allowed-scvm-classes-dialog.js";
+import { AllowedCharacterClassesDialog } from "../dialog/allowed-character-classes-dialog.js";
 
 export const registerSystemSettings = () => {
   /**
@@ -49,11 +49,11 @@ export const registerSystemSettings = () => {
     hint: "PB.EditAllowedScvmClassesMenuHint",
     label: "PB.EditAllowedScvmClassesMenuButtonLabel",
     icon: "fas fa-cog",
-    type: AllowedScvmClassesDialog,
+    type: AllowedCharacterClassesDialog,
     restricted: true,
   });
 
-  /** The allowed classes menu for scvmfactory */
+  /** The allowed classes for scvmfactory */
   game.settings.register("pirateborg", "allowedScvmClasses", {
     name: "",
     default: {},

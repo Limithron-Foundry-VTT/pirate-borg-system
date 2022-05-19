@@ -1,8 +1,9 @@
 import { executeCharacterCreationMacro } from "../macro-helpers.js";
 import { isScvmClassAllowed, setLastScvmfactorySelection, getLastScvmfactorySelection } from "../system/settings.js";
-import { classItemFromPack, createCharacter, findClassPacks, findCompendiumItem, regenerateActor } from "../generator/character-generator.js";
+import { createCharacter, regenerateActor } from "../generator/character-generator.js";
+import { classItemFromPack, findClassPacks, findCompendiumItem } from "../compendium.js";
 
-export default class ScvmDialog extends Application {
+export default class CharacterGeneratorDialog extends Application {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
@@ -105,8 +106,6 @@ export default class ScvmDialog extends Application {
     setLastScvmfactorySelection(selection);
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
-    console.log(randomClass, randomClass.data.data);
-
     if (randomClass.data.data.characterGeneratorMacro) {
       const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
       if (compendium) {
@@ -121,7 +120,8 @@ export default class ScvmDialog extends Application {
       if (this.actor) {
         await regenerateActor(this.actor, randomClass);
       } else {
-        await createCharacter(randomClass);
+        const actor = await createCharacter(randomClass);
+        actor.sheet.render(true);
       }
     } catch (err) {
       console.error(err);

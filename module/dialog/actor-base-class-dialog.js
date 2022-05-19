@@ -1,4 +1,4 @@
-import { classItemFromPack, findClassPacks } from "../generator/character-generator.js";
+import { classItemFromPack, findClassPacks } from "../compendium.js";
 import { isScvmClassAllowed } from "../system/settings.js";
 
 export default class ActorBaseClassDialog extends Application {

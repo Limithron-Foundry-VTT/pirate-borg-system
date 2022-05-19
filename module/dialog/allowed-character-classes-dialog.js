@@ -1,7 +1,7 @@
-import { findClassPacks } from "../generator/character-generator.js";
+import { findClassPacks } from "../compendium.js";
 import { isScvmClassAllowed, setAllowedScvmClasses } from "../system/settings.js";
 
-export class AllowedScvmClassesDialog extends FormApplication {
+export class AllowedCharacterClassesDialog extends FormApplication {
   constructor() {
     super();
   }

@@ -9,6 +9,7 @@ import { PBItemSheet } from "../item/sheet/item-sheet.js";
 import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
 import * as characterGenerator from "../generator/character-generator.js";
 import * as macroHelpers from "../macro-helpers.js";
+import * as compendiumHelpers from "../compendium.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 
@@ -21,6 +22,7 @@ export const configureSystem = () => {
     rollItemMacro,
     characterGenerator,
     macroHelpers,
+    compendiumHelpers,
   };
 
   CONFIG.Actor.documentClass = PBActor;

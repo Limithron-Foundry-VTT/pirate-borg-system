@@ -1,7 +1,8 @@
 export { showGenericCard } from "./chat-message/generic-card.js";
 export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
-import { findCompendiumItem } from "./generator/character-generator.js";
 import { evaluateFormula } from "./utils.js";
+
+export { drawTable } from "./compendium.js";
 
 export const createRoll = async (formula, rollData = {}) => {
   return await evaluateFormula(formula, rollData);
@@ -35,9 +36,4 @@ export const executeCharacterCreationMacro = async (macro, { actor, selectedClas
     ui.notifications.error(`There was an error in your macro syntax. See the console (F12) for details`);
     console.error(err);
   }
-};
-
-export const drawTable = async (compendium, table) => {
-  const rollTable = await findCompendiumItem(compendium, table);
-  return await rollTable.draw();
 };
