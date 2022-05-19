@@ -686,7 +686,7 @@ export class PBActor extends Actor {
     const html = await renderTemplate(GENERIC_CARD_TEMPLATE, {
       title: item.name,
       description: game.i18n.format("PB.Reloading", {
-        current: (reloadTime-loadingCount) || 1,
+        current: reloadTime - loadingCount || 1,
         max: reloadTime || 1,
       }),
     });

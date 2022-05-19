@@ -7,7 +7,7 @@ import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
 import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
-import * as pirateFactory from "../generator/character-generator.js";
+import * as characterGenerator from "../generator/character-generator.js";
 import * as macroHelpers from "../macro-helpers.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
@@ -19,7 +19,7 @@ export const configureSystem = () => {
     PBActor,
     PBItem,
     rollItemMacro,
-    pirateFactory,
+    characterGenerator,
     macroHelpers,
   };
 

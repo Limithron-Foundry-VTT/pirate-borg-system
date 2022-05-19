@@ -105,6 +105,8 @@ export default class ScvmDialog extends Application {
     setLastScvmfactorySelection(selection);
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
+    console.log(randomClass, randomClass.data.data);
+
     if (randomClass.data.data.characterGeneratorMacro) {
       const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
       if (compendium) {
