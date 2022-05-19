@@ -1793,7 +1793,7 @@ hr {
 }
 
 /* ====================== */
-/* Rest and Scvm Dialogs */
+/* Dialogs */
 /* ====================== */
 .custom-dialog {
   font-size: 14px;
@@ -1851,8 +1851,8 @@ hr {
   text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
-.allowed-scvm-classes-dialog .class-name,
-.scvm-dialog .class-name {
+.allowed-character-generator-classes-dialog .class-name,
+.character-generator-dialog .class-name {
   text-transform: capitalize;
   padding-top: 2px;
 }

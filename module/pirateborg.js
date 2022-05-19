@@ -41,5 +41,3 @@ Hooks.on("renderCombatTracker", renderCombatTracker);
 Hooks.on("renderSettings", renderSettings);
 
 Hooks.on("renderChatMessage", renderChatMessage);
-
-// Hooks.on("preCreateItem", preCreateItem);

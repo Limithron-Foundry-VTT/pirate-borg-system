@@ -44,17 +44,17 @@ export const registerSystemSettings = () => {
   });
 
   /** The allowed classes menu */
-  game.settings.registerMenu("pirateborg", "EditAllowedScvmClassesMenu", {
-    name: "PB.EditAllowedScvmClassesMenu",
-    hint: "PB.EditAllowedScvmClassesMenuHint",
-    label: "PB.EditAllowedScvmClassesMenuButtonLabel",
+  game.settings.registerMenu("pirateborg", "EditAllowedCharacterGeneratorClassesMenu", {
+    name: "PB.EditAllowedCharacterGeneratorClassesMenu",
+    hint: "PB.EditAllowedCharacterGeneratorClassesMenuHint",
+    label: "PB.EditAllowedCharacterGeneratorClassesMenuButtonLabel",
     icon: "fas fa-cog",
     type: AllowedCharacterClassesDialog,
     restricted: true,
   });
 
-  /** The allowed classes for scvmfactory */
-  game.settings.register("pirateborg", "allowedScvmClasses", {
+  /** The allowed classes for Character Generator */
+  game.settings.register("pirateborg", "allowedCharacterGeneratorClasses", {
     name: "",
     default: {},
     type: Object,
@@ -62,8 +62,8 @@ export const registerSystemSettings = () => {
     config: false,
   });
 
-  /** The client scvmfactory selected classes  */
-  game.settings.register("pirateborg", "lastScvmfactorySelection", {
+  /** The client Character Generator selected classes  */
+  game.settings.register("pirateborg", "lastCharacterGeneratorSelection", {
     name: "",
     default: [],
     type: Array,
@@ -80,21 +80,21 @@ export const trackAmmo = () => {
   return game.settings.get("pirateborg", "trackAmmo");
 };
 
-export const isScvmClassAllowed = (classPack) => {
-  const allowedScvmClasses = game.settings.get("pirateborg", "allowedScvmClasses");
-  return typeof allowedScvmClasses[classPack] === "undefined" ? true : !!allowedScvmClasses[classPack];
+export const isCharacterGeneratorClassAllowed = (classPack) => {
+  const allowedCharacterGeneratorClasses = game.settings.get("pirateborg", "allowedCharacterGeneratorClasses");
+  return typeof allowedCharacterGeneratorClasses[classPack] === "undefined" ? true : !!allowedCharacterGeneratorClasses[classPack];
 };
 
-export const setAllowedScvmClasses = (allowedScvmClasses) => {
-  return game.settings.set("pirateborg", "allowedScvmClasses", allowedScvmClasses);
+export const setAllowedCharacterGeneratorClasses = (allowedCharacterGeneratorClasses) => {
+  return game.settings.set("pirateborg", "allowedCharacterGeneratorClasses", allowedCharacterGeneratorClasses);
 };
 
-export const getLastScvmfactorySelection = () => {
-  return game.settings.get("pirateborg", "lastScvmfactorySelection");
+export const getLastCharacterGeneratorSelection = () => {
+  return game.settings.get("pirateborg", "lastCharacterGeneratorSelection");
 };
 
-export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
-  return game.settings.set("pirateborg", "lastScvmfactorySelection", lastScvmfactorySelection);
+export const setLastCharacterGeneratorSelection = (lastCharacterGeneratorSelection) => {
+  return game.settings.set("pirateborg", "lastCharacterGeneratorSelection", lastCharacterGeneratorSelection);
 };
 
 export const getSystemMigrationVersion = () => {

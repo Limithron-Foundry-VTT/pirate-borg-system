@@ -1,5 +1,5 @@
 import { classItemFromPack, findClassPacks } from "../compendium.js";
-import { isScvmClassAllowed } from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed } from "../system/settings.js";
 
 export default class ActorBaseClassDialog extends Application {
   constructor(actor = null, options = {}) {
@@ -30,7 +30,7 @@ export default class ActorBaseClassDialog extends Application {
   async getClassData() {
     return (await this.getClasses(findClassPacks()))
       .filter((clazz) => !clazz.data.data.requireBaseClass)
-      .filter((clazz) => isScvmClassAllowed(clazz.data.name))
+      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.data.name))
       .map((clazz) => ({
         name: clazz.name,
         baseClass: `${clazz.pack};${clazz.name}`,

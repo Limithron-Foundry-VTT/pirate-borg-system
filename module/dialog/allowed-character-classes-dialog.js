@@ -1,5 +1,5 @@
 import { findClassPacks } from "../compendium.js";
-import { isScvmClassAllowed, setAllowedScvmClasses } from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses } from "../system/settings.js";
 
 export class AllowedCharacterClassesDialog extends FormApplication {
   constructor() {
@@ -8,9 +8,9 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      id: "allowed-scvm-classes-dialog",
-      title: game.i18n.localize("PB.AllowedScvmClassesEdit"),
-      template: "systems/pirateborg/templates/dialog/allowed-scvm-classes-dialog.html",
+      id: "allowed-character-generator-classes-dialog",
+      title: game.i18n.localize("PB.AllowedCharacterGeneratorClassesEdit"),
+      template: "systems/pirateborg/templates/dialog/allowed-character-generator-classes-dialog.html",
       classes: ["form", "pirateborg"],
       popOut: true,
       width: 420,
@@ -39,7 +39,7 @@ export class AllowedCharacterClassesDialog extends FormApplication {
         return {
           name: classPack,
           label: classPack.split("class-")[1].replace(/-/g, " "),
-          checked: isScvmClassAllowed(classPack),
+          checked: isCharacterGeneratorClassAllowed(classPack),
         };
       })
       .sort((a, b) => (a.label > b.label ? 1 : -1));
@@ -47,13 +47,13 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
   _onToggleAll(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".allowed-scvm-classes-dialog")[0];
+    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
     $(form).find(".class-checkbox").prop("checked", true);
   }
 
   _onToggleNone(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".allowed-scvm-classes-dialog")[0];
+    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
     $(form).find(".class-checkbox").prop("checked", false);
   }
 
@@ -63,7 +63,7 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   }
 
   _onOk(event) {
-    const form = $(event.currentTarget).parents(".allowed-scvm-classes-dialog")[0];
+    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
     const selected = [];
     $(form)
       .find("input:checked")
@@ -79,6 +79,6 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
   /** @override */
   async _updateObject(event, formData) {
-    setAllowedScvmClasses(formData);
+    setAllowedCharacterGeneratorClasses(formData);
   }
 }

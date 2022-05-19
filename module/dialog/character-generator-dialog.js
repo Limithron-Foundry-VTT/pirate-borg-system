@@ -1,5 +1,5 @@
 import { executeCharacterCreationMacro } from "../macro-helpers.js";
-import { isScvmClassAllowed, setLastScvmfactorySelection, getLastScvmfactorySelection } from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../compendium.js";
 
@@ -8,16 +8,16 @@ export default class CharacterGeneratorDialog extends Application {
     super(options);
     this.actor = actor;
     this.classPacks = findClassPacks();
-    this.lastScvmfactorySelection = getLastScvmfactorySelection();
+    this.lastCharacterGeneratorSelection = getLastCharacterGeneratorSelection();
   }
 
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
-    options.id = "scvm-dialog";
+    options.id = "character-generator-dialog";
     options.classes = ["pirateborg"];
-    options.title = game.i18n.localize("PB.TheScvmfactory");
-    options.template = "systems/pirateborg/templates/dialog/scvm-dialog.html";
+    options.title = game.i18n.localize("PB.CharacterGenerator");
+    options.template = "systems/pirateborg/templates/dialog/character-generator-dialog.html";
     options.width = 420;
     options.height = "auto";
     return options;
@@ -37,9 +37,9 @@ export default class CharacterGeneratorDialog extends Application {
         name: clazz.name,
         pack: clazz.pack,
         requireBaseClass: clazz.data.data.requireBaseClass,
-        checked: this.lastScvmfactorySelection.length > 0 ? this.lastScvmfactorySelection.includes(clazz.pack) : true,
+        checked: this.lastCharacterGeneratorSelection.length > 0 ? this.lastCharacterGeneratorSelection.includes(clazz.pack) : true,
       }))
-      .filter((clazz) => isScvmClassAllowed(clazz.name))
+      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.pack))
       .sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
@@ -60,18 +60,18 @@ export default class CharacterGeneratorDialog extends Application {
     html.find(".toggle-all").click(this._onToggleAll.bind(this));
     html.find(".toggle-none").click(this._onToggleNone.bind(this));
     html.find(".cancel-button").click(this._onCancel.bind(this));
-    html.find(".scvm-button").click(this._onScvm.bind(this));
+    html.find(".character-generator-button").click(this._onCharacterGenerator.bind(this));
   }
 
   _onToggleAll(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".scvm-dialog")[0];
+    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
     $(form).find(".class-checkbox").prop("checked", true);
   }
 
   _onToggleNone(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".scvm-dialog")[0];
+    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
     $(form).find(".class-checkbox").prop("checked", false);
   }
 
@@ -80,9 +80,9 @@ export default class CharacterGeneratorDialog extends Application {
     this.close();
   }
 
-  async _onScvm(event) {
+  async _onCharacterGenerator(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".scvm-dialog")[0];
+    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
     const selection = [];
 
     $(form)
@@ -103,7 +103,7 @@ export default class CharacterGeneratorDialog extends Application {
       return;
     }
 
-    setLastScvmfactorySelection(selection);
+    setLastCharacterGeneratorSelection(selection);
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
     if (randomClass.data.data.characterGeneratorMacro) {

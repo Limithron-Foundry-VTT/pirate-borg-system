@@ -31,7 +31,7 @@
 }
 
 /* ====================== */
-/* Rest and Scvm Dialogs */
+/* Rest and Character Generator Dialogs */
 /* ====================== */
 
 .custom-dialog {
@@ -106,8 +106,8 @@
   }
 }
 
-.allowed-scvm-classes-dialog .class-name,
-.scvm-dialog .class-name {
+.allowed-character-generator-classes-dialog .class-name,
+.character-generator-dialog .class-name {
   text-transform: capitalize;
   padding-top: 2px;
 }

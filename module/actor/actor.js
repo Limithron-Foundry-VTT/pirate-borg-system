@@ -830,7 +830,6 @@ export class PBActor extends Actor {
 
   async useActionMacro(itemId) {
     const item = this.items.get(itemId);
-    console.log(item, item.data.data.actionMacro);
     if (!item || !item.data.data.actionMacro) {
       return;
     }
