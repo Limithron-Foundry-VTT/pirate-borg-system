@@ -10,13 +10,13 @@ import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
 import { BUTTON_ACTIONS } from "../system/render-chat-message.js";
 import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, executeCompendiumMacro, findCompendiumItem } from "../compendium.js";
 import { executeMacro } from "../macro-helpers.js";
+import { PBItem } from "../item/item.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/attack-roll-card.html";
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/defend-roll-card.html";
 const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/get-better-roll-card.html";
-const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
 
 /**
  * @extends {Actor}
@@ -403,6 +403,13 @@ export class PBActor extends Actor {
       }
     }
 
+    const items = [item];
+    if (ammo) {
+      items.push(ammo);
+    } else if (item.data.data.usesAmmo) {
+      items.push(new PBItem({ type: "ammo", name: game.i18n.localize("PB.NoAmmo") }));
+    }
+
     // TODO: decide keys in handlebars/template?
     const abilityAbbrevKey = isRanged ? "PB.AbilityPresenceAbbrev" : "PB.AbilityStrengthAbbrev";
     const weaponTypeKey = isRanged ? "PB.WeaponTypeRanged" : "PB.WeaponTypeMelee";
@@ -413,7 +420,7 @@ export class PBActor extends Actor {
       attackRoll,
       attackOutcome,
       damageRoll,
-      items: [item],
+      items: items,
       takeDamage,
       targetArmorRoll,
       weaponTypeKey,
