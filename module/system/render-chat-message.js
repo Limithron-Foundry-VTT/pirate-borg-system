@@ -1,6 +1,7 @@
 import { diceSound, playDiceSound, showDice } from "../dice.js";
 import { scrollChatToBottom } from "./sockets.js";
-import { drawMysticalMishaps, evaluateFormula, getTestOutcome } from "../utils.js";
+import { evaluateFormula, getTestOutcome } from "../utils.js";
+import { drawMysticalMishaps } from "../compendium.js";
 
 /**
  * @typedef {import('../utils.js').RollOutcome} RollOutcome
@@ -68,8 +69,8 @@ const onChatCardAction = async (event) => {
 
 /**
  * @param {Actor} actor
- * @param {object} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const handleActions = async (actor, data) => {
   switch (data.action) {
@@ -91,11 +92,11 @@ const handleActions = async (actor, data) => {
 };
 
 /**
- * @param {string} formula
- * @param {string} wieldFormula
- * @param {string} wieldDR
- * @param {object} rollData
- * @returns {Promise<{wieldOutcome: string, wieldRoll: Roll, wieldDR: number, wieldFormula: string, rollOutcome: RollOutcome}>}
+ * @param {String} formula
+ * @param {String} wieldFormula
+ * @param {String} wieldDR
+ * @param {Object} rollData
+ * @returns {Promise<{wieldOutcome: String, wieldRoll: Roll, wieldDR: Number, wieldFormula: String, rollOutcome: RollOutcome}>}
  */
 const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
   const wieldRoll = await evaluateFormula(formula, rollData);
@@ -123,7 +124,7 @@ const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
 
 /**
  * @param {DOMStringMap} dataset
- * @returns {*}
+ * @returns {Object}
  */
 const getData = (dataset) => {
   return {
@@ -140,8 +141,8 @@ const getData = (dataset) => {
 
 /**
  * @param {Actor} actor
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionArcaneRitual = async (actor, data) => {
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
@@ -166,8 +167,8 @@ const actionArcaneRitual = async (actor, data) => {
 
 /**
  * @param {Actor} actor
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionAncientRelic = async (actor, data) => {
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
@@ -180,8 +181,8 @@ const actionAncientRelic = async (actor, data) => {
 };
 
 /**
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionMysticalMishap = async (data) => {
   const draw = await drawMysticalMishaps();
@@ -199,8 +200,8 @@ const actionMysticalMishap = async (data) => {
 
 /**
  * @param {Actor} actor
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionMysticShanties = async (actor, data) => {
   await actor.update({ "data.shanties.value": Math.max(0, actor.data.data.shanties.value - 1) });
@@ -210,8 +211,8 @@ const actionMysticShanties = async (actor, data) => {
 
 /**
  * @param {Actor} actor
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionExtraResource = async (actor, data) => {
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
@@ -220,7 +221,7 @@ const actionExtraResource = async (actor, data) => {
 
 /**
  * @param {Actor} actor
- * @returns {Promise<string>}
+ * @returns {Promise<String>}
  */
 const actionRepairCrewAction = async (actor) => {
   const wieldRoll = await evaluateFormula("d6");
@@ -238,8 +239,8 @@ const actionRepairCrewAction = async (actor) => {
 };
 
 /**
- * @param {*} data
- * @returns {Promise<string>}
+ * @param {Object} data
+ * @returns {Promise<String>}
  */
 const actionDamage = async (data) => {
   const damageRoll = await evaluateFormula(data.isCritical ? `(${data.damage}) * 2` : data.damage);

@@ -4,10 +4,11 @@ export const migrate = () => {
     return;
   }
   const currentVersion = game.settings.get("pirateborg", "systemMigrationVersion");
-
-  console.log(`Current version: ${currentVersion}`);
   const NEEDS_MIGRATION_VERSION = "v0.0.0";
   const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+
+  console.log(`Current version: ${currentVersion}`);
+
   if (!needsMigration) {
     console.log(`Version doesn't need migration.`);
     return;

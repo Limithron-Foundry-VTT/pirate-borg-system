@@ -40,6 +40,40 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
 /**
  * @param {String} compendium
  * @param {String} table
+ * @returns {Promise.<String>}
+ */
+export const drawTableText = async (compendium, table) => {
+  return (await drawTable(compendium, table)).results[0].getChatText();
+};
+
+/**
+ * @param {String} compendium
+ * @param {String} table
+ * @param {String} formula
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const drawTableItem = async (compendium, table) => {
+  const draw = await drawTable(compendium, table);
+  return await findTableItems(draw.results);
+};
+
+/**
+ * @param {String} compendium
+ * @param {String} table
+ * @param {Number} amount
+ * @returns {Promise.<Array.<Item>>}
+ */
+export const drawTableItems = async (compendium, table, amount) => {
+  let results = [];
+  for (let i = 0; i < amount; i++) {
+    results = results.concat(await drawTableItem(compendium, table));
+  }
+  return results;
+};
+
+/**
+ * @param {String} compendium
+ * @param {String} table
  * @param {String} formula
  * @returns {Promise.<RollTableDraw>}
  */
@@ -61,37 +95,17 @@ export const rollTableItems = async (compendium, table, formula) => {
 };
 
 /**
- * @param {String} compendium
- * @param {String} table
- * @returns {Promise.<String>}
- */
-export const drawTableText = async (compendium, table) => {
-  return (await drawTable(compendium, table)).results[0].getChatText();
-};
-
-/**
- * @param {String} compendium
- * @param {String} table
- * @param {Number} amount
+ * @param {String} items
  * @returns {Promise.<Array.<Item>>}
  */
-export const drawTableItems = async (compendium, table, amount) => {
-  let results = [];
-  for (let i = 0; i < amount; i++) {
-    results = results.concat(await drawTableItem(compendium, table));
+export const findItemsFromCompendiumString = async (compendiumString) => {
+  const compendiumsItems = compendiumString.split("\n").filter((item) => item);
+  const results = [];
+  for (const compendiumsItem of compendiumsItems) {
+    const [compendium, table] = compendiumInfoFromString(compendiumsItem);
+    results.push(await findCompendiumItem(compendium, table));
   }
   return results;
-};
-
-/**
- * @param {String} compendium
- * @param {String} table
- * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
- */
-export const drawTableItem = async (compendium, table) => {
-  const draw = await drawTable(compendium, table);
-  return await findTableItems(draw.results);
 };
 
 /**
@@ -123,6 +137,18 @@ export const findTableItems = async (results) => {
 };
 
 /**
+ * @param {String} compendiumMacro
+ * @param {Object} parameters
+ */
+export const executeCompendiumMacro = async (compendiumMacro, parameters = {}) => {
+  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro || "");
+  if (compendium && macroName) {
+    const macro = await findCompendiumItem(compendium, macroName);
+    executeMacro(macro, parameters);
+  }
+};
+
+/**
  * @returns {Array.<String>}
  */
 export const findClassPacks = () => {
@@ -140,27 +166,31 @@ export const classItemFromPack = async (compendiumName) => {
 };
 
 /**
- * @param {String} items
- * @returns {Promise.<Array.<Item>>}
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
  */
-export const findItemsFromCompendiumString = async (compendiumString) => {
-  const compendiumsItems = compendiumString.split("\n").filter((item) => item);
-  const results = [];
-  for (const compendiumsItem of compendiumsItems) {
-    const [compendium, table] = compendiumInfoFromString(compendiumsItem);
-    results.push(await findCompendiumItem(compendium, table));
-  }
-  return results;
-};
+export const drawMysticalMishaps = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps", options);
 
 /**
- * @param {String} compendiumMacro
- * @param {Object} parameters
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
  */
-export const executeCompendiumMacro = async (compendiumMacro, parameters = {}) => {
-  const [compendium, macroName] = compendiumInfoFromString(compendiumMacro || "");
-  if (compendium && macroName) {
-    const macro = await findCompendiumItem(compendium, macroName);
-    executeMacro(macro, parameters);
-  }
-};
+export const drawDerelictTakesDamage = async (options = {}) => await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawBroken = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Broken", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawReaction = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawGunpowderFumble = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);

@@ -1,5 +1,5 @@
 import { PB } from "../../config.js";
-import * as editor from "../../system/configure-editor.js";
+import { configureEditor } from "../../system/configure-editor.js";
 
 /*
  * @extends {ItemSheet}
@@ -72,7 +72,7 @@ export class PBItemSheet extends ItemSheet {
 
   /** @override */
   activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
+    configureEditor(options);
     super.activateEditor(name, options, initialContent);
   }
 

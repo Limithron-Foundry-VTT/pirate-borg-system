@@ -1,4 +1,4 @@
-import * as editor from "../../system/configure-editor.js";
+import { configureEditor } from "../../system/configure-editor.js";
 import { rollIndividualInitiative, rollPartyInitiative } from "../../system/combat.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../generator/character-generator.js";
 
@@ -8,7 +8,7 @@ import { findStartingBonusItems, findStartingBonusRollsItems } from "../../gener
 export default class PBActorSheet extends ActorSheet {
   /** @override */
   activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
+    configureEditor(options);
     super.activateEditor(name, options, initialContent);
   }
 

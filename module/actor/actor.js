@@ -4,11 +4,11 @@ import ActorBaseClassDialog from "../dialog/actor-base-class-dialog.js";
 import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../generator/character-generator.js";
 import { trackAmmo, trackCarryingCapacity } from "../system/settings.js";
 import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
-import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, evaluateFormula, getTestOutcome } from "../utils.js";
+import { evaluateFormula, getTestOutcome } from "../utils.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
 import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
 import { BUTTON_ACTIONS } from "../system/render-chat-message.js";
-import { executeCompendiumMacro, findCompendiumItem } from "../compendium.js";
+import { drawBroken, drawDerelictTakesDamage, drawGunpowderFumble, drawReaction, executeCompendiumMacro, findCompendiumItem } from "../compendium.js";
 import { executeMacro } from "../macro-helpers.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";

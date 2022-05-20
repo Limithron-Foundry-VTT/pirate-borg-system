@@ -1,13 +1,25 @@
+import { evaluateFormula } from "./utils.js";
 export { showGenericCard } from "./chat-message/generic-card.js";
 export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
-import { evaluateFormula } from "./utils.js";
-
 export { drawTable } from "./compendium.js";
 
+/**
+ *
+ * @param {String} formula
+ * @param {Object} rollData
+ * @returns
+ */
 export const createRoll = async (formula, rollData = {}) => {
   return await evaluateFormula(formula, rollData);
 };
 
+/**
+ * @param {Document} macro
+ * @param {Object} meta
+ * @param {Actor} meta.actor
+ * @param {Token} meta.token
+ * @param {Item} meta.item
+ */
 export const executeMacro = async (macro, { actor, token, item } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();
   const character = game.user.character;
@@ -25,6 +37,14 @@ export const executeMacro = async (macro, { actor, token, item } = {}) => {
   }
 };
 
+/**
+ * @param {Document} macro
+ * @param {Object} meta
+ * @param {Actor} meta.actor
+ * @param {String} meta.selectedClass
+ * @param {Array.<String>} meta.selectedClasses
+ * @returns {Promise}
+ */
 export const executeCharacterCreationMacro = async (macro, { actor, selectedClass, selectedClasses } = {}) => {
   const body = `(async () => {
       ${macro.data.command}

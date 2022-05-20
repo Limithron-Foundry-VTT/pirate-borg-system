@@ -974,8 +974,8 @@
   gap: 16px;
 }
 .pirateborg.sheet.item .sheet-header .profile-img {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 24px;
 }
 .pirateborg.sheet.item .sheet-header .item-name input[type=text] {
@@ -1793,7 +1793,7 @@ hr {
 }
 
 /* ====================== */
-/* Dialogs */
+/* Rest and Character Generator Dialogs */
 /* ====================== */
 .custom-dialog {
   font-size: 14px;

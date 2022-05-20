@@ -1,6 +1,3 @@
-/**
- * Pirate Borg module.
- */
 import { createPirateBorgMacro } from "./macros.js";
 import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
@@ -13,12 +10,8 @@ import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
 
-/* -------------------------------------------- */
-/*  Foundry VTT Initialization                  */
-/* -------------------------------------------- */
 Hooks.once("init", async function () {
   console.log(`Initializing Pirate Borg System`);
-
   registerSystemSettings();
   configureHandlebar();
   configureSystem();
@@ -28,9 +21,10 @@ Hooks.once("init", async function () {
 Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
-  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
   Hooks.call("pirateborgReady");
+
+  // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
 });
 

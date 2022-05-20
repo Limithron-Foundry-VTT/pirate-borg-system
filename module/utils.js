@@ -1,5 +1,3 @@
-import { drawTable } from "./compendium.js";
-
 /**
  * @typedef {Object} RollOutcome
  * @property {Roll} roll
@@ -9,36 +7,6 @@ import { drawTable } from "./compendium.js";
  * @property {Boolean} isCriticalSuccess
  * @property {String} outcome
  */
-
-/**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawMysticalMishaps = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps", options);
-
-/**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawDerelictTakesDamage = async (options = {}) => await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage", options);
-
-/**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawBroken = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Broken", options);
-
-/**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawReaction = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
-
-/**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
- */
-export const drawGunpowderFumble = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);
 
 /**
  * @param {String} formula
