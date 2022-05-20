@@ -8,7 +8,7 @@
     "es2021": true,
     "jquery": true
   },
-  "extends": ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js"],
+  "extends": ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js", "plugin:i18n-json/recommended"],
   "globals": {
     "PIXI": "readonly",
     "PoolTerm": "readonly"
@@ -20,6 +20,15 @@
   "rules": {
     // TODO: decide if we want no-shadow. Will likely need to omit minified.
     //"no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }]
-    "prefer-const": 2
+    "prefer-const": 2,
+    "i18n-json/valid-message-syntax": [2, {
+      "syntax": "icu"
+    }],
+    "i18n-json/valid-json": 2,
+    "i18n-json/sorted-keys": [2, {
+      "order": "asc",
+      "indentSpaces": 2
+    }],
+    "i18n-json/identical-keys": 0
   }
 }
