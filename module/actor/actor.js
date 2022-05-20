@@ -147,6 +147,7 @@ export class PBActor extends Actor {
 
   async equipItem(item) {
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
+      await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR, null);
       for (const otherItem of this.items) {
         if (otherItem.type === item.type && otherItem.id !== item.id) {
           await otherItem.unequip();
@@ -467,15 +468,6 @@ export class PBActor extends Actor {
    */
   async defend() {
     // look up any previous DR or incoming attack value
-    let defendDR = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR);
-    if (!defendDR) {
-      defendDR = 12; // default
-    }
-    let incomingAttack = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK);
-    if (!incomingAttack) {
-      incomingAttack = "1d4"; // default
-    }
-
     const armor = this.equippedArmor();
     const drModifiers = [];
     if (armor) {
@@ -491,9 +483,26 @@ export class PBActor extends Actor {
       drModifiers.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} +2`);
     }
 
+    let defendDR = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR);
+    if (!defendDR) {
+      defendDR = 12; // default
+    }
+    let incomingAttack = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK);
+    if (!incomingAttack) {
+      incomingAttack = "1d4"; // default
+    }
+
+    let defendArmor = await this.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR);
+
+    console.log(defendArmor);
+    if (!defendArmor) {
+      defendArmor = CONFIG.PB.armorTiers[armor?.data.data.tier.value ?? 0].damageReductionDie;
+    }
+
     const dialogData = {
       defendDR,
       drModifiers,
+      defendArmor,
       incomingAttack,
     };
     const html = await renderTemplate(DEFEND_DIALOG_TEMPLATE, dialogData);
@@ -522,6 +531,11 @@ export class PBActor extends Actor {
               event.preventDefault();
               const input = $(event.currentTarget);
               html.find("#incomingAttack").val(input.val());
+            });
+            html.find(".defend-armor .radio-input").on("change", (event) => {
+              event.preventDefault();
+              const input = $(event.currentTarget);
+              html.find("#defendArmor").val(input.val());
             });
             html.find("input[name='defensebasedr']").on("change", this._onDefenseBaseDRChange.bind(this));
             html.find("input[name='defensebasedr']").trigger("change");
@@ -563,19 +577,24 @@ export class PBActor extends Actor {
     const baseDR = parseInt(form.defensebasedr.value);
     const modifiedDR = parseInt(form.defensemodifieddr.value);
     const incomingAttack = form.incomingattack.value;
+    const defendArmor = form.defendarmor.value;
     if (!baseDR || !modifiedDR || !incomingAttack) {
       // TODO: prevent dialog/form submission w/ required field(s)
       return;
     }
+
+    console.log(defendArmor);
+
     await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, baseDR);
     await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK, incomingAttack);
-    this._rollDefend(modifiedDR, incomingAttack);
+    await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR, defendArmor);
+    this._rollDefend(modifiedDR, incomingAttack, defendArmor);
   }
 
   /**
    * Do the actual defend rolls and resolution.
    */
-  async _rollDefend(defendDR, incomingAttack) {
+  async _rollDefend(defendDR, incomingAttack, defendArmor) {
     const rollData = this.getRollData();
     const armor = this.equippedArmor();
     const hat = this.equippedHat();
@@ -624,9 +643,9 @@ export class PBActor extends Actor {
       let damage = damageRoll.total;
 
       // roll 3: damage reduction from equipped armor and hat
-      let damageReductionDie = "";
+      let damageReductionDie = defendArmor;
       if (armor) {
-        damageReductionDie = CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
+        // damageReductionDie = CONFIG.PB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }
 

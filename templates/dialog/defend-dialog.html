@@ -97,51 +97,49 @@
     </ul>
   </div>
 
-  {{#if enableArmorSelection}}
-    <div class="form-group">
-      <label>{{localize "PB.TargetArmor"}}:</label>
-      <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
-    </div>    
-    <div class="form-group">
-      <label></label>
-      <ul class="radio-group-radio armor-tier">
-        <li>
-          <label>
-            <input class="radio-input" type="radio" name="tier.value" value="0" {{#ifEq selectedArmor '0'}}checked{{/ifEq}}/>
-            <span class="radio-label">0</span>
-            <span class="radio-label-under">0</span>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input class="radio-input" type="radio" name="tier.value" value="1d2" {{#ifEq selectedArmor '1d2'}}checked{{/ifEq}}/>
-            <span class="radio-label">1</span>
-            <span class="radio-label-under">-d2</span>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input class="radio-input" type="radio" name="tier.value" value="1d4" {{#ifEq selectedArmor '1d4'}}checked{{/ifEq}}/>
-            <span class="radio-label">2</span>
-            <span class="radio-label-under">-d4</span>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input class="radio-input" type="radio" name="tier.value" value="1d6" {{#ifEq selectedArmor '1d6'}}checked{{/ifEq}}/>
-            <span class="radio-label">3</span>
-            <span class="radio-label-under">-d6</span>
-          </label>
-        </li>
-        <li>
-          <label>
-            <input class="radio-input" type="radio" name="tier.value" value="1d8" {{#ifEq selectedArmor '1d8'}}checked{{/ifEq}}/>
-            <span class="radio-label">4</span>
-            <span class="radio-label-under">-d8</span>
-          </label>
-        </li>
-      </ul>
-    </div>
-  {{/if}}
+  <div class="form-group">
+    <label>{{localize "PB.Armor"}}:</label>
+    <input id="defendArmor" type="text" name="defendarmor" value="{{defendArmor}}" placeholder="0" data-dtype="String" />
+  </div>    
+  <div class="form-group">
+    <label></label>
+    <ul class="radio-group-radio defend-armor">
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendArmor.value" value="0" {{#ifEq defendArmor '0'}}checked{{/ifEq}}/>
+          <span class="radio-label">0</span>
+          <span class="radio-label-under">0</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendArmor.value" value="1d2" {{#ifEq defendArmor '1d2'}}checked{{/ifEq}}/>
+          <span class="radio-label">1</span>
+          <span class="radio-label-under">-d2</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendArmor.value" value="1d4" {{#ifEq defendArmor '1d4'}}checked{{/ifEq}}/>
+          <span class="radio-label">2</span>
+          <span class="radio-label-under">-d4</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendArmor.value" value="1d6" {{#ifEq defendArmor '1d6'}}checked{{/ifEq}}/>
+          <span class="radio-label">3</span>
+          <span class="radio-label-under">-d6</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input class="radio-input" type="radio" name="defendArmor.value" value="1d8" {{#ifEq defendArmor '1d8'}}checked{{/ifEq}}/>
+          <span class="radio-label">4</span>
+          <span class="radio-label-under">-d8</span>
+        </label>
+      </li>
+    </ul>
+  </div>
 
 </form>

@@ -47,6 +47,7 @@ PB.flagScope = "pirateborg"; // must match system name
 PB.flags = {
   ATTACK_DR: "attackDR",
   DEFEND_DR: "defendDR",
+  DEFEND_ARMOR: "defendArmor",
   INCOMING_ATTACK: "incomingAttack",
   TARGET_ARMOR: "targetArmor",
   SELECTED_CREW: "selectedCrew",
