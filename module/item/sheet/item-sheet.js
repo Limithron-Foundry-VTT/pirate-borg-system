@@ -19,7 +19,7 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
+      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }, { dropSelector: 'input[name="data.startingMacro"]' }],
     });
   }
 
