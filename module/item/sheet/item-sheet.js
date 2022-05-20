@@ -48,6 +48,18 @@ export class PBItemSheet extends ItemSheet {
     return data;
   }
 
+  /** @override */
+  async _updateObject(event, formData) {
+    if (this.object.type === CONFIG.PB.itemTypes.weapon) {
+      // Ensure weapons that need reloading have a reloading time
+      if (formData["data.needsReloading"] && (!formData["data.reloadTime"] || formData["data.reloadTime"] < 0)) {
+        formData["data.reloadTime"] = 1;
+      }
+    }
+
+    return super._updateObject(event, formData);
+  }
+
   /**
    *  This is a small override to handle remembering the sheet's position.
    *  @override

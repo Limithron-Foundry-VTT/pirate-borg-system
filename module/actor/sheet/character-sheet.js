@@ -97,7 +97,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byName);
 
     for (const weapon of sheetData.data.equippedWeapons) {
-      if (weapon.data.reloadTime) {
+      if (weapon.data.needsReloading && weapon.data.reloadTime) {
         weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
       }
     }

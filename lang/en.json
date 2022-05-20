@@ -132,6 +132,7 @@
   "PB.ItemPrice": "Price",
   "PB.ItemReduceDamage": "Reduce Damage",
   "PB.ItemReloadTime": "Reload Time",
+  "PB.ItemReloadTimeHelp": "The number of rounds this weapon takes to reload.",
   "PB.ItemStartingGold": "Starting Gold",
   "PB.ItemTypeAmmo": "Ammo",
   "PB.ItemTypeArmor": "Armor",

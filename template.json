@@ -145,7 +145,7 @@
       "weaponType": "melee",
       "isGunpowderWeapon": false,
       "needsReloading": false,
-      "reloadTime": 0,
+      "reloadTime": 1,
       "loadingCount": 0
     },
     "misc": {

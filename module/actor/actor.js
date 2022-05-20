@@ -282,18 +282,7 @@ export class PBActor extends Actor {
           });
         },
         default: "roll",
-        close: async () => {
-          resolve(null);
-          const item = this.items.get(itemId);
-          const reloadTime = item.data.data.reloadTime || 1;
-          if (!item.data.data.needsReloading) {
-            return;
-          }
-
-          await item.update({
-            "data.loadingCount": reloadTime,
-          });
-        },
+        close: () => resolve(null),
       }).render(true);
     });
   }
@@ -313,6 +302,17 @@ export class PBActor extends Actor {
     await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, attackDR);
     await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, targetArmor);
     this._rollAttack(itemId, attackDR, targetArmor);
+
+    // Trigger reloading
+    const item = this.items.get(itemId);
+    if (!item?.data?.data?.needsReloading) {
+      return;
+    }
+    const reloadTime = item.data.data.reloadTime || 1;
+
+    await item.update({
+      "data.loadingCount": reloadTime,
+    });
   }
 
   /**
@@ -672,7 +672,7 @@ export class PBActor extends Actor {
    */
   async reload(itemId) {
     const item = this.items.get(itemId);
-    const reloadTime = item.data.data.reloadTime;
+    const reloadTime = item.data.data.reloadTime || 1;
     if (!item.data.data.needsReloading) {
       return;
     }
@@ -683,16 +683,13 @@ export class PBActor extends Actor {
       loadingCount = 0;
     }
 
-    const html = await renderTemplate(GENERIC_CARD_TEMPLATE, {
+    await showGenericCard({
+      actor: this,
       title: item.name,
       description: game.i18n.format("PB.Reloading", {
         current: reloadTime - loadingCount || 1,
         max: reloadTime || 1,
       }),
-    });
-    ChatMessage.create({
-      content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
     });
 
     await item.update({

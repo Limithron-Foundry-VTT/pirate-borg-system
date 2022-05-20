@@ -97,10 +97,12 @@
         <label for="needs-reloading">{{localize "PB.ItemNeedsReloading"}}:</label>
         <input type="checkbox" id="needs-reloading" name="data.needsReloading" {{checked data.data.needsReloading}} data-dtype="Boolean" />
       </div>
+      {{#if data.data.needsReloading}}
       <div class="form-group">
-        <label for="reload-time">{{localize "PB.ItemReloadTime"}}:</label>
+        <label for="reload-time" title="{{localize 'PB.ItemReloadTimeHelp'}}">{{localize "PB.ItemReloadTime"}}:</label>
         <input type="text" id="reload-time" name="data.reloadTime" value="{{data.data.reloadTime}}" placeholder="0" data-dtype="Number" />
       </div>
+      {{/if}}
 
       <br />
 
