@@ -11,8 +11,8 @@ export class PBActorSheetVehicle extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "vehicle", "character"],
       template: "systems/pirateborg/templates/actor/vehicle-sheet.html",
-      width: 560,
-      height: 680,
+      width: 540,
+      height: 650,
       scrollY: [".tab"],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });

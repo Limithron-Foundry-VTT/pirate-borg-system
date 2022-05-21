@@ -10,8 +10,8 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "vehicle-edit"],
       template: "systems/pirateborg/templates/actor/vehicle-edit-sheet.html",
-      width: 720,
-      height: 680,
+      width: 500,
+      height: 650,
       scrollY: [".tab"],
       tabs: [
         {

@@ -9,8 +9,8 @@ export class PBActorSheetContainer extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "container"],
       template: "systems/pirateborg/templates/actor/container-sheet.html",
-      width: 720,
-      height: 680,
+      width: 500,
+      height: 600,
       scrollY: [".tab"],
       tabs: [
         {

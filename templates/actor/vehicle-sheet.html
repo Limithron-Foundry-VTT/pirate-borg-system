@@ -1,31 +1,37 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
+
     <div class="header-col1">
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
+
     <div class="header-col2">
-      <div class="name-row">
+      <div class="header-title-row">
         <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
+      <div class="header-subtitle-row">
+        <div class="actor-type">{{actor.type}}</div>
+      </div>
 
-      <div class="stats-row">
-        <div class="stats-entries">
+      <div class="header-stats-row">
+        <div class="stats-block">
           <span class="stat-label">{{ localize "PB.HP" }}</span>
           <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
-          <span>/</span>
+          <span class="stat-separator">/</span>
           <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
         </div>
       </div>
-
-      <div class="stats-row">
-        <div class="stats-entries">
+      
+      <div class="header-stats-row">
+        <div class="stats-block">
           <span class="stat-label">{{ localize "PB.ShipCrew" }}</span>
           <input class="stat-input" name="data.crew.value" type="number" value="{{data.data.crew.value}}" data-dtype="Number" />
-          <span class="rule-text">{{data.data.crew.min}} / {{data.data.crew.max}}</span>  
+          <span class="stat-rule">{{data.data.crew.min}} / {{data.data.crew.max}}</span>  
         </div>
       </div>
     </div>
+
 
     <div class="header-col3">
       <div class="ability-row">
@@ -217,8 +223,8 @@
       {{#if (eq data.type 'vehicle')}}
         {{#*inline "mystic-chanties"}}
           {{#*inline "extra-header"}}
-            <div class="item-name-extra">
-              <span class="rule-text mystic-shanties-roll-button rollable">({{ localize "PB.ShipShantiesPerRest"}})</span>
+            <div class="stats-block">
+              <span class="stat-rule mystic-shanties-roll-button rollable">({{ localize "PB.ShipShantiesPerRest"}})</span>
               <input class="stat-input" name="data.shanties.value" type="number" value="{{data.data.shanties.value}}" data-dtype="Number" />
             </div>
           {{/inline}} 

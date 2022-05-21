@@ -25,15 +25,10 @@ export const configureSystem = () => {
     compendiumHelpers,
   };
 
+  CONFIG.PB = PB;
   CONFIG.Actor.documentClass = PBActor;
   CONFIG.Combat.documentClass = PBCombat;
-
-  CONFIG.Combat.initiative = {
-    formula: "1d6 + @abilities.agility.value",
-  };
-
   CONFIG.Item.documentClass = PBItem;
-  CONFIG.PB = PB;
 
   Actors.unregisterSheet("core", ActorSheet);
 
@@ -72,4 +67,8 @@ export const configureSystem = () => {
     makeDefault: true,
     label: "PB.SheetItem",
   });
+
+  CONFIG.Combat.initiative = {
+    formula: "1d6 + @abilities.agility.value",
+  };
 };

@@ -1,12 +1,12 @@
 .pirateborg {
   .items-list .items-header {
     margin: 0;
-    padding: 0 0 4px 0;
+    padding: 0;
     align-items: center;
 
     .item-name {
       font-family: var(--h2-font);
-      font-size: 20px;
+      font-size: 18px;
       text-transform: capitalize;
       margin: 0;
     }
@@ -81,7 +81,7 @@
     }
 
     .item-controls {
-      flex: 0 0 60px;
+      flex: 0 0 0;
       text-align: right;
       display: flex;
       justify-content: flex-end;

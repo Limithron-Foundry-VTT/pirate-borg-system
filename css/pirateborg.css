@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
 :root {
   /* try to deprecated */
   --background-color: #000;
@@ -127,19 +126,6 @@
 .pirateborg .editor-content {
   padding: 8px;
 }
-.pirateborg .button {
-  background: var(--button-background);
-  color: var(--button-color);
-  font-family: var(--button-font);
-  border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  width: auto;
-  padding: 0 16px;
-  font-weight: 500;
-  line-height: 24px;
-  padding-top: 1px;
-}
 
 .mce-content-body {
   overflow-wrap: break-word;
@@ -159,9 +145,173 @@
   color: var(--foreground-color);
   border: none;
 }
+.pirateborg.sheet .window-content .sheet-header {
+  margin: 16px;
+  display: flex;
+  flex-direction: row;
+  flex: none;
+  align-items: flex-start;
+  gap: 16px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col1 {
+  flex: 0 0 100px;
+  padding: 0;
+  line-height: 0;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col1 .profile-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 24px;
+  border: none;
+  object-fit: contain;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-title-row,
+.pirateborg.sheet .window-content .sheet-header .header-col2 .item-name,
+.pirateborg.sheet .window-content .sheet-header .header-col2 .name-row {
+  margin-left: -4px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-title-row input,
+.pirateborg.sheet .window-content .sheet-header .header-col2 .item-name input,
+.pirateborg.sheet .window-content .sheet-header .header-col2 .name-row input {
+  font-family: var(--h1-font);
+  font-size: 32px;
+  border: none;
+  height: 32px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-subtitle-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  font-family: var(--h3-font);
+  font-size: 16px;
+  white-space: nowrap;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-buttons-row button {
+  width: auto;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col2 .header-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col3 {
+  flex: 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col3 .ability-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col3 .ability-row:last-child {
+  margin-bottom: 0;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col3 .ability-label {
+  font-family: var(--item-font);
+  font-size: 16px;
+  margin-left: 5px;
+  display: block;
+  padding-top: 2px;
+}
+.pirateborg.sheet .window-content .sheet-header .header-col3 .ability-input {
+  border: none;
+  font-family: var(--item-font);
+  font-size: 24px;
+  text-align: center;
+  width: 32px;
+  height: 24px;
+  border-radius: 0;
+  color: var(--foreground-color);
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  text-align: right;
+}
+.pirateborg.sheet .window-content .equipment-tab .item-list .item-controls {
+  flex: 0 0 70px;
+}
+.pirateborg.sheet .window-content .stats-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  line-height: 20px;
+}
+.pirateborg.sheet .window-content .stats-block .stat-label {
+  font-family: var(--item-font);
+  font-size: 16px;
+}
+.pirateborg.sheet .window-content .stats-block .stat-value {
+  font-family: var(--item-font);
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 4px;
+  text-align: center;
+}
+.pirateborg.sheet .window-content .stats-block .stat-rule {
+  font-family: var(--item-font);
+  font-size: 14px;
+  line-height: 20px;
+}
+.pirateborg.sheet .window-content .stats-block input {
+  border: none;
+  font-family: var(--item-font);
+  text-align: center;
+  color: var(--foreground-color);
+  background: transparent;
+  font-size: 24px;
+  width: 32px;
+  height: 24px;
+  font-weight: 600;
+  padding: 0;
+  padding-bottom: 4px;
+  border-radius: 4px;
+}
+.pirateborg.sheet .window-content .stats-block .stat-left {
+  text-align: left;
+}
+.pirateborg.sheet .window-content .stats-block .stat-right {
+  text-align: right;
+}
+.pirateborg.sheet .window-content .stats-block .stat-separator {
+  font-size: 18px;
+}
 .pirateborg.sheet .window-content form {
   height: 100%;
   overflow: hidden;
+}
+.pirateborg.sheet .window-content form .sheet-body {
+  overflow: hidden;
+  font-family: var(--item-font);
+}
+.pirateborg.sheet .window-content form .sheet-body .tab {
+  height: 100%;
+  border-radius: 0;
+}
+.pirateborg.sheet .window-content form .sheet-body .tab:only-of-type {
+  border-top: 2px groove var(--light-border-color);
+}
+.pirateborg.sheet .window-content form .sheet-tabs .spacer {
+  border-bottom: 1px solid var(--dark-border-color);
+  display: block;
+  padding-left: 16px;
 }
 .pirateborg.sheet .editable .rollable:hover {
   text-shadow: 0 0 16px var(--highlight-background-color);
@@ -198,9 +348,6 @@
   box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
-.pirateborg.sheet .profile-img {
-  border: none;
-}
 .pirateborg.sheet .editor {
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
@@ -209,58 +356,10 @@
   font-size: 16px;
   line-height: 20px;
 }
-.pirateborg.sheet .sheet-tabs {
-  flex: none;
-  font-size: 20px;
-  border-top: none;
-  border-bottom: none;
-  padding: 0;
-  margin: 0px;
-}
-.pirateborg.sheet .sheet-tabs .spacer {
-  border-bottom: 1px solid var(--dark-border-color);
-  display: block;
-  padding-left: 16px;
-}
-.pirateborg.sheet .sheet-tabs .item {
-  font-family: var(--h2-font);
-  font-size: 22px;
-  height: 36px;
-  line-height: 38px;
-  width: 100%;
-  white-space: nowrap;
-  padding-left: 16px;
-  padding-right: 16px;
-  border: 1px solid transparent;
-  border-bottom: 1px solid var(--dark-border-color);
-}
-.pirateborg.sheet .sheet-tabs .item:hover {
-  text-shadow: 0 0 16px var(--highlight-background-color);
-}
-.pirateborg.sheet .sheet-tabs .item.active {
-  text-shadow: none;
-  border: 1px solid var(--dark-border-color);
-  border-bottom: 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  border-bottom: 0;
-}
-.pirateborg .sheet-body {
-  overflow: hidden;
-}
-.pirateborg .sheet-body .tab {
-  height: 100%;
-  overflow-y: auto;
-  padding: 16px 16px 16px 16px;
-  background: rgba(255, 255, 255, 0.2);
-}
 .pirateborg.sheet .sheet-body .form-group {
   margin-bottom: 8px;
 }
 .pirateborg.sheet .sheet-body .form-group label {
-  font-family: var(--h2-font);
-  font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
@@ -273,64 +372,6 @@
   flex: 1;
 }
 
-.pirateborg.sheet.actor .rule-text {
-  font-family: var(--item-font);
-  font-size: 14px;
-  line-height: 20px;
-}
-.pirateborg.sheet.actor .stat-label {
-  font-family: var(--item-font);
-  font-size: 16px;
-  line-height: 16px;
-}
-.pirateborg.sheet.actor .stat-input {
-  border: none;
-  font-family: var(--item-font);
-  text-align: center;
-  color: var(--foreground-color);
-  background: transparent;
-  font-size: 32px;
-  width: 42px;
-  height: 32px;
-  font-weight: 600;
-  padding: 0;
-  padding-bottom: 8px;
-  border-radius: 4px;
-}
-.pirateborg.sheet.actor .stat-value {
-  font-family: var(--item-font);
-  font-size: 14pt;
-  text-align: center;
-  width: 50px;
-  color: var(--foreground-color);
-}
-.pirateborg.sheet.actor .sheet-header {
-  margin-top: 0;
-  margin: 16px;
-  display: flex;
-  flex-direction: row;
-  flex: none;
-  align-items: flex-start;
-}
-.pirateborg.sheet.actor .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
-  margin: 0;
-  padding: 0;
-}
-.pirateborg.sheet.actor .sheet-header .actor-subtitle {
-  font-family: var(--h3-font);
-  font-size: 24px;
-  text-transform: uppercase;
-  margin-left: 13px;
-}
-.pirateborg.sheet.actor .sheet-header .actor-type {
-  font-family: var(--h3-font);
-  font-size: 24px;
-  width: 100%;
-  margin-bottom: 51px;
-  margin-left: 0px;
-}
 .pirateborg.sheet.actor .sheet-body {
   flex: 1;
 }
@@ -361,30 +402,28 @@
   margin-top: 0;
   display: flex;
 }
-.pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col .ammo-label {
-  margin-right: 8px;
-}
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
-  font-size: 10pt;
+  font-size: 13px;
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
-  min-width: 100px;
+  width: 100px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-fields {
-  flex: 0 0 120px;
-  gap: 16px;
+  flex: 0 0 76px;
+  gap: 4px;
+  font-size: 14px;
 }
-.pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.damage-die {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-fields .item-field.damage-die {
   text-align: right;
-  width: 40px;
+  width: 28px;
 }
-.pirateborg.sheet.actor .sheet-body .combat-tab .weapon-list .item-field.weapon-type {
+.pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-fields .item-field.weapon-type {
   text-align: right;
-  width: 60px;
+  width: 48px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .attack-rule {
   text-align: center;
@@ -463,12 +502,6 @@
   text-align: center;
   margin-top: 16px;
 }
-.pirateborg.sheet.actor input[type=text].actor-name {
-  font-family: var(--h1-font);
-  font-size: 40px;
-  border: none;
-  height: 46px;
-}
 .pirateborg.sheet.actor .sheet-body .equipment-top-row {
   display: flex;
   align-items: flex-start;
@@ -494,130 +527,8 @@
 }
 
 .pirateborg.sheet.actor.character {
-  min-width: 742px;
-  min-height: 650px;
-}
-.pirateborg.sheet.actor.character .sheet-header {
-  gap: 16px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col1 {
-  flex: 0 0 100px;
-  padding: 0;
-  line-height: 0;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-left: 4px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons button {
-  width: auto;
-}
-.pirateborg.sheet.actor.character .sheet-header .header-col3 {
-  flex: 0 0 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.pirateborg.sheet.actor.character .sheet-header .profile-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 24px;
-  object-fit: contain;
-}
-.pirateborg.sheet.actor.character .sheet-header .name-row {
-  margin-left: -4px;
-}
-.pirateborg.sheet.actor.character .sheet-header .classname-row {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 19px;
-  margin-left: 0px;
-  align-items: stretch;
-  flex-wrap: nowrap;
-}
-.pirateborg.sheet.actor.character .sheet-header .classname-row img.classimg {
-  height: 24px;
-  width: 24px;
-  flex: 0 0 24px;
-  margin-right: 5px;
-}
-.pirateborg.sheet.actor.character .sheet-header .classname-row label.classname {
-  font-family: var(--h3-font);
-  font-size: 20px;
-  white-space: nowrap;
-}
-.pirateborg.sheet.actor.character .sheet-header .classname-row label.item-base-class {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.pirateborg.sheet.actor.character .sheet-header .classname-row .item-controls {
-  flex: 0 0 35px;
-  text-align: right;
-  margin-right: 0;
-  /* TODO: fix vertical alignment in a better way */
-  padding-top: 6px;
-}
-.pirateborg.sheet.actor.character .sheet-header .hitpoints-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-  gap: 4px;
-}
-.pirateborg.sheet.actor.character .sheet-header .hp-entries {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.pirateborg.sheet.actor.character .sheet-header .hp-entries span {
-  font-size: 18px;
-  margin-top: 3px;
-}
-.pirateborg.sheet.actor.character .sheet-header .luck-row {
-  display: flex;
-  margin-bottom: 8px;
-  align-items: center;
-  gap: 4px;
-}
-.pirateborg.sheet.actor.character .sheet-header .luck-row .luck-label:hover {
-  text-shadow: 0 0 16px var(--highlight-background-color);
-  cursor: pointer;
-}
-.pirateborg.sheet.actor.character .sheet-header .ability-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2px;
-}
-.pirateborg.sheet.actor.character .sheet-header .ability-row:last-child {
-  margin-bottom: 0;
-}
-.pirateborg.sheet.actor.character .sheet-header .ability-label {
-  font-family: var(--item-font);
-  font-size: 16px;
-  margin-left: 5px;
-  display: block;
-  padding-top: 2px;
-}
-.pirateborg.sheet.actor.character .sheet-header .ability-input {
-  border: none;
-  font-family: var(--item-font);
-  font-size: 32px;
-  text-align: center;
-  width: 42px;
-  height: 32px;
-  border-radius: 0;
-  color: var(--foreground-color);
-  font-weight: 600;
-  padding-bottom: 4px;
-  border-radius: 4px;
-  text-align: right;
+  min-width: 600px;
+  min-height: 450px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-bottom: 16px;
@@ -663,93 +574,19 @@
 .pirateborg.sheet.actor.character .sheet-body .carry-block .carry-block-carrying span {
   font-size: 18px;
 }
-.pirateborg.sheet.actor.character .sheet-body .carry-block .carry-block-carrying .stat-value {
-  color: var(--foreground-color);
-  font-size: 32px;
-  font-weight: 600;
-  padding: 0;
-  margin-top: -8px;
-  line-height: 32px;
-}
 .pirateborg.sheet.actor.character .sheet-body .container-label {
   margin-left: 40px;
 }
 .pirateborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
-  font-weight: 600;
+  font-weight: bold;
 }
 
-.pirateborg.sheet.actor.vehicle-edit .sheet-header {
-  margin: 16px;
-  display: flex;
-  flex-direction: row;
-  flex: none;
-  align-items: flex-start;
-  gap: 16px;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .header-col1 {
-  flex: 0 0 64px;
-  margin-right: 8px;
-  line-height: 0;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .header-col2 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: flex-start;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .profile-img {
-  height: 64px;
-  width: 64px;
-  border-radius: 24px;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .name-row {
-  flex: 0 0 45px;
-  width: 100%;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .holding-row {
-  flex: 0 0 35px;
-}
-.pirateborg.sheet.actor.vehicle-edit .sheet-header .actor-type {
-  margin-bottom: 0;
-}
 .pirateborg.sheet.actor.vehicle {
-  min-width: 560px;
+  min-width: 540px;
 }
-.pirateborg.sheet.actor.vehicle .tab {
-  border-top: 2px groove var(--light-border-color);
-}
-.pirateborg.sheet.actor.vehicle .actor-name {
-  margin-bottom: 8px;
-}
-.pirateborg.sheet.actor.vehicle .stats-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.pirateborg.sheet.actor.vehicle .stats-entries {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.pirateborg.sheet.actor.vehicle .stats-entries input {
-  width: 50px;
-}
-.pirateborg.sheet.actor.vehicle .ship-actions {
-  display: flex;
-  gap: 4px;
-}
-.pirateborg.sheet.actor.vehicle .ship-actions button {
-  min-width: 100px;
-}
-.pirateborg.sheet.actor.vehicle .ship-actions button.icon-button {
-  width: auto;
-  padding: 3px 5px 4px 7px;
-  margin: 0;
-  min-width: 0;
-  color: var(--foreground-color);
-  background: none;
+.pirateborg.sheet.actor.vehicle .sheet-header .header-col2 .header-stats-row .stats-block input {
+  width: 38px;
 }
 .pirateborg.sheet.actor.vehicle .item-type-crew-action button {
   width: 100px;
@@ -781,6 +618,9 @@
 .pirateborg.sheet.actor.vehicle .item-warning {
   text-align: center;
   font-style: italic;
+  min-height: auto;
+  padding: 0px;
+  font-size: 14px;
 }
 .pirateborg.sheet.actor.vehicle .item-name {
   align-items: center;
@@ -801,6 +641,7 @@
 }
 .pirateborg.sheet.actor.vehicle .warning {
   color: var(--highlight-background-color);
+  font-weight: bold;
 }
 .pirateborg.sheet.actor.vehicle .items-header-quantity {
   font-family: var(--item-font);
@@ -816,6 +657,15 @@
   margin-bottom: 16px;
   margin-right: 8px;
 }
+.pirateborg.sheet.actor.vehicle .ship-combat-row button {
+  width: 100px;
+}
+.pirateborg.sheet.actor.vehicle .ship-combat-row .icon-button {
+  background: none;
+  color: black;
+  width: auto;
+  padding: 2px 4px 0 8px;
+}
 .pirateborg.sheet.actor.vehicle .ship-combat-row .ship-hull {
   display: flex;
   gap: 8px;
@@ -823,19 +673,19 @@
 }
 .pirateborg.sheet.actor.vehicle .ship-combat-row .ship-hull .ship-hull-label {
   font-family: var(--h2-font);
-  font-size: 20px;
+  font-size: 18px;
   text-transform: capitalize;
   margin: 0;
 }
 
 .pirateborg .items-list .items-header {
   margin: 0;
-  padding: 0 0 4px 0;
+  padding: 0;
   align-items: center;
 }
 .pirateborg .items-list .items-header .item-name {
   font-family: var(--h2-font);
-  font-size: 20px;
+  font-size: 18px;
   text-transform: capitalize;
   margin: 0;
 }
@@ -899,7 +749,7 @@
   min-width: 100px;
 }
 .pirateborg .item-list .item-controls {
-  flex: 0 0 60px;
+  flex: 0 0 0;
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -919,121 +769,16 @@
   text-align: center;
 }
 
-.pirateborg.sheet.actor.creature .sheet-header {
-  margin: 16px;
-  display: flex;
-  flex-direction: row;
-  flex: none;
-  align-items: flex-start;
-  gap: 16px;
-}
-.pirateborg.sheet.actor.creature .sheet-header .header-col1 {
-  flex: 0 0 200px;
-  margin-right: 8px;
-  line-height: 0;
-}
-.pirateborg.sheet.actor.creature .sheet-header .header-col2 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: flex-start;
-}
-.pirateborg.sheet.actor.creature .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
-  border-radius: 24px;
-}
-.pirateborg.sheet.actor.creature .sheet-header .name-row {
-  flex: 0 0 45px;
-  width: 100%;
-}
-.pirateborg.sheet.actor.creature .sheet-header input[type=text].creature-name {
-  height: 45px;
-}
-.pirateborg.sheet.actor.creature .sheet-header .hitpoints-row {
-  flex: 0 0 35px;
-  margin-bottom: 10px;
-}
-.pirateborg.sheet.actor.creature .sheet-header .buttons-row {
-  display: flex;
-  justify-content: flex-start;
-  gap: 8px;
-}
-.pirateborg.sheet.actor.creature .sheet-header .buttons-row button {
-  width: auto;
+.pirateborg.sheet.actor .creature {
+  min-width: 500px;
 }
 
-.pirateborg.sheet.item .sheet-header {
-  margin-top: 0;
-  flex: 0 0 90px;
-  display: flex;
-  flex-direction: row;
-  padding: 16px;
-  align-items: flex-start;
-  gap: 16px;
-}
-.pirateborg.sheet.item .sheet-header .profile-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 24px;
-}
-.pirateborg.sheet.item .sheet-header .item-name input[type=text] {
-  flex: 1;
-  border: none;
-  font-family: var(--h1-font);
-  font-size: 40px;
-  border: none;
-  height: 46px;
-  margin: 0;
-  padding: 0;
-}
-.pirateborg.sheet.item .sheet-header .item-subtitle {
-  font-family: var(--h3-font);
-  font-size: 24px;
-  text-transform: uppercase;
-}
-.pirateborg.sheet.item .sheet-header .item-subtitle .item-type {
-  font-size: 20px;
-  width: 100%;
-  margin: 0;
-  text-transform: capitalize;
+.pirateborg.sheet.item {
+  min-width: 500px;
 }
 
-.pirateborg.sheet.actor.container .sheet-header {
-  margin: 16px;
-  display: flex;
-  flex-direction: row;
-  flex: none;
-  align-items: flex-start;
-  gap: 16px;
-}
-.pirateborg.sheet.actor.container .sheet-header .header-col1 {
-  flex: 0 0 200px;
-  margin-right: 8px;
-  line-height: 0;
-}
-.pirateborg.sheet.actor.container .sheet-header .header-col2 {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  height: 100%;
-  justify-content: flex-start;
-}
-.pirateborg.sheet.actor.container .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
-  border-radius: 24px;
-}
-.pirateborg.sheet.actor.container .sheet-header .name-row {
-  flex: 0 0 45px;
-  width: 100%;
-}
-.pirateborg.sheet.actor.container .sheet-header input[type=text].container-name {
-  height: 45px;
-}
-.pirateborg.sheet.actor.container .sheet-header .holding-row {
-  flex: 0 0 35px;
+.pirateborg.sheet.actor.container {
+  min-width: 500px;
 }
 
 body {
@@ -1074,12 +819,11 @@ form button {
   border-radius: 24px;
   font-size: 14px;
   padding: 0 16px;
-  font-weight: 500;
   line-height: 24px;
-  padding-top: 1px;
+  height: 24px;
   cursor: pointer;
-  height: 28px;
   white-space: nowrap;
+  width: auto;
 }
 form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1088,6 +832,7 @@ form button:hover {
 .chat-message form button.item-button {
   font-size: 16px;
   margin-top: 24px;
+  width: 100%;
 }
 
 a:hover {
@@ -1134,6 +879,11 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 }
 
 /* Fixes Module Management dialog */
+#module-management input {
+  color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
+}
 #module-management .package-list .package-title,
 #module-management .package-list .package-metadata,
 #module-management .package-list .package-description {
@@ -1141,6 +891,79 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 }
 
 /* Fixes hard-to-read dark text on various system Dialogs */
+.window-app .window-content {
+  background: var(--window-background);
+  color: var(--foreground-color);
+}
+.window-app .window-content form button[type=submit] {
+  height: 28px;
+  width: 100%;
+}
+.window-app .window-content form .tab {
+  margin-bottom: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--dark-border-color);
+  border-top: none;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+}
+.window-app .window-content form .tab .tabs .item {
+  font-size: 16px;
+  font-weight: 400;
+}
+.window-app .window-content form .tab .tab {
+  margin-bottom: 0;
+  padding: 8px;
+}
+.window-app .window-content form .tab button label {
+  font-size: 14px;
+  font-weight: 400;
+}
+.window-app .window-content form .tabs {
+  border: none;
+  padding: 0;
+  margin: 0;
+  flex: 0;
+}
+.window-app .window-content form .tabs .item {
+  text-align: center;
+  font-family: var(--h2-font);
+  font-size: 18px;
+  height: 36px;
+  line-height: 38px;
+  width: 100%;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--dark-border-color);
+  padding: 0 8px;
+  text-transform: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.window-app .window-content form .tabs .item.active {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--dark-border-color);
+  border-bottom: 0;
+}
+.window-app .window-content form .tabs .item.active:hover {
+  text-shadow: none;
+}
+.window-app .window-content .form-group input[type=range] {
+  background: none;
+  border: none;
+}
+.window-app .window-content .form-group input[type=range]:hover, .window-app .window-content .form-group input[type=range]:focus {
+  box-shadow: none;
+}
+.window-app .window-content .form-group input[type=range] + .range-value {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+}
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
@@ -1292,18 +1115,25 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-#client-settings section.content .submenu > button,
-#client-settings button {
-  background: var(--button-background);
-  color: var(--button-color);
-  font-family: var(--button-font);
+.token-sheet {
+  min-width: 700px;
+}
+
+#client-settings section.content {
   border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  padding: 0 16px;
-  font-weight: 500;
-  cursor: pointer;
-  height: auto;
+}
+#client-settings section.content .settings-list {
+  max-height: none;
+  overflow: hidden;
+  padding: 0;
+}
+#client-settings section.content .submenu > button {
+  height: 24px;
+}
+#client-settings nav.tabs {
+  font-size: var(--font-size-16);
+  border: none;
+  padding: 0;
 }
 #client-settings h2 {
   border-bottom: none;
@@ -1373,12 +1203,17 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   font-size: 14px;
   width: auto;
   padding: 0 16px;
-  font-weight: 500;
   cursor: pointer;
 }
 .dialog .dialog-buttons button.default {
   background: var(--button-background);
   border: none;
+}
+
+form .form-group label {
+  font-family: var(--item-font);
+  font-size: 16px;
+  line-height: 26px;
 }
 
 form .form-group select {
@@ -1392,7 +1227,7 @@ form .form-group select:focus {
 
 form .form-group,
 form .form-group-stacked {
-  margin: 8px 0;
+  margin: 16px 0;
 }
 
 #hotbar #hotbar-directory-controls,
@@ -1433,7 +1268,6 @@ form .form-group-stacked {
   border-radius: 24px;
   font-size: 14px;
   padding: 0 16px;
-  font-weight: 500;
   cursor: pointer;
 }
 
@@ -1471,7 +1305,6 @@ form .form-group-stacked {
   font-size: 14px;
   width: auto;
   padding: 0 16px;
-  font-weight: 500;
   cursor: pointer;
 }
 .sidebar-tab .directory-header .header-search input {
@@ -1550,7 +1383,15 @@ form .form-group-stacked {
   font-size: 14px;
 }
 
-.tabs .item.active, .tabs .item:hover {
+.tabs .item.active {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--dark-border-color);
+  border-bottom: 0;
+  text-shadow: none;
+}
+.tabs .item:hover {
   text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
@@ -1562,10 +1403,6 @@ form .form-group-stacked {
   color: var(--highlight-foreground-color) !important;
 }
 
-.window-app .window-content {
-  background: var(--window-background);
-  color: var(--foreground-color);
-}
 .window-app.app.journal-sheet .window-content {
   color: var(--background-color);
   background-position: -43px -120px;
@@ -1623,6 +1460,10 @@ a.entity-link, a.inline-roll {
 .sheet nav.sheet-tabs {
   border-top: 2px groove var(--light-border-color);
   border-bottom: 2px groove var(--light-border-color);
+}
+
+.sheet-footer button {
+  height: 28px;
 }
 
 hr {
@@ -1777,9 +1618,11 @@ hr {
 }
 .custom-dialog .form-group label {
   font-family: var(--item-font);
-  font-size: 20px;
+  font-size: 16px;
   margin-right: 10px;
   text-align: right;
+  font-weight: 500;
+  line-height: 26px;
 }
 
 .dialog-button.attack, .dialog-button.create {
@@ -1803,8 +1646,8 @@ hr {
   margin: 10px 10px 20px 10px;
 }
 .custom-dialog .subtitle {
-  font-family: var(--h2-font);
-  font-size: 22px;
+  font-family: var(--h3-font);
+  font-size: 30px;
 }
 .custom-dialog .description {
   font-family: var(--chat-font);
@@ -1843,7 +1686,6 @@ hr {
   font-size: 14px;
   width: auto;
   padding: 0 16px;
-  font-weight: 500;
   width: 100%;
 }
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
@@ -1952,7 +1794,6 @@ hr {
   font-size: 14px;
   width: auto;
   padding: 0 16px;
-  font-weight: 500;
   line-height: 24px;
   padding-top: 1px;
   display: inline-block;

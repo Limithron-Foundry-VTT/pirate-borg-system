@@ -1,9 +1,7 @@
 import { AllowedCharacterClassesDialog } from "../dialog/allowed-character-classes-dialog.js";
 
 export const registerSystemSettings = () => {
-  /**
-   * Track the system version upon which point a migration was last applied.
-   */
+  /** Track the system version upon which point a migration was last applied. */
   game.settings.register("pirateborg", "systemMigrationVersion", {
     name: "System Migration Version",
     scope: "world",
@@ -12,9 +10,7 @@ export const registerSystemSettings = () => {
     default: "",
   });
 
-  /**
-   * Track the last help dialog
-   */
+  /** Track the last help dialog */
   game.settings.register("pirateborg", "systemHelpDialogVersion", {
     name: "System Help Dialog Version",
     scope: "client",
@@ -72,43 +68,74 @@ export const registerSystemSettings = () => {
   });
 };
 
+/**
+ * @returns {Boolean}
+ */
 export const trackCarryingCapacity = () => {
   return game.settings.get("pirateborg", "trackCarryingCapacity");
 };
 
+/**
+ * @returns {Boolean}
+ */
 export const trackAmmo = () => {
   return game.settings.get("pirateborg", "trackAmmo");
 };
 
+/**
+ * @param {String} classPack
+ * @returns {Boolean}
+ */
 export const isCharacterGeneratorClassAllowed = (classPack) => {
   const allowedCharacterGeneratorClasses = game.settings.get("pirateborg", "allowedCharacterGeneratorClasses");
   return typeof allowedCharacterGeneratorClasses[classPack] === "undefined" ? true : !!allowedCharacterGeneratorClasses[classPack];
 };
 
+/**
+ * @param {Array.<String>} allowedCharacterGeneratorClasses
+ */
 export const setAllowedCharacterGeneratorClasses = (allowedCharacterGeneratorClasses) => {
-  return game.settings.set("pirateborg", "allowedCharacterGeneratorClasses", allowedCharacterGeneratorClasses);
+  game.settings.set("pirateborg", "allowedCharacterGeneratorClasses", allowedCharacterGeneratorClasses);
 };
 
+/**
+ * @returns {Array.<String>}
+ */
 export const getLastCharacterGeneratorSelection = () => {
   return game.settings.get("pirateborg", "lastCharacterGeneratorSelection");
 };
 
+/**
+ * @param {Array.<String>} lastCharacterGeneratorSelection
+ */
 export const setLastCharacterGeneratorSelection = (lastCharacterGeneratorSelection) => {
-  return game.settings.set("pirateborg", "lastCharacterGeneratorSelection", lastCharacterGeneratorSelection);
+  game.settings.set("pirateborg", "lastCharacterGeneratorSelection", lastCharacterGeneratorSelection);
 };
 
+/**
+ * @returns {String}
+ */
 export const getSystemMigrationVersion = () => {
   return game.settings.get("pirateborg", "systemMigrationVersion");
 };
 
+/**
+ * @returns {String}
+ */
 export const setSystemMigrationVersion = (systemMigrationVersion) => {
   return game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
 };
 
+/**
+ * @returns {String}
+ */
 export const getSystemHelpDialogVersion = () => {
   return game.settings.get("pirateborg", "systemHelpDialogVersion");
 };
 
+/**
+ * @returns {String}
+ */
 export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => {
   return game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 };

@@ -184,7 +184,6 @@ PB.itemDefaultImage = {
   },
 };
 
-// these Item types are "equipment"
 PB.itemEquipmentTypes = [
   PB.itemTypes.ammo,
   PB.itemTypes.armor,
@@ -208,7 +207,6 @@ PB.weaponTypes = {
   ranged: "PB.WeaponTypeRanged",
 };
 
-// Config variables for the character generator
 PB.characterGenerator = {
   characterCreationPack: "pirateborg.rolls-character-creation",
 

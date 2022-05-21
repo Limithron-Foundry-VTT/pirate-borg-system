@@ -197,6 +197,7 @@
   "PB.Roll": "Roll",
   "PB.RollPartyInitiative": "Roll Party Initiative",
   "PB.RuleText": "Rule Text",
+  "PB.SelectAmmo": "Select ammo",
   "PB.SettingsApplyOvercapacityPenalty": "Apply Overcapacity Penalty",
   "PB.SettingsApplyOvercapacityPenaltyHint": "+2 STR/AGI DR when carrying more than STR+8 items",
   "PB.SettingsTrackAmmo": "Track Ammo",

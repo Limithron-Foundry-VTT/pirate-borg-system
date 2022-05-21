@@ -1,13 +1,15 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
-    <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
-    <div class="header-details">
-      <h1 class="item-name">
+    <div class="header-col1">
+      <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
+    </div>
+    <div class="header-col2">
+      <div class="header-title-row">
         <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
-      </h1>
-      <div class="item-subtitle">
-        <h4 class="item-type">{{item.type}}</h4>
+      </div>
+      <div class="header-subtitle-row">
+        <span class="item-type">{{item.type}} {{#if item.data.data.invokableType}} - {{item.data.data.invokableType}}{{/if}}</span>
       </div>
     </div>
   </header>

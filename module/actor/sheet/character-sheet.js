@@ -11,8 +11,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "character"],
       template: "systems/pirateborg/templates/actor/character-sheet.html",
-      width: 750,
-      height: 690,
+      width: 600,
+      height: 650,
       scrollY: [".tab"],
       tabs: [
         {
@@ -145,7 +145,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
+    html.find(".luck-rule").on("click", this._onLuckRoll.bind(this));
     html.find(".luck-label").on("click", this._onLuckLabel.bind(this));
 
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
@@ -158,8 +158,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));
 
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+
     html.find(".item-base-class").on("click", async () => {
       (await this.actor.getBaseClass()).sheet.render(true);
+    });
+    html.find(".item-class").on("click", async () => {
+      (await this.actor.getClass()).sheet.render(true);
     });
   }
 

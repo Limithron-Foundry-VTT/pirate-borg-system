@@ -5,39 +5,44 @@
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
     <div class="header-col2">
-      <div class="name-row">
+
+      <div class="header-title-row">
         <input class="actor-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" spellcheck="false" />
       </div>
-      {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements, so we can get the item _id to be found by the common click handler
-      --}}
-      <div class="classname-row">
-        <label class="classname item" data-item-id="{{data.data.class.id}}">
-          <span class="item-edit rollable">{{data.data.class.name}}</span>
-        </label>
-        {{#if data.data.baseClass }}
-        <label class="classname rollable item-base-class">&nbsp;-&nbsp;<span>{{data.data.baseClass.name}}</span></label>
-        {{/if}}
+
+      <div class="header-subtitle-row">
+        <div class="actor-type">
+          <span class="item-edit rollable item-class">{{data.data.class.name}}</span>         
+          {{#if data.data.baseClass }}
+          - <span class="item-edit rollable item-base-class">{{data.data.baseClass.name}}</span>
+          {{/if}}
+        </div>
       </div>
 
-      <div class="hitpoints-row">
-        <span class="stat-label">{{ localize "PB.HP" }}</span>
-        <div class="hp-entries">
+      <div class="header-stats-row">
+        <div class="stats-block">
+          <span class="stat-label">{{ localize "PB.HP" }}</span>
           <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
-          <span>/</span>
+          <span class="stat-separator">/</span>
           <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
         </div>
       </div>
-      <div class="luck-row">
-        <span class="stat-label luck-label" title="{{ localize 'PB.LuckHelpText' }}">{{ localize "PB.Luck" }}</span>
-        <input class="stat-input" name="data.luck.value" type="number" value="{{data.data.luck.value}}" data-dtype="Number" />
-        <span class="rule-text luck-rule rollable">({{data.data.luckDie}} {{ localize "PB.PerRest"}})</span>
+      
+      <div class="header-stats-row">
+        <div class="stats-block">
+          <span class="stat-label luck-label">{{ localize "PB.Luck" }}</span>
+          <input class="stat-input" name="data.luck.value" type="number" value="{{data.data.luck.value}}" data-dtype="Number" />
+          <span class="stat-rule luck-rule rollable">({{data.data.luckDie}} {{ localize "PB.PerRest"}})</span>  
+        </div>        
       </div>
-      <div class="rest-buttons">
+
+      <div class="header-buttons-row">
         <button type="button" class="button item-button broken-button rollable" title="{{localize 'PB.Broken'}}">{{localize 'PB.Broken'}}</button>
         <button type="button" class="button item-button rest-button rollable" title="{{localize 'PB.Rest'}}">{{localize 'PB.Rest'}}</button>
         <button type="button" class="button item-button get-better-button rollable" title="{{localize 'PB.GetBetter'}}">{{localize 'PB.GetBetter'}}</button>
       </div>
     </div>
+
     <div class="header-col3">
       <div class="ability-row">
         <input
@@ -151,11 +156,10 @@
             <div class="weapon-name-col">
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
               {{#if ../data.data.trackAmmo}} {{#if item.data.usesAmmo}}
-              <div class="ammo-select-col">
-                <span class="ammo-label">{{localize 'PB.ItemTypeAmmo'}}: </span>
+              <div class="ammo-select-col">                
                 <select class="ammo-select" name="selectedAmmo-{{item._id}}" data-dtype="Number" data-item-id="{{item._id}}">
                   {{#select item.data.ammoId}}
-                  <option value=""></option>
+                  <option value=""><span class="ammo-label">{{localize 'PB.SelectAmmo'}} </span></option>
                   {{#each ../data.data.ammo as |ammo ammoId|}}
                   <option value="{{ammo._id}}">{{ammo.name}} ({{ammo.data.quantity}})</option>
                   {{/each}} {{/select}}
@@ -295,10 +299,10 @@
     <div class="tab specials-tab" data-group="primary" data-tab="features">
       {{#if data.data.useExtraResource}}
       <div class="powers-top-row">
-        <div class="uses-remaining">
+        <div class="stats-block">
           <label class="stat-label uses-remaining-label">{{ data.data.extraResourceNamePlural }}</label>
           <input class="stat-input" name="data.extraResourceUses.value" type="number" value="{{data.data.extraResourceUses.value}}" data-dtype="Number" />
-          <span class="rule-text rollable extra-resources-per-day-text">{{ data.data.extraResourceFormulaLabel }}</span>
+          <span class="stat-rule rollable extra-resources-per-day-text">{{ data.data.extraResourceFormulaLabel }}</span>
         </div>
       </div>
       {{/if}} {{#each data.data.features as |item id|}}
@@ -334,10 +338,10 @@
     {{!-- Powers Tab --}}
     <div class="tab powers-tab" data-group="primary" data-tab="powers">
       <div class="powers-top-row">
-        <div class="uses-remaining">
+        <div class="stats-block">
           <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
           <input class="stat-input" name="data.powerUses.value" type="number" value="{{data.data.powerUses.value}}" data-dtype="Number" />
-          <span class="rule-text rollable ritual-per-day-text">{{localize "PB.RitualPerday"}}</span>
+          <span class="stat-rule rollable ritual-per-day-text">{{localize "PB.RitualPerday"}}</span>
         </div>
       </div>
 
@@ -374,18 +378,18 @@
     {{!-- Equipment Tab --}}
     <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
       <div class="equipment-top-row">
-        <div class="silver">
+        <div class="stats-block">
           <span class="stat-label silver-label">{{ localize "PB.Silver" }}</span>
           <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.data.silver}}" data-dtype="Number" />
         </div>
         <div class="carry-block">
-          <div class="carry-block-carrying">
+          <div class="stats-block">
             <span class="stat-label">{{ localize "PB.Carrying" }}</span>
             <span class="stat-value">{{data.data.carryingWeight}}</span>
-            <span>/</span>
+            <span class="stat-separator">/</span>
             <span class="stat-value">{{data.data.carryingCapacity}}</span>
           </div>
-          <div class="rule-text {{ifPrint data.data.encumbered 'encumbered'}}">
+          <div class="stat-rule {{ifPrint data.data.encumbered 'encumbered'}}">
             {{#if data.data.trackCarryingCapacity}} {{localize 'PB.CarryingRule'}} {{else}} {{localize 'PB.CarryingRuleNoPenalty'}} {{/if}}
           </div>
         </div>

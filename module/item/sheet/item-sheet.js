@@ -9,8 +9,8 @@ export class PBItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "item"],
-      width: 600,
-      height: 560,
+      width: 500,
+      height: 600,
       scrollY: [".tab"],
       tabs: [
         {
@@ -19,7 +19,11 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }, { dropSelector: 'input[name="data.startingMacro"]' }],
+      dragDrop: [
+        { dropSelector: 'textarea[name="data.startingBonusItems"]' },
+        { dropSelector: 'textarea[name="data.startingBonusRolls"]' },
+        { dropSelector: 'input[name="data.startingMacro"]' },
+      ],
     });
   }
 

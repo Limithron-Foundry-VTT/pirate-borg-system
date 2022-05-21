@@ -1,71 +1,5 @@
 .pirateborg {
   &.sheet.actor {
-    .rule-text {
-      font-family: var(--item-font);
-      font-size: 14px;
-      line-height: 20px;
-    }
-
-    .stat-label {
-      font-family: var(--item-font);
-      font-size: 16px;
-      line-height: 16px;
-    }
-
-    .stat-input {
-      border: none;
-      font-family: var(--item-font);
-      text-align: center;
-      color: var(--foreground-color);
-      background: transparent;
-      font-size: 32px;
-      width: 42px;
-      height: 32px;
-      font-weight: 600;
-      padding: 0;
-      padding-bottom: 8px;
-      border-radius: 4px;
-    }
-
-    .stat-value {
-      font-family: var(--item-font);
-      font-size: 14pt;
-      text-align: center;
-      width: 50px;
-      color: var(--foreground-color);
-    }
-
-    .sheet-header {
-      margin-top: 0;
-      margin: 16px;
-      display: flex;
-      flex-direction: row;
-      flex: none;
-      align-items: flex-start;
-
-      .profile-img {
-        height: 200px;
-        width: 200px;
-        margin: 0;
-        padding: 0;
-      }
-
-      .actor-subtitle {
-        font-family: var(--h3-font);
-        font-size: 24px;
-        text-transform: uppercase;
-        margin-left: 13px;
-      }
-
-      .actor-type {
-        font-family: var(--h3-font);
-        font-size: 24px;
-        width: 100%;
-        margin-bottom: 51px;
-        margin-left: 0px;
-      }
-    }
-
     .sheet-body {
       flex: 1;
 
@@ -103,15 +37,12 @@
                 flex: 0 0 100px;
                 margin-top: 0;
                 display: flex;
-                .ammo-label {
-                  margin-right: 8px;
-                }
                 select.ammo-select {
                   font-family: var(--item-font);
-                  font-size: 10pt;
+                  font-size: 13px;
                   border: 2px groove var(--light-border-color);
                   background: rgba(255, 255, 255, 0.2);
-                  min-width: 100px;
+                  width: 100px;
                 }
               }
             }
@@ -122,20 +53,21 @@
           }
 
           .item-fields {
-            flex: 0 0 120px;
-            gap: 16px;
-          }
-        }
+            flex: 0 0 76px;
+            gap: 4px;
+            font-size: 14px;
 
-        .weapon-list .item-field {
-          &.damage-die {
-            text-align: right;
-            width: 40px;
-          }
+            .item-field {
+              &.damage-die {
+                text-align: right;
+                width: 28px;
+              }
 
-          &.weapon-type {
-            text-align: right;
-            width: 60px;
+              &.weapon-type {
+                text-align: right;
+                width: 48px;
+              }
+            }
           }
         }
 
@@ -243,13 +175,6 @@
           margin-top: 16px;
         }
       }
-    }
-
-    input[type="text"].actor-name {
-      font-family: var(--h1-font);
-      font-size: 40px;
-      border: none;
-      height: 46px;
     }
 
     .sheet-body {
