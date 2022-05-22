@@ -1,9 +1,14 @@
 # v0.4.0
 
-- Ships and NPC Ships added
+- Ships and NPC Ships support added
   - Dinghy & Brigantine added (PC Ships)
   - Man of War added (NPC Ship)
-  - Button added to the sheet header to edit the ship properties
+  - Button added to the sheet header to toggle between the edit and view sheets
+  - PC, NPC and Crew actions buttons added
+  - New Item type for Cargo and Shanties added
+  - Character and Creature can be dragged and dropped to the ship sheet
+  - Toggle for captain
+  - Items cab be dragged and dropped to the ship storage
 - Ranged weapons reload added
 - Damage roll button added to chat
 - Default tokens added to character
