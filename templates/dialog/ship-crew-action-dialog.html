@@ -1,11 +1,11 @@
 <form class="custom-dialog attack-dialog">
-  <div class="section">
+  <div class="custom-dialog-header">
     {{#if crewActionTitle}}
       <div class="subtitle">{{crewActionTitle}}</div>
     {{/if}}
     {{#if crewActionDescription}}
-      <div class="description">{{{crewActionDescription}}}</div>
-    {{/if}}  
+      <div class="description"><p>{{{crewActionDescription}}}</p></div>
+    {{/if}}
   </div>
   {{#if enableCrewSelection}}
     <div class="form-group">
@@ -24,7 +24,7 @@
       <label>{{localize "PB.DR"}}:</label>
       <input id="dr" type="text" name="dr" value="{{selectedDR}}" placeholder="12" data-dtype="Number" />
     </div>
-    <div class="form-group">
+    <div class="form-group form-group-radio-selector">
       <label></label>
       <ul class="radio-group-radio dr">
         <li>
@@ -66,7 +66,7 @@
       <label>{{localize "PB.TargetArmor"}}:</label>
       <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
     </div>    
-    <div class="form-group">
+    <div class="form-group form-group-radio-selector">
       <label></label>
       <ul class="radio-group-radio armor-tier">
         <li>
@@ -113,7 +113,7 @@
       <label>{{localize "PB.Movement"}}:</label>
       <input id="movement" type="text" name="movement" value="0" placeholder="0" data-dtype="Number" />
     </div>
-    <div class="form-group">
+    <div class="form-group form-group-radio-selector">
       <label></label>
       <ul class="radio-group-radio movement">
         <li>

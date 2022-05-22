@@ -53,7 +53,7 @@ export class PBActor extends Actor {
         this._prepareContainerDerivedData();
         break;
       case CONFIG.PB.actorTypes.vehicle:
-      case CONFIG.PB.actorTypes.vehicle_creature:
+      case CONFIG.PB.actorTypes.vehicle_npc:
         this._prepareVehicleDerivedData();
         break;
     }
@@ -328,7 +328,7 @@ export class PBActor extends Actor {
       if (ammo) {
         const quantity = ammo.quantity - 1;
         if (quantity > 0) {
-          ammo.quantity = quantity;
+          ammo.setQuantity(quantity);
         } else {
           await this.deleteEmbeddedDocuments("Item", [ammo.id]);
         }
@@ -338,7 +338,6 @@ export class PBActor extends Actor {
 
   async defend() {
     const { defendArmor, defendDR, incomingAttack } = await showDefendDialog({ actor: this });
-    console.log(defendArmor, defendDR, incomingAttack);
     await this._rollDefend(defendArmor, defendDR, incomingAttack);
   }
 
@@ -396,7 +395,6 @@ export class PBActor extends Actor {
         ];
         break;
     }
-    console.log(cardData);
     await showGenericWieldCard({
       actor: this,
       ...cardData,
@@ -817,7 +815,7 @@ export class PBActor extends Actor {
     }
   }
 
-  async scvmify() {
+  async regenerateCharacter() {
     new CharacterGeneratorDialog(this).render(true);
   }
 

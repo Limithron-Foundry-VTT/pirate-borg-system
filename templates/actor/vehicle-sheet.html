@@ -32,7 +32,6 @@
       </div>
     </div>
 
-
     <div class="header-col3">
       <div class="ability-row">
         <input
@@ -116,7 +115,7 @@
           <div class="item-buttons">
             {{#if has-pc-action}}
               <button type="button" class="item-button rollable action-pc-action" data-action="{{class}}" title="PC Action">
-                {{#if (eq ../data.type "vehicle_creature")}}
+                {{#if (eq ../data.type "vehicle_npc")}}
                   {{localize "PB.ShipNPCAction"}} 
                 {{else}}
                   {{localize "PB.ShipPCAction"}} 
@@ -185,28 +184,32 @@
       </div>
 
       {{#> static-list label="PB.ShipCrewActions" }}
-        {{> crew-action 
-          name="PB.ShipCrewActionBroadsides" 
-          class="broadsides" 
-          img="systems/pirateborg/icons/misc/broadside.png" 
-          die=data.data.broadsidesDie 
-          quantity=data.data.broadsidesQuantity
-          warning=data.data.broadsidesWarning
-          enableWarning=data.data.hasBroadsidesPenalties
-          has-pc-action=data.data.hasCrew 
-          has-crew-action=true 
-        }}
-        {{> crew-action 
-          name="PB.ShipCrewActionSmallArms" 
-          class="small-arms" 
-          img="systems/pirateborg/icons/misc/small-arm.png" 
-          die=data.data.smallArmsDie 
-          quantity=data.data.smallArmsQuantity
-          warning=data.data.smallArmsWarning
-          enableWarning=data.data.hasSmallArmsPenalties
-          has-pc-action=data.data.hasCrew
-          has-crew-action=true
-         }}
+        {{#if data.data.broadsidesQuantity}}
+          {{> crew-action 
+            name="PB.ShipCrewActionBroadsides" 
+            class="broadsides" 
+            img="systems/pirateborg/icons/misc/broadside.png" 
+            die=data.data.broadsidesDie 
+            quantity=data.data.broadsidesQuantity
+            warning=data.data.broadsidesWarning
+            enableWarning=data.data.hasBroadsidesPenalties
+            has-pc-action=data.data.hasCrew 
+            has-crew-action=true 
+          }}
+        {{/if}}
+        {{#if data.data.smallArmsQuantity}}
+          {{> crew-action 
+            name="PB.ShipCrewActionSmallArms" 
+            class="small-arms" 
+            img="systems/pirateborg/icons/misc/small-arm.png" 
+            die=data.data.smallArmsDie 
+            quantity=data.data.smallArmsQuantity
+            warning=data.data.smallArmsWarning
+            enableWarning=data.data.hasSmallArmsPenalties
+            has-pc-action=data.data.hasCrew
+            has-crew-action=true
+          }}
+        {{/if}}
         {{> crew-action name="PB.ShipCrewActionFullSail" class="full-sail" img="systems/pirateborg/icons/misc/full-sail.png" has-pc-action=data.data.hasCrew has-crew-action=true }}
         {{> crew-action name="PB.ShipCrewActionComeAbout" class="come-about" img="systems/pirateborg/icons/misc/come-about.png" has-pc-action=data.data.hasCrew has-crew-action=true  }}
         {{> crew-action name="PB.ShipCrewActionDropAnchor" class="drop-anchor" img="systems/pirateborg/icons/misc/anchor.png" has-crew-action=true}}
@@ -218,7 +221,9 @@
 
       {{> dynamic-list items=data.data.crews type="crew" label="PB.ShipCrew" emptyMessage="PB.EmptyCrew"}}
 
-      {{> dynamic-list items=data.data.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.data.cargo.max currentQuantity=data.data.cargo.value }}
+      {{#ifGt data.data.cargo.max 0}}
+        {{> dynamic-list items=data.data.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.data.cargo.max currentQuantity=data.data.cargo.value }}
+      {{/ifGt}}
 
       {{#if (eq data.type 'vehicle')}}
         {{#*inline "mystic-chanties"}}

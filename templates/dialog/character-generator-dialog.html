@@ -1,6 +1,16 @@
 <form id="character-generator-form" class="custom-dialog character-generator-dialog">
-  <div class="section">
+  
+  <div class="custom-dialog-header">
     <div class="subtitle">{{localize "PB.CharacterGeneratorChooseFromClasses"}}</div>
+    {{#if forActor}}
+      <div class="description warning">
+        <p>{{localize "PB.CharacterGeneratorWarning"}}</p>
+      </div>
+    {{/if}}
+  </div>
+  
+  <div class="section">
+
     <ul>
       {{#each this.classes}}
         <li>
@@ -12,15 +22,6 @@
       {{/each}}
     </ul>
     <div><a class="toggle-none">{{localize "PB.CharacterGeneratorToggleNone"}}</a>&nbsp; / &nbsp;<a class="toggle-all">{{localize "PB.CharacterGeneratorToggleAll"}}</a></div>
-  </div>
-
-  {{#if forActor}}
-    <div class="section">
-      <p>{{localize "PB.CharacterGeneratorWarning"}}</p>
-    </div>
-  {{/if}}
-
-  <div class="section">
     <p>{{localize "PB.CharacterGeneratorWarningBaseClass"}}</p>
   </div>
 

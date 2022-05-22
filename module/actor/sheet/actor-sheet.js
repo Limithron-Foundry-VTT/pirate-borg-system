@@ -236,10 +236,7 @@ export default class PBActorSheet extends ActorSheet {
    */
   async _onDefendRoll(event) {
     event.preventDefault();
-    const sheetData = await this.getData();
-    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
-    const hatItemId = sheetData.data.equippedHat ? sheetData.data.equippedHat.id : null;
-    this.actor.defend(armorItemId, hatItemId);
+    this.actor.defend();
   }
 
   /**

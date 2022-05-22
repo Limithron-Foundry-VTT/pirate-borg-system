@@ -44,12 +44,13 @@
           .item-name,
           .name-row {
             margin-left: -4px;
+            margin-top: -4px;
 
             input {
               font-family: var(--h1-font);
               font-size: 32px;
               border: none;
-              height: 32px;
+              height: 40px;
             }
           }
 
@@ -62,7 +63,7 @@
             font-size: 16px;
             white-space: nowrap;
             text-transform: capitalize;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
           }
 
           .header-buttons-row {
@@ -253,7 +254,7 @@
       border: 2px groove var(--light-border-color);
       background: rgba(255, 255, 255, 0.2);
       color: var(--foreground-color);
-      font-family: var(--item-font);
+      font-family: Arial;
       font-size: 14px;
       resize: none;
 
@@ -286,8 +287,8 @@
 
       input,
       select {
-        font-family: var(--item-font);
-        font-size: 14pt;
+        font-family: Arial;
+        font-size: 14px;
       }
 
       &.special {

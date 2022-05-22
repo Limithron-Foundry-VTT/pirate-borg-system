@@ -25,7 +25,6 @@ export const configureSystem = () => {
     compendiumHelpers,
   };
 
-  CONFIG.PB = PB;
   CONFIG.Actor.documentClass = PBActor;
   CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Item.documentClass = PBItem;
@@ -51,13 +50,13 @@ export const configureSystem = () => {
   });
 
   Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
-    types: ["vehicle", "vehicle_creature"],
+    types: ["vehicle", "vehicle_npc"],
     makeDefault: true,
     label: "PB.SheetClassVehicle",
   });
 
   Actors.registerSheet("pirateborg", PBActorSheetVehicleEdit, {
-    types: ["vehicle", "vehicle_creature"],
+    types: ["vehicle", "vehicle_npc"],
     label: "PB.SheetClassVehicleEdit",
   });
 

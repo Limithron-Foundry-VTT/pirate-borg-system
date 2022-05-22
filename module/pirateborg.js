@@ -26,28 +26,6 @@ Hooks.once("ready", () => {
 
   // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
-
-  const v10DocumentMigrationErrors = [];
-  for (const documentName of CONST.DOCUMENT_TYPES) {
-    const cls = getDocumentClass(documentName);
-    const schema = cls.schema.schema;
-    for (const key of Object.keys(schema)) {
-      if (key in cls.prototype) {
-        const err = `The ${cls.name} class defines the "${key}" attribute which collides with the "${key}" key in 
-        the ${cls.documentName} data schema`;
-        v10DocumentMigrationErrors.push(err);
-      }
-    }
-  }
-  if (v10DocumentMigrationErrors.length) {
-    v10DocumentMigrationErrors.unshift(
-      "Version 10 Compatibility Failure",
-      "-".repeat(90),
-      "Several Document class definitions include properties which collide with the new V10 DataModel:",
-      "-".repeat(90)
-    );
-    console.error(v10DocumentMigrationErrors.join("\n"));
-  }
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);

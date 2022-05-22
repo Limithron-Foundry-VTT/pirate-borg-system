@@ -10,7 +10,7 @@ export class PBItemSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "item"],
       width: 500,
-      height: 600,
+      height: 500,
       scrollY: [".tab"],
       tabs: [
         {

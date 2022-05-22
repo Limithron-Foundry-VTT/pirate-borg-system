@@ -175,6 +175,7 @@
 .pirateborg.sheet .window-content .sheet-header .header-col2 .item-name,
 .pirateborg.sheet .window-content .sheet-header .header-col2 .name-row {
   margin-left: -4px;
+  margin-top: -4px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-title-row input,
 .pirateborg.sheet .window-content .sheet-header .header-col2 .item-name input,
@@ -182,7 +183,7 @@
   font-family: var(--h1-font);
   font-size: 32px;
   border: none;
-  height: 32px;
+  height: 40px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-subtitle-row {
   display: flex;
@@ -193,7 +194,7 @@
   font-size: 16px;
   white-space: nowrap;
   text-transform: capitalize;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-buttons-row {
   display: flex;
@@ -337,7 +338,7 @@
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
   color: var(--foreground-color);
-  font-family: var(--item-font);
+  font-family: Arial;
   font-size: 14px;
   resize: none;
 }
@@ -365,8 +366,8 @@
 }
 .pirateborg.sheet .sheet-body .form-group input,
 .pirateborg.sheet .sheet-body .form-group select {
-  font-family: var(--item-font);
-  font-size: 14pt;
+  font-family: Arial;
+  font-size: 14px;
 }
 .pirateborg.sheet .sheet-body .form-group.special {
   flex: 1;
@@ -527,7 +528,7 @@
 
 .pirateborg.sheet.actor.character {
   min-width: 600px;
-  min-height: 450px;
+  min-height: 600px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-bottom: 16px;
@@ -1614,14 +1615,16 @@ hr {
 /* Attack/Defend Custom Dialogs */
 /* ====================== */
 .custom-dialog .form-group {
-  margin: 8px;
+  margin: 16px 16px 0 16px;
+}
+.custom-dialog .form-group.form-group-radio-selector {
+  margin-top: 8px;
 }
 .custom-dialog .form-group label {
   font-family: var(--item-font);
   font-size: 16px;
   margin-right: 10px;
   text-align: right;
-  font-weight: 500;
   line-height: 26px;
 }
 
@@ -1642,22 +1645,38 @@ hr {
   font-size: 14px;
   margin: 0;
 }
+.custom-dialog .custom-dialog-header {
+  padding: 8px 16px;
+}
+.custom-dialog .custom-dialog-header .subtitle {
+  text-align: center;
+}
+.custom-dialog .custom-dialog-header .description {
+  text-align: center;
+}
 .custom-dialog .section {
-  margin: 10px 10px 20px 10px;
+  padding: 8px 16px;
 }
 .custom-dialog .subtitle {
   font-family: var(--h3-font);
-  font-size: 30px;
+  font-size: 24px;
+  line-height: 24px;
 }
 .custom-dialog .description {
   font-family: var(--chat-font);
-  font-size: 16px;
+  font-size: 14px;
+}
+.custom-dialog .warning {
+  font-weight: 500;
+  color: red;
 }
 .custom-dialog ul {
   list-style-type: none;
+  margin: 8px;
+  padding: 0;
 }
 .custom-dialog li {
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
 }
 .custom-dialog li input[type=checkbox], .custom-dialog li input[type=radio] {
   float: left;
@@ -1674,7 +1693,7 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 16px 8px 0 8px;
+  margin-top: 16px;
   gap: 8px;
 }
 .custom-dialog .button-row button {

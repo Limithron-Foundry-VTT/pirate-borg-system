@@ -1,3 +1,4 @@
+/** @name CONFIG.PB */
 export const PB = {};
 
 PB.outcome = {
@@ -65,7 +66,7 @@ PB.actorTypes = {
   container: "container",
   creature: "creature",
   vehicle: "vehicle",
-  vehicle_creature: "vehicle_creature",
+  vehicle_npc: "vehicle_npc",
 };
 
 PB.itemTypes = {
@@ -135,7 +136,7 @@ PB.actorDefaults = {
       displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
     },
   },
-  [PB.actorTypes.vehicle_creature]: {
+  [PB.actorTypes.vehicle_npc]: {
     img: "systems/pirateborg/icons/misc/ship.png",
     token: {
       actorLink: false,
@@ -233,3 +234,5 @@ PB.characterGenerator = {
     "pirateborg.rolls-character-creation;d100 Thing of Importance",
   ],
 };
+
+CONFIG.PB = PB;

@@ -1,9 +1,9 @@
 {
   "Actor": {
-    "types": ["character", "container", "creature", "vehicle", "vehicle_creature"],
+    "types": ["character", "container", "creature", "vehicle", "vehicle_npc"],
     "templates": {
       "common": {},
-      "vehicule": {
+      "vehicle": {
         "description": "",
         "special": "",
         "hp": {
@@ -29,12 +29,12 @@
         "crew": {
           "min": 0,
           "max": 1,
-          "value": 1
+          "value": 0
         },
         "hull": {
           "min": 0,
-          "max": 1,
-          "value": 1
+          "max": 0,
+          "value": 0
         },
         "shanties": {
           "min": 0,
@@ -42,12 +42,12 @@
           "value": 0
         },
         "smallArmsDie": "",
-        "smallArmsQuantity": 1,
+        "smallArmsQuantity": 0,
         "smallArmsWarning": "",
         "broadsidesDie": "",
-        "broadsidesQuantity": 1,
+        "broadsidesQuantity": 0,
         "broadsidesWarning": "",
-        "ramDie": ""
+        "ramDie": "0"
       }
     },
     "character": {
@@ -114,7 +114,7 @@
     "vehicle": {
       "templates": ["vehicle"]
     },
-    "vehicle_creature": {
+    "vehicle_npc": {
       "templates": ["vehicle"]
     }
   },
@@ -161,8 +161,6 @@
     },
     "armor": {
       "templates": ["equipment"],
-      "currentTier": 1,
-      "maxTier": 1,
       "tier": {
         "min": 0,
         "max": 1,

@@ -16,7 +16,13 @@
       "path": "./packs/containers.db",
       "entity": "Actor"
     },
-
+    {
+      "name": "creatures",
+      "label": "Creatures",
+      "system": "pirateborg",
+      "path": "./packs/creatures.db",
+      "entity": "Actor"
+    },
     {
       "name": "equipment-melee-weapons",
       "label": "Equipment - Melee weapons",
@@ -220,6 +226,13 @@
       "label": "Ships",
       "system": "pirateborg",
       "path": "./packs/ships.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "ships-npc",
+      "label": "Ships NPC",
+      "system": "pirateborg",
+      "path": "./packs/ships-npc.db",
       "entity": "Actor"
     },
 

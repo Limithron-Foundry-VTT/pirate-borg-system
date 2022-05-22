@@ -106,13 +106,15 @@ export default class CharacterGeneratorDialog extends Application {
     setLastCharacterGeneratorSelection(selection);
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
+    this.close();
+    ui.notifications.info(`${game.users.current.name} is creating ${randomClass.name}.`);
+
     if (randomClass.data.data.characterGeneratorMacro) {
       const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
       if (compendium) {
         const macro = await findCompendiumItem(compendium, macroName);
         await executeCharacterCreationMacro(macro, { selectedClass: randomClass, selectedClasses, actor: this.actor });
       }
-      this.close();
       return;
     }
 
@@ -127,7 +129,5 @@ export default class CharacterGeneratorDialog extends Application {
       console.error(err);
       ui.notifications.error(`Error creating ${randomClass.name}. Check console for error log.`);
     }
-
-    this.close();
   }
 }

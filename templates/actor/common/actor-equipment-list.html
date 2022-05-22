@@ -68,5 +68,13 @@
         </li>
       {{/each}} 
     {{/ifEq}}
+  {{else}}
+    <ol class="items-list inventory-list">
+      <ol class="item-list weapon-list">
+        <li class="item flexrow empty-container">
+          <div class="rule-text you-have-no">{{localize 'PB.EquipmentEmpty'}}</div>
+        </li>
+      </ol>
+    </ol>    
   {{/each}}
 </ol>

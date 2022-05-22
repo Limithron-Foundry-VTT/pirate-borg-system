@@ -12,7 +12,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       classes: ["pirateborg", "sheet", "actor", "character"],
       template: "systems/pirateborg/templates/actor/character-sheet.html",
       width: 600,
-      height: 650,
+      height: 600,
       scrollY: [".tab"],
       tabs: [
         {
@@ -37,7 +37,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         class: `regenerate-character-button-${this.actor.id}`,
         label: game.i18n.localize("PB.RegenerateCharacter"),
         icon: "fas fa-skull",
-        onclick: this._onScvmify.bind(this),
+        onclick: this._onRegenerateCharacter.bind(this),
       },
       ...super._getHeaderButtons(),
     ];
@@ -202,9 +202,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
     this.actor.rollPowersPerDay();
   }
 
-  _onScvmify(event) {
+  _onRegenerateCharacter(event) {
     event.preventDefault();
-    this.actor.scvmify();
+    this.actor.regenerateCharacter();
   }
 
   _onBaseClass(event) {
