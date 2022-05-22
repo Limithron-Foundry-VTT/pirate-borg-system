@@ -90,7 +90,6 @@ class DefendDialog extends Application {
   }
 
   _onDefenseBaseDRChange(event) {
-    console.log("_onDefenseBaseDRChange");
     event.preventDefault();
     const input = $(event.currentTarget);
     const modifiedDr = parseInt(input.val(), 10) + this.modifiers.total;

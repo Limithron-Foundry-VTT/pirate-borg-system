@@ -433,6 +433,11 @@ export class PBActor extends Actor {
   }
 
   async checkMorale() {
+    if (!this.data.data.morale || this.data.data.morale === "-") {
+      ui.notifications.warn(`Creature don't have a morale value!`);
+      return;
+    }
+
     const moraleRoll = await evaluateFormula("2d6");
     const wieldData = {};
 

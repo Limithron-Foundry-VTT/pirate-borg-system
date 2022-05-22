@@ -397,8 +397,6 @@ export const rollCharacterForClass = async (cls) => {
     cls,
   ];
 
-  console.log(cls.img);
-
   return {
     name,
     actorImg: cls.img,
