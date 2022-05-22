@@ -1,3 +1,24 @@
+# v0.4.0
+
+- Ships and NPC Ships added
+  - Dinghy & Brigantine added (PC Ships)
+  - Man of War added (NPC Ship)
+  - Button added to the sheet header to edit the ship properties
+- Ranged weapons reload added
+- Damage roll button added to chat
+- Default tokens added to character
+- Example creatures added (Lookout)
+- Foundry UI Updated
+- Initiative button added to monster sheet
+- Initiative rolls are always outputted to the chat
+- Warning added when a creature doesn't have morale
+- Updates from latest Beta PDF
+- Sheets are now smaller
+- Prevent Character to be generated with zero HP
+- Chat Card message has been standardized
+- Zealot origins have been fixed
+- WYSIWYG Editor improvements
+
 # v0.3.4
 
 - Relics & Rituals chat card improvements

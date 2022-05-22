@@ -101,7 +101,7 @@ PB.itemTypeKeys = {
 
 PB.actorDefaults = {
   [PB.actorTypes.character]: {
-    img: "systems/pirateborg/icons/misc/class.png",
+    img: "systems/pirateborg/tokens/class.png",
     token: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
