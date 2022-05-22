@@ -203,7 +203,12 @@ export class PBActorSheetVehicle extends PBActorSheet {
 
   async _onSetCaptain(event) {
     event.preventDefault();
-    await this.actor.setCaptain(this._getItemId(event));
+    const captainId = this._getItemId(event);
+    if (this.actor.captain === captainId) {
+      await this.actor.setCaptain(null);
+    } else {
+      await this.actor.setCaptain(captainId);
+    }
   }
 
   async _onArmorTierRadio(event) {
