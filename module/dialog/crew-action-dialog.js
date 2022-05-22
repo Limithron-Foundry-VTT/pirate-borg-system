@@ -38,8 +38,8 @@ class CrewActionDialog extends Application {
   /** @override */
   async getData() {
     const selectedCrewId = await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW);
-    const selectedDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR)) || "12";
-    const selectedArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) || "0";
+    const selectedDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
+    const selectedArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
 
     return {
       config: CONFIG.pirateborg,
@@ -60,7 +60,7 @@ class CrewActionDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ok-button").click(this.onSubmit.bind(this));
+    html.find(".ok-button").click(this._onSubmit.bind(this));
     html.find(".cancel-button").click(this._onCancel.bind(this));
     html.find(".dr .radio-input").on("change", this._onDrInputChanged.bind(this));
     html.find(".armor-tier .radio-input").on("change", this._onArmorInputChanged.bind(this));
@@ -90,13 +90,24 @@ class CrewActionDialog extends Application {
     this.close();
   }
 
-  async onSubmit(event) {
+  _validate({ selectedDR, selectedArmor, selectedMovement }) {
+    if ((this.enableDrSelection && !selectedDR) || (this.enableArmorSelection && !selectedArmor) || (this.enableMovementSelection && !selectedMovement)) {
+      return false;
+    }
+    return true;
+  }
+
+  async _onSubmit(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
     const selectedCrewId = $(form).find("#crewActor").val();
     const selectedDR = $(form).find("#dr").val();
     const selectedArmor = $(form).find("#targetArmor").val();
     const selectedMovement = $(form).find("#movement").val();
+
+    if (!this._validate({ selectedDR, selectedArmor, selectedMovement })) {
+      return;
+    }
 
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW, selectedCrewId);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, selectedDR);

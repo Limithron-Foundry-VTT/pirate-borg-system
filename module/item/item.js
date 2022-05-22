@@ -106,6 +106,10 @@ export class PBItem extends Item {
     return this.data.data.quantity || 1;
   }
 
+  set quantity(quantity) {
+    this.update({ "data.quantity": quantity });
+  }
+
   get itemsData() {
     return this.data.data.itemsData || [];
   }
@@ -187,5 +191,103 @@ export class PBItem extends Item {
 
   _getItemContainer(actor) {
     return actor.items.filter((item) => item.isContainer).find((item) => item.items.includes(this.id));
+  }
+
+  /**
+   * @returns {String}
+   */
+  get weaponType() {
+    return this.data.data.weaponType;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isRanged() {
+    return this.weaponType === "ranged";
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isMelee() {
+    return this.weaponType === "melee";
+  }
+
+  /**
+   * @returns {String}
+   */
+  get attackAbility() {
+    return this.isRanged ? "presence" : "strength";
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isGunpowderWeapon() {
+    return this.data.data.isGunpowderWeapon === true;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get useAmmoDamage() {
+    return this.data.data.useAmmoDamage === true;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get usesAmmo() {
+    return this.data.data.usesAmmo;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get hasAmmo() {
+    return !!this.ammoId;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get ammoId() {
+    return this.data.data.ammoId;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get fumbleOn() {
+    return this.data.data.fumbleOn;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get critOn() {
+    return this.data.data.critOn;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get damageDie() {
+    return this.data.data.damageDie;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get critExtraDamage() {
+    return this.data.data.critExtraDamage;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get reduceDamage() {
+    return this.data.data.reduceDamage;
   }
 }

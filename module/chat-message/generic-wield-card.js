@@ -38,6 +38,7 @@ export const showGenericWieldCard = async ({
   damageRoll,
   armorRoll,
   buttons = [],
+  items = [],
 } = {}) => {
   const rolls = [wieldRoll, secondaryWieldRoll, damageRoll, armorRoll].filter((roll) => roll);
   return await ChatMessage.create({
@@ -58,6 +59,7 @@ export const showGenericWieldCard = async ({
       damageRoll,
       armorRoll,
       buttons: buttons,
+      items: items,
     }),
     speaker: ChatMessage.getSpeaker({ actor }),
     type: CONST.CHAT_MESSAGE_TYPES.ROLL,

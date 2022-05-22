@@ -21,17 +21,20 @@ export const evaluateFormula = async (formula, data) => {
 /**
  * @param {Roll} roll
  * @param {Number} dr
+ * @param {Object} options
+ * @param {Number} options.critOn
+ * @param {Number} options.fumbleOn
  * @returns {RollOutcome}
  */
-export const getTestOutcome = (roll, dr = 12) => {
+export const getTestOutcome = (roll, dr = 12, { critOn = 20, fumbleOn = 1 } = {}) => {
   const dieResult = roll.terms[0].results[0].result;
 
   const rollResult = {
     roll,
     isSuccess: roll.total >= dr,
     isFailure: roll.total < dr,
-    isFumble: dieResult === 1,
-    isCriticalSuccess: dieResult === 20,
+    isFumble: dieResult <= fumbleOn,
+    isCriticalSuccess: dieResult >= critOn,
   };
 
   if (rollResult.isFumble) {

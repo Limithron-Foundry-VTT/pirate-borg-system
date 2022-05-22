@@ -17,6 +17,11 @@ export const BUTTON_ACTIONS = {
   DAMAGE: "damage",
 };
 
+export const DAMAGE_TYPE = {
+  INFLICT: "inflick",
+  TAKE: "take",
+};
+
 export const WIELD_ROLL_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/wield-roll.html";
 export const MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/mystical-mishap.html";
 export const WIELD_DAMAGE_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/wield-damage.html";
@@ -39,7 +44,7 @@ const onChatCardAction = async (event) => {
   event.preventDefault();
 
   const button = event.currentTarget;
-  let messageContent = $(button.closest(".message-content"));
+  const messageContent = $(button.closest(".message-content"));
   const messageId = button.closest(".message").dataset.messageId;
   const message = game.messages.get(messageId);
   const actor = ChatMessage.getSpeakerActor(message.data.speaker);
@@ -51,11 +56,9 @@ const onChatCardAction = async (event) => {
   }
 
   const extraContent = await handleActions(actor, getData(button.dataset));
-
   if (extraContent) {
-    messageContent = messageContent.find("form.roll-card").append($(extraContent)).end();
     await message.update({
-      content: messageContent.html(),
+      content: messageContent.find("form.roll-card").append($(extraContent)).end().html(),
       sound: diceSound(),
     });
 
@@ -92,6 +95,25 @@ const handleActions = async (actor, data) => {
 };
 
 /**
+ * @param {DOMStringMap} dataset
+ * @returns {Object}
+ */
+const getData = (dataset) => {
+  return {
+    formula: dataset.formula,
+    wieldFormula: dataset.wieldFormula ?? dataset.formula,
+    wieldDR: dataset.dr ?? 12,
+    armor: dataset.armor ?? 0,
+    damage: dataset.damage ?? 0,
+    isFumble: dataset.isFumble === "true",
+    isCritical: dataset.isCritical === "true",
+    critExtraDamage: dataset.critExtraDamage,
+    action: dataset.action,
+    damageType: dataset.damageType,
+  };
+};
+
+/**
  * @param {String} formula
  * @param {String} wieldFormula
  * @param {String} wieldDR
@@ -119,23 +141,6 @@ const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
     wieldRoll,
     wieldOutcome: wieldOutcome,
     rollOutcome: rollOutcome,
-  };
-};
-
-/**
- * @param {DOMStringMap} dataset
- * @returns {Object}
- */
-const getData = (dataset) => {
-  return {
-    formula: dataset.formula,
-    wieldFormula: dataset.wieldFormula ?? dataset.formula,
-    wieldDR: dataset.dr ?? 10,
-    armor: dataset.armor ?? 0,
-    damage: dataset.damage ?? 0,
-    isFumble: dataset.isFumble === "true",
-    isCritical: dataset.isCritical === "true",
-    action: dataset.action,
   };
 };
 
@@ -243,14 +248,16 @@ const actionRepairCrewAction = async (actor) => {
  * @returns {Promise<String>}
  */
 const actionDamage = async (data) => {
-  const damageRoll = await evaluateFormula(data.isCritical ? `(${data.damage}) * 2` : data.damage);
+  const damageFormula = data.isCritical ? (data.critExtraDamage ? `((${data.damage}) * 2) + ${data.critExtraDamage}` : `(${data.damage}) * 2`) : data.damage;
+  const damageRoll = await evaluateFormula(damageFormula);
   const armorRoll = await evaluateFormula(data.armor);
+  const totalDamage = Math.max(0, damageRoll.total - armorRoll.total);
 
   await showDice(Roll.fromTerms([PoolTerm.fromRolls([damageRoll, armorRoll])]));
   playDiceSound();
 
   return await renderTemplate(WIELD_DAMAGE_CHAT_MESSAGE_TEMPLATE, {
-    damageOutcome: `${game.i18n.localize("PB.Inflict")} ${Math.max(0, damageRoll.total - armorRoll.total)}  ${game.i18n.localize("PB.Damage")}`,
+    damageOutcome: `${game.i18n.localize(data.damageType === DAMAGE_TYPE.TAKE ? "PB.Take" : "PB.Inflict")} ${totalDamage} ${game.i18n.localize("PB.Damage")}`,
     damageRoll,
     armorRoll,
   });

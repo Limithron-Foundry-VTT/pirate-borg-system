@@ -193,4 +193,4 @@ export const drawReaction = async (options = {}) => await drawTable("pirateborg.
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawGunpowderFumble = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);
+export const drawGunpowderFumble = async (options = {}) => await drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);

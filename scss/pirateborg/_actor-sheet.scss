@@ -81,7 +81,7 @@
 
         .item-armor-tier {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 8px;
           flex: 0;
         }
@@ -92,9 +92,7 @@
         }
 
         .tier-label {
-          float: left;
-          font-size: 20;
-          margin-right: 10px;
+          font-size: 14px;
         }
 
         ul.tiers {
@@ -103,19 +101,17 @@
           padding: 0;
           display: flex;
           align-content: center;
-          gap: 12px;
-
-          li {
-          }
+          gap: 8px;
 
           label {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
 
             .tier-dmg {
               line-height: 13px;
+              font-size: 14px;
             }
           }
 

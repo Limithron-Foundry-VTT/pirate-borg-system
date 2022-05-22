@@ -40,10 +40,10 @@
   </div>
   <div class="form-group">
     <label>{{localize "PB.Modified"}} {{localize "PB.DR"}}:</label>
-    <input type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
+    <input id="defenseModifiedDr" type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
   </div>
   {{#if drModifiers}}
-  <div class="dr-modifier">( {{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}} )</div>
+  <div class="dr-modifier">({{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}})</div>
   {{/if}}
   <div class="form-group">
     <label>{{localize "PB.IncomingAttack"}}:</label>
@@ -141,5 +141,11 @@
       </li>
     </ul>
   </div>
-
+  <div class="button-row">
+    <button type="submit" class="button cancel-button">{{localize "PB.Cancel"}}</button>
+    <button type="submit" class="button ok-button">
+      <i class="fas fa-dice-d20"></i>
+      {{localize "PB.Roll"}}
+    </button>
+  </div>
 </form>

@@ -240,8 +240,8 @@ export const findStartingBonusRollsItems = async (items) => {
  * @returns {Promise.<Array.<Item>>}
  */
 export const handleActorGettingBetterItems = async (actor) => {
-  const actorClass = actor.getClass();
-  const baseClass = await actor.getBaseClass();
+  const actorClass = actor.getCharacterClass();
+  const baseClass = await actor.getCharacterBaseClass();
   let items = [];
   if (actorClass.data.data.gettingBetterRolls) {
     items = items.concat(await handleClassGettingBetterItems(actor, actorClass.data.data.gettingBetterRolls));

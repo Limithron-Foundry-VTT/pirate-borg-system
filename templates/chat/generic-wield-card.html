@@ -1,5 +1,13 @@
 <form class="roll-card wield-power-roll-card">
   <div class="card-title">{{title}}</div>
+
+  {{#each items as |item id|}}
+    <div class="item-row">
+      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+      <span class="item-name">{{item.name}}</span>
+    </div>
+  {{/each}}
+  
   {{#if description}}
     <div class="card-description">{{{description}}}</div>
   {{/if}}
@@ -69,8 +77,8 @@
   {{#if buttons}}
     <div class="item-buttons">
       {{#each buttons}}
-        <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{localize title}}">
-          {{localize title}}
+        <button type="button" class="button item-button rollable" {{#each data}} data-{{@key}}="{{this}}"{{/each}} title="{{title}}">
+          {{title}}
         </button>
       {{/each}}
     </div>

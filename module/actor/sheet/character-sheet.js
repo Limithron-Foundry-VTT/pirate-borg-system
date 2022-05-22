@@ -79,7 +79,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       return items;
     };
 
-    sheetData.data.class = this.actor.getClass();
+    sheetData.data.class = this.actor.getCharacterClass();
 
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
@@ -116,7 +116,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
+    sheetData.data.baseClass = (await this.actor.getCharacterBaseClass())?.data;
     sheetData.data.useExtraResource = sheetData.data.class?.data?.data?.useExtraResource || sheetData.data.baseClass?.data?.useExtraResource;
     sheetData.data.extraResourceNamePlural =
       sheetData.data.class?.data?.data?.extraResourceNamePlural || sheetData.data.baseClass?.data?.extraResourceNamePlural;
@@ -160,10 +160,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
 
     html.find(".item-base-class").on("click", async () => {
-      (await this.actor.getBaseClass()).sheet.render(true);
+      (await this.actor.getCharacterBaseClass()).sheet.render(true);
     });
     html.find(".item-class").on("click", async () => {
-      (await this.actor.getClass()).sheet.render(true);
+      (await this.actor.getCharacterClass()).sheet.render(true);
     });
   }
 

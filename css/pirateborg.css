@@ -433,7 +433,7 @@
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-armor-tier {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   flex: 0;
 }
@@ -442,9 +442,7 @@
   text-align: right;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .tier-label {
-  float: left;
-  font-size: 20;
-  margin-right: 10px;
+  font-size: 14px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers {
   list-style-type: none;
@@ -452,16 +450,17 @@
   padding: 0;
   display: flex;
   align-content: center;
-  gap: 12px;
+  gap: 8px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers label .tier-dmg {
   line-height: 13px;
+  font-size: 14px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab ul.tiers input[type=radio] {
   display: none;
@@ -1608,6 +1607,7 @@ hr {
 .dr-modifier {
   margin-bottom: 5px;
   text-align: center;
+  color: var(--highlight-background-color);
 }
 
 /* ====================== */

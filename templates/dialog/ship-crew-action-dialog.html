@@ -159,7 +159,10 @@
   <div class="button-row">
     <button type="submit" class="button cancel-button">{{localize "PB.Cancel"}}</button>
     {{#if canSubmit}}
-      <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
+      <button type="submit" class="button ok-button">
+        <i class="fas fa-dice-d20"></i>
+        {{localize "PB.Roll"}}
+      </button>
     {{/if}}
   </div>
 
