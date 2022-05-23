@@ -108,6 +108,8 @@ PB.actorDefaults = {
       vision: true,
       displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
       displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+      dimSight: 40,
+      brightSight: 20,
     },
   },
   [PB.actorTypes.container]: {
@@ -134,6 +136,8 @@ PB.actorDefaults = {
       vision: true,
       displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
       displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+      dimSight: 40,
+      brightSight: 20,
     },
   },
   [PB.actorTypes.vehicle_npc]: {
