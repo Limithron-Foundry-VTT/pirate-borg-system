@@ -1,0 +1,47 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{! Sheet Header }}
+  <header class="sheet-header flexrow">
+    <div class="header-col1">
+      <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
+    </div>
+    <div class="header-col2">
+      <div class="header-title-row">
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
+      </div>
+      <div class="header-subtitle-row">
+        <span class="item-type">{{item.type}}</span>
+      </div>
+    </div>
+  </header>
+
+  {{! Sheet Tab Navigation }}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <span class="spacer"></span>
+    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+    <span class="spacer"></span>
+  </nav>
+
+  {{! Sheet Body }}
+  <section class="sheet-body">
+    {{! Description Tab }}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+    </div>
+
+    {{! Details Tab }}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{! Action Macro }}
+      <div class="form-group">
+        <label>{{localize "PB.ActionMacro"}}:</label>
+        <input type="text" name="data.actionMacro" value="{{data.data.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
+      </div>
+
+      {{! Action Macro Label }}
+      <div class="form-group">
+        <label>{{localize "PB.ActionMacroLabel"}}:</label>
+        <input type="text" name="data.actionMacroLabel" value="{{data.data.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
+      </div>
+    </div>
+  </section>
+</form>

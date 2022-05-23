@@ -1,24 +1,27 @@
-import ScvmDialog from "../scvm/scvm-dialog.js";
+import CharacterGeneratorDialog from "../dialog/character-generator-dialog.js";
 
+/**
+ * @param {Application} app
+ * @param {jQuery} html
+ */
 export const renderActorDirectory = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
-    // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");
-    section.classList.add("scvmfactory");
+    section.classList.add("character-generator");
     section.classList.add("directory-header");
-    // Add menu before directory header
+
     const dirHeader = html[0].querySelector(".directory-header");
     dirHeader.parentNode.insertBefore(section, dirHeader);
     section.insertAdjacentHTML(
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="create-scvm-button"><i class="fas fa-skull"></i>The Tavern</button>
+        <button class="create-character-generator-button"><i class="fas fa-skull"></i>The Tavern</button>
       </div>
       `
     );
-    section.querySelector(".create-scvm-button").addEventListener("click", () => {
-      new ScvmDialog().render(true);
+    section.querySelector(".create-character-generator-button").addEventListener("click", () => {
+      new CharacterGeneratorDialog().render(true);
     });
   }
 };

@@ -1,3 +1,29 @@
+# v0.4.0
+
+- Ships and NPC Ships support added
+  - Dinghy & Brigantine added (PC Ships)
+  - Man of War added (NPC Ship)
+  - Button added to the sheet header to toggle between the edit and view sheets
+  - PC, NPC and Crew actions buttons added
+  - New Item type for Cargo and Shanties added
+  - Character and Creature can be dragged and dropped to the ship sheet
+  - Toggle for captain
+  - Items cab be dragged and dropped to the ship storage
+- Ranged weapons reload added
+- Damage roll button added to chat
+- Default tokens added to character
+- Example creatures added (Lookout)
+- Foundry UI Updated
+- Initiative button added to monster sheet
+- Initiative rolls are always outputted to the chat
+- Warning added when a creature doesn't have morale
+- Updates from latest Beta PDF
+- Sheets are now smaller
+- Prevent Character to be generated with zero HP
+- Chat Card message has been standardized
+- Zealot origins have been fixed
+- WYSIWYG Editor improvements
+
 # v0.3.4
 
 - Relics & Rituals chat card improvements

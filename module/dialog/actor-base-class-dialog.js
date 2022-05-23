@@ -1,5 +1,5 @@
-import { classItemFromPack, findClassPacks } from "../scvm/scvmfactory.js";
-import { isScvmClassAllowed } from "../settings.js";
+import { classItemFromPack, findClassPacks } from "../compendium.js";
+import { isCharacterGeneratorClassAllowed } from "../system/settings.js";
 
 export default class ActorBaseClassDialog extends Application {
   constructor(actor = null, options = {}) {
@@ -23,14 +23,14 @@ export default class ActorBaseClassDialog extends Application {
   async getData(options = {}) {
     return mergeObject(super.getData(options), {
       classes: await this.getClassData(),
-      requireBaseClass: this.actor.getClass().data.data.requireBaseClass,
+      requireBaseClass: this.actor.getCharacterClass().data.data.requireBaseClass,
     });
   }
 
   async getClassData() {
     return (await this.getClasses(findClassPacks()))
       .filter((clazz) => !clazz.data.data.requireBaseClass)
-      .filter((clazz) => isScvmClassAllowed(clazz.data.name))
+      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.data.name))
       .map((clazz) => ({
         name: clazz.name,
         baseClass: `${clazz.pack};${clazz.name}`,
@@ -66,7 +66,7 @@ export default class ActorBaseClassDialog extends Application {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
     const baseClass = $(form).find("#baseClass");
-    await this.actor.setBaseClass(baseClass.val());
+    await this.actor.setBaseCharacterClass(baseClass.val());
     this.close();
   }
 }

@@ -1,5 +1,9 @@
-import { rollPartyInitiative } from "../combat.js";
+import { rollPartyInitiative } from "./combat.js";
 
+/**
+ * @param {CombatTracker} tracker
+ * @param {jQuery} html
+ */
 export const renderCombatTracker = (tracker, html) => {
   const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
     "PB.RollPartyInitiative"

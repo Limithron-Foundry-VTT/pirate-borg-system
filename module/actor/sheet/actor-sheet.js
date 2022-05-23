@@ -1,6 +1,6 @@
-import * as editor from "../../system/configure-editor.js";
-import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
-import { findStartingBonusItems, findStartingBonusRollsItems } from "../../scvm/scvmfactory.js";
+import { configureEditor } from "../../system/configure-editor.js";
+import { rollIndividualInitiative, rollPartyInitiative } from "../../system/combat.js";
+import { findStartingBonusItems, findStartingBonusRollsItems } from "../../generator/character-generator.js";
 
 /**
  * @extends {ActorSheet}
@@ -8,7 +8,7 @@ import { findStartingBonusItems, findStartingBonusRollsItems } from "../../scvm/
 export default class PBActorSheet extends ActorSheet {
   /** @override */
   activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
+    configureEditor(options);
     super.activateEditor(name, options, initialContent);
   }
 
@@ -24,9 +24,12 @@ export default class PBActorSheet extends ActorSheet {
 
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
+      event.preventDefault();
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.sheet.render(true);
+      if (item) {
+        item.sheet.render(true);
+      }
     });
 
     // Delete Inventory Item
@@ -42,6 +45,7 @@ export default class PBActorSheet extends ActorSheet {
     html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
     html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
+    html.find(".reload-button").on("click", this._onReload.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
   }
@@ -232,10 +236,18 @@ export default class PBActorSheet extends ActorSheet {
    */
   async _onDefendRoll(event) {
     event.preventDefault();
-    const sheetData = await this.getData();
-    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
-    const hatItemId = sheetData.data.equippedHat ? sheetData.data.equippedHat.id : null;
-    this.actor.defend(armorItemId, hatItemId);
+    this.actor.defend();
+  }
+
+  /**
+   * Handle a click on the Reload button.
+   */
+  async _onReload(event) {
+    event.preventDefault();
+    const button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const itemId = li.data("itemId");
+    this.actor.reload(itemId);
   }
 
   _onInlineEdit(event) {

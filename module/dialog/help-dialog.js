@@ -1,4 +1,4 @@
-import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../settings.js";
+import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../system/settings.js";
 
 export default class HelpDialog extends Application {
   constructor(options = {}) {
@@ -22,7 +22,6 @@ export default class HelpDialog extends Application {
           initial: "about",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
     });
   }
 

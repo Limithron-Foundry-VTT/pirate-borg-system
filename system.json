@@ -16,7 +16,13 @@
       "path": "./packs/containers.db",
       "entity": "Actor"
     },
-
+    {
+      "name": "creatures",
+      "label": "Creatures",
+      "system": "pirateborg",
+      "path": "./packs/creatures.db",
+      "entity": "Actor"
+    },
     {
       "name": "equipment-melee-weapons",
       "label": "Equipment - Melee weapons",
@@ -171,7 +177,6 @@
       "path": "./packs/macros-arcane-rituals.db",
       "entity": "Macro"
     },
-
     {
       "name": "rolls-character-creation",
       "label": "Rolls - Character creation",
@@ -186,6 +191,49 @@
       "system": "pirateborg",
       "path": "./packs/rolls-gamemaster.db",
       "entity": "RollTable"
+    },
+
+    {
+      "name": "ships-features",
+      "label": "Ships - Features",
+      "system": "pirateborg",
+      "path": "./packs/ships-features.db",
+      "entity": "Item"
+    },
+    {
+      "name": "ships-cargo",
+      "label": "Ships - Cargo",
+      "system": "pirateborg",
+      "path": "./packs/ships-cargo.db",
+      "entity": "Item"
+    },
+    {
+      "name": "rolls-ships",
+      "label": "Rolls - Ships",
+      "system": "pirateborg",
+      "path": "./packs/rolls-ships.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "ships-mystic-shanties",
+      "label": "Ships - Mystic Shanties",
+      "system": "pirateborg",
+      "path": "./packs/ships-mystic-shanties.db",
+      "entity": "Item"
+    },
+    {
+      "name": "ships",
+      "label": "Ships",
+      "system": "pirateborg",
+      "path": "./packs/ships.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "ships-npc",
+      "label": "Ships NPC",
+      "system": "pirateborg",
+      "path": "./packs/ships-npc.db",
+      "entity": "Actor"
     },
 
     {

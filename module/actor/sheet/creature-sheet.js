@@ -1,3 +1,4 @@
+import { rollIndividualInitiative } from "../../system/combat.js";
 import PBActorSheet from "./actor-sheet.js";
 
 /**
@@ -9,18 +10,16 @@ export class PBActorSheetCreature extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "creature"],
       template: "systems/pirateborg/templates/actor/creature-sheet.html",
-      width: 720,
-      height: 680,
+      width: 500,
+      height: 600,
       scrollY: [".tab"],
       tabs: [
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "details",
+          initial: "description",
         },
       ],
-      // is dragDrop needed?
-      // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
 
@@ -33,6 +32,12 @@ export class PBActorSheetCreature extends PBActorSheet {
 
     html.find(".morale").on("click", this._onMoraleRoll.bind(this));
     html.find(".reaction").on("click", this._onReactionRoll.bind(this));
+    html.find(".initiative-button").on("click", this._onInitiativeRoll.bind(this));
+  }
+
+  async _onInitiativeRoll(event) {
+    event.preventDefault();
+    rollIndividualInitiative(this.actor);
   }
 
   /**

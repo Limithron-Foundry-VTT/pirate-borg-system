@@ -55,6 +55,17 @@
     }
   }
 
+  .card-outcome-description {
+    font-family: var(--chat-font);
+    font-size: 16px;
+    text-align: center;
+    margin: 24px 0 0 0;
+    font-style: italic;
+    p:first-of-type {
+      margin: 0;
+    }
+  }
+
   .roll-result {
     font-family: var(--chat-font);
     font-size: 18px;
@@ -122,4 +133,5 @@
 .dr-modifier {
   margin-bottom: 5px;
   text-align: center;
+  color: var(--highlight-background-color);
 }

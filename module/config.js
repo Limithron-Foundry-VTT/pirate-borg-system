@@ -1,5 +1,12 @@
-// Namespace Configuration Values
+/** @name CONFIG.PB */
 export const PB = {};
+
+PB.outcome = {
+  fumble: "fumble",
+  success: "success",
+  critical_success: "critical_success",
+  failure: "failure",
+};
 
 PB.abilities = {
   agility: "PB.AbilityAgility",
@@ -41,8 +48,10 @@ PB.flagScope = "pirateborg"; // must match system name
 PB.flags = {
   ATTACK_DR: "attackDR",
   DEFEND_DR: "defendDR",
+  DEFEND_ARMOR: "defendArmor",
   INCOMING_ATTACK: "incomingAttack",
   TARGET_ARMOR: "targetArmor",
+  SELECTED_CREW: "selectedCrew",
 };
 
 PB.premiumModuleName = "pirateborg";
@@ -50,6 +59,14 @@ PB.premiumModuleName = "pirateborg";
 PB.handed = {
   1: "PB.HandedOne",
   2: "PB.HandedTwo",
+};
+
+PB.actorTypes = {
+  character: "character",
+  container: "container",
+  creature: "creature",
+  vehicle: "vehicle",
+  vehicle_npc: "vehicle_npc",
 };
 
 PB.itemTypes = {
@@ -63,22 +80,111 @@ PB.itemTypes = {
   invokable: "invokable",
   misc: "misc",
   weapon: "weapon",
+  cargo: "cargo",
+  shanty: "shanty",
 };
 
 PB.itemTypeKeys = {
-  ammo: "PB.ItemTypeAmmo",
-  armor: "PB.ItemTypeArmor",
-  background: "PB.ItemTypeBackground",
-  class: "PB.ItemTypeClass",
-  container: "PB.ItemTypeContainer",
-  feature: "PB.ItemTypeFeature",
-  hat: "PB.ItemTypeHat",
-  invokable: "PB.ItemTypeInvokable",
-  misc: "PB.ItemTypeMisc",
-  weapon: "PB.ItemTypeWeapon",
+  [PB.itemTypes.ammo]: "PB.ItemTypeAmmo",
+  [PB.itemTypes.armor]: "PB.ItemTypeArmor",
+  [PB.itemTypes.background]: "PB.ItemTypeBackground",
+  [PB.itemTypes.class]: "PB.ItemTypeClass",
+  [PB.itemTypes.container]: "PB.ItemTypeContainer",
+  [PB.itemTypes.feature]: "PB.ItemTypeFeature",
+  [PB.itemTypes.hat]: "PB.ItemTypeHat",
+  [PB.itemTypes.invokable]: "PB.ItemTypeInvokable",
+  [PB.itemTypes.misc]: "PB.ItemTypeMisc",
+  [PB.itemTypes.weapon]: "PB.ItemTypeWeapon",
+  [PB.itemTypes.cargo]: "PB.ItemTypeCargo",
+  [PB.itemTypes.shanty]: "PB.ItemTypeShanty",
 };
 
-// these Item types are "equipment"
+PB.actorDefaults = {
+  [PB.actorTypes.character]: {
+    img: "systems/pirateborg/tokens/class.png",
+    token: {
+      actorLink: true,
+      disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+      vision: true,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+    },
+  },
+  [PB.actorTypes.container]: {
+    img: "systems/pirateborg/icons/misc/container.png",
+    token: {
+      actorLink: false,
+      disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
+      vision: false,
+    },
+  },
+  [PB.actorTypes.creature]: {
+    img: "systems/pirateborg/icons/misc/monster.png",
+    token: {
+      actorLink: false,
+      disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
+      vision: false,
+    },
+  },
+  [PB.actorTypes.vehicle]: {
+    img: "systems/pirateborg/icons/misc/ship.png",
+    token: {
+      actorLink: true,
+      disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+      vision: true,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
+      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+    },
+  },
+  [PB.actorTypes.vehicle_npc]: {
+    img: "systems/pirateborg/icons/misc/ship.png",
+    token: {
+      actorLink: false,
+      disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
+      vision: false,
+    },
+  },
+};
+
+PB.itemDefaultImage = {
+  [PB.itemTypes.ammo]: {
+    img: "systems/pirateborg/icons/misc/ammo.png",
+  },
+  [PB.itemTypes.armor]: {
+    img: "systems/pirateborg/icons/misc/armor.png",
+  },
+  [PB.itemTypes.background]: {
+    img: "systems/pirateborg/icons/misc/background.png",
+  },
+  [PB.itemTypes.class]: {
+    img: "systems/pirateborg/icons/misc/class.png",
+  },
+  [PB.itemTypes.container]: {
+    img: "systems/pirateborg/icons/misc/container.png",
+  },
+  [PB.itemTypes.feature]: {
+    img: "systems/pirateborg/icons/misc/class-feature.png",
+  },
+  [PB.itemTypes.hat]: {
+    img: "systems/pirateborg/icons/misc/hat.png",
+  },
+  [PB.itemTypes.invokable]: {
+    img: "systems/pirateborg/icons/misc/invokable.png",
+  },
+  [PB.itemTypes.misc]: {
+    img: "systems/pirateborg/icons/misc/misc.png",
+  },
+  [PB.itemTypes.weapon]: {
+    img: "systems/pirateborg/icons/misc/weapon.png",
+  },
+  [PB.itemTypes.cargo]: {
+    img: "systems/pirateborg/icons/misc/cargo.png",
+  },
+  [PB.itemTypes.shanty]: {
+    img: "systems/pirateborg/icons/misc/shanty.png",
+  },
+};
+
 PB.itemEquipmentTypes = [
   PB.itemTypes.ammo,
   PB.itemTypes.armor,
@@ -102,8 +208,7 @@ PB.weaponTypes = {
   ranged: "PB.WeaponTypeRanged",
 };
 
-// Config variables for the Scvmfactory character generator
-PB.scvmFactory = {
+PB.characterGenerator = {
   characterCreationPack: "pirateborg.rolls-character-creation",
 
   firstNamesPack: "pirateborg.rolls-character-creation;First Names",
@@ -129,3 +234,5 @@ PB.scvmFactory = {
     "pirateborg.rolls-character-creation;d100 Thing of Importance",
   ],
 };
+
+CONFIG.PB = PB;

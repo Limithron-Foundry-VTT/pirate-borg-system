@@ -1,45 +1,7 @@
 .pirateborg {
   &.sheet {
     &.item {
-      .sheet-header {
-        margin-top: 0;
-        flex: 0 0 90px;
-        display: flex;
-        flex-direction: row;
-        padding: 16px;
-        align-items: flex-start;
-        gap: 16px;
-
-        .profile-img {
-          height: 150px;
-          width: 150px;
-          border-radius: 24px;
-        }
-
-        .item-name input[type="text"] {
-          flex: 1;
-          border: none;
-          font-family: var(--h1-font);
-          font-size: 40px;
-          border: none;
-          height: 46px;
-          margin: 0;
-          padding: 0;
-        }
-
-        .item-subtitle {
-          font-family: var(--h3-font);
-          font-size: 24px;
-          text-transform: uppercase;
-
-          .item-type {
-            font-size: 20px;
-            width: 100%;
-            margin: 0;
-            text-transform: capitalize;
-          }
-        }
-      }
+      min-width: 500px;
     }
   }
 }

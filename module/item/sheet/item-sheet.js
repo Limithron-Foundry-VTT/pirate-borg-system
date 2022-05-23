@@ -1,5 +1,5 @@
 import { PB } from "../../config.js";
-import * as editor from "../../system/configure-editor.js";
+import { configureEditor } from "../../system/configure-editor.js";
 
 /*
  * @extends {ItemSheet}
@@ -9,8 +9,8 @@ export class PBItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "item"],
-      width: 600,
-      height: 560,
+      width: 500,
+      height: 500,
       scrollY: [".tab"],
       tabs: [
         {
@@ -19,7 +19,11 @@ export class PBItemSheet extends ItemSheet {
           initial: "description",
         },
       ],
-      dragDrop: [{ dropSelector: 'textarea[name="data.startingBonusItems"]' }, { dropSelector: 'textarea[name="data.startingBonusRolls"]' }],
+      dragDrop: [
+        { dropSelector: 'textarea[name="data.startingBonusItems"]' },
+        { dropSelector: 'textarea[name="data.startingBonusRolls"]' },
+        { dropSelector: 'input[name="data.startingMacro"]' },
+      ],
     });
   }
 
@@ -27,10 +31,8 @@ export class PBItemSheet extends ItemSheet {
   get template() {
     const path = "systems/pirateborg/templates/item";
     if (Object.keys(PB.itemTypeKeys).includes(this.item.data.type)) {
-      // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
     } else {
-      // generic item sheet
       return `${path}/item-sheet.html`;
     }
   }
@@ -39,13 +41,19 @@ export class PBItemSheet extends ItemSheet {
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.PB;
-    // TODO
-    /*if (data.data.data.scrollType) {
-      data.data.data.localizedScrollType = game.i18n.localize(
-        PB.scrollTypes[data.data.data.scrollType]
-      );
-    }*/
     return data;
+  }
+
+  /** @override */
+  async _updateObject(event, formData) {
+    if (this.object.type === CONFIG.PB.itemTypes.weapon) {
+      // Ensure weapons that need reloading have a reloading time
+      if (formData["data.needsReloading"] && (!formData["data.reloadTime"] || formData["data.reloadTime"] < 0)) {
+        formData["data.reloadTime"] = 1;
+      }
+    }
+
+    return super._updateObject(event, formData);
   }
 
   /**
@@ -72,7 +80,7 @@ export class PBItemSheet extends ItemSheet {
 
   /** @override */
   activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
+    configureEditor(options);
     super.activateEditor(name, options, initialContent);
   }
 

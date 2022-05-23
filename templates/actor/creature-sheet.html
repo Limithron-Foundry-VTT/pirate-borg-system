@@ -5,19 +5,24 @@
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
     <div class="header-col2">
-      <div class="name-row">
-        <input class="actor-name creature-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'PB.Name'}}" />
+      <div class="header-title-row">
+        <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
-      <div class="actor-type">{{actor.type}}</div>
-      <div class="hitpoints-row">
-        <span class="stat-label">{{localize "PB.HitPoints"}}:</span>
-        <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
-        /
-        <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+      <div class="header-subtitle-row">
+        <span class="item-type">{{actor.type}}</span>
       </div>
-      <div class="buttons-row">
+      <div class="header-stats-row">
+        <div class="stats-block">
+          <span class="stat-label">{{localize "PB.HP"}}</span>
+          <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
+          <span class="stat-separator">/</span>
+          <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+        </div>
+      </div>
+      <div class="header-buttons-row">
         <button type="button" class="roll-button reaction rollable">{{localize "PB.Reaction"}}</button>
         <button type="button" class="roll-button morale rollable">{{localize "PB.Morale"}}</button>
+        <button type="button" class="button item-button initiative-button" title="{{localize 'PB.Initiative'}}">{{localize "PB.Initiative"}}</button>
       </div>
     </div>
   </header>
@@ -25,8 +30,8 @@
   {{! Sheet Tab Navigation }}
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
-    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>    
     <span class="spacer"></span>
   </nav>
 

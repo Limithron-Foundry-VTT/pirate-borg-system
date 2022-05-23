@@ -1,25 +1,25 @@
-import { diceSound, showDice as rollDice } from "./dice.js";
-import { findCompendiumItem } from "./scvm/scvmfactory.js";
+import { evaluateFormula } from "./utils.js";
+export { showGenericCard } from "./chat-message/generic-card.js";
+export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
+export { drawTable } from "./compendium.js";
 
-export const GENERIC_CHAT_MESSAGE_TEMPLATE = "systems/pirateborg/templates/chat/generic-chat-message-card.html";
-
-export const showDice = rollDice;
-
-export const createChatMessage = async (actor, template, templateData, { muted = false } = {}) => {
-  const html = await renderTemplate(template, templateData);
-  ChatMessage.create({
-    content: html,
-    sound: !muted ? diceSound() : null,
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
-};
-
+/**
+ *
+ * @param {String} formula
+ * @param {Object} rollData
+ * @returns
+ */
 export const createRoll = async (formula, rollData = {}) => {
-  const roll = new Roll(formula, rollData);
-  await roll.evaluate();
-  return roll;
+  return await evaluateFormula(formula, rollData);
 };
 
+/**
+ * @param {Document} macro
+ * @param {Object} meta
+ * @param {Actor} meta.actor
+ * @param {Token} meta.token
+ * @param {Item} meta.item
+ */
 export const executeMacro = async (macro, { actor, token, item } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();
   const character = game.user.character;
@@ -37,6 +37,14 @@ export const executeMacro = async (macro, { actor, token, item } = {}) => {
   }
 };
 
+/**
+ * @param {Document} macro
+ * @param {Object} meta
+ * @param {Actor} meta.actor
+ * @param {String} meta.selectedClass
+ * @param {Array.<String>} meta.selectedClasses
+ * @returns {Promise}
+ */
 export const executeCharacterCreationMacro = async (macro, { actor, selectedClass, selectedClasses } = {}) => {
   const body = `(async () => {
       ${macro.data.command}
@@ -48,9 +56,4 @@ export const executeCharacterCreationMacro = async (macro, { actor, selectedClas
     ui.notifications.error(`There was an error in your macro syntax. See the console (F12) for details`);
     console.error(err);
   }
-};
-
-export const drawTable = async (compendium, table) => {
-  const rollTable = await findCompendiumItem(compendium, table);
-  return await rollTable.draw();
 };

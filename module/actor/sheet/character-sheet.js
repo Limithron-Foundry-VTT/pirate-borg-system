@@ -1,6 +1,6 @@
 import PBActorSheet from "./actor-sheet.js";
-import RestDialog from "./rest-dialog.js";
-import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import RestDialog from "../../dialog/rest-dialog.js";
+import { trackAmmo, trackCarryingCapacity } from "../../system/settings.js";
 
 /**
  * @extends {ActorSheet}
@@ -11,8 +11,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "character"],
       template: "systems/pirateborg/templates/actor/character-sheet.html",
-      width: 750,
-      height: 690,
+      width: 600,
+      height: 600,
       scrollY: [".tab"],
       tabs: [
         {
@@ -37,7 +37,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         class: `regenerate-character-button-${this.actor.id}`,
         label: game.i18n.localize("PB.RegenerateCharacter"),
         icon: "fas fa-skull",
-        onclick: this._onScvmify.bind(this),
+        onclick: this._onRegenerateCharacter.bind(this),
       },
       ...super._getHeaderButtons(),
     ];
@@ -79,7 +79,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       return items;
     };
 
-    sheetData.data.class = this.actor.getClass();
+    sheetData.data.class = this.actor.getCharacterClass();
 
     sheetData.data.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
@@ -96,6 +96,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .filter((item) => item.data.equipped)
       .sort(byName);
 
+    for (const weapon of sheetData.data.equippedWeapons) {
+      if (weapon.data.needsReloading && weapon.data.reloadTime) {
+        weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
+      }
+    }
+
     sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
     sheetData.data.features = sheetData.items
@@ -110,7 +116,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.baseClass = (await this.actor.getBaseClass())?.data;
+    sheetData.data.baseClass = (await this.actor.getCharacterBaseClass())?.data;
     sheetData.data.useExtraResource = sheetData.data.class?.data?.data?.useExtraResource || sheetData.data.baseClass?.data?.useExtraResource;
     sheetData.data.extraResourceNamePlural =
       sheetData.data.class?.data?.data?.extraResourceNamePlural || sheetData.data.baseClass?.data?.extraResourceNamePlural;
@@ -139,7 +145,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html.find(".luck-row span.rollable").on("click", this._onLuckRoll.bind(this));
+    html.find(".luck-rule").on("click", this._onLuckRoll.bind(this));
     html.find(".luck-label").on("click", this._onLuckLabel.bind(this));
 
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
@@ -152,8 +158,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));
 
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+
     html.find(".item-base-class").on("click", async () => {
-      (await this.actor.getBaseClass()).sheet.render(true);
+      (await this.actor.getCharacterBaseClass()).sheet.render(true);
+    });
+    html.find(".item-class").on("click", async () => {
+      (await this.actor.getCharacterClass()).sheet.render(true);
     });
   }
 
@@ -192,9 +202,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
     this.actor.rollPowersPerDay();
   }
 
-  _onScvmify(event) {
+  _onRegenerateCharacter(event) {
     event.preventDefault();
-    this.actor.scvmify();
+    this.actor.regenerateCharacter();
   }
 
   _onBaseClass(event) {
@@ -264,7 +274,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     this.actor.useActionMacro(itemId);
   }
 
-  async _onLuckLabel(event) {
+  async _onLuckLabel() {
     await ChatMessage.create({
       content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html"),
     });

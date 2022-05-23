@@ -3,109 +3,526 @@
  */
 export class PBItem extends Item {
   /** @override */
+  static async create(data, options = {}) {
+    mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, { overwrite: false });
+    return super.create(data, options);
+  }
+
+  /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
     this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
 
     if (this.type === CONFIG.PB.itemTypes.armor) {
-      this.data.data.damageReductionDie = CONFIG.PB.armorTiers[this.data.data.tier.value].damageReductionDie;
+      this.getData().damageReductionDie = CONFIG.PB.armorTiers[this.tier.value].damageReductionDie;
     }
   }
 
   /** @override */
   prepareActorItemDerivedData(actor) {
     if (actor.type === "character") {
-      this.data.data.equippable = CONFIG.PB.equippableItemTypes.includes(this.type);
-      this.data.data.droppable = CONFIG.PB.droppableItemTypes.includes(this.type) && this.data.data.carryWeight !== 0;
-      this.data.data.canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(this.type);
+      this.getData().equippable = CONFIG.PB.equippableItemTypes.includes(this.type);
+      this.getData().droppable = CONFIG.PB.droppableItemTypes.includes(this.type) && this.getData().carryWeight !== 0;
+      this.getData().canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(this.type);
     } else {
-      this.data.data.equippable = false;
-      this.data.data.droppable = false;
+      this.getData().equippable = false;
+      this.getData().droppable = false;
     }
 
     if (this.isContainer) {
-      this.data.data.itemsData = this._getItemsData(actor);
-      this.data.data.totalContainerSpace = this._getTotalContainerSpace(actor);
+      this.getData().itemsData = this._getItemsData(actor);
+      this.getData().totalContainerSpace = this._getTotalContainerSpace(actor);
     }
 
     if (this.isEquipment) {
       this.container = this._getItemContainer(actor) || null;
-      this.data.data.hasContainer = !!this.container;
-      this.data.data.totalCarryWeight = this._getTotalCarryWeight(actor);
+      this.getData().hasContainer = !!this.container;
+      this.getData().totalCarryWeight = this._getTotalCarryWeight(actor);
     }
   }
 
+  /** V10 */
+  getData() {
+    return this.system ?? this.data.data;
+  }
+
+  getSystemData() {
+    return this.system ? this : this.data;
+  }
+
+  async updateData(key, value) {
+    await this.update({ [`data.${key}`]: value });
+  }
+
+  /**
+   * common template properties
+   */
+
+  /**
+   * @returns {String}
+   */
+  get description() {
+    return this.getData().description;
+  }
+
+  /**
+   * @param {String} description
+   */
+  async setDescription(description) {
+    await this.updateData("description", description);
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get containerSpace() {
+    return this.getData().containerSpace;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get carryWeight() {
+    return this.getData().carryWeight;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get equipped() {
+    return this.getData().equipped;
+  }
+
+  /**
+   * @param {Boolean} equipped
+   */
+  async setEquipped(equipped) {
+    await this.updateData("equipped", equipped);
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get carried() {
+    // container with carryWeight are asumed to not be carried (donkey, etc)
+    if (this.carryWeight === 0) {
+      return false;
+    }
+    return this.getData().carried;
+  }
+
+  /**
+   * @param {Boolean} carried
+   */
+  async setCarried(carried) {
+    await this.updateData("carried", carried);
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get price() {
+    return this.getData().price;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get quantity() {
+    return this.getData().quantity;
+  }
+
+  /**
+   * @param {Number} quantity
+   */
+  async setQuantity(quantity) {
+    await this.updateData("quantity", quantity);
+  }
+
+  /**
+   * @returns {String}
+   */
+  get actionMacro() {
+    return this.getData().actionMacro;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get actionMacroLabel() {
+    return this.getData().actionMacroLabel;
+  }
+
+  /**
+   * weapon properties
+   */
+
+  /**
+   * @returns {String}
+   */
+  get damageDie() {
+    return this.getData().damageDie;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get critOn() {
+    return this.getData().critOn;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get critExtraDamage() {
+    return this.getData().critExtraDamage;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get handed() {
+    return this.getData().handed;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get fumbleOn() {
+    return this.getData().fumbleOn;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get usesAmmo() {
+    return this.getData().usesAmmo;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get useAmmoDamage() {
+    return this.getData().useAmmoDamage;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get weaponType() {
+    return this.getData().weaponType;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isGunpowderWeapon() {
+    return this.getData().isGunpowderWeapon;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get needsReloading() {
+    return this.getData().needsReloading;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get reloadTime() {
+    return this.getData().reloadTime;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get loadingCount() {
+    return this.getData().loadingCount;
+  }
+
+  /**
+   * container properties
+   */
+
+  /**
+   * @returns {capacity}
+   */
+  get capacity() {
+    return this.getData().capacity;
+  }
+
+  /**
+   * armor properties
+   */
+
+  /**
+   * @returns {{min: Number, max: Number, value: Number}}}
+   */
+  get tier() {
+    return this.getData().tier;
+  }
+
+  /**
+   * @param {{min: Number, max: Number, value: Number}}
+   */
+  async setTier(tier) {
+    await this.updateData("tier", tier);
+  }
+
+  /**
+   * hat properties
+   */
+
+  /**
+   * @returns {Boolean}
+   */
+  get reduceDamage() {
+    return this.getData().reduceDamage;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get ruleText() {
+    return this.getData().ruleText;
+  }
+
+  /**
+   * invokable properties
+   */
+
+  /**
+   * @returns {String}
+   */
+  get invokableType() {
+    return this.getData().invokableType;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isEquipment() {
+    return this.getData().isEquipment ?? CONFIG.PB.itemEquipmentTypes.includes(this.type);
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get maxQuantity() {
+    return this.getData().maxQuantity;
+  }
+
+  /**
+   * background properties
+   */
+
+  /**
+   * @returns {String}
+   */
+  get startingGold() {
+    return this.getData().startingGold;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingBonusItems() {
+    return this.getData().startingBonusItems;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingBonusRolls() {
+    return this.getData().startingBonusRolls;
+  }
+
+  /**
+   * feature properties
+   */
+
+  /**
+   * @returns {String}
+   */
+  get featureType() {
+    return this.getData().featureType;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get flavorText() {
+    return this.getData().flavorText;
+  }
+
+  /**
+   * Item types properties
+   */
+
+  /**
+   * @returns {Boolean}
+   */
   get isContainer() {
     return this.type === CONFIG.PB.itemTypes.container;
   }
 
-  get isEquipment() {
-    return CONFIG.PB.itemEquipmentTypes.includes(this.type);
-  }
-
+  /**
+   * @returns {Boolean}
+   */
   get isHat() {
     return this.type === CONFIG.PB.itemTypes.hat;
   }
 
+  /**
+   * @returns {Boolean}
+   */
   get isArmor() {
     return this.type === CONFIG.PB.itemTypes.armor;
   }
 
+  /**
+   * @returns {Boolean}
+   */
+  get isWeapon() {
+    return this.type === CONFIG.PB.itemTypes.weapon;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isAmmo() {
+    return this.type === CONFIG.PB.itemTypes.ammo;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isBackground() {
+    return this.type === CONFIG.PB.itemTypes.background;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isClass() {
+    return this.type === CONFIG.PB.itemTypes.class;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isCargo() {
+    return this.type === CONFIG.PB.itemTypes.cargo;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isFeature() {
+    return this.type === CONFIG.PB.itemTypes.feature;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isInvokable() {
+    return this.type === CONFIG.PB.itemTypes.invokable;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isMisc() {
+    return this.type === CONFIG.PB.itemTypes.misc;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isShanty() {
+    return this.type === CONFIG.PB.itemTypes.shanty;
+  }
+
+  /**
+   * Weapons extra properties
+   */
+
+  /**
+   * @returns {Boolean}
+   */
+  get isRanged() {
+    return this.weaponType === "ranged";
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isMelee() {
+    return this.weaponType === "melee";
+  }
+
+  /**
+   * @returns {String}
+   */
+  get attackAbility() {
+    return this.isRanged ? "presence" : "strength";
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get hasAmmo() {
+    return !!this.ammoId;
+  }
+
+  /**
+   * @returns {Number}
+   */
+  get ammoId() {
+    return this.getData().ammoId;
+  }
+
+  /**
+   * Item Containers
+   */
+
+  /**
+   * @returns {Boolean}
+   */
   get isContainerizable() {
     return CONFIG.PB.allowedContainerItemTypes.includes(this.type);
   }
 
   get hasContainer() {
-    return this.data.data.hasContainer;
-  }
-
-  get carried() {
-    // this should be fixed in a migration
-    if (this.data.data.carried === undefined) {
-      return true; // all items are carried by default
-    } else {
-      if (this.data.data.carryWeight === 0) {
-        // container with carryWeight are asumed to not be carried (donkey, etc)
-        return false;
-      }
-      return this.data.data.carried;
-    }
-  }
-
-  get equipped() {
-    return this.data.data.equipped || false;
-  }
-
-  get carryWeight() {
-    return this.data.data.carryWeight || 0;
+    return this.getData().hasContainer;
   }
 
   get totalCarryWeight() {
-    return this.data.data.totalCarryWeight || 0;
-  }
-
-  get containerSpace() {
-    return this.data.data.containerSpace || 0;
+    return this.getData().totalCarryWeight || 0;
   }
 
   get totalContainerSpace() {
-    return this.data.data.totalContainerSpace || 0;
+    return this.getData().totalContainerSpace || 0;
   }
 
   get totalSpace() {
-    return this.totalContainerSpace + Math.ceil(this.containerSpace * this.data.data.quantity);
-  }
-
-  get quantity() {
-    return this.data.data.quantity || 1;
+    return this.totalContainerSpace + Math.ceil(this.containerSpace * this.getData().quantity);
   }
 
   get itemsData() {
-    return this.data.data.itemsData || [];
+    return this.getData().itemsData || [];
   }
 
   get items() {
-    return this.data.data.items || [];
+    return this.getData().items || [];
+  }
+
+  /**
+   * @param {Array.<String>} items
+   */
+  async setItems(items) {
+    await this.updateData("items", items);
   }
 
   get hasItems() {
@@ -113,34 +530,34 @@ export class PBItem extends Item {
   }
 
   async equip() {
-    return await this.update({ "data.equipped": true });
+    await this.setEquipped(true);
   }
 
   async unequip() {
-    return await this.update({ "data.equipped": false });
+    await this.setEquipped(false);
   }
 
   async carry() {
-    return await this.update({ "data.carried": true });
+    await this.setCarried(true);
   }
 
   async drop() {
-    return await this.update({ "data.carried": false });
+    await this.setCarried(false);
   }
 
   async addItem(itemId) {
     if (!this.items.includes(itemId)) {
-      return await this.update({ "data.items": [...this.items, itemId] });
+      this.setItems([...this.items, itemId]);
     }
   }
 
   async removeItem(itemId) {
     const items = this.items.filter((item) => item !== itemId);
-    return await this.update({ "data.items": items });
+    this.setItems(items);
   }
 
   async clearItems() {
-    return await this.update({ "data.items": [] });
+    this.setItems([]);
   }
 
   _getTotalCarryWeight(actor) {

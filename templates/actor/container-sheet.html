@@ -5,15 +5,19 @@
       <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     </div>
     <div class="header-col2">
-      <div class="name-row">
+      <div class="header-title-row">
         <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
-      <div class="actor-type">{{actor.type}}</div>
-      <div class="holding-row">
-        <span class="stat-label container-label">{{ localize "PB.ContainerHolding" }}:</span>
-        <span class="stat-value">{{data.data.containerSpace}}</span>
-        /
-        <span class="stat-value">{{data.data.capacity.max}}</span>
+      <div class="header-subtitle-row">
+        <span class="item-type">{{actor.type}}</span>
+      </div>
+      <div class="header-stats-row">
+        <div class="stats-block">
+          <span class="stat-label">{{ localize "PB.ContainerHolding" }}</span>
+          <span class="stat-value stat-right">{{data.data.containerSpace}}</span>
+          <span class="stat-separator">/</span>
+          <span class="stat-value stat-left">{{data.data.capacity.max}}</span>
+        </div>
       </div>
     </div>
   </header>
