@@ -1,3 +1,7 @@
+# v0.4.1
+- Ritual per day has now a minimum of zero at character creation
+- Add default vision range for character and ships actor
+
 # v0.4.0
 
 - Ships and NPC Ships support added
