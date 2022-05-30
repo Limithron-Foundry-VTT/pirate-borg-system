@@ -1,4 +1,4 @@
-import { isAttackAnimationEnabled } from '../settings.js';
+import { isAttackAnimationEnabled } from "../settings.js";
 
 /**
  * @typedef {import('utils.js').TestOutcome} TestOutcome
@@ -16,10 +16,10 @@ const ANIMATION = {
 };
 
 /**
- * @param {String} module 
+ * @param {String} module
  * @returns {Boolean}
  */
-const isModuleActive = (module) => game.modules.get(module)?.active ? true : false;
+const isModuleActive = (module) => (game.modules.get(module)?.active ? true : false);
 
 /**
  * @returns {Boolean}
@@ -32,37 +32,33 @@ const isSequencerEnabled = () => isModuleActive(MODULE.SEQUENCER);
 const isJB2AEnabled = () => isModuleActive(MODULE.JB2A);
 
 /**
- * @param {String} animation 
+ * @param {String} animation
  * @param {Target} token
  */
 const playSimpleAnimationOnToken = (animation, token) => {
   if (isSequencerEnabled() && isJB2AEnabled() && isAttackAnimationEnabled()) {
-    new Sequence()
-    .effect(animation)
-      .atLocation(token)
-      .scaleToObject(4)
-    .play();
+    new Sequence().effect(animation).atLocation(token).scaleToObject(4).play();
   }
-}
+};
 
 /**
- * @param {String} animation 
+ * @param {String} animation
  */
 const playAnimationOnTargets = (animation) => {
-  for(const target of game.user.targets)  {
+  for (const target of game.user.targets) {
     playSimpleAnimationOnToken(animation, target);
   }
-}
+};
 
 /**
- * @param {String} animation 
+ * @param {String} animation
  */
 const playAnimationOnControlledToken = (animation) => {
   const controlledToken = canvas.tokens.controlled[0];
   if (controlledToken) {
     playSimpleAnimationOnToken(animation, controlledToken);
   }
-}
+};
 
 export const playAttackMissAnimation = () => playAnimationOnControlledToken(ANIMATION.MISS);
 export const playAttackCriticalMissAnimation = () => playAnimationOnControlledToken(ANIMATION.CRITICAL_MISS);
@@ -72,35 +68,35 @@ export const playDefenseCriticalMissAnimation = () => playAnimationOnControlledT
 export const playDefenseCriticalHitAnimation = () => playAnimationOnControlledToken(ANIMATION.CRITICAL_HIT);
 
 /**
- * @param {TestOutcome} testOutcome 
+ * @param {TestOutcome} testOutcome
  */
 export const playAttackAnimationForOutcome = (testOutcome) => {
   switch (testOutcome.outcome) {
     case CONFIG.PB.outcome.fumble:
       playAttackCriticalMissAnimation();
-      break
+      break;
     case CONFIG.PB.outcome.critical_success:
       playAttackCriticalHitAnimation();
-      break
+      break;
     case CONFIG.PB.outcome.failure:
       playAttackMissAnimation();
-      break
+      break;
   }
-}
+};
 
 /**
- * @param {TestOutcome} testOutcome 
+ * @param {TestOutcome} testOutcome
  */
- export const playDefenseAnimationForOutcome = (testOutcome) => {
+export const playDefenseAnimationForOutcome = (testOutcome) => {
   switch (testOutcome.outcome) {
     case CONFIG.PB.outcome.fumble:
       playDefenseCriticalMissAnimation();
-      break
+      break;
     case CONFIG.PB.outcome.critical_success:
       playDefenseCriticalHitAnimation();
-      break
+      break;
     case CONFIG.PB.outcome.failure:
       playDefenseMissAnimation();
-      break
+      break;
   }
-}
+};

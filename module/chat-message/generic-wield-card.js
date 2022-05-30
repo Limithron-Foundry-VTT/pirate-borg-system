@@ -5,7 +5,7 @@ const GENERIC_WIELD_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-w
 /**
  * @param {Object} obj
  * @param {PBActor} obj.actor
- * @param {PBActor} obj.target  
+ * @param {PBActor} obj.target
  * @param {String} obj.title
  * @param {String} obj.description
  * @param {Roll} obj.wieldRoll

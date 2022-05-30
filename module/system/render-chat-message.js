@@ -2,7 +2,7 @@ import { diceSound, playDiceSound, showDice } from "../dice.js";
 import { emitScrollChatToBottom } from "./sockets.js";
 import { evaluateFormula, getTestOutcome } from "../utils.js";
 import { drawMysticalMishaps } from "../compendium.js";
-import { getScaledDamageFormula, scaleDamageBetween } from "./automation/damage-automation.js";
+import { getScaledDamageFormula } from "./automation/damage-automation.js";
 
 /**
  * @typedef {import('../utils.js').TestOutcome} TestOutcome
@@ -250,14 +250,14 @@ const actionRepairCrewAction = async (actor) => {
  */
 const actionDamage = async (actor, data) => {
   const targetToken = game.canvas.tokens.get(data.targetTokenId);
-  
+
   const damageFormula = data.isCritical ? (data.critExtraDamage ? `((${data.damage}) * 2) + ${data.critExtraDamage}` : `(${data.damage}) * 2`) : data.damage;
   const damageRoll = await evaluateFormula(getScaledDamageFormula(actor, targetToken?.actor, damageFormula));
   const armorRoll = await evaluateFormula(data.armor);
   const totalDamage = Math.round(Math.max(0, damageRoll.total - armorRoll.total));
-  
+
   await showDiceWithSound([damageRoll, armorRoll]);
- 
+
   // await applyDamage(actor, totalDamage, data);
 
   return await renderTemplate(WIELD_DAMAGE_CHAT_MESSAGE_TEMPLATE, {
@@ -269,26 +269,26 @@ const actionDamage = async (actor, data) => {
 };
 
 /**
- * @param {Array.<Roll>} rolls 
+ * @param {Array.<Roll>} rolls
  */
 const showDiceWithSound = async (rolls) => {
   await showDice(Roll.fromTerms([PoolTerm.fromRolls(rolls)]));
   playDiceSound();
-}
+};
 
 /**
  * @param {Actor} actor
- * @param {Number} totalDamage 
+ * @param {Number} totalDamage
  * @param {Object} data
  */
 const applyDamage = async (actor, totalDamage, data) => {
   switch (data.damageType) {
-    case DAMAGE_TYPE.TAKE: 
+    case DAMAGE_TYPE.TAKE:
       const target = game.user.targets[0] ?? null;
       await actor.takeActorDamage(target.actor, totalDamage);
       break;
-    case DAMAGE_TYPE.INFLICT:        
+    case DAMAGE_TYPE.INFLICT:
       await actor.inflictActorDamage(actor, totalDamage);
       break;
   }
-}
+};

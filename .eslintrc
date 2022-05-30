@@ -11,7 +11,9 @@
   "extends": ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js", "plugin:i18n-json/recommended"],
   "globals": {
     "PIXI": "readonly",
-    "PoolTerm": "readonly"
+    "PoolTerm": "readonly",
+    "Sequence": "readonly",
+    "dragRuler": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": "latest",

@@ -117,7 +117,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .sort(byType);
 
     sheetData.data.dynamic.baseClass = (await this.actor.getCharacterBaseClass())?.data;
-    sheetData.data.dynamic.useExtraResource = sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
+    sheetData.data.dynamic.useExtraResource =
+      sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
     sheetData.data.dynamic.extraResourceNamePlural =
       sheetData.data.dynamic.class?.data?.data?.extraResourceNamePlural || sheetData.data.dynamic.baseClass?.data?.extraResourceNamePlural;
     sheetData.data.dynamic.extraResourceFormulaLabel =

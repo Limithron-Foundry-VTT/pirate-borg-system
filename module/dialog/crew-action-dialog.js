@@ -1,4 +1,10 @@
-import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../system/automation/target-automation.js";
+import {
+  findTargettedToken,
+  hasTargets,
+  isTargetSelectionValid,
+  registerTargetAutomationHook,
+  unregisterTargetAutomationHook,
+} from "../system/automation/target-automation.js";
 import { targetSelectionEnabled } from "../system/settings.js";
 
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
@@ -24,12 +30,12 @@ class CrewActionDialog extends Application {
     this.enableCrewSelection = enableCrewSelection;
     this.enableDrSelection = enableDrSelection;
     this.enableArmorSelection = enableArmorSelection;
-    this.enableTargetSelection = enableTargetSelection;
     this.enableMovementSelection = enableMovementSelection;
+    this.enableTargetSelection = enableTargetSelection;    
     this.callback = callback;
 
     if (targetSelectionEnabled() && this.enableTargetSelection) {
-      this.targetToken = findTargettedToken();   
+      this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
       this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
@@ -73,14 +79,25 @@ class CrewActionDialog extends Application {
     };
   }
 
-  _shouldShowTarget() {
-    if (this.enforceTargetSelection) { return true; }
-    if (this.hasTargets) { return true; }
+  _hasTargetWarning() {
+    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
+      return true;
+    }
     return false;
   }
 
-  _onTargetChanged(targets) {
-    this.targetToken = findTargettedToken();   
+  _shouldShowTarget() {
+    if (this.enforceTargetSelection) {
+      return true;
+    }
+    if (this.hasTargets) {
+      return true;
+    }
+    return false;
+  }
+
+  _onTargetChanged() {
+    this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
     this.render();
@@ -98,28 +115,53 @@ class CrewActionDialog extends Application {
     super.activateListeners(html);
     html.find(".ok-button").click(this._onSubmit.bind(this));
     html.find(".cancel-button").click(this._onCancel.bind(this));
-    html.find(".dr .radio-input").on("change", this._onDrInputChanged.bind(this));
-    html.find(".armor-tier .radio-input").on("change", this._onArmorInputChanged.bind(this));
-    html.find(".movement .radio-input").on("change", this._onMovementInputChanged.bind(this));
+
+    html.find(".dr .radio-input").on("change", this._onDrRadioInputChanged.bind(this));
+    html.find("#dr").on("change", this._onDrInputChanged.bind(this));
+
+    html.find(".armor-tier .radio-input").on("change", this._onArmorRadioInputChanged.bind(this));
+    html.find("#targetArmor").on("change", this._onArmorInputChanged.bind(this));
+
+    html.find(".movement .radio-input").on("change", this._onMovementRadioInputChanged.bind(this));
+    html.find("#movement").on("change", this._onMovementInputChanged.bind(this));
   }
 
-  _onDrInputChanged(event) {
+  _onDrRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#dr").val(input.val());
+  }
+
+  async _onDrInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, input.val());
+    $(".dr .radio-input").val([input.val()]);
+  }
+
+  async _onArmorRadioInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    this.element.find("#targetArmor").val(input.val());
   }
 
   async _onArmorInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());
-    this.element.find("#targetArmor").val(input.val());
+    $(".armor-tier .radio-input").val([input.val()]);
   }
 
-  _onMovementInputChanged(event) {
+  _onMovementRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#movement").val(input.val());
+  }
+
+  async _onMovementInputChanged(event) {
+    event.preventDefault();
+    const input = $(event.currentTarget);
+    $(".movement .radio-input").val([input.val()]);
   }
 
   _onCancel(event) {
@@ -133,7 +175,7 @@ class CrewActionDialog extends Application {
     }
 
     if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
-      return false;    
+      return false;
     }
 
     return true;
@@ -157,9 +199,6 @@ class CrewActionDialog extends Application {
     if (!this._validate({ selectedDR, selectedArmor, selectedMovement })) {
       return;
     }
-
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW, selectedCrewId);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, selectedDR);
 
     this.callback({
       selectedActor: game.actors.get(selectedCrewId),

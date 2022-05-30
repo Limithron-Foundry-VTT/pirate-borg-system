@@ -28,10 +28,9 @@ Hooks.once("ready", () => {
   // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
 
-  Hooks.on("getCompendiumFolderDirectoryEntryContext", async (html,options) => {
-    console.log(html,options);
-})
-
+  Hooks.on("getCompendiumFolderDirectoryEntryContext", async (html, options) => {
+    console.log(html, options);
+  });
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);

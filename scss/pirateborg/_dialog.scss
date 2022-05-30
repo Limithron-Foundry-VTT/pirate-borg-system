@@ -69,7 +69,7 @@
 
   .warning {
     font-weight: 600;
-    font-style: italic;      
+    font-style: italic;
     color: var(--warning-color);
   }
 
@@ -147,7 +147,7 @@
         cursor: help;
         text-align: center;
       }
-  
+
       #defenseModifiedDr {
         flex: 0 0 32px;
       }
@@ -155,11 +155,11 @@
 
     &.form-group-target {
       margin: 0;
-    
+
       .target-selection {
         height: var(--form-field-height);
         line-height: 28px;
-      }  
+      }
     }
   }
 

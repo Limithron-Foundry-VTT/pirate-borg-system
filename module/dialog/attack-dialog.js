@@ -1,4 +1,10 @@
-import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../system/automation/target-automation.js";
+import {
+  findTargettedToken,
+  hasTargets,
+  isTargetSelectionValid,
+  registerTargetAutomationHook,
+  unregisterTargetAutomationHook,
+} from "../system/automation/target-automation.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
@@ -11,7 +17,7 @@ class AttackDialog extends Application {
     this.enforceTargetSelection = isEnforceTargetEnabled();
 
     if (targetSelectionEnabled()) {
-      this.targetToken = findTargettedToken();   
+      this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
       this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
@@ -37,27 +43,33 @@ class AttackDialog extends Application {
     return {
       config: CONFIG.pirateborg,
       attackDR,
-      targetArmor, 
+      targetArmor,
       target: this.targetToken ? this.targetToken?.actor.name : "",
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
-      hasTargetWarning: this._hasTargetWarning()
+      hasTargetWarning: this._hasTargetWarning(),
     };
   }
 
   _hasTargetWarning() {
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) { return true; }
+    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
+      return true;
+    }
     return false;
   }
 
   _shouldShowTarget() {
-    if (this.enforceTargetSelection) { return true; }
-    if (this.hasTargets) { return true; }
+    if (this.enforceTargetSelection) {
+      return true;
+    }
+    if (this.hasTargets) {
+      return true;
+    }
     return false;
   }
 
-  _onTargetChanged(targets) {
-    this.targetToken = findTargettedToken();   
+  _onTargetChanged() {
+    this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
     this.render();
@@ -93,22 +105,22 @@ class AttackDialog extends Application {
   async _onTargetArmorInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());     
-    $('.armor-tier .radio-input').val([input.val()]);  
+    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());
+    $(".armor-tier .radio-input").val([input.val()]);
   }
 
   _onAttackDrRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#attackDr").val(input.val());
-    this.element.find("#attackDr").change();    
+    this.element.find("#attackDr").change();
   }
 
   async _onAttackDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, input.val());
-    $('.attack-dr .radio-input').val([input.val()]);  
+    $(".attack-dr .radio-input").val([input.val()]);
   }
 
   _onCancel(event) {
@@ -139,12 +151,12 @@ class AttackDialog extends Application {
 
     if (!this._validate({ targetArmor, attackDR })) {
       return;
-    }   
+    }
 
     this.callback({
       targetArmor,
       attackDR: parseInt(attackDR, 10),
-      targetToken: this.targetToken
+      targetToken: this.targetToken,
     });
     this.close();
   }

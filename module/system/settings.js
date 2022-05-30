@@ -68,7 +68,7 @@ export const registerSystemSettings = () => {
     type: Boolean,
     default: true,
   });
-  
+
   /** Whether to show the hit and miss animation */
   game.settings.register("pirateborg", "attackAnimation", {
     name: "PB.SettingsAttackAnimation",
@@ -197,7 +197,7 @@ export const isAttackAnimationEnabled = () => {
 /**
  * @returns {Boolean}
  */
- export const isEnforceTargetEnabled = () => {
+export const isEnforceTargetEnabled = () => {
   return game.settings.get("pirateborg", "enforceTarget");
 };
 

@@ -51,7 +51,6 @@ button.dice-calculator--button {
   }
 }
 
-
 // Fixes for universal import
 .sidebar-tab .action-buttons button.import-dd {
   margin: 8px !important;
@@ -80,13 +79,13 @@ button.dice-calculator--button {
     padding: 8px !important;
   }
   section.content .settings-list {
-    max-height: none! important;
+    max-height: none !important;
     border: none !important;
-    padding: 0 !important;    
+    padding: 0 !important;
   }
 }
 
 #module-management {
   min-height: auto !important;
-  height: auto !important;  
+  height: auto !important;
 }

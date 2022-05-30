@@ -7,6 +7,20 @@
       <div class="description"><p>{{{crewActionDescription}}}</p></div>
     {{/if}}
   </div>
+
+  {{#if shouldShowTarget}}
+    <div class="form-group form-group-target">
+      <label>{{localize "PB.Target"}}:</label>
+      <div class="target-selection {{#if hasTargetWarning }}warning{{/if}}">
+        {{#if isTargetSelectionValid}}
+          {{target}}
+        {{else}}
+          {{localize "PB.TargetInvalid"}}
+        {{/if}}         
+      </div>
+    </div>
+  {{/if}} 
+
   {{#if enableCrewSelection}}
     <div class="form-group">
       <label>{{localize "PB.ShipCrew"}}:</label>

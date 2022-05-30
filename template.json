@@ -13,7 +13,7 @@
           "skill": {
             "value": 0
           }
-        },        
+        },
         "attributes": {
           "hp": {
             "value": 1,
@@ -56,14 +56,14 @@
           },
           "ram": {
             "die": ""
-          }                     
+          }
         }
       }
     },
     "character": {
       "description": "",
       "silver": 0,
-      "baseClass": "",      
+      "baseClass": "",
       "abilities": {
         "agility": {
           "value": 0
@@ -100,7 +100,7 @@
           "min": 0,
           "max": 0,
           "value": 0
-        }        
+        }
       }
     },
     "container": {
@@ -113,7 +113,7 @@
     },
     "creature": {
       "description": "",
-      "special": "",      
+      "special": "",
       "attributes": {
         "hp": {
           "max": 1,

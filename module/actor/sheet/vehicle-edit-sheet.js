@@ -50,7 +50,7 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
       ...superData.data.data,
       dynamic: {
         ...(await this._prepareItems(superData.data)),
-      }
+      },
     };
     console.log(superData.data);
     return superData;

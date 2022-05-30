@@ -1,4 +1,10 @@
-import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../system/automation/target-automation.js";
+import {
+  findTargettedToken,
+  hasTargets,
+  isTargetSelectionValid,
+  registerTargetAutomationHook,
+  unregisterTargetAutomationHook,
+} from "../system/automation/target-automation.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
@@ -13,7 +19,7 @@ class DefendDialog extends Application {
 
     if (targetSelectionEnabled()) {
       this.enforceTargetSelection = isEnforceTargetEnabled();
-      this.targetToken = findTargettedToken();   
+      this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
 
@@ -35,7 +41,7 @@ class DefendDialog extends Application {
   /** @override */
   async getData() {
     const defendDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
-    const defendArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this._getArmorDamageReductionDie();
+    const defendArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor().damageReductionDie ?? 0;
     const incomingAttack = await this._getIncomingAttack();
 
     return {
@@ -47,7 +53,7 @@ class DefendDialog extends Application {
       target: this.targetToken ? this.targetToken?.actor.name : "",
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
-      hasTargetWarning: this._hasTargetWarning()      
+      hasTargetWarning: this._hasTargetWarning(),
     };
   }
 
@@ -59,25 +65,27 @@ class DefendDialog extends Application {
   }
 
   _hasTargetWarning() {
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) { return true; }
+    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
+      return true;
+    }
     return false;
   }
 
   _shouldShowTarget() {
-    if (this.enforceTargetSelection) { return true; }
-    if (this.hasTargets) { return true; }
+    if (this.enforceTargetSelection) {
+      return true;
+    }
+    if (this.hasTargets) {
+      return true;
+    }
     return false;
   }
 
-  _onTargetChanged(targets) {
-    this.targetToken = findTargettedToken();   
+  _onTargetChanged() {
+    this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
     this.render();
-  }
-
-  _getArmorDamageReductionDie() {
-    return CONFIG.PB.armorTiers[this.actor.equippedArmor()?.data.data.tier.value ?? 0].damageReductionDie;
   }
 
   _getModifiers() {
@@ -112,7 +120,7 @@ class DefendDialog extends Application {
 
     html.find(".incoming-attack .radio-input").on("change", this._onIncomingAttackRadioInputChanged.bind(this));
     html.find("#incomingAttack").on("change", this._onIncomingAttackInputChanged.bind(this));
-    
+
     html.find("#defendArmor").on("change", this._onDefendArmorRadioInputChanged.bind(this));
   }
 
@@ -126,10 +134,10 @@ class DefendDialog extends Application {
   async _onDefenseDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, input.val());  
+    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, input.val());
     const modifiedDr = parseInt(input.val(), 10) + this.modifiers.total;
-    this.element.find("#defenseModifiedDr").val(modifiedDr);  
-    $('.defense-base-dr .radio-input').val([input.val()]);  
+    this.element.find("#defenseModifiedDr").val(modifiedDr);
+    $(".defense-base-dr .radio-input").val([input.val()]);
   }
 
   _onIncomingAttackRadioInputChanged(event) {
@@ -143,7 +151,7 @@ class DefendDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK, input.val());
-    $('.incoming-attack .radio-input').val([input.val()]);  
+    $(".incoming-attack .radio-input").val([input.val()]);
   }
 
   async _onDefendArmorRadioInputChanged(event) {
@@ -175,14 +183,13 @@ class DefendDialog extends Application {
   async _onSubmit(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
-    const baseDr = $(form).find("#defendDr").val();
     const incomingAttack = $(form).find("#incomingAttack").val();
     const defendDR = $(form).find("#defenseModifiedDr").val();
     const defendArmor = $(form).find("#defendArmor").val();
 
     if (!this._validate({ incomingAttack, defendDR, defendArmor })) {
       return;
-    }   
+    }
 
     this.callback({
       incomingAttack,

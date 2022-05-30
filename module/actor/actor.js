@@ -1,7 +1,7 @@
 import CharacterGeneratorDialog from "../dialog/character-generator-dialog.js";
 import ActorBaseClassDialog from "../dialog/actor-base-class-dialog.js";
 import { rollAncientRelics, rollArcaneRituals, handleActorGettingBetterItems } from "../generator/character-generator.js";
-import { isAutomaticDamageEnabled, isEnforceTargetEnabled, trackAmmo, trackCarryingCapacity } from "../system/settings.js";
+import { isEnforceTargetEnabled, trackAmmo, trackCarryingCapacity } from "../system/settings.js";
 import { showCrewActionDialog } from "../dialog/crew-action-dialog.js";
 import { evaluateFormula, getTestOutcome } from "../utils.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
@@ -12,7 +12,6 @@ import { executeMacro } from "../macro-helpers.js";
 import { PBItem } from "../item/item.js";
 import { showAttackDialog } from "../dialog/attack-dialog.js";
 import { showDefendDialog } from "../dialog/defend-dialog.js";
-import { emitDamageOnToken } from "../system/sockets.js";
 
 const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/pirateborg/templates/chat/get-better-roll-card.html";
 
@@ -79,12 +78,14 @@ export class PBActor extends Actor {
   _prepareVehicleDerivedData() {
     this.data.data.attributes.cargo.value = this.cargoItems.length;
     if (this.data.data.weapons.broadsides.quantity > 1) {
-      this.data.data.dynamic.hasBroadsidesPenalties = this.data.data.attributes.hp.value < this.data.data.attributes.hp.max - this.data.data.attributes.hp.max / this.data.data.weapons.broadsides.quantity;
+      this.data.data.dynamic.hasBroadsidesPenalties =
+        this.data.data.attributes.hp.value < this.data.data.attributes.hp.max - this.data.data.attributes.hp.max / this.data.data.weapons.broadsides.quantity;
     } else {
       this.data.data.dynamic.hasBroadsidesPenalties = false;
     }
     if (this.data.data.weapons.smallArms.quantity > 1) {
-      this.data.data.dynamic.hasSmallArmsPenalties = this.data.data.attributes.hp.value < this.data.data.attributes.hp.max - this.data.data.attributes.hp.max / this.data.data.weapons.smallArms.quantity;
+      this.data.data.dynamic.hasSmallArmsPenalties =
+        this.data.data.attributes.hp.value < this.data.data.attributes.hp.max - this.data.data.attributes.hp.max / this.data.data.weapons.smallArms.quantity;
     } else {
       this.data.data.dynamic.hasSmallArmsPenalties = false;
     }
@@ -121,17 +122,17 @@ export class PBActor extends Actor {
   get attributes() {
     return this.data.data.attributes;
   }
-  
+
   async setAttributes(value) {
-    this.update({'data.attributes': value});
+    this.update({ "data.attributes": value });
   }
 
   get hp() {
     return this.attributes.hp;
   }
-  
+
   async setHp(value) {
-    this.setAttributes({'hp': value});
+    this.setAttributes({ hp: value });
   }
 
   /**
@@ -143,25 +144,25 @@ export class PBActor extends Actor {
 
   /**
    * @returns {Boolean}
-   */  
+   */
   isVehicle() {
     return this.type === CONFIG.PB.actorTypes.vehicle;
   }
 
   /**
    * @returns {Boolean}
-   */  
+   */
   isVehicleNpc() {
     return this.type === CONFIG.PB.actorTypes.vehicle_npc;
   }
 
   /**
    * @returns {Boolean}
-   */  
+   */
   isAnyVehicle() {
     return this.isVehicle() || this.isVehicleNpc();
   }
-  
+
   /**
    * @returns {PBItem}
    */
@@ -171,14 +172,14 @@ export class PBActor extends Actor {
 
   /**
    * @returns {PBItem}
-   */  
+   */
   equippedHat() {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.hat && item.equipped);
   }
 
   /**
    * @returns {PBItem}
-  */
+   */
   firstEquippedWeapon() {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.weapon && item.equipped);
   }
@@ -186,7 +187,7 @@ export class PBActor extends Actor {
   /**
    * @param {PBItem} item
    * @returns {Promise}
-   */  
+   */
   async equipItem(item) {
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
       await this.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR, null);
@@ -202,7 +203,7 @@ export class PBActor extends Actor {
   /**
    * @param {PBItem} item
    * @returns {Promise}
-   */  
+   */
   async unequipItem(item) {
     return await item.unequip();
   }
@@ -290,8 +291,10 @@ export class PBActor extends Actor {
 
   async attack(itemId) {
     const weapon = this.items.get(itemId);
-    
-    if (!this._validateAttack(weapon)) { return }
+
+    if (!this._validateAttack(weapon)) {
+      return;
+    }
 
     const { attackDR, targetArmor, targetToken } = await showAttackDialog({ actor: this });
 
@@ -316,7 +319,7 @@ export class PBActor extends Actor {
       items: [weapon],
       target: targetToken?.actor.name,
     };
-    
+
     switch (testOutcome.outcome) {
       case CONFIG.PB.outcome.success:
         cardData.wieldOutcome = game.i18n.localize("PB.Hit");
@@ -324,12 +327,12 @@ export class PBActor extends Actor {
           {
             title: game.i18n.localize("PB.RollDamageButton"),
             data: {
-              "action": BUTTON_ACTIONS.DAMAGE,
+              action: BUTTON_ACTIONS.DAMAGE,
               "damage-type": DAMAGE_TYPE.INFLICT,
               "target-token-id": targetToken?.id,
-              "armor": targetArmor,
-              "damage": weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie,
-              "damage-description": weapon.useAmmoDamage ? ammo.description : '',
+              armor: targetArmor,
+              damage: weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie,
+              "damage-description": weapon.useAmmoDamage ? ammo.description : "",
             },
           },
         ];
@@ -346,13 +349,13 @@ export class PBActor extends Actor {
           {
             title: game.i18n.localize("PB.RollDamageButton"),
             data: {
-              "action": BUTTON_ACTIONS.DAMAGE,
+              action: BUTTON_ACTIONS.DAMAGE,
               "damage-type": DAMAGE_TYPE.INFLICT,
               "target-token-id": targetToken?.id,
-              "armor": targetArmor,
+              armor: targetArmor,
               "is-critical": testOutcome.isCriticalSuccess,
-              "damage": weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie,
-              "damage-description": weapon.useAmmoDamage ? ammo.description : '',
+              damage: weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie,
+              "damage-description": weapon.useAmmoDamage ? ammo.description : "",
               "crit-extra-damage": weapon.critExtraDamage,
             },
           },
@@ -382,7 +385,7 @@ export class PBActor extends Actor {
   }
 
   /**
-   * @param {PBItem} weapon 
+   * @param {PBItem} weapon
    * @returns {Boolean}
    */
   _validateAttack(weapon) {
@@ -391,7 +394,7 @@ export class PBActor extends Actor {
       return false;
     }
 
-    if (!this._isTargetsValid(weapon)) {
+    if (!this._isTargetsValid()) {
       ui.notifications.error(game.i18n.format("PB.InvalidTarget"));
       return false;
     }
@@ -399,31 +402,40 @@ export class PBActor extends Actor {
   }
 
   /**
-   * @param {PBItem} weapon 
+   * @param {PBItem} weapon
    * @returns {Boolean}
-   */  
+   */
   _isAmmoValid(weapon) {
-    if (!weapon.useAmmoDamage) { return true }
-    if (!weapon.hasAmmo) { return false }
-    return true;
-  }
-
-  /**
-   * @param {PBItem} weapon 
-   * @returns {Boolean}
-   */  
-  _isTargetsValid(weapon) {
-    if (!this.isInCombat()) { return true }
-    if (!isEnforceTargetEnabled()) { return true }
-    if (game.user.targets.size !== 1) { return false }  
+    if (!weapon.useAmmoDamage) {
+      return true;
+    }
+    if (!weapon.hasAmmo) {
+      return false;
+    }
     return true;
   }
 
   /**
    * @returns {Boolean}
-   */    
+   */
+  _isTargetsValid() {
+    if (!this.isInCombat()) {
+      return true;
+    }
+    if (!isEnforceTargetEnabled()) {
+      return true;
+    }
+    if (game.user.targets.size !== 1) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
   isInCombat() {
-    return (game.combats.active?.combatants ?? []).some(combatant => combatant.actor.id === this.id);
+    return (game.combats.active?.combatants ?? []).some((combatant) => combatant.actor.id === this.id);
   }
 
   async _handleWeaponReloading(weapon) {
@@ -480,11 +492,11 @@ export class PBActor extends Actor {
           {
             title: game.i18n.localize("PB.RollDamageButton"),
             data: {
-              "action": BUTTON_ACTIONS.DAMAGE,
+              action: BUTTON_ACTIONS.DAMAGE,
               "damage-type": DAMAGE_TYPE.TAKE,
               "target-token-id": targetToken?.id,
-              "armor": defendArmor + (hat?.data.data.reduceDamage ? " + 1" : ""),
-              "damage": incomingAttack,
+              armor: defendArmor + (hat?.data.data.reduceDamage ? " + 1" : ""),
+              damage: incomingAttack,
             },
           },
         ];
@@ -502,11 +514,11 @@ export class PBActor extends Actor {
           {
             title: game.i18n.localize("PB.RollDamageButton"),
             data: {
-              "action": BUTTON_ACTIONS.DAMAGE,
+              action: BUTTON_ACTIONS.DAMAGE,
               "damage-type": DAMAGE_TYPE.TAKE,
               "target-token-id": targetToken?.id,
-              "armor": defendArmor + (hat?.data.data.reduceDamage ? " + 1" : ""),
-              "damage": incomingAttack,
+              armor: defendArmor + (hat?.data.data.reduceDamage ? " + 1" : ""),
+              damage: incomingAttack,
               "is-critical": testOutcome.isFumble,
             },
           },
@@ -1133,6 +1145,7 @@ export class PBActor extends Actor {
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
       enableArmorSelection: true,
+      enableTargetSelection: true,
     });
 
     const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
@@ -1184,6 +1197,7 @@ export class PBActor extends Actor {
       enableCrewSelection: isPCAction,
       enableDrSelection: true,
       enableArmorSelection: true,
+      enableTargetSelection: true,
     });
 
     const wieldFormula = selectedActor ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill";
@@ -1230,6 +1244,7 @@ export class PBActor extends Actor {
       description: game.i18n.localize("PB.ShipRamMessage"),
       enableArmorSelection: true,
       enableMovementSelection: true,
+      enableTargetSelection: true,
     });
 
     const damageRoll = await evaluateFormula(`${this.ramDie} + ${selectedMovement}`);
@@ -1378,48 +1393,12 @@ export class PBActor extends Actor {
   }
 
   /**
-   * @param {Actor} actor 
-   * @param {Number} damage 
-   */
-  async takeActorDamage(actor, damage) {
-    console.log(`${this.name} take ${this.scaleDamageFromSource(actor, damage)} damages from ${actor?.name}`)
-    if (isAutomaticDamageEnabled()) {
-      this.setHp({value: this.hp.value - this.scaleDamageFromSource(actor, damage)})
-    }
-  }
-
-  /**
-   * @param {Actor} actor 
-   * @param {Number} damage 
-   */
-  async inflictActorDamage(actor, damage) {
-    for(const target of game.user.targets)  {
-      if (game.user.isGM) {
-        await target.actor.takeActorDamage(actor, damage);
-      } else {
-        emitDamageOnToken(target.id, actor.id, damage);
-      }
-    }    
-  }
-
-  scaleDamageFromSource(source, damage) {    
-     if (source.isAnyVehicle() && this.isCharacter()) {
-      return damage * 5;
-    } else if (this.isAnyVehicle() && source.isCharacter()) {
-      return Math.round(damage / 5);
-    } else {
-      return damage;
-    }
-  }
-
-  /**
    * @returns {String}
    */
   getArmorFormula() {
     switch (this.type) {
       case CONFIG.PB.actorTypes.character:
-        const equippedArmor = this.equippedArmor();
-        return equippedArmor ? CONFIG.PB.armorTiers[equippedArmor.tier.value].damageReductionDie : 0;
+        return this.equippedArmor()?.damageReductionDie ?? 0;
       case CONFIG.PB.actorTypes.vehicle_npc:
       case CONFIG.PB.actorTypes.vehicle:
         return CONFIG.PB.armorTiers[this.attributes.hull.value].damageReductionDie;
@@ -1433,7 +1412,6 @@ export class PBActor extends Actor {
    * @returns {String}
    */
   getAttackFormula() {
-    console.log(this.type)
     switch (this.type) {
       case CONFIG.PB.actorTypes.character:
         return this.firstEquippedWeapon()?.damageDie ?? "1d2";
@@ -1441,7 +1419,7 @@ export class PBActor extends Actor {
         return this.attributes.attack.formula;
       case CONFIG.PB.actorTypes.vehicle_npc:
       case CONFIG.PB.actorTypes.vehicle:
-        return "1d2";        
+        return "1d2";
       case CONFIG.PB.actorTypes.container:
         return 0;
     }
