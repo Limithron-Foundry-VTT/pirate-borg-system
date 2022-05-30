@@ -17,17 +17,17 @@
       <div class="header-stats-row">
         <div class="stats-block">
           <span class="stat-label">{{ localize "PB.HP" }}</span>
-          <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
+          <input class="stat-input" name="data.attributes.hp.value" type="number" value="{{data.data.attributes.hp.value}}" data-dtype="Number" />
           <span class="stat-separator">/</span>
-          <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+          <input class="stat-input" name="data.attributes.hp.max" type="number" value="{{data.data.attributes.hp.max}}" data-dtype="Number" />
         </div>
       </div>
       
       <div class="header-stats-row">
         <div class="stats-block">
           <span class="stat-label">{{ localize "PB.ShipCrew" }}</span>
-          <input class="stat-input" name="data.crew.value" type="number" value="{{data.data.crew.value}}" data-dtype="Number" />
-          <span class="stat-rule">{{data.data.crew.min}} / {{data.data.crew.max}}</span>  
+          <input class="stat-input" name="data.attributes.crew.value" type="number" value="{{data.data.attributes.crew.value}}" data-dtype="Number" />
+          <span class="stat-rule">{{data.data.attributes.crew.min}} / {{data.data.attributes.crew.max}}</span>  
         </div>
       </div>
     </div>
@@ -59,8 +59,8 @@
         <input
           class="ability-input"
           type="text"
-          name="data.speed.max"
-          value="{{data.data.speed.max}}"
+          name="data.attributes.speed.max"
+          value="{{data.data.attributes.speed.max}}"
           data-dtype="Number"
           size="3"
         />
@@ -143,25 +143,25 @@
           <ul class="tiers">
             <li>
               <label>
-                <input class="tier-radio" type="radio" name="hull.value" value="0" {{#ifEq data.data.hull.value 0}}checked{{/ifEq}}/>
+                <input class="tier-radio" type="radio" name="hull.value" value="0" {{#ifEq data.data.attributes.hull.value 0}}checked{{/ifEq}}/>
                 <span class="tier-num">0</span>
               </label>
             </li>
             <li>
               <label>
-                <input class="tier-radio" type="radio" name="hull.value" value="1" {{#ifLt data.data.hull.max 1}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 1}}checked{{/ifEq}}/>
+                <input class="tier-radio" type="radio" name="hull.value" value="1" {{#ifLt data.data.attributes.hull.max 1}}disabled{{/ifLt}} {{#ifEq data.data.attributes.hull.value 1}}checked{{/ifEq}}/>
                 <span class="tier-num">d2</span>
               </label>
             </li>
             <li>
               <label
-                ><input class="tier-radio" type="radio" name="hull.value" value="2" {{#ifLt data.data.hull.max 2}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 2}}checked{{/ifEq}}/>
+                ><input class="tier-radio" type="radio" name="hull.value" value="2" {{#ifLt data.data.attributes.hull.max 2}}disabled{{/ifLt}} {{#ifEq data.data.attributes.hull.value 2}}checked{{/ifEq}}/>
                 <span class="tier-num">d4</span>
               </label>
             </li>
             <li>
               <label
-                ><input class="tier-radio" type="radio" name="hull.value" value="3" {{#ifLt data.data.hull.max 3}}disabled{{/ifLt}} {{#ifEq data.data.hull.value 3}}checked{{/ifEq}}/>
+                ><input class="tier-radio" type="radio" name="hull.value" value="3" {{#ifLt data.data.attributes.hull.max 3}}disabled{{/ifLt}} {{#ifEq data.data.attributes.hull.value 3}}checked{{/ifEq}}/>
                 <span class="tier-num">d6</span>
               </label>
             </li>
@@ -184,45 +184,45 @@
       </div>
 
       {{#> static-list label="PB.ShipCrewActions" }}
-        {{#if data.data.broadsidesQuantity}}
+        {{#if data.data.weapons.broadsides.quantity}}
           {{> crew-action 
             name="PB.ShipCrewActionBroadsides" 
             class="broadsides" 
             img="systems/pirateborg/icons/misc/broadside.png" 
-            die=data.data.broadsidesDie 
-            quantity=data.data.broadsidesQuantity
-            warning=data.data.broadsidesWarning
-            enableWarning=data.data.hasBroadsidesPenalties
-            has-pc-action=data.data.hasCrew 
+            die=data.data.weapons.broadsides.die 
+            quantity=data.data.weapons.broadsides.quantity
+            warning=data.data.weapons.broadsides.warning
+            enableWarning=data.data.dynamic.hasBroadsidesPenalties
+            has-pc-action=data.data.dynamic.hasCrew 
             has-crew-action=true 
           }}
         {{/if}}
-        {{#if data.data.smallArmsQuantity}}
+        {{#if data.data.weapons.smallArms.quantity}}
           {{> crew-action 
             name="PB.ShipCrewActionSmallArms" 
             class="small-arms" 
             img="systems/pirateborg/icons/misc/small-arm.png" 
-            die=data.data.smallArmsDie 
-            quantity=data.data.smallArmsQuantity
-            warning=data.data.smallArmsWarning
-            enableWarning=data.data.hasSmallArmsPenalties
-            has-pc-action=data.data.hasCrew
+            die=data.data.weapons.smallArms.die 
+            quantity=data.data.weapons.smallArms.quantity
+            warning=data.data.weapons.smallArms.warning
+            enableWarning=data.data.dynamic.hasSmallArmsPenalties
+            has-pc-action=data.data.dynamic.hasCrew
             has-crew-action=true
           }}
         {{/if}}
-        {{> crew-action name="PB.ShipCrewActionFullSail" class="full-sail" img="systems/pirateborg/icons/misc/full-sail.png" has-pc-action=data.data.hasCrew has-crew-action=true }}
-        {{> crew-action name="PB.ShipCrewActionComeAbout" class="come-about" img="systems/pirateborg/icons/misc/come-about.png" has-pc-action=data.data.hasCrew has-crew-action=true  }}
+        {{> crew-action name="PB.ShipCrewActionFullSail" class="full-sail" img="systems/pirateborg/icons/misc/full-sail.png" has-pc-action=data.data.dynamic.hasCrew has-crew-action=true }}
+        {{> crew-action name="PB.ShipCrewActionComeAbout" class="come-about" img="systems/pirateborg/icons/misc/come-about.png" has-pc-action=data.data.dynamic.hasCrew has-crew-action=true  }}
         {{> crew-action name="PB.ShipCrewActionDropAnchor" class="drop-anchor" img="systems/pirateborg/icons/misc/anchor.png" has-crew-action=true}}
         {{> crew-action name="PB.ShipCrewActionWeighAnchor" class="weigh-anchor" img="systems/pirateborg/icons/misc/anchor.png" has-crew-action=true}}
-        {{> crew-action name="PB.ShipCrewActionRepair" class="repair" img="systems/pirateborg/icons/misc/repair.png" has-pc-action=data.data.hasCrew has-crew-action=true }}
+        {{> crew-action name="PB.ShipCrewActionRepair" class="repair" img="systems/pirateborg/icons/misc/repair.png" has-pc-action=data.data.dynamic.hasCrew has-crew-action=true }}
         {{> crew-action name="PB.ShipCrewActionBoardingParty" class="boarding-party" img="systems/pirateborg/icons/misc/boarding-party.png" has-crew-action=true}}
-        {{> crew-action name="PB.ShipCrewActionRam" class="ram" img="systems/pirateborg/icons/misc/ram.png" has-crew-action=true die=data.data.ramDie }}                
+        {{> crew-action name="PB.ShipCrewActionRam" class="ram" img="systems/pirateborg/icons/misc/ram.png" has-crew-action=true die=data.data.weapons.ram.die }}                
       {{/static-list}}
 
-      {{> dynamic-list items=data.data.crews type="crew" label="PB.ShipCrew" emptyMessage="PB.EmptyCrew"}}
+      {{> dynamic-list items=data.data.dynamic.crews type="crew" label="PB.ShipCrew" emptyMessage="PB.EmptyCrew"}}
 
-      {{#ifGt data.data.cargo.max 0}}
-        {{> dynamic-list items=data.data.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.data.cargo.max currentQuantity=data.data.cargo.value }}
+      {{#ifGt data.data.attributes.cargo.max 0}}
+        {{> dynamic-list items=data.data.dynamic.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.data.attributes.cargo.max currentQuantity=data.data.attributes.cargo.value }}
       {{/ifGt}}
 
       {{#if (eq data.type 'vehicle')}}
@@ -230,7 +230,7 @@
           {{#*inline "extra-header"}}
             <div class="stats-block">
               <span class="stat-rule mystic-shanties-roll-button rollable">({{ localize "PB.ShipShantiesPerRest"}})</span>
-              <input class="stat-input" name="data.shanties.value" type="number" value="{{data.data.shanties.value}}" data-dtype="Number" />
+              <input class="stat-input" name="data.attributes.shanties.value" type="number" value="{{data.data.attributes.shanties.value}}" data-dtype="Number" />
             </div>
           {{/inline}} 
           {{> dynamic-list items=data.data.mysticShanties type="mysticShanty" label="PB.ShipMysticShanties" emptyMessage="PB.ShipMysticShantiesEmpty" }}
@@ -238,7 +238,7 @@
         {{> mystic-chanties}}
       {{/if}}
 
-      {{> dynamic-list items=data.data.features type="feature" label="PB.ShipFeatures"}}
+      {{> dynamic-list items=data.data.dynamic.features type="feature" label="PB.ShipFeatures"}}
 
       <ol class="items-list equipment-list">
         {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html" sectionTitle=(localize "PB.Storage")}}

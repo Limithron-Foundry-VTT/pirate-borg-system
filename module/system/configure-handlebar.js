@@ -44,7 +44,7 @@ export const configureHandlebar = () => {
   Handlebars.registerHelper("xtotal", (roll) => {
     const result = roll.result.replace("+  -", "-").replace("+ -", "-");
     if (result !== roll.total.toString()) {
-      return `${result} = ${roll.total}`;
+      return `${result} = ${Math.round(roll.total)}`;
     } else {
       return result;
     }

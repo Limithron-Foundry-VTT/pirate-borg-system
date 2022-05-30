@@ -48,8 +48,11 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
     superData.config = CONFIG.PB;
     superData.data.data = {
       ...superData.data.data,
-      ...(await this._prepareItems(superData.data)),
+      dynamic: {
+        ...(await this._prepareItems(superData.data)),
+      }
     };
+    console.log(superData.data);
     return superData;
   }
 

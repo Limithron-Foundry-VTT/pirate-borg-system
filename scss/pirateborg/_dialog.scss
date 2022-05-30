@@ -68,8 +68,9 @@
   }
 
   .warning {
-    font-weight: 500;
-    color: red;
+    font-weight: 600;
+    font-style: italic;      
+    color: var(--warning-color);
   }
 
   ul {
@@ -138,6 +139,28 @@
   .form-group {
     display: flex;
     align-items: flex-start;
+
+    .form-fields {
+      .form-warning-icon {
+        color: var(--warning-color);
+        flex: 0 0 20px;
+        cursor: help;
+        text-align: center;
+      }
+  
+      #defenseModifiedDr {
+        flex: 0 0 32px;
+      }
+    }
+
+    &.form-group-target {
+      margin: 0;
+    
+      .target-selection {
+        height: var(--form-field-height);
+        line-height: 28px;
+      }  
+    }
   }
 
   .radio-group-radio {

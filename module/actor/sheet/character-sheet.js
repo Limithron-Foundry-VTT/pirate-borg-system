@@ -56,6 +56,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     await this._prepareCharacterData(data);
 
+    console.log(superData.data);
     return superData;
   }
 
@@ -78,55 +79,52 @@ export class PBActorSheetCharacter extends PBActorSheet {
       group.items.push(item);
       return items;
     };
+    sheetData.data.dynamic.class = this.actor.getCharacterClass();
 
-    sheetData.data.class = this.actor.getCharacterClass();
-
-    sheetData.data.equipment = sheetData.items
+    sheetData.data.dynamic.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
-    sheetData.data.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
+    sheetData.data.dynamic.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
 
-    sheetData.data.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
+    sheetData.data.dynamic.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
 
-    sheetData.data.equippedWeapons = sheetData.items
+    sheetData.data.dynamic.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
-    for (const weapon of sheetData.data.equippedWeapons) {
+    for (const weapon of sheetData.data.dynamic.equippedWeapons) {
       if (weapon.data.needsReloading && weapon.data.reloadTime) {
         weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
       }
     }
 
-    sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
+    sheetData.data.dynamic.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
-    sheetData.data.features = sheetData.items
+    sheetData.data.dynamic.features = sheetData.items
       .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.invokables = sheetData.items
+    sheetData.data.dynamic.invokables = sheetData.items
       .filter((item) => [CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.baseClass = (await this.actor.getCharacterBaseClass())?.data;
-    sheetData.data.useExtraResource = sheetData.data.class?.data?.data?.useExtraResource || sheetData.data.baseClass?.data?.useExtraResource;
-    sheetData.data.extraResourceNamePlural =
-      sheetData.data.class?.data?.data?.extraResourceNamePlural || sheetData.data.baseClass?.data?.extraResourceNamePlural;
-    sheetData.data.extraResourceFormulaLabel =
-      sheetData.data.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.baseClass?.data?.extraResourceFormulaLabel;
-    sheetData.data.luckDie = sheetData.data.class?.data?.data?.luckDie || sheetData.data.baseClass?.data?.luckDie;
-    sheetData.data.trackCarryingCapacity = trackCarryingCapacity();
-    sheetData.data.trackAmmo = trackAmmo();
-
-    console.log(sheetData.data);
+    sheetData.data.dynamic.baseClass = (await this.actor.getCharacterBaseClass())?.data;
+    sheetData.data.dynamic.useExtraResource = sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
+    sheetData.data.dynamic.extraResourceNamePlural =
+      sheetData.data.dynamic.class?.data?.data?.extraResourceNamePlural || sheetData.data.dynamic.baseClass?.data?.extraResourceNamePlural;
+    sheetData.data.dynamic.extraResourceFormulaLabel =
+      sheetData.data.dynamic.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.dynamic.baseClass?.data?.extraResourceFormulaLabel;
+    sheetData.data.dynamic.luckDie = sheetData.data.dynamic.class?.data?.data?.luckDie || sheetData.data.dynamic.baseClass?.data?.luckDie;
+    sheetData.data.dynamic.trackCarryingCapacity = trackCarryingCapacity();
+    sheetData.data.dynamic.trackAmmo = trackAmmo();
   }
 
   /** @override */

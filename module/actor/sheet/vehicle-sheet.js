@@ -44,9 +44,12 @@ export class PBActorSheetVehicle extends PBActorSheet {
     superData.config = CONFIG.PB;
     superData.data.data = {
       ...superData.data.data,
-      ...(await this._prepareItems(superData.data)),
+      dynamic: {
+        ...(await this._prepareItems(superData.data)),
+      },
     };
-    superData.data.data.hasCrew = !!this.actor.crews.length;
+    superData.data.data.dynamic.hasCrew = !!this.actor.crews.length;
+    console.log(superData.data);
     return superData;
   }
 
@@ -213,7 +216,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
 
   async _onArmorTierRadio(event) {
     event.preventDefault();
-    await this.actor.update({ "data.hull.value": parseInt($(event.currentTarget)[0].value) });
+    await this.actor.update({ "data.attributes.hull.value": parseInt($(event.currentTarget)[0].value) });
   }
 
   async _onActionShanties(event) {

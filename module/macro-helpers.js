@@ -18,7 +18,7 @@ export const createRoll = async (formula, rollData = {}) => {
  * @param {Object} meta
  * @param {Actor} meta.actor
  * @param {Token} meta.token
- * @param {Item} meta.item
+ * @param {PBItem} meta.item
  */
 export const executeMacro = async (macro, { actor, token, item } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();

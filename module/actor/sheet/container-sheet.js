@@ -44,7 +44,7 @@ export class PBActorSheetContainer extends PBActorSheet {
   _prepareContainerItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-    sheetData.data.equipment = sheetData.items
+    sheetData.dat.dynamic.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);

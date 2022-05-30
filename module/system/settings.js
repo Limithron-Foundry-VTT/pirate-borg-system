@@ -39,6 +39,46 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to apply automatically damage on self or target */
+  game.settings.register("pirateborg", "automaticDamage", {
+    name: "PB.SettingsAutomaticDamage",
+    hint: "PB.SettingsAutomaticDamageHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to allow target selection on attack/defense/crew action dialog */
+  game.settings.register("pirateborg", "targetSelection", {
+    name: "PB.SettingsTargetSelection",
+    hint: "PB.SettingsTargetSelectionHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to enforce target selection when attacking */
+  game.settings.register("pirateborg", "enforceTarget", {
+    name: "PB.SettingsEnforceTarget",
+    hint: "PB.SettingsEnforceTargetHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+  
+  /** Whether to show the hit and miss animation */
+  game.settings.register("pirateborg", "attackAnimation", {
+    name: "PB.SettingsAttackAnimation",
+    hint: "PB.SettingsAttackAnimationHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** The allowed classes menu */
   game.settings.registerMenu("pirateborg", "EditAllowedCharacterGeneratorClassesMenu", {
     name: "PB.EditAllowedCharacterGeneratorClassesMenu",
@@ -138,4 +178,32 @@ export const getSystemHelpDialogVersion = () => {
  */
 export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => {
   return game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
+};
+
+/**
+ * @returns {Boolean}
+ */
+export const isAutomaticDamageEnabled = () => {
+  return game.settings.get("pirateborg", "automaticDamage");
+};
+
+/**
+ * @returns {Boolean}
+ */
+export const isAttackAnimationEnabled = () => {
+  return game.settings.get("pirateborg", "attackAnimation");
+};
+
+/**
+ * @returns {Boolean}
+ */
+ export const isEnforceTargetEnabled = () => {
+  return game.settings.get("pirateborg", "enforceTarget");
+};
+
+/**
+ * @returns {Boolean}
+ */
+export const targetSelectionEnabled = () => {
+  return game.settings.get("pirateborg", "targetSelection");
 };

@@ -4,7 +4,8 @@ const GENERIC_WIELD_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-w
 
 /**
  * @param {Object} obj
- * @param {Actor} obj.actor
+ * @param {PBActor} obj.actor
+ * @param {PBActor} obj.target  
  * @param {String} obj.title
  * @param {String} obj.description
  * @param {Roll} obj.wieldRoll
@@ -17,11 +18,13 @@ const GENERIC_WIELD_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-w
  * @param {String} obj.secondaryWieldFormula
  * @param {String} obj.secondaryWieldOutcomeDescription
  * @param {String} obj.secondaryWieldOutcome
+ * @param {String} obj.testOutcome
  * @param {Array} obj.buttons
  * @returns {Promise.<Document>}
  */
 export const showGenericWieldCard = async ({
   actor,
+  target,
   title,
   description,
   wieldRoll,
@@ -37,6 +40,7 @@ export const showGenericWieldCard = async ({
   damageOutcome,
   damageRoll,
   armorRoll,
+  testOutcome,
   buttons = [],
   items = [],
 } = {}) => {
@@ -44,6 +48,7 @@ export const showGenericWieldCard = async ({
   return await ChatMessage.create({
     content: await renderTemplate(GENERIC_WIELD_CARD_TEMPLATE, {
       title,
+      target,
       description,
       wieldRoll,
       wieldDR,
@@ -64,6 +69,7 @@ export const showGenericWieldCard = async ({
     speaker: ChatMessage.getSpeaker({ actor }),
     type: CONST.CHAT_MESSAGE_TYPES.ROLL,
     roll: Roll.fromTerms([PoolTerm.fromRolls(rolls)]),
+    testOutcome,
     sound: diceSound(),
   });
 };

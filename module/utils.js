@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} RollOutcome
+ * @typedef {Object} TestOutcome
  * @property {Roll} roll
  * @property {Boolean} isSuccess
  * @property {boolean} isFailure
@@ -24,7 +24,7 @@ export const evaluateFormula = async (formula, data) => {
  * @param {Object} options
  * @param {Number} options.critOn
  * @param {Number} options.fumbleOn
- * @returns {RollOutcome}
+ * @returns {TestOutcome}
  */
 export const getTestOutcome = (roll, dr = 12, { critOn = 20, fumbleOn = 1 } = {}) => {
   const dieResult = roll.terms[0].results[0].result;

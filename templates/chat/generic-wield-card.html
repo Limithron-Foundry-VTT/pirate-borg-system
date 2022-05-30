@@ -1,5 +1,8 @@
 <form class="roll-card wield-power-roll-card">
   <div class="card-title">{{title}}</div>
+  {{#if target}}
+    <div class="attack-outcome-target">{{{target}}}</div>
+  {{/if}}       
 
   {{#each items as |item id|}}
     <div class="item-row">
@@ -15,7 +18,7 @@
   {{#if wieldRoll}}
     <div class="wield-roll">
       <div class="outcome-text">
-        <span class="attack-outcome">{{wieldOutcome}}</span>
+        <span class="attack-outcome">{{wieldOutcome}}</span>  
       </div>
       <div class="roll-title">
         <span>{{wieldFormula}} {{#if wieldDR}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{wieldDR}}{{/if}}</span>
@@ -50,7 +53,9 @@
 
   {{#if damageOutcome}}
     <div class="outcome-text">
-      <span class="take-damage">{{damageOutcome}}</span>
+      <span class="take-damage">
+        {{damageOutcome}}      
+      </span>
     </div>
   {{/if}}
   {{#if damageRoll}}

@@ -1,10 +1,11 @@
 import { diceSound, playDiceSound, showDice } from "../dice.js";
-import { scrollChatToBottom } from "./sockets.js";
+import { emitScrollChatToBottom } from "./sockets.js";
 import { evaluateFormula, getTestOutcome } from "../utils.js";
 import { drawMysticalMishaps } from "../compendium.js";
+import { getScaledDamageFormula, scaleDamageBetween } from "./automation/damage-automation.js";
 
 /**
- * @typedef {import('../utils.js').RollOutcome} RollOutcome
+ * @typedef {import('../utils.js').TestOutcome} TestOutcome
  */
 
 export const BUTTON_ACTIONS = {
@@ -64,7 +65,7 @@ const onChatCardAction = async (event) => {
 
     const lastMessage = Array.from(ui.chat.collection).pop();
     if (lastMessage && lastMessage.id === message.id) {
-      scrollChatToBottom();
+      emitScrollChatToBottom();
       ui.chat.scrollBottom();
     }
   }
@@ -90,7 +91,7 @@ const handleActions = async (actor, data) => {
     case BUTTON_ACTIONS.REPAIR_CREW_ACTION:
       return await actionRepairCrewAction(actor);
     case BUTTON_ACTIONS.DAMAGE:
-      return await actionDamage(data);
+      return await actionDamage(actor, data);
   }
 };
 
@@ -107,9 +108,11 @@ const getData = (dataset) => {
     damage: dataset.damage ?? 0,
     isFumble: dataset.isFumble === "true",
     isCritical: dataset.isCritical === "true",
+    targetTokenId: dataset.targetTokenId,
     critExtraDamage: dataset.critExtraDamage,
     action: dataset.action,
     damageType: dataset.damageType,
+    damageDescription: dataset.damageDescription,
   };
 };
 
@@ -118,21 +121,20 @@ const getData = (dataset) => {
  * @param {String} wieldFormula
  * @param {String} wieldDR
  * @param {Object} rollData
- * @returns {Promise<{wieldOutcome: String, wieldRoll: Roll, wieldDR: Number, wieldFormula: String, rollOutcome: RollOutcome}>}
+ * @returns {Promise<{wieldOutcome: String, wieldRoll: Roll, wieldDR: Number, wieldFormula: String, testOutcome: TestOutcome}>}
  */
 const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
   const wieldRoll = await evaluateFormula(formula, rollData);
-  const rollOutcome = getTestOutcome(wieldRoll, wieldDR);
+  const testOutcome = getTestOutcome(wieldRoll, wieldDR);
 
-  await showDice(wieldRoll);
-  playDiceSound();
+  showDiceWithSound([wieldRoll]);
 
   let wieldOutcome = "";
 
-  if (rollOutcome.isSuccess) {
-    wieldOutcome = `${game.i18n.localize(rollOutcome.isCriticalSuccess ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess")}`;
+  if (testOutcome.isSuccess) {
+    wieldOutcome = `${game.i18n.localize(testOutcome.isCriticalSuccess ? "PB.InvokableCriticalSuccess" : "PB.InvokableSuccess")}`;
   } else {
-    wieldOutcome = `${game.i18n.localize(rollOutcome.isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure")}`;
+    wieldOutcome = `${game.i18n.localize(testOutcome.isFumble ? "PB.InvokableFumble" : "PB.InvokableFailure")}`;
   }
 
   return {
@@ -140,7 +142,7 @@ const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
     wieldDR,
     wieldRoll,
     wieldOutcome: wieldOutcome,
-    rollOutcome: rollOutcome,
+    testOutcome: testOutcome,
   };
 };
 
@@ -152,16 +154,16 @@ const wieldInvokable = async (formula, wieldFormula, wieldDR, rollData) => {
 const actionArcaneRitual = async (actor, data) => {
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
 
-  if (rollResults.rollOutcome.isSuccess) {
-    const newPowerUses = Math.max(0, actor.data.data.powerUses.value - 1);
-    await actor.update({ "data.powerUses.value": newPowerUses });
+  if (rollResults.testOutcome.isSuccess) {
+    const newPowerUses = Math.max(0, actor.data.data.attributes.rituals.value - 1);
+    await actor.update({ "data.attributes.rituals.value": newPowerUses });
   } else {
     rollResults.wieldOutcomeText = game.i18n.localize("PB.InvokableRitualFailure");
     rollResults.buttons = [
       {
         title: "PB.InvokableRitualFailureButton",
         data: {
-          "is-fumble": rollResults.rollOutcome.isFumble,
+          "is-fumble": rollResults.testOutcome.isFumble,
           action: BUTTON_ACTIONS.MYSTICAL_MISHAP,
         },
       },
@@ -178,8 +180,8 @@ const actionArcaneRitual = async (actor, data) => {
 const actionAncientRelic = async (actor, data) => {
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
 
-  if (!rollResults.rollOutcome.isSuccess) {
-    rollResults.wieldOutcomeText = game.i18n.localize(rollResults.rollOutcome.isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
+  if (!rollResults.testOutcome.isSuccess) {
+    rollResults.wieldOutcomeText = game.i18n.localize(rollResults.testOutcome.isFumble ? "PB.InvokableRelicFumble" : "PB.InvokableRelicFailure");
   }
 
   return await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, rollResults);
@@ -192,8 +194,7 @@ const actionAncientRelic = async (actor, data) => {
 const actionMysticalMishap = async (data) => {
   const draw = await drawMysticalMishaps();
 
-  await showDice(draw.roll);
-  playDiceSound();
+  showDiceWithSound([draw.roll]);
 
   return await renderTemplate(MYSTICAL_MISHAP_CHAT_MESSAGE_TEMPLATE, {
     title: game.i18n.format("PB.MysticalMishaps"),
@@ -209,7 +210,7 @@ const actionMysticalMishap = async (data) => {
  * @returns {Promise<String>}
  */
 const actionMysticShanties = async (actor, data) => {
-  await actor.update({ "data.shanties.value": Math.max(0, actor.data.data.shanties.value - 1) });
+  await actor.update({ "data.attributes.shanties.value": Math.max(0, actor.data.data.attributes.shanties.value - 1) });
   const rollResults = await wieldInvokable(data.formula, data.wieldFormula, data.wieldDR, actor.getRollData());
   return await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, rollResults);
 };
@@ -231,10 +232,9 @@ const actionExtraResource = async (actor, data) => {
 const actionRepairCrewAction = async (actor) => {
   const wieldRoll = await evaluateFormula("d6");
 
-  await showDice(wieldRoll);
-  playDiceSound();
+  showDiceWithSound([wieldRoll]);
 
-  await actor.update({ "data.hp.value": Math.min(actor.data.data.hp.max, actor.data.data.hp.value + wieldRoll.total) });
+  await actor.update({ "data.attributes.hp.value": Math.min(actor.data.data.attributes.hp.max, actor.data.data.attributes.hp.value + wieldRoll.total) });
 
   return await renderTemplate(WIELD_ROLL_CHAT_MESSAGE_TEMPLATE, {
     wieldOutcome: game.i18n.localize("PB.Heal"),
@@ -244,21 +244,51 @@ const actionRepairCrewAction = async (actor) => {
 };
 
 /**
+ * @param {Actor} actor
  * @param {Object} data
  * @returns {Promise<String>}
  */
-const actionDamage = async (data) => {
+const actionDamage = async (actor, data) => {
+  const targetToken = game.canvas.tokens.get(data.targetTokenId);
+  
   const damageFormula = data.isCritical ? (data.critExtraDamage ? `((${data.damage}) * 2) + ${data.critExtraDamage}` : `(${data.damage}) * 2`) : data.damage;
-  const damageRoll = await evaluateFormula(damageFormula);
+  const damageRoll = await evaluateFormula(getScaledDamageFormula(actor, targetToken?.actor, damageFormula));
   const armorRoll = await evaluateFormula(data.armor);
-  const totalDamage = Math.max(0, damageRoll.total - armorRoll.total);
-
-  await showDice(Roll.fromTerms([PoolTerm.fromRolls([damageRoll, armorRoll])]));
-  playDiceSound();
+  const totalDamage = Math.round(Math.max(0, damageRoll.total - armorRoll.total));
+  
+  await showDiceWithSound([damageRoll, armorRoll]);
+ 
+  // await applyDamage(actor, totalDamage, data);
 
   return await renderTemplate(WIELD_DAMAGE_CHAT_MESSAGE_TEMPLATE, {
     damageOutcome: `${game.i18n.localize(data.damageType === DAMAGE_TYPE.TAKE ? "PB.Take" : "PB.Inflict")} ${totalDamage} ${game.i18n.localize("PB.Damage")}`,
     damageRoll,
     armorRoll,
+    damageDescription: data.damageDescription,
   });
 };
+
+/**
+ * @param {Array.<Roll>} rolls 
+ */
+const showDiceWithSound = async (rolls) => {
+  await showDice(Roll.fromTerms([PoolTerm.fromRolls(rolls)]));
+  playDiceSound();
+}
+
+/**
+ * @param {Actor} actor
+ * @param {Number} totalDamage 
+ * @param {Object} data
+ */
+const applyDamage = async (actor, totalDamage, data) => {
+  switch (data.damageType) {
+    case DAMAGE_TYPE.TAKE: 
+      const target = game.user.targets[0] ?? null;
+      await actor.takeActorDamage(target.actor, totalDamage);
+      break;
+    case DAMAGE_TYPE.INFLICT:        
+      await actor.inflictActorDamage(actor, totalDamage);
+      break;
+  }
+}

@@ -1,3 +1,6 @@
+import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../system/automation/target-automation.js";
+import { targetSelectionEnabled } from "../system/settings.js";
+
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
 
 class CrewActionDialog extends Application {
@@ -10,6 +13,7 @@ class CrewActionDialog extends Application {
     enableDrSelection = false,
     enableArmorSelection = false,
     enableMovementSelection = false,
+    enableTargetSelection = false,
     callback,
   } = {}) {
     super();
@@ -20,8 +24,16 @@ class CrewActionDialog extends Application {
     this.enableCrewSelection = enableCrewSelection;
     this.enableDrSelection = enableDrSelection;
     this.enableArmorSelection = enableArmorSelection;
+    this.enableTargetSelection = enableTargetSelection;
     this.enableMovementSelection = enableMovementSelection;
     this.callback = callback;
+
+    if (targetSelectionEnabled() && this.enableTargetSelection) {
+      this.targetToken = findTargettedToken();   
+      this.isTargetSelectionValid = isTargetSelectionValid();
+      this.hasTargets = hasTargets();
+      this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
+    }
   }
 
   /** @override */
@@ -39,7 +51,7 @@ class CrewActionDialog extends Application {
   async getData() {
     const selectedCrewId = await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW);
     const selectedDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
-    const selectedArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
+    const selectedArmor = await this._getTargetArmor();
 
     return {
       config: CONFIG.pirateborg,
@@ -54,7 +66,31 @@ class CrewActionDialog extends Application {
       selectedDR,
       selectedCrewId,
       selectedArmor,
+      target: this.targetToken ? this.targetToken?.actor.name : "",
+      isTargetSelectionValid: this.isTargetSelectionValid,
+      shouldShowTarget: this._shouldShowTarget(),
+      hasTargetWarning: this._hasTargetWarning(),
     };
+  }
+
+  _shouldShowTarget() {
+    if (this.enforceTargetSelection) { return true; }
+    if (this.hasTargets) { return true; }
+    return false;
+  }
+
+  _onTargetChanged(targets) {
+    this.targetToken = findTargettedToken();   
+    this.isTargetSelectionValid = isTargetSelectionValid();
+    this.hasTargets = hasTargets();
+    this.render();
+  }
+
+  async _getTargetArmor() {
+    if (this.targetToken) {
+      return this.targetToken.actor.getArmorFormula();
+    }
+    return (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
   }
 
   /** @override */
@@ -73,9 +109,10 @@ class CrewActionDialog extends Application {
     this.element.find("#dr").val(input.val());
   }
 
-  _onArmorInputChanged(event) {
+  async _onArmorInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
+    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());
     this.element.find("#targetArmor").val(input.val());
   }
 
@@ -94,7 +131,19 @@ class CrewActionDialog extends Application {
     if ((this.enableDrSelection && !selectedDR) || (this.enableArmorSelection && !selectedArmor) || (this.enableMovementSelection && !selectedMovement)) {
       return false;
     }
+
+    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
+      return false;    
+    }
+
     return true;
+  }
+
+  close() {
+    if (targetSelectionEnabled()) {
+      unregisterTargetAutomationHook(this._ontargetChangedHook);
+    }
+    super.close();
   }
 
   async _onSubmit(event) {
@@ -111,7 +160,6 @@ class CrewActionDialog extends Application {
 
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW, selectedCrewId);
     await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, selectedDR);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, selectedArmor);
 
     this.callback({
       selectedActor: game.actors.get(selectedCrewId),

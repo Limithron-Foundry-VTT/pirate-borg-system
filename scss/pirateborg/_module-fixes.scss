@@ -1,4 +1,8 @@
 // Fixes for Dice Tray dialog
+#dice-config {
+  min-width: 850px;
+}
+
 .window-app {
   .window-content {
     textarea {
@@ -45,4 +49,44 @@ button.dice-calculator--button {
     padding: 0 16px !important;
     margin: 4px 0 !important;
   }
+}
+
+
+// Fixes for universal import
+.sidebar-tab .action-buttons button.import-dd {
+  margin: 8px !important;
+  width: calc(100% - 16px);
+}
+
+// Fixes for tidy ui
+#client-settings {
+  #config-tabs div.tab[data-tab="modules"] #searchField {
+    border: none;
+  }
+
+  #config-tabs div.tab[data-tab="modules"] #searchField #searchInput {
+    color: var(--foreground-color);
+    border: 2px groove var(--light-border-color);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  #config-tabs div.tab[data-tab="modules"] #searchField #clear {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+  min-height: auto !important;
+  height: auto !important;
+  &.window-app .window-content {
+    padding: 8px !important;
+  }
+  section.content .settings-list {
+    max-height: none! important;
+    border: none !important;
+    padding: 0 !important;    
+  }
+}
+
+#module-management {
+  min-height: auto !important;
+  height: auto !important;  
 }

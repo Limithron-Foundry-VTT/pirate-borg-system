@@ -372,12 +372,17 @@ form.editable .results {
   .chat-message .message-header {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     margin-bottom: 8px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 4px;
 
     .message-sender {
       font-family: var(--h1-font);
       font-size: 24px;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .message-metadata {
@@ -386,7 +391,8 @@ form.editable .results {
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 4px;
+      flex: 0 0 70px;
     }
 
     span.flavor-text {
@@ -892,4 +898,21 @@ hr {
 
 .notification-pip {
   color: var(--highlight-background-color);
+}
+
+p.nue {
+  font-size: 16px;
+}
+
+h3.nue {
+  border-bottom: 2px groove var(--light-border-color);
+  border-top: 2px groove var(--light-border-color);
+  font-weight: 600;
+}
+
+footer.nue {
+  font-size: 14px;
+  font-style: italic;
+  color: black;
+  border-top: 2px groove var(--light-border-color);
 }

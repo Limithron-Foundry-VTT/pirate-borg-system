@@ -9,6 +9,7 @@ import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
+import { onDragRulerReady } from "./system/modules.js";
 
 Hooks.once("init", async function () {
   console.log(`Initializing Pirate Borg System`);
@@ -26,6 +27,11 @@ Hooks.once("ready", () => {
 
   // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
+
+  Hooks.on("getCompendiumFolderDirectoryEntryContext", async (html,options) => {
+    console.log(html,options);
+})
+
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);
@@ -35,3 +41,5 @@ Hooks.on("renderCombatTracker", renderCombatTracker);
 Hooks.on("renderSettings", renderSettings);
 
 Hooks.on("renderChatMessage", renderChatMessage);
+
+Hooks.on("dragRuler.ready", onDragRulerReady);

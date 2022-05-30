@@ -14,9 +14,9 @@
       <div class="header-stats-row">
         <div class="stats-block">
           <span class="stat-label">{{localize "PB.HP"}}</span>
-          <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
+          <input class="stat-input" name="data.attributes.hp.value" type="number" value="{{data.data.attributes.hp.value}}" data-dtype="Number" />
           <span class="stat-separator">/</span>
-          <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+          <input class="stat-input" name="data.attributes.hp.max" type="number" value="{{data.data.attributes.hp.max}}" data-dtype="Number" />
         </div>
       </div>
       <div class="header-buttons-row">
@@ -47,19 +47,30 @@
       {{! Morale }}
       <div class="form-group">
         <label>{{localize "PB.Morale"}}:</label>
-        <input name="data.morale" type="text" value="{{data.data.morale}}" placeholder="" data-dtype="Number" />
+        <input name="data.attributes.morale" type="text" value="{{data.data.attributes.morale}}" placeholder="" data-dtype="Number" />
       </div>
 
       {{! Armor }}
       <div class="form-group">
         <label>{{localize "PB.CreatureArmor"}}:</label>
-        <input type="text" name="data.armor.name" value="{{data.data.armor.name}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="data.attributes.armor.formula" value="{{data.data.attributes.armor.formula}}" placeholder="None" data-dtype="String" />
+      </div>
+
+      {{! Armor }}
+      <div class="form-group">
+        <label>{{localize "PB.CreatureArmorDescription"}}:</label>
+        <input type="text" name="data.attributes.armor.description" value="{{data.data.attributes.armor.description}}" placeholder="None" data-dtype="String" />
       </div>
 
       {{! Attack }}
       <div class="form-group">
         <label>{{localize "PB.CreatureAttack"}}:</label>
-        <input type="text" name="data.attack.name" value="{{data.data.attack.name}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="data.attributes.attack.formula" value="{{data.data.attributes.attack.formula}}" placeholder="None" data-dtype="String" />
+      </div>
+      
+      <div class="form-group">
+        <label>{{localize "PB.CreatureAttackDescription"}}:</label>
+        <input type="text" name="data.attributes.attack.description" value="{{data.data.attributes.attack.description}}" placeholder="None" data-dtype="String" />
       </div>
 
       {{! Special }}

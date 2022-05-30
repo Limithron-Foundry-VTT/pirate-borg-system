@@ -65,7 +65,7 @@ export const updateActorWithCharacter = async (actor, characterData) => {
 };
 
 /**
- * @returns {Promise.<Item>}
+ * @returns {Promise.<PBItem>}
  */
 export const selectRandomClass = async () => {
   const classPacks = findClassPacks();
@@ -138,7 +138,7 @@ export const rollSilver = async (background) => {
 
 /**
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollArmor = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.armorsRollTable);
@@ -147,7 +147,7 @@ export const rollArmor = async (formula) => {
 
 /**
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollHat = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.hatsRollTable);
@@ -156,7 +156,7 @@ export const rollHat = async (formula) => {
 
 /**
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollWeapon = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.weaponsRollTable);
@@ -165,7 +165,7 @@ export const rollWeapon = async (formula) => {
 
 /**
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollAncientRelics = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.ancientRelicsRollTable);
@@ -174,7 +174,7 @@ export const rollAncientRelics = async (formula) => {
 
 /**
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollArcaneRituals = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.arcaneRitualsRollTable);
@@ -182,7 +182,7 @@ export const rollArcaneRituals = async (formula) => {
 };
 
 /**
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollBaseTables = async () => {
   let items = [];
@@ -195,7 +195,7 @@ export const rollBaseTables = async () => {
 
 /**
  * @param {String} rollString
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollRollItems = async (rollString) => {
   const compendiumTables = rollString.split("\n").filter((item) => item);
@@ -208,8 +208,8 @@ export const rollRollItems = async (rollString) => {
 };
 
 /**
- * @param {Array.<Item>} items
- * @returns {Promise.<Array.<Item>>}
+ * @param {Array.<PBItem>} items
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const findStartingBonusItems = async (items) => {
   let results = [];
@@ -222,8 +222,8 @@ export const findStartingBonusItems = async (items) => {
 };
 
 /**
- * @param {Array.<Item>} items
- * @returns {Promise.<Array.<Item>>}
+ * @param {Array.<PBItem>} items
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const findStartingBonusRollsItems = async (items) => {
   let results = [];
@@ -237,7 +237,7 @@ export const findStartingBonusRollsItems = async (items) => {
 
 /**
  * @param {Actor} actor
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const handleActorGettingBetterItems = async (actor) => {
   const actorClass = actor.getCharacterClass();
@@ -255,7 +255,7 @@ export const handleActorGettingBetterItems = async (actor) => {
 /**
  * @param {Actor} actor
  * @param {String} compendiumTable
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const handleClassGettingBetterItems = async (actor, compendiumTable) => {
   const items = await drawGettingBetterRollTable(actor, compendiumTable);
@@ -265,7 +265,7 @@ export const handleClassGettingBetterItems = async (actor, compendiumTable) => {
 
 /**
  * @param {Actor} actor
- * @param {Array.<Item>} items
+ * @param {Array.<PBItem>} items
  */
 const updateOrCreateActorItems = async (actor, items) => {
   // here we assume the first item is the "feature"
@@ -285,7 +285,7 @@ const updateOrCreateActorItems = async (actor, items) => {
 /**
  * @param {Actor} actor
  * @param {String} compendiumTable
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 const drawGettingBetterRollTable = async (actor, compendiumTable) => {
   const [compendium, table] = compendiumInfoFromString(compendiumTable);
@@ -321,8 +321,8 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
 };
 
 /**
- * @param {Item} cls
- * @param {Array.<Item>} items
+ * @param {PBItem} cls
+ * @param {Array.<PBItem>} items
  * @returns {String}
  */
 export const generateDescription = (cls, items) => {
@@ -382,8 +382,8 @@ export const rollCharacterForClass = async (cls) => {
 
   const description = generateDescription(cls, baseTables);
 
-  const powerUsesRoll = Math.max(0, await evaluateFormula(`1d4 + ${abilities.spirit}`));
-  const extraResourceRoll = Math.max(0, await evaluateFormula(`1d4 + ${abilities.spirit}`));
+  const powerUsesRoll = Math.max(0, (await evaluateFormula(`1d4 + ${abilities.spirit}`)).total);
+  const extraResourceRoll = Math.max(0, (await evaluateFormula(`1d4 + ${abilities.spirit}`)).total);
 
   const allDocs = [
     ...baseTables,
@@ -427,21 +427,23 @@ const characterToActorData = (characterData) => {
         spirit: { value: characterData.spirit },
       },
       description: characterData.description,
-      hp: {
-        max: characterData.hitPoints,
-        value: characterData.hitPoints,
-      },
-      luck: {
-        max: characterData.luck,
-        value: characterData.luck,
-      },
-      powerUses: {
-        max: characterData.powerUses,
-        value: characterData.powerUses,
-      },
-      extraResourceUses: {
-        max: characterData.extraResourceUses,
-        value: characterData.extraResourceUses,
+      attributes: {
+        hp: {
+          max: characterData.hitPoints,
+          value: characterData.hitPoints,
+        },
+        luck: {
+          max: characterData.luck,
+          value: characterData.luck,
+        },
+        rituals: {
+          max: characterData.powerUses,
+          value: characterData.powerUses,
+        },
+        extraResource: {
+          max: characterData.extraResourceUses,
+          value: characterData.extraResourceUses,
+        },
       },
       silver: characterData.silver,
       baseClass: characterData.baseClass || "",

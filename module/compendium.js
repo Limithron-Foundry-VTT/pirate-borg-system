@@ -50,7 +50,7 @@ export const drawTableText = async (compendium, table) => {
  * @param {String} compendium
  * @param {String} table
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const drawTableItem = async (compendium, table) => {
   const draw = await drawTable(compendium, table);
@@ -61,7 +61,7 @@ export const drawTableItem = async (compendium, table) => {
  * @param {String} compendium
  * @param {String} table
  * @param {Number} amount
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const drawTableItems = async (compendium, table, amount) => {
   let results = [];
@@ -86,7 +86,7 @@ export const rollTable = async (compendium, table, formula) => {
  * @param {String} compendium
  * @param {String} table
  * @param {String} formula
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollTableItems = async (compendium, table, formula) => {
   const rollTableItems = await findCompendiumItem(compendium, table);
@@ -96,7 +96,7 @@ export const rollTableItems = async (compendium, table, formula) => {
 
 /**
  * @param {String} items
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const findItemsFromCompendiumString = async (compendiumString) => {
   const compendiumsItems = compendiumString.split("\n").filter((item) => item);
@@ -110,7 +110,7 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 
 /**
  * @param {Array.<RollTableDraw>} results
- * @returns {Promise.<Array.<Item>>}
+ * @returns {Promise.<Array.<PBItem>>}
  */
 export const findTableItems = async (results) => {
   const items = [];
@@ -157,7 +157,7 @@ export const findClassPacks = () => {
 
 /**
  * @param {String} compendiumName
- * @returns {Promise.<Item>}
+ * @returns {Promise.<PBItem>}
  */
 export const classItemFromPack = async (compendiumName) => {
   const compendium = game.packs.get(compendiumName);
