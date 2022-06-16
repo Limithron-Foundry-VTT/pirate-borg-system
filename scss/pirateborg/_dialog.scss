@@ -159,6 +159,15 @@
       .target-selection {
         height: var(--form-field-height);
         line-height: 28px;
+        display: flex;
+        gap: 8px;
+        justify-content: flex-start;
+        img {
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+          border: none;
+        }
       }
     }
   }

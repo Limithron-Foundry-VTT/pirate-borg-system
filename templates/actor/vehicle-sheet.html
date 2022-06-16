@@ -48,7 +48,7 @@
         <input
           class="ability-input"
           type="text"
-          name="data.abilities.strength.value"
+          name="data.abilities.skill.value"
           value="{{numberFormat data.data.abilities.skill.value decimals=0 sign=true}}"
           data-dtype="Number"
           size="3"
@@ -233,7 +233,7 @@
               <input class="stat-input" name="data.attributes.shanties.value" type="number" value="{{data.data.attributes.shanties.value}}" data-dtype="Number" />
             </div>
           {{/inline}} 
-          {{> dynamic-list items=data.data.mysticShanties type="mysticShanty" label="PB.ShipMysticShanties" emptyMessage="PB.ShipMysticShantiesEmpty" }}
+          {{> dynamic-list items=data.data.dynamic.mysticShanties type="mysticShanty" label="PB.ShipMysticShanties" emptyMessage="PB.ShipMysticShantiesEmpty" }}
         {{/inline}}
         {{> mystic-chanties}}
       {{/if}}

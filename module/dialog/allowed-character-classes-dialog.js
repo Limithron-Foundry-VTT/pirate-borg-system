@@ -35,13 +35,11 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   _getAllowedClasses() {
     const classPacks = findClassPacks();
     return classPacks
-      .map((classPack) => {
-        return {
-          name: classPack,
-          label: classPack.split("class-")[1].replace(/-/g, " "),
-          checked: isCharacterGeneratorClassAllowed(classPack),
-        };
-      })
+      .map((classPack) => ({
+        name: classPack,
+        label: classPack.split("class-")[1].replace(/-/g, " "),
+        checked: isCharacterGeneratorClassAllowed(classPack),
+      }))
       .sort((a, b) => (a.label > b.label ? 1 : -1));
   }
 
@@ -73,7 +71,6 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
     if (selected.length === 0) {
       event.preventDefault();
-      return;
     }
   }
 

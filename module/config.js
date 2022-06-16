@@ -8,12 +8,31 @@ PB.outcome = {
   failure: "failure",
 };
 
+PB.abilityKey = {
+  agility: "agility",
+  presence: "presence",
+  strength: "strength",
+  toughness: "toughness",
+  spirit: "spirit",
+  skill: "skill",
+};
+
 PB.abilities = {
   agility: "PB.AbilityAgility",
   presence: "PB.AbilityPresence",
   strength: "PB.AbilityStrength",
   toughness: "PB.AbilityToughness",
   spirit: "PB.AbilitySpirit",
+  skill: "PB.AbilitySkill",
+};
+
+PB.abilitiesAbbreviation = {
+  agility: "PB.AbilityAgilityAbbrev",
+  presence: "PB.AbilityPresenceAbbrev",
+  strength: "PB.AbilityStrengthAbbrev",
+  toughness: "PB.AbilityToughnessAbbrev",
+  spirit: "PB.AbilitySpiritAbbrev",
+  skill: "PB.AbilitySkillAbbrev",
 };
 
 PB.armorTiers = {
@@ -52,6 +71,9 @@ PB.flags = {
   INCOMING_ATTACK: "incomingAttack",
   TARGET_ARMOR: "targetArmor",
   SELECTED_CREW: "selectedCrew",
+  OUTCOMES: "outcomes",
+  TARGET_TOKEN: "targetToken",
+  INITIATOR_TOKEN: "initiatorToken",
 };
 
 PB.premiumModuleName = "pirateborg";

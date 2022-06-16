@@ -18,7 +18,7 @@ export const renderActorDirectory = (app, html) => {
       <div class="header-actions action-buttons flexrow">
         <button class="create-character-generator-button"><i class="fas fa-skull"></i>The Tavern</button>
       </div>
-      `
+      `,
     );
     section.querySelector(".create-character-generator-button").addEventListener("click", () => {
       new CharacterGeneratorDialog().render(true);

@@ -4,7 +4,9 @@
 export class PBItem extends Item {
   /** @override */
   static async create(data, options = {}) {
-    mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, { overwrite: false });
+    mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, {
+      overwrite: false,
+    });
     return super.create(data, options);
   }
 
@@ -44,10 +46,6 @@ export class PBItem extends Item {
   /** V10 */
   getData() {
     return this.system ?? this.data.data;
-  }
-
-  getSystemData() {
-    return this.system ? this : this.data;
   }
 
   async updateData(key, value) {
@@ -242,6 +240,13 @@ export class PBItem extends Item {
   }
 
   /**
+   * @returns {Number}
+   */
+  async setLoadingCount(loadingCount) {
+    await this.updateData("loadingCount", loadingCount);
+  }
+
+  /**
    * container properties
    */
 
@@ -300,17 +305,24 @@ export class PBItem extends Item {
   }
 
   /**
-   * @returns {Boolean}
+   * @returns {String}
    */
-  get isEquipment() {
-    return this.getData().isEquipment ?? CONFIG.PB.itemEquipmentTypes.includes(this.type);
+  get isArcaneRitual() {
+    return this.getData().invokableType === "Arcane Ritual";
   }
 
   /**
-   * @returns {Number}
+   * @returns {String}
    */
-  get maxQuantity() {
-    return this.getData().maxQuantity;
+  get isAncientRelic() {
+    return this.getData().invokableType === "Ancient Relic";
+  }
+
+  /**
+   * @returns {String}
+   */
+  get isExtraResource() {
+    return !this.isArcaneRitual && !this.isAncientRelic;
   }
 
   /**
@@ -357,8 +369,22 @@ export class PBItem extends Item {
   }
 
   /**
+   * @returns {Number}
+   */
+  get maxQuantity() {
+    return this.getData().maxQuantity;
+  }
+
+  /**
    * Item types properties
    */
+
+  /**
+   * @returns {Boolean}
+   */
+  get isEquipment() {
+    return this.getData().isEquipment ?? CONFIG.PB.itemEquipmentTypes.includes(this.type);
+  }
 
   /**
    * @returns {Boolean}
@@ -466,7 +492,7 @@ export class PBItem extends Item {
    * @returns {String}
    */
   get attackAbility() {
-    return this.isRanged ? "presence" : "strength";
+    return this.isRanged ? CONFIG.PB.abilityKey.presence : CONFIG.PB.abilityKey.strength;
   }
 
   /**
@@ -481,6 +507,21 @@ export class PBItem extends Item {
    */
   get ammoId() {
     return this.getData().ammoId;
+  }
+
+  /**
+   * @param {{min: Number, max: Number, value: Number}}
+   */
+  async setAmmoId(ammoId) {
+    await this.updateData("ammoId", ammoId);
+  }
+
+  /**
+   * Armor extra properties
+   */
+
+  get damageReductionDie() {
+    return this.getData().damageReductionDie;
   }
 
   /**
@@ -571,9 +612,8 @@ export class PBItem extends Item {
           return weight;
         }, 0) + this.carryWeight
       );
-    } else {
-      return Math.ceil(this.carryWeight * this.quantity);
     }
+    return Math.ceil(this.carryWeight * this.quantity);
   }
 
   _getTotalContainerSpace(actor) {

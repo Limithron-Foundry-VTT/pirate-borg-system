@@ -56,9 +56,12 @@ form button {
   }
 }
 
+.chat-message form .item-buttons {
+  margin-top: 24px;
+}
+
 .chat-message form button.item-button {
   font-size: 16px;
-  margin-top: 24px;
   width: 100%;
 }
 
@@ -370,14 +373,7 @@ form.editable .results {
   }
 
   .chat-message .message-header {
-    display: flex;
-    align-items: center;
     margin-bottom: 8px;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 4px;
-
     .message-sender {
       font-family: var(--h1-font);
       font-size: 24px;

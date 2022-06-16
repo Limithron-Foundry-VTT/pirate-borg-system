@@ -10,13 +10,13 @@ gulp.task("pirate-sass", function () {
     .pipe(
       gsass({
         outputStyle: "expanded",
-      }).on("error", gsass.logError)
+      }).on("error", gsass.logError),
     )
     .pipe(
       prefix({
         // TODO: switch to true?
         cascade: false,
-      })
+      }),
     )
     .pipe(concat("pirateborg.css"))
     .pipe(gulp.dest("./css"));
@@ -29,13 +29,13 @@ gulp.task("skin-sass", function () {
     .pipe(
       gsass({
         outputStyle: "expanded",
-      }).on("error", gsass.logError)
+      }).on("error", gsass.logError),
     )
     .pipe(
       prefix({
         // TODO: switch to true?
         cascade: false,
-      })
+      }),
     )
     .pipe(gulp.dest("./css/skins"));
 });
@@ -47,5 +47,5 @@ gulp.task(
   gulp.parallel(["pirate-sass", "skin-sass"], () => {
     gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["mork-sass"]));
     gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
-  })
+  }),
 );

@@ -30,7 +30,7 @@ export async function createPirateBorgMacro(data, slot) {
       name: item.name,
       type: "script",
       img: item.img,
-      command: command,
+      command,
       flags: { "pirateborg.itemMacro": true },
     });
   }
@@ -64,7 +64,7 @@ export function rollItemMacro(itemName) {
   const item = items[0];
 
   if (item.data.type === "weapon") {
-    actor.attack(item.id);
+    actor.attack(item);
   } else if (item.data.type === "armor" || item.data.type === "hat") {
     actor.defend();
   } else if (item.data.type === "scroll") {

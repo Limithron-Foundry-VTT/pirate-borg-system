@@ -1,38 +1,3 @@
-import { showGenericWieldCard } from "../chat-message/generic-wield-card.js";
-import { evaluateFormula } from "../utils.js";
-
-export const rollPartyInitiative = async () => {
-  const initiativeRoll = await evaluateFormula("d6");
-  await showGenericWieldCard({
-    actor: this,
-    title: game.i18n.localize("PB.PartyInitiative"),
-    wieldFormula: initiativeRoll.formula,
-    wieldRoll: initiativeRoll,
-    wieldOutcome: game.i18n.localize(initiativeRoll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
-  });
-
-  if (game.combats && game.combat) {
-    await game.combat.setPartyInitiative(initiativeRoll.total);
-  }
-};
-
-export const rollIndividualInitiative = async (actor) => {
-  const initiativeRoll = await evaluateFormula("d6+@abilities.agility.value", actor.getRollData());
-  await showGenericWieldCard({
-    actor: this,
-    title: game.i18n.localize("PB.Initiative"),
-    wieldFormula: initiativeRoll.formula,
-    wieldRoll: initiativeRoll,
-  });
-
-  if (game.combats && game.combat) {
-    const combatant = actor.token?.combatant ?? game.combat.combatants.find((combatant) => combatant.actor.id === actor.id);
-    if (combatant) {
-      combatant.update({ initiative: initiativeRoll.total });
-    }
-  }
-};
-
 export class PBCombat extends Combat {
   async setPartyInitiative(rollTotal) {
     game.combat.partyInitiative = rollTotal;
@@ -41,12 +6,10 @@ export class PBCombat extends Combat {
 
   async resortCombatants() {
     // TODO: this seems like a stupidly-hacky way to do this. Is there no better way?
-    const updates = this.turns.map((t) => {
-      return {
-        _id: t.id,
-        initiative: t.data.initiative,
-      };
-    });
+    const updates = this.turns.map((t) => ({
+      _id: t.id,
+      initiative: t.data.initiative,
+    }));
     await game.combat.resetAll();
     await this.updateEmbeddedDocuments("Combatant", updates);
   }
@@ -55,12 +18,12 @@ export class PBCombat extends Combat {
     if (combatant._token) {
       // v8 compatible
       return combatant._token.data.disposition === 1;
-    } else if (combatant.token) {
+    }
+    if (combatant.token) {
       // v9+
       return combatant.token.data.disposition === 1;
-    } else {
-      return false;
     }
+    return false;
   }
 
   /**
@@ -79,10 +42,9 @@ export class PBCombat extends Combat {
         if (game.combat.partyInitiative > 3) {
           // players begin
           return isPartyA ? -1 : 1;
-        } else {
-          // enemies begin
-          return isPartyA ? 1 : -1;
         }
+        // enemies begin
+        return isPartyA ? 1 : -1;
       }
     }
 

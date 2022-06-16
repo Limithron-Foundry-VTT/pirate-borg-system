@@ -8,7 +8,7 @@ export const onDragRulerReady = (SpeedProvider) => {
     }
 
     getRanges(token) {
-      const speed = token.actor.data.data.attributes?.speed?.max ?? 6;
+      const speed = token.actor.attributes?.speed?.max ?? 6;
       return [
         { range: 0, color: "stay" },
         { range: speed * 5, color: "walk" },

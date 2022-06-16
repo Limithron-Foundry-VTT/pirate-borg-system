@@ -26,9 +26,8 @@ export const diceSound = () => {
   if (game.dice3d) {
     // let Dice So Nice do it
     return null;
-  } else {
-    return CONFIG.sounds.dice;
   }
+  return CONFIG.sounds.dice;
 };
 
 /**
@@ -38,4 +37,28 @@ export const playDiceSound = () => {
   if (!game.dice3d) {
     AudioHelper.play({ src: CONFIG.sounds.dice, volume: 0.8, autoplay: true, loop: false }, true);
   }
+};
+
+/**
+ * @param {Array.<Roll>} rolls
+ */
+export const showDiceWithSound = async (rolls) => {
+  await showDice(Roll.fromTerms([PoolTerm.fromRolls(rolls)]));
+  playDiceSound();
+};
+
+export const waitForMessageRoll = (targetMessageId) => {
+  const createHook = (resolve) => {
+    Hooks.once("diceSoNiceRollComplete", (messageId) => {
+      if (targetMessageId === messageId) resolve(true);
+      else createHook(resolve);
+    });
+  };
+  return new Promise((resolve) => {
+    if (game.dice3d) {
+      createHook(resolve);
+    } else {
+      resolve(true);
+    }
+  });
 };

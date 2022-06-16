@@ -830,9 +830,12 @@ form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
+.chat-message form .item-buttons {
+  margin-top: 24px;
+}
+
 .chat-message form button.item-button {
   font-size: 16px;
-  margin-top: 24px;
   width: 100%;
 }
 
@@ -1067,13 +1070,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   color: var(--highlight-foreground-color);
 }
 #chat-log .chat-message .message-header {
-  display: flex;
-  align-items: center;
   margin-bottom: 8px;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 4px;
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
@@ -1568,7 +1565,7 @@ footer.nue {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin: 24px 0 0 0;
+  margin: 24px 0 24px 0;
 }
 .roll-card .card-description p:first-of-type {
   margin: 0;
@@ -1577,7 +1574,7 @@ footer.nue {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin: 24px 0 0 0;
+  margin: 8px 0 0 0;
   font-style: italic;
 }
 .roll-card .card-outcome-description p:first-of-type {
@@ -1775,6 +1772,16 @@ footer.nue {
 .attack-dialog .form-group.form-group-target .target-selection {
   height: var(--form-field-height);
   line-height: 28px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.defense-dialog .form-group.form-group-target .target-selection img,
+.attack-dialog .form-group.form-group-target .target-selection img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border: none;
 }
 .defense-dialog .radio-group-radio,
 .attack-dialog .radio-group-radio {

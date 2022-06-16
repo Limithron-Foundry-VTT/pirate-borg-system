@@ -3,15 +3,16 @@ import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
-import { renderChatMessage } from "./system/render-chat-message.js";
+import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
 import { onDragRulerReady } from "./system/modules.js";
+import { registerAutomation } from "./system/register-automation.js";
 
-Hooks.once("init", async function () {
+Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
   registerSystemSettings();
   configureHandlebar();
@@ -22,8 +23,8 @@ Hooks.once("init", async function () {
 Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
+  registerAutomation();
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
-  Hooks.call("pirateborgReady");
 
   // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
@@ -39,6 +40,11 @@ Hooks.on("renderCombatTracker", renderCombatTracker);
 
 Hooks.on("renderSettings", renderSettings);
 
-Hooks.on("renderChatMessage", renderChatMessage);
+Hooks.on("renderChatMessage", handleChatMessageButton);
+Hooks.on("renderChatMessage", handleChatMessageGMOnly);
+Hooks.on("renderChatMessage", handleChatMessageAutomation);
+
+// Hooks.on("renderChatMessage", renderChatMessageAnimation);
+// Hooks.on("renderChatMessage", renderChatMessageAdvancedAnimation);
 
 Hooks.on("dragRuler.ready", onDragRulerReady);

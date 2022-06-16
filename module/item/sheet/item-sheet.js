@@ -1,4 +1,5 @@
 import { PB } from "../../config.js";
+import { showAnimationDialog } from "../../dialog/animation-dialog.js";
 import { configureEditor } from "../../system/configure-editor.js";
 
 /*
@@ -32,9 +33,22 @@ export class PBItemSheet extends ItemSheet {
     const path = "systems/pirateborg/templates/item";
     if (Object.keys(PB.itemTypeKeys).includes(this.item.data.type)) {
       return `${path}/${this.item.data.type}-sheet.html`;
-    } else {
-      return `${path}/item-sheet.html`;
     }
+    return `${path}/item-sheet.html`;
+  }
+
+  /** @override */
+  _getHeaderButtons() {
+    return [this._getHeaderAnimationButton(), ...super._getHeaderButtons()];
+  }
+
+  _getHeaderAnimationButton() {
+    return {
+      class: `vehicle-edit-dialog-button-${this.actor.id}`,
+      label: game.i18n.localize("PB.EditAnimation"),
+      icon: "fas fa-edit",
+      onclick: this._onEditAnimation.bind(this),
+    };
   }
 
   /** @override */
@@ -56,10 +70,7 @@ export class PBItemSheet extends ItemSheet {
     return super._updateObject(event, formData);
   }
 
-  /**
-   *  This is a small override to handle remembering the sheet's position.
-   *  @override
-   */
+  /** @override */
   setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
@@ -69,19 +80,13 @@ export class PBItemSheet extends ItemSheet {
   }
 
   /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
-  }
-
-  /** @override */
   activateEditor(name, options = {}, initialContent = "") {
     configureEditor(options);
     super.activateEditor(name, options, initialContent);
+  }
+
+  _onEditAnimation(event) {
+    showAnimationDialog({ entity: this.item });
   }
 
   /** @inheritdoc */

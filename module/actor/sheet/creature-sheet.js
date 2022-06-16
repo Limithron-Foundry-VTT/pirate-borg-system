@@ -1,4 +1,4 @@
-import { rollIndividualInitiative } from "../../system/combat.js";
+import { actorInitiativeAction, creatureMoraleAction, creatureReactionAction } from "../../api/action/actions.js";
 import PBActorSheet from "./actor-sheet.js";
 
 /**
@@ -27,32 +27,39 @@ export class PBActorSheetCreature extends PBActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    html.find(".morale").on("click", this._onMoraleRoll.bind(this));
-    html.find(".reaction").on("click", this._onReactionRoll.bind(this));
-    html.find(".initiative-button").on("click", this._onInitiativeRoll.bind(this));
+    this.bindSelectorsEvent("click", {
+      ".morale": this._onMoraleRoll,
+      ".reaction": this._onReactionRoll,
+      ".initiative-button": this._onInitiativeRoll,
+    });
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onInitiativeRoll(event) {
     event.preventDefault();
-    rollIndividualInitiative(this.actor);
+    actorInitiativeAction(this.actor);
   }
 
   /**
-   * Handle morale roll.
+   * @param {MouseEvent} event
+   * @private
    */
-  _onMoraleRoll(event) {
+  async _onMoraleRoll(event) {
     event.preventDefault();
-    this.actor.checkMorale();
+    await creatureMoraleAction(this.actor);
   }
 
   /**
-   * Handle reaction roll.
+   * @param {MouseEvent} event
+   * @private
    */
-  _onReactionRoll(event) {
+  async _onReactionRoll(event) {
     event.preventDefault();
-    this.actor.checkReaction();
+    await creatureReactionAction(this.actor);
   }
 }

@@ -4,8 +4,9 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../system/automation/target-automation.js";
+} from "../api/automation/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { getSystemFlag, setSystemFlag } from "../utils.js";
 
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 
@@ -13,16 +14,14 @@ class DefendDialog extends Application {
   constructor({ actor, callback } = {}) {
     super();
     this.actor = actor;
-    this.armir = actor;
     this.callback = callback;
     this.modifiers = this._getModifiers();
 
     if (targetSelectionEnabled()) {
-      this.enforceTargetSelection = isEnforceTargetEnabled();
+      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat();
       this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
-
       this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     }
   }
@@ -40,8 +39,8 @@ class DefendDialog extends Application {
 
   /** @override */
   async getData() {
-    const defendDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
-    const defendArmor = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor().damageReductionDie ?? 0;
+    const defendDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
+    const defendArmor = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor().damageReductionDie ?? 0;
     const incomingAttack = await this._getIncomingAttack();
 
     return {
@@ -50,7 +49,7 @@ class DefendDialog extends Application {
       defendDR,
       defendArmor,
       drModifiers: this.modifiers.warning,
-      target: this.targetToken ? this.targetToken?.actor.name : "",
+      target: this.targetToken?.actor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
       hasTargetWarning: this._hasTargetWarning(),
@@ -59,9 +58,9 @@ class DefendDialog extends Application {
 
   async _getIncomingAttack() {
     if (this.targetToken) {
-      return this.targetToken.actor.getAttackFormula();
+      return this.targetToken.actor.getActorAttackFormula();
     }
-    return (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK)) ?? "1d4";
+    return (await getSystemFlag(this.actor, CONFIG.PB.flags.INCOMING_ATTACK)) ?? "1d4";
   }
 
   _hasTargetWarning() {
@@ -95,7 +94,7 @@ class DefendDialog extends Application {
     };
     const armor = this.actor.equippedArmor();
     if (armor) {
-      const defenseModifier = CONFIG.PB.armorTiers[armor.data.data.tier.max].defenseModifier;
+      const { defenseModifier } = CONFIG.PB.armorTiers[armor.data.data.tier.max];
       if (defenseModifier) {
         modifiers.total += defenseModifier;
         modifiers.warning.push(`${armor.name}: ${game.i18n.localize("PB.DR")} + ${defenseModifier}`);
@@ -134,7 +133,7 @@ class DefendDialog extends Application {
   async _onDefenseDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_DR, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR, input.val());
     const modifiedDr = parseInt(input.val(), 10) + this.modifiers.total;
     this.element.find("#defenseModifiedDr").val(modifiedDr);
     $(".defense-base-dr .radio-input").val([input.val()]);
@@ -150,14 +149,14 @@ class DefendDialog extends Application {
   async _onIncomingAttackInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.INCOMING_ATTACK, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.INCOMING_ATTACK, input.val());
     $(".incoming-attack .radio-input").val([input.val()]);
   }
 
   async _onDefendArmorRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.DEFEND_ARMOR, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR, input.val());
     this.element.find("#defendArmor").val(input.val());
   }
 
@@ -206,11 +205,10 @@ class DefendDialog extends Application {
  * @param {Actor} data.actor
  * @returns {Promise.<{incomingAttack: String, defendDR: Number, defendArmor: string, targetToken: Token}>}
  */
-export const showDefendDialog = (data = {}) => {
-  return new Promise((resolve) => {
+export const showDefendDialog = (data = {}) =>
+  new Promise((resolve) => {
     new DefendDialog({
       ...data,
       callback: resolve,
     }).render(true);
   });
-};

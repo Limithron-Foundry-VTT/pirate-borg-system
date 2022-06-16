@@ -4,9 +4,7 @@ import { executeMacro } from "./macro-helpers.js";
  * @param {String} compendiumString
  * @returns {Array.<String>}
  */
-export const compendiumInfoFromString = (compendiumString) => {
-  return compendiumString.split(";");
-};
+export const compendiumInfoFromString = (compendiumString) => compendiumString.split(";");
 
 /**
  * @param {String} compendiumName
@@ -22,9 +20,8 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
       console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
     }
     return item;
-  } else {
-    console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
   }
+  console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
 };
 
 /**
@@ -42,9 +39,7 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
  * @param {String} table
  * @returns {Promise.<String>}
  */
-export const drawTableText = async (compendium, table) => {
-  return (await drawTable(compendium, table)).results[0].getChatText();
-};
+export const drawTableText = async (compendium, table) => (await drawTable(compendium, table)).results[0].getChatText();
 
 /**
  * @param {String} compendium
@@ -151,9 +146,7 @@ export const executeCompendiumMacro = async (compendiumMacro, parameters = {}) =
 /**
  * @returns {Array.<String>}
  */
-export const findClassPacks = () => {
-  return [...game.packs.keys()].filter((pack) => pack.lastIndexOf(".class-") > 0);
-};
+export const findClassPacks = () => [...game.packs.keys()].filter((pack) => pack.lastIndexOf(".class-") > 0);
 
 /**
  * @param {String} compendiumName
@@ -193,4 +186,16 @@ export const drawReaction = async (options = {}) => await drawTable("pirateborg.
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawGunpowderFumble = async (options = {}) => await drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons", options);
+export const drawGunpowderFumble = async () => await drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawRelic = async (options = {}) => await drawTable("pirateborg.rolls-character-creation", "d20 Ancient relics", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawRitual = async (options = {}) => await drawTable("pirateborg.rolls-character-creation", "d20 Arcane rituals", options);

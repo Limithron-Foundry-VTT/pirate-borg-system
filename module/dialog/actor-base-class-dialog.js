@@ -23,18 +23,18 @@ export default class ActorBaseClassDialog extends Application {
   async getData(options = {}) {
     return mergeObject(super.getData(options), {
       classes: await this.getClassData(),
-      requireBaseClass: this.actor.getCharacterClass().data.data.requireBaseClass,
+      requireBaseClass: this.actor.getCharacterClass().getData().requireBaseClass,
     });
   }
 
   async getClassData() {
     return (await this.getClasses(findClassPacks()))
-      .filter((clazz) => !clazz.data.data.requireBaseClass)
+      .filter((clazz) => !clazz.getData().requireBaseClass)
       .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.data.name))
       .map((clazz) => ({
         name: clazz.name,
         baseClass: `${clazz.pack};${clazz.name}`,
-        selected: `${clazz.pack};${clazz.name}` === this.actor.data.data.baseClass ? "selected" : "",
+        selected: `${clazz.pack};${clazz.name}` === this.actor.getData().baseClass ? "selected" : "",
       }))
       .sort((a, b) => (a.name > b.name ? 1 : -1));
   }

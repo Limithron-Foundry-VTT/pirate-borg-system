@@ -39,16 +39,6 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
-  /** Whether to apply automatically damage on self or target */
-  game.settings.register("pirateborg", "automaticDamage", {
-    name: "PB.SettingsAutomaticDamage",
-    hint: "PB.SettingsAutomaticDamageHint",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true,
-  });
-
   /** Whether to allow target selection on attack/defense/crew action dialog */
   game.settings.register("pirateborg", "targetSelection", {
     name: "PB.SettingsTargetSelection",
@@ -69,10 +59,30 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to apply automatically damage on self or target */
+  game.settings.register("pirateborg", "automaticDamage", {
+    name: "PB.SettingsAutomaticDamage",
+    hint: "PB.SettingsAutomaticDamageHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** Whether to show the hit and miss animation */
-  game.settings.register("pirateborg", "attackAnimation", {
-    name: "PB.SettingsAttackAnimation",
-    hint: "PB.SettingsAttackAnimationHint",
+  game.settings.register("pirateborg", "outcomeAnimation", {
+    name: "PB.SettingsOutcomeAnimation",
+    hint: "PB.SettingsOutcomeAnimationHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to show the hit and miss animation */
+  game.settings.register("pirateborg", "advancedAnimation", {
+    name: "PB.SettingsAdvancedAnimation",
+    hint: "PB.SettingsAdvancedAnimationHint",
     scope: "world",
     config: true,
     type: Boolean,
@@ -111,16 +121,12 @@ export const registerSystemSettings = () => {
 /**
  * @returns {Boolean}
  */
-export const trackCarryingCapacity = () => {
-  return game.settings.get("pirateborg", "trackCarryingCapacity");
-};
+export const trackCarryingCapacity = () => game.settings.get("pirateborg", "trackCarryingCapacity");
 
 /**
  * @returns {Boolean}
  */
-export const trackAmmo = () => {
-  return game.settings.get("pirateborg", "trackAmmo");
-};
+export const trackAmmo = () => game.settings.get("pirateborg", "trackAmmo");
 
 /**
  * @param {String} classPack
@@ -141,9 +147,7 @@ export const setAllowedCharacterGeneratorClasses = (allowedCharacterGeneratorCla
 /**
  * @returns {Array.<String>}
  */
-export const getLastCharacterGeneratorSelection = () => {
-  return game.settings.get("pirateborg", "lastCharacterGeneratorSelection");
-};
+export const getLastCharacterGeneratorSelection = () => game.settings.get("pirateborg", "lastCharacterGeneratorSelection");
 
 /**
  * @param {Array.<String>} lastCharacterGeneratorSelection
@@ -155,55 +159,44 @@ export const setLastCharacterGeneratorSelection = (lastCharacterGeneratorSelecti
 /**
  * @returns {String}
  */
-export const getSystemMigrationVersion = () => {
-  return game.settings.get("pirateborg", "systemMigrationVersion");
-};
+export const getSystemMigrationVersion = () => game.settings.get("pirateborg", "systemMigrationVersion");
 
 /**
  * @returns {String}
  */
-export const setSystemMigrationVersion = (systemMigrationVersion) => {
-  return game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
-};
+export const setSystemMigrationVersion = (systemMigrationVersion) => game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
 
 /**
  * @returns {String}
  */
-export const getSystemHelpDialogVersion = () => {
-  return game.settings.get("pirateborg", "systemHelpDialogVersion");
-};
+export const getSystemHelpDialogVersion = () => game.settings.get("pirateborg", "systemHelpDialogVersion");
 
 /**
  * @returns {String}
  */
-export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => {
-  return game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
-};
+export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 
 /**
  * @returns {Boolean}
  */
-export const isAutomaticDamageEnabled = () => {
-  return game.settings.get("pirateborg", "automaticDamage");
-};
+export const isAutomaticDamageEnabled = () => game.settings.get("pirateborg", "automaticDamage");
 
 /**
  * @returns {Boolean}
  */
-export const isAttackAnimationEnabled = () => {
-  return game.settings.get("pirateborg", "attackAnimation");
-};
+export const isOutcomeAnimationEnabled = () => game.settings.get("pirateborg", "outcomeAnimation");
 
 /**
  * @returns {Boolean}
  */
-export const isEnforceTargetEnabled = () => {
-  return game.settings.get("pirateborg", "enforceTarget");
-};
+export const isAdvancedAnimationEnabled = () => game.settings.get("pirateborg", "advancedAnimation");
 
 /**
  * @returns {Boolean}
  */
-export const targetSelectionEnabled = () => {
-  return game.settings.get("pirateborg", "targetSelection");
-};
+export const isEnforceTargetEnabled = () => game.settings.get("pirateborg", "enforceTarget");
+
+/**
+ * @returns {Boolean}
+ */
+export const targetSelectionEnabled = () => game.settings.get("pirateborg", "targetSelection");

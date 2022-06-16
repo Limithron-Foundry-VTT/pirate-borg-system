@@ -113,7 +113,11 @@ export default class CharacterGeneratorDialog extends Application {
       const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
       if (compendium) {
         const macro = await findCompendiumItem(compendium, macroName);
-        await executeCharacterCreationMacro(macro, { selectedClass: randomClass, selectedClasses, actor: this.actor });
+        await executeCharacterCreationMacro(macro, {
+          selectedClass: randomClass,
+          selectedClasses,
+          actor: this.actor,
+        });
       }
       return;
     }

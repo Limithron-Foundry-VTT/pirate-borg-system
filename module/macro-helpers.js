@@ -1,6 +1,5 @@
 import { evaluateFormula } from "./utils.js";
-export { showGenericCard } from "./chat-message/generic-card.js";
-export { showGenericWieldCard } from "./chat-message/generic-wield-card.js";
+export { showGenericCard as showGenericWieldCard } from "./chat-message/generic-card.js";
 export { drawTable } from "./compendium.js";
 
 /**
@@ -9,9 +8,7 @@ export { drawTable } from "./compendium.js";
  * @param {Object} rollData
  * @returns
  */
-export const createRoll = async (formula, rollData = {}) => {
-  return await evaluateFormula(formula, rollData);
-};
+export const createRoll = async (formula, rollData = {}) => await evaluateFormula(formula, rollData);
 
 /**
  * @param {Document} macro
@@ -22,7 +19,7 @@ export const createRoll = async (formula, rollData = {}) => {
  */
 export const executeMacro = async (macro, { actor, token, item } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();
-  const character = game.user.character;
+  const { character } = game.user;
   actor = actor || game.actors.get(speaker.actor);
   token = token || (canvas.ready ? canvas.tokens.get(speaker.token) : null);
   const body = `(async () => {

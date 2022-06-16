@@ -4,8 +4,9 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../system/automation/target-automation.js";
+} from "../api/automation/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { getSystemFlag, setSystemFlag } from "../utils.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 
@@ -14,9 +15,9 @@ class AttackDialog extends Application {
     super();
     this.actor = actor;
     this.callback = callback;
-    this.enforceTargetSelection = isEnforceTargetEnabled();
 
     if (targetSelectionEnabled()) {
+      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat();
       this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
@@ -37,14 +38,14 @@ class AttackDialog extends Application {
 
   /** @override */
   async getData() {
-    const attackDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
+    const attackDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
     const targetArmor = await this._getTargetArmor();
 
     return {
       config: CONFIG.pirateborg,
       attackDR,
       targetArmor,
-      target: this.targetToken ? this.targetToken?.actor.name : "",
+      target: this.targetToken?.actor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
       hasTargetWarning: this._hasTargetWarning(),
@@ -77,9 +78,9 @@ class AttackDialog extends Application {
 
   async _getTargetArmor() {
     if (this.targetToken) {
-      return this.targetToken.actor.getArmorFormula();
+      return this.targetToken.actor.getActorArmorFormula();
     }
-    return (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) ?? 0;
+    return (await getSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR)) ?? 0;
   }
 
   /** @override */
@@ -105,7 +106,7 @@ class AttackDialog extends Application {
   async _onTargetArmorInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, input.val());
     $(".armor-tier .radio-input").val([input.val()]);
   }
 
@@ -119,7 +120,7 @@ class AttackDialog extends Application {
   async _onAttackDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, input.val());
     $(".attack-dr .radio-input").val([input.val()]);
   }
 
@@ -167,11 +168,10 @@ class AttackDialog extends Application {
  * @param {Actor} data.actor
  * @returns {Promise.<{targetArmor: String, attackDR: Number, targetToken: Token}>}
  */
-export const showAttackDialog = (data = {}) => {
-  return new Promise((resolve) => {
+export const showAttackDialog = (data = {}) =>
+  new Promise((resolve) => {
     new AttackDialog({
       ...data,
       callback: resolve,
     }).render(true);
   });
-};

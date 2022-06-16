@@ -20,13 +20,15 @@ export const migrate = () => {
 const migrateWorld = async () => {
   ui.notifications.info(
     `Applying PIRATE BORG System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
-    { permanent: true }
+    { permanent: true },
   );
   await migrateActors();
 
   game.settings.set("pirateborg", "systemMigrationVersion", game.system.data.version);
 
-  ui.notifications.info(`PIRATE BORG System Migration to version ${game.system.data.version} completed!`, { permanent: true });
+  ui.notifications.info(`PIRATE BORG System Migration to version ${game.system.data.version} completed!`, {
+    permanent: true,
+  });
 };
 
 const migrateActors = async () => {

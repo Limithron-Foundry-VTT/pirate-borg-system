@@ -4,13 +4,13 @@
       <label>{{localize "PB.Target"}}:</label>
       <div class="target-selection {{#if hasTargetWarning }}warning{{/if}}">
         {{#if isTargetSelectionValid}}
-          {{target}}
+        <img src="{{target.img}}" data-edit="img" title="{{target.name}}" /> {{target.name}}
         {{else}}
           {{localize "PB.TargetInvalid"}}
         {{/if}}         
       </div>
     </div>
-  {{/if}} 
+  {{/if}}  
   <div class="form-group">
     <label>{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
     <div class="form-fields">

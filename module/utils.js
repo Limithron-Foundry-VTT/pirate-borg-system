@@ -1,12 +1,20 @@
 /**
- * @typedef {Object} TestOutcome
- * @property {Roll} roll
- * @property {Boolean} isSuccess
- * @property {boolean} isFailure
- * @property {Boolean} isFumble
- * @property {Boolean} isCriticalSuccess
- * @property {String} outcome
+ * @param  {...any} fns
+ * @returns {any}
  */
+export const pipe =
+  (...fns) =>
+  (x) =>
+    fns.reduce((v, f) => f(v), x);
+
+/**
+ * @param  {...Promise.<any>} fns
+ * @returns {(x: any) => any>}
+ */
+export const asyncPipe =
+  (...fns) =>
+  (x) =>
+    fns.reduce(async (y, f) => f(await y), x);
 
 /**
  * @param {String} formula
@@ -19,33 +27,17 @@ export const evaluateFormula = async (formula, data) => {
 };
 
 /**
- * @param {Roll} roll
- * @param {Number} dr
- * @param {Object} options
- * @param {Number} options.critOn
- * @param {Number} options.fumbleOn
- * @returns {TestOutcome}
+ * @param {Document} document
+ * @param {string} flag
+ * @param {*} value
  */
-export const getTestOutcome = (roll, dr = 12, { critOn = 20, fumbleOn = 1 } = {}) => {
-  const dieResult = roll.terms[0].results[0].result;
-
-  const rollResult = {
-    roll,
-    isSuccess: roll.total >= dr,
-    isFailure: roll.total < dr,
-    isFumble: dieResult <= fumbleOn,
-    isCriticalSuccess: dieResult >= critOn,
-  };
-
-  if (rollResult.isFumble) {
-    rollResult.outcome = CONFIG.PB.outcome.fumble;
-  } else if (rollResult.isCriticalSuccess) {
-    rollResult.outcome = CONFIG.PB.outcome.critical_success;
-  } else if (rollResult.isSuccess) {
-    rollResult.outcome = CONFIG.PB.outcome.success;
-  } else {
-    rollResult.outcome = CONFIG.PB.outcome.failure;
-  }
-
-  return rollResult;
+export const setSystemFlag = async (document, flag, value) => {
+  await document.setFlag(CONFIG.PB.flagScope, flag, value);
 };
+
+/**
+ * @param {Document} document
+ * @param {string} flag
+ * @returns {*}
+ */
+export const getSystemFlag = (document, flag) => document.getFlag(CONFIG.PB.flagScope, flag);

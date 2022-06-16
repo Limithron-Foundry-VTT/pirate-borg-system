@@ -4,8 +4,9 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../system/automation/target-automation.js";
-import { targetSelectionEnabled } from "../system/settings.js";
+} from "../api/automation/targeting.js";
+import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { getSystemFlag, setSystemFlag } from "../utils.js";
 
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
 
@@ -31,7 +32,8 @@ class CrewActionDialog extends Application {
     this.enableDrSelection = enableDrSelection;
     this.enableArmorSelection = enableArmorSelection;
     this.enableMovementSelection = enableMovementSelection;
-    this.enableTargetSelection = enableTargetSelection;    
+    this.enableTargetSelection = enableTargetSelection;
+    this.enforceTargetSelection = isEnforceTargetEnabled();
     this.callback = callback;
 
     if (targetSelectionEnabled() && this.enableTargetSelection) {
@@ -55,8 +57,8 @@ class CrewActionDialog extends Application {
 
   /** @override */
   async getData() {
-    const selectedCrewId = await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.SELECTED_CREW);
-    const selectedDR = (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
+    const selectedCrewId = await getSystemFlag(this.actor, CONFIG.PB.flags.SELECTED_CREW);
+    const selectedDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
     const selectedArmor = await this._getTargetArmor();
 
     return {
@@ -72,7 +74,7 @@ class CrewActionDialog extends Application {
       selectedDR,
       selectedCrewId,
       selectedArmor,
-      target: this.targetToken ? this.targetToken?.actor.name : "",
+      target: this.targetToken?.actor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
       hasTargetWarning: this._hasTargetWarning(),
@@ -87,6 +89,9 @@ class CrewActionDialog extends Application {
   }
 
   _shouldShowTarget() {
+    if (!this.enableTargetSelection) {
+      return false;
+    }
     if (this.enforceTargetSelection) {
       return true;
     }
@@ -105,9 +110,9 @@ class CrewActionDialog extends Application {
 
   async _getTargetArmor() {
     if (this.targetToken) {
-      return this.targetToken.actor.getArmorFormula();
+      return this.targetToken.actor.getActorArmorFormula();
     }
-    return (await this.actor.getFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
+    return (await getSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
   }
 
   /** @override */
@@ -129,13 +134,16 @@ class CrewActionDialog extends Application {
   _onDrRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
+    console.log("_onDrRadioInputChanged", input.val(), this.element.find("#dr"));
     this.element.find("#dr").val(input.val());
+    this.element.find("#dr").change();
   }
 
   async _onDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.ATTACK_DR, input.val());
+    console.log("_onDrInputChanged", input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, input.val());
     $(".dr .radio-input").val([input.val()]);
   }
 
@@ -143,12 +151,13 @@ class CrewActionDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#targetArmor").val(input.val());
+    this.element.find("#targetArmor").change();
   }
 
   async _onArmorInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    await this.actor.setFlag(CONFIG.PB.flagScope, CONFIG.PB.flags.TARGET_ARMOR, input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, input.val());
     $(".armor-tier .radio-input").val([input.val()]);
   }
 
@@ -156,6 +165,7 @@ class CrewActionDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#movement").val(input.val());
+    this.element.find("#movement").change();
   }
 
   async _onMovementInputChanged(event) {
@@ -174,7 +184,7 @@ class CrewActionDialog extends Application {
       return false;
     }
 
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
+    if (this.enableTargetSelection && this.enforceTargetSelection && !this.isTargetSelectionValid) {
       return false;
     }
 
@@ -203,8 +213,9 @@ class CrewActionDialog extends Application {
     this.callback({
       selectedActor: game.actors.get(selectedCrewId),
       selectedDR: parseInt(selectedDR, 10),
-      selectedArmor: selectedArmor,
-      selectedMovement: selectedMovement,
+      selectedArmor,
+      selectedMovement,
+      targetToken: this.targetToken,
     });
     this.close();
   }
@@ -219,14 +230,14 @@ class CrewActionDialog extends Application {
  * @param {Boolean} data.enableDrSelection
  * @param {Boolean} data.enableArmorSelection
  * @param {Boolean} data.enableMovementSelection
+ * @param {Boolean} data.enableTargetSelection
  * @param {Boolean} data.canSubmit
- * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String, selectedMovement: Number}>}
+ * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String, selectedMovement: Number, targetToken: Token}>}
  */
-export const showCrewActionDialog = (data = {}) => {
-  return new Promise((resolve) => {
+export const showCrewActionDialog = (data = {}) =>
+  new Promise((resolve) => {
     new CrewActionDialog({
       ...data,
       callback: resolve,
     }).render(true);
   });
-};

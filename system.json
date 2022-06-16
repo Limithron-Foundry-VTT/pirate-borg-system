@@ -418,6 +418,14 @@
       "system": "pirateborg",
       "path": "./packs/macros-haunted-soul.db",
       "entity": "Macro"
+    },
+
+    {
+      "name": "automated-animation-effects",
+      "label": "Automated Animation Effects",
+      "system": "pirateborg",
+      "path": "./packs/automated-animation-effects.db",
+      "entity": "Item"
     }
   ],
   "languages": [

@@ -1,273 +1,157 @@
 import { configureEditor } from "../../system/configure-editor.js";
-import { rollIndividualInitiative, rollPartyInitiative } from "../../system/combat.js";
-import { findStartingBonusItems, findStartingBonusRollsItems } from "../../generator/character-generator.js";
+import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
+import { actorInitiativeAction } from "../../api/action/actions.js";
+import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
 
 /**
  * @extends {ActorSheet}
  */
 export default class PBActorSheet extends ActorSheet {
-  /** @override */
+  /**
+   * @override
+   */
   activateEditor(name, options = {}, initialContent = "") {
     configureEditor(options);
     super.activateEditor(name, options, initialContent);
   }
 
-  /** @override */
+  /**
+   * @param {String} event
+   * @param {Object} listeners
+   */
+  bindSelectorsEvent(event, listeners) {
+    for (const [selector, callback] of Object.entries(listeners)) {
+      this.element.find(selector).on(event, callback.bind(this));
+    }
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @returns {PBItem}
+   */
+  getItem(event) {
+    return this.actor.items.get(this.getItemId(event));
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @returns {String}
+   */
+  getItemId(event) {
+    return $(event.target).closest(".item").data("itemId");
+  }
+
+  /**
+   * @override
+   *
+   * @param {jQuery} html
+   */
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Add Inventory Item
-    html.find(".item-create").click(this._onItemCreate.bind(this));
-
-    // Update Inventory Item
-    html.find(".item-edit").click((ev) => {
-      event.preventDefault();
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
-      if (item) {
-        item.sheet.render(true);
-      }
+    this.bindSelectorsEvent("click", {
+      ".item-create": this._onItemCreate,
+      ".item-edit": this._onItemEdit,
+      ".item-delete": this._onItemDelete,
+      ".item-qty-plus": this._onItemAddQuantity,
+      ".item-qty-minus": this._onItemSubtractQuantity,
+      ".individual-initiative-button": this._onIndividualInitiativeRoll,
     });
-
-    // Delete Inventory Item
-    html.find(".item-delete").click(this._onItemDelete.bind(this));
-
-    // Additional item/inventory buttons
-    html.find(".item-qty-plus").click(this._onItemAddQuantity.bind(this));
-    html.find(".item-qty-minus").click(this._onItemSubtractQuantity.bind(this));
-    html.find(".item-toggle-equipped").click(this._onToggleEquippedItem.bind(this));
-    html.find(".item-toggle-carried").click(this._onToggleCarriedItem.bind(this));
-
-    // Combat-related buttons
-    html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
-    html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
-    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
-    html.find(".reload-button").on("click", this._onReload.bind(this));
-    html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
-    html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
   }
 
   /**
-   * Handle creating a new Owned Item for the actor.
-   *
-   * @param {Event} event   The originating click event
    * @private
+   *
+   * @param {MouseEvent} event
+   */
+  async _onItemEdit(event) {
+    event.preventDefault();
+    this.getItem(event).sheet.render(true);
+  }
+
+  /**
+   * @private
+   *
+   * @param {MouseEvent} event
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/pirateborg/templates/dialog/add-item-dialog.html";
-    const dialogData = {
-      config: CONFIG.pirateborg,
-    };
-    const html = await renderTemplate(template, dialogData);
-    return new Promise((resolve) => {
-      new Dialog({
-        title: game.i18n.localize("PB.CreateNewItem"),
-        content: html,
-        buttons: {
-          create: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize("PB.CreateNewItem"),
-            callback: (html) => resolve(_createItem(this.actor, html[0].querySelector("form"))),
-          },
-        },
-        default: "create",
-        close: () => resolve(null),
-      }).render(true);
-    });
+    const { name, type } = await showAddItemDialog();
+    await this.actor.createEmbeddedDocuments("Item", [{ name, type }]);
   }
 
   /**
-   * Handle the deletion of item
+   * @private
+   *
+   * @param {MouseEvent} event
    */
   async _onItemDelete(event) {
     event.preventDefault();
-    const anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.items.get(itemId);
-    if (item.isContainer && item.hasItems) {
-      Dialog.confirm({
-        title: game.i18n.localize("PB.ItemDelete"),
-        content: "<p>" + game.i18n.localize("PB.ItemDeleteMessage") + "</p>",
-        yes: async () => {
-          await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
-        },
-        defaultYes: false,
-      });
-    } else {
+    const item = this.getItem(event);
+    const canDelete = item.isContainer && item.hasItems ? await this._confirmItemDelete() : true;
+    if (canDelete) {
       await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
-      li.slideUp(200, () => this.render(false));
     }
   }
 
   /**
-   * Handle adding quantity of an Owned Item within the Actor
-   */
-  async _onItemAddQuantity(event) {
-    event.preventDefault();
-    const anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    return item.update({ [attr]: currQuantity + 1 });
-  }
-
-  /**
-   * Handle subtracting quantity of an Owned Item within the Actor
-   */
-  async _onItemSubtractQuantity(event) {
-    event.preventDefault();
-    const anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    // can't reduce quantity below one
-    if (currQuantity > 1) {
-      return item.update({ [attr]: currQuantity - 1 });
-    }
-  }
-
-  /**
-   * Handle toggling the equipped state of an Owned Item within the Actor
-   *
-   * @param {Event} event   The triggering click event
    * @private
-   */
-  async _onToggleEquippedItem(event) {
-    event.preventDefault();
-    const anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.items.get(itemId);
-
-    if (item.equipped) {
-      return await this.actor.unequipItem(item);
-    } else {
-      return await this.actor.equipItem(item);
-    }
-  }
-
-  /**
-   * Handle toggling the carried state of an Owned Item within the Actor
    *
-   * @param {Event} event   The triggering click event
-   * @private
+   * @returns {Promise.<Boolean>}
    */
-  async _onToggleCarriedItem(event) {
-    event.preventDefault();
-    const anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.items.get(itemId);
-    if (item.carried) {
-      await item.drop();
-    } else {
-      await item.carry();
-    }
-  }
-
-  /**
-   * Listen for roll buttons on items.
-   *
-   * @param {MouseEvent} event    The originating left click event
-   */
-  _onItemRoll(event) {
-    event.preventDefault();
-    const button = $(event.currentTarget);
-    const r = new Roll(button.data("roll"), this.actor.getRollData());
-    const li = button.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
-    r.roll().toMessage({
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`,
+  async _confirmItemDelete() {
+    return await Dialog.confirm({
+      title: game.i18n.localize("PB.ItemDelete"),
+      content: `<p>${game.i18n.localize("PB.ItemDeleteMessage")}</p>`,
+      defaultYes: false,
     });
   }
 
   /**
-   * Handle a click on the Party Initiative button.
+   * @private
+   *
+   * @param {MouseEvent} event
    */
-  async _onPartyInitiativeRoll(event) {
+  async _onItemAddQuantity(event) {
     event.preventDefault();
-    rollPartyInitiative();
+    const item = this.getItem(event);
+    item.setQuantity(item.quantity + 1);
   }
 
   /**
-   * Handle a click on the Individual Initiative button.
+   * @private
+   *
+   * @param {MouseEvent} event
+   */
+  async _onItemSubtractQuantity(event) {
+    event.preventDefault();
+    const item = this.getItem(event);
+    item.setQuantity(Math.max(1, item.quantity - 1));
+  }
+
+  /**
+   * @private
+   *
+   * @param {MouseEvent} event
    */
   async _onIndividualInitiativeRoll(event) {
     event.preventDefault();
-    rollIndividualInitiative(this.actor);
+    actorInitiativeAction(this.actor);
   }
 
   /**
-   * Handle a click on an item Attack button.
+   * @override
+   *
+   * @param {Event} event
+   * @param {Object} itemData
    */
-  _onAttackRoll(event) {
-    event.preventDefault();
-    const button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const itemId = li.data("itemId");
-    this.actor.attack(itemId);
-  }
-
-  /**
-   * Handle a click on the armor current tier radio buttons.
-   */
-  _onArmorTierRadio(event) {
-    event.preventDefault();
-    const input = $(event.currentTarget);
-    const newTier = parseInt(input[0].value);
-    const li = input.parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
-    return item.update({ ["data.tier.value"]: newTier });
-  }
-
-  /**
-   * Handle a click on the Defend button.
-   */
-  async _onDefendRoll(event) {
-    event.preventDefault();
-    this.actor.defend();
-  }
-
-  /**
-   * Handle a click on the Reload button.
-   */
-  async _onReload(event) {
-    event.preventDefault();
-    const button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const itemId = li.data("itemId");
-    this.actor.reload(itemId);
-  }
-
-  _onInlineEdit(event) {
-    event.preventDefault();
-    const row = $(event.currentTarget).parents(".item");
-    if (row) {
-      const item = this.actor.items.get(row.data("itemId"));
-      if (item) {
-        const temp = event.currentTarget.dataset.mod;
-        return item.update({ [temp]: event.currentTarget.value }, {});
-      }
-    }
-  }
-
-  /** @override */
   async _onDropItem(event, itemData) {
     const item = ((await super._onDropItem(event, itemData)) || []).pop();
     if (!item) return;
 
-    const target = this._findDropTargetItem(event);
+    const target = this.getItem(event);
     const originalActor = game.actors.get(itemData.actorId);
     const originalItem = originalActor ? originalActor.items.get(itemData.data._id) : null;
     const isContainer = originalItem && originalItem.isContainer;
@@ -283,7 +167,7 @@ export default class PBActorSheet extends ActorSheet {
     if (item.type === CONFIG.PB.itemTypes.background) {
       const additionalItems = [].concat(
         (await findStartingBonusItems([item])).map((i) => i.toObject()),
-        (await findStartingBonusRollsItems([item])).map((i) => i.toObject())
+        (await findStartingBonusRollsItems([item])).map((i) => i.toObject()),
       );
       if (additionalItems.length > 0) {
         await this.actor.createEmbeddedDocuments("Item", additionalItems);
@@ -299,10 +183,15 @@ export default class PBActorSheet extends ActorSheet {
     }
   }
 
-  /** @override */
+  /**
+   * @override
+   *
+   * @param {Event} event
+   * @param {Object} itemData
+   */
   async _onSortItem(event, itemData) {
     const item = this.actor.items.get(itemData._id);
-    const target = this._findDropTargetItem(event);
+    const target = this.getItem(event);
     if (target) {
       await this._handleDropOnItemContainer(item, target);
     } else {
@@ -311,11 +200,11 @@ export default class PBActorSheet extends ActorSheet {
     await super._onSortItem(event, itemData);
   }
 
-  _findDropTargetItem(event) {
-    const dropIntoItem = $(event.srcElement).closest(".item");
-    return dropIntoItem.length > 0 ? this.actor.items.get(dropIntoItem.attr("data-item-id")) : null;
-  }
-
+  /**
+   * @private
+   *
+   * @param {PBItem} item
+   */
   async _cleanDroppedItem(item) {
     if (item.equipped) {
       await item.unequip();
@@ -325,6 +214,12 @@ export default class PBActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * @private
+   *
+   * @param {PBItem} item
+   * @param {PBItem} target
+   */
   async _handleDropOnItemContainer(item, target) {
     if (item.isContainerizable) {
       if (target.isContainer) {
@@ -340,6 +235,12 @@ export default class PBActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * @private
+   *
+   * @param {Array.<PBItem>} items
+   * @param {PBItem} target
+   */
   async _addItemsToItemContainer(items, container) {
     for (const item of items) {
       if (item.container && container.id !== item.container.id) {
@@ -354,31 +255,14 @@ export default class PBActorSheet extends ActorSheet {
     }
   }
 
+  /**
+   * @private
+   *
+   * @param {PBItem} items
+   */
   async _removeItemFromItemContainer(item) {
     if (item.container) {
       await item.container.removeItem(item.id);
     }
   }
-
-  async _onAmmoSelect(event) {
-    event.preventDefault();
-    const select = $(event.currentTarget);
-    const weapon = this.actor.items.get(select.data("itemId"));
-    //const ammo = this.actor.items.get(select.val());
-    if (weapon) {
-      await weapon.update({ ["data.ammoId"]: select.val() });
-    }
-  }
 }
-
-/**
- * Create a new Owned Item for the given actor, based on the name/type from the form.
- */
-const _createItem = async (actor, form) => {
-  const itemData = {
-    name: form.itemname.value,
-    type: form.itemtype.value,
-    data: {},
-  };
-  await actor.createEmbeddedDocuments("Item", [itemData]);
-};

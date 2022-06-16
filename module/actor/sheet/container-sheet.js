@@ -26,7 +26,7 @@ export class PBActorSheetContainer extends PBActorSheet {
   /** @override */
   getData() {
     const superData = super.getData();
-    const data = superData.data;
+    const { data } = superData;
     data.config = CONFIG.PB;
     if (this.actor.data.type == "container") {
       this._prepareContainerItems(data);
@@ -35,10 +35,7 @@ export class PBActorSheetContainer extends PBActorSheet {
   }
 
   /**
-   * Organize and classify Items for Container sheets.
-   *
-   * @param {Object} actorData The actor to prepare.
-   *
+   * @param {Object} actorData
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
