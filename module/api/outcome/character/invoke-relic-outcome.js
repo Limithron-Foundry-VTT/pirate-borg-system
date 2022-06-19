@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { createTestRelicButton } from "../../automation/buttons.js";
 import { withAdvancedAnimation, withButton, withTarget } from "../automation-outcome.js";

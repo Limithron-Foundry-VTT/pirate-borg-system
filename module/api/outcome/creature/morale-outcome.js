@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { rollOutcome, withAsyncProps, withWhen } from "../outcome.js";
 
 const getTitle = ({ isStandingFirm = false, isFleeing = false, isSurrendering = false }) => {

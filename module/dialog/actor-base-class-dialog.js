@@ -1,4 +1,4 @@
-import { classItemFromPack, findClassPacks } from "../compendium.js";
+import { classItemFromPack, findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed } from "../system/settings.js";
 
 export default class ActorBaseClassDialog extends Application {

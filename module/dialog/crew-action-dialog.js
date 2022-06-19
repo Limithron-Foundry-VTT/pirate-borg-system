@@ -6,7 +6,7 @@ import {
   unregisterTargetAutomationHook,
 } from "../api/automation/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
-import { getSystemFlag, setSystemFlag } from "../utils.js";
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
 

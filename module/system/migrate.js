@@ -1,4 +1,4 @@
-import { findCompendiumItem } from "../compendium.js";
+import { findCompendiumItem } from "../api/compendium.js";
 
 export const migrate = () => {
   // Determine whether a system migration is required and feasible

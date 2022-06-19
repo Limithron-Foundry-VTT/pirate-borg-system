@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { rollOutcome, withAsyncProps } from "../outcome.js";
 
 export const createShantiesPerDayOutcome = async ({ actor}) =>

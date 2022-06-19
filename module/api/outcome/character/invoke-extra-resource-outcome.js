@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { withAnimation, withTarget } from "../automation-outcome.js";
 import { testOutcome, withAsyncProps } from "../outcome.js";

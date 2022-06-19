@@ -1,5 +1,5 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { executeCompendiumMacro } from "../../../compendium.js";
+import { executeCompendiumMacro } from "../../compendium.js";
 import { handleActorGettingBetterItems } from "../../generator/character-generator.js";
 import { createRollAbilityOutcome } from "../../outcome/character/get-better/roll-ability-outcome.js";
 import { createRollHPOutcome } from "../../outcome/character/get-better/roll-hp-outcome.js";

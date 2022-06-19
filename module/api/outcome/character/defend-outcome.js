@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createTakeDamageButton } from "../../automation/buttons.js";
 import { withAnimation, withButton, withTarget } from "../automation-outcome.js";

@@ -1,4 +1,4 @@
-import { showDiceWithSound } from "../../../dice.js";
+import { showDiceWithSound } from "../../dice.js";
 import { createArmorOutcome } from "../../outcome/actor/armor-outcome.js";
 import { createTakeDamageOutcome } from "../../outcome/actor/take-damage-outcome.js";
 

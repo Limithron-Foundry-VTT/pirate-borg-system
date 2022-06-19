@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../utils.js";
+import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { DAMAGE_TYPE } from "../../automation/outcome-damage.js";
 import { withAdvancedAnimation, withDamage, withTarget } from "../automation-outcome.js";

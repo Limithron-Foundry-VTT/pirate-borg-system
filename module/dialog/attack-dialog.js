@@ -6,7 +6,7 @@ import {
   unregisterTargetAutomationHook,
 } from "../api/automation/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
-import { getSystemFlag, setSystemFlag } from "../utils.js";
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 

@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../../utils.js";
+import { asyncPipe } from "../../../utils.js";
 import { rollOutcome, withAsyncProps } from "../../outcome.js";
 
 const getDescription = ({ hasGainAbility = false, hasLoseAbility = false, isUnchanged = false }) => {

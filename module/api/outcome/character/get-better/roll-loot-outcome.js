@@ -1,4 +1,4 @@
-import { asyncPipe } from "../../../../utils.js";
+import { asyncPipe } from "../../../utils.js";
 import { rollOutcome, withAsyncProps } from "../../outcome.js";
 import { createRollRelicOutcome } from "./roll-relic-outcome.js";
 import { createRollRitualOutcome } from "./roll-ritual-outcome.js";

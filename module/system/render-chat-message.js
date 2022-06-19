@@ -1,5 +1,5 @@
 import { handleActionButton } from "../api/automation/buttons.js";
-import { waitForMessageRoll } from "../dice.js";
+import { waitForMessageRoll } from "../api/dice.js";
 import { OutcomeAutomation } from "../api/automation/outcome-automation.js";
 
 /**

@@ -1,7 +1,7 @@
 import { trackCarryingCapacity } from "../system/settings.js";
-import { setSystemFlag } from "../utils.js";
-import { findCompendiumItem } from "../compendium.js";
-import { executeMacro } from "../macros.js";
+import { setSystemFlag } from "../api/utils.js";
+import { findCompendiumItem } from "../api/compendium.js";
+import { executeMacro } from "../api/macros.js";
 
 /**
  * @extends {Actor}

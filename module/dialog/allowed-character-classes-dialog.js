@@ -1,4 +1,4 @@
-import { findClassPacks } from "../compendium.js";
+import { findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses } from "../system/settings.js";
 
 export class AllowedCharacterClassesDialog extends FormApplication {

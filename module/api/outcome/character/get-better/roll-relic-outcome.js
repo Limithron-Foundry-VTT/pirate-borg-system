@@ -1,5 +1,5 @@
-import { drawRelic, findTableItems } from "../../../../compendium.js";
-import { asyncPipe } from "../../../../utils.js";
+import { drawRelic, findTableItems } from "../../../compendium.js";
+import { asyncPipe } from "../../../utils.js";
 import { drawOutcome, withAsyncProps } from "../../outcome.js";
 
 export const createRollRelicOutcome = async () => {

@@ -1,4 +1,4 @@
-import { diceSound } from "../dice.js";
+import { diceSound } from "../api/dice.js";
 
 const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-card.html";
 

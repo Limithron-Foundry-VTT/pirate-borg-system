@@ -1,5 +1,5 @@
-import { showDiceWithSound } from "../../../dice.js";
-import { evaluateFormula } from "../../../utils.js";
+import { showDiceWithSound } from "../../dice.js";
+import { evaluateFormula } from "../../utils.js";
 import { createMysticalMishapOutcome } from "../../outcome/character/mystical-mishap-outcome.js";
 
 /**

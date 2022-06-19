@@ -1,4 +1,4 @@
-import { getSystemFlag, setSystemFlag } from "../../utils.js";
+import { getSystemFlag, setSystemFlag } from "../utils.js";
 
 export class OutcomeAutomation {
   static automations = [];

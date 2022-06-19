@@ -1,4 +1,4 @@
-import { showDiceWithSound } from "../../../dice.js";
+import { showDiceWithSound } from "../../dice.js";
 import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
 
 /**

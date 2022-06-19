@@ -1,5 +1,5 @@
-import { diceSound } from "../dice.js";
-import { getSystemFlag, setSystemFlag } from "../utils.js";
+import { diceSound } from "../api/dice.js";
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const GENERIC_BUTTON_OUTCOME = "systems/pirateborg/templates/chat/generic-button-outcome.html";
 

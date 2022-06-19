@@ -1,5 +1,5 @@
 import { updateGenericCardOutcomeButton } from "../../chat-message/update-generic-card-outcome-button.js";
-import { getSystemFlag } from "../../utils.js";
+import { getSystemFlag } from "../utils.js";
 import { chatInflictDamageButtonAction } from "../action/chat/chat-inflict-damage-button-action.js";
 import { chatInvokeRelicButtonAction } from "../action/chat/chat-invoke-relic-button-action.js";
 import { chatMysticalMyshapButtonAction } from "../action/chat/chat-mystical-mishap-button-action.js";

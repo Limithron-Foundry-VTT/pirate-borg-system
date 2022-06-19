@@ -1,4 +1,4 @@
-import { showDiceWithSound } from "../../../dice.js";
+import { showDiceWithSound } from "../../dice.js";
 import { createTestRelicOutcome } from "../../outcome/character/test-relic-outcome.js";
 
 /**

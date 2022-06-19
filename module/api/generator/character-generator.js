@@ -10,9 +10,9 @@ import {
   findItemsFromCompendiumString,
   findTableItems,
   rollTableItems,
-} from "../../compendium.js";
+} from "../compendium.js";
 import { PB } from "../../config.js";
-import { evaluateFormula } from "../../utils.js";
+import { evaluateFormula } from "../utils.js";
 
 /**
  * @returns {Promise.<Actor>}

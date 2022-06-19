@@ -1,5 +1,5 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { drawDerelictTakesDamage } from "../../../compendium.js";
+import { drawDerelictTakesDamage } from "../../compendium.js";
 import { drawOutcome } from "../../outcome/outcome.js";
 /**
  * @param {PBActor} actor

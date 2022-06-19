@@ -1,5 +1,5 @@
-import { drawGunpowderFumble } from "../../../compendium.js";
-import { asyncPipe } from "../../../utils.js";
+import { drawGunpowderFumble } from "../../compendium.js";
+import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createInflictDamageButton } from "../../automation/buttons.js";

@@ -6,7 +6,7 @@ import {
   unregisterTargetAutomationHook,
 } from "../api/automation/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
-import { getSystemFlag, setSystemFlag } from "../utils.js";
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 

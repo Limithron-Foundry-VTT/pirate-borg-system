@@ -1,4 +1,4 @@
-import { createPirateBorgMacro } from "./macros.js";
+import { createPirateBorgMacro } from "./api/macros.js";
 import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
@@ -9,7 +9,7 @@ import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
-import { onDragRulerReady } from "./system/modules.js";
+import { onDragRulerReady } from "./system/drag-ruler.js";
 import { registerAutomation } from "./system/register-automation.js";
 
 Hooks.once("init", async () => {
@@ -35,13 +35,9 @@ Hooks.once("ready", () => {
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);
-
 Hooks.on("renderCombatTracker", renderCombatTracker);
-
 Hooks.on("renderSettings", renderSettings);
-
 Hooks.on("renderChatMessage", handleChatMessageButton);
 Hooks.on("renderChatMessage", handleChatMessageGMOnly);
 Hooks.on("renderChatMessage", handleChatMessageAutomation);
-
 Hooks.on("dragRuler.ready", onDragRulerReady);

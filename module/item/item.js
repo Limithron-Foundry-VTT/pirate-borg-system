@@ -391,7 +391,7 @@ export class PBItem extends Item {
   * @param {Boolean} isBaseClass
   */
   set isBaseClass(isBaseClass) {
-    return this.getData().isBaseClass = isBaseClass;
+    this.getData().isBaseClass = isBaseClass;
   }  
 
   /**
