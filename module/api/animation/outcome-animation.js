@@ -1,4 +1,5 @@
 import { isOutcomeAnimationEnabled } from "../../system/settings.js";
+import { OUTCOME_TEST } from "../outcome/outcome.js";
 import { isSequencerEnabled } from "./animation.js";
 
 export const ANIMATION_TYPE = {
@@ -79,18 +80,19 @@ export const playOutcomeInfectedAnimation = async (outcome) => await playInfecte
  * @param {Outcome} outcome
  */
 export const playAttackOutcomeAnimation = async (outcome) => {
+  console.log('playAttackOutcomeAnimation', outcome)
   switch (outcome.result) {
-    case CONFIG.PB.outcome.fumble:
+    case OUTCOME_TEST.FUMBLE:
       await playFumbleAnimation(outcome.targetToken);
       break;
-    case CONFIG.PB.outcome.critical_success:
-      await playCriticalHitAnimation(playCriticalHitAnimation);
+    case OUTCOME_TEST.CRITICAL_SUCCESS:
+      await playCriticalHitAnimation(outcome.targetToken);
       break;
-    case CONFIG.PB.outcome.failure:
-      await playMissAnimation(playMissAnimation);
+    case OUTCOME_TEST.FAILURE:
+      await playMissAnimation(outcome.targetToken);
       break;
-    case CONFIG.PB.outcome.success:
-      await playHitAnimation(playHitAnimation);
+    case OUTCOME_TEST.SUCCESS:
+      await playHitAnimation(outcome.targetToken);
       break;
   }
 };
@@ -99,17 +101,18 @@ export const playAttackOutcomeAnimation = async (outcome) => {
  * @param {Outcome} outcome
  */
 export const playDefendOutcomeAnimation = async (outcome) => {
+  console.log('playDefendOutcomeAnimation', outcome)
   switch (outcome.result) {
-    case CONFIG.PB.outcome.fumble:
+    case OUTCOME_TEST.FUMBLE:
       await playFumbleAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.critical_success:
+    case OUTCOME_TEST.CRITICAL_SUCCESS:
       await playCriticalSuccessAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.failure:
+    case OUTCOME_TEST.FAILURE:
       await playHitAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.success:
+    case OUTCOME_TEST.SUCCESS:
       await playDodgeAnimation(outcome.initiatorToken);
       break;
   }
@@ -119,17 +122,18 @@ export const playDefendOutcomeAnimation = async (outcome) => {
  * @param {Outcome} outcome
  */
 export const playSimpleOutcomeAnimation = async (outcome) => {
+  console.log('playSimpleOutcomeAnimation', outcome)
   switch (outcome.result) {
-    case CONFIG.PB.outcome.fumble:
+    case OUTCOME_TEST.FUMBLE:
       await playCriticalFailureAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.critical_success:
+    case OUTCOME_TEST.CRITICAL_SUCCESS:
       await playCriticalSuccessAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.failure:
+    case OUTCOME_TEST.FAILURE:
       await playFailureAnimation(outcome.initiatorToken);
       break;
-    case CONFIG.PB.outcome.success:
+    case OUTCOME_TEST.SUCCESS:
       await playSuccessAnimation(outcome.initiatorToken);
       break;
   }

@@ -18,7 +18,7 @@ class DefendDialog extends Application {
     this.modifiers = this._getModifiers();
 
     if (targetSelectionEnabled()) {
-      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat();
+      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
       this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
@@ -40,7 +40,7 @@ class DefendDialog extends Application {
   /** @override */
   async getData() {
     const defendDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
-    const defendArmor = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor().damageReductionDie ?? 0;
+    const defendArmor = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor?.damageReductionDie ?? 0;
     const incomingAttack = await this._getIncomingAttack();
 
     return {
@@ -92,7 +92,7 @@ class DefendDialog extends Application {
       total: 0,
       warning: [],
     };
-    const armor = this.actor.equippedArmor();
+    const armor = this.actor.equippedArmor;
     if (armor) {
       const { defenseModifier } = CONFIG.PB.armorTiers[armor.data.data.tier.max];
       if (defenseModifier) {
@@ -100,7 +100,7 @@ class DefendDialog extends Application {
         modifiers.warning.push(`${armor.name}: ${game.i18n.localize("PB.DR")} + ${defenseModifier}`);
       }
     }
-    if (this.actor.isEncumbered()) {
+    if (this.actor.isEncumbered) {
       modifiers.total += 2;
       modifiers.warning.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} + 2`);
     }

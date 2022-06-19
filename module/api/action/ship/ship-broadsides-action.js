@@ -18,8 +18,6 @@ export const shipBroadsidesAction = async (actor, isPCAction) => {
     enableTargetSelection: true,
   });
 
-  console.log("shipBroadsidesAction", selectedActor, selectedActor?.getRollData());
-
   const outcome = await createBroadsidesOutcome({
     actor,
     crew: selectedActor,

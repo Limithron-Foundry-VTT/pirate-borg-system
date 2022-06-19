@@ -1,4 +1,4 @@
-import { actorPartyInitiativeAction } from "../api/action/actor/actor-group-initiative-action.js";
+import { actorPartyInitiativeAction } from "../api/action/actor/actor-party-initiative-action.js";
 
 /**
  * @param {CombatTracker} tracker

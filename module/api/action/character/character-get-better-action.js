@@ -1,12 +1,10 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { drawRelic, drawRitual, executeCompendiumMacro, findTableItems } from "../../../compendium.js";
+import { executeCompendiumMacro } from "../../../compendium.js";
 import { handleActorGettingBetterItems } from "../../generator/character-generator.js";
 import { createRollAbilityOutcome } from "../../outcome/character/get-better/roll-ability-outcome.js";
 import { createRollHPOutcome } from "../../outcome/character/get-better/roll-hp-outcome.js";
 import { createRollLootOutcome } from "../../outcome/character/get-better/roll-loot-outcome.js";
-import { createRollSilverOutcome } from "../../outcome/character/get-better/roll-silver-outcome.js";
-import { createDrawOutcome } from "../../outcome/draw-outcome.js";
-import { createOutcome } from "../../outcome/outcome.js";
+import { outcome } from "../../outcome/outcome.js";
 
 /**
  * @param {PBActor} actor
@@ -20,7 +18,7 @@ export const characterGetBetterAction = async (actor) => {
     await rollAbility(actor, CONFIG.PB.abilityKey.presence),
     await rollAbility(actor, CONFIG.PB.abilityKey.toughness),
     await rollAbility(actor, CONFIG.PB.abilityKey.spirit),
-    ...(await rollLoot(actor)),
+    await rollLoot(actor),
     ...((await rollGetBetterItems(actor)) ?? []),
   ];
 
@@ -33,29 +31,12 @@ export const characterGetBetterAction = async (actor) => {
   await invokeGettingBetterMacro(actor);
 };
 
-const invokeGettingBetterMacro = async (actor) => {
-  const cls = actor.getCharacterClass();
-  await executeCompendiumMacro(cls.getData().gettingBetterMacro, {
-    actor,
-    item: cls,
-  });
-  const baseClass = await actor.getCharacterBaseClassItem();
-  if (baseClass) {
-    await executeCompendiumMacro(baseClass.getData().gettingBetterMacro, {
-      actor,
-      item: baseClass,
-    });
-  }
-};
-
 /**
  * @param {PBActor} actor
  * @returns {Promise.<Array.<Outcome>>}
  */
 const rollHP = async (actor) => {
-  const outcome = await createRollHPOutcome({
-    hp: actor.attributes.hp.max,
-  });
+  const outcome = await createRollHPOutcome({ hp: actor.attributes.hp.max });
   await actor.updateHp({ max: outcome.newHP });
   return outcome;
 };
@@ -76,55 +57,15 @@ const rollAbility = async (actor, ability) => {
 
 const rollLoot = async (actor) => {
   const outcome = await createRollLootOutcome();
-  const outcomes = [outcome];
   switch (true) {
-    case outcome.total === 4:
-      outcomes.push(await rollSilver(actor));
+    case outcome.hasSilver:
+      await actor.updateSilver(actor.silver + outcome.secondaryOutcome.total);
       break;
-    case outcome.total === 5:
-      outcomes.push(await rollRelic(actor));
-      break;
-    case outcome.total === 6:
-      outcomes.push(await rollRitual(actor));
+    case outcome.hasRitual:
+    case outcome.hasRelic:
+      await actor.createEmbeddedDocuments("Item", [outcome.secondaryOutcome.itemData]);
       break;
   }
-
-  return outcomes;
-};
-
-const rollSilver = async (actor) => {
-  const outcome = await createRollSilverOutcome();
-  await actor.updateSilver(actor.silver + outcome.total);
-  return outcome;
-};
-
-const rollRelic = async (actor) => {
-  const rollTableDraw = await drawRelic();
-  const item = (await findTableItems(rollTableDraw.results))[0];
-
-  const outcome = await createDrawOutcome({
-    rollTableDraw,
-    description: game.i18n.format("PB.GetBetterLootRelic", { link: item.link }),
-  });
-
-  await actor.createEmbeddedDocuments("Item", [item.data]);
-
-  return outcome;
-};
-
-const rollRitual = async (actor) => {
-  const rollTableDraw = await drawRitual();
-  const item = (await findTableItems(rollTableDraw.results))[0];
-
-  const outcome = await createDrawOutcome({
-    rollTableDraw,
-    description: game.i18n.format("PB.GetBetterLootRitual", {
-      link: item.link,
-    }),
-  });
-
-  await actor.createEmbeddedDocuments("Item", [item.data]);
-
   return outcome;
 };
 
@@ -132,9 +73,19 @@ const rollGetBetterItems = async (actor) => {
   const gettingBetterItems = await handleActorGettingBetterItems(actor);
   if (gettingBetterItems.length === 0) return;
   return [
-    await createOutcome({
+    await outcome({
       title: game.i18n.localize("PB.GettingBetterClassFeatures"),
       description: gettingBetterItems.map((item) => item.link),
-    }),
+    })(),
   ];
+};
+
+const invokeGettingBetterMacro = async (actor) => {
+  const cls = actor.characterClass;
+  await executeCompendiumMacro(cls.getData().gettingBetterMacro, { actor, item: cls });
+
+  const baseClass = await actor.characterBaseClass;
+  if (baseClass) {
+    await executeCompendiumMacro(baseClass.getData().gettingBetterMacro, { actor, item: baseClass });
+  }
 };

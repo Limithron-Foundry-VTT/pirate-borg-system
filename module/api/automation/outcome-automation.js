@@ -12,11 +12,12 @@ export class OutcomeAutomation {
       return false;
     }
 
-    console.log("OutcomeAutomation::execute", outcome);
+    console.log("OutcomeAutomation::execute 1 ", outcome);
 
     outcome.automationDone = true;
     const automationCandidates = OutcomeAutomation.automations.filter((automation) => automation.filter(outcome));
     for (const automationCandidate of automationCandidates) {
+      console.log("OutcomeAutomation::execute 2", outcome, automationCandidate.execute);
       await automationCandidate.execute(outcome);
     }
     return true;

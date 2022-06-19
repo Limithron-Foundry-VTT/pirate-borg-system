@@ -1,65 +1,87 @@
 import { asyncPipe, evaluateFormula } from "../../utils.js";
 
-const OUTCOME_TEST = {
+export const OUTCOME_TEST = {
   SUCCESS: "success",
   FAILURE: "failure",
   CRITICAL_SUCCESS: "critical_success",
   FUMBLE: "fumble",
 }
 
-export const outcome = ({ type = "outcome", ...props }) => ({ type, ...props });
+export const outcome = ({ type = "outcome", title = "", description = "", ...props }) => () => ({ id: randomID(), type, title, description, ...props });
 
-export const withProps = (props) => (outcome) => ({ ...outcome, ...props });
+/**
+ * @param {string} options
+ * @param {string} options.type
+ * @param {string} options.title
+ * @param {string} options.draw
+ * @param {string} options.description 
+ * @param {string} props  
+ * @returns 
+ */
+export const drawOutcome = ({ type = "draw", title, description, draw, ...props } = {}) => asyncPipe(
+  outcome({ type, title, description, ...props }),
+  withDraw({ draw })
+);
+
+export const rollOutcome = ({ type = "roll", title, description, formula, formulaLabel, data, ...props } = {}) => asyncPipe(
+  outcome({ type, title, description, ...props }),
+  withRoll({ formula, formulaLabel, data }),
+);
+
+export const testOutcome = ({ type = "test", title, description, formula, formulaLabel, data, dr, fumbleOn, critOn, ...props } = {}) => asyncPipe(
+  outcome({ type, title, description, ...props }),
+  withRoll({ formula, formulaLabel, data }),
+  withTest({ dr, fumbleOn, critOn })
+);
+
+export const withProps = ({ ...props }) => (outcome) => ({ ...outcome, ...props });
+
+export const withWhen = (cond, f) => async outcome => await cond(outcome) ? await f(outcome) : outcome;
 
 export const withAsyncProps = (props) => async outcome => {
-  for ([key, fn] of Object.entries(props)) {
+  for (const [key, fn] of Object.entries(props)) {
     outcome = { ...outcome, [key]: (await fn(outcome)) };
   }
   return outcome;
 }
 
-export const withRoll = ({ formula = "d20", formulaLabel, data = {} } = {}) => async outcome => ({
+export const withRoll = ({ formula = "d20", formulaLabel = `${formula}`, data = {} } = {}) => async outcome => ({
   ...outcome,
   formula,
   formulaLabel: formulaLabel ?? formula,
-  roll: evaluateFormula(formula, data),
+  roll: await evaluateFormula(formula, data),
 });
 
-export const withTest = ({ dr = 12, fumbleOn = 1, critOn = 20 } = {}) => async outcome => asyncPipe(
+export const withTest = ({ dr = 12, fumbleOn = 1, critOn = 20 } = {}) => outcome => asyncPipe(
   withProps({
-    isSuccess: outcome.roll?.total >= dr,
-    isFailure: outcome.roll?.total < dr,
-    isCriticalSuccess: outcome.roll?.total >= critOn,
-    isFumble: outcome.roll?.total >= fumbleOn,
+    dr,
+    fumbleOn,
+    critOn,
+    isSuccess: outcome.roll.total >= dr,
+    isFailure: outcome.roll.total < dr,
+    isCriticalSuccess: outcome.roll.terms[0].results[0].result >= critOn,
+    isFumble: outcome.roll.terms[0].results[0].result <= fumbleOn,
   }),
   withAsyncProps({
     result: (outcome) => {
       switch (true) {
+        case outcome.isCriticalSuccess:
+          return OUTCOME_TEST.CRITICAL_SUCCESS;
+        case outcome.isFumble:
+          return OUTCOME_TEST.FUMBLE;          
         case outcome.isSuccess:
           return OUTCOME_TEST.SUCCESS;
         case outcome.isFailure:
           return OUTCOME_TEST.FAILURE;
-        case outcome.isCriticalSuccess:
-          return OUTCOME_TEST.CRITICAL_SUCCESS;
-        case outcome.isFumble:
-          return OUTCOME_TEST.FUMBLE;
       }
     }
   })
-);
+)(outcome);
 
-export const withDraw = ({ draw, formulaLabel }) => async outcome => ({
+export const withDraw = ({ draw }) => async outcome => ({
   ...outcome,
   formula: draw.roll.formula,
-  formulaLabel: formulaLabel ?? draw.roll.formula,
+  formulaLabel: draw.roll.formula,
   roll: draw.roll,
+  description: draw.results.map((r) => r.data.text),
 });
-
-
-
-
-
-
-
-
-

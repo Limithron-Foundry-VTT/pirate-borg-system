@@ -2,7 +2,7 @@ import { actorRollAbilityAction } from "../actor/actor-roll-ability-action.js";
 
 export const characterRollAgilityAction = async (actor) => {
   const drModifiers = [];
-  const armor = actor.equippedArmor();
+  const armor = actor.equippedArmor;
 
   if (armor) {
     const armorTier = CONFIG.PB.armorTiers[armor.data.data.tier.max];
@@ -11,7 +11,7 @@ export const characterRollAgilityAction = async (actor) => {
     }
   }
 
-  if (actor.isEncumbered()) {
+  if (actor.isEncumbered) {
     drModifiers.push(`${game.i18n.localize("PB.Encumbered")} (${game.i18n.localize("PB.DR")} + 2)`);
   }
 
@@ -21,7 +21,7 @@ export const characterRollAgilityAction = async (actor) => {
 export const characterRollStrengthAction = async (actor) => {
   const drModifiers = [];
 
-  if (actor.isEncumbered()) {
+  if (actor.isEncumbered) {
     drModifiers.push(`${game.i18n.localize("PB.Encumbered")} (${game.i18n.localize("PB.DR")} + 2)`);
   }
 

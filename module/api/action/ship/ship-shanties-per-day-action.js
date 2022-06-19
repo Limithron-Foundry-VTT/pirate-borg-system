@@ -10,7 +10,7 @@ export const shipShantiesPerDayAction = async (actor) => {
 
   const outcome = await createShantiesPerDayOutcome({ actor: captain });
 
-  await actor.updateShanties({ max: outcome.total, value: outcome.total });
+  await actor.updateShanties({ max: outcome.roll.total, value: outcome.roll.total });
 
   await showGenericCard({
     actor,

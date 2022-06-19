@@ -1,3 +1,5 @@
+import { findCompendiumItem } from "../compendium.js";
+
 export const migrate = () => {
   // Determine whether a system migration is required and feasible
   if (!game.user.isGM) {
@@ -34,8 +36,9 @@ const migrateWorld = async () => {
 const migrateActors = async () => {
   for (const actor of game.actors.values()) {
     try {
-      const updateData = migrateActorData(actor.data);
+      const updateData = await migrateActorData(actor.data);
       console.log(`-- Migrating Actor ${actor.name}`, updateData);
+
       await actor.update(updateData, { enforceTypes: false });
     } catch (err) {
       err.message = `Failed migration for Actor ${actor.name}: ${err.message}`;
@@ -44,7 +47,7 @@ const migrateActors = async () => {
   }
 };
 
-const migrateActorData = (data) => {
+const migrateActorData = async (data) => {
   const updateData = {};
 
   // common
@@ -130,5 +133,17 @@ const migrateActorData = (data) => {
     updateData["data.weapons.ram.die"] = data.data.ramDie;
     updateData["data.-=ramDie"] = null;
   }
+ 
+  if ("baseClass" in data.data) {
+    const baseClass = data.data.baseClass;
+    updateData["data.-=baseClass"] = null;
+    const [compendium, item] = baseClass.split(";");
+    if (compendium && item) {
+      const baseClassItem = await findCompendiumItem(compendium, item);
+      baseClassItem.isBaseClass = true;
+      updateData.items = [baseClassItem.toObject(false)];
+    }    
+  }
+
   return updateData;
 };

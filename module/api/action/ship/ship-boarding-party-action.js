@@ -12,6 +12,7 @@ export const shipBoardingPartyAction = async (actor) => {
     actor,
     title: game.i18n.localize("PB.ShipCrewActionBoardingParty"),
     description: game.i18n.localize("PB.ShipBoardingPartyMessage"),
+    buttonLabel: game.i18n.localize("PB.Ok"),
   });
 
   await showGenericCard({

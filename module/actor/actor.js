@@ -1,7 +1,7 @@
 import { trackCarryingCapacity } from "../system/settings.js";
 import { setSystemFlag } from "../utils.js";
 import { findCompendiumItem } from "../compendium.js";
-import { executeMacro } from "../macro-helpers.js";
+import { executeMacro } from "../macros.js";
 
 /**
  * @extends {Actor}
@@ -9,44 +9,38 @@ import { executeMacro } from "../macro-helpers.js";
 export class PBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
-    mergeObject(data, CONFIG.PB.actorDefaults[data.type] || {}, {
-      overwrite: false,
-    });
+    mergeObject(data, CONFIG.PB.actorDefaults[data.type] || {}, { overwrite: false });
     return super.create(data, options);
   }
 
   /** @override */
-  _onCreate(data, options, userId) {
+  async _onCreate(data, options, userId) {
     if (data.type === CONFIG.PB.actorTypes.character) {
-      this._addDefaultClass();
+      if (!this.characterClass) {
+        const defaultClass = await findCompendiumItem("pirateborg.class-landlubber", "Landlubber");
+        await this.createEmbeddedDocuments("Item", [defaultClass.data]);
+      }
     }
-    super._onCreate(data, options, userId);
-  }
-
-  async _addDefaultClass() {
-    const characterClass = this.getCharacterClass();
-    if (!characterClass) {
-      const defaultClass = await findCompendiumItem("pirateborg.class-landlubber", "Landlubber");
-      await this.createEmbeddedDocuments("Item", [defaultClass.data]);
-    }
+    await super._onCreate(data, options, userId);
   }
 
   /** @override */
-  async prepareDerivedData() {
+  prepareDerivedData() {
     super.prepareDerivedData();
     this._prepareItemsDerivedData();
+
     this.getData().dynamic = this.getData().dynamic ?? {};
 
     switch (this.type) {
       case CONFIG.PB.actorTypes.character:
-        await this._prepareCharacterDerivedData();
+        this._prepareCharacterDerivedData();
         break;
       case CONFIG.PB.actorTypes.container:
-        await this._prepareContainerDerivedData();
+        this._prepareContainerDerivedData();
         break;
       case CONFIG.PB.actorTypes.vehicle:
       case CONFIG.PB.actorTypes.vehicle_npc:
-        await this._prepareVehicleDerivedData();
+        this._prepareVehicleDerivedData();
         break;
     }
   }
@@ -56,43 +50,51 @@ export class PBActor extends Actor {
   }
 
   async _prepareCharacterDerivedData() {
-    this.getData().dynamic.carryingWeight = this.carryingWeight();
-    this.getData().dynamic.carryingCapacity = this.normalCarryingCapacity();
-    this.getData().dynamic.encumbered = this.isEncumbered();
-    this.getData().dynamic.baseClass = (await this.getCharacterBaseClassItem())?.toObject(true);
+    this.dynamic.carryingWeight = this.carryingWeight;
+    this.dynamic.carryingCapacity = this.normalCarryingCapacity;
+    this.dynamic.encumbered = this.isEncumbered;
+
+    this.dynamic.useExtraResource = this.characterClass?.useExtraResource || this.characterBaseClass?.useExtraResource;
+    this.dynamic.extraResourceNamePlural = this.characterClass?.extraResourceNamePlural || this.characterBaseClass?.extraResourceNamePlural;
+    this.dynamic.extraResourceNameSingular = this.characterClass?.extraResourceNameSingular || this.characterBaseClass?.extraResourceNameSingular;
+    this.dynamic.extraResourceFormula = this.characterClass?.extraResourceFormula || this.characterBaseClass?.extraResourceFormula;
+    this.dynamic.extraResourceFormulaLabel = this.characterClass?.extraResourceFormulaLabel || this.characterBaseClass?.extraResourceFormulaLabel;
+    this.dynamic.extraResourceTestFormula = this.characterClass?.extraResourceTestFormula || this.characterBaseClass?.extraResourceTestFormula;
+    this.dynamic.extraResourceTestFormulaLabel = this.characterClass?.extraResourceTestFormulaLabel || this.characterBaseClass?.extraResourceTestFormulaLabel;
+
+    this.dynamic.luckDie = this.characterClass?.luckDie || this.characterBaseClass?.luckDie;
   }
 
   async _prepareContainerDerivedData() {
-    this.getData().dynamic.containerSpace = this.containerSpace();
+    this.dynamic.containerSpace = this.containerSpace;
   }
 
   async _prepareVehicleDerivedData() {
-    this.getData().attributes.cargo.value = this.cargoItems.length;
-    if (this.getData().weapons.broadsides.quantity > 1) {
-      this.getData().dynamic.hasBroadsidesPenalties =
-        this.getData().attributes.hp.value < this.getData().attributes.hp.max - this.getData().attributes.hp.max / this.getData().weapons.broadsides.quantity;
+    this.attributes.cargo.value = this.cargoItems.length;
+    if (this.weapons.broadsides.quantity > 1) {
+      this.dynamic.hasBroadsidesPenalties = this.attributes.hp.value < this.attributes.hp.max - this.attributes.hp.max / this.weapons.broadsides.quantity;
     } else {
-      this.getData().dynamic.hasBroadsidesPenalties = false;
+      this.dynamic.hasBroadsidesPenalties = false;
     }
-    if (this.getData().weapons.smallArms.quantity > 1) {
-      this.getData().dynamic.hasSmallArmsPenalties =
-        this.getData().attributes.hp.value < this.getData().attributes.hp.max - this.getData().attributes.hp.max / this.getData().weapons.smallArms.quantity;
+    if (this.weapons.smallArms.quantity > 1) {
+      this.dynamic.hasSmallArmsPenalties = this.attributes.hp.value < this.attributes.hp.max - this.attributes.hp.max / this.weapons.smallArms.quantity;
     } else {
-      this.getData().dynamic.hasSmallArmsPenalties = false;
+      this.dynamic.hasSmallArmsPenalties = false;
     }
   }
 
   /** @override */
   async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     if (this.type === CONFIG.PB.actorTypes.character && documents[0].type === CONFIG.PB.itemTypes.class) {
+      console.log(documents[0].isBaseClass);
       await this.deleteEmbeddedDocuments(
         "Item",
         this.items
           .filter((item) => item.type === CONFIG.PB.itemTypes.class)
+          .filter((item) => !documents[0].isBaseClass ? true : item.isBaseClass === documents[0].isBaseClass)
           .filter((item) => item.id !== documents[0].id)
           .map((item) => item.id),
       );
-      await this.setBaseCharacterClass("");
     }
     await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
   }
@@ -119,6 +121,43 @@ export class PBActor extends Actor {
     await this.update({ [`data.${key}`]: value });
   }
 
+  // actor type properties
+  /**
+   * @returns {Boolean}
+   */
+  get isCharacter() {
+    return this.type === CONFIG.PB.actorTypes.character;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isCreature() {
+    return this.type === CONFIG.PB.actorTypes.creature;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isVehicle() {
+    return this.type === CONFIG.PB.actorTypes.vehicle;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isVehicleNpc() {
+    return this.type === CONFIG.PB.actorTypes.vehicle_npc;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isAnyVehicle() {
+    return this.isVehicle || this.isVehicleNpc;
+  }
+
+  // common
   get attributes() {
     return this.getData().attributes;
   }
@@ -131,12 +170,12 @@ export class PBActor extends Actor {
     return this.getData().abilities;
   }
 
-  get silver() {
-    return this.getData().silver;
+  async updateAbilities(value) {
+    await this.updateData("abilities", value);
   }
-
-  async updateSilver(value) {
-    await this.updateData("silver", value);
+  
+  get dynamic() {
+    return this.getData().dynamic;
   }
 
   get hp() {
@@ -145,6 +184,15 @@ export class PBActor extends Actor {
 
   async updateHp(value) {
     await this.updateAttributes({ hp: value });
+  }
+
+  // characters
+  get silver() {
+    return this.getData().silver;
+  }
+
+  async updateSilver(value) {
+    await this.updateData("silver", value);
   }
 
   get luck() {
@@ -171,60 +219,177 @@ export class PBActor extends Actor {
     await this.updateAttributes({ extraResource: value });
   }
 
-  /**
-   * @returns {Boolean}
-   */
-  isCharacter() {
-    return this.type === CONFIG.PB.actorTypes.character;
+  // Creature
+  get morale() {
+    return this.attributes.morale;
   }
 
-  /**
-   * @returns {Boolean}
-   */
-  isCreature() {
-    return this.type === CONFIG.PB.actorTypes.creature;
+  // extra character properties
+  get luckDie() {
+    return this.dynamic.luckDie;
   }
 
-  /**
-   * @returns {Boolean}
-   */
-  isVehicle() {
-    return this.type === CONFIG.PB.actorTypes.vehicle;
+  get useExtraResource() {
+    return this.dynamic.useExtraResource;
   }
 
-  /**
-   * @returns {Boolean}
-   */
-  isVehicleNpc() {
-    return this.type === CONFIG.PB.actorTypes.vehicle_npc;
+  get extraResourceNameSingular() {
+    return this.dynamic.extraResourceNameSingular;
   }
 
-  /**
-   * @returns {Boolean}
-   */
-  isAnyVehicle() {
-    return this.isVehicle() || this.isVehicleNpc();
+  get extraResourceNamePlural() {
+    return this.dynamic.extraResourceNamePlural;
+  }
+
+  get extraResourceFormula() {
+    return this.dynamic.extraResourceFormula;
+  }
+
+  get extraResourceFormulaLabel() {
+    return this.dynamic.extraResourceFormulaLabel;
+  }
+
+  get extraResourceTestFormula() {
+    console.log(this.dynamic, this.dynamic.extraResourceTestFormula);
+    return this.dynamic.extraResourceTestFormula;
+  }
+
+  get extraResourceTestFormulaLabel() {
+    return this.dynamic.extraResourceTestFormulaLabel;
   }
 
   /**
    * @returns {PBItem}
    */
-  equippedArmor() {
+  get characterClass() {
+    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class && item.isBaseClass !== true);
+  }
+
+  /**
+   * @returns {PBItem}
+   */
+  get characterBaseClass() {
+    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class && item.isBaseClass === true);
+  }
+
+  /**
+   * @returns {PBItem}
+   */
+  get equippedArmor() {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.armor && item.equipped);
   }
 
   /**
    * @returns {PBItem}
    */
-  equippedHat() {
+  get equippedHat() {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.hat && item.equipped);
   }
 
   /**
    * @returns {PBItem}
    */
-  firstEquippedWeapon() {
+  get firstEquippedWeapon() {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.weapon && item.equipped);
+  }
+
+  get normalCarryingCapacity() {
+    return this.abilities.strength.value + 8;
+  }
+
+  get maxCarryingCapacity() {
+    return 2 * this.normalCarryingCapacity;
+  }
+
+  get carryingWeight() {
+    return this.data.items
+      .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
+      .filter((item) => !(item.isHat && item.equipped))
+      .filter((item) => !(item.isArmor && item.equipped))
+      .reduce((weight, item) => weight + item.totalCarryWeight, 0);
+  }
+
+  get isEncumbered() {
+    if (!trackCarryingCapacity()) {
+      return false;
+    }
+    return this.carryingWeight > this.normalCarryingCapacity;
+  }
+
+  get containerSpace() {
+    return this.data.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get isInCombat() {
+    return (game.combats.active?.combatants ?? []).some((combatant) => combatant.actor.id === this.id);
+  }
+
+  // Ships
+  get cargoItems() {
+    return this.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo);
+  }
+
+  get weapons() {
+    return this.getData().weapons;
+  }
+
+  get broadsidesDie() {
+    return this.weapons?.broadsides.die;
+  }
+
+  get smallArmsDie() {
+    return this.weapons?.smallArms.die;
+  }
+
+  get ramDie() {
+    return this.weapons?.ram.die;
+  }
+
+  get captain() {
+    return this.getData().captain;
+  }
+
+  async setCaptain(actorId) {
+    return await this.updateData("captain", actorId);
+  }
+
+  get shanties() {
+    return this.attributes.shanties;
+  }
+
+  async updateShanties(value) {
+    await this.updateAttributes({ shanties: value });
+  }
+
+  get crews() {
+    return this.getData().crews || [];
+  }
+
+  async updateCrews(crews) {
+    return await this.updateData("crews", crews);
+  }
+
+  // crew management
+  async addCrew(actorId) {
+    if (!this.crews.includes(actorId)) {
+      return await this.updateCrews([...this.crews, actorId]);
+    }
+  }
+
+  async removeCrew(actorId) {
+    const crews = this.crews.filter((crew) => crew !== actorId);
+    if (this.captain === actorId) {
+      await this.setCaptain(null);
+    }
+    return await this.updateCrews(crews);
+  }
+
+  async clearCrews() {
+    await this.setCaptain(null);
+    return await this.updateCrews([]);
   }
 
   /**
@@ -250,171 +415,21 @@ export class PBActor extends Actor {
     return await item.unequip();
   }
 
-  normalCarryingCapacity() {
-    return this.abilities.strength.value + 8;
-  }
-
-  maxCarryingCapacity() {
-    return 2 * this.normalCarryingCapacity();
-  }
-
-  carryingWeight() {
-    return this.data.items
-      .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
-      .filter((item) => !(item.isHat && item.equipped))
-      .filter((item) => !(item.isArmor && item.equipped))
-      .reduce((weight, item) => weight + item.totalCarryWeight, 0);
-  }
-
-  isEncumbered() {
-    if (!trackCarryingCapacity()) {
-      return false;
-    }
-    return this.carryingWeight() > this.normalCarryingCapacity();
-  }
-
-  containerSpace() {
-    return this.data.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
-  }
-
-  /**
-   * @returns {Boolean}
-   */
-  isInCombat() {
-    return (game.combats.active?.combatants ?? []).some((combatant) => combatant.actor.id === this.id);
-  }
-
-  async useActionMacro(itemId) {
-    const item = this.items.get(itemId);
-    if (!item || !item.actionMacro) {
-      return;
-    }
-    const [compendium, macroName = null] = item.actionMacro.split(";");
-    if (compendium && macroName) {
-      const macro = await findCompendiumItem(compendium, macroName);
-      await executeMacro(macro, { actor: this, item });
-    } else {
-      const macro = game.macros.find((m) => m.name === macroName);
-      await executeMacro(macro, { actor: this, item });
-    }
-  }
-
-  getUseExtraResource() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().useExtraResource || this.getData().dynamic.baseClass?.useExtraResource;
-  }
-
-  getExtraResourceFormula() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().extraResourceFormula ?? this.getData().dynamic.baseClass?.extraResourceFormula;
-  }
-
-  getExtraResourceFormulaLabel() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().extraResourceFormulaLabel ?? this.getData().dynamic.baseClass?.extraResourceFormulaLabel;
-  }
-
-  getExtraResourceTestFormula() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().extraResourceTestFormula ?? this.getData().dynamic.baseClass?.extraResourceTestFormula;
-  }
-
-  getExtraResourceTestFormulaLabel() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().extraResourceTestFormulaLabel ?? this.getData().dynamic.baseClass?.extraResourceTestFormulaLabel;
-  }
-
-  getExtraResourceFormulaPlural() {
-    const characterClass = this.getCharacterClass();
-    return characterClass.getData().extraResourceNamePlural ?? this.getData().dynamic.baseClass?.extraResourceNamePlural;
-  }
-
-  getCharacterClass() {
-    return this.items.find((item) => item.type === CONFIG.PB.itemTypes.class);
-  }
-
-  async setBaseCharacterClass(baseClass) {
-    await this.update({ "data.baseClass": baseClass });
-  }
-
-  async getCharacterBaseClassItem() {
-    const [compendium, item] = this.getData().baseClass.split(";");
+  async setBaseClass(baseClass)  {
+    const [compendium, item] = baseClass.split(";");
     if (compendium && item) {
-      return await findCompendiumItem(compendium, item);
+      const baseClassItem = await findCompendiumItem(compendium, item);
+      baseClassItem.isBaseClass = true;
+      await this.createEmbeddedDocuments("Item", [baseClassItem.toObject(false)]);
     }
   }
-
-  getLuckDie() {
-    return this.getData().dynamic.baseClass?.data.luckDie ?? this.getCharacterClass().getData().luckDie ?? "";
-  }
-
-  // Ships
-  get cargoItems() {
-    return this.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo);
-  }
-
-  get broadsidesDie() {
-    return this.getData().weapons?.broadsides.die;
-  }
-
-  get smallArmsDie() {
-    return this.getData().weapons?.smallArms.die;
-  }
-
-  get ramDie() {
-    return this.getData().weapons?.ram.die;
-  }
-
-  get captain() {
-    return this.getData().captain;
-  }
-
-  async setCaptain(actorId) {
-    return await this.update({ "data.captain": actorId });
-  }
-
-  get shanties() {
-    return this.getData().attributes.shanties;
-  }
-
-  async updateShanties(value) {
-    await this.updateAttributes({ shanties: value });
-  }
-
-  get crews() {
-    return this.getData().crews || [];
-  }
-
-  async setCrews(crews) {
-    return await this.update({ "data.crews": crews });
-  }
-
-  async addCrew(actorId) {
-    if (!this.crews.includes(actorId)) {
-      return await this.setCrews([...this.crews, actorId]);
-    }
-  }
-
-  async removeCrew(actorId) {
-    const crews = this.crews.filter((crew) => crew !== actorId);
-    if (this.captain === actorId) {
-      await this.setCaptain(null);
-    }
-    return await this.setCrews(crews);
-  }
-
-  async clearCrews() {
-    await this.setCaptain(null);
-    return await this.setCrews([]);
-  }
-
   /**
    * @returns {String}
    */
   getActorArmorFormula() {
     switch (this.type) {
       case CONFIG.PB.actorTypes.character:
-        return this.equippedArmor()?.damageReductionDie ?? 0;
+        return this.equippedArmor?.damageReductionDie ?? 0;
       case CONFIG.PB.actorTypes.vehicle_npc:
       case CONFIG.PB.actorTypes.vehicle:
         return CONFIG.PB.armorTiers[this.attributes.hull.value].damageReductionDie;
@@ -431,7 +446,7 @@ export class PBActor extends Actor {
   getActorAttackFormula() {
     switch (this.type) {
       case CONFIG.PB.actorTypes.character:
-        return this.firstEquippedWeapon()?.damageDie ?? "1d2";
+        return this.firstEquippedWeapon?.damageDie ?? "1d2";
       case CONFIG.PB.actorTypes.creature:
         return this.attributes.attack.formula;
       case CONFIG.PB.actorTypes.vehicle_npc:
@@ -462,12 +477,27 @@ export class PBActor extends Actor {
    */
   getScalingFactorBetween(targetActor) {
     if (targetActor) {
-      if (this.isAnyVehicle() && (targetActor.isCharacter() || targetActor.isCreature())) {
+      if (this.isAnyVehicle && (targetActor.isCharacter || targetActor.isCreature)) {
         return "* 5";
       }
-      if (targetActor.isAnyVehicle() && (this.isCharacter() || this.isCreature())) {
+      if (targetActor.isAnyVehicle && (this.isCharacter || this.isCreature)) {
         return "/ 5";
       }
+    }
+  }
+
+  async useActionMacro(itemId) {
+    const item = this.items.get(itemId);
+    if (!item || !item.actionMacro) {
+      return;
+    }
+    const [compendium, macroName = null] = item.actionMacro.split(";");
+    if (compendium && macroName) {
+      const macro = await findCompendiumItem(compendium, macroName);
+      await executeMacro(macro, { actor: this, item });
+    } else {
+      const macro = game.macros.find((m) => m.name === macroName);
+      await executeMacro(macro, { actor: this, item });
     }
   }
 }

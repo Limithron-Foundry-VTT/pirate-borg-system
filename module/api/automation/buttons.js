@@ -78,7 +78,7 @@ export const createTakeDamageButton = ({ outcome = {} }) => ({
   },
 });
 
-export const createRelicButton = ({ outcome = {} }) => ({
+export const createTestRelicButton = ({ outcome = {} }) => ({
   title: game.i18n.localize("PB.TestRelic"),
   data: {
     action: OUTCOME_BUTTON.ANCIENT_RELIC,

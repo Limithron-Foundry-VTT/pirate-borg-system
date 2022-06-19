@@ -47,6 +47,10 @@ export const showDiceWithSound = async (rolls) => {
   playDiceSound();
 };
 
+/**
+ * @param {String} targetMessageId 
+ * @returns 
+ */
 export const waitForMessageRoll = (targetMessageId) => {
   const createHook = (resolve) => {
     Hooks.once("diceSoNiceRollComplete", (messageId) => {

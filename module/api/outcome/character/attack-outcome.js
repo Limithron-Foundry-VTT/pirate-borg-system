@@ -4,7 +4,7 @@ import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createInflictDamageButton } from "../../automation/buttons.js";
 import { withAdvancedAnimation, withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
@@ -47,13 +47,14 @@ const getDamageFormula = ({ actor, outcome, weapon, ammo, targetToken } = {}) =>
 
 export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, targetToken, armorFormula = "" }) =>
   asyncPipe(
-    outcome({ type: "attack", armorFormula }),
-    withRoll({
+    testOutcome({
+      type: "attack",
+      armorFormula,
       formula: `d20+@abilities.${weapon.attackAbility}.value`,
       formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilities[weapon.attackAbility])}`,
       data: actor.getRollData(),
+      dr,
     }),
-    withTest({ dr }),
     withTarget({ actor, targetToken }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),

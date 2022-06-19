@@ -3,7 +3,7 @@ import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createMysticalMishapButton } from "../../automation/buttons.js";
 import { withAdvancedAnimation, withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   switch (true) {
@@ -35,13 +35,12 @@ const getButton = (outcome) => {
 
 export const createInvokeRitualOutcome = async ({ actor }) =>
   asyncPipe(
-    outcome({ type: "invoke-ritual" }),
-    withRoll({
+    testOutcome({
+      type: "invoke-ritual",
       formula: "d20+@abilities.spirit.value",
       formulaLabel: `1d20 + ${game.i18n.localize("PB.AbilitySpirit")}`,
       data: actor.getRollData(),
     }),
-    withTest(),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
@@ -49,5 +48,5 @@ export const createInvokeRitualOutcome = async ({ actor }) =>
     withButton(getButton),
     withTarget({ actor }),
     withAnimation({ type: ANIMATION_TYPE.SIMPLE }),
-    withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.SPELL }),
+    withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL }),
   )();

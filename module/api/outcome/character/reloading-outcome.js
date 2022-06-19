@@ -4,4 +4,8 @@ import { withAnimation, withTarget } from "../automation-outcome.js";
 import { outcome } from "../outcome.js";
 
 export const createReloadingOutcome = async ({ actor }) =>
-  asyncPipe(outcome({ type: "reloading" }), withTarget({ actor }), withAnimation({ type: ANIMATION_TYPE.RELOADING }))();
+  asyncPipe(
+    outcome({ type: "reloading" }),
+    withTarget({ actor }),
+    withAnimation({ type: ANIMATION_TYPE.RELOADING })
+  )();

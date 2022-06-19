@@ -17,7 +17,7 @@ class AttackDialog extends Application {
     this.callback = callback;
 
     if (targetSelectionEnabled()) {
-      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat();
+      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
       this.targetToken = findTargettedToken();
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();

@@ -7,7 +7,7 @@ import { createReactionOutcome } from "../../outcome/creature/reaction-outcome.j
  * @returns {Promise.<ChatMessage>}
  */
 export const creatureReactionAction = async (actor) => {
-  const outcome = await createReactionOutcome({ actor });
+  const outcome = await createReactionOutcome();
 
   return await showGenericCard({
     title: game.i18n.localize("PB.Reaction"),

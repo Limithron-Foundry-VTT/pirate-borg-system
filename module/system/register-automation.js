@@ -3,13 +3,18 @@ import {
   playBroadsidesAdvancedAnimation,
   playBrokenAdvancedAnimation,
   playComeAboutAdvancedAnimation,
+  playDropAnchorAdvancedAnimation,
   playFullSailAdvancedAnimation,
   playHealAdvancedAnimation,
   playInfectedAdvancedAnimation,
+  playInvokeRelicAdvancedAnimation,
+  playInvokeRitualAdvancedAnimation,
   playRamAdvancedAnimation,
   playRepairAdvancedAnimation,
   playSmallarmsAdvancedAnimation,
   playStarvationAdvancedAnimation,
+  playTestRelicAdvancedAnimation,
+  playWeighAnchorAdvancedAnimation,
 } from "../api/animation/advanced-animation.js";
 import { applyHealOutcome, applyInflictDamageOutcome, applyTakeDamageOutcome, DAMAGE_TYPE } from "../api/automation/outcome-damage.js";
 import {
@@ -84,15 +89,14 @@ export const registerAutomation = () => {
   });
 
   // Advanced Animation
-
   OutcomeAutomation.register({
     filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.ITEM,
-    execute: async (outcome) => {}, //await playItemAnimation(outcome),
+    execute: async () => {}, //await playItemAnimation(outcome),
   });
 
   OutcomeAutomation.register({
     filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.DEFEND,
-    execute: async (outcome) => {}, //await playDefendOutcomeAnimation(outcome),
+    execute: async () => {}, //await playDefendOutcomeAnimation(outcome),
   });
 
   OutcomeAutomation.register({
@@ -126,6 +130,16 @@ export const registerAutomation = () => {
   });
 
   OutcomeAutomation.register({
+    filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.WEIGH_ANCHOR,
+    execute: playWeighAnchorAdvancedAnimation,
+  });
+
+  OutcomeAutomation.register({
+    filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.DROP_ANCHOR,
+    execute: playDropAnchorAdvancedAnimation,
+  });
+
+  OutcomeAutomation.register({
     filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.BROKEN && outcome.isDead,
     execute: playBrokenAdvancedAnimation,
   });
@@ -144,4 +158,20 @@ export const registerAutomation = () => {
     filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.HEAL,
     execute: playHealAdvancedAnimation,
   });
+
+  OutcomeAutomation.register({
+    filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.INVOKE_RELIC,
+    execute: playInvokeRelicAdvancedAnimation,
+  });
+
+  OutcomeAutomation.register({
+    filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.TEST_RELIC,
+    execute: playTestRelicAdvancedAnimation,
+  });
+
+  OutcomeAutomation.register({
+    filter: (outcome) => outcome.advancedAnimation?.type === ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL,
+    execute: playInvokeRitualAdvancedAnimation,
+  });
+  
 };

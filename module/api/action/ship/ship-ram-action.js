@@ -17,6 +17,7 @@ export const shipRamAction = async (actor) => {
     enableArmorSelection: true,
     enableMovementSelection: true,
     enableTargetSelection: true,
+    buttonLabel: game.i18n.localize("PB.RollDamageButton"),
   });
 
   const armorOutcome = await createArmorOutcome({ formula: selectedArmor });

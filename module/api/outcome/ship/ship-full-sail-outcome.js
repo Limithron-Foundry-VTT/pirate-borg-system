@@ -2,7 +2,7 @@ import { asyncPipe } from "../../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { withAdvancedAnimation, withAnimation, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js"
 
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
@@ -19,13 +19,13 @@ const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = fal
 
 export const createFullSailOutcome = async ({ actor, crew, dr = 12 }) =>
   asyncPipe(
-    outcome({ type: "crew-action" }),
-    withRoll({
+    testOutcome({
+      type: "crew-action",
       formula: crew ? "d20 + @abilities.agility.value + @crew.abilities.agility.value" : "d20 + @abilities.agility.value",
       formulaLabel: crew ? "d20 + Ship Agility + PC Agility" : "d20 + Ship Agility",
       data: { ...actor.getRollData(), crew: crew?.getRollData() },
+      dr,
     }),
-    withTest({ dr }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),

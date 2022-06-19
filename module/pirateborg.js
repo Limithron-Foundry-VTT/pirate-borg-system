@@ -44,7 +44,4 @@ Hooks.on("renderChatMessage", handleChatMessageButton);
 Hooks.on("renderChatMessage", handleChatMessageGMOnly);
 Hooks.on("renderChatMessage", handleChatMessageAutomation);
 
-// Hooks.on("renderChatMessage", renderChatMessageAnimation);
-// Hooks.on("renderChatMessage", renderChatMessageAdvancedAnimation);
-
 Hooks.on("dragRuler.ready", onDragRulerReady);

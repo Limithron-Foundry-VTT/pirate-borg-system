@@ -101,7 +101,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
       group.items.push(item);
       return items;
     };
-    sheetData.data.dynamic.class = this.actor.getCharacterClass();
+
+    sheetData.data.dynamic.class = this.actor.characterClass?.toObject(false);
+    sheetData.data.dynamic.baseClass = this.actor.characterBaseClass?.toObject(false);
 
     sheetData.data.dynamic.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
@@ -138,13 +140,17 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.dynamic.useExtraResource =
-      sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
-    sheetData.data.dynamic.extraResourceNamePlural =
-      sheetData.data.dynamic.class?.data?.data?.extraResourceNamePlural || sheetData.data.dynamic.baseClass?.data?.extraResourceNamePlural;
-    sheetData.data.dynamic.extraResourceFormulaLabel =
-      sheetData.data.dynamic.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.dynamic.baseClass?.data?.extraResourceFormulaLabel;
-    sheetData.data.dynamic.luckDie = sheetData.data.dynamic.class?.data?.data?.luckDie || sheetData.data.dynamic.baseClass?.data?.luckDie;
+    /*
+  sheetData.data.dynamic.useExtraResource =
+    sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
+  sheetData.data.dynamic.extraResourceNamePlural =
+    sheetData.data.dynamic.class?.data?.data?.extraResourceNamePlural || sheetData.data.dynamic.baseClass?.data?.extraResourceNamePlural;
+  sheetData.data.dynamic.extraResourceFormulaLabel =
+    sheetData.data.dynamic.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.dynamic.baseClass?.data?.extraResourceFormulaLabel;
+
+  sheetData.data.dynamic.luckDie = sheetData.data.dynamic.class?.data?.data?.luckDie || sheetData.data.dynamic.baseClass?.data?.luckDie;
+  
+  */
     sheetData.data.dynamic.trackCarryingCapacity = trackCarryingCapacity();
     sheetData.data.dynamic.trackAmmo = trackAmmo();
   }
@@ -192,7 +198,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   async _onBaseClassItem(event) {
     event.preventDefault();
-    (await this.actor.getCharacterBaseClassItem()).sheet.render(true);
+    this.actor.characterBaseClass.sheet.render(true);
   }
 
   /**
@@ -201,7 +207,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   async _onClassItem(event) {
     event.preventDefault();
-    (await this.actor.getCharacterClass()).sheet.render(true);
+    this.actor.characterClass.sheet.render(true);
   }
 
   /**

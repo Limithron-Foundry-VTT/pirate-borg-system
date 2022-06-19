@@ -23,7 +23,7 @@ export default class ActorBaseClassDialog extends Application {
   async getData(options = {}) {
     return mergeObject(super.getData(options), {
       classes: await this.getClassData(),
-      requireBaseClass: this.actor.getCharacterClass().getData().requireBaseClass,
+      requireBaseClass: this.actor.characterClass.getData().requireBaseClass,
     });
   }
 
@@ -66,7 +66,7 @@ export default class ActorBaseClassDialog extends Application {
     event.preventDefault();
     const form = $(event.currentTarget).parents("form")[0];
     const baseClass = $(form).find("#baseClass");
-    await this.actor.setBaseCharacterClass(baseClass.val());
+    await this.actor.setBaseClass(baseClass.val());
     this.close();
   }
 }

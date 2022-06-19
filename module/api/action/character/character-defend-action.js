@@ -21,7 +21,7 @@ export const characterDefendAction = async (actor) => {
     actor,
     title: game.i18n.localize("PB.Defend"),
     outcomes: [outcome],
-    items: [actor.equippedArmor(), actor.equippedHat()].filter((item) => item),
+    items: [actor.equippedArmor, actor.equippedHat].filter((item) => item),
     target: targetToken,
   });
 

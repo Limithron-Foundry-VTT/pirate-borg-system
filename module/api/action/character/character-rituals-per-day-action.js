@@ -10,7 +10,7 @@ import { createRitualPerDayOutcome } from "../../outcome/character/ritual-per-da
 export const characterRitualsPerDayAction = async (actor, { silent = false } = {}) => {
   const outcome = await createRitualPerDayOutcome({ actor });
 
-  await actor.updateRituals({ max: outcome.total, value: outcome.total });
+  await actor.updateRituals({ max: outcome.roll.total, value: outcome.roll.total });
 
   if (!silent) {
     await showGenericCard({

@@ -2,7 +2,7 @@ import { asyncPipe } from "../../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createTakeDamageButton } from "../../automation/buttons.js";
 import { withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
@@ -41,17 +41,17 @@ const getDamageFormula = ({ actor, outcome, damageFormula = "", targetToken } = 
 
 export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", armorFormula = "", targetToken }) =>
   asyncPipe(
-    outcome({ type: "defend" }),
-    withRoll({
+    testOutcome({
+      type: "defend",
       formula: `d20+@abilities.agility.value`,
       formulaLabel: game.i18n.localize(CONFIG.PB.abilities.agility),
       data: actor.getRollData(),
+      dr
     }),
-    withTest({ dr }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
-      armorFormula: () => armorFormula + (actor.equippedHat()?.reduceDamage ? " + 1" : ""),
+      armorFormula: () => armorFormula + (actor.equippedHat?.reduceDamage ? " + 1" : ""),
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, damageFormula, targetToken }),
     }),
     withButton(getButton),

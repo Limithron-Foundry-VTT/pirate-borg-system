@@ -4,8 +4,8 @@
  */
 export const pipe =
   (...fns) =>
-  (x) =>
-    fns.reduce((v, f) => f(v), x);
+    (x) =>
+      fns.reduce((v, f) => f(v), x);
 
 /**
  * @param  {...Promise.<any>} fns
@@ -13,8 +13,8 @@ export const pipe =
  */
 export const asyncPipe =
   (...fns) =>
-  (x) =>
-    fns.reduce(async (y, f) => f(await y), x);
+    (x) =>
+      fns.reduce(async (y, f) => f(await y), x);
 
 /**
  * @param {String} formula
@@ -31,9 +31,7 @@ export const evaluateFormula = async (formula, data) => {
  * @param {string} flag
  * @param {*} value
  */
-export const setSystemFlag = async (document, flag, value) => {
-  await document.setFlag(CONFIG.PB.flagScope, flag, value);
-};
+export const setSystemFlag = async (document, flag, value) => await document.setFlag(CONFIG.PB.flagScope, flag, value);
 
 /**
  * @param {Document} document

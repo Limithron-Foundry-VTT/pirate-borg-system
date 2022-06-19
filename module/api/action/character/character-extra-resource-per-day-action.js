@@ -8,18 +8,20 @@ import { createExtraResourcePerDayOutcome } from "../../outcome/character/extra-
  * @returns {Promise.<Outcome>}
  */
 export const characterExtraResourcePerDayAction = async (actor, { silent = false } = {}) => {
-  if (!actor.getUseExtraResource()) {
+  if (!actor.useExtraResource) {
     return;
   }
 
   const outcome = await createExtraResourcePerDayOutcome({ actor });
 
-  await actor.updateExtraResource({ max: outcome.total, value: outcome.total });
+  await actor.updateExtraResource({ max: outcome.roll.total, value: outcome.roll.total });
+
+  console.log(actor.extraResourceNamePlural, actor)
 
   if (!silent) {
     await showGenericCard({
       actor,
-      title: `${actor.getExtraResourceFormulaPlural()} ${game.i18n.localize("PB.PerDay")}`,
+      title: `${actor.extraResourceNamePlural} ${game.i18n.localize("PB.PerDay")}`,
       outcomes: [outcome],
     });
   }

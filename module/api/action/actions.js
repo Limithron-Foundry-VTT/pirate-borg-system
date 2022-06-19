@@ -1,6 +1,6 @@
 export * from "./actor/actor-roll-ability-action.js";
 export * from "./actor/actor-initiative-action.js";
-export * from "./actor/actor-group-initiative-action.js";
+export * from "./actor/actor-party-initiative-action.js";
 
 export * from "./character/character-attack-action.js";
 export * from "./character/character-broken-action.js";

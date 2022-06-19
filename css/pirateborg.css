@@ -196,6 +196,7 @@
   white-space: nowrap;
   text-transform: capitalize;
   margin-bottom: 4px;
+  width: 280px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-buttons-row {
   display: flex;

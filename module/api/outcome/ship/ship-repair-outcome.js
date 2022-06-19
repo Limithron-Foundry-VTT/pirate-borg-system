@@ -3,7 +3,7 @@ import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createShipRepairButton } from "../../automation/buttons.js";
 import { withAdvancedAnimation, withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
@@ -28,13 +28,13 @@ const getButton = (outcome) => {
 
 export const createRepairOutcome = async ({ actor, crew, dr = 12 }) =>
   asyncPipe(
-    outcome({ type: "crew-action" }),
-    withRoll({
+    testOutcome({
+      type: "crew-action",
       formula: crew ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value",
       formulaLabel: crew ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill",
       data: { ...actor.getRollData(), crew: crew?.getRollData() },
+      dr
     }),
-    withTest({ dr }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),

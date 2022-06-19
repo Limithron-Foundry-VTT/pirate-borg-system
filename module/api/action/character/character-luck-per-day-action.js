@@ -1,5 +1,5 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { createLuckPerDayOutcome } from "../../outcome/character/extra-luck-per-day-outcome.js";
+import { createLuckPerDayOutcome } from "../../outcome/character/luck-per-day-outcome.js";
 
 /**
  * @param {PBActor} actor
@@ -8,13 +8,9 @@ import { createLuckPerDayOutcome } from "../../outcome/character/extra-luck-per-
  * @returns {Promise.<Outcome>}
  */
 export const characterLuckPerDayAction = async (actor, { silent = false } = {}) => {
-  if (!actor.getCharacterClass()) {
-    return;
-  }
-
   const outcome = await createLuckPerDayOutcome({ actor });
 
-  await actor.updateLuck({ max: outcome.total, value: outcome.total });
+  await actor.updateLuck({ max: outcome.roll.total, value: outcome.roll.total });
 
   if (!silent) {
     await showGenericCard({

@@ -1,4 +1,4 @@
-import { isAutomaticDamageEnabled } from "../settings.js";
+import { isAutomaticDamageEnabled } from "../../system/settings.js";
 
 export const DAMAGE_TYPE = {
   HEAL: "heal",

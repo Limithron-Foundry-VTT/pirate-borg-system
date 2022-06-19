@@ -1,7 +1,7 @@
-import { executeCharacterCreationMacro } from "../macro-helpers.js";
 import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
-import { createCharacter, regenerateActor } from "../generator/character-generator.js";
+import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../compendium.js";
+import { executeCharacterCreationMacro } from "../macros.js";
 
 export default class CharacterGeneratorDialog extends Application {
   constructor(actor = null, options = {}) {
@@ -118,6 +118,9 @@ export default class CharacterGeneratorDialog extends Application {
           selectedClasses,
           actor: this.actor,
         });
+        if (this.actor) {
+          this.actor.sheet.render(true);
+        }
       }
       return;
     }

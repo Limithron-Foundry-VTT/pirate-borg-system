@@ -375,6 +375,81 @@ export class PBItem extends Item {
     return this.getData().maxQuantity;
   }
 
+
+  /**
+   * class properties
+   */
+
+  /**
+  * @returns {Boolean}
+  */
+  get isBaseClass() {
+    return this.getData().isBaseClass === true;
+  }
+
+  /**
+  * @param {Boolean} isBaseClass
+  */
+  set isBaseClass(isBaseClass) {
+    return this.getData().isBaseClass = isBaseClass;
+  }  
+
+  /**
+   * @returns {Number}  
+   */
+  get luckDie() {
+    return this.getData().luckDie;
+  }
+
+  /**
+   * @returns {Boolean}
+   */
+  get useExtraResource() {
+    return this.getData().useExtraResource;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get extraResourceNameSingular() {
+    return this.getData().extraResourceNameSingular;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get extraResourceNamePlural() {
+    return this.getData().extraResourceNamePlural;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get extraResourceFormula() {
+    return this.getData().extraResourceFormula;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get extraResourceFormulaLabel() {
+    return this.getData().extraResourceFormulaLabel;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get extraResourceTestFormula() {
+    return this.getData().extraResourceTestFormula;
+  }
+
+  /**
+ * @returns {String}
+ */
+  get extraResourceTestFormulaLabel() {
+    return this.getData().extraResourceTestFormulaLabel;
+  }
+
   /**
    * Item types properties
    */

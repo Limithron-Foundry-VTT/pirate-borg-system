@@ -1,13 +1,16 @@
+import { drawBroken } from "../../../compendium.js";
 import { asyncPipe } from "../../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { withAdvancedAnimation, withAnimation, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withDraw } from "../outcome.js";
+import { drawOutcome, withAsyncProps } from "../outcome.js";
 
 export const createBrokenOutcome = async ({ actor }) =>
   asyncPipe(
-    outcome({ type: "broken" }),
-    withDraw({ rollTableDraw: await drawBroken() }),
+    drawOutcome({
+      type: "broken",
+      draw: await drawBroken()
+    }),
     withTarget({ actor }),
     withAsyncProps({
       isDead: (outcome) => outcome.roll.total === 4,

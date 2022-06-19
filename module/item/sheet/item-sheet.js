@@ -44,7 +44,7 @@ export class PBItemSheet extends ItemSheet {
 
   _getHeaderAnimationButton() {
     return {
-      class: `vehicle-edit-dialog-button-${this.actor.id}`,
+      class: `edit-animation-dialog-button-${this.item.id}`,
       label: game.i18n.localize("PB.EditAnimation"),
       icon: "fas fa-edit",
       onclick: this._onEditAnimation.bind(this),
@@ -85,7 +85,7 @@ export class PBItemSheet extends ItemSheet {
     super.activateEditor(name, options, initialContent);
   }
 
-  _onEditAnimation(event) {
+  _onEditAnimation() {
     showAnimationDialog({ entity: this.item });
   }
 

@@ -21,6 +21,7 @@ class CrewActionDialog extends Application {
     enableArmorSelection = false,
     enableMovementSelection = false,
     enableTargetSelection = false,
+    buttonLabel = "PB.Roll",
     callback,
   } = {}) {
     super();
@@ -34,6 +35,7 @@ class CrewActionDialog extends Application {
     this.enableMovementSelection = enableMovementSelection;
     this.enableTargetSelection = enableTargetSelection;
     this.enforceTargetSelection = isEnforceTargetEnabled();
+    this.buttonLabel = buttonLabel;
     this.callback = callback;
 
     if (targetSelectionEnabled() && this.enableTargetSelection) {
@@ -63,6 +65,7 @@ class CrewActionDialog extends Application {
 
     return {
       config: CONFIG.pirateborg,
+      buttonLabel: this.buttonLabel,
       crews: this.actor.crews.map((actorId) => game.actors.get(actorId).data),
       enableCrewSelection: this.enableCrewSelection,
       enableDrSelection: this.enableDrSelection,
@@ -232,6 +235,7 @@ class CrewActionDialog extends Application {
  * @param {Boolean} data.enableMovementSelection
  * @param {Boolean} data.enableTargetSelection
  * @param {Boolean} data.canSubmit
+ * @param {String} data.buttonLabel
  * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String, selectedMovement: Number, targetToken: Token}>}
  */
 export const showCrewActionDialog = (data = {}) =>

@@ -52,7 +52,7 @@ class AnimationDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents("form")[0];
+    // const form = $(event.currentTarget).parents("form")[0];
 
     this.callback({});
     this.close();

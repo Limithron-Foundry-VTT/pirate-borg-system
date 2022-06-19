@@ -68,12 +68,12 @@ export const updateActorWithCharacter = async (actor, characterData) => {
  * @param {PBActor} actor
  */
 export const invokeStartingMacro = async (actor) => {
-  const cls = actor.getCharacterClass();
+  const cls = actor.characterClass;
   await executeCompendiumMacro(cls.getData().startingMacro, {
     actor,
     item: cls,
   });
-  const baseClass = await actor.getCharacterBaseClassItem();
+  const baseClass = actor.characterBaseClass;
   if (baseClass) {
     await executeCompendiumMacro(baseClass.getData().startingMacro, {
       actor,
@@ -252,8 +252,8 @@ export const findStartingBonusRollsItems = async (items) => {
  * @returns {Promise.<Array.<PBItem>>}
  */
 export const handleActorGettingBetterItems = async (actor) => {
-  const actorClass = actor.getCharacterClass();
-  const baseClass = await actor.getCharacterBaseClassItem();
+  const actorClass = actor.characterClass;
+  const baseClass = actor.characterBaseClass;
   let items = [];
   if (actorClass.data.data.gettingBetterRolls) {
     items = items.concat(await handleClassGettingBetterItems(actor, actorClass.data.data.gettingBetterRolls));

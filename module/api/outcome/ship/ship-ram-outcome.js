@@ -1,6 +1,10 @@
 import { asyncPipe } from "../../../utils.js";
+import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { withAdvancedAnimation, withTarget } from "../automation-outcome.js";
 import { outcome } from "../outcome.js";
 
-export const createRamOutcome = async ({ actor, targetToken }) =>
-asyncPipe(outcome({ type: "crew-attack" }), withTarget({ actor, targetToken }), withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.RAM }))();
+export const createRamOutcome = async ({ actor, targetToken }) => asyncPipe(
+  outcome({ type: "crew-attack" }),
+  withTarget({ actor, targetToken }),
+  withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.RAM })
+)();

@@ -1,4 +1,4 @@
-import { executeMacro } from "./macro-helpers.js";
+import { executeMacro } from "./macros.js";
 
 /**
  * @param {String} compendiumString

@@ -1,5 +1,5 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { createMoraleOutcome } from "../../outcome/creature/morate-outcome.js";
+import { createMoraleOutcome } from "../../outcome/creature/morale-outcome.js";
 
 /**
  * @param {PBActor} actor
@@ -12,6 +12,8 @@ export const creatureMoraleAction = async (actor) => {
   }
 
   const outcome = await createMoraleOutcome({ actor });
+
+  console.log(outcome)
 
   return await showGenericCard({
     title: game.i18n.localize("PB.Morale"),

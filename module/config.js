@@ -1,13 +1,6 @@
 /** @name CONFIG.PB */
 export const PB = {};
 
-PB.outcome = {
-  fumble: "fumble",
-  success: "success",
-  critical_success: "critical_success",
-  failure: "failure",
-};
-
 PB.abilityKey = {
   agility: "agility",
   presence: "presence",

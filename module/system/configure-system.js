@@ -6,25 +6,34 @@ import { PBCombat } from "./combat.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
-import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
 import * as characterGenerator from "../api/generator/character-generator.js";
-import * as macroHelpers from "../macro-helpers.js";
-import * as compendiumHelpers from "../compendium.js";
+import * as macros from "../macro.js";
+import * as utils from "../utils.js";
+import * as compendium from "../compendium.js";
 import * as actions from "../api/action/actions.js";
+import * as animations from "../api/animation/animation.js";
+import * as advancedAnimations from "../api/animation/advanced-animation.js";
+import * as outcomeAnimations from "../api/animation/outcome-animation.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
+import { showGenericCard } from "../chat-message/generic-card.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
     config: PB,
-    createPirateBorgMacro,
-    actions,
     PBActor,
     PBItem,
-    rollItemMacro,
-    characterGenerator,
-    macroHelpers,
-    compendiumHelpers,
+    api: {
+      actions,
+      compendium,
+      utils,      
+      animations,
+      advancedAnimations,
+      outcomeAnimations,
+      characterGenerator,
+      showGenericCard,
+      macros
+    },
   };
 
   CONFIG.Actor.documentClass = PBActor;

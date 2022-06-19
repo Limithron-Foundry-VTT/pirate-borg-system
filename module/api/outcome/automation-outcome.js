@@ -1,4 +1,4 @@
-import { getInitiatorToken } from "../api/automation/targeting.js";
+import { getInitiatorToken } from "../automation/targeting.js";
 
 export const withTarget =
   ({ actor, targetToken } = {}) =>

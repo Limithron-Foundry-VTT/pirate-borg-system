@@ -2,7 +2,7 @@ import { asyncPipe } from "../../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { withAdvancedAnimation, withAnimation, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   switch (true) {
@@ -19,13 +19,12 @@ const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
 
 export const createInvokeShantyOutcome = async ({ actor }) =>
   asyncPipe(
-    outcome({ type: "invoke-shanty" }),
-    withRoll({
+    testOutcome({
+      type: "invoke-shanty",
       formula: "d20 + @abilities.skill.value",
       formulaLabel: `1d20 + ${game.i18n.localize("PB.AbilitySkill")}`,
       data: actor.getRollData(),
     }),
-    withTest(),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),

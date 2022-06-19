@@ -3,7 +3,7 @@ import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { createInflictDamageButton } from "../../automation/buttons.js";
 import { withAdvancedAnimation, withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { outcome, withAsyncProps, withRoll, withTest } from "../outcome.js";
+import { testOutcome, withAsyncProps } from "../outcome.js";
 
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
@@ -42,13 +42,14 @@ const getDamageFormula = ({ actor, outcome, targetToken }) => {
 
 export const createSmallarmsOutcome = async ({ actor, crew, dr = 12, armorFormula = "", targetToken }) =>
   asyncPipe(
-    outcome({ type: "crew-attack", armorFormula }),
-    withRoll({
+    testOutcome({
+      type: "crew-attack", 
+      armorFormula,
       formula: crew ? "d20 + @abilities.skill.value + @crew.abilities.presence.value" : "d20 + @abilities.skill.value",
       formulaLabel: crew ? "d20 + Crew Skill + PC Presence" : "d20 + Crew Skill",
       data: { ...actor.getRollData(), crew: crew?.getRollData() },
+      dr,
     }),
-    withTest({ dr }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
@@ -56,6 +57,6 @@ export const createSmallarmsOutcome = async ({ actor, crew, dr = 12, armorFormul
     }),
     withButton(getButton),
     withTarget({ actor, targetToken }),
-    withAnimation({ type: ANIMATION_TYPE.SIMPLE }),
+    withAnimation({ type: ANIMATION_TYPE.ATTACK }),
     withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.SMALLARMS }),
   )();

@@ -84,7 +84,7 @@ const longRest = async (actor, foodAndDrink, infected) => {
 
   outcomes.push(await characterRitualsPerDayAction(actor, { silent: true }));
 
-  if (actor.getUseExtraResource()) {
+  if (actor.useExtraResource) {
     outcomes.push(await characterExtraResourcePerDayAction(actor, { silent: true }));
   }
 
