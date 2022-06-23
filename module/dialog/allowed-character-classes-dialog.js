@@ -20,10 +20,10 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".toggle-all").click((event) => this._onToggleAll(event));
-    html.find(".toggle-none").click((event) => this._onToggleNone(event));
-    html.find(".cancel-button").click((event) => this._onCancel(event));
-    html.find(".ok-button").click((event) => this._onOk(event));
+    html.find(".toggle-all").on("click", (event) => this._onToggleAll(event));
+    html.find(".toggle-none").on("click", (event) => this._onToggleNone(event));
+    html.find(".cancel-button").on("click", (event) => this._onCancel(event));
+    html.find(".ok-button").on("click",(event) => this._onOk(event));
   }
 
   getData(options = {}) {
@@ -55,9 +55,9 @@ export class AllowedCharacterClassesDialog extends FormApplication {
     $(form).find(".class-checkbox").prop("checked", false);
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   _onOk(event) {
@@ -76,6 +76,6 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
   /** @override */
   async _updateObject(event, formData) {
-    setAllowedCharacterGeneratorClasses(formData);
+    await setAllowedCharacterGeneratorClasses(formData);
   }
 }

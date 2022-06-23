@@ -1,6 +1,6 @@
 import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../system/settings.js";
 
-export default class HelpDialog extends Application {
+class HelpDialog extends Application {
   constructor(options = {}) {
     super(options);
   }
@@ -25,8 +25,11 @@ export default class HelpDialog extends Application {
     });
   }
 
-  getData() {
+  /** @override */
+  getData(options) {
+    const data = super.getData(options)
     return {
+      ...data,
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
@@ -36,7 +39,7 @@ export default class HelpDialog extends Application {
 
   activateListeners(html) {
     super.activateListeners(html);
-    html.find("#help-dialog-enable-premium").click(this._enablePremiumModule.bind(this));
+    html.find("#help-dialog-enable-premium").on("click", this._enablePremiumModule.bind(this));
   }
 
   _enablePremiumModule() {

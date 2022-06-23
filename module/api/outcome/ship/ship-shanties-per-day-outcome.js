@@ -1,7 +1,11 @@
 import { asyncPipe } from "../../utils.js";
 import { rollOutcome, withAsyncProps } from "../outcome.js";
 
-export const createShantiesPerDayOutcome = async ({ actor}) =>
+/**
+ * @param {PBActor} actor
+ * @return {Promise<Object>}
+ */
+export const createShantiesPerDayOutcome = async ({ actor }) =>
   asyncPipe(
     rollOutcome({
       type: "shanties-per-day",
@@ -10,6 +14,6 @@ export const createShantiesPerDayOutcome = async ({ actor}) =>
       data: actor.getRollData(),
     }),
     withAsyncProps({
-      title: (outcome) => `${outcome.roll.total} ${game.i18n.localize("PB.ShipMysticShanties")}`
+      title: (outcome) => `${outcome.roll.total} ${game.i18n.localize("PB.ShipMysticShanties")}`,
     }),
   )();

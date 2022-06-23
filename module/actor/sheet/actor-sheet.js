@@ -7,6 +7,7 @@ import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/g
  * @extends {ActorSheet}
  */
 export default class PBActorSheet extends ActorSheet {
+
   /**
    * @override
    */
@@ -30,6 +31,7 @@ export default class PBActorSheet extends ActorSheet {
    * @returns {PBItem}
    */
   getItem(event) {
+    /** @type {PBItem[]} this.actor.items */
     return this.actor.items.get(this.getItemId(event));
   }
 
@@ -44,7 +46,7 @@ export default class PBActorSheet extends ActorSheet {
   /**
    * @override
    *
-   * @param {jQuery} html
+   * @param {JQuery.<HTMLElement>} html
    */
   activateListeners(html) {
     super.activateListeners(html);
@@ -117,7 +119,7 @@ export default class PBActorSheet extends ActorSheet {
   async _onItemAddQuantity(event) {
     event.preventDefault();
     const item = this.getItem(event);
-    item.setQuantity(item.quantity + 1);
+    await item.setQuantity(item.quantity + 1);
   }
 
   /**
@@ -128,7 +130,7 @@ export default class PBActorSheet extends ActorSheet {
   async _onItemSubtractQuantity(event) {
     event.preventDefault();
     const item = this.getItem(event);
-    item.setQuantity(Math.max(1, item.quantity - 1));
+    await item.setQuantity(Math.max(1, item.quantity - 1));
   }
 
   /**
@@ -138,13 +140,13 @@ export default class PBActorSheet extends ActorSheet {
    */
   async _onIndividualInitiativeRoll(event) {
     event.preventDefault();
-    actorInitiativeAction(this.actor);
+    await actorInitiativeAction(this.actor);
   }
 
   /**
    * @override
    *
-   * @param {Event} event
+   * @param {DragEvent} event
    * @param {Object} itemData
    */
   async _onDropItem(event, itemData) {
@@ -159,7 +161,7 @@ export default class PBActorSheet extends ActorSheet {
     await this._cleanDroppedItem(item);
 
     if (isContainer) {
-      item.clearItems();
+      await item.clearItems();
       const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.itemsData);
       await this._addItemsToItemContainer(newItems, item);
     }
@@ -186,10 +188,11 @@ export default class PBActorSheet extends ActorSheet {
   /**
    * @override
    *
-   * @param {Event} event
+   * @param {DragEvent} event
    * @param {Object} itemData
    */
   async _onSortItem(event, itemData) {
+    /** @type {PBItem} */
     const item = this.actor.items.get(itemData._id);
     const target = this.getItem(event);
     if (target) {
@@ -197,7 +200,7 @@ export default class PBActorSheet extends ActorSheet {
     } else {
       await this._removeItemFromItemContainer(item);
     }
-    await super._onSortItem(event, itemData);
+    return await super._onSortItem(event, itemData);
   }
 
   /**
@@ -239,12 +242,12 @@ export default class PBActorSheet extends ActorSheet {
    * @private
    *
    * @param {Array.<PBItem>} items
-   * @param {PBItem} target
+   * @param {PBItem} container
    */
   async _addItemsToItemContainer(items, container) {
     for (const item of items) {
       if (item.container && container.id !== item.container.id) {
-        // transfert container
+        // transfer container
         await item.container.removeItem(item.id);
       }
       if (item.equipped) {
@@ -258,7 +261,7 @@ export default class PBActorSheet extends ActorSheet {
   /**
    * @private
    *
-   * @param {PBItem} items
+   * @param {PBItem} item
    */
   async _removeItemFromItemContainer(item) {
     if (item.container) {

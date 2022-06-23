@@ -3,7 +3,6 @@ import { createReactionOutcome } from "../../outcome/creature/reaction-outcome.j
 
 /**
  * @param {PBActor} actor
- * @param {PBItem} item
  * @returns {Promise.<ChatMessage>}
  */
 export const creatureReactionAction = async (actor) => {

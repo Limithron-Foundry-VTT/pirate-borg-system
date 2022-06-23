@@ -22,16 +22,16 @@ class RestDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".rest-button").click(this._onRest.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".rest-button").on("click", this._onRest.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
-  _onRest(event) {
+  async _onRest(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".rest-dialog")[0];
     const restLength = $(form).find("input[name=rest-length]:checked").val();
@@ -42,7 +42,7 @@ class RestDialog extends Application {
       foodAndDrink,
       infected,
     });
-    this.close();
+    await this.close();
   }
 }
 

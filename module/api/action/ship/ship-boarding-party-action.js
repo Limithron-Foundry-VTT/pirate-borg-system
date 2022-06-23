@@ -3,9 +3,7 @@ import { showCrewActionDialog } from "../../../dialog/crew-action-dialog.js";
 
 /**
  * @param {PBActor} actor
- * @param {String} title
- * @param {String} description
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipBoardingPartyAction = async (actor) => {
   await showCrewActionDialog({

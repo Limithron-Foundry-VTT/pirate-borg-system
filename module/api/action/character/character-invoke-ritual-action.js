@@ -4,7 +4,7 @@ import { createInvokeRitualOutcome } from "../../outcome/character/invoke-ritual
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const characterInvokeRitualAction = async (actor, item) => {
   if (actor.rituals.value < 1) {
@@ -27,23 +27,3 @@ export const characterInvokeRitualAction = async (actor, item) => {
 
   // await this.useActionMacro(item.id);
 };
-
-/**
- * @param {Outcome} outcome
- * @returns {Object}
- */
-/*
-const getButtons = (outcome) => {
-  switch (true) {
-    case outcome.isFailure:
-      return [
-        {
-          title: game.i18n.localize("PB.InvokableRitualFailureButton"),
-          data: {
-            action: BUTTON_ACTIONS.MYSTICAL_MISHAP,
-          },
-        },
-      ];
-  }
-};
-*/

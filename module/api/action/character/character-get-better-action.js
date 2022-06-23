@@ -8,7 +8,7 @@ import { outcome } from "../../outcome/outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<ChatMessage>}
+ * @returns {Promise.<void>}
  */
 export const characterGetBetterAction = async (actor) => {
   const outcomes = [
@@ -33,7 +33,7 @@ export const characterGetBetterAction = async (actor) => {
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<Array.<Outcome>>}
+ * @returns {Promise.<Object[]>}
  */
 const rollHP = async (actor) => {
   const outcome = await createRollHPOutcome({ hp: actor.attributes.hp.max });
@@ -44,7 +44,7 @@ const rollHP = async (actor) => {
 /**
  * @param {PBActor} actor
  * @param {String} ability
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<Object>}
  */
 const rollAbility = async (actor, ability) => {
   const outcome = await createRollAbilityOutcome({

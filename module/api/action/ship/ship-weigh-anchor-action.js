@@ -4,9 +4,7 @@ import { createWeighAnchorOutcome } from "../../outcome/ship/ship-weigh-anchor-o
 
 /**
  * @param {PBActor} actor
- * @param {String} title
- * @param {String} description
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipWeighAnchorAction = async (actor) => {
   await showCrewActionDialog({
@@ -20,6 +18,6 @@ export const shipWeighAnchorAction = async (actor) => {
     actor,
     title: game.i18n.localize("PB.ShipCrewActionWeighAnchor"),
     description: game.i18n.localize("PB.ShipWeighAnchorMessage"),
-    outcomes: [await createWeighAnchorOutcome({ actor })]
+    outcomes: [await createWeighAnchorOutcome({ actor })],
   });
 };

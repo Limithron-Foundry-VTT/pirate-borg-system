@@ -4,8 +4,8 @@ import { showGenericCard } from "../../../chat-message/generic-card.js";
 
 /**
  * @param {PBActor} actor
- * @param {PBItem} weapon
- * @returns {Promise.<Outcome>}
+ * @param {Boolean} isPCAction
+ * @returns {Promise.<void>}
  */
 export const shipRepairAction = async (actor, isPCAction) => {
   const canHeal = actor.attributes.hp.value < actor.attributes.hp.max / 2;
@@ -13,7 +13,7 @@ export const shipRepairAction = async (actor, isPCAction) => {
   const { selectedActor, selectedDR } = await showCrewActionDialog({
     actor,
     enableCrewSelection: isPCAction && canHeal,
-    enableDrSelection: true && canHeal,
+    enableDrSelection: canHeal,
     title: game.i18n.localize("PB.ShipCrewActionRepair"),
     description: game.i18n.localize("PB.ShipRepairMessage"),
     canSubmit: canHeal,

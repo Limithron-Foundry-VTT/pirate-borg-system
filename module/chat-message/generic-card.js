@@ -3,15 +3,14 @@ import { diceSound } from "../api/dice.js";
 const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-card.html";
 
 /**
- * @param {Object} options
- * @param {PBActor} options.actor
- * @param {Token} options.target
- * @param {String} options.title
- * @param {String} options.description
- * @param {Outcome} obj.outcomes
- * @param {Array.<Object>} options.buttons
- * @param {Array.<PBItem>} options.items
- * @returns {Promise.<ChatMessage>}
+ * @param {PBActor} [actor]
+ * @param {Token} [target]
+ * @param {String} [title]
+ * @param {String} [description]
+ * @param {Object[]} [outcomes]
+ * @param {Object[]} [buttons]
+ * @param {PBItem[]} [items]
+ * @return {Promise<ChatMessage>}
  */
 export const showGenericCard = async ({ actor, target, title, description, outcomes = [], buttons = [], items = [] } = {}) => {
   const rolls = outcomes.map((outcome) => outcome.roll).filter((roll) => roll);

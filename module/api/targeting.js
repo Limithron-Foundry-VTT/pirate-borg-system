@@ -1,6 +1,6 @@
 /**
  * @callback targetsChangedCallback
- * @param {Array.<Token>} targets
+ * @param {UserTargets} targets
  * @returns {String}
  */
 
@@ -16,7 +16,7 @@ export const registerTargetAutomationHook = (callback) =>
   });
 
 /**
- * @param {String} hookId
+ * @param {Number} hookId
  */
 export const unregisterTargetAutomationHook = (hookId) => Hooks.off("targetToken", hookId);
 

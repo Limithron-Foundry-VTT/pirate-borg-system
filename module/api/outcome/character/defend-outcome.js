@@ -1,9 +1,16 @@
 import { asyncPipe } from "../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
-import { createTakeDamageButton } from "../../automation/buttons.js";
-import { withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { testOutcome, withAsyncProps } from "../outcome.js";
+import { testOutcome, withAsyncProps, withAutomations, withButton, withTarget, withWhen } from "../outcome.js";
+import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
+import { OUTCOME_BUTTON } from "../../automation/outcome-chat-button.js";
 
+/**
+ * @param {Boolean} isFumble
+ * @param {Boolean} isCriticalSuccess
+ * @param {Boolean} isSuccess
+ * @param {Boolean} isFailure
+ * @return {string}
+ */
 const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = false, isFailure = false }) => {
   switch (true) {
     case isFumble:
@@ -17,6 +24,11 @@ const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = fal
   }
 };
 
+/**
+ * @param {Boolean} isFumble
+ * @param {Boolean} isCriticalSuccess
+ * @return {string}
+ */
 const getDescription = ({ isFumble = false, isCriticalSuccess = false }) => {
   switch (true) {
     case isFumble:
@@ -26,19 +38,26 @@ const getDescription = ({ isFumble = false, isCriticalSuccess = false }) => {
   }
 };
 
-const getButton = (outcome) => {
-  switch (true) {
-    case outcome.isFailure:
-    case outcome.isFumble:
-      return createTakeDamageButton({ outcome });
-  }
-};
-
+/**
+ * @param {PBActor} actor
+ * @param {Object} outcome
+ * @param {String} damageFormula
+ * @param {Token} targetToken
+ * @return {String}
+ */
 const getDamageFormula = ({ actor, outcome, damageFormula = "", targetToken } = {}) => {
   const damage = outcome.isFumble ? `(${damageFormula}) * 2` : damageFormula;
   return targetToken?.actor.getScaledDamageFormula(actor, damage) ?? damage;
 };
 
+/**
+ * @param {PBActor} actor
+ * @param {Number} dr
+ * @param {String} damageFormula
+ * @param {String} armorFormula
+ * @param {Token} targetToken
+ * @return {Promise<Object>}
+ */
 export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", armorFormula = "", targetToken }) =>
   asyncPipe(
     testOutcome({
@@ -46,7 +65,7 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
       formula: `d20+@abilities.agility.value`,
       formulaLabel: game.i18n.localize(CONFIG.PB.abilities.agility),
       data: actor.getRollData(),
-      dr
+      dr,
     }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
@@ -54,7 +73,10 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
       armorFormula: () => armorFormula + (actor.equippedHat?.reduceDamage ? " + 1" : ""),
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, damageFormula, targetToken }),
     }),
-    withButton(getButton),
+    withWhen((outcome) => outcome.isFailure, withButton({
+      title: game.i18n.localize("PB.RollDamageButton"), 
+      type: OUTCOME_BUTTON.TAKE_DAMAGE
+    })),
     withTarget({ actor, targetToken }),
-    withAnimation({ type: ANIMATION_TYPE.DEFEND }),
+    withAutomations(ANIMATION_TYPE.DEFEND, ADVANCED_ANIMATION_TYPE.DEFEND)
   )();

@@ -1,9 +1,9 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { createShantiesPerDayOutcome } from "../../outcome/ship/shanties-per-day-outcome.js";
+import { createShantiesPerDayOutcome } from "../../outcome/ship/ship-shanties-per-day-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipShantiesPerDayAction = async (actor) => {
   const captain = game.actors.get(actor.captain);
@@ -17,6 +17,4 @@ export const shipShantiesPerDayAction = async (actor) => {
     title: game.i18n.localize("PB.ShipMysticShanties"),
     outcomes: [outcome],
   });
-
-  return outcome;
 };

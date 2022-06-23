@@ -77,11 +77,11 @@ export function rollItemMacro(itemName) {
 /**
  * @param {Document} macro
  * @param {Object} meta
- * @param {Actor} meta.actor
- * @param {Token} meta.token
- * @param {PBItem} meta.item
+ * @param {PBActor} [meta.actor]
+ * @param {Token} [meta.token]
+ * @param {PBItem} [meta.item]
  */
- export const executeMacro = async (macro, { actor, token, item } = {}) => {
+export const executeMacro = async (macro, { actor, token, item } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();
   const { character } = game.user;
   actor = actor || game.actors.get(speaker.actor);
@@ -89,6 +89,7 @@ export function rollItemMacro(itemName) {
   const body = `(async () => {
       ${macro.data.command}
     })()`;
+
   const fn = Function("speaker", "actor", "token", "character", "item", body);
   try {
     fn.call(this, speaker, actor, token, character, item);

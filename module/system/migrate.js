@@ -1,6 +1,6 @@
 import { findCompendiumItem } from "../api/compendium.js";
 
-export const migrate = () => {
+export const migrate = async () => {
   // Determine whether a system migration is required and feasible
   if (!game.user.isGM) {
     return;
@@ -16,7 +16,7 @@ export const migrate = () => {
     return;
   }
   console.log(`Migrating!`);
-  migrateWorld();
+  await migrateWorld();
 };
 
 const migrateWorld = async () => {
@@ -133,7 +133,7 @@ const migrateActorData = async (data) => {
     updateData["data.weapons.ram.die"] = data.data.ramDie;
     updateData["data.-=ramDie"] = null;
   }
- 
+
   if ("baseClass" in data.data) {
     const baseClass = data.data.baseClass;
     updateData["data.-=baseClass"] = null;
@@ -142,7 +142,7 @@ const migrateActorData = async (data) => {
       const baseClassItem = await findCompendiumItem(compendium, item);
       baseClassItem.isBaseClass = true;
       updateData.items = [baseClassItem.toObject(false)];
-    }    
+    }
   }
 
   return updateData;

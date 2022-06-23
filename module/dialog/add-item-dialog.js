@@ -17,22 +17,22 @@ class AddItemDialog extends Application {
   }
 
   /** @override */
-  async getData() {
-    return {
-      config: CONFIG.pirateborg,
-    };
+  async getData(options) {
+    const data = super.getData(options)
+    data.config = CONFIG.pirateborg;
+    return data;
   }
 
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".cancel-button").click(this._onCancel.bind(this));
-    html.find(".ok-button").click(this._onSubmit.bind(this));
+    html.find(".cancel-button").on('click', this._onCancel.bind(this));
+    html.find(".ok-button").on('click', this._onSubmit.bind(this));
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   async _onSubmit(event) {
@@ -48,7 +48,7 @@ class AddItemDialog extends Application {
       name,
       type,
     });
-    this.close();
+    await this.close();
   }
 }
 

@@ -5,7 +5,7 @@ import { createRitualPerDayOutcome } from "../../outcome/character/ritual-per-da
  * @param {PBActor} actor
  * @param {Object} options
  * @param {Boolean} options.silent
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<Object>}
  */
 export const characterRitualsPerDayAction = async (actor, { silent = false } = {}) => {
   const outcome = await createRitualPerDayOutcome({ actor });

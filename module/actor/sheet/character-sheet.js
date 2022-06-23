@@ -66,8 +66,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
   }
 
   /** @override */
-  async getData() {
-    const superData = await super.getData();
+  async getData(options) {
+    const superData = await super.getData(options);
     const { data } = superData;
     data.config = CONFIG.PB;
 
@@ -140,17 +140,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
       .reduce(groupByType, [])
       .sort(byType);
 
-    /*
-  sheetData.data.dynamic.useExtraResource =
-    sheetData.data.dynamic.class?.data?.data?.useExtraResource || sheetData.data.dynamic.baseClass?.data?.useExtraResource;
-  sheetData.data.dynamic.extraResourceNamePlural =
-    sheetData.data.dynamic.class?.data?.data?.extraResourceNamePlural || sheetData.data.dynamic.baseClass?.data?.extraResourceNamePlural;
-  sheetData.data.dynamic.extraResourceFormulaLabel =
-    sheetData.data.dynamic.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.dynamic.baseClass?.data?.extraResourceFormulaLabel;
-
-  sheetData.data.dynamic.luckDie = sheetData.data.dynamic.class?.data?.data?.luckDie || sheetData.data.dynamic.baseClass?.data?.luckDie;
-  
-  */
     sheetData.data.dynamic.trackCarryingCapacity = trackCarryingCapacity();
     sheetData.data.dynamic.trackAmmo = trackAmmo();
   }
@@ -216,7 +205,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   async _onPartyInitiativeRoll(event) {
     event.preventDefault();
-    actorPartyInitiativeAction();
+    await actorPartyInitiativeAction();
   }
 
   /**
@@ -233,11 +222,11 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @param {MouseEvent} event
    * @private
    */
-  _onArmorTierRadio(event) {
+  async _onArmorTierRadio(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
     const item = this.getItem(event);
-    item.setTier({ value: parseInt(input[0].value, 10) });
+    await item.setTier({ value: parseInt(input[0].value, 10) });
   }
 
   /**
@@ -397,11 +386,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _onGetBetter(event) {
     event.preventDefault();
-    // confirm before doing get better
     const d = new Dialog({
       title: game.i18n.localize("PB.GetBetter"),
-      content:
-        "<p>The game master decides when a character should be improved.</p><p>It might be after: a raid, acquiring treasure, dividing the plunder, burying treasure, or acquiring a new ship</p>",
+      content: game.i18n.localize("PB.GetBetterConfirmMessage"),
       buttons: {
         cancel: {
           label: game.i18n.localize("PB.Cancel"),
@@ -459,12 +446,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @param {MouseEvent} event
    * @private
    */
-  _onActionMacroRoll(event) {
+  async _onActionMacroRoll(event) {
     event.preventDefault();
     const button = $(event.currentTarget);
     const li = button.parents(".item");
     const itemId = li.data("item-id");
-    this.actor.useActionMacro(itemId);
+    await this.actor.useActionMacro(itemId);
   }
 
   /**
@@ -472,7 +459,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   async _onLuckLabel() {
     await ChatMessage.create({
-      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html"),
+      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html", {}),
     });
   }
 }

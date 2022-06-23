@@ -4,7 +4,7 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../api/automation/targeting.js";
+} from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -58,12 +58,14 @@ class CrewActionDialog extends Application {
   }
 
   /** @override */
-  async getData() {
+  async getData(options) {
+    const data = super.getData(options);
     const selectedCrewId = await getSystemFlag(this.actor, CONFIG.PB.flags.SELECTED_CREW);
     const selectedDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
     const selectedArmor = await this._getTargetArmor();
 
     return {
+      ...data,
       config: CONFIG.pirateborg,
       buttonLabel: this.buttonLabel,
       crews: this.actor.crews.map((actorId) => game.actors.get(actorId).data),
@@ -85,10 +87,8 @@ class CrewActionDialog extends Application {
   }
 
   _hasTargetWarning() {
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
-      return true;
-    }
-    return false;
+    return this.enforceTargetSelection && !this.isTargetSelectionValid;
+
   }
 
   _shouldShowTarget() {
@@ -98,10 +98,8 @@ class CrewActionDialog extends Application {
     if (this.enforceTargetSelection) {
       return true;
     }
-    if (this.hasTargets) {
-      return true;
-    }
-    return false;
+    return this.hasTargets;
+
   }
 
   _onTargetChanged() {
@@ -121,8 +119,8 @@ class CrewActionDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ok-button").click(this._onSubmit.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onSubmit.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
 
     html.find(".dr .radio-input").on("change", this._onDrRadioInputChanged.bind(this));
     html.find("#dr").on("change", this._onDrInputChanged.bind(this));
@@ -139,7 +137,7 @@ class CrewActionDialog extends Application {
     const input = $(event.currentTarget);
     console.log("_onDrRadioInputChanged", input.val(), this.element.find("#dr"));
     this.element.find("#dr").val(input.val());
-    this.element.find("#dr").change();
+    this.element.find("#dr").trigger("change");
   }
 
   async _onDrInputChanged(event) {
@@ -154,7 +152,7 @@ class CrewActionDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#targetArmor").val(input.val());
-    this.element.find("#targetArmor").change();
+    this.element.find("#targetArmor").trigger("change");
   }
 
   async _onArmorInputChanged(event) {
@@ -168,7 +166,7 @@ class CrewActionDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#movement").val(input.val());
-    this.element.find("#movement").change();
+    this.element.find("#movement").trigger("change");
   }
 
   async _onMovementInputChanged(event) {
@@ -177,9 +175,9 @@ class CrewActionDialog extends Application {
     $(".movement .radio-input").val([input.val()]);
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   _validate({ selectedDR, selectedArmor, selectedMovement }) {
@@ -187,18 +185,18 @@ class CrewActionDialog extends Application {
       return false;
     }
 
-    if (this.enableTargetSelection && this.enforceTargetSelection && !this.isTargetSelectionValid) {
-      return false;
-    }
-
-    return true;
+    return !(this.enableTargetSelection && this.enforceTargetSelection && !this.isTargetSelectionValid);
   }
 
-  close() {
+  /**
+   * @override
+   * @param [options]
+   */
+  async close(options) {
     if (targetSelectionEnabled()) {
       unregisterTargetAutomationHook(this._ontargetChangedHook);
     }
-    super.close();
+    await super.close(options);
   }
 
   async _onSubmit(event) {
@@ -220,22 +218,22 @@ class CrewActionDialog extends Application {
       selectedMovement,
       targetToken: this.targetToken,
     });
-    this.close();
+    await this.close();
   }
 }
 
 /**
  * @param {Object} data
  * @param {Actor} data.actor
- * @param {String} data.description
- * @param {String} data.title
- * @param {Boolean} data.enableCrewSelection
- * @param {Boolean} data.enableDrSelection
- * @param {Boolean} data.enableArmorSelection
- * @param {Boolean} data.enableMovementSelection
- * @param {Boolean} data.enableTargetSelection
- * @param {Boolean} data.canSubmit
- * @param {String} data.buttonLabel
+ * @param {String} [data.description]
+ * @param {String} [data.title]
+ * @param {Boolean} [data.enableCrewSelection]
+ * @param {Boolean} [data.enableDrSelection]
+ * @param {Boolean} [data.enableArmorSelection]
+ * @param {Boolean} [data.enableMovementSelection]
+ * @param {Boolean} [data.enableTargetSelection]
+ * @param {Boolean} [data.canSubmit]
+ * @param {String} [data.buttonLabel]
  * @returns {Promise.<{selectedActor: Actor, selectedDR: Number, selectedArmor: String, selectedMovement: Number, targetToken: Token}>}
  */
 export const showCrewActionDialog = (data = {}) =>

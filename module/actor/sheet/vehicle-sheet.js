@@ -59,8 +59,8 @@ export class PBActorSheetVehicle extends PBActorSheet {
   }
 
   /** @override */
-  async getData() {
-    const superData = super.getData();
+  async getData(options) {
+    const superData = super.getData(options);
     superData.config = CONFIG.PB;
     superData.data = superData.data ?? {};
     superData.data.data = {
@@ -74,6 +74,10 @@ export class PBActorSheetVehicle extends PBActorSheet {
     return superData;
   }
 
+  /**
+   * @param {Object} sheetData
+   * @private
+   */
   async _prepareItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const items = {};
@@ -134,6 +138,10 @@ export class PBActorSheetVehicle extends PBActorSheet {
     });
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _getCrewAction(event) {
     return $(event.currentTarget).data("action");
   }
@@ -239,7 +247,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
    */
   async _onInitiativeRoll(event) {
     event.preventDefault();
-    actorInitiativeAction(this.actor);
+    await actorInitiativeAction(this.actor);
   }
 
   /**
@@ -315,8 +323,8 @@ export class PBActorSheetVehicle extends PBActorSheet {
   }
 
   /**
-   * @param {MouseEvent} event
-   * @param {Object} actorData
+   * @param {DragEvent} event
+   * @param {ActorSheet.DropData.Actor} actorData
    * @private
    */
   async _onDropActor(event, actorData) {

@@ -1,3 +1,7 @@
+/**
+ * @extends Combat
+ * @augments Combat
+ */
 export class PBCombat extends Combat {
   async setPartyInitiative(rollTotal) {
     game.combat.partyInitiative = rollTotal;

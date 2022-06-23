@@ -138,10 +138,10 @@ export const isCharacterGeneratorClassAllowed = (classPack) => {
 };
 
 /**
- * @param {Array.<String>} allowedCharacterGeneratorClasses
+ * @param {Object} allowedCharacterGeneratorClasses
  */
-export const setAllowedCharacterGeneratorClasses = (allowedCharacterGeneratorClasses) => {
-  game.settings.set("pirateborg", "allowedCharacterGeneratorClasses", allowedCharacterGeneratorClasses);
+export const setAllowedCharacterGeneratorClasses = async (allowedCharacterGeneratorClasses) => {
+  await game.settings.set("pirateborg", "allowedCharacterGeneratorClasses", allowedCharacterGeneratorClasses);
 };
 
 /**
@@ -152,8 +152,8 @@ export const getLastCharacterGeneratorSelection = () => game.settings.get("pirat
 /**
  * @param {Array.<String>} lastCharacterGeneratorSelection
  */
-export const setLastCharacterGeneratorSelection = (lastCharacterGeneratorSelection) => {
-  game.settings.set("pirateborg", "lastCharacterGeneratorSelection", lastCharacterGeneratorSelection);
+export const setLastCharacterGeneratorSelection = async (lastCharacterGeneratorSelection) => {
+  await game.settings.set("pirateborg", "lastCharacterGeneratorSelection", lastCharacterGeneratorSelection);
 };
 
 /**
@@ -164,7 +164,7 @@ export const getSystemMigrationVersion = () => game.settings.get("pirateborg", "
 /**
  * @returns {String}
  */
-export const setSystemMigrationVersion = (systemMigrationVersion) => game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
+export const setSystemMigrationVersion = async (systemMigrationVersion) => await game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
 
 /**
  * @returns {String}
@@ -174,7 +174,7 @@ export const getSystemHelpDialogVersion = () => game.settings.get("pirateborg", 
 /**
  * @returns {String}
  */
-export const setSystemHelpDialogVersion = (systemHelpDialogVersion) => game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
+export const setSystemHelpDialogVersion = async (systemHelpDialogVersion) => await game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 
 /**
  * @returns {Boolean}

@@ -3,7 +3,7 @@ import { createMoraleOutcome } from "../../outcome/creature/morale-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<ChatMessage>}
+ * @returns {Promise.<void>}
  */
 export const creatureMoraleAction = async (actor) => {
   if (!actor.attributes.morale || actor.attributes.morale === "-") {
@@ -13,9 +13,7 @@ export const creatureMoraleAction = async (actor) => {
 
   const outcome = await createMoraleOutcome({ actor });
 
-  console.log(outcome)
-
-  return await showGenericCard({
+  await showGenericCard({
     title: game.i18n.localize("PB.Morale"),
     actor,
     outcomes: [outcome],

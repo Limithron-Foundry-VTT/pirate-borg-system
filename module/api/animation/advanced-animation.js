@@ -1,52 +1,33 @@
-import { isAdvancedAnimationEnabled } from "../../system/settings.js";
-import { isJB2AEnabled, isJB2APatreonEnabled, isSequencerEnabled } from "./animation.js";
+import { playAdvancedAnimation } from "./animation.js";
 
 export const ADVANCED_ANIMATION_TYPE = {
-  ITEM: "item",
-  HEAL: "heal",
-  TAKE_DAMAGE: "take-damage",
-  INFLICT_DAMAGE: "inflict-damage",
-  DEFEND: "defend",
-  BROADSIDES: "broadsides",
-  SMALLARMS: "smallarms",
-  RAM: "ram",
-  COME_ABOUT: "come-about",
-  FULL_SAIL: "full-sail",
-  REPAIR: "repair",
-  BROKEN: "broken",
-  SPELL: "spell",
-  MYSTICAL_MISHAP: "mystical-mishap",
-  STARVATION: "starvation",
-  INFECTED: "infected",
-  INVOKE_RELIC: "invoke-relic",
-  TEST_RELIC: "test-relic",
-  INVOKE_RITUAL: "invoke-ritual",
-  WEIGH_ANCHOR: "weigh-anchor",
-  DROP_ANCHOR: "drop-anchor",
-};
-
-/**
- * @returns {Boolean}
- */
-export const isAdvancedAnimationSupported = () => isSequencerEnabled() && isAdvancedAnimationEnabled() && (isJB2AEnabled() || isJB2APatreonEnabled());
-
-/**
- * @param {Array.<String>} tokenIds
- * @param {Function} fn
- * @returns
- */
-export const playAdvancedAnimationWithTokens = async (tokenIds = [], fn) => {
-  if (!isAdvancedAnimationSupported()) return;
-
-  const tokens = tokenIds.map((tokenId) => canvas.tokens.get(tokenId));
-
-  if (!tokens.some((token) => !!token)) return;
-
-  await fn(...tokens);
+  ITEM: "advanced-animation-item",
+  HEAL: "advanced-animation-heal",
+  TAKE_DAMAGE: "advanced-animation-take-damage",
+  INFLICT_DAMAGE: "advanced-animation-inflict-damage",
+  DEFEND: "advanced-animation-defend",
+  BROADSIDES: "advanced-animation-broadsides",
+  SMALLARMS: "advanced-animation-smallarms",
+  RAM: "advanced-animation-ram",
+  COME_ABOUT: "advanced-animation-come-about",
+  FULL_SAIL: "advanced-animation-full-sail",
+  REPAIR: "advanced-animation-repair",
+  BROKEN: "advanced-animation-broken",
+  SPELL: "advanced-animation-spell",
+  MYSTICAL_MISHAP: "advanced-animation-mystical-mishap",
+  STARVATION: "advanced-animation-starvation",
+  INFECTED: "advanced-animation-infected",
+  INVOKE_RELIC: "advanced-animation-invoke-relic",
+  TEST_RELIC: "advanced-animation-test-relic",
+  INVOKE_RITUAL: "advanced-animation-invoke-ritual",
+  WEIGH_ANCHOR: "advanced-animation-weigh-anchor",
+  DROP_ANCHOR: "advanced-animation-drop-anchor",
+  SINKING: "advanced-animation-sinking",
+  SING_SHANTY: "advanced-animation-sing-shanty",
 };
 
 export const playBroadsidesAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
     new Sequence()
       .effect("jb2a.bullet.02.orange")
       .missed(outcome.isFailure)
@@ -94,7 +75,7 @@ export const playBroadsidesAdvancedAnimation = async (outcome) => {
 };
 
 export const playSmallarmsAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
     new Sequence()
       .effect("jb2a.bullet.01.orange")
       .missed(outcome.isFailure)
@@ -139,11 +120,11 @@ export const playSmallarmsAdvancedAnimation = async (outcome) => {
 };
 
 export const playRamAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.targetToken], async (targetToken) => {
+  await playAdvancedAnimation([outcome.targetToken], async (targetToken) => {
     new Sequence()
       .effect("jb2a.impact.ground_crack.still_frame")
       .atLocation(targetToken)
-      .scaleToObject(1, { uniform: true })
+      .scaleToObject(1)
       .rotate(-targetToken.data.rotation)
       //
       .effect("jb2a.smoke.puff.centered.grey")
@@ -157,7 +138,7 @@ export const playRamAdvancedAnimation = async (outcome) => {
 export const playFullSailAdvancedAnimation = async (outcome) => {
   if (outcome.isSuccess !== true) return;
 
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.gust_of_wind.veryfast")
       .playIf(!outcome.isCriticalSuccess)
@@ -184,7 +165,7 @@ export const playFullSailAdvancedAnimation = async (outcome) => {
 export const playComeAboutAdvancedAnimation = async (outcome) => {
   if (outcome.isSuccess !== true) return;
 
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.zoning.outward.indicator.once.bluegreen.02.01")
       .rotate(-initiatorToken.data.rotation)
@@ -198,45 +179,65 @@ export const playComeAboutAdvancedAnimation = async (outcome) => {
 export const playRepairAdvancedAnimation = async (outcome) => {
   if (outcome.isSuccess !== true) return;
 
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.zoning.inward.indicator.loop.bluegreen.02.01")
       .atLocation(initiatorToken)
-      .scale(outcome.isCriticalSuccess ? 1 : 0.5)
+      .scaleToObject(outcome.isCriticalSuccess ? 2 : 1, { uniform: true })
       //
       .play();
   });
 };
 
 export const playWeighAnchorAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.wind_stream.white")
       .atLocation(initiatorToken)
       .rotate(-initiatorToken.data.rotation)
-      .scaleToObject(1)
+      .scaleToObject(1, { uniform: true })
       //
       .play();
   });
 };
 
 export const playDropAnchorAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.wind_stream.white")
       .atLocation(initiatorToken)
-      .scaleToObject(1)
+      .scaleToObject(1, { uniform: true })
       .rotate(-initiatorToken.data.rotation - 180)
       //
       .play();
   });
 };
 
+export const playSingShantyAdvancedAnimation = async (outcome) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
+    new Sequence()
+      .effect("jb2a.music_notations")
+      .playIf(outcome.isSuccess)
+      .atLocation(initiatorToken, { randomOffset: true })
+      .scaleToObject(0.5, { uniform: true })
+      .repeats(outcome.isCriticalSuccess ? 8 : 4, 500, 1500)
+      //
+      .effect("jb2a.markers.music_note.blue.01")
+      .playIf(outcome.isSuccess)
+      .atLocation(initiatorToken)
+      .scaleToObject(1, { uniform: true })
+      .scaleOut(1.5, 1000)
+      //
+      .play();
+  });
+};
+
+//
+
 export const playBrokenAdvancedAnimation = async (outcome) => {
   if (!outcome.isDead) return;
 
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
-    console.log("with token", initiatorToken, outcome);
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.toll_the_dead.green.skull_smoke")
       .atLocation(initiatorToken)
@@ -246,8 +247,43 @@ export const playBrokenAdvancedAnimation = async (outcome) => {
   });
 };
 
+export const playSinkingAdvancedAnimation = async (outcome) => {
+  if (outcome.isNothing) return;
+
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
+    const getScale = (outcome) => {
+      switch (true) {
+        case outcome.isExplosion:
+          return 0.5;
+        case outcome.isMajorExplosion:
+          return 1;
+        case outcome.isFatalExplosion:
+          return 2;
+      }
+    };
+    new Sequence()
+      .effect("jb2a.liquid.splash.blue")
+      .atLocation(initiatorToken)
+      .belowTokens()
+      .rotate(-initiatorToken.data.rotation)
+      .scaleToObject(1)
+      //
+      .effect("jb2a.impact.ground_crack.still_frame")
+      .atLocation(initiatorToken)
+      .scaleToObject(1)
+      .rotate(-initiatorToken.data.rotation)
+      //
+      .effect("jb2a.explosion.01.orange")
+      .playIf(outcome.isExplosion || outcome.isMajorExplosion || outcome.isFatalExplosion)
+      .atLocation(initiatorToken)
+      .scale(getScale(outcome) ?? 0)
+      //
+      .play();
+  });
+};
+
 export const playStarvationAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.markers.drop.red.02")
       .atLocation(initiatorToken)
@@ -258,7 +294,7 @@ export const playStarvationAdvancedAnimation = async (outcome) => {
 };
 
 export const playInfectedAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.markers.poison.dark_green.01")
       .atLocation(initiatorToken)
@@ -269,34 +305,22 @@ export const playInfectedAdvancedAnimation = async (outcome) => {
 };
 
 export const playHealAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.healing_generic.400px.green")
       .atLocation(initiatorToken)
-      .scale(0.5)
-      //
-      .play();
-  });
-};
-
-export const playItemAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
-    new Sequence()
-      .effect(outcome.advancedAnimation.options.item)
-      .atLocation(initiatorToken)
-      .reachTowards(targetToken)
-      .missed(outcome.isFailure)
+      .scaleToObject(2, { uniform: true })
       //
       .play();
   });
 };
 
 export const playInvokeRelicAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.magic_signs.circle.02.necromancy.intro.green")
       .atLocation(initiatorToken)
-      .scaleToObject(3, { uniform: true})
+      .scaleToObject(3, { uniform: true })
       .belowTokens()
       //
       .play();
@@ -304,18 +328,17 @@ export const playInvokeRelicAdvancedAnimation = async (outcome) => {
 };
 
 export const playTestRelicAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
-      .effect("jb2a.template_circle.out_pulse.02.burst.bluewhite")
+      .effect("jb2a.divine_smite.caster.blueyellow")
       .playIf(outcome.isSuccess)
       .atLocation(initiatorToken)
-      .scaleToObject(3)
-      .repeats(outcome.isCriticalSuccess ? 3 : 1, 500, 1000)
+      .scaleToObject(outcome.isCriticalSuccess ? 6 : 3, { uniform: true })
       //
       .effect("jb2a.impact.ground_crack.orange")
       .playIf(outcome.isFailure && !outcome.isFumble)
       .atLocation(initiatorToken)
-      .scaleToObject(3)
+      .scaleToObject(4, { uniform: true })
       .belowTokens()
       //
       .effect("jb2a.lightning_strike.blue")
@@ -329,38 +352,91 @@ export const playTestRelicAdvancedAnimation = async (outcome) => {
       .effect("jb2a.whirlwind.bluegrey")
       .playIf(outcome.isFumble)
       .atLocation(initiatorToken)
-      .scaleToObject(3)
+      .scaleToObject(3, { uniform: true })
       //
       .play();
   });
 };
 
 export const playInvokeRitualAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimationWithTokens([outcome.initiatorToken], async (initiatorToken) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
-      .effect("jb2a.magic_signs.circle.02.abjuration.intro.dark_blue")
+      .effect("jb2a.magic_signs.circle.02.evocation.intro.red")
       .atLocation(initiatorToken)
-      .scale(0.2)
+      .scaleToObject(3, { uniform: true })
       .belowTokens()
       //
-      .effect("jb2a.impact.ground_crack.orange")
-      .playIf(outcome.isFailure && !outcome.isFumble)
+      .effect("jb2a.energy_strands.overlay.blue.01")
+      .playIf(outcome.isSuccess || outcome.isCriticalSuccess)
+      .atLocation(initiatorToken)
+      .delay(1000)
+      .scaleToObject(2, { uniform: true })
+      .scaleOut(outcome.isCriticalSuccess ? 4 : 1, 2000)
+      .waitUntilFinished()
+      //
+      .effect("jb2a.arms_of_hadar.dark_purple")
+      .playIf(outcome.isFailure)
       .atLocation(initiatorToken)
       .belowTokens()
-      //
-      .effect("jb2a.lightning_strike.blue")
-      .playIf(outcome.isFumble)
-      .atLocation(initiatorToken)
-      .scale(2)
-      //
-      .effect("jb2a.whirlwind.bluegrey")
-      .playIf(outcome.isFumble)
-      .atLocation(initiatorToken)
+      .scaleToObject(1, { uniform: true })
+      .scaleOut(outcome.isFumble ? 4 : 2, 2000)
+      .fadeOut(200)
       //
       .play();
   });
 };
 
-// mystical mishap: 
-// failure jb2a.arms_of_hadar.dark_purple
-// fumble jb2a.sphere_of_annihilation.600px.purple
+export const playMysticalMishapAdvancedAnimation = async (outcome) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
+    new Sequence()
+      .effect("jb2a.arms_of_hadar.dark_purple")
+      .atLocation(initiatorToken)
+      .belowTokens()
+      .scaleToObject(1, { uniform: true })
+      .scaleIn(outcome.isFumble ? 4 : 2, 2000)
+      .fadeOut(200)
+      //
+      .play();
+  });
+};
+
+export const playItemAdvancedAnimation = async (outcome) => {
+  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
+    new Sequence()
+      //.effect(outcome.advancedAnimation.options.item)
+      .effect("jb2a.bullet.01.orange")
+      .atLocation(initiatorToken)
+      .reachTowards(targetToken)
+      .missed(outcome.isFailure)
+      //
+      .effect("jb2a.impact.007.orange")
+      .atLocation(targetToken)
+      .playIf(outcome.isSuccess)
+      .scaleToObject(outcome.isCriticalSuccess ? 2 : 1, { uniform: true })
+      //
+      .play();
+  });
+};
+
+export const playDefendAdvancedAnimation = async (outcome) => {
+  await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
+    new Sequence()
+      .effect("jb2a.icon.shield.green")
+      .playIf(outcome.isCriticalSuccess)
+      .atLocation(initiatorToken)
+      .duration(1000)
+      .scaleToObject(1, { uniform: true })
+      .scaleOut(2, 1000)
+      .fadeOut(200)
+      //
+      .effect("jb2a.icon.shield_cracked.purple")
+      .playIf(outcome.isFumble)
+      .atLocation(initiatorToken)
+      .scaleToObject(1, { uniform: true })
+      .duration(1000)
+      .scaleOut(2, 1000)
+      .fadeOut(200)
+      //
+      .play();
+  });
+};

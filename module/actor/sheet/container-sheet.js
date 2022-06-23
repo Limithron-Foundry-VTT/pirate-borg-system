@@ -23,25 +23,26 @@ export class PBActorSheetContainer extends PBActorSheet {
     });
   }
 
-  /** @override */
-  getData() {
-    const superData = super.getData();
-    const { data } = superData;
-    data.config = CONFIG.PB;
-    if (this.actor.data.type == "container") {
-      this._prepareContainerItems(data);
+  /**
+   * @override
+   * @returns {ActorSheet.Data}
+   */
+  getData(options) {
+    const superData = super.getData(options);
+    superData.config = CONFIG.PB;
+    if (this.actor.data.type === "container") {
+      this._prepareContainerItems(superData.data);
     }
     return superData;
   }
 
   /**
-   * @param {Object} actorData
-   * @return {undefined}
+   * @param {Object} sheetData
    */
   _prepareContainerItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-    sheetData.dat.dynamic.equipment = sheetData.items
+    sheetData.data.dynamic.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);

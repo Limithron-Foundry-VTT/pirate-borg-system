@@ -5,12 +5,12 @@ import { createTestAbilityOutcome } from "../../outcome/actor/test-ability-outco
  * @param {PBActor} actor
  * @param {String} ability
  * @param {Array.<String>} drModifiers
- * @param {Promise.<void>}
+ * @returns {Promise.<void>}
  */
 export const actorRollAbilityAction = async (actor, ability, drModifiers = []) => {
   const outcome = await createTestAbilityOutcome({ actor, ability });
 
-  return await showGenericCard({
+  await showGenericCard({
     title: game.i18n.localize(CONFIG.PB.abilities[ability]),
     description: getDescription(drModifiers),
     actor,

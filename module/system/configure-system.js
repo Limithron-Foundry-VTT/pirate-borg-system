@@ -14,6 +14,7 @@ import * as actions from "../api/action/actions.js";
 import * as animations from "../api/animation/animation.js";
 import * as advancedAnimations from "../api/animation/advanced-animation.js";
 import * as outcomeAnimations from "../api/animation/outcome-animation.js";
+import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
@@ -26,18 +27,18 @@ export const configureSystem = () => {
     api: {
       actions,
       compendium,
-      utils,      
+      utils,
       animations,
       advancedAnimations,
       outcomeAnimations,
       characterGenerator,
       showGenericCard,
-      macros
+      outcomes,
+      macros,
     },
   };
 
   CONFIG.Actor.documentClass = PBActor;
-  CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Item.documentClass = PBItem;
 
   Actors.unregisterSheet("core", ActorSheet);
@@ -78,6 +79,7 @@ export const configureSystem = () => {
     label: "PB.SheetItem",
   });
 
+  CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
   };

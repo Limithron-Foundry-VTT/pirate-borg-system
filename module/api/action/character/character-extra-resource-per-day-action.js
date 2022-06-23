@@ -5,7 +5,7 @@ import { createExtraResourcePerDayOutcome } from "../../outcome/character/extra-
  * @param {PBActor} actor
  * @param {Object} options
  * @param {Boolean} options.silent
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<Object>}
  */
 export const characterExtraResourcePerDayAction = async (actor, { silent = false } = {}) => {
   if (!actor.useExtraResource) {
@@ -16,7 +16,7 @@ export const characterExtraResourcePerDayAction = async (actor, { silent = false
 
   await actor.updateExtraResource({ max: outcome.roll.total, value: outcome.roll.total });
 
-  console.log(actor.extraResourceNamePlural, actor)
+  console.log(actor.extraResourceNamePlural, actor);
 
   if (!silent) {
     await showGenericCard({
@@ -25,6 +25,5 @@ export const characterExtraResourcePerDayAction = async (actor, { silent = false
       outcomes: [outcome],
     });
   }
-
   return outcome;
 };

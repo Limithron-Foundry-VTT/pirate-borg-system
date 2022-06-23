@@ -1,4 +1,8 @@
-import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
+import {
+  isCharacterGeneratorClassAllowed,
+  setLastCharacterGeneratorSelection,
+  getLastCharacterGeneratorSelection
+} from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
@@ -57,10 +61,10 @@ export default class CharacterGeneratorDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".toggle-all").click(this._onToggleAll.bind(this));
-    html.find(".toggle-none").click(this._onToggleNone.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
-    html.find(".character-generator-button").click(this._onCharacterGenerator.bind(this));
+    html.find(".toggle-all").on("click", this._onToggleAll.bind(this));
+    html.find(".toggle-none").on("click", this._onToggleNone.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
+    html.find(".character-generator-button").on("click", this._onCharacterGenerator.bind(this));
   }
 
   _onToggleAll(event) {
@@ -75,9 +79,9 @@ export default class CharacterGeneratorDialog extends Application {
     $(form).find(".class-checkbox").prop("checked", false);
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   async _onCharacterGenerator(event) {
@@ -103,10 +107,10 @@ export default class CharacterGeneratorDialog extends Application {
       return;
     }
 
-    setLastCharacterGeneratorSelection(selection);
+    await setLastCharacterGeneratorSelection(selection);
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
-    this.close();
+    await this.close();
     ui.notifications.info(`${game.users.current.name} is creating ${randomClass.name}.`);
 
     if (randomClass.data.data.characterGeneratorMacro) {

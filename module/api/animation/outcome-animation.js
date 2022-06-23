@@ -1,15 +1,14 @@
-import { isOutcomeAnimationEnabled } from "../../system/settings.js";
 import { OUTCOME_TEST } from "../outcome/outcome.js";
-import { isSequencerEnabled } from "./animation.js";
+import { playOutcomeAnimation } from "./animation.js";
 
 export const ANIMATION_TYPE = {
-  RELOADING: "reloading",
-  ATTACK: "attack",
-  SIMPLE: "simple",
-  BROKEN: "broken",
-  DEFEND: "defend",
-  INFECTED: "infected",
-  STARVATION: "starvation",
+  RELOADING: "animation-reloading",
+  ATTACK: "animation-attack",
+  SIMPLE: "animation-simple",
+  BROKEN: "animation-broken",
+  DEFEND: "animation-defend",
+  INFECTED: "animation-infected",
+  STARVATION: "animation-starvation",
 };
 
 const ANIMATION = {
@@ -30,31 +29,9 @@ const ANIMATION = {
 };
 
 /**
- * @returns {Boolean}
+ * @param {Token} token
+ * @returns {Promise<void>}
  */
-export const isOutcomeAnimationSupported = () => isSequencerEnabled() && isOutcomeAnimationEnabled();
-
-/**
- * @param {String} token
- * @param {String} animation
- */
-export const playOutcomeAnimation = async (tokenId, animation) => {
-  if (!isOutcomeAnimationSupported()) return;
-
-  const token = canvas.tokens.get(tokenId);
-
-  if (!token) return;
-
-  new Sequence()
-    .effect(animation)
-    .atLocation(token)
-    .anchor({ x: 0.5, y: 1.3 })
-    .duration(3000)
-    .noLoop(true)
-    //
-    .play();
-};
-
 export const playDodgeAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.DODGE);
 export const playMissAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.MISS);
 export const playHitAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.HIT);
@@ -74,13 +51,12 @@ export const playReloadingOutcomeAnimation = async (outcome) => await playReload
 export const playDeadOutcomeAnimation = async (outcome) => await playDeadAnimation(outcome.initiatorToken);
 export const playBrokenOutcomeAnimation = async (outcome) => await playBrokenAnimation(outcome.initiatorToken);
 export const playStarvationOutcomeAnimation = async (outcome) => await playStarvationAnimation(outcome.initiatorToken);
-export const playOutcomeInfectedAnimation = async (outcome) => await playInfectedAnimation(outcome.initiatorToken);
+export const playInfectedOutcomeAnimation = async (outcome) => await playInfectedAnimation(outcome.initiatorToken);
 
 /**
- * @param {Outcome} outcome
+ * @param {Object} outcome
  */
 export const playAttackOutcomeAnimation = async (outcome) => {
-  console.log('playAttackOutcomeAnimation', outcome)
   switch (outcome.result) {
     case OUTCOME_TEST.FUMBLE:
       await playFumbleAnimation(outcome.targetToken);
@@ -98,10 +74,9 @@ export const playAttackOutcomeAnimation = async (outcome) => {
 };
 
 /**
- * @param {Outcome} outcome
+ * @param {Object} outcome
  */
 export const playDefendOutcomeAnimation = async (outcome) => {
-  console.log('playDefendOutcomeAnimation', outcome)
   switch (outcome.result) {
     case OUTCOME_TEST.FUMBLE:
       await playFumbleAnimation(outcome.initiatorToken);
@@ -119,10 +94,9 @@ export const playDefendOutcomeAnimation = async (outcome) => {
 };
 
 /**
- * @param {Outcome} outcome
+ * @param {Object} outcome
  */
 export const playSimpleOutcomeAnimation = async (outcome) => {
-  console.log('playSimpleOutcomeAnimation', outcome)
   switch (outcome.result) {
     case OUTCOME_TEST.FUMBLE:
       await playCriticalFailureAnimation(outcome.initiatorToken);
@@ -135,6 +109,17 @@ export const playSimpleOutcomeAnimation = async (outcome) => {
       break;
     case OUTCOME_TEST.SUCCESS:
       await playSuccessAnimation(outcome.initiatorToken);
+      break;
+  }
+};
+
+export const playBrokenOrDeadOutcomeAnimation = async (outcome) => {
+  switch (true) {
+    case outcome.isDead:
+      await playDeadOutcomeAnimation(outcome);
+      break;
+    case !outcome.isDead:
+      await playBrokenOutcomeAnimation(outcome);
       break;
   }
 };

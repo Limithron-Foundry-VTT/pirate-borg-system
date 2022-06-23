@@ -9,7 +9,7 @@ export const renderCombatTracker = (tracker, html) => {
     "PB.RollPartyInitiative",
   )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
   html.find("header").find("nav").last().prepend(partyInitiativeButton);
-  html.find("a[dataControl=rollParty]").click(() => {
-    actorPartyInitiativeAction();
+  html.find("a[dataControl=rollParty]").click(async () => {
+    await actorPartyInitiativeAction();
   });
 };

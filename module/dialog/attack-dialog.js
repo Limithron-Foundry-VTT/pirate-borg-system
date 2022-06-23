@@ -4,7 +4,7 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../api/automation/targeting.js";
+} from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -37,11 +37,13 @@ class AttackDialog extends Application {
   }
 
   /** @override */
-  async getData() {
+  async getData(options)  {
+    const data = super.getData(options);
     const attackDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
     const targetArmor = await this._getTargetArmor();
 
     return {
+      ...data,
       config: CONFIG.pirateborg,
       attackDR,
       targetArmor,
@@ -53,20 +55,16 @@ class AttackDialog extends Application {
   }
 
   _hasTargetWarning() {
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
-      return true;
-    }
-    return false;
+    return !!(this.enforceTargetSelection && !this.isTargetSelectionValid);
+
   }
 
   _shouldShowTarget() {
     if (this.enforceTargetSelection) {
       return true;
     }
-    if (this.hasTargets) {
-      return true;
-    }
-    return false;
+    return this.hasTargets;
+
   }
 
   _onTargetChanged() {
@@ -86,8 +84,8 @@ class AttackDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ok-button").click(this._onSubmit.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onSubmit.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
 
     html.find(".attack-dr .radio-input").on("change", this._onAttackDrRadioInputChanged.bind(this));
     html.find("#attackDr").on("change", this._onAttackDrInputChanged.bind(this));
@@ -100,7 +98,7 @@ class AttackDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#targetArmor").val(input.val());
-    this.element.find("#targetArmor").change();
+    this.element.find("#targetArmor").trigger("change");
   }
 
   async _onTargetArmorInputChanged(event) {
@@ -114,7 +112,7 @@ class AttackDialog extends Application {
     event.preventDefault();
     const input = $(event.currentTarget);
     this.element.find("#attackDr").val(input.val());
-    this.element.find("#attackDr").change();
+    this.element.find("#attackDr").trigger("change");
   }
 
   async _onAttackDrInputChanged(event) {
@@ -124,24 +122,24 @@ class AttackDialog extends Application {
     $(".attack-dr .radio-input").val([input.val()]);
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   _validate({ targetArmor, attackDR }) {
-    if (targetArmor && attackDR && (this.enforceTargetSelection ? this.isTargetSelectionValid : true)) {
-      return true;
-    }
-
-    return false;
+    return !!(targetArmor && attackDR && (this.enforceTargetSelection ? this.isTargetSelectionValid : true));
   }
 
-  close() {
+  /**
+   * @override
+   * @param [options]
+   */
+  async close(options) {
     if (targetSelectionEnabled()) {
       unregisterTargetAutomationHook(this._ontargetChangedHook);
     }
-    super.close();
+    await super.close(options);
   }
 
   async _onSubmit(event) {
@@ -159,7 +157,7 @@ class AttackDialog extends Application {
       attackDR: parseInt(attackDR, 10),
       targetToken: this.targetToken,
     });
-    this.close();
+    await this.close();
   }
 }
 

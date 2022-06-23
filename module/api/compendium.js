@@ -9,7 +9,7 @@ export const compendiumInfoFromString = (compendiumString) => compendiumString.s
 /**
  * @param {String} compendiumName
  * @param {String} itemName
- * @returns {Promise.<*|undefined>}
+ * @returns {Promise.<PBItem|RollTable|undefined>}
  */
 export const findCompendiumItem = async (compendiumName, itemName) => {
   const compendium = game.packs.get(compendiumName);
@@ -27,6 +27,7 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
 /**
  * @param {String} compendiumName
  * @param {String} tableName
+ * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
 export const drawTable = async (compendiumName, tableName, options = {}) => {
@@ -44,8 +45,7 @@ export const drawTableText = async (compendium, table) => (await drawTable(compe
 /**
  * @param {String} compendium
  * @param {String} table
- * @param {String} formula
- * @returns {Promise.<Array.<PBItem>>}
+ * @returns {Promise.<PBItem[]>}
  */
 export const drawTableItem = async (compendium, table) => {
   const draw = await drawTable(compendium, table);
@@ -74,7 +74,7 @@ export const drawTableItems = async (compendium, table, amount) => {
  */
 export const rollTable = async (compendium, table, formula) => {
   const rollTable = await findCompendiumItem(compendium, table);
-  return await rollTable.roll(formula);
+  return await rollTable.roll({ roll: new Roll(formula) });
 };
 
 /**
@@ -84,14 +84,13 @@ export const rollTable = async (compendium, table, formula) => {
  * @returns {Promise.<Array.<PBItem>>}
  */
 export const rollTableItems = async (compendium, table, formula) => {
-  const rollTableItems = await findCompendiumItem(compendium, table);
-  const draw = await rollTableItems.roll(formula);
+  const draw = await rollTable(compendium, table, formula);
   return await findTableItems(draw.results);
 };
 
 /**
- * @param {String} items
- * @returns {Promise.<Array.<PBItem>>}
+ @param {String} compendiumString
+ * @returns {Promise.<PBItem[]>}
  */
 export const findItemsFromCompendiumString = async (compendiumString) => {
   const compendiumsItems = compendiumString.split("\n").filter((item) => item);
@@ -104,8 +103,8 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 };
 
 /**
- * @param {Array.<RollTableDraw>} results
- * @returns {Promise.<Array.<PBItem>>}
+ * @param {TableResult[]} results
+ * @returns {Promise.<PBItem[]>}
  */
 export const findTableItems = async (results) => {
   const items = [];
@@ -139,7 +138,7 @@ export const executeCompendiumMacro = async (compendiumMacro, parameters = {}) =
   const [compendium, macroName] = compendiumInfoFromString(compendiumMacro || "");
   if (compendium && macroName) {
     const macro = await findCompendiumItem(compendium, macroName);
-    executeMacro(macro, parameters);
+    await executeMacro(macro, parameters);
   }
 };
 
@@ -154,6 +153,7 @@ export const findClassPacks = () => [...game.packs.keys()].filter((pack) => pack
  */
 export const classItemFromPack = async (compendiumName) => {
   const compendium = game.packs.get(compendiumName);
+  /** @type {Item[]} */
   const documents = await compendium.getDocuments();
   return documents.find((i) => i.data.type === "class");
 };
@@ -183,8 +183,7 @@ export const drawBroken = async (options = {}) => await drawTable("pirateborg.ro
 export const drawReaction = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
 
 /**
- * @param {Object} options
- * @returns {Promise.<RollTableDraw>}
+ * @returns {Promise.<String>}
  */
 export const drawGunpowderFumble = async () => await drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
 

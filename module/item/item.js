@@ -20,7 +20,9 @@ export class PBItem extends Item {
     }
   }
 
-  /** @override */
+  /**
+   * @param {PBActor} actor
+   */
   prepareActorItemDerivedData(actor) {
     if (actor.type === "character") {
       this.getData().equippable = CONFIG.PB.equippableItemTypes.includes(this.type);
@@ -44,10 +46,18 @@ export class PBItem extends Item {
   }
 
   /** V10 */
+  /**
+   * @return {Object}
+   */
   getData() {
     return this.system ?? this.data.data;
   }
 
+  /**
+   * @param {String} key
+   * @param {any} value
+   * @return {Promise<void>}
+   */
   async updateData(key, value) {
     await this.update({ [`data.${key}`]: value });
   }
@@ -65,6 +75,7 @@ export class PBItem extends Item {
 
   /**
    * @param {String} description
+   * @return {Promise<void>}
    */
   async setDescription(description) {
     await this.updateData("description", description);
@@ -92,7 +103,9 @@ export class PBItem extends Item {
   }
 
   /**
+   *
    * @param {Boolean} equipped
+   * @return {Promise<void>}
    */
   async setEquipped(equipped) {
     await this.updateData("equipped", equipped);
@@ -111,6 +124,7 @@ export class PBItem extends Item {
 
   /**
    * @param {Boolean} carried
+   * @return {Promise<void>}
    */
   async setCarried(carried) {
     await this.updateData("carried", carried);
@@ -131,7 +145,9 @@ export class PBItem extends Item {
   }
 
   /**
+   *
    * @param {Number} quantity
+   * @return {Promise<void>}
    */
   async setQuantity(quantity) {
     await this.updateData("quantity", quantity);
@@ -240,7 +256,9 @@ export class PBItem extends Item {
   }
 
   /**
-   * @returns {Number}
+   *
+   * @param {Number} loadingCount
+   * @return {Promise<void>}
    */
   async setLoadingCount(loadingCount) {
     await this.updateData("loadingCount", loadingCount);
@@ -269,7 +287,8 @@ export class PBItem extends Item {
   }
 
   /**
-   * @param {{min: Number, max: Number, value: Number}}
+   * @param {{min?: Number, max?: Number, value?: Number}} tier
+   * @return {Promise<void>}
    */
   async setTier(tier) {
     await this.updateData("tier", tier);
@@ -305,21 +324,21 @@ export class PBItem extends Item {
   }
 
   /**
-   * @returns {String}
+   * @returns {Boolean}
    */
   get isArcaneRitual() {
     return this.getData().invokableType === "Arcane Ritual";
   }
 
   /**
-   * @returns {String}
+   * @returns {Boolean}
    */
   get isAncientRelic() {
     return this.getData().invokableType === "Ancient Relic";
   }
 
   /**
-   * @returns {String}
+   * @returns {Boolean}
    */
   get isExtraResource() {
     return !this.isArcaneRitual && !this.isAncientRelic;
@@ -375,27 +394,26 @@ export class PBItem extends Item {
     return this.getData().maxQuantity;
   }
 
-
   /**
    * class properties
    */
 
   /**
-  * @returns {Boolean}
-  */
+   * @returns {Boolean}
+   */
   get isBaseClass() {
     return this.getData().isBaseClass === true;
   }
 
   /**
-  * @param {Boolean} isBaseClass
-  */
+   * @param {Boolean} isBaseClass
+   */
   set isBaseClass(isBaseClass) {
     this.getData().isBaseClass = isBaseClass;
-  }  
+  }
 
   /**
-   * @returns {Number}  
+   * @returns {Number}
    */
   get luckDie() {
     return this.getData().luckDie;
@@ -444,8 +462,8 @@ export class PBItem extends Item {
   }
 
   /**
- * @returns {String}
- */
+   * @returns {String}
+   */
   get extraResourceTestFormulaLabel() {
     return this.getData().extraResourceTestFormulaLabel;
   }
@@ -578,14 +596,15 @@ export class PBItem extends Item {
   }
 
   /**
-   * @returns {Number}
+   * @returns {String}
    */
   get ammoId() {
     return this.getData().ammoId;
   }
 
   /**
-   * @param {{min: Number, max: Number, value: Number}}
+   * @param {String} ammoId
+   * @return {Promise<void>}
    */
   async setAmmoId(ammoId) {
     await this.updateData("ammoId", ammoId);
@@ -595,6 +614,9 @@ export class PBItem extends Item {
    * Armor extra properties
    */
 
+  /**
+   * @return {String}
+   */
   get damageReductionDie() {
     return this.getData().damageReductionDie;
   }
@@ -635,51 +657,85 @@ export class PBItem extends Item {
   }
 
   /**
+   *
    * @param {Array.<String>} items
+   * @return {Promise<void>}
    */
   async setItems(items) {
     await this.updateData("items", items);
   }
 
+  /**
+   * @return {boolean}
+   */
   get hasItems() {
     return this.items.length > 0;
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async equip() {
     await this.setEquipped(true);
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async unequip() {
     await this.setEquipped(false);
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async carry() {
     await this.setCarried(true);
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async drop() {
     await this.setCarried(false);
   }
 
+  /**
+   * @param {String} itemId
+   * @return {Promise<void>}
+   */
   async addItem(itemId) {
     if (!this.items.includes(itemId)) {
-      this.setItems([...this.items, itemId]);
+      await this.setItems([...this.items, itemId]);
     }
   }
 
+  /**
+   * @param {String} itemId
+   * @return {Promise<void>}
+   */
   async removeItem(itemId) {
     const items = this.items.filter((item) => item !== itemId);
-    this.setItems(items);
+    await this.setItems(items);
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async clearItems() {
-    this.setItems([]);
+    await this.setItems([]);
   }
 
+  /**
+   * @private
+   * @param {PBActor} actor
+   * @return {Number}
+   */
   _getTotalCarryWeight(actor) {
     if (this.isContainer) {
       return (
         this.items.reduce((weight, itemId) => {
+          /** @type {PBItem} */
           const item = actor.items.get(itemId);
           if (item) {
             weight += Math.ceil(item.carryWeight * item.quantity);
@@ -691,8 +747,14 @@ export class PBItem extends Item {
     return Math.ceil(this.carryWeight * this.quantity);
   }
 
+  /**
+   * @private
+   * @param {PBActor} actor
+   * @return {Number}
+   */
   _getTotalContainerSpace(actor) {
     return this.items.reduce((space, itemId) => {
+      /** @type {PBItem} */
       const item = actor.items.get(itemId);
       if (item) {
         space += Math.ceil(item.containerSpace * item.quantity);
@@ -701,6 +763,11 @@ export class PBItem extends Item {
     }, 0);
   }
 
+  /**
+   * @private
+   * @param {PBActor} actor
+   * @return {Number}
+   */
   _getItemsData(actor) {
     return this.items.reduce((initial, itemId) => {
       const item = actor.items.get(itemId);
@@ -711,6 +778,11 @@ export class PBItem extends Item {
     }, []);
   }
 
+  /**
+   * @private
+   * @param {PBActor} actor
+   * @return {PBItem[]}
+   */
   _getItemContainer(actor) {
     return actor.items.filter((item) => item.isContainer).find((item) => item.items.includes(this.id));
   }

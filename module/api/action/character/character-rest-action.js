@@ -63,7 +63,7 @@ const shortRest = async (actor, foodAndDrink, infected) => {
  * @param {PBActor} actor
  * @param {String} foodAndDrink
  * @param {Boolean} infected
- * @returns {Promise.<Array<Outcome>}
+ * @returns {Promise.<Object[]>}
  * @returns
  */
 const longRest = async (actor, foodAndDrink, infected) => {

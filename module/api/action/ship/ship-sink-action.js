@@ -1,19 +1,16 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { drawDerelictTakesDamage } from "../../compendium.js";
-import { drawOutcome } from "../../outcome/outcome.js";
+import { createSinkingOutcome } from "../../outcome/ship/ship-sinking-outcome.js";
+
 /**
  * @param {PBActor} actor
- * @param {PBItem} item
- * @returns {Promise.<ChatMessage>}
+ * @returns {Promise.<void>}
  */
 export const shipSinkAction = async (actor) => {
-  const outcome = await drawOutcome({
-    draw: await drawDerelictTakesDamage(),
-    title: game.i18n.localize("PB.ShipSinkingMessage"),
-  })();
+  const outcome = await createSinkingOutcome({ actor });
 
-  return await showGenericCard({
+  await showGenericCard({
     title: game.i18n.localize("PB.ShipSinking"),
+    description: game.i18n.localize("PB.ShipSinkingMessage"),
     actor,
     outcomes: [outcome],
   });

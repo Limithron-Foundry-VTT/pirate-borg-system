@@ -1,10 +1,10 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
-import { createInvokeShantyOutcome } from "../../outcome/ship/invoke-shanty-outcome.js";
+import { createInvokeShantyOutcome } from "../../outcome/ship/ship-invoke-shanty-outcome.js";
 
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipInvokeShantyAction = async (actor, item) => {
   if (actor.shanties.value < 1) {

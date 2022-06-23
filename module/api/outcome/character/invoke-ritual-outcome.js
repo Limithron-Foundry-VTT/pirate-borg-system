@@ -1,10 +1,16 @@
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
-import { createMysticalMishapButton } from "../../automation/buttons.js";
-import { withAdvancedAnimation, withAnimation, withButton, withTarget } from "../automation-outcome.js";
-import { testOutcome, withAsyncProps } from "../outcome.js";
+import { testOutcome, withAsyncProps, withAutomations, withButton, withTarget, withWhen } from "../outcome.js";
+import { OUTCOME_BUTTON } from "../../automation/outcome-chat-button.js";
 
+/**
+ * @param {String} isFumble
+ * @param {String} isCriticalSuccess
+ * @param {String} isSuccess
+ * @param {String} isFailure
+ * @return {String}
+ */
 const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   switch (true) {
     case isFumble:
@@ -18,6 +24,10 @@ const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   }
 };
 
+/**
+ * @param {Boolean} isFailure
+ * @return {String}
+ */
 const getDescription = ({ isFailure = false }) => {
   switch (true) {
     case isFailure:
@@ -25,14 +35,10 @@ const getDescription = ({ isFailure = false }) => {
   }
 };
 
-const getButton = (outcome) => {
-  switch (true) {
-    case outcome.isFailure:
-    case outcome.isFumble:
-      return createMysticalMishapButton({ outcome });
-  }
-};
-
+/**
+ * @param {PBActor} actor
+ * @return {Promise<Object>}
+ */
 export const createInvokeRitualOutcome = async ({ actor }) =>
   asyncPipe(
     testOutcome({
@@ -45,8 +51,10 @@ export const createInvokeRitualOutcome = async ({ actor }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
     }),
-    withButton(getButton),
+    withWhen((outcome) => outcome.isFailure, withButton({
+      title: game.i18n.localize("PB.InvokableRitualFailureButton"), 
+      type: OUTCOME_BUTTON.MYSTICAL_MISHAP
+    })),
     withTarget({ actor }),
-    withAnimation({ type: ANIMATION_TYPE.SIMPLE }),
-    withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL }),
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL)
   )();

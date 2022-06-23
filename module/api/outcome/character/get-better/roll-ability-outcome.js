@@ -1,6 +1,12 @@
 import { asyncPipe } from "../../../utils.js";
 import { rollOutcome, withAsyncProps } from "../../outcome.js";
 
+/**
+ * @param {Boolean} hasGainAbility
+ * @param {Boolean} hasLoseAbility
+ * @param {Boolean} isUnchanged
+ * @return {String}
+ */
 const getDescription = ({ hasGainAbility = false, hasLoseAbility = false, isUnchanged = false }) => {
   switch (true) {
     case hasGainAbility:
@@ -12,6 +18,11 @@ const getDescription = ({ hasGainAbility = false, hasLoseAbility = false, isUnch
   }
 };
 
+/**
+ * @param {String} ability
+ * @param {Number} value
+ * @return {Promise<Object>}
+ */
 export const createRollAbilityOutcome = async ({ ability, value }) =>
   asyncPipe(
     rollOutcome({
@@ -21,10 +32,10 @@ export const createRollAbilityOutcome = async ({ ability, value }) =>
     }),
     withAsyncProps({
       hasFailRoll: (outcome) => outcome.roll.total === 1 || outcome.roll.total < value,
-      newValue: (outcome) => outcome.hasFailRoll ? Math.max(-3, value - 1) : Math.min(6, value + 1),
+      newValue: (outcome) => (outcome.hasFailRoll ? Math.max(-3, value - 1) : Math.min(6, value + 1)),
       hasGainAbility: (outcome) => outcome.newValue > value,
       hasLoseAbility: (outcome) => outcome.newValue < value,
-      isUnchanged: (outcome) => outcome.newValue == value,
+      isUnchanged: (outcome) => outcome.newValue === value,
       description: (outcome) => game.i18n.format(getDescription(outcome), { ability }),
     }),
   )();

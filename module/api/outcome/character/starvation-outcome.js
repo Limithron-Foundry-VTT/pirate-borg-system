@@ -1,10 +1,13 @@
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
-import { DAMAGE_TYPE } from "../../automation/outcome-damage.js";
-import { withAdvancedAnimation, withAnimation, withDamage, withTarget } from "../automation-outcome.js";
-import { rollOutcome, withAsyncProps } from "../outcome.js";
+import { rollOutcome, withAsyncProps, withAutomations, withTarget } from "../outcome.js";
+import {DAMAGE_TYPE} from "../../automation/outcome-damage";
 
+/**
+ * @param {PBActor} actor
+ * @return {Promise<Object>}
+ */
 export const createStarvationOutcome = async ({ actor }) =>
   asyncPipe(
     rollOutcome({
@@ -16,7 +19,5 @@ export const createStarvationOutcome = async ({ actor }) =>
       title: (outcome) => `${game.i18n.localize("PB.Take")} ${outcome.totalDamage} ${game.i18n.localize("PB.Damage")} (${game.i18n.localize("PB.Starvation")})`,
     }),
     withTarget({ actor }),
-    withDamage({ type: DAMAGE_TYPE.TAKE }),
-    withAnimation({ type: ANIMATION_TYPE.STARVATION }),
-    withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.STARVATION }),
+    withAutomations(DAMAGE_TYPE.TAKE, ANIMATION_TYPE.STARVATION, ADVANCED_ANIMATION_TYPE.STARVATION)
   )();

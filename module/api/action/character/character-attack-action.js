@@ -7,9 +7,10 @@ import { showGenericCard } from "../../../chat-message/generic-card.js";
 /**
  * @param {PBActor} actor
  * @param {PBItem} weapon
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<Object>}
  */
 export const characterAttackAction = async (actor, weapon) => {
+  /** @type {PBItem} */
   const ammo = actor.items.get(weapon.ammoId);
 
   if (!isAttackValid(weapon, ammo)) return;
@@ -55,16 +56,18 @@ const handleWeaponReloading = async (weapon) => {
 };
 
 /**
+ * @param {PBActor} actor
  * @param {PBItem} weapon
  * @returns {Promise}
  */
 const decrementWeaponAmmo = async (actor, weapon) => {
   if (weapon.usesAmmo && weapon.ammoId && trackAmmo()) {
+    /** @type {PBItem} */
     const ammo = actor.items.get(weapon.ammoId);
     if (ammo) {
       const quantity = ammo.quantity - 1;
       if (quantity > 0) {
-        ammo.setQuantity(quantity);
+        await ammo.setQuantity(quantity);
       } else {
         await actor.deleteEmbeddedDocuments("Item", [ammo.id]);
       }
@@ -77,7 +80,7 @@ const getItems = (weapon, ammo) => {
   if (ammo) {
     items.push(ammo);
   } else if (weapon.usesAmmo) {
-    items.push(new PBItem({ type: "ammo", name: game.i18n.localize("PB.NoAmmo") }));
+    items.push(PBItem.create({ type: "ammo", name: game.i18n.localize("PB.NoAmmo") }));
   }
   return items;
 };
@@ -97,6 +100,7 @@ const isAttackValid = (weapon, ammo) => {
 
 /**
  * @param {PBItem} weapon
+ * @param {PBItem} ammo
  * @returns {Boolean}
  */
 const isAmmoValid = (weapon, ammo) => {

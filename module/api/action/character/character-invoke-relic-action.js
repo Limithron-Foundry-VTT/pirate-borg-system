@@ -4,7 +4,7 @@ import { createInvokeRelicOutcome } from "../../outcome/character/invoke-relic-o
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const characterInvokeRelicAction = async (actor, item) => {
   const outcome = await createInvokeRelicOutcome({ actor });

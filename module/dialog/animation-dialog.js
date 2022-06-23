@@ -20,18 +20,17 @@ class AnimationDialog extends Application {
   }
 
   /** @override */
-  async getData() {
-    return {
-      config: CONFIG.pirateborg,
-      animations: this._getAnimationEntries(),
-    };
+  async getData(options) {
+    const data = super.getData(options);
+    data.config = CONFIG.pirateborg;
+    data.animations = this._getAnimationEntries();
   }
 
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ok-button").click(this._onSubmit.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onSubmit.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
   }
 
   _getAnimationEntries() {
@@ -45,9 +44,9 @@ class AnimationDialog extends Application {
     return this.animationTypes.some((animationType) => file.includes(animationType));
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   async _onSubmit(event) {
@@ -55,7 +54,7 @@ class AnimationDialog extends Application {
     // const form = $(event.currentTarget).parents("form")[0];
 
     this.callback({});
-    this.close();
+    await this.close();
   }
 }
 

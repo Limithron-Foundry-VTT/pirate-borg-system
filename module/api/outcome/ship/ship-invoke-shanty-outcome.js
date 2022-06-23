@@ -1,9 +1,15 @@
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
-import { withAdvancedAnimation, withAnimation, withTarget } from "../automation-outcome.js";
-import { testOutcome, withAsyncProps } from "../outcome.js";
+import { testOutcome, withAsyncProps, withAutomations, withTarget } from "../outcome.js";
 
+/**
+ * @param {Boolean} isFumble
+ * @param {Boolean} isCriticalSuccess
+ * @param {Boolean} isSuccess
+ * @param {Boolean} isFailure
+ * @return {string}
+ */
 const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   switch (true) {
     case isFumble:
@@ -17,6 +23,10 @@ const getTitle = ({ isFumble, isCriticalSuccess, isSuccess, isFailure }) => {
   }
 };
 
+/**
+ * @param {PBActor} actor
+ * @return {Promise<Object>}
+ */
 export const createInvokeShantyOutcome = async ({ actor }) =>
   asyncPipe(
     testOutcome({
@@ -29,6 +39,5 @@ export const createInvokeShantyOutcome = async ({ actor }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAnimation({ type: ANIMATION_TYPE.SIMPLE }),
-    withAdvancedAnimation({ type: ADVANCED_ANIMATION_TYPE.SPELL }),
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.SING_SHANTY)
   )();

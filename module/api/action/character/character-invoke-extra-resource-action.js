@@ -4,7 +4,7 @@ import { createInvokeExtraResourceOutcome } from "../../outcome/character/invoke
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<Object>}
  */
 export const characterInvokeExtraResourceAction = async (actor, item) => {
   if (actor.extraResource.value < 1) {

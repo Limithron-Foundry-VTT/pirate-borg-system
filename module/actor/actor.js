@@ -45,11 +45,17 @@ export class PBActor extends Actor {
     }
   }
 
+  /**
+   * @private
+   */
   _prepareItemsDerivedData() {
     this.items.forEach((item) => item.prepareActorItemDerivedData(this));
   }
 
-  async _prepareCharacterDerivedData() {
+  /**
+   * @private
+   */
+  _prepareCharacterDerivedData() {
     this.dynamic.carryingWeight = this.carryingWeight;
     this.dynamic.carryingCapacity = this.normalCarryingCapacity;
     this.dynamic.encumbered = this.isEncumbered;
@@ -65,11 +71,17 @@ export class PBActor extends Actor {
     this.dynamic.luckDie = this.characterClass?.luckDie || this.characterBaseClass?.luckDie;
   }
 
-  async _prepareContainerDerivedData() {
+  /**
+   * @private
+   */
+  _prepareContainerDerivedData() {
     this.dynamic.containerSpace = this.containerSpace;
   }
 
-  async _prepareVehicleDerivedData() {
+  /**
+   * @private
+   */
+  _prepareVehicleDerivedData() {
     this.attributes.cargo.value = this.cargoItems.length;
     if (this.weapons.broadsides.quantity > 1) {
       this.dynamic.hasBroadsidesPenalties = this.attributes.hp.value < this.attributes.hp.max - this.attributes.hp.max / this.weapons.broadsides.quantity;
@@ -91,7 +103,7 @@ export class PBActor extends Actor {
         "Item",
         this.items
           .filter((item) => item.type === CONFIG.PB.itemTypes.class)
-          .filter((item) => !documents[0].isBaseClass ? true : item.isBaseClass === documents[0].isBaseClass)
+          .filter((item) => (!documents[0].isBaseClass ? true : item.isBaseClass === documents[0].isBaseClass))
           .filter((item) => item.id !== documents[0].id)
           .map((item) => item.id),
       );
@@ -113,10 +125,18 @@ export class PBActor extends Actor {
   }
 
   /** V10 */
+  /**
+   * @return {Object}
+   */
   getData() {
     return this.system ?? this.data.data;
   }
 
+  /**
+   * @param {String} key
+   * @param {any} value
+   * @return {Promise<void>}
+   */
   async updateData(key, value) {
     await this.update({ [`data.${key}`]: value });
   }
@@ -158,102 +178,181 @@ export class PBActor extends Actor {
   }
 
   // common
+  /**
+   * @return {Object}
+   */
   get attributes() {
     return this.getData().attributes;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateAttributes(value) {
     await this.updateData("attributes", value);
   }
 
+  /**
+   * @return {Object}
+   */
   get abilities() {
     return this.getData().abilities;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateAbilities(value) {
     await this.updateData("abilities", value);
   }
-  
+
+  /**
+   * @return {Object}
+   */
   get dynamic() {
     return this.getData().dynamic;
   }
 
+  /**
+   * @return {Object}
+   */
   get hp() {
     return this.attributes.hp;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateHp(value) {
     await this.updateAttributes({ hp: value });
   }
 
   // characters
+  /**
+   * @return {Number}
+   */
   get silver() {
     return this.getData().silver;
   }
 
+  /**
+   * @param {Number} value
+   * @return {Promise<void>}
+   */
   async updateSilver(value) {
     await this.updateData("silver", value);
   }
 
+  /**
+   * @return {Object}
+   */
   get luck() {
     return this.attributes.luck;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateLuck(value) {
     await this.updateAttributes({ luck: value });
   }
 
+  /**
+   * @return {Object}
+   */
   get rituals() {
     return this.attributes.rituals;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateRituals(value) {
     await this.updateAttributes({ rituals: value });
   }
 
+  /**
+   * @return {Object}
+   */
   get extraResource() {
     return this.attributes.extraResource;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateExtraResource(value) {
     await this.updateAttributes({ extraResource: value });
   }
 
   // Creature
+  /**
+   * @return {String}
+   */
   get morale() {
     return this.attributes.morale;
   }
 
   // extra character properties
+  /**
+   * @return {String}
+   */
   get luckDie() {
     return this.dynamic.luckDie;
   }
 
+  /**
+   * @return {Boolean}
+   */
   get useExtraResource() {
     return this.dynamic.useExtraResource;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceNameSingular() {
     return this.dynamic.extraResourceNameSingular;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceNamePlural() {
     return this.dynamic.extraResourceNamePlural;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceFormula() {
     return this.dynamic.extraResourceFormula;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceFormulaLabel() {
     return this.dynamic.extraResourceFormulaLabel;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceTestFormula() {
     console.log(this.dynamic, this.dynamic.extraResourceTestFormula);
     return this.dynamic.extraResourceTestFormula;
   }
 
+  /**
+   * @return {String}
+   */
   get extraResourceTestFormulaLabel() {
     return this.dynamic.extraResourceTestFormulaLabel;
   }
@@ -293,14 +392,23 @@ export class PBActor extends Actor {
     return this.items.find((item) => item.type === CONFIG.PB.itemTypes.weapon && item.equipped);
   }
 
+  /**
+   * @return {Number}
+   */
   get normalCarryingCapacity() {
     return this.abilities.strength.value + 8;
   }
 
+  /**
+   * @return {Number}
+   */
   get maxCarryingCapacity() {
     return 2 * this.normalCarryingCapacity;
   }
 
+  /**
+   * @return {Number}
+   */
   get carryingWeight() {
     return this.data.items
       .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
@@ -309,6 +417,9 @@ export class PBActor extends Actor {
       .reduce((weight, item) => weight + item.totalCarryWeight, 0);
   }
 
+  /**
+   * @return {Boolean}
+   */
   get isEncumbered() {
     if (!trackCarryingCapacity()) {
       return false;
@@ -316,6 +427,9 @@ export class PBActor extends Actor {
     return this.carryingWeight > this.normalCarryingCapacity;
   }
 
+  /**
+   * @return {Number}
+   */
   get containerSpace() {
     return this.data.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
@@ -328,57 +442,101 @@ export class PBActor extends Actor {
   }
 
   // Ships
+  /**
+   * @return {PBItem[]}
+   */
   get cargoItems() {
     return this.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo);
   }
 
+  /**
+   * @return {Object}
+   */
   get weapons() {
     return this.getData().weapons;
   }
 
+  /**
+   * @return {String}
+   */
   get broadsidesDie() {
     return this.weapons?.broadsides.die;
   }
 
+  /**
+   * @return {String}
+   */
   get smallArmsDie() {
     return this.weapons?.smallArms.die;
   }
 
+  /**
+   * @return {String}
+   */
   get ramDie() {
     return this.weapons?.ram.die;
   }
 
+  /**
+   * @return {String}
+   */
   get captain() {
     return this.getData().captain;
   }
 
+  /**
+   * @param {String} actorId
+   * @return {Promise<void>}
+   */
   async setCaptain(actorId) {
     return await this.updateData("captain", actorId);
   }
 
+  /**
+   * @return {Object}
+   */
   get shanties() {
     return this.attributes.shanties;
   }
 
+  /**
+   * @param {Object} value
+   * @return {Promise<void>}
+   */
   async updateShanties(value) {
     await this.updateAttributes({ shanties: value });
   }
 
+  /**
+   * @return {String[]}
+   */
   get crews() {
     return this.getData().crews || [];
   }
 
+  /**
+   * @param {String[]} crews
+   * @return {Promise<void>}
+   */
   async updateCrews(crews) {
     return await this.updateData("crews", crews);
   }
 
   // crew management
+  /**
+   * @param {String} actorId
+   * @return {Promise<void>}
+   */
   async addCrew(actorId) {
     if (!this.crews.includes(actorId)) {
       return await this.updateCrews([...this.crews, actorId]);
     }
   }
 
+  /**
+   * @param {String} actorId
+   * @return {Promise<void>}
+   */
   async removeCrew(actorId) {
     const crews = this.crews.filter((crew) => crew !== actorId);
     if (this.captain === actorId) {
@@ -387,6 +545,9 @@ export class PBActor extends Actor {
     return await this.updateCrews(crews);
   }
 
+  /**
+   * @return {Promise<void>}
+   */
   async clearCrews() {
     await this.setCaptain(null);
     return await this.updateCrews([]);
@@ -394,7 +555,7 @@ export class PBActor extends Actor {
 
   /**
    * @param {PBItem} item
-   * @returns {Promise}
+   * @returns {Promise<void>}
    */
   async equipItem(item) {
     if ([CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(item.type)) {
@@ -409,13 +570,17 @@ export class PBActor extends Actor {
 
   /**
    * @param {PBItem} item
-   * @returns {Promise}
+   * @returns {Promise<void>}
    */
   async unequipItem(item) {
     return await item.unequip();
   }
 
-  async setBaseClass(baseClass)  {
+  /**
+   * @param {String} baseClass
+   * @return {Promise<void>}
+   */
+  async setBaseClass(baseClass) {
     const [compendium, item] = baseClass.split(";");
     if (compendium && item) {
       const baseClassItem = await findCompendiumItem(compendium, item);
@@ -423,6 +588,7 @@ export class PBActor extends Actor {
       await this.createEmbeddedDocuments("Item", [baseClassItem.toObject(false)]);
     }
   }
+
   /**
    * @returns {String}
    */
@@ -458,8 +624,7 @@ export class PBActor extends Actor {
   }
 
   /**
-   * @param {PBActor} actor
-   * @param {PBActor} targetActor
+   * @param {PBActor} target
    * @param {String} damageFormula
    * @returns {String}
    */
@@ -471,7 +636,6 @@ export class PBActor extends Actor {
   /**
    * @private
    *
-   * @param {PBActor} actor
    * @param {PBActor} targetActor
    * @returns {String}
    */
@@ -487,6 +651,7 @@ export class PBActor extends Actor {
   }
 
   async useActionMacro(itemId) {
+    /** @type {PBItem} */
     const item = this.items.get(itemId);
     if (!item || !item.actionMacro) {
       return;

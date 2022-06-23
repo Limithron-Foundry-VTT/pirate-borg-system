@@ -10,7 +10,7 @@ import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
 import { onDragRulerReady } from "./system/drag-ruler.js";
-import { registerAutomation } from "./system/register-automation.js";
+import { configureAutomation } from "./system/configure-automation.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -23,15 +23,11 @@ Hooks.once("init", async () => {
 Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
-  registerAutomation();
+  configureAutomation();
+
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
 
-  // To fix a strange behavior with foundry
   ui.chat.scrollBottom();
-
-  Hooks.on("getCompendiumFolderDirectoryEntryContext", async (html, options) => {
-    console.log(html, options);
-  });
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);

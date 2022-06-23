@@ -11,6 +11,7 @@ export const chatMysticalMyshapButtonAction = async (originalOutcome) => {
 
   const outcome = await createMysticalMishapOutcome({
     actor: initiatorToken?.actor,
+    isFumble: originalOutcome.isFumble,
     roll: await evaluateFormula(originalOutcome.isFumble ? "2d20kl" : "1d20"),
   });
 

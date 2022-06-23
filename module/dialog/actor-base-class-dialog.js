@@ -50,16 +50,19 @@ export default class ActorBaseClassDialog extends Application {
     return classses;
   }
 
-  /** @override */
+  /**
+   * @override
+   * @param {JQuery.<HTMLElement>} html
+   */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".cancel-button").click(this._onCancel.bind(this));
-    html.find(".ok-button").click(this._onOk.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onOk.bind(this));
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   async _onOk(event) {
@@ -67,6 +70,6 @@ export default class ActorBaseClassDialog extends Application {
     const form = $(event.currentTarget).parents("form")[0];
     const baseClass = $(form).find("#baseClass");
     await this.actor.setBaseClass(baseClass.val());
-    this.close();
+    await this.close();
   }
 }

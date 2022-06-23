@@ -4,8 +4,8 @@ import { createComeAboutOutcome } from "../../outcome/ship/ship-come-about-outco
 
 /**
  * @param {PBActor} actor
- * @param {PBItem} weapon
- * @returns {Promise.<Outcome>}
+ * @param {Boolean} isPCAction
+ * @returns {Promise.<void>}
  */
 export const shipComeAboutAction = async (actor, isPCAction) => {
   const { selectedActor, selectedDR } = await showCrewActionDialog({

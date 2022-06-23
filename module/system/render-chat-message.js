@@ -1,6 +1,7 @@
-import { handleActionButton } from "../api/automation/buttons.js";
 import { waitForMessageRoll } from "../api/dice.js";
 import { OutcomeAutomation } from "../api/automation/outcome-automation.js";
+import { OutcomeChatButton } from "../api/automation/outcome-chat-button.js";
+import { emitScrollChatToBottom } from "./sockets.js";
 
 /**
  * @param {ChatMessage} message
@@ -10,7 +11,13 @@ export const handleChatMessageButton = async (message, html) => {
   html.on("click", "button.item-button", async (event) => {
     event.preventDefault();
     const button = event.currentTarget;
-    await handleActionButton(message, button);
+    await OutcomeChatButton.handleChatMessage(message, button);
+
+    const lastMessage = Array.from(ui.chat.collection).pop();
+    if (lastMessage && lastMessage.id === message.id) {
+      emitScrollChatToBottom();
+      ui.chat.scrollBottom();
+    }
   });
 };
 
@@ -24,7 +31,6 @@ export const handleChatMessageGMOnly = async (message, html) => {
 
 /**
  * @param {ChatMessage} message
- * @param {jQuery} html
  */
 export const handleChatMessageAutomation = async (message) => {
   if (!game.user.isGM) {

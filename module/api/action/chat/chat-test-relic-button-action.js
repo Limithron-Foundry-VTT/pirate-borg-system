@@ -5,7 +5,7 @@ import { createTestRelicOutcome } from "../../outcome/character/test-relic-outco
  * @param {Object} originalOutcome
  * @returns {Promise.<Array.<Object>>}
  */
-export const chatInvokeRelicButtonAction = async (originalOutcome) => {
+export const chatTestRelicButtonAction = async (originalOutcome) => {
   const initiatorToken = canvas.tokens.get(originalOutcome.initiatorToken);
 
   const outcome = await createTestRelicOutcome({

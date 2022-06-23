@@ -6,8 +6,7 @@ import { createRamOutcome } from "../../outcome/ship/ship-ram-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @param {PBItem} weapon
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipRamAction = async (actor) => {
   const { selectedArmor, selectedMovement, targetToken } = await showCrewActionDialog({

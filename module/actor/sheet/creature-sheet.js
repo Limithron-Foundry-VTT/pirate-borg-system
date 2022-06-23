@@ -42,7 +42,7 @@ export class PBActorSheetCreature extends PBActorSheet {
    */
   async _onInitiativeRoll(event) {
     event.preventDefault();
-    actorInitiativeAction(this.actor);
+    await actorInitiativeAction(this.actor);
   }
 
   /**

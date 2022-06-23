@@ -4,7 +4,7 @@ import { createDefendOutcome } from "../../outcome/character/defend-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const characterDefendAction = async (actor) => {
   const { defendArmor, defendDR, incomingAttack, targetToken } = await showDefendDialog({ actor });
@@ -24,6 +24,4 @@ export const characterDefendAction = async (actor) => {
     items: [actor.equippedArmor, actor.equippedHat].filter((item) => item),
     target: targetToken,
   });
-
-  return outcome;
 };

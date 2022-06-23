@@ -1,15 +1,7 @@
 /**
- * Add a show-dice promise to the given array if Dice So Nice is available.
- */
-export const addShowDicePromise = (promises, roll) => {
-  if (game.dice3d) {
-    // we pass synchronize=true so DSN dice appear on all players' screens
-    promises.push(game.dice3d.showForRoll(roll, game.user, true, null, false));
-  }
-};
-
-/**
  * Show roll in Dice So Nice if it's available.
+ * @param {Roll} roll
+ * @return {Promise<void>}
  */
 export const showDice = async (roll) => {
   if (game.dice3d) {
@@ -19,19 +11,18 @@ export const showDice = async (roll) => {
 };
 
 /**
- * Dice sound to use for ChatMessage.
- * False if Dice So Nice is available.
+ * Dice sound to use for ChatMessage. False if Dice So Nice is available.
+ * @return {string|null}
  */
 export const diceSound = () => {
   if (game.dice3d) {
-    // let Dice So Nice do it
     return null;
   }
   return CONFIG.sounds.dice;
 };
 
 /**
- * Play a dice sound if Dice so Nice is not available
+ * Play a die sound if Dice so Nice is not available
  */
 export const playDiceSound = () => {
   if (!game.dice3d) {
@@ -40,7 +31,7 @@ export const playDiceSound = () => {
 };
 
 /**
- * @param {Array.<Roll>} rolls
+ * @param {Roll[]} rolls
  */
 export const showDiceWithSound = async (rolls) => {
   await showDice(Roll.fromTerms([PoolTerm.fromRolls(rolls)]));
@@ -48,8 +39,8 @@ export const showDiceWithSound = async (rolls) => {
 };
 
 /**
- * @param {String} targetMessageId 
- * @returns 
+ * @param {String} targetMessageId
+ * @return {Promise<Boolean>}
  */
 export const waitForMessageRoll = (targetMessageId) => {
   const createHook = (resolve) => {

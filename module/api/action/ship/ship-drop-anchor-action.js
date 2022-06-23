@@ -4,9 +4,7 @@ import { createDropAnchorOutcome } from "../../outcome/ship/ship-drop-anchor-out
 
 /**
  * @param {PBActor} actor
- * @param {String} title
- * @param {String} description
- * @returns {Promise.<Outcome>}
+ * @returns {Promise.<void>}
  */
 export const shipDropAnchorAction = async (actor) => {
   await showCrewActionDialog({
@@ -20,6 +18,6 @@ export const shipDropAnchorAction = async (actor) => {
     actor,
     title: game.i18n.localize("PB.ShipCrewActionDropAnchor"),
     description: game.i18n.localize("PB.ShipDropAnchorMessage"),
-    outcomes: [await createDropAnchorOutcome({ actor })]
+    outcomes: [await createDropAnchorOutcome({ actor })],
   });
 };

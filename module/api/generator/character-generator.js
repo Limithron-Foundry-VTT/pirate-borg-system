@@ -1,11 +1,9 @@
 import { PBActor } from "../../actor/actor.js";
 import {
-  classItemFromPack,
   compendiumInfoFromString,
   drawTableItems,
   drawTableText,
   executeCompendiumMacro,
-  findClassPacks,
   findCompendiumItem,
   findItemsFromCompendiumString,
   findTableItems,
@@ -15,19 +13,14 @@ import { PB } from "../../config.js";
 import { evaluateFormula } from "../utils.js";
 
 /**
- * @returns {Promise.<Actor>}
- */
-export const createRandomCharacter = async () => await createCharacter(await selectRandomClass());
-
-/**
- * @param {String} cls
+ * @param {PBItem} cls
  * @returns {Promise.<Actor>}
  */
 export const createCharacter = async (cls) => await createActorWithCharacter(await rollCharacterForClass(cls));
 
 /**
- * @param {Actor} actor
- * @param {String} cls
+ * @param {PBActor} actor
+ * @param {PBItem} cls
  */
 export const regenerateActor = async (actor, cls) => {
   await updateActorWithCharacter(actor, await rollCharacterForClass(cls));
@@ -45,7 +38,7 @@ export const createActorWithCharacter = async (characterData) => {
 };
 
 /**
- * @param {Actor} actor
+ * @param {PBActor} actor
  * @param {Object} characterData
  */
 export const updateActorWithCharacter = async (actor, characterData) => {
@@ -80,15 +73,6 @@ export const invokeStartingMacro = async (actor) => {
       item: baseClass,
     });
   }
-};
-
-/**
- * @returns {Promise.<PBItem>}
- */
-export const selectRandomClass = async () => {
-  const classPacks = findClassPacks();
-  const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
-  return await classItemFromPack(packName);
 };
 
 /**
@@ -143,7 +127,7 @@ export const rollHitPoints = async (startingHitPoints, toughness) => {
 };
 
 /**
- * @param {item} background
+ * @param {PBItem} background
  * @returns {Promise.<Number>}
  */
 export const rollSilver = async (background) => (await evaluateFormula(background.data.data.startingGold)).total;
@@ -172,24 +156,6 @@ export const rollHat = async (formula) => {
  */
 export const rollWeapon = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.weaponsRollTable);
-  return await rollTableItems(compendium, table, formula);
-};
-
-/**
- * @param {String} formula
- * @returns {Promise.<Array.<PBItem>>}
- */
-export const rollAncientRelics = async (formula) => {
-  const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.ancientRelicsRollTable);
-  return await rollTableItems(compendium, table, formula);
-};
-
-/**
- * @param {String} formula
- * @returns {Promise.<Array.<PBItem>>}
- */
-export const rollArcaneRituals = async (formula) => {
-  const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.arcaneRitualsRollTable);
   return await rollTableItems(compendium, table, formula);
 };
 
@@ -354,7 +320,7 @@ export const generateDescription = (cls, items) => {
 };
 
 /**
- * @param {String} cls
+ * @param {PBItem} cls
  * @returns {Object}
  */
 export const rollCharacterForClass = async (cls) => {

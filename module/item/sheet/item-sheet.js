@@ -55,6 +55,14 @@ export class PBItemSheet extends ItemSheet {
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.PB;
+
+    data.item = {
+      id: this.item.id,
+      img: this.item.img,
+      name: this.item.name,
+      type: this.item.type,
+      data: this.item.getData(),
+    }
     return data;
   }
 
@@ -85,8 +93,8 @@ export class PBItemSheet extends ItemSheet {
     super.activateEditor(name, options, initialContent);
   }
 
-  _onEditAnimation() {
-    showAnimationDialog({ entity: this.item });
+  async _onEditAnimation() {
+    await showAnimationDialog({ entity: this.item });
   }
 
   /** @inheritdoc */

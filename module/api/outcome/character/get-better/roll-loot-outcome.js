@@ -4,7 +4,13 @@ import { createRollRelicOutcome } from "./roll-relic-outcome.js";
 import { createRollRitualOutcome } from "./roll-ritual-outcome.js";
 import { createRollSilverOutcome } from "./roll-silver-outcome.js";
 
-const getSecondaryOutcome = async ({hasSilver = false, hasRelic = false, hasRitual = false }) => {
+/**
+ * @param {Boolean} hasSilver
+ * @param {Boolean} hasRelic
+ * @param {Boolean} hasRitual
+ * @return {Promise<*>}
+ */
+const getSecondaryOutcome = async ({ hasSilver = false, hasRelic = false, hasRitual = false }) => {
   switch (true) {
     case hasSilver:
       return await createRollSilverOutcome();
@@ -15,6 +21,9 @@ const getSecondaryOutcome = async ({hasSilver = false, hasRelic = false, hasRitu
   }
 };
 
+/**
+ * @return {Promise<Object>}
+ */
 export const createRollLootOutcome = async () =>
   asyncPipe(
     rollOutcome({
@@ -28,6 +37,6 @@ export const createRollLootOutcome = async () =>
       hasRelic: (outcome) => outcome.roll.total === 5,
       hasRitual: (outcome) => outcome.roll.total === 6,
       secondaryOutcome: async (outcome) => await getSecondaryOutcome(outcome),
-      description: (outcome) => outcome.hasNothing ? game.i18n.localize("PB.GetBetterLootNothing") : "",
+      description: (outcome) => (outcome.hasNothing ? game.i18n.localize("PB.GetBetterLootNothing") : ""),
     }),
   )();

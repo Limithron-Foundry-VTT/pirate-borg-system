@@ -3,26 +3,37 @@ import { getSystemFlag, setSystemFlag } from "../utils.js";
 export class OutcomeAutomation {
   static automations = [];
 
-  static register({ filter, execute }) {
-    OutcomeAutomation.automations.push({ filter, execute });
+  /**
+   * @param {String} type
+   * @param {function(Object)} execute
+   */
+  static register({ type, execute }) {
+    const isRegistered = OutcomeAutomation.automations.some((automation) => automation.type === type);
+    if (!isRegistered) {
+      OutcomeAutomation.automations.push({ type, execute });
+    }
   }
 
+  /**
+   * @param {Object} outcome
+   * @return {Promise<boolean>}
+   */
   static async execute(outcome) {
     if (outcome.automationDone === true) {
       return false;
     }
-
-    console.log("OutcomeAutomation::execute 1 ", outcome);
-
     outcome.automationDone = true;
-    const automationCandidates = OutcomeAutomation.automations.filter((automation) => automation.filter(outcome));
+    const automationCandidates = OutcomeAutomation.automations.filter(automation => outcome.automations?.includes(automation.type));
     for (const automationCandidate of automationCandidates) {
-      console.log("OutcomeAutomation::execute 2", outcome, automationCandidate.execute);
       await automationCandidate.execute(outcome);
     }
     return true;
   }
 
+  /**
+   * @param {ChatMessage} message
+   * @return {Promise<void>}
+   */
   static async handleChatMessage(message) {
     const outcomes = getSystemFlag(message, CONFIG.PB.flags.OUTCOMES) ?? [];
 

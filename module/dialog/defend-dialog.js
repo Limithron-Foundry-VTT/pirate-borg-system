@@ -4,7 +4,7 @@ import {
   isTargetSelectionValid,
   registerTargetAutomationHook,
   unregisterTargetAutomationHook,
-} from "../api/automation/targeting.js";
+} from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -38,12 +38,14 @@ class DefendDialog extends Application {
   }
 
   /** @override */
-  async getData() {
+  async getData(options) {
+    const data = super.getData(options);
     const defendDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
     const defendArmor = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor?.damageReductionDie ?? 0;
     const incomingAttack = await this._getIncomingAttack();
 
     return {
+      ...data,
       config: CONFIG.pirateborg,
       incomingAttack,
       defendDR,
@@ -64,20 +66,16 @@ class DefendDialog extends Application {
   }
 
   _hasTargetWarning() {
-    if (this.enforceTargetSelection && !this.isTargetSelectionValid) {
-      return true;
-    }
-    return false;
+    return !!(this.enforceTargetSelection && !this.isTargetSelectionValid);
+
   }
 
   _shouldShowTarget() {
     if (this.enforceTargetSelection) {
       return true;
     }
-    if (this.hasTargets) {
-      return true;
-    }
-    return false;
+    return this.hasTargets;
+
   }
 
   _onTargetChanged() {
@@ -110,8 +108,8 @@ class DefendDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".ok-button").click(this._onSubmit.bind(this));
-    html.find(".cancel-button").click(this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onSubmit.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
 
     html.find(".defense-base-dr .radio-input").on("change", this._onDefenseDrRadioInputChanged.bind(this));
     html.find("#defendDr").on("change", this._onDefenseDrInputChanged.bind(this));
@@ -160,23 +158,25 @@ class DefendDialog extends Application {
     this.element.find("#defendArmor").val(input.val());
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   _validate({ incomingAttack, defendDR, defendArmor } = {}) {
-    if (incomingAttack && defendDR && defendArmor && (this.enforceTargetSelection ? this.isTargetSelectionValid : true)) {
-      return true;
-    }
-    return false;
+    return !!(incomingAttack && defendDR && defendArmor && (this.enforceTargetSelection ? this.isTargetSelectionValid : true));
+
   }
 
-  close() {
+  /**
+   * @override
+   * @param [options]
+   */
+  async close(options) {
     if (targetSelectionEnabled()) {
       unregisterTargetAutomationHook(this._ontargetChangedHook);
     }
-    super.close();
+    await super.close(options);
   }
 
   async _onSubmit(event) {
@@ -196,7 +196,7 @@ class DefendDialog extends Application {
       defendArmor,
       targetToken: this.targetToken,
     });
-    this.close();
+    await this.close();
   }
 }
 
