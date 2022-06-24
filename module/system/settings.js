@@ -164,7 +164,8 @@ export const getSystemMigrationVersion = () => game.settings.get("pirateborg", "
 /**
  * @returns {String}
  */
-export const setSystemMigrationVersion = async (systemMigrationVersion) => await game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
+export const setSystemMigrationVersion = async (systemMigrationVersion) =>
+  await game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
 
 /**
  * @returns {String}
@@ -174,7 +175,8 @@ export const getSystemHelpDialogVersion = () => game.settings.get("pirateborg", 
 /**
  * @returns {String}
  */
-export const setSystemHelpDialogVersion = async (systemHelpDialogVersion) => await game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
+export const setSystemHelpDialogVersion = async (systemHelpDialogVersion) =>
+  await game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 
 /**
  * @returns {Boolean}

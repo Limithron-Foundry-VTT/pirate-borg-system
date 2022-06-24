@@ -2,13 +2,19 @@
  * @param {function[]} fns
  * @return {function(*): *}
  */
-export const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+export const pipe =
+  (...fns) =>
+  (x) =>
+    fns.reduce((v, f) => f(v), x);
 
 /**
  * @param {function(*): Promise<*>} fns
  * @return {function(*): Promise<*>}
  */
-export const asyncPipe = (...fns) => (x) => fns.reduce(async (y, f) => f(await y), x);
+export const asyncPipe =
+  (...fns) =>
+  (x) =>
+    fns.reduce(async (y, f) => f(await y), x);
 
 /**
  * @param {String} formula

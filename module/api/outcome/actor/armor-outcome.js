@@ -11,5 +11,5 @@ export const createArmorOutcome = async ({ formula }) =>
       type: "armor",
       formula,
       formulaLabel: `${game.i18n.localize("PB.Armor")}: ${formula}`,
-    }),
+    })
   )();

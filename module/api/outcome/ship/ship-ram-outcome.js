@@ -8,8 +8,4 @@ import { outcome, withAutomations, withTarget } from "../outcome.js";
  * @return {Promise<Object>}
  */
 export const createRamOutcome = async ({ actor, targetToken }) =>
-  asyncPipe(
-    outcome({ type: "crew-attack" }),
-    withTarget({ actor, targetToken }),
-    withAutomations(ADVANCED_ANIMATION_TYPE.RAM)
-  )();
+  asyncPipe(outcome({ type: "crew-attack" }), withTarget({ actor, targetToken }), withAutomations(ADVANCED_ANIMATION_TYPE.RAM))();

@@ -7,8 +7,4 @@ import { outcome, withAutomations, withTarget } from "../outcome.js";
  * @return {Promise<Object>}
  */
 export const createWeighAnchorOutcome = async ({ actor }) =>
-  asyncPipe(
-    outcome({ type: "crew-action" }),
-    withTarget({ actor }),
-    withAutomations(ADVANCED_ANIMATION_TYPE.WEIGH_ANCHOR)
-  )();
+  asyncPipe(outcome({ type: "crew-action" }), withTarget({ actor }), withAutomations(ADVANCED_ANIMATION_TYPE.WEIGH_ANCHOR))();

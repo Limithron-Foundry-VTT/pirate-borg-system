@@ -37,5 +37,5 @@ export const createRollAbilityOutcome = async ({ ability, value }) =>
       hasLoseAbility: (outcome) => outcome.newValue < value,
       isUnchanged: (outcome) => outcome.newValue === value,
       description: (outcome) => game.i18n.format(getDescription(outcome), { ability }),
-    }),
+    })
   )();

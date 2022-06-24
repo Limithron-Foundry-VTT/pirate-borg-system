@@ -1,10 +1,4 @@
-import {
-  findTargettedToken,
-  hasTargets,
-  isTargetSelectionValid,
-  registerTargetAutomationHook,
-  unregisterTargetAutomationHook,
-} from "../api/targeting.js";
+import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -88,7 +82,6 @@ class CrewActionDialog extends Application {
 
   _hasTargetWarning() {
     return this.enforceTargetSelection && !this.isTargetSelectionValid;
-
   }
 
   _shouldShowTarget() {
@@ -99,7 +92,6 @@ class CrewActionDialog extends Application {
       return true;
     }
     return this.hasTargets;
-
   }
 
   _onTargetChanged() {

@@ -1,4 +1,4 @@
-import {isAutomaticDamageEnabled} from "../../system/settings.js";
+import { isAutomaticDamageEnabled } from "../../system/settings.js";
 
 export const DAMAGE_TYPE = {
   HEAL: "damage-heal",
@@ -16,8 +16,7 @@ export const applyOnToken = async (outcome, tokenId, fn) => {
   const token = canvas.tokens.get(tokenId);
   const isValid = token && token?.actor && isAutomaticDamageEnabled();
 
-  if (!isValid)
-    return;
+  if (!isValid) return;
 
   await fn(outcome, token.actor);
 };

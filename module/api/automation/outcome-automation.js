@@ -23,7 +23,7 @@ export class OutcomeAutomation {
       return false;
     }
     outcome.automationDone = true;
-    const automationCandidates = OutcomeAutomation.automations.filter(automation => outcome.automations?.includes(automation.type));
+    const automationCandidates = OutcomeAutomation.automations.filter((automation) => outcome.automations?.includes(automation.type));
     for (const automationCandidate of automationCandidates) {
       await automationCandidate.execute(outcome);
     }

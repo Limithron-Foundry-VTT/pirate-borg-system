@@ -105,7 +105,7 @@ export class PBActor extends Actor {
           .filter((item) => item.type === CONFIG.PB.itemTypes.class)
           .filter((item) => (!documents[0].isBaseClass ? true : item.isBaseClass === documents[0].isBaseClass))
           .filter((item) => item.id !== documents[0].id)
-          .map((item) => item.id),
+          .map((item) => item.id)
       );
     }
     await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);

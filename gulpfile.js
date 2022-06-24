@@ -22,7 +22,10 @@ gulp.task("skin-sass", function () {
 
 gulp.task("sass", gulp.parallel("pirate-sass", "skin-sass"));
 
-gulp.task("watch", gulp.parallel(["pirate-sass", "skin-sass"], () => {
-  gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["mork-sass"]));
-  gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
-}),);
+gulp.task(
+  "watch",
+  gulp.parallel(["pirate-sass", "skin-sass"], () => {
+    gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["mork-sass"]));
+    gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
+  })
+);

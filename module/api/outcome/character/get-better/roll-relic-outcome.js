@@ -13,6 +13,6 @@ export const createRollRelicOutcome = async () => {
     withAsyncProps({
       itemData: async () => item.data,
       description: () => game.i18n.format("PB.GetBetterLootRelic", { link: item.link }),
-    }),
+    })
   )();
 };

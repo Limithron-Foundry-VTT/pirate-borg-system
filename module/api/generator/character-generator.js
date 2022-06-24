@@ -255,7 +255,7 @@ const updateOrCreateActorItems = async (actor, items) => {
   } else {
     await actor.createEmbeddedDocuments(
       "Item",
-      items.map((item) => item.data),
+      items.map((item) => item.data)
     );
   }
 };

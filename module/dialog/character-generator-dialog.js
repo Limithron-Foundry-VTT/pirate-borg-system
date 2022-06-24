@@ -1,8 +1,4 @@
-import {
-  isCharacterGeneratorClassAllowed,
-  setLastCharacterGeneratorSelection,
-  getLastCharacterGeneratorSelection
-} from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";

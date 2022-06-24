@@ -23,7 +23,7 @@ export class AllowedCharacterClassesDialog extends FormApplication {
     html.find(".toggle-all").on("click", (event) => this._onToggleAll(event));
     html.find(".toggle-none").on("click", (event) => this._onToggleNone(event));
     html.find(".cancel-button").on("click", (event) => this._onCancel(event));
-    html.find(".ok-button").on("click",(event) => this._onOk(event));
+    html.find(".ok-button").on("click", (event) => this._onOk(event));
   }
 
   getData(options = {}) {

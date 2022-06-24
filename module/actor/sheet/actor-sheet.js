@@ -7,7 +7,6 @@ import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/g
  * @extends {ActorSheet}
  */
 export default class PBActorSheet extends ActorSheet {
-
   /**
    * @override
    */
@@ -169,7 +168,7 @@ export default class PBActorSheet extends ActorSheet {
     if (item.type === CONFIG.PB.itemTypes.background) {
       const additionalItems = [].concat(
         (await findStartingBonusItems([item])).map((i) => i.toObject()),
-        (await findStartingBonusRollsItems([item])).map((i) => i.toObject()),
+        (await findStartingBonusRollsItems([item])).map((i) => i.toObject())
       );
       if (additionalItems.length > 0) {
         await this.actor.createEmbeddedDocuments("Item", additionalItems);

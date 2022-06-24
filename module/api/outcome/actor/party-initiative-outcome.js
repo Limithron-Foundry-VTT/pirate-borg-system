@@ -12,5 +12,5 @@ export const createPartyInitiativeOutcome = async () =>
     }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(outcome.roll.total <= 3 ? "PB.InitiativeEnemiesBegin" : "PB.InitiativePlayerCharactersBegin"),
-    }),
+    })
   )();

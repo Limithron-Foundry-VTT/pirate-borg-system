@@ -38,12 +38,7 @@ import { chatMysticalMyshapButtonAction } from "../api/action/chat/chat-mystical
 import { chatShipRepairButtonAction } from "../api/action/chat/chat-ship-repair-button-action.js";
 import { chatTakeDamageButtonAction } from "../api/action/chat/chat-take-damage-button-action.js";
 import { chatInflictDamageButtonAction } from "../api/action/chat/chat-inflict-damage-button-action.js";
-import {
-  applyHealOutcome,
-  applyInflictDamageOutcome,
-  applyTakeDamageOutcome,
-  DAMAGE_TYPE
-} from "../api/automation/outcome-damage";
+import { applyHealOutcome, applyInflictDamageOutcome, applyTakeDamageOutcome, DAMAGE_TYPE } from "../api/automation/outcome-damage";
 
 export const configureAutomation = () => {
   // Basic outcome animations

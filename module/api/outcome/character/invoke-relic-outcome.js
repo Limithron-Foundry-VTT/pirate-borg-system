@@ -12,8 +12,8 @@ export const createInvokeRelicOutcome = async ({ actor }) =>
     outcome({ type: "invoke-relic" }),
     withTarget({ actor }),
     withButton({
-      title: game.i18n.localize("PB.TestRelic"), 
-      type: OUTCOME_BUTTON.ANCIENT_RELIC
+      title: game.i18n.localize("PB.TestRelic"),
+      type: OUTCOME_BUTTON.ANCIENT_RELIC,
     }),
     withAutomations(ADVANCED_ANIMATION_TYPE.INVOKE_RELIC)
   )();

@@ -10,5 +10,5 @@ export const createRollSilverOutcome = async () =>
     withAsyncProps({
       silver: (outcome) => outcome.roll.total,
       description: (outcome) => game.i18n.format("PB.GetBetterLootSilver", { silver: outcome.silver }),
-    }),
+    })
   )();

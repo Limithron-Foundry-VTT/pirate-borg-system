@@ -1,10 +1,4 @@
-import {
-  findTargettedToken,
-  hasTargets,
-  isTargetSelectionValid,
-  registerTargetAutomationHook,
-  unregisterTargetAutomationHook,
-} from "../api/targeting.js";
+import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -67,7 +61,6 @@ class DefendDialog extends Application {
 
   _hasTargetWarning() {
     return !!(this.enforceTargetSelection && !this.isTargetSelectionValid);
-
   }
 
   _shouldShowTarget() {
@@ -75,7 +68,6 @@ class DefendDialog extends Application {
       return true;
     }
     return this.hasTargets;
-
   }
 
   _onTargetChanged() {
@@ -165,7 +157,6 @@ class DefendDialog extends Application {
 
   _validate({ incomingAttack, defendDR, defendArmor } = {}) {
     return !!(incomingAttack && defendDR && defendArmor && (this.enforceTargetSelection ? this.isTargetSelectionValid : true));
-
   }
 
   /**

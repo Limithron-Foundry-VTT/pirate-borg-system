@@ -23,16 +23,16 @@ export const createRollHPOutcome = async ({ hp }) =>
           rollOutcome({ formula: "1d6" }),
           withAsyncProps({
             description: (outcome) => game.i18n.format("PB.GetBetterHP", { hp: outcome.roll.total }),
-          }),
+          })
         ),
         newHP: (outcome) => outcome.secondaryOutcome.roll.total + hp,
-      }),
+      })
     ),
     withWhen(
       (outcome) => !outcome.hasGainHp,
       withAsyncProps({
         description: () => game.i18n.localize("PB.Unchanged"),
         newHP: () => hp,
-      }),
-    ),
+      })
+    )
   )();

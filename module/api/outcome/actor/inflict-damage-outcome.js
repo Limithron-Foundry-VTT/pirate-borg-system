@@ -1,7 +1,7 @@
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { rollOutcome, withAsyncProps, withAutomations, withTarget } from "../outcome.js";
-import {DAMAGE_TYPE} from "../../automation/outcome-damage";
+import { DAMAGE_TYPE } from "../../automation/outcome-damage";
 
 /**
  * @param {PBActor} actor

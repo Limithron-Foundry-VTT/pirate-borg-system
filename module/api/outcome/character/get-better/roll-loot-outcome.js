@@ -38,5 +38,5 @@ export const createRollLootOutcome = async () =>
       hasRitual: (outcome) => outcome.roll.total === 6,
       secondaryOutcome: async (outcome) => await getSecondaryOutcome(outcome),
       description: (outcome) => (outcome.hasNothing ? game.i18n.localize("PB.GetBetterLootNothing") : ""),
-    }),
+    })
   )();

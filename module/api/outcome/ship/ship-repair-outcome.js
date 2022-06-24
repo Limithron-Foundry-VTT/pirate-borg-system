@@ -43,9 +43,12 @@ export const createRepairOutcome = async ({ actor, crew, dr = 12 }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withWhen((outcome) => outcome.isSuccess, withButton({
-      title: game.i18n.localize("PB.ShipRepairButton"), 
-      type: OUTCOME_BUTTON.REPAIR_CREW_ACTION
-    })),
+    withWhen(
+      (outcome) => outcome.isSuccess,
+      withButton({
+        title: game.i18n.localize("PB.ShipRepairButton"),
+        type: OUTCOME_BUTTON.REPAIR_CREW_ACTION,
+      })
+    ),
     withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.REPAIR)
   )();

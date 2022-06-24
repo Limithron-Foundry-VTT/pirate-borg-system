@@ -62,7 +62,7 @@ export class PBItemSheet extends ItemSheet {
       name: this.item.name,
       type: this.item.type,
       data: this.item.getData(),
-    }
+    };
     return data;
   }
 

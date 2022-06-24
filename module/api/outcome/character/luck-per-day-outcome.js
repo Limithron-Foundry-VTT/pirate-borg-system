@@ -14,5 +14,5 @@ export const createLuckPerDayOutcome = async ({ actor }) =>
     }),
     withAsyncProps({
       title: (outcome) => `${outcome.roll.total} ${game.i18n.localize("PB.Lucks")}`,
-    }),
+    })
   )();

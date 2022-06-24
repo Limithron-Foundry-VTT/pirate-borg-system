@@ -36,8 +36,8 @@ export class OutcomeChatButton {
     }
 
     const outcomes = getSystemFlag(message, CONFIG.PB.flags.OUTCOMES) ?? [];
-    const outcome = outcomes.find((outcome) => outcome.id === htmlButton.dataset.outcome);    
-    const button = OutcomeChatButton.buttons.find(button => outcome.button?.data.type === button.type);
+    const outcome = outcomes.find((outcome) => outcome.id === htmlButton.dataset.outcome);
+    const button = OutcomeChatButton.buttons.find((button) => outcome.button?.data.type === button.type);
     const actionOutcomes = await button.execute(outcome);
 
     await OutcomeChatButton.updateMessageCard(message, outcome, actionOutcomes);
@@ -63,4 +63,3 @@ export class OutcomeChatButton {
     });
   }
 }
-

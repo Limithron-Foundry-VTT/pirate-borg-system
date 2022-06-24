@@ -56,7 +56,6 @@ export const playAdvancedAnimation = async (tokenIds = [], fn) => {
   await fn(...tokens);
 };
 
-
 export const playOutcomeAnimation = async (tokenId, animation) => {
   if (!isOutcomeAnimationSupported()) {
     return;

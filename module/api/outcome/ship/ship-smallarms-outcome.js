@@ -49,7 +49,6 @@ const getDamageFormula = ({ actor, outcome, targetToken }) => {
   return actor.getScaledDamageFormula(targetToken?.actor, damageFormula);
 };
 
-
 /**
  * @param {PBActor} actor
  * @param {PBActor} crew
@@ -73,10 +72,13 @@ export const createSmallarmsOutcome = async ({ actor, crew, dr = 12, armorFormul
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, targetToken }),
     }),
-    withWhen((outcome) => outcome.isSuccess, withButton({
-      title: game.i18n.localize("PB.RollDamageButton"), 
-      type: OUTCOME_BUTTON.INFLICT_DAMAGE
-    })),
+    withWhen(
+      (outcome) => outcome.isSuccess,
+      withButton({
+        title: game.i18n.localize("PB.RollDamageButton"),
+        type: OUTCOME_BUTTON.INFLICT_DAMAGE,
+      })
+    ),
     withTarget({ actor, targetToken }),
     withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.SMALLARMS)
   )();

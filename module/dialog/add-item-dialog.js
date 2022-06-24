@@ -18,7 +18,7 @@ class AddItemDialog extends Application {
 
   /** @override */
   async getData(options) {
-    const data = super.getData(options)
+    const data = super.getData(options);
     data.config = CONFIG.pirateborg;
     return data;
   }
@@ -26,8 +26,8 @@ class AddItemDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".cancel-button").on('click', this._onCancel.bind(this));
-    html.find(".ok-button").on('click', this._onSubmit.bind(this));
+    html.find(".cancel-button").on("click", this._onCancel.bind(this));
+    html.find(".ok-button").on("click", this._onSubmit.bind(this));
   }
 
   async _onCancel(event) {

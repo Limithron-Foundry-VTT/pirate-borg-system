@@ -27,7 +27,7 @@ class HelpDialog extends Application {
 
   /** @override */
   getData(options) {
-    const data = super.getData(options)
+    const data = super.getData(options);
     return {
       ...data,
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),

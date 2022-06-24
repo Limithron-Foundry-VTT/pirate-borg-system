@@ -73,10 +73,13 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
       armorFormula: () => armorFormula + (actor.equippedHat?.reduceDamage ? " + 1" : ""),
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, damageFormula, targetToken }),
     }),
-    withWhen((outcome) => outcome.isFailure, withButton({
-      title: game.i18n.localize("PB.RollDamageButton"), 
-      type: OUTCOME_BUTTON.TAKE_DAMAGE
-    })),
+    withWhen(
+      (outcome) => outcome.isFailure,
+      withButton({
+        title: game.i18n.localize("PB.RollDamageButton"),
+        type: OUTCOME_BUTTON.TAKE_DAMAGE,
+      })
+    ),
     withTarget({ actor, targetToken }),
     withAutomations(ANIMATION_TYPE.DEFEND, ADVANCED_ANIMATION_TYPE.DEFEND)
   )();

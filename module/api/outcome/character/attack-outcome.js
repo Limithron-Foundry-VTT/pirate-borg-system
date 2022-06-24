@@ -84,9 +84,12 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       description: async (outcome) => game.i18n.localize(await getDescription(outcome)),
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, weapon, ammo, targetToken }),
     }),
-    withWhen((outcome) => outcome.isFailure, withButton({
-      title: game.i18n.localize("PB.RollDamageButton"), 
-      type: OUTCOME_BUTTON.INFLICT_DAMAGE
-    })),
+    withWhen(
+      (outcome) => outcome.isFailure,
+      withButton({
+        title: game.i18n.localize("PB.RollDamageButton"),
+        type: OUTCOME_BUTTON.INFLICT_DAMAGE,
+      })
+    ),
     withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.ITEM)
   )();

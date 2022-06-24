@@ -11,7 +11,7 @@ export const characterInvokeExtraResourceAction = async (actor, item) => {
     ui.notifications.error(
       `${game.i18n.format("PB.NoResourceUsesRemaining", {
         type: item.invokableType,
-      })}!`,
+      })}!`
     );
     return;
   }

@@ -15,5 +15,5 @@ export const createExtraResourcePerDayOutcome = async ({ actor }) =>
     }),
     withAsyncProps({
       title: (outcome) => `${outcome.roll.total} ${actor.extraResourceNamePlural}`,
-    }),
+    })
   )();

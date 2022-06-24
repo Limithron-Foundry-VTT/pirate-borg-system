@@ -7,8 +7,4 @@ import { outcome, withAutomations, withTarget } from "../outcome.js";
  * @return {Promise<Object>}
  */
 export const createReloadingOutcome = async ({ actor }) =>
-  asyncPipe(
-    outcome({ type: "reloading" }),
-    withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.RELOADING)
-  )();
+  asyncPipe(outcome({ type: "reloading" }), withTarget({ actor }), withAutomations(ANIMATION_TYPE.RELOADING))();

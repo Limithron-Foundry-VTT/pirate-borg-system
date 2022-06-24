@@ -12,5 +12,5 @@ export const createInitiativeOutcome = async ({ actor }) =>
       title: game.i18n.localize("PB.Initiative"),
       formula: "d6",
       data: actor.getRollData(),
-    }),
+    })
   )();

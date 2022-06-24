@@ -13,5 +13,5 @@ export const createTestAbilityOutcome = async ({ actor, ability }) =>
       formula: `1d20+@abilities.${ability}.value`,
       formulaLabel: `1d20 + ${game.i18n.localize(CONFIG.PB.abilities[ability])}`,
       data: actor.getData(),
-    }),
+    })
   )();

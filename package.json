@@ -4,12 +4,13 @@
   "description": "Unofficial system for PIRATE BORG on Foundry VTT.",
   "main": "./module/pirateborg.js",
   "scripts": {
-    "lint-fix": "eslint --fix --ext .js ./module --format node_modules/eslint-plugin-i18n-json/formatter.js lang/*",
-    "lint": "eslint --ext .js ./module --format node_modules/eslint-plugin-i18n-json/formatter.js lang/*",
+    "lint": "eslint --fix --ext .js ./module --format node_modules/eslint-plugin-i18n-json/formatter.js lang/*",
     "precommit": "npm run validate",
     "prepare": "husky install",
+    "pretty": "prettier --write .",
+    "pretty-check": "prettier --check .",
     "sass": "sass ./scss:./css",
-    "validate": "npm-run-all lint",
+    "validate": "npm-run-all pretty-check lint",
     "watch": "sass --watch ./scss:./css"
   },
   "repository": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
@@ -18,13 +19,12 @@
   "devDependencies": {
     "@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
-    "eslint": "^8.18.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint": "^8.17.0",
     "eslint-plugin-i18n-json": "^3.1.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^7.0.4",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
     "sass": "^1.49.0"
   }
 }

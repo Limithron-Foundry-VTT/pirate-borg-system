@@ -1,10 +1,4 @@
-import {
-  findTargettedToken,
-  hasTargets,
-  isTargetSelectionValid,
-  registerTargetAutomationHook,
-  unregisterTargetAutomationHook,
-} from "../api/targeting.js";
+import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
@@ -37,7 +31,7 @@ class AttackDialog extends Application {
   }
 
   /** @override */
-  async getData(options)  {
+  async getData(options) {
     const data = super.getData(options);
     const attackDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
     const targetArmor = await this._getTargetArmor();
@@ -56,7 +50,6 @@ class AttackDialog extends Application {
 
   _hasTargetWarning() {
     return !!(this.enforceTargetSelection && !this.isTargetSelectionValid);
-
   }
 
   _shouldShowTarget() {
@@ -64,7 +57,6 @@ class AttackDialog extends Application {
       return true;
     }
     return this.hasTargets;
-
   }
 
   _onTargetChanged() {
