@@ -11,7 +11,7 @@ export const createTestAbilityOutcome = async ({ actor, ability }) =>
     rollOutcome({
       type: "armor",
       formula: `1d20+@abilities.${ability}.value`,
-      formulaLabel: `1d20 + ${game.i18n.localize(CONFIG.PB.abilities[ability])}`,
+      formulaLabel: `1d20 + ${game.i18n.localize(CONFIG.PB.abilityKey[ability])}`,
       data: actor.getData(),
     })
   )();

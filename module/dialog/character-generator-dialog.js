@@ -3,7 +3,7 @@ import { createCharacter, regenerateActor } from "../api/generator/character-gen
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
 
-export default class CharacterGeneratorDialog extends Application {
+class CharacterGeneratorDialog extends Application {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
@@ -33,25 +33,25 @@ export default class CharacterGeneratorDialog extends Application {
 
   async getClassData() {
     return (await this.getClasses(this.classPacks))
-      .map((clazz) => ({
-        name: clazz.name,
-        pack: clazz.pack,
-        requireBaseClass: clazz.data.data.requireBaseClass,
-        checked: this.lastCharacterGeneratorSelection.length > 0 ? this.lastCharacterGeneratorSelection.includes(clazz.pack) : true,
+      .map((cls) => ({
+        name: cls.name,
+        pack: cls.pack,
+        requireBaseClass: cls.data.data.requireBaseClass,
+        checked: this.lastCharacterGeneratorSelection.length > 0 ? this.lastCharacterGeneratorSelection.includes(cls.pack) : true,
       }))
-      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.pack))
+      .filter((cls) => isCharacterGeneratorClassAllowed(cls.pack))
       .sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
   async getClasses(classPacks) {
-    const classses = [];
+    const classes = [];
     for (const classPack of classPacks) {
-      const clazz = await classItemFromPack(classPack);
-      if (clazz) {
-        classses.push(clazz);
+      const cls = await classItemFromPack(classPack);
+      if (cls) {
+        classes.push(cls);
       }
     }
-    return classses;
+    return classes;
   }
 
   /** @override */
@@ -138,3 +138,11 @@ export default class CharacterGeneratorDialog extends Application {
     }
   }
 }
+
+/**
+ * @param {PBActor} [actor]
+ */
+export const showCharacterGeneratorDialog = (actor) => {
+  const characterGeneratorDialog = new CharacterGeneratorDialog(actor);
+  characterGeneratorDialog.render(true);
+};

@@ -1,7 +1,25 @@
 /** @name CONFIG.PB */
 export const PB = {};
 
-PB.abilityKey = {
+PB.flagScope = "pirateborg"; // must match system name
+
+PB.flags = {
+  ATTACK_DR: "attackDR",
+  DEFEND_DR: "defendDR",
+  DEFEND_ARMOR: "defendArmor",
+  INCOMING_ATTACK: "incomingAttack",
+  TARGET_ARMOR: "targetArmor",
+  SELECTED_CREW: "selectedCrew",
+  OUTCOMES: "outcomes",
+  TARGET_TOKEN: "targetToken",
+  INITIATOR_TOKEN: "initiatorToken",
+  PARTY_INITIATIVE: "partyInitiative",
+  ANIMATION: "itemAnimation",
+};
+
+PB.scrollingTextFont = "IM Fell English SC";
+
+PB.ability = {
   agility: "agility",
   presence: "presence",
   strength: "strength",
@@ -10,22 +28,13 @@ PB.abilityKey = {
   skill: "skill",
 };
 
-PB.abilities = {
-  agility: "PB.AbilityAgility",
-  presence: "PB.AbilityPresence",
-  strength: "PB.AbilityStrength",
-  toughness: "PB.AbilityToughness",
-  spirit: "PB.AbilitySpirit",
-  skill: "PB.AbilitySkill",
-};
-
-PB.abilitiesAbbreviation = {
-  agility: "PB.AbilityAgilityAbbrev",
-  presence: "PB.AbilityPresenceAbbrev",
-  strength: "PB.AbilityStrengthAbbrev",
-  toughness: "PB.AbilityToughnessAbbrev",
-  spirit: "PB.AbilitySpiritAbbrev",
-  skill: "PB.AbilitySkillAbbrev",
+PB.abilityKey = {
+  [PB.ability.agility]: "PB.AbilityAgility",
+  [PB.ability.presence]: "PB.AbilityPresence",
+  [PB.ability.strength]: "PB.AbilityStrength",
+  [PB.ability.toughness]: "PB.AbilityToughness",
+  [PB.ability.spirit]: "PB.AbilitySpirit",
+  [PB.ability.skill]: "PB.AbilitySkill",
 };
 
 PB.armorTiers = {
@@ -53,20 +62,6 @@ PB.armorTiers = {
     agilityModifier: 4,
     defenseModifier: 2,
   },
-};
-
-PB.flagScope = "pirateborg"; // must match system name
-
-PB.flags = {
-  ATTACK_DR: "attackDR",
-  DEFEND_DR: "defendDR",
-  DEFEND_ARMOR: "defendArmor",
-  INCOMING_ATTACK: "incomingAttack",
-  TARGET_ARMOR: "targetArmor",
-  SELECTED_CREW: "selectedCrew",
-  OUTCOMES: "outcomes",
-  TARGET_TOKEN: "targetToken",
-  INITIATOR_TOKEN: "initiatorToken",
 };
 
 PB.premiumModuleName = "pirateborg";
@@ -249,5 +244,100 @@ PB.characterGenerator = {
     "pirateborg.rolls-character-creation;d100 Thing of Importance",
   ],
 };
+
+PB.recommendedModules = [
+  {
+    type: "highly_recommended",
+    name: "Sequencer",
+    package: "sequencer",
+    url: "https://foundryvtt.com/packages/sequencer",
+    description: "Required for advanced animations.",
+  },
+  {
+    type: "highly_recommended",
+    name: "JB2A - Jules&Ben's Animated Assets",
+    package: "JB2A_DnD5e",
+    url: "https://foundryvtt.com/packages/JB2A_DnD5e",
+    description: "Required for advanced animations.",
+  },
+  {
+    type: "must_have",
+    name: "Drag Ruler",
+    package: "drag-ruler",
+    url: "https://foundryvtt.com/packages/drag-ruler",
+    description: "This module shows a ruler when you drag a token or measurement template to inform you how far you've dragged it from its start point.",
+  },
+  {
+    type: "must_have",
+    name: "Easy Target",
+    package: "easy-target",
+    url: "https://foundryvtt.com/packages/easy-target",
+    description: "Target tokens while on any layer with Alt+Click.",
+  },
+  {
+    type: "must_have",
+    name: "Dice So Nice!",
+    package: "dice-so-nice",
+    url: "https://foundryvtt.com/packages/dice-so-nice",
+    description: "This module for Foundry VTT adds the ability to show a 3D dice simulation when a roll is made.",
+  },
+  {
+    type: "must_have",
+    name: "Dice Tray",
+    package: "dice-calculator",
+    url: "https://foundryvtt.com/packages/dice-calculator",
+    description: "This module adds a dice tray below the chat message area.",
+  },
+  {
+    type: "recommended",
+    name: "Always HP",
+    package: "always-hp",
+    url: "https://foundryvtt.com/packages/always-hp",
+    description: "This module will show a moveable window that can adjust the HP of the currently selected tokens.",
+  },
+  {
+    type: "recommended",
+    name: "Combat Carousel",
+    package: "combat-carousel",
+    url: "https://foundryvtt.com/packages/combat-carousel",
+    description: "A Foundry VTT module to display CRPG-style Combatant cards in carousel-like format.",
+  },
+  {
+    type: "recommended",
+    name: "FXMaster",
+    package: "fxmaster",
+    url: "https://foundryvtt.com/packages/fxmaster",
+    description: "FXMaster provides various types of weather & filter effects.",
+  },
+  {
+    type: "recommended",
+    name: "Perfect Vision",
+    package: "perfect-vision",
+    url: "https://foundryvtt.com/packages/perfect-vision",
+    description:
+      "Darkvision rules for Dungeons & Dragons 3.5e/5e, Pathfinder 1e/2e, and other systems, as well as other lighting/vision features and improvements.",
+  },
+  {
+    type: "recommended",
+    name: "SmallTime",
+    package: "smalltime",
+    url: "https://foundryvtt.com/packages/smalltime",
+    description: "A small module for displaying and controlling the current time of day.",
+  },
+  {
+    type: "recommended",
+    name: "Splatter",
+    package: "splatter",
+    url: "https://foundryvtt.com/packages/splatter",
+    description: "Add blood and gore to your games.",
+  },
+  {
+    type: "recommended",
+    name: "Torch",
+    package: "torch",
+    url: "https://foundryvtt.com/packages/torch",
+    description: "Adds a HUD button to toggle light of a specific radius.",
+  },
+];
 
 CONFIG.PB = PB;

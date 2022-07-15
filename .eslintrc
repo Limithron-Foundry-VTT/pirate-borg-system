@@ -41,6 +41,7 @@
         "indentSpaces": 2
       }
     ],
-    "i18n-json/identical-keys": 0
+    "i18n-json/identical-keys": 0,
+    "no-return-await": "error"
   }
 }

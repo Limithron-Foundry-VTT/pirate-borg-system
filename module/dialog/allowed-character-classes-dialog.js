@@ -2,10 +2,6 @@ import { findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses } from "../system/settings.js";
 
 export class AllowedCharacterClassesDialog extends FormApplication {
-  constructor() {
-    super();
-  }
-
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       id: "allowed-character-generator-classes-dialog",

@@ -23,19 +23,19 @@ export const asyncPipe =
  */
 export const evaluateFormula = async (formula, data) => {
   const roll = new Roll(formula, data);
-  return await roll.evaluate({ async: true });
+  return roll.evaluate({ async: true });
 };
 
 /**
- * @param {Document} document
+ * @param {foundry.abstract.Document} document
  * @param {any} flag
  * @param {any} value
  * @return {Promise<any>}
  */
-export const setSystemFlag = async (document, flag, value) => await document.setFlag(CONFIG.PB.flagScope, flag, value);
+export const setSystemFlag = async (document, flag, value) => document.setFlag(CONFIG.PB.flagScope, flag, value);
 
 /**
- * @param {Document} document
+ * @param {foundry.abstract.Document} document
  * @param {any} flag
  * @return {any}
  */

@@ -32,7 +32,7 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
  */
 export const drawTable = async (compendiumName, tableName, options = {}) => {
   const table = await findCompendiumItem(compendiumName, tableName);
-  return await table.draw({ displayChat: false, ...options });
+  return table.draw({ displayChat: false, ...options });
 };
 
 /**
@@ -49,7 +49,7 @@ export const drawTableText = async (compendium, table) => (await drawTable(compe
  */
 export const drawTableItem = async (compendium, table) => {
   const draw = await drawTable(compendium, table);
-  return await findTableItems(draw.results);
+  return findTableItems(draw.results);
 };
 
 /**
@@ -74,7 +74,7 @@ export const drawTableItems = async (compendium, table, amount) => {
  */
 export const rollTable = async (compendium, table, formula) => {
   const rollTable = await findCompendiumItem(compendium, table);
-  return await rollTable.roll({ roll: new Roll(formula) });
+  return rollTable.roll({ roll: new Roll(formula) });
 };
 
 /**
@@ -85,7 +85,7 @@ export const rollTable = async (compendium, table, formula) => {
  */
 export const rollTableItems = async (compendium, table, formula) => {
   const draw = await rollTable(compendium, table, formula);
-  return await findTableItems(draw.results);
+  return findTableItems(draw.results);
 };
 
 /**
@@ -162,39 +162,39 @@ export const classItemFromPack = async (compendiumName) => {
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawMysticalMishaps = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps", options);
+export const drawMysticalMishaps = async (options = {}) => drawTable("pirateborg.rolls-gamemaster", "Mystical Mishaps", options);
 
 /**
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawDerelictTakesDamage = async (options = {}) => await drawTable("pirateborg.rolls-ships", "Derelict Takes Damage", options);
+export const drawDerelictTakesDamage = async (options = {}) => drawTable("pirateborg.rolls-ships", "Derelict Takes Damage", options);
 
 /**
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawBroken = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Broken", options);
+export const drawBroken = async (options = {}) => drawTable("pirateborg.rolls-gamemaster", "Broken", options);
 
 /**
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawReaction = async (options = {}) => await drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
+export const drawReaction = async (options = {}) => drawTable("pirateborg.rolls-gamemaster", "Reaction", options);
 
 /**
  * @returns {Promise.<String>}
  */
-export const drawGunpowderFumble = async () => await drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
+export const drawGunpowderFumble = async () => drawTableText("pirateborg.rolls-gamemaster", "Fumble a gunpowder weapons");
 
 /**
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawRelic = async (options = {}) => await drawTable("pirateborg.rolls-character-creation", "d20 Ancient relics", options);
+export const drawRelic = async (options = {}) => drawTable("pirateborg.rolls-character-creation", "d20 Ancient relics", options);
 
 /**
  * @param {Object} options
  * @returns {Promise.<RollTableDraw>}
  */
-export const drawRitual = async (options = {}) => await drawTable("pirateborg.rolls-character-creation", "d20 Arcane rituals", options);
+export const drawRitual = async (options = {}) => drawTable("pirateborg.rolls-character-creation", "d20 Arcane rituals", options);

@@ -30,7 +30,6 @@ export default class PBActorSheet extends ActorSheet {
    * @returns {PBItem}
    */
   getItem(event) {
-    /** @type {PBItem[]} this.actor.items */
     return this.actor.items.get(this.getItemId(event));
   }
 
@@ -103,7 +102,7 @@ export default class PBActorSheet extends ActorSheet {
    * @returns {Promise.<Boolean>}
    */
   async _confirmItemDelete() {
-    return await Dialog.confirm({
+    return Dialog.confirm({
       title: game.i18n.localize("PB.ItemDelete"),
       content: `<p>${game.i18n.localize("PB.ItemDeleteMessage")}</p>`,
       defaultYes: false,
@@ -199,7 +198,7 @@ export default class PBActorSheet extends ActorSheet {
     } else {
       await this._removeItemFromItemContainer(item);
     }
-    return await super._onSortItem(event, itemData);
+    await super._onSortItem(event, itemData);
   }
 
   /**

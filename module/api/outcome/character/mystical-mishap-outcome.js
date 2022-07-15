@@ -2,6 +2,7 @@ import { drawMysticalMishaps } from "../../compendium.js";
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { drawOutcome, withAutomations, withTarget } from "../outcome.js";
+import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 
 /**
  * @param {PBActor} actor
@@ -18,5 +19,5 @@ export const createMysticalMishapOutcome = async ({ actor, roll, isFumble = fals
       isFumble,
     }),
     withTarget({ actor }),
-    withAutomations(ADVANCED_ANIMATION_TYPE.MYSTICAL_MISHAP)
+    withAutomations(ANIMATION_TYPE.MYSTICAL_MISHAP, ADVANCED_ANIMATION_TYPE.MYSTICAL_MISHAP)
   )();

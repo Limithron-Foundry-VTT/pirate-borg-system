@@ -585,7 +585,7 @@ export class PBItem extends Item {
    * @returns {String}
    */
   get attackAbility() {
-    return this.isRanged ? CONFIG.PB.abilityKey.presence : CONFIG.PB.abilityKey.strength;
+    return this.isRanged ? CONFIG.PB.ability.presence : CONFIG.PB.ability.strength;
   }
 
   /**

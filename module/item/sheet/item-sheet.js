@@ -39,7 +39,11 @@ export class PBItemSheet extends ItemSheet {
 
   /** @override */
   _getHeaderButtons() {
-    return [this._getHeaderAnimationButton(), ...super._getHeaderButtons()];
+    const buttons = super._getHeaderButtons();
+    if (this.item.isWeapon) {
+      return [this._getHeaderAnimationButton(), ...buttons];
+    }
+    return buttons;
   }
 
   _getHeaderAnimationButton() {
@@ -94,7 +98,7 @@ export class PBItemSheet extends ItemSheet {
   }
 
   async _onEditAnimation() {
-    await showAnimationDialog({ entity: this.item });
+    await showAnimationDialog(this.item);
   }
 
   /** @inheritdoc */

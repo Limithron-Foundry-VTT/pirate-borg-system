@@ -13,11 +13,11 @@ import { createRollSilverOutcome } from "./roll-silver-outcome.js";
 const getSecondaryOutcome = async ({ hasSilver = false, hasRelic = false, hasRitual = false }) => {
   switch (true) {
     case hasSilver:
-      return await createRollSilverOutcome();
+      return createRollSilverOutcome();
     case hasRelic:
-      return await createRollRelicOutcome();
+      return createRollRelicOutcome();
     case hasRitual:
-      return await createRollRitualOutcome();
+      return createRollRitualOutcome();
   }
 };
 
@@ -36,7 +36,7 @@ export const createRollLootOutcome = async () =>
       hasSilver: (outcome) => outcome.roll.total === 4,
       hasRelic: (outcome) => outcome.roll.total === 5,
       hasRitual: (outcome) => outcome.roll.total === 6,
-      secondaryOutcome: async (outcome) => await getSecondaryOutcome(outcome),
+      secondaryOutcome: async (outcome) => getSecondaryOutcome(outcome),
       description: (outcome) => (outcome.hasNothing ? game.i18n.localize("PB.GetBetterLootNothing") : ""),
     })
   )();

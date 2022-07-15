@@ -36,10 +36,12 @@
   {{/if}}       
 
   {{#each items as |item id|}}
-    <div class="item-row">
-      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-      <span class="item-name">{{item.name}}</span>
-    </div>
+    {{#if item.name}}
+      <div class="item-row">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+        <span class="item-name">{{item.name}}</span>
+      </div>
+    {{/if}}
   {{/each}}
   
   {{#if description}}

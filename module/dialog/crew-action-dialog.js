@@ -1,5 +1,5 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
-import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
@@ -32,10 +32,10 @@ class CrewActionDialog extends Application {
     this.buttonLabel = buttonLabel;
     this.callback = callback;
 
-    if (targetSelectionEnabled() && this.enableTargetSelection) {
-      this.targetToken = findTargettedToken();
+    if (this.enableTargetSelection) {
       this.isTargetSelectionValid = isTargetSelectionValid();
       this.hasTargets = hasTargets();
+      this.targetToken = findTargettedToken();
       this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     }
   }
@@ -127,7 +127,6 @@ class CrewActionDialog extends Application {
   _onDrRadioInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    console.log("_onDrRadioInputChanged", input.val(), this.element.find("#dr"));
     this.element.find("#dr").val(input.val());
     this.element.find("#dr").trigger("change");
   }
@@ -135,7 +134,6 @@ class CrewActionDialog extends Application {
   async _onDrInputChanged(event) {
     event.preventDefault();
     const input = $(event.currentTarget);
-    console.log("_onDrInputChanged", input.val());
     await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, input.val());
     $(".dr .radio-input").val([input.val()]);
   }
@@ -185,7 +183,7 @@ class CrewActionDialog extends Application {
    * @param [options]
    */
   async close(options) {
-    if (targetSelectionEnabled()) {
+    if (this.enableTargetSelection) {
       unregisterTargetAutomationHook(this._ontargetChangedHook);
     }
     await super.close(options);

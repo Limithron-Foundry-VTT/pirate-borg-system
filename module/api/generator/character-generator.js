@@ -16,7 +16,7 @@ import { evaluateFormula } from "../utils.js";
  * @param {PBItem} cls
  * @returns {Promise.<Actor>}
  */
-export const createCharacter = async (cls) => await createActorWithCharacter(await rollCharacterForClass(cls));
+export const createCharacter = async (cls) => createActorWithCharacter(await rollCharacterForClass(cls));
 
 /**
  * @param {PBActor} actor
@@ -138,7 +138,7 @@ export const rollSilver = async (background) => (await evaluateFormula(backgroun
  */
 export const rollArmor = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.armorsRollTable);
-  return await rollTableItems(compendium, table, formula);
+  return rollTableItems(compendium, table, formula);
 };
 
 /**
@@ -147,7 +147,7 @@ export const rollArmor = async (formula) => {
  */
 export const rollHat = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.hatsRollTable);
-  return await rollTableItems(compendium, table, formula);
+  return rollTableItems(compendium, table, formula);
 };
 
 /**
@@ -156,7 +156,7 @@ export const rollHat = async (formula) => {
  */
 export const rollWeapon = async (formula) => {
   const [compendium, table] = compendiumInfoFromString(PB.characterGenerator.weaponsRollTable);
-  return await rollTableItems(compendium, table, formula);
+  return rollTableItems(compendium, table, formula);
 };
 
 /**
@@ -430,6 +430,9 @@ const characterToActorData = (characterData) => ({
     data: {
       ...i.data.data,
       ...([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type) ? { equipped: true } : {}),
+    },
+    flags: {
+      ...i.data.flags,
     },
     img: i.data.img,
     name: i.data.name,

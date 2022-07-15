@@ -63,7 +63,7 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
     testOutcome({
       type: "defend",
       formula: `d20+@abilities.agility.value`,
-      formulaLabel: game.i18n.localize(CONFIG.PB.abilities.agility),
+      formulaLabel: game.i18n.localize(CONFIG.PB.abilityKey.agility),
       data: actor.getRollData(),
       dr,
     }),

@@ -1,4 +1,5 @@
 import { playAdvancedAnimation } from "./animation.js";
+import { getSystemFlag } from "../utils.js";
 
 export const ADVANCED_ANIMATION_TYPE = {
   ITEM: "advanced-animation-item",
@@ -363,6 +364,7 @@ export const playInvokeRitualAdvancedAnimation = async (outcome) => {
     new Sequence()
       .effect("jb2a.magic_signs.circle.02.evocation.intro.red")
       .atLocation(initiatorToken)
+      .playIf(outcome.isSuccess)
       .scaleToObject(3, { uniform: true })
       .belowTokens()
       //
@@ -374,14 +376,6 @@ export const playInvokeRitualAdvancedAnimation = async (outcome) => {
       .scaleOut(outcome.isCriticalSuccess ? 4 : 1, 2000)
       .waitUntilFinished()
       //
-      .effect("jb2a.arms_of_hadar.dark_purple")
-      .playIf(outcome.isFailure)
-      .atLocation(initiatorToken)
-      .belowTokens()
-      .scaleToObject(1, { uniform: true })
-      .scaleOut(outcome.isFumble ? 4 : 2, 2000)
-      .fadeOut(200)
-      //
       .play();
   });
 };
@@ -392,27 +386,9 @@ export const playMysticalMishapAdvancedAnimation = async (outcome) => {
       .effect("jb2a.arms_of_hadar.dark_purple")
       .atLocation(initiatorToken)
       .belowTokens()
-      .scaleToObject(1, { uniform: true })
-      .scaleIn(outcome.isFumble ? 4 : 2, 2000)
+      .scaleToObject(2, { uniform: true })
+      .scaleOut(outcome.isFumble ? 3 : 1.5, 2000)
       .fadeOut(200)
-      //
-      .play();
-  });
-};
-
-export const playItemAdvancedAnimation = async (outcome) => {
-  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
-    new Sequence()
-      //.effect(outcome.advancedAnimation.options.item)
-      .effect("jb2a.bullet.01.orange")
-      .atLocation(initiatorToken)
-      .reachTowards(targetToken)
-      .missed(outcome.isFailure)
-      //
-      .effect("jb2a.impact.007.orange")
-      .atLocation(targetToken)
-      .playIf(outcome.isSuccess)
-      .scaleToObject(outcome.isCriticalSuccess ? 2 : 1, { uniform: true })
       //
       .play();
   });
@@ -436,6 +412,50 @@ export const playDefendAdvancedAnimation = async (outcome) => {
       .duration(1000)
       .scaleOut(2, 1000)
       .fadeOut(200)
+      //
+      .play();
+  });
+};
+
+export const playItemAdvancedAnimation = async (outcome) => {
+  const actor = canvas.tokens.get(outcome.initiatorToken)?.actor;
+  /** @type {PBItem} */
+  const item = actor?.items.get(outcome.item);
+  const animation = getSystemFlag(item, CONFIG.PB.flags.ANIMATION);
+  if (!animation) {
+    return;
+  }
+
+  if (item.isRanged) {
+    await playItemRangedAnimation(outcome, item, animation);
+  } else {
+    await playItemMeleeAnimation(outcome, animation);
+  }
+};
+
+export const playItemMeleeAnimation = async (outcome, animation) => {
+  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
+    new Sequence()
+      .effect(animation)
+      .atLocation(initiatorToken)
+      .missed(outcome.isFailure)
+      .size(initiatorToken.data.width * initiatorToken.data.scale * 4, { gridUnits: true })
+      .randomizeMirrorY()
+      .rotateTowards(targetToken)
+      .anchor({ x: 0.4, y: 0.5 })
+      //
+      .play();
+  });
+};
+
+export const playItemRangedAnimation = async (outcome, item, animation) => {
+  await playAdvancedAnimation([outcome.initiatorToken, outcome.targetToken], async (initiatorToken, targetToken) => {
+    new Sequence()
+      .effect(animation)
+      .atLocation(initiatorToken)
+      .missed(outcome.isFailure)
+      .stretchTo(targetToken)
+      .randomizeMirrorY()
       //
       .play();
   });

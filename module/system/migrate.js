@@ -1,11 +1,13 @@
 import { findCompendiumItem } from "../api/compendium.js";
+import { getSystemMigrationVersion, setSystemMigrationVersion } from "./settings.js";
 
 export const migrate = async () => {
   // Determine whether a system migration is required and feasible
   if (!game.user.isGM) {
     return;
   }
-  const currentVersion = game.settings.get("pirateborg", "systemMigrationVersion");
+  const currentVersion = getSystemMigrationVersion();
+
   const NEEDS_MIGRATION_VERSION = "v0.4.2";
   const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
 
@@ -26,7 +28,7 @@ const migrateWorld = async () => {
   );
   await migrateActors();
 
-  game.settings.set("pirateborg", "systemMigrationVersion", game.system.data.version);
+  setSystemMigrationVersion(game.system.data.version);
 
   ui.notifications.info(`PIRATE BORG System Migration to version ${game.system.data.version} completed!`, {
     permanent: true,

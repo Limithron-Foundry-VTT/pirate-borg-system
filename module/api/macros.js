@@ -1,29 +1,35 @@
+import { characterAttackAction } from "./action/character/character-attack-action.js";
+import { characterDefendAction } from "./action/character/character-defend-action.js";
+import { characterInvokeRitualAction } from "./action/character/character-invoke-ritual-action.js";
+import { characterInvokeRelicAction } from "./action/character/character-invoke-relic-action.js";
+import { characterInvokeExtraResourceAction } from "./action/character/character-invoke-extra-resource-action.js";
+import { characterUseItemAction } from "./action/character/character-use-item-action.js";
+
 /**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
- * @returns {Promise}
+ * @param {Object} data
+ * @param {Number} slot
+ * @return {Promise.<void>}
  */
-export async function createPirateBorgMacro(data, slot) {
+export const createPirateBorgMacro = async (data, slot) => {
   if (data.type !== "Item") {
     return;
   }
+
   if (!("data" in data)) {
     return ui.notifications.warn("You can only create macro buttons for owned Items");
   }
+
   const item = data.data;
-  const supportedItemTypes = ["armor", "feat", "scroll", "hat", "weapon", "invokable"];
+  const supportedItemTypes = ["armor", "hat", "weapon", "invokable", "feature", "misc"];
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(", ")}`);
   }
-  if (item.type === "feature" && (!item.data.rollLabel || (!item.data.rollFormula && !item.data.rollMacro))) {
-    // we only allow rollable feats
-    return ui.notifications.warn("Macros only supported for features with roll label and either a formula or macro.");
+
+  if (["feature", "misc"].includes(item.type) && !item.data.actionMacro) {
+    return ui.notifications.warn("Macros only supported for features and items with a macro.");
   }
 
-  // Create the macro command
-  const command = `game.pirateborg.rollItemMacro("${item.name}");`;
+  const command = `game.pirateborg.api.macros.rollItemMacro("${item.name}");`;
   let macro = game.macros.find((m) => m.name === item.name && m.command === command);
   if (!macro) {
     macro = await Macro.create({
@@ -35,53 +41,48 @@ export async function createPirateBorgMacro(data, slot) {
     });
   }
   game.user.assignHotbarMacro(macro, slot);
-  return false;
-}
+};
 
 /**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
  * @param {string} itemName
- * @return {Promise}
+ * @return {Promise.<void>}
  */
-export function rollItemMacro(itemName) {
+export const rollItemMacro = async (itemName) => {
   const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) {
-    actor = game.actors.tokens[speaker.token];
-  }
-  if (!actor) {
-    actor = game.actors.get(speaker.actor);
-  }
+  const actor = game.actors.tokens[speaker.token] ?? game.actors.get(speaker.actor);
 
-  // Get matching items
-  const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
-  if (items.length > 1) {
-    ui.notifications.warn(`Your controlled Actor ${actor.name} has more than one Item with name ${itemName}. The first matched item will be chosen.`);
-  } else if (items.length === 0) {
+  const item = actor?.items.find((i) => i.name === itemName);
+
+  if (!item) {
     return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
   }
-  const item = items[0];
 
-  if (item.data.type === "weapon") {
-    actor.attack(item);
-  } else if (item.data.type === "armor" || item.data.type === "hat") {
-    actor.defend();
-  } else if (item.data.type === "scroll") {
-    actor.wieldPower();
-  } else if (item.data.type === "feat") {
-    actor.useFeat(item.id);
+  switch (true) {
+    case item.isWeapon:
+      return characterAttackAction(actor, item);
+    case item.isArmor || item.isHat:
+      return characterDefendAction(actor);
+    case item.isArcaneRitual:
+      return characterInvokeRitualAction(actor, item);
+    case item.isAncientRelic:
+      return characterInvokeRelicAction(actor, item);
+    case item.isInvokable && item.isExtraResource:
+      return characterInvokeExtraResourceAction(actor, item);
+    case item.isFeature || item.isMisc:
+      return characterUseItemAction(actor, item);
   }
-}
+};
 
 /**
  * @param {Document} macro
- * @param {Object} meta
- * @param {PBActor} [meta.actor]
- * @param {Token} [meta.token]
- * @param {PBItem} [meta.item]
+ * @param {Object} options
+ * @param {PBActor} [options.actor]
+ * @param {Token} [options.token]
+ * @param {PBItem} [options.item]
+ * @param {Object} [options.outcome]
+ * @param {ChatMessage} [options.chatMessage]
  */
-export const executeMacro = async (macro, { actor, token, item } = {}) => {
+export const executeMacro = async (macro, { actor, token, item, outcome, chatMessage } = {}) => {
   const speaker = ChatMessage.implementation.getSpeaker();
   const { character } = game.user;
   actor = actor || game.actors.get(speaker.actor);
@@ -90,9 +91,9 @@ export const executeMacro = async (macro, { actor, token, item } = {}) => {
       ${macro.data.command}
     })()`;
 
-  const fn = Function("speaker", "actor", "token", "character", "item", body);
+  const fn = Function("speaker", "actor", "token", "character", "item", "outcome", "chatMessage", body);
   try {
-    fn.call(this, speaker, actor, token, character, item);
+    fn.call(this, speaker, actor, token, character, item, outcome, chatMessage);
   } catch (err) {
     ui.notifications.error(`There was an error in your macro syntax. See the console (F12) for details`);
     console.error(err);

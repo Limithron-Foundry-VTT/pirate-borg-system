@@ -10,7 +10,7 @@ export const createExtraResourcePerDayOutcome = async ({ actor }) =>
     rollOutcome({
       type: "extra-resource-per-day",
       formula: actor.extraResourceFormula,
-      formulaLabel: actor.extraResourceTestFormulaLabel,
+      formulaLabel: actor.extraResourceFormulaLabel,
       data: actor.getRollData(),
     }),
     withAsyncProps({

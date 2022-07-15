@@ -20,8 +20,9 @@ import {
   characterRollStrengthAction,
   characterRollToughnessAction,
 } from "../../api/action/actions.js";
-import CharacterGeneratorDialog from "../../dialog/character-generator-dialog.js";
-import ActorBaseClassDialog from "../../dialog/actor-base-class-dialog.js";
+import { showCharacterGeneratorDialog } from "../../dialog/character-generator-dialog.js";
+import { showActorBaseClassDialog } from "../../dialog/actor-base-class-dialog.js";
+import { characterUseItemAction } from "../../api/action/character/character-use-item-action.js";
 
 /**
  * @extends {ActorSheet}
@@ -72,13 +73,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.config = CONFIG.PB;
 
     for (const [a, abl] of Object.entries(data.data.abilities)) {
-      const translationKey = CONFIG.PB.abilities[a];
+      const translationKey = CONFIG.PB.abilityKey[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
     await this._prepareCharacterData(data);
 
-    console.log(superData.data);
     return superData;
   }
 
@@ -350,7 +350,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _onRegenerateCharacter(event) {
     event.preventDefault();
-    new CharacterGeneratorDialog(this.actor).render(true);
+    showCharacterGeneratorDialog(this.actor);
+
+    //new CharacterGeneratorDialog(this.actor).render(true);
   }
 
   /**
@@ -359,7 +361,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _onBaseClass(event) {
     event.preventDefault();
-    new ActorBaseClassDialog(this.actor).render(true);
+    showActorBaseClassDialog(this.actor);
   }
 
   /**
@@ -396,7 +398,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         getbetter: {
           icon: '<i class="fas fa-check"></i>',
           label: game.i18n.localize("PB.GetBetter"),
-          callback: async () => await characterGetBetterAction(this.actor),
+          callback: async () => characterGetBetterAction(this.actor),
         },
       },
       default: "cancel",
@@ -448,10 +450,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   async _onActionMacroRoll(event) {
     event.preventDefault();
-    const button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const itemId = li.data("item-id");
-    await this.actor.useActionMacro(itemId);
+    const item = this.getItem(event);
+    await characterUseItemAction(this.actor, item);
   }
 
   /**

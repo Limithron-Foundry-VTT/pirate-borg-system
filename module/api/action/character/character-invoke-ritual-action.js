@@ -1,5 +1,6 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
 import { createInvokeRitualOutcome } from "../../outcome/character/invoke-ritual-outcome.js";
+import { characterUseItemAction } from "./character-use-item-action.js";
 
 /**
  * @param {PBActor} actor
@@ -18,12 +19,12 @@ export const characterInvokeRitualAction = async (actor, item) => {
     await actor.updateRituals({ value: Math.max(0, actor.rituals.value - 1) });
   }
 
-  await showGenericCard({
+  const chatMessage = await showGenericCard({
     actor,
     title: item.name,
     description: item.getData().description,
     outcomes: [outcome],
   });
 
-  // await this.useActionMacro(item.id);
+  await characterUseItemAction(actor, item, outcome, chatMessage);
 };

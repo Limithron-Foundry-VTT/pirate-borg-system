@@ -5,7 +5,7 @@
     <select name="itemtype" class="add-type">
       <option value=""></option>
       {{#each animations as |animation|}}
-        <option value="{{animation}}">{{animation}}</option>
+        <option value="{{animation}}" {{#if (eq ../selectedAnimation animation)}}selected{{/if}}>{{animation}}</option>
       {{/each}}
     </select>
   </div>

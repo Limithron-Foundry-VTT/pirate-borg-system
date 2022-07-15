@@ -35,7 +35,7 @@ export const characterAttackAction = async (actor, weapon) => {
     actor,
     title: `${game.i18n.localize(weapon.isRanged ? "PB.WeaponTypeRanged" : "PB.WeaponTypeMelee")} ${game.i18n.localize("PB.Attack")}`,
     outcomes: [outcome],
-    items: getItems(weapon, ammo),
+    items: await getItems(weapon, ammo),
     description: weapon.useAmmoDamage ? ammo.description : "",
     target: targetToken,
   });
@@ -75,12 +75,12 @@ const decrementWeaponAmmo = async (actor, weapon) => {
   }
 };
 
-const getItems = (weapon, ammo) => {
+const getItems = async (weapon, ammo) => {
   const items = [weapon];
   if (ammo) {
     items.push(ammo);
   } else if (weapon.usesAmmo) {
-    items.push(PBItem.create({ type: "ammo", name: game.i18n.localize("PB.NoAmmo") }));
+    items.push(await PBItem.create({ type: "ammo", name: game.i18n.localize("PB.NoAmmo") }, { temporary: true }));
   }
   return items;
 };

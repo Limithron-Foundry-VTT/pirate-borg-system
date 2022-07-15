@@ -1,7 +1,7 @@
 import { classItemFromPack, findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed } from "../system/settings.js";
 
-export default class ActorBaseClassDialog extends Application {
+class ActorBaseClassDialog extends Application {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
@@ -73,3 +73,11 @@ export default class ActorBaseClassDialog extends Application {
     await this.close();
   }
 }
+
+/**
+ * @param {PBActor} actor
+ */
+export const showActorBaseClassDialog = (actor) => {
+  const actorBaseClassDialog = new ActorBaseClassDialog(actor);
+  actorBaseClassDialog.render(true);
+};

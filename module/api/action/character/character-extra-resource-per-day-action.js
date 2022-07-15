@@ -16,8 +16,6 @@ export const characterExtraResourcePerDayAction = async (actor, { silent = false
 
   await actor.updateExtraResource({ max: outcome.roll.total, value: outcome.roll.total });
 
-  console.log(actor.extraResourceNamePlural, actor);
-
   if (!silent) {
     await showGenericCard({
       actor,

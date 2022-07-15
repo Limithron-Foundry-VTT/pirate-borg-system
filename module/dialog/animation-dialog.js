@@ -1,10 +1,14 @@
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/animation-dialog.html";
 
 class AnimationDialog extends Application {
-  constructor({ entity, callback } = {}) {
+  /**
+   * @param {foundry.abstract.Document} document
+   */
+  constructor(document) {
     super();
-    this.entity = entity;
-    this.callback = callback;
+    this.document = document;
     this.animationTypes = ["/Ranged/", "/Melee/", "/Unarmed_Attacks/", "/Creature/"];
   }
 
@@ -23,7 +27,9 @@ class AnimationDialog extends Application {
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.pirateborg;
-    data.animations = this._getAnimationEntries();
+    data.animations = this.getAnimations();
+    data.selectedAnimation = getSystemFlag(this.document, CONFIG.PB.flags.ANIMATION);
+    return data;
   }
 
   /** @override */
@@ -33,15 +39,19 @@ class AnimationDialog extends Application {
     html.find(".cancel-button").on("click", this._onCancel.bind(this));
   }
 
-  _getAnimationEntries() {
+  getAnimations() {
     return Sequencer.Database.getEntry("jb2a")
-      .filter((file) => this._isAnimationIncludes(file))
-      .map((file) => file.dbPath);
-  }
-
-  _isAnimationIncludes(sequencerFile) {
-    const file = sequencerFile.getAllFiles().pop();
-    return this.animationTypes.some((animationType) => file.includes(animationType));
+      .filter((sequencerFile) => {
+        const file = sequencerFile.getAllFiles().pop();
+        return this.animationTypes.some((animationType) => file.includes(animationType));
+      })
+      .map((sequencerFile) => sequencerFile.dbPath)
+      .map((dbPath) => {
+        const lastPart = dbPath.split(".").pop();
+        const hasMultipleAnimations = !isNaN(lastPart);
+        return hasMultipleAnimations ? dbPath.substring(0, dbPath.lastIndexOf(".")) : dbPath;
+      })
+      .filter((dbPath, index, arr) => arr.indexOf(dbPath) === index);
   }
 
   async _onCancel(event) {
@@ -51,22 +61,17 @@ class AnimationDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    // const form = $(event.currentTarget).parents("form")[0];
+    const animation = this.element.find("[name=itemtype").val();
 
-    this.callback({});
+    await setSystemFlag(this.document, CONFIG.PB.flags.ANIMATION, animation);
     await this.close();
   }
 }
 
 /**
- * @param {Object} data
- * @param {PBItem} data.item
- * @returns {Promise}
+ * @param {foundry.abstract.Document} document
  */
-export const showAnimationDialog = (data = {}) =>
-  new Promise((resolve) => {
-    new AnimationDialog({
-      ...data,
-      callback: resolve,
-    }).render(true);
-  });
+export const showAnimationDialog = (document) => {
+  const animationDialog = new AnimationDialog(document);
+  animationDialog.render(true);
+};

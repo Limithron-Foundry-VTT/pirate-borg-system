@@ -1,7 +1,8 @@
 import { asyncPipe } from "../../utils.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 import { rollOutcome, withAsyncProps, withAutomations, withTarget } from "../outcome.js";
-import { DAMAGE_TYPE } from "../../automation/outcome-damage";
+import { DAMAGE_TYPE } from "../../automation/outcome-damage.js";
+import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 
 /**
  * @param {PBActor} actor
@@ -22,5 +23,5 @@ export const createInflictDamageOutcome = async ({ actor, formula = "", damageRe
       title: (outcome) => `${game.i18n.localize("PB.Inflict")} ${outcome.totalDamage} ${game.i18n.localize("PB.Damage")}`,
     }),
     withTarget({ actor, targetToken }),
-    withAutomations(ADVANCED_ANIMATION_TYPE.INFLICT_DAMAGE, DAMAGE_TYPE.INFLICT)
+    withAutomations(ANIMATION_TYPE.INFLICT_DAMAGE, ADVANCED_ANIMATION_TYPE.INFLICT_DAMAGE, DAMAGE_TYPE.INFLICT)
   )();

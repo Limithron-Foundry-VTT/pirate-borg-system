@@ -8,7 +8,7 @@ import { createBrokenOutcome } from "../../outcome/character/broken-outcome.js";
 export const characterBrokenAction = async (actor) => {
   const outcome = await createBrokenOutcome({ actor });
 
-  return await showGenericCard({
+  await showGenericCard({
     title: game.i18n.localize("PB.Broken"),
     actor,
     outcomes: [outcome],

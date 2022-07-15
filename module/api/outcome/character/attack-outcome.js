@@ -37,7 +37,7 @@ const getDescription = async ({ isGunpowderWeapon = false, isFumble = false, isC
     case isFumble:
       return "PB.AttackFumbleText";
     case isCriticalSuccess && isGunpowderWeapon:
-      return await drawGunpowderFumble();
+      return drawGunpowderFumble();
     case isCriticalSuccess:
       return "PB.AttackCritText";
   }
@@ -73,7 +73,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       type: "attack",
       armorFormula,
       formula: `d20+@abilities.${weapon.attackAbility}.value`,
-      formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilities[weapon.attackAbility])}`,
+      formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilityKey[weapon.attackAbility])}`,
       data: actor.getRollData(),
       dr,
       item: weapon?.id,
@@ -85,7 +85,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       damageFormula: (outcome) => getDamageFormula({ actor, outcome, weapon, ammo, targetToken }),
     }),
     withWhen(
-      (outcome) => outcome.isFailure,
+      (outcome) => outcome.isSuccess,
       withButton({
         title: game.i18n.localize("PB.RollDamageButton"),
         type: OUTCOME_BUTTON.INFLICT_DAMAGE,

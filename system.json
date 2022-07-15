@@ -2,7 +2,7 @@
   "name": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.2.9",
+  "version": "v0.4.2",
   "templateVersion": 2,
   "author": "maqloner",
   "scripts": [],
@@ -418,14 +418,6 @@
       "system": "pirateborg",
       "path": "./packs/macros-haunted-soul.db",
       "entity": "Macro"
-    },
-
-    {
-      "name": "automated-animation-effects",
-      "label": "Automated Animation Effects",
-      "system": "pirateborg",
-      "path": "./packs/automated-animation-effects.db",
-      "entity": "Item"
     }
   ],
   "languages": [

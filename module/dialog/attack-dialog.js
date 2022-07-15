@@ -1,5 +1,5 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
-import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
@@ -10,13 +10,11 @@ class AttackDialog extends Application {
     this.actor = actor;
     this.callback = callback;
 
-    if (targetSelectionEnabled()) {
-      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
-      this.targetToken = findTargettedToken();
-      this.isTargetSelectionValid = isTargetSelectionValid();
-      this.hasTargets = hasTargets();
-      this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
-    }
+    this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
+    this.isTargetSelectionValid = isTargetSelectionValid();
+    this.hasTargets = hasTargets();
+    this.targetToken = findTargettedToken();
+    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
   }
 
   /** @override */
@@ -128,9 +126,7 @@ class AttackDialog extends Application {
    * @param [options]
    */
   async close(options) {
-    if (targetSelectionEnabled()) {
-      unregisterTargetAutomationHook(this._ontargetChangedHook);
-    }
+    unregisterTargetAutomationHook(this._ontargetChangedHook);
     await super.close(options);
   }
 

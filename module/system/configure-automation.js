@@ -26,10 +26,14 @@ import {
   playAttackOutcomeAnimation,
   playBrokenOrDeadOutcomeAnimation,
   playDefendOutcomeAnimation,
+  playHealOutcomeAnimation,
   playInfectedOutcomeAnimation,
+  playInflictDamageOutcomeAnimation,
+  playMysticalMishapOutcomeAnimation,
   playReloadingOutcomeAnimation,
   playSimpleOutcomeAnimation,
   playStarvationOutcomeAnimation,
+  playTakeDamageOutcomeAnimation,
 } from "../api/animation/outcome-animation.js";
 import { OutcomeAutomation } from "../api/automation/outcome-automation.js";
 import { OUTCOME_BUTTON, OutcomeChatButton } from "../api/automation/outcome-chat-button.js";
@@ -38,7 +42,7 @@ import { chatMysticalMyshapButtonAction } from "../api/action/chat/chat-mystical
 import { chatShipRepairButtonAction } from "../api/action/chat/chat-ship-repair-button-action.js";
 import { chatTakeDamageButtonAction } from "../api/action/chat/chat-take-damage-button-action.js";
 import { chatInflictDamageButtonAction } from "../api/action/chat/chat-inflict-damage-button-action.js";
-import { applyHealOutcome, applyInflictDamageOutcome, applyTakeDamageOutcome, DAMAGE_TYPE } from "../api/automation/outcome-damage";
+import { applyHealOutcome, applyInflictDamageOutcome, applyTakeDamageOutcome, DAMAGE_TYPE } from "../api/automation/outcome-damage.js";
 
 export const configureAutomation = () => {
   // Basic outcome animations
@@ -49,6 +53,10 @@ export const configureAutomation = () => {
   OutcomeAutomation.register({ type: ANIMATION_TYPE.BROKEN, execute: playBrokenOrDeadOutcomeAnimation });
   OutcomeAutomation.register({ type: ANIMATION_TYPE.STARVATION, execute: playStarvationOutcomeAnimation });
   OutcomeAutomation.register({ type: ANIMATION_TYPE.INFECTED, execute: playInfectedOutcomeAnimation });
+  OutcomeAutomation.register({ type: ANIMATION_TYPE.TAKE_DAMAGE, execute: playTakeDamageOutcomeAnimation });
+  OutcomeAutomation.register({ type: ANIMATION_TYPE.INFLICT_DAMAGE, execute: playInflictDamageOutcomeAnimation });
+  OutcomeAutomation.register({ type: ANIMATION_TYPE.HEAL, execute: playHealOutcomeAnimation });
+  OutcomeAutomation.register({ type: ANIMATION_TYPE.MYSTICAL_MISHAP, execute: playMysticalMishapOutcomeAnimation });
 
   // Automatic Damage application
   OutcomeAutomation.register({ type: DAMAGE_TYPE.HEAL, execute: applyHealOutcome });

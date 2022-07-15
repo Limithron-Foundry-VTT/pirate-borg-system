@@ -1,7 +1,6 @@
 import { trackCarryingCapacity } from "../system/settings.js";
 import { setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
-import { executeMacro } from "../api/macros.js";
 
 /**
  * @extends {Actor}
@@ -98,7 +97,6 @@ export class PBActor extends Actor {
   /** @override */
   async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     if (this.type === CONFIG.PB.actorTypes.character && documents[0].type === CONFIG.PB.itemTypes.class) {
-      console.log(documents[0].isBaseClass);
       await this.deleteEmbeddedDocuments(
         "Item",
         this.items
@@ -346,7 +344,6 @@ export class PBActor extends Actor {
    * @return {String}
    */
   get extraResourceTestFormula() {
-    console.log(this.dynamic, this.dynamic.extraResourceTestFormula);
     return this.dynamic.extraResourceTestFormula;
   }
 
@@ -489,7 +486,7 @@ export class PBActor extends Actor {
    * @return {Promise<void>}
    */
   async setCaptain(actorId) {
-    return await this.updateData("captain", actorId);
+    return this.updateData("captain", actorId);
   }
 
   /**
@@ -519,7 +516,7 @@ export class PBActor extends Actor {
    * @return {Promise<void>}
    */
   async updateCrews(crews) {
-    return await this.updateData("crews", crews);
+    return this.updateData("crews", crews);
   }
 
   // crew management
@@ -529,7 +526,7 @@ export class PBActor extends Actor {
    */
   async addCrew(actorId) {
     if (!this.crews.includes(actorId)) {
-      return await this.updateCrews([...this.crews, actorId]);
+      return this.updateCrews([...this.crews, actorId]);
     }
   }
 
@@ -542,7 +539,7 @@ export class PBActor extends Actor {
     if (this.captain === actorId) {
       await this.setCaptain(null);
     }
-    return await this.updateCrews(crews);
+    return this.updateCrews(crews);
   }
 
   /**
@@ -550,7 +547,7 @@ export class PBActor extends Actor {
    */
   async clearCrews() {
     await this.setCaptain(null);
-    return await this.updateCrews([]);
+    return this.updateCrews([]);
   }
 
   /**
@@ -565,7 +562,7 @@ export class PBActor extends Actor {
         await otherItem.unequip();
       }
     }
-    return await item.equip();
+    return item.equip();
   }
 
   /**
@@ -573,7 +570,7 @@ export class PBActor extends Actor {
    * @returns {Promise<void>}
    */
   async unequipItem(item) {
-    return await item.unequip();
+    return item.unequip();
   }
 
   /**
@@ -607,7 +604,7 @@ export class PBActor extends Actor {
   }
 
   /**
-   * @returns {String}
+   * @returns {String|Number}
    */
   getActorAttackFormula() {
     switch (this.type) {
@@ -647,22 +644,6 @@ export class PBActor extends Actor {
       if (targetActor.isAnyVehicle && (this.isCharacter || this.isCreature)) {
         return "/ 5";
       }
-    }
-  }
-
-  async useActionMacro(itemId) {
-    /** @type {PBItem} */
-    const item = this.items.get(itemId);
-    if (!item || !item.actionMacro) {
-      return;
-    }
-    const [compendium, macroName = null] = item.actionMacro.split(";");
-    if (compendium && macroName) {
-      const macro = await findCompendiumItem(compendium, macroName);
-      await executeMacro(macro, { actor: this, item });
-    } else {
-      const macro = game.macros.find((m) => m.name === macroName);
-      await executeMacro(macro, { actor: this, item });
     }
   }
 }

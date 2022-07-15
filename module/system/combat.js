@@ -1,15 +1,19 @@
+import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+
 /**
  * @extends Combat
- * @augments Combat
  */
 export class PBCombat extends Combat {
-  async setPartyInitiative(rollTotal) {
-    game.combat.partyInitiative = rollTotal;
-    await game.combat.resortCombatants();
+  get partyInitiative() {
+    return getSystemFlag(this, CONFIG.PB.flags.PARTY_INITIATIVE);
   }
 
-  async resortCombatants() {
-    // TODO: this seems like a stupidly-hacky way to do this. Is there no better way?
+  async updatePartyInitiative(rollTotal) {
+    await setSystemFlag(this, CONFIG.PB.flags.PARTY_INITIATIVE, rollTotal);
+  }
+
+  async setPartyInitiative(rollTotal) {
+    await this.updatePartyInitiative(rollTotal);
     const updates = this.turns.map((t) => ({
       _id: t.id,
       initiative: t.data.initiative,
@@ -18,37 +22,26 @@ export class PBCombat extends Combat {
     await this.updateEmbeddedDocuments("Combatant", updates);
   }
 
-  isFriendlyCombatant(combatant) {
-    if (combatant._token) {
-      // v8 compatible
-      return combatant._token.data.disposition === 1;
-    }
-    if (combatant.token) {
-      // v9+
-      return combatant.token.data.disposition === 1;
-    }
-    return false;
-  }
-
-  /**
-   * Define how the array of Combatants is sorted in the displayed list of the tracker.
-   * This method can be overridden by a system or module which needs to display combatants in an alternative order.
-   * By default sort by initiative, falling back to name
-   * @private
-   */
+  /** @private */
   _sortCombatants(a, b) {
-    // .combat is a getter, so verify existence of combats array
-    if (game.combats && game.combat.partyInitiative) {
-      const isPartyA = game.combat.isFriendlyCombatant(a);
-      const isPartyB = game.combat.isFriendlyCombatant(b);
-      if (isPartyA !== isPartyB) {
-        // only matters if they're different
-        if (game.combat.partyInitiative > 3) {
-          // players begin
-          return isPartyA ? -1 : 1;
+    const combat = a.combat; // game.combats is not initialized at first render
+    const isFriendlyA = a.token?.data.disposition === 1 ?? false;
+    const isFriendlyB = b.token?.data.disposition === 1 ?? false;
+    const isVehicleA = a.actor?.isAnyVehicle ?? false;
+    const isVehicleB = b.actor?.isAnyVehicle ?? false;
+
+    // move all vehicle at the top of the tracker
+    if (isVehicleA !== isVehicleB) {
+      return -1;
+    }
+
+    // Split combatants into their own group
+    if (combat.partyInitiative && (!isVehicleA || !isVehicleB)) {
+      if (isFriendlyA !== isFriendlyB) {
+        if (combat.partyInitiative > 3) {
+          return isFriendlyA ? -1 : 1;
         }
-        // enemies begin
-        return isPartyA ? 1 : -1;
+        return isFriendlyA ? 1 : -1;
       }
     }
 
@@ -57,9 +50,20 @@ export class PBCombat extends Combat {
     const ib = Number.isNumeric(b.initiative) ? b.initiative : -9999;
     const ci = ib - ia;
     if (ci !== 0) return ci;
+
+    // friendly ship goes first when initiative is equal
+    if (ci === 0 && isVehicleA && isVehicleB) {
+      if (isFriendlyA !== isFriendlyB) {
+        return isFriendlyA ? -1 : 1;
+      }
+      return isFriendlyA ? 1 : -1;
+    }
+
+    // Sort by name when initiative is equal
     const [an, bn] = [a.token?.name || "", b.token?.name || ""];
     const cn = an.localeCompare(bn);
     if (cn !== 0) return cn;
+
     return a.tokenId - b.tokenId;
   }
 }

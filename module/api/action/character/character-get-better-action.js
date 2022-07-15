@@ -13,11 +13,11 @@ import { outcome } from "../../outcome/outcome.js";
 export const characterGetBetterAction = async (actor) => {
   const outcomes = [
     await rollHP(actor),
-    await rollAbility(actor, CONFIG.PB.abilityKey.strength),
-    await rollAbility(actor, CONFIG.PB.abilityKey.agility),
-    await rollAbility(actor, CONFIG.PB.abilityKey.presence),
-    await rollAbility(actor, CONFIG.PB.abilityKey.toughness),
-    await rollAbility(actor, CONFIG.PB.abilityKey.spirit),
+    await rollAbility(actor, CONFIG.PB.ability.strength),
+    await rollAbility(actor, CONFIG.PB.ability.agility),
+    await rollAbility(actor, CONFIG.PB.ability.presence),
+    await rollAbility(actor, CONFIG.PB.ability.toughness),
+    await rollAbility(actor, CONFIG.PB.ability.spirit),
     await rollLoot(actor),
     ...((await rollGetBetterItems(actor)) ?? []),
   ];
@@ -48,7 +48,7 @@ const rollHP = async (actor) => {
  */
 const rollAbility = async (actor, ability) => {
   const outcome = await createRollAbilityOutcome({
-    ability: game.i18n.localize(CONFIG.PB.abilities[ability]),
+    ability: game.i18n.localize(CONFIG.PB.abilityKey[ability]),
     value: actor.abilities[ability].value,
   });
   await actor.updateData(`abilities.${ability}.value`, outcome.newValue);

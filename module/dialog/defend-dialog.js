@@ -1,5 +1,5 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
-import { isEnforceTargetEnabled, targetSelectionEnabled } from "../system/settings.js";
+import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
@@ -11,13 +11,12 @@ class DefendDialog extends Application {
     this.callback = callback;
     this.modifiers = this._getModifiers();
 
-    if (targetSelectionEnabled()) {
-      this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
-      this.targetToken = findTargettedToken();
-      this.isTargetSelectionValid = isTargetSelectionValid();
-      this.hasTargets = hasTargets();
-      this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
-    }
+    this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
+    this.isTargetSelectionValid = isTargetSelectionValid();
+    this.hasTargets = hasTargets();
+    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
+    this.targetToken = findTargettedToken();
+    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
   }
 
   /** @override */
@@ -164,9 +163,7 @@ class DefendDialog extends Application {
    * @param [options]
    */
   async close(options) {
-    if (targetSelectionEnabled()) {
-      unregisterTargetAutomationHook(this._ontargetChangedHook);
-    }
+    unregisterTargetAutomationHook(this._ontargetChangedHook);
     await super.close(options);
   }
 

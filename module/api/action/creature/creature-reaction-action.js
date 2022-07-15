@@ -8,7 +8,7 @@ import { createReactionOutcome } from "../../outcome/creature/reaction-outcome.j
 export const creatureReactionAction = async (actor) => {
   const outcome = await createReactionOutcome();
 
-  return await showGenericCard({
+  await showGenericCard({
     title: game.i18n.localize("PB.Reaction"),
     actor,
     outcomes: [outcome],

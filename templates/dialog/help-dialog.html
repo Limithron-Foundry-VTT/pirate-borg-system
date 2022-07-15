@@ -1,4 +1,4 @@
-<form id="help-dialog" class="flexcol">
+<form id="help-dialog" class="flexcol" xmlns="http://www.w3.org/1999/html">
   <header class="sheet-header flexrow">
     <img src="/systems/pirateborg/ui/pirate-borg.png" />
   </header>
@@ -8,6 +8,9 @@
     <span class="spacer"></span>
     <a class="item" data-tab="about">About</a>
     <a class="item" data-tab="help">Help</a>
+    {{#if isGM}}
+      <a class="item" data-tab="modules">Recommended Modules</a>
+    {{/if}}
     <span class="spacer"></span>
   </nav>
 
@@ -76,6 +79,33 @@
           <a href="https://github.com/Limithron-Foundry-VTT/pirate-borg-system/issues">File an issue</a>
           <a href="https://discord.gg/ZbGPQ34XWU">Discord</a>
         </div>
+      </div>
+    </div>
+
+    {{#*inline "module"}}
+      {{#each modules as |module| }}
+      <div class="module">
+        <p>
+          <strong>{{module.name}}</strong> (<span class="module-info">{{#if module.installed}}Installed{{else}}<span class="warning">Not Installed</span>{{/if}} & {{#if module.active}}Enabled{{else}}<span class="warning">Disabled</span>{{/if}}</span>)
+          <br />
+          {{module.description}} <a href="{{module.url}}">More info</a>
+        </p>
+      </div>
+      {{/each}}
+    {{/inline}}
+
+    <div class="tab" data-group="primary" data-tab="modules">
+      <div class="section modules">
+        <h4>Highly Recommended</h4>
+        {{#> module modules=modules.highlyRecommended }}{{/module}}
+      </div>
+      <div class="section modules">
+        <h4>Must Have</h4>
+        {{#> module modules=modules.mustHave }}{{/module}}
+      </div>
+      <div class="section modules">
+        <h4>Recommended</h4>
+        {{#> module modules=modules.recommended }}{{/module}}
       </div>
     </div>
   </section>

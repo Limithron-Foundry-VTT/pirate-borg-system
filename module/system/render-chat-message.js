@@ -1,11 +1,10 @@
-import { waitForMessageRoll } from "../api/dice.js";
 import { OutcomeAutomation } from "../api/automation/outcome-automation.js";
 import { OutcomeChatButton } from "../api/automation/outcome-chat-button.js";
 import { emitScrollChatToBottom } from "./sockets.js";
 
 /**
  * @param {ChatMessage} message
- * @param {jQuery} html
+ * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageButton = async (message, html) => {
   html.on("click", "button.item-button", async (event) => {
@@ -23,7 +22,7 @@ export const handleChatMessageButton = async (message, html) => {
 
 /**
  * @param {ChatMessage} message
- * @param {jQuery} html
+ * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageGMOnly = async (message, html) => {
   html.find(".gm-only").removeClass("gm-only");
@@ -35,10 +34,6 @@ export const handleChatMessageGMOnly = async (message, html) => {
 export const handleChatMessageAutomation = async (message) => {
   if (!game.user.isGM) {
     return;
-  }
-
-  if (message.roll) {
-    await waitForMessageRoll(message.id);
   }
 
   await OutcomeAutomation.handleChatMessage(message);

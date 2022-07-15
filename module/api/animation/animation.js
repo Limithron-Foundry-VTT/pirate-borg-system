@@ -1,4 +1,4 @@
-import { isAdvancedAnimationEnabled, isOutcomeAnimationEnabled } from "../../system/settings.js";
+import { isAdvancedAnimationEnabled, isFloatingDamageAnimationEnabled, isFloatingOutcomeAnimationEnabled } from "../../system/settings.js";
 
 const MODULE = {
   SEQUENCER: "sequencer",
@@ -33,45 +33,53 @@ export const isJB2APatreonEnabled = () => isModuleActive(MODULE.JB2A_PATREON);
 export const isAdvancedAnimationSupported = () => isSequencerEnabled() && isAdvancedAnimationEnabled() && (isJB2AEnabled() || isJB2APatreonEnabled());
 
 /**
- * @returns {Boolean}
- */
-export const isOutcomeAnimationSupported = () => isSequencerEnabled() && isOutcomeAnimationEnabled();
-
-/**
  * @param {Array.<String>} tokenIds
  * @param {Function} fn
  * @returns
  */
-
 export const playAdvancedAnimation = async (tokenIds = [], fn) => {
   if (!isAdvancedAnimationSupported()) {
     return;
   }
 
   const tokens = tokenIds.map((tokenId) => canvas.tokens.get(tokenId));
-  if (!tokens.some((token) => !!token)) {
+  if (!tokens.every((token) => !!token)) {
     return;
   }
 
   await fn(...tokens);
 };
 
-export const playOutcomeAnimation = async (tokenId, animation) => {
-  if (!isOutcomeAnimationSupported()) {
-    return;
-  }
-
+export const playFloatingAnimation = async (tokenId, text, styles = {}) => {
   const token = canvas.tokens.get(tokenId);
   if (!token) {
     return;
   }
 
-  new Sequence()
-    .effect(animation)
-    .atLocation(token)
-    .anchor({ x: 0.5, y: 1.3 })
-    .duration(3000)
-    .noLoop(true)
-    //
-    .play();
+  await token.hud.createScrollingText(text, {
+    anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
+    fill: "#FFFFFF",
+    stroke: "#000000",
+    fontSize: 48,
+    fontFamily: CONFIG.PB.scrollingTextFont,
+    fontWeight: 600,
+    duration: 1500,
+    strokeThickness: 1,
+    jitter: 0,
+    ...styles,
+  });
+};
+
+export const playFloatingDamageAnimation = async (tokenId, text, styles = {}) => {
+  if (!isFloatingOutcomeAnimationEnabled()) {
+    return;
+  }
+  await playFloatingAnimation(tokenId, text, styles);
+};
+
+export const playFloatingOutcomeAnimation = async (tokenId, text, styles = {}) => {
+  if (!isFloatingDamageAnimationEnabled()) {
+    return;
+  }
+  await playFloatingAnimation(tokenId, text, styles);
 };

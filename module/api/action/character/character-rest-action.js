@@ -29,9 +29,9 @@ export const characterRestAction = async (actor) => {
 
   switch (restLength) {
     case REST_LENGTH.SHORT:
-      return await shortRest(actor, foodAndDrink, infected);
+      return shortRest(actor, foodAndDrink, infected);
     case REST_LENGTH.LONG:
-      return await longRest(actor, foodAndDrink, infected);
+      return longRest(actor, foodAndDrink, infected);
   }
 };
 
@@ -51,7 +51,7 @@ const canRest = (foodAndDrink, infected) => ![REST_FOOD_AND_DRINK.STARVE, REST_F
  */
 const shortRest = async (actor, foodAndDrink, infected) => {
   const isResting = canRest(foodAndDrink, infected);
-  return await showGenericCard({
+  await showGenericCard({
     actor,
     title: game.i18n.localize("PB.Rest"),
     description: !isResting ? game.i18n.localize("PB.NoEffect") : "",
@@ -92,7 +92,7 @@ const longRest = async (actor, foodAndDrink, infected) => {
     outcomes.push(await characterLuckPerDayAction(actor, { silent: true }));
   }
 
-  return await showGenericCard({
+  await showGenericCard({
     actor,
     title: game.i18n.localize("PB.Rest"),
     outcomes,

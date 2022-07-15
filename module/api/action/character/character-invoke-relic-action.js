@@ -1,5 +1,6 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
 import { createInvokeRelicOutcome } from "../../outcome/character/invoke-relic-outcome.js";
+import { characterUseItemAction } from "./character-use-item-action.js";
 
 /**
  * @param {PBActor} actor
@@ -9,12 +10,12 @@ import { createInvokeRelicOutcome } from "../../outcome/character/invoke-relic-o
 export const characterInvokeRelicAction = async (actor, item) => {
   const outcome = await createInvokeRelicOutcome({ actor });
 
-  await showGenericCard({
+  const chatMessage = await showGenericCard({
     actor,
     title: item.name,
     description: item.getData().description,
     outcomes: [outcome],
   });
 
-  // await this.useActionMacro(item.id);
+  await characterUseItemAction(actor, item, outcome, chatMessage);
 };

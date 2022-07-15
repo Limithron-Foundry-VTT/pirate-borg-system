@@ -1,6 +1,14 @@
 import { AllowedCharacterClassesDialog } from "../dialog/allowed-character-classes-dialog.js";
+import { HelpDialog } from "../dialog/help-dialog.js";
 
 export const registerSystemSettings = () => {
+  game.settings.registerMenu("pirateborg", "openHelp", {
+    name: "PB.Help",
+    label: "PB.Help",
+    icon: "fas fa-question-circle",
+    type: HelpDialog,
+  });
+
   /** Track the system version upon which point a migration was last applied. */
   game.settings.register("pirateborg", "systemMigrationVersion", {
     name: "System Migration Version",
@@ -39,16 +47,6 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
-  /** Whether to allow target selection on attack/defense/crew action dialog */
-  game.settings.register("pirateborg", "targetSelection", {
-    name: "PB.SettingsTargetSelection",
-    hint: "PB.SettingsTargetSelectionHint",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true,
-  });
-
   /** Whether to enforce target selection when attacking */
   game.settings.register("pirateborg", "enforceTarget", {
     name: "PB.SettingsEnforceTarget",
@@ -56,7 +54,7 @@ export const registerSystemSettings = () => {
     scope: "world",
     config: true,
     type: Boolean,
-    default: true,
+    default: false,
   });
 
   /** Whether to apply automatically damage on self or target */
@@ -70,9 +68,19 @@ export const registerSystemSettings = () => {
   });
 
   /** Whether to show the hit and miss animation */
-  game.settings.register("pirateborg", "outcomeAnimation", {
-    name: "PB.SettingsOutcomeAnimation",
-    hint: "PB.SettingsOutcomeAnimationHint",
+  game.settings.register("pirateborg", "floatingOutcomeAnimation", {
+    name: "PB.SettingsFloatingOutcomeAnimation",
+    hint: "PB.SettingsFloatingOutcomeAnimationHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to show the hit and miss animation */
+  game.settings.register("pirateborg", "floatingDamageAnimation", {
+    name: "PB.SettingsFloatingDamageAnimation",
+    hint: "PB.SettingsFloatingDamageAnimationHint",
     scope: "world",
     config: true,
     type: Boolean,
@@ -90,7 +98,7 @@ export const registerSystemSettings = () => {
   });
 
   /** The allowed classes menu */
-  game.settings.registerMenu("pirateborg", "EditAllowedCharacterGeneratorClassesMenu", {
+  game.settings.registerMenu("pirateborg", "editAllowedCharacterGeneratorClassesMenu", {
     name: "PB.EditAllowedCharacterGeneratorClassesMenu",
     hint: "PB.EditAllowedCharacterGeneratorClassesMenuHint",
     label: "PB.EditAllowedCharacterGeneratorClassesMenuButtonLabel",
@@ -164,8 +172,7 @@ export const getSystemMigrationVersion = () => game.settings.get("pirateborg", "
 /**
  * @returns {String}
  */
-export const setSystemMigrationVersion = async (systemMigrationVersion) =>
-  await game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
+export const setSystemMigrationVersion = async (systemMigrationVersion) => game.settings.set("pirateborg", "systemMigrationVersion", systemMigrationVersion);
 
 /**
  * @returns {String}
@@ -176,7 +183,7 @@ export const getSystemHelpDialogVersion = () => game.settings.get("pirateborg", 
  * @returns {String}
  */
 export const setSystemHelpDialogVersion = async (systemHelpDialogVersion) =>
-  await game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
+  game.settings.set("pirateborg", "systemHelpDialogVersion", systemHelpDialogVersion);
 
 /**
  * @returns {Boolean}
@@ -186,7 +193,12 @@ export const isAutomaticDamageEnabled = () => game.settings.get("pirateborg", "a
 /**
  * @returns {Boolean}
  */
-export const isOutcomeAnimationEnabled = () => game.settings.get("pirateborg", "outcomeAnimation");
+export const isFloatingOutcomeAnimationEnabled = () => game.settings.get("pirateborg", "floatingOutcomeAnimation");
+
+/**
+ * @returns {Boolean}
+ */
+export const isFloatingDamageAnimationEnabled = () => game.settings.get("pirateborg", "floatingDamageAnimation");
 
 /**
  * @returns {Boolean}
@@ -197,8 +209,3 @@ export const isAdvancedAnimationEnabled = () => game.settings.get("pirateborg", 
  * @returns {Boolean}
  */
 export const isEnforceTargetEnabled = () => game.settings.get("pirateborg", "enforceTarget");
-
-/**
- * @returns {Boolean}
- */
-export const targetSelectionEnabled = () => game.settings.get("pirateborg", "targetSelection");

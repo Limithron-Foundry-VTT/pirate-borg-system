@@ -1,5 +1,6 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
 import { createInvokeExtraResourceOutcome } from "../../outcome/character/invoke-extra-resource-outcome.js";
+import { characterUseItemAction } from "./character-use-item-action.js";
 
 /**
  * @param {PBActor} actor
@@ -22,12 +23,12 @@ export const characterInvokeExtraResourceAction = async (actor, item) => {
     value: Math.max(0, actor.extraResource.value - 1),
   });
 
-  await showGenericCard({
+  const chatMessage = await showGenericCard({
     actor,
     title: item.name,
     description: item.getData().description,
     outcomes: [outcome],
   });
 
-  // await this.useActionMacro(item.id);
+  await characterUseItemAction(actor, item, outcome, chatMessage);
 };

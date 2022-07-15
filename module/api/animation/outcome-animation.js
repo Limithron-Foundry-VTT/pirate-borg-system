@@ -1,5 +1,5 @@
 import { OUTCOME_TEST } from "../outcome/outcome.js";
-import { playOutcomeAnimation } from "./animation.js";
+import { playFloatingDamageAnimation, playFloatingOutcomeAnimation } from "./animation.js";
 
 export const ANIMATION_TYPE = {
   RELOADING: "animation-reloading",
@@ -9,49 +9,65 @@ export const ANIMATION_TYPE = {
   DEFEND: "animation-defend",
   INFECTED: "animation-infected",
   STARVATION: "animation-starvation",
+  TAKE_DAMAGE: "animation-take-damage",
+  INFLICT_DAMAGE: "animation-inflict-damage",
+  HEAL: "animation-heal",
+  MYSTICAL_MISHAP: "animation-mystical-mishap",
 };
 
-const ANIMATION = {
-  DODGE: "/systems/pirateborg/ui/animation/dodge.webm",
-  MISS: "/systems/pirateborg/ui/animation/miss.webm",
-  HIT: "/systems/pirateborg/ui/animation/hit.webm",
-  CRITICAL_HIT: "/systems/pirateborg/ui/animation/critical-hit.webm",
-  FUMBLE: "/systems/pirateborg/ui/animation/fumble.webm",
-  SUCCESS: "/systems/pirateborg/ui/animation/success.webm",
-  FAILURE: "/systems/pirateborg/ui/animation/failure.webm",
-  CRITICAL_FAILURE: "/systems/pirateborg/ui/animation/critical-failure.webm",
-  CRITICAL_SUCCESS: "/systems/pirateborg/ui/animation/critical-success.webm",
-  RELOADING: "/systems/pirateborg/ui/animation/reloading.webm",
-  BROKEN: "/systems/pirateborg/ui/animation/broken.webm",
-  DEAD: "/systems/pirateborg/ui/animation/dead.webm",
-  INFECTED: "/systems/pirateborg/ui/animation/infected.webm",
-  STARVATION: "/systems/pirateborg/ui/animation/starving.webm",
+const criticalStyle = {
+  fontSize: 64,
+  fill: "#d20608",
+};
+
+const damageStyle = {
+  fill: "#d20608",
+  direction: 1,
+  jitter: 0.5,
+};
+
+const healStyle = {
+  fill: "#00FF00",
+  jitter: 0.5,
 };
 
 /**
  * @param {Token} token
  * @returns {Promise<void>}
  */
-export const playDodgeAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.DODGE);
-export const playMissAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.MISS);
-export const playHitAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.HIT);
-export const playFumbleAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.FUMBLE);
-export const playCriticalHitAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.CRITICAL_HIT);
-export const playSuccessAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.SUCCESS);
-export const playFailureAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.FAILURE);
-export const playCriticalSuccessAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.CRITICAL_SUCCESS);
-export const playCriticalFailureAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.CRITICAL_FAILURE);
-export const playReloadingAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.RELOADING);
-export const playBrokenAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.BROKEN);
-export const playDeadAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.DEAD);
-export const playStarvationAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.STARVATION);
-export const playInfectedAnimation = async (token) => await playOutcomeAnimation(token, ANIMATION.INFECTED);
+export const playDodgeAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationDodge"));
+export const playMissAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationMiss"));
+export const playHitAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationHit"));
+export const playFumbleAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationFumble"), criticalStyle);
+export const playCriticalHitAnimation = async (token) =>
+  playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationCriticalHit"), criticalStyle);
+export const playSuccessAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationSuccess"));
+export const playFailureAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationFailure"));
+export const playCriticalSuccessAnimation = async (token) =>
+  playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationCriticalSuccess"), criticalStyle);
+export const playCriticalFailureAnimation = async (token) =>
+  playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationCriticalFailure"), criticalStyle);
+export const playReloadingAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationReloading"));
+export const playBrokenAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationBroken"));
+export const playDeadAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationDead"), criticalStyle);
+export const playStarvationAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationStarving"));
+export const playInfectedAnimation = async (token) => playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationInfected"));
+export const playDamageAnimation = async (token, amount) =>
+  playFloatingDamageAnimation(token, game.i18n.format("PB.OutcomeAnimationDamage", { amount }), damageStyle);
+export const playHealAnimation = async (token, amount) =>
+  playFloatingDamageAnimation(token, game.i18n.format("PB.OutcomeAnimationHeal", { amount }), healStyle);
+export const playMysticalMishapAnimation = async (token) =>
+  playFloatingOutcomeAnimation(token, game.i18n.localize("PB.OutcomeAnimationMysticalMishap"), criticalStyle);
 
-export const playReloadingOutcomeAnimation = async (outcome) => await playReloadingAnimation(outcome.initiatorToken);
-export const playDeadOutcomeAnimation = async (outcome) => await playDeadAnimation(outcome.initiatorToken);
-export const playBrokenOutcomeAnimation = async (outcome) => await playBrokenAnimation(outcome.initiatorToken);
-export const playStarvationOutcomeAnimation = async (outcome) => await playStarvationAnimation(outcome.initiatorToken);
-export const playInfectedOutcomeAnimation = async (outcome) => await playInfectedAnimation(outcome.initiatorToken);
+export const playReloadingOutcomeAnimation = async (outcome) => playReloadingAnimation(outcome.initiatorToken);
+export const playDeadOutcomeAnimation = async (outcome) => playDeadAnimation(outcome.initiatorToken);
+export const playBrokenOutcomeAnimation = async (outcome) => playBrokenAnimation(outcome.initiatorToken);
+export const playStarvationOutcomeAnimation = async (outcome) => playStarvationAnimation(outcome.initiatorToken);
+export const playInfectedOutcomeAnimation = async (outcome) => playInfectedAnimation(outcome.initiatorToken);
+export const playTakeDamageOutcomeAnimation = async (outcome) => playDamageAnimation(outcome.initiatorToken, outcome.totalDamage);
+export const playInflictDamageOutcomeAnimation = async (outcome) => playDamageAnimation(outcome.targetToken, outcome.totalDamage);
+export const playHealOutcomeAnimation = async (outcome) => playHealAnimation(outcome.initiatorToken, outcome.heal);
+export const playMysticalMishapOutcomeAnimation = async (outcome) => playMysticalMishapAnimation(outcome.initiatorToken);
 
 /**
  * @param {Object} outcome

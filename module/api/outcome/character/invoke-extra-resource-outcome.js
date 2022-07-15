@@ -1,6 +1,7 @@
 import { asyncPipe } from "../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
 import { testOutcome, withAsyncProps, withAutomations, withTarget } from "../outcome.js";
+import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
 
 /**
  * @param {Boolean} isFumble
@@ -38,5 +39,5 @@ export const createInvokeExtraResourceOutcome = async ({ actor }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL)
   )();

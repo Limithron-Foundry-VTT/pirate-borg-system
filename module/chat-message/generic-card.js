@@ -1,4 +1,4 @@
-import { diceSound } from "../api/dice.js";
+import { diceSound, showDiceWithSound } from "../api/dice.js";
 
 const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-card.html";
 
@@ -14,7 +14,12 @@ const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-card.ht
  */
 export const showGenericCard = async ({ actor, target, title, description, outcomes = [], buttons = [], items = [] } = {}) => {
   const rolls = outcomes.map((outcome) => outcome.roll).filter((roll) => roll);
-  return await ChatMessage.create({
+
+  if (rolls.length) {
+    await showDiceWithSound(rolls);
+  }
+
+  return ChatMessage.create({
     content: await renderTemplate(GENERIC_CARD_TEMPLATE, {
       title,
       description,
@@ -24,8 +29,6 @@ export const showGenericCard = async ({ actor, target, title, description, outco
       items,
     }),
     speaker: ChatMessage.getSpeaker({ actor }),
-    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    roll: Roll.fromTerms([PoolTerm.fromRolls(rolls)]),
     sound: diceSound(),
     flags: {
       [CONFIG.PB.flagScope]: {

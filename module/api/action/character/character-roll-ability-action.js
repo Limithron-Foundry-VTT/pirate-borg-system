@@ -15,7 +15,7 @@ export const characterRollAgilityAction = async (actor) => {
     drModifiers.push(`${game.i18n.localize("PB.Encumbered")} (${game.i18n.localize("PB.DR")} + 2)`);
   }
 
-  return await actorRollAbilityAction(actor, CONFIG.PB.abilityKey.agility, drModifiers);
+  return actorRollAbilityAction(actor, CONFIG.PB.ability.agility, drModifiers);
 };
 
 export const characterRollStrengthAction = async (actor) => {
@@ -25,11 +25,11 @@ export const characterRollStrengthAction = async (actor) => {
     drModifiers.push(`${game.i18n.localize("PB.Encumbered")} (${game.i18n.localize("PB.DR")} + 2)`);
   }
 
-  return await actorRollAbilityAction(actor, CONFIG.PB.abilityKey.strength, drModifiers);
+  return actorRollAbilityAction(actor, CONFIG.PB.ability.strength, drModifiers);
 };
 
-export const characterRollPresenceAction = async (actor) => await actorRollAbilityAction(actor, CONFIG.PB.abilityKey.presence);
+export const characterRollPresenceAction = async (actor) => actorRollAbilityAction(actor, CONFIG.PB.ability.presence);
 
-export const characterRollToughnessAction = async (actor) => await actorRollAbilityAction(actor, CONFIG.PB.abilityKey.toughness);
+export const characterRollToughnessAction = async (actor) => actorRollAbilityAction(actor, CONFIG.PB.ability.toughness);
 
-export const characterRollSpiritAction = async (actor) => await actorRollAbilityAction(actor, CONFIG.PB.abilityKey.spirit);
+export const characterRollSpiritAction = async (actor) => actorRollAbilityAction(actor, CONFIG.PB.ability.spirit);
