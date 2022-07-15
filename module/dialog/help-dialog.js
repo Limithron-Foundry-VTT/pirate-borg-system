@@ -1,6 +1,6 @@
 import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../system/settings.js";
 
-export default class HelpDialog extends Application {
+export class HelpDialog extends FormApplication {
   constructor(options = {}) {
     super(options);
   }
@@ -25,18 +25,42 @@ export default class HelpDialog extends Application {
     });
   }
 
-  getData() {
+  /** @override */
+  getData(options) {
+    const data = super.getData(options);
     return {
+      ...data,
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
       version: game.system.data.version,
+      isGM: game.user.isGM,
+      modules: {
+        highlyRecommended: this.getModulesData("highly_recommended"),
+        mustHave: this.getModulesData("must_have"),
+        recommended: this.getModulesData("recommended"),
+      },
     };
+  }
+
+  getModulesData(type) {
+    return CONFIG.PB.recommendedModules
+      .filter((module) => module.type === type)
+      .map((module) => ({
+        ...module,
+        installed: !!game.modules.get(module.package),
+        active: !!game.modules.get(module.package)?.active,
+        dependencies: game.modules.get(module.package)?.data.dependencies.map((dependency) => ({
+          name: dependency.name,
+          installed: !!game.modules.get(dependency.name),
+          active: !!game.modules.get(dependency.name)?.active,
+        })),
+      }));
   }
 
   activateListeners(html) {
     super.activateListeners(html);
-    html.find("#help-dialog-enable-premium").click(this._enablePremiumModule.bind(this));
+    html.find("#help-dialog-enable-premium").on("click", this._enablePremiumModule.bind(this));
   }
 
   _enablePremiumModule() {

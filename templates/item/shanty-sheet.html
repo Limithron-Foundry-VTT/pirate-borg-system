@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,13 +34,13 @@
       {{! Action Macro }}
       <div class="form-group">
         <label>{{localize "PB.ActionMacro"}}:</label>
-        <input type="text" name="data.actionMacro" value="{{data.data.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
+        <input type="text" name="data.actionMacro" value="{{item.data.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
       </div>
 
       {{! Action Macro Label }}
       <div class="form-group">
         <label>{{localize "PB.ActionMacroLabel"}}:</label>
-        <input type="text" name="data.actionMacroLabel" value="{{data.data.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
+        <input type="text" name="data.actionMacroLabel" value="{{item.data.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
       </div>
     </div>
   </section>

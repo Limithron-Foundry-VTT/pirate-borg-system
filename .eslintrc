@@ -1,25 +1,31 @@
-/**
- *
- * NPM: https://www.npmjs.com/package/@typhonjs-fvtt/eslint-config-foundry.js
- */
 {
   "env": {
     "browser": true,
     "es2021": true,
+    "node": true,
     "jquery": true
   },
-  "extends": ["eslint:recommended", "@typhonjs-fvtt/eslint-config-foundry.js", "plugin:i18n-json/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "@typhonjs-fvtt/eslint-config-foundry.js",
+    "plugin:i18n-json/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["import"],
   "globals": {
     "PIXI": "readonly",
-    "PoolTerm": "readonly"
+    "PoolTerm": "readonly",
+    "Sequencer": "readonly",
+    "Sequence": "readonly",
+    "dragRuler": "readonly",
+    "AutoAnimations": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
-    // TODO: decide if we want no-shadow. Will likely need to omit minified.
-    //"no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }]
     "prefer-const": 2,
     "i18n-json/valid-message-syntax": [
       2,
@@ -35,6 +41,7 @@
         "indentSpaces": 2
       }
     ],
-    "i18n-json/identical-keys": 0
+    "i18n-json/identical-keys": 0,
+    "no-return-await": "error"
   }
 }

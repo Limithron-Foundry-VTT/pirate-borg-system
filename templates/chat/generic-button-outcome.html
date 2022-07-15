@@ -1,0 +1,33 @@
+<div class="wield-roll">
+  {{#each outcomes as |outcome|}}
+    {{#if outcome}}
+      <div class="outcome">
+        {{#if outcome.title}}
+          <div class="outcome-text">
+            <span class="attack-outcome">{{outcome.title}}</span>  
+          </div>
+        {{/if}}  
+        {{#if outcome.formulaLabel}}
+          <div class="roll-title">
+            <span>{{outcome.formulaLabel}} {{#if outcome.dr}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{outcome.dr}}{{/if}}</span>
+          </div>        
+        {{/if}} 
+        {{#if outcome.roll}} 
+          <div class="roll-result">
+            <span>{{xtotal outcome.roll}}</span>
+          </div>
+        {{/if}}  
+        {{#if outcome.description}}
+          <div class="card-outcome-description">{{{outcome.description}}}</div>
+        {{/if}}        
+        {{#if button}}
+          <div class="item-buttons">
+            <button type="button" class="button item-button rollable" {{#each button.data}} data-{{@key}}="{{this}}"{{/each}} title="{{title}}">
+              {{button.title}}
+            </button>
+          </div>
+        {{/if}}              
+      </div>
+    {{/if}}
+  {{/each}}
+</div>

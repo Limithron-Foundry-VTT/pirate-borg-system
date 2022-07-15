@@ -13,6 +13,15 @@
     padding-top: 4px;
   }
 
+  .attack-outcome-target {
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: -20px;
+  }
+
   .dr-modifiers {
     margin-bottom: 16px;
   }
@@ -48,7 +57,7 @@
     font-family: var(--chat-font);
     font-size: 16px;
     text-align: center;
-    margin: 24px 0 0 0;
+    margin: 24px 0 24px 0;
 
     p:first-of-type {
       margin: 0;
@@ -59,7 +68,7 @@
     font-family: var(--chat-font);
     font-size: 16px;
     text-align: center;
-    margin: 24px 0 0 0;
+    margin: 8px 0 0 0;
     font-style: italic;
     p:first-of-type {
       margin: 0;

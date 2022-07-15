@@ -1,7 +1,25 @@
 <form class="custom-dialog defense-dialog">
+  {{#if shouldShowTarget}}
+    <div class="form-group form-group-target">
+      <label>{{localize "PB.Target"}}:</label>
+      <div class="target-selection {{#if hasTargetWarning }}warning{{/if}}">
+        {{#if isTargetSelectionValid}}
+        <img src="{{target.img}}" data-edit="img" title="{{target.name}}" /> {{target.name}}
+        {{else}}
+          {{localize "PB.TargetInvalid"}}
+        {{/if}}         
+      </div>
+    </div>
+  {{/if}}  
   <div class="form-group">
     <label>{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
-    <input id="defendDr" type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
+    <div class="form-fields">
+      <input id="defendDr" type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
+      <input id="defenseModifiedDr" title="{{localize 'PB.Modified'}} {{localize 'PB.DR'}}" type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
+      {{#if drModifiers}}
+        <div class="form-warning-icon" title="{{#each drModifiers}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><i class="fas fa-exclamation-circle"></i></div>
+      {{/if}}    
+    </div>
   </div>
   <div class="form-group form-group-radio-selector">
     <label></label>
@@ -38,13 +56,6 @@
       </li>
     </ul>
   </div>
-  <div class="form-group">
-    <label>{{localize "PB.Modified"}} {{localize "PB.DR"}}:</label>
-    <input id="defenseModifiedDr" type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
-  </div>
-  {{#if drModifiers}}
-  <div class="dr-modifier">({{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}})</div>
-  {{/if}}
   <div class="form-group">
     <label>{{localize "PB.IncomingAttack"}}:</label>
     <input id="incomingAttack" type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />

@@ -6,6 +6,7 @@
   --foreground-alt-color: #fff;
   --highlight-background-color: #d20608;
   --highlight-foreground-color: #ffffff;
+  --warning-color: var(--highlight-background-color);
   --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
   --window-header-color: #ffffff;
   --window-header-background-color: #000000;
@@ -195,6 +196,7 @@
   white-space: nowrap;
   text-transform: capitalize;
   margin-bottom: 4px;
+  width: 280px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-buttons-row {
   display: flex;
@@ -829,9 +831,12 @@ form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
+.chat-message form .item-buttons {
+  margin-top: 24px;
+}
+
 .chat-message form button.item-button {
   font-size: 16px;
-  margin-top: 24px;
   width: 100%;
 }
 
@@ -1066,14 +1071,13 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   color: var(--highlight-foreground-color);
 }
 #chat-log .chat-message .message-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   margin-bottom: 8px;
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
   font-size: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 #chat-log .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
@@ -1081,7 +1085,8 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 4px;
+  flex: 0 0 70px;
 }
 #chat-log .chat-message .message-header span.flavor-text {
   background: var(--highlight-background-color);
@@ -1116,7 +1121,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 }
 
 .token-sheet {
-  min-width: 700px;
+  min-width: 850px;
 }
 
 #client-settings section.content {
@@ -1494,6 +1499,23 @@ hr {
   color: var(--highlight-background-color);
 }
 
+p.nue {
+  font-size: 16px;
+}
+
+h3.nue {
+  border-bottom: 2px groove var(--light-border-color);
+  border-top: 2px groove var(--light-border-color);
+  font-weight: 600;
+}
+
+footer.nue {
+  font-size: 14px;
+  font-style: italic;
+  color: black;
+  border-top: 2px groove var(--light-border-color);
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
@@ -1505,6 +1527,14 @@ hr {
   margin-bottom: 24px;
   text-align: center;
   padding-top: 4px;
+}
+.roll-card .attack-outcome-target {
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: -20px;
 }
 .roll-card .dr-modifiers {
   margin-bottom: 16px;
@@ -1536,7 +1566,7 @@ hr {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin: 24px 0 0 0;
+  margin: 24px 0 24px 0;
 }
 .roll-card .card-description p:first-of-type {
   margin: 0;
@@ -1545,7 +1575,7 @@ hr {
   font-family: var(--chat-font);
   font-size: 16px;
   text-align: center;
-  margin: 24px 0 0 0;
+  margin: 8px 0 0 0;
   font-style: italic;
 }
 .roll-card .card-outcome-description p:first-of-type {
@@ -1667,8 +1697,9 @@ hr {
   font-size: 14px;
 }
 .custom-dialog .warning {
-  font-weight: 500;
-  color: red;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--warning-color);
 }
 .custom-dialog ul {
   list-style-type: none;
@@ -1722,6 +1753,39 @@ hr {
 .attack-dialog .form-group {
   display: flex;
   align-items: flex-start;
+}
+.defense-dialog .form-group .form-fields .form-warning-icon,
+.attack-dialog .form-group .form-fields .form-warning-icon {
+  color: var(--warning-color);
+  flex: 0 0 20px;
+  cursor: help;
+  text-align: center;
+}
+.defense-dialog .form-group .form-fields #defenseModifiedDr,
+.attack-dialog .form-group .form-fields #defenseModifiedDr {
+  flex: 0 0 32px;
+}
+.defense-dialog .form-group.form-group-target,
+.attack-dialog .form-group.form-group-target {
+  margin: 0 16px 0 16px;
+}
+.defense-dialog .form-group.form-group-target .target-selection,
+.attack-dialog .form-group.form-group-target .target-selection {
+  height: var(--form-field-height);
+  line-height: 28px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.defense-dialog .form-group.form-group-target .target-selection img,
+.attack-dialog .form-group.form-group-target .target-selection img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border: none;
 }
 .defense-dialog .radio-group-radio,
 .attack-dialog .radio-group-radio {
@@ -1797,14 +1861,23 @@ hr {
   text-transform: capitalize;
   margin: 16px 0 8px 0;
 }
+#help-dialog .sheet-body .warning {
+  color: var(--highlight-background-color);
+}
+#help-dialog .sheet-body .section .module {
+  margin-bottom: 24px;
+}
+#help-dialog .sheet-body .section .module .module-info {
+  font-size: 14px;
+}
 #help-dialog .sheet-body .section .buttons-row {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#help-dialog .sheet-body button,
-#help-dialog .sheet-body a {
+#help-dialog .sheet-body .section .buttons-row button,
+#help-dialog .sheet-body .section .buttons-row a {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -1820,6 +1893,10 @@ hr {
   margin: 8px;
   text-align: center;
   min-width: 200px;
+}
+
+#dice-config {
+  min-width: 850px;
 }
 
 .window-app .window-content textarea:hover {
@@ -1858,6 +1935,42 @@ button.dice-calculator--button {
 #settings button {
   padding: 0 16px !important;
   margin: 4px 0 !important;
+}
+
+.sidebar-tab .action-buttons button.import-dd {
+  margin: 8px !important;
+  width: calc(100% - 16px);
+}
+
+#client-settings {
+  min-height: auto !important;
+  height: auto !important;
+}
+#client-settings #config-tabs div.tab[data-tab=modules] #searchField {
+  border: none;
+}
+#client-settings #config-tabs div.tab[data-tab=modules] #searchField #searchInput {
+  color: var(--foreground-color);
+  border: 2px groove var(--light-border-color);
+  background: rgba(255, 255, 255, 0.2);
+}
+#client-settings #config-tabs div.tab[data-tab=modules] #searchField #clear {
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+}
+#client-settings.window-app .window-content {
+  padding: 8px !important;
+}
+#client-settings section.content .settings-list {
+  max-height: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+#module-management {
+  min-height: auto !important;
+  height: auto !important;
 }
 
 /*# sourceMappingURL=pirateborg.css.map */

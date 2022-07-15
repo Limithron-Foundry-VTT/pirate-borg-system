@@ -11,7 +11,5 @@ export const renderSettings = (app, html) => {
   const settings = html[0].querySelector("#settings-documentation");
   settings.insertBefore(button, settings.firstChild);
 
-  button.addEventListener("click", () => {
-    showHelpDialog();
-  });
+  button.addEventListener("click", showHelpDialog);
 };

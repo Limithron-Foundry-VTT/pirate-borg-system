@@ -1,0 +1,18 @@
+<form class="custom-dialog">
+  <div class="form-group">
+    <label>{{localize "PB.Type"}}:</label>
+    <br />
+    <select name="itemtype" class="add-type">
+      <option value=""></option>
+      {{#each animations as |animation|}}
+        <option value="{{animation}}" {{#if (eq ../selectedAnimation animation)}}selected{{/if}}>{{animation}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="button-row">
+    <button type="submit" class="button cancel-button">{{localize "PB.Cancel"}}</button>
+    <button type="submit" class="button ok-button">
+      <i class="fas fa-check"></i>{{localize "PB.Ok"}}
+    </button>
+  </div>
+</form>

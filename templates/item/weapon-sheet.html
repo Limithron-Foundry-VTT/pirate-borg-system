@@ -9,7 +9,7 @@
         <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{item.type}} {{#if item.data.data.weaponType}} - {{localize item.data.data.weaponType}}{{/if}}</span>
+        <span class="item-type">{{item.type}} {{#if item.data.weaponType}} - {{localize item.data.weaponType}}{{/if}}</span>
       </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,19 +34,19 @@
       {{! Price }}
       <div class="form-group">
         <label for="price">{{localize "PB.ItemPrice"}}:</label>
-        <input type="text" id="price" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
+        <input type="text" id="price" name="data.price" value="{{item.data.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
       {{! Carry weight }}
       <div class="form-group">
         <label for="carry-weight">{{localize "PB.CarryWeight"}}:</label>
-        <input type="text" id="carry-weight" name="data.carryWeight" value="{{data.data.carryWeight}}" placeholder="1" data-dtype="Number" />
+        <input type="text" id="carry-weight" name="data.carryWeight" value="{{item.data.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Container space }}
       <div class="form-group">
         <label for="container-space">{{localize "PB.ContainerSpace"}}:</label>
-        <input type="text" id="container-space" name="data.containerSpace" value="{{data.data.containerSpace}}" placeholder="1" data-dtype="Number" />
+        <input type="text" id="container-space" name="data.containerSpace" value="{{item.data.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
 
       <br />
@@ -55,7 +55,7 @@
       <div class="form-group">
         <label for="weapon-type">{{localize "PB.ItemWeaponType"}}:</label>
         <select id="weapon-type" name="data.weaponType">
-          {{#select data.data.weaponType}} {{#each config.weaponTypes as |name type|}}
+          {{#select item.data.weaponType}} {{#each config.weaponTypes as |name type|}}
           <option value="{{type}}">{{localize name}}</option>
           {{/each}} {{/select}}
         </select>
@@ -64,14 +64,14 @@
       {{! Damage Die }}
       <div class="form-group">
         <label for="damage-die">{{localize "PB.ItemDamageDie"}}:</label>
-        <input type="text" id="damage-die" name="data.damageDie" value="{{data.data.damageDie}}" placeholder="1d4" data-dtype="String" />
+        <input type="text" id="damage-die" name="data.damageDie" value="{{item.data.damageDie}}" placeholder="1d4" data-dtype="String" />
       </div>
 
       {{! Handed }}
       <div class="form-group">
         <label for="handed">{{localize "PB.ItemHanded"}}:</label>
         <select id="handed" name="data.handed">
-          {{#select data.data.handed}} {{#each config.handed as |name value|}}
+          {{#select item.data.handed}} {{#each config.handed as |name value|}}
           <option value="{{value}}">{{localize name}}</option>
           {{/each}} {{/select}}
         </select>
@@ -79,7 +79,7 @@
 
       <div class="form-group">
         <label for="is-gunpowder-weapon">{{localize "PB.ItemIsGunpowderWeapon"}}:</label>
-        <input type="checkbox" id="is-gunpowder-weapon" name="data.isGunpowderWeapon" {{checked data.data.isGunpowderWeapon}} data-dtype="Boolean" />
+        <input type="checkbox" id="is-gunpowder-weapon" name="data.isGunpowderWeapon" {{checked item.data.isGunpowderWeapon}} data-dtype="Boolean" />
       </div>
 
       <br />
@@ -87,22 +87,22 @@
       {{! Uses ammo }}
       <div class="form-group">
         <label for="uses-ammo">{{localize "PB.ItemUsesAmmo"}}:</label>
-        <input type="checkbox" id="uses-ammo" name="data.usesAmmo" {{checked data.data.usesAmmo}} data-dtype="Boolean" />
+        <input type="checkbox" id="uses-ammo" name="data.usesAmmo" {{checked item.data.usesAmmo}} data-dtype="Boolean" />
       </div>
 
       <div class="form-group">
         <label for="use-ammo-damage">{{localize "PB.ItemUseAmmoDamage"}}:</label>
-        <input type="checkbox" id="use-ammo-damage" name="data.useAmmoDamage" {{checked data.data.useAmmoDamage}} data-dtype="Boolean" />
+        <input type="checkbox" id="use-ammo-damage" name="data.useAmmoDamage" {{checked item.data.useAmmoDamage}} data-dtype="Boolean" />
       </div>
 
       <div class="form-group">
         <label for="needs-reloading">{{localize "PB.ItemNeedsReloading"}}:</label>
-        <input type="checkbox" id="needs-reloading" name="data.needsReloading" {{checked data.data.needsReloading}} data-dtype="Boolean" />
+        <input type="checkbox" id="needs-reloading" name="data.needsReloading" {{checked item.data.needsReloading}} data-dtype="Boolean" />
       </div>
-      {{#if data.data.needsReloading}}
+      {{#if item.data.needsReloading}}
       <div class="form-group">
         <label for="reload-time" title="{{localize 'PB.ItemReloadTimeHelp'}}">{{localize "PB.ItemReloadTime"}}:</label>
-        <input type="text" id="reload-time" name="data.reloadTime" value="{{data.data.reloadTime}}" placeholder="0" data-dtype="Number" />
+        <input type="text" id="reload-time" name="data.reloadTime" value="{{item.data.reloadTime}}" placeholder="0" data-dtype="Number" />
       </div>
       {{/if}}
 
@@ -110,18 +110,18 @@
 
       <div class="form-group">
         <label for="crit-on">{{localize "PB.ItemCritOn"}}:</label>
-        <input type="text" id="crit-on" name="data.critOn" value="{{data.data.critOn}}" placeholder="20" data-dtype="Number" />
+        <input type="text" id="crit-on" name="data.critOn" value="{{item.data.critOn}}" placeholder="20" data-dtype="Number" />
       </div>
 
       {{! Crit Extra Damage Die }}
       <div class="form-group">
         <label for="crit-extra-damage">{{localize "PB.ItemCritExtraDamageFormula"}}:</label>
-        <input type="text" id="crit-extra-damage" name="data.critExtraDamage" value="{{data.data.critExtraDamage}}" placeholder="1d4" data-dtype="String" />
+        <input type="text" id="crit-extra-damage" name="data.critExtraDamage" value="{{item.data.critExtraDamage}}" placeholder="1d4" data-dtype="String" />
       </div>
 
       <div class="form-group">
         <label for="fumble-on">{{localize "PB.ItemFumbleOn"}}:</label>
-        <input type="text" id="fumble-on" name="data.fumbleOn" value="{{data.data.fumbleOn}}" placeholder="1" data-dtype="Number" />
+        <input type="text" id="fumble-on" name="data.fumbleOn" value="{{item.data.fumbleOn}}" placeholder="1" data-dtype="Number" />
       </div>
     </div>
   </section>

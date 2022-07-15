@@ -6,10 +6,6 @@
       "vehicle": {
         "description": "",
         "special": "",
-        "hp": {
-          "max": 1,
-          "value": 1
-        },
         "abilities": {
           "agility": {
             "value": 0
@@ -18,44 +14,56 @@
             "value": 0
           }
         },
-        "speed": {
-          "max": 0,
-          "value": 1
+        "attributes": {
+          "hp": {
+            "value": 1,
+            "max": 1
+          },
+          "speed": {
+            "max": 0,
+            "value": 1
+          },
+          "cargo": {
+            "max": 0,
+            "value": 0
+          },
+          "crew": {
+            "min": 0,
+            "max": 1,
+            "value": 0
+          },
+          "hull": {
+            "min": 0,
+            "max": 0,
+            "value": 0
+          },
+          "shanties": {
+            "min": 0,
+            "max": 0,
+            "value": 0
+          }
         },
-        "cargo": {
-          "max": 0,
-          "value": 0
-        },
-        "crew": {
-          "min": 0,
-          "max": 1,
-          "value": 0
-        },
-        "hull": {
-          "min": 0,
-          "max": 0,
-          "value": 0
-        },
-        "shanties": {
-          "min": 0,
-          "max": 0,
-          "value": 0
-        },
-        "smallArmsDie": "",
-        "smallArmsQuantity": 0,
-        "smallArmsWarning": "",
-        "broadsidesDie": "",
-        "broadsidesQuantity": 0,
-        "broadsidesWarning": "",
-        "ramDie": "0"
+        "weapons": {
+          "smallArms": {
+            "die": "",
+            "quantity": 0,
+            "warning": ""
+          },
+          "broadsides": {
+            "die": "",
+            "quantity": 0,
+            "warning": ""
+          },
+          "ram": {
+            "die": ""
+          }
+        }
       }
     },
     "character": {
       "description": "",
-      "hp": {
-        "max": 1,
-        "value": 1
-      },
+      "silver": 0,
+      "baseClass": "",
       "abilities": {
         "agility": {
           "value": 0
@@ -73,24 +81,27 @@
           "value": 0
         }
       },
-      "luck": {
-        "min": 0,
-        "max": 0,
-        "value": 0
-      },
-      "powerUses": {
-        "min": 0,
-        "max": 0,
-        "value": 0
-      },
-      "extraResourceUses": {
-        "min": 0,
-        "max": 0,
-        "value": 0
-      },
-      "extraResourceUsesRemaining": 0,
-      "silver": 0,
-      "baseClass": ""
+      "attributes": {
+        "hp": {
+          "max": 1,
+          "value": 1
+        },
+        "luck": {
+          "min": 0,
+          "max": 0,
+          "value": 0
+        },
+        "rituals": {
+          "min": 0,
+          "max": 0,
+          "value": 0
+        },
+        "extraResource": {
+          "min": 0,
+          "max": 0,
+          "value": 0
+        }
+      }
     },
     "container": {
       "description": "",
@@ -102,14 +113,27 @@
     },
     "creature": {
       "description": "",
-      "hp": {
-        "max": 1,
-        "value": 1
-      },
-      "armor": "",
-      "attack": "",
-      "morale": 7,
-      "special": ""
+      "special": "",
+      "attributes": {
+        "hp": {
+          "max": 1,
+          "value": 1
+        },
+        "speed": {
+          "min": 0,
+          "max": 6,
+          "value": 6
+        },
+        "armor": {
+          "formula": "0",
+          "description": ""
+        },
+        "attack": {
+          "formula": "1d2",
+          "description": ""
+        },
+        "morale": 7
+      }
     },
     "vehicle": {
       "templates": ["vehicle"]
@@ -236,6 +260,7 @@
       "extraResourceTestFormulaLabel": null,
 
       "requireBaseClass": false,
+      "isBaseClass": false,
       "characterGeneratorMacro": ""
     },
     "cargo": {

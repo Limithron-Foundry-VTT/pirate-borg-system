@@ -1,4 +1,5 @@
 import { PB } from "../../config.js";
+import { showAnimationDialog } from "../../dialog/animation-dialog.js";
 import { configureEditor } from "../../system/configure-editor.js";
 
 /*
@@ -32,15 +33,40 @@ export class PBItemSheet extends ItemSheet {
     const path = "systems/pirateborg/templates/item";
     if (Object.keys(PB.itemTypeKeys).includes(this.item.data.type)) {
       return `${path}/${this.item.data.type}-sheet.html`;
-    } else {
-      return `${path}/item-sheet.html`;
     }
+    return `${path}/item-sheet.html`;
+  }
+
+  /** @override */
+  _getHeaderButtons() {
+    const buttons = super._getHeaderButtons();
+    if (this.item.isWeapon) {
+      return [this._getHeaderAnimationButton(), ...buttons];
+    }
+    return buttons;
+  }
+
+  _getHeaderAnimationButton() {
+    return {
+      class: `edit-animation-dialog-button-${this.item.id}`,
+      label: game.i18n.localize("PB.EditAnimation"),
+      icon: "fas fa-edit",
+      onclick: this._onEditAnimation.bind(this),
+    };
   }
 
   /** @override */
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.PB;
+
+    data.item = {
+      id: this.item.id,
+      img: this.item.img,
+      name: this.item.name,
+      type: this.item.type,
+      data: this.item.getData(),
+    };
     return data;
   }
 
@@ -56,10 +82,7 @@ export class PBItemSheet extends ItemSheet {
     return super._updateObject(event, formData);
   }
 
-  /**
-   *  This is a small override to handle remembering the sheet's position.
-   *  @override
-   */
+  /** @override */
   setPosition(options = {}) {
     const position = super.setPosition(options);
     const sheetBody = this.element.find(".sheet-body");
@@ -69,19 +92,13 @@ export class PBItemSheet extends ItemSheet {
   }
 
   /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
-  }
-
-  /** @override */
   activateEditor(name, options = {}, initialContent = "") {
     configureEditor(options);
     super.activateEditor(name, options, initialContent);
+  }
+
+  async _onEditAnimation() {
+    await showAnimationDialog(this.item);
   }
 
   /** @inheritdoc */

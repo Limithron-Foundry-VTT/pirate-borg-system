@@ -1,4 +1,21 @@
-import { rollIndividualInitiative } from "../../system/combat.js";
+import {
+  actorInitiativeAction,
+  shipBoardingPartyAction,
+  shipBroadsidesAction,
+  shipComeAboutAction,
+  shipDropAnchorAction,
+  shipFullSailAction,
+  shipInvokeShantyAction,
+  shipRamAction,
+  shipRepairAction,
+  shipRollAgilityAction,
+  shipRollSkillAction,
+  shipRotateAction,
+  shipShantiesPerDayAction,
+  shipSinkAction,
+  shipSmallArmsAction,
+  shipWeighAnchorAction,
+} from "../../api/action/actions.js";
 import PBActorSheet from "./actor-sheet.js";
 import { PBActorSheetVehicleEdit } from "./vehicle-edit-sheet.js";
 
@@ -32,6 +49,9 @@ export class PBActorSheetVehicle extends PBActorSheet {
     };
   }
 
+  /**
+   * @private
+   */
   async _onEditSheet() {
     await this.close();
     const sheet = new PBActorSheetVehicleEdit(this.actor);
@@ -39,17 +59,24 @@ export class PBActorSheetVehicle extends PBActorSheet {
   }
 
   /** @override */
-  async getData() {
-    const superData = super.getData();
+  async getData(options) {
+    const superData = super.getData(options);
     superData.config = CONFIG.PB;
+    superData.data = superData.data ?? {};
     superData.data.data = {
       ...superData.data.data,
-      ...(await this._prepareItems(superData.data)),
+      dynamic: {
+        hasCrew: !!this.actor.crews.length,
+        ...(await this._prepareItems(superData.data)),
+      },
     };
-    superData.data.data.hasCrew = !!this.actor.crews.length;
     return superData;
   }
 
+  /**
+   * @param {Object} sheetData
+   * @private
+   */
   async _prepareItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const items = {};
@@ -65,7 +92,13 @@ export class PBActorSheetVehicle extends PBActorSheet {
       if (actorData) {
         actorData.data.data.isCaptain = this.actor.captain === actorId;
       }
-      return actorData.data || { _id: actorId, name: "<Deleted Character>", type: "character" };
+      return (
+        actorData.data || {
+          _id: actorId,
+          name: "<Deleted Character>",
+          type: "character",
+        }
+      );
     });
 
     items.equipment = sheetData.items
@@ -83,43 +116,31 @@ export class PBActorSheetVehicle extends PBActorSheet {
 
     if (!this.options.editable) return;
 
-    html.find(".ability-label.rollable.skill").on("click", this._onSkillRoll.bind(this));
+    this.bindSelectorsEvent("click", {
+      ".ability-label.rollable.skill": this._onSkillRoll,
+      ".ability-label.rollable.agility": this._onAgilityRoll,
+      ".tier-radio": this._onArmorTierRadio,
+      ".initiative-button": this._onInitiativeRoll,
+      ".sinking-button": this._onSinking,
+      ".action-shanties": this._onActionShanties,
+      ".item-create-cargo-button": this._onCreateCargo,
+      ".item-remove-crew": this._onRemoveCrew,
+      ".item-crew-captain": this._onSetCaptain,
+      ".mystic-shanties-roll-button": this._onRollMysticShanties,
+      ".item-type-character .item-edit": this._onCrewClick,
+      ".item-type-creature .item-edit": this._onCrewClick,
 
-    html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
-
-    html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
-
-    html.find(".initiative-button").on("click", this._onInitiativeRoll.bind(this));
-
-    html.find(".sinking-button").on("click", this._onSinking.bind(this));
-
-    html.find(".action-shanties").on("click", this._onActionShanties.bind(this));
-
-    html.find(".item-create-cargo-button").on("click", this._onCreateCargo.bind(this));
-
-    html.find(".item-remove-crew").on("click", this._onRemoveCrew.bind(this));
-
-    html.find(".item-crew-captain").on("click", this._onSetCaptain.bind(this));
-
-    html.find(".mystic-shanties-roll-button").on("click", this._onRollMysticShanties.bind(this));
-
-    html.find(".item-type-character .item-edit").on("click", this._onCrewClick.bind(this));
-
-    html.find(".item-type-creature .item-edit").on("click", this._onCrewClick.bind(this));
-
-    html.find(".rotate-left").on("click", this._onRotateLeft.bind(this));
-
-    html.find(".rotate-right").on("click", this._onRotateRight.bind(this));
-
-    html.find(".action-pc-action").on("click", this._onPCAction.bind(this));
-
-    html.find(".action-crew-action").on("click", this._onCrewAction.bind(this));
+      ".rotate-left": this._onRotateLeft,
+      ".rotate-right": this._onRotateRight,
+      ".action-pc-action": this._onPCAction,
+      ".action-crew-action": this._onCrewAction,
+    });
   }
 
-  _getItemId(event) {
-    return $(event.currentTarget).parents(".item").data("itemId");
-  }
-
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _getCrewAction(event) {
     return $(event.currentTarget).data("action");
   }
@@ -127,83 +148,123 @@ export class PBActorSheetVehicle extends PBActorSheet {
   async _crewAction(action, isPCAction = false) {
     switch (action) {
       case "broadsides":
-        await this.actor.doBroadsidesAction(isPCAction);
+        await shipBroadsidesAction(this.actor, isPCAction);
         break;
       case "small-arms":
-        await this.actor.doSmallArmsAction(isPCAction);
+        await shipSmallArmsAction(this.actor, isPCAction);
         break;
       case "ram":
-        await this.actor.doRamAction();
+        await shipRamAction(this.actor);
         break;
       case "full-sail":
-        await this.actor.doFullSailAction(isPCAction);
+        await shipFullSailAction(this.actor, isPCAction);
         break;
       case "come-about":
-        await this.actor.doComeAboutAction(isPCAction);
+        await shipComeAboutAction(this.actor, isPCAction);
         break;
       case "drop-anchor":
-        await this.actor.doDropAnchorAction();
+        await shipDropAnchorAction(this.actor);
         break;
       case "weigh-anchor":
-        await this.actor.doWeighAnchorAction();
+        await shipWeighAnchorAction(this.actor);
         break;
       case "repair":
-        await this.actor.doRepairAction(isPCAction);
+        await shipRepairAction(this.actor, isPCAction);
         break;
       case "boarding-party":
-        await this.actor.doBoardingPartyAction();
+        await shipBoardingPartyAction(this.actor);
         break;
     }
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onPCAction(event) {
     const action = this._getCrewAction(event);
     await this._crewAction(action, true);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onCrewAction(event) {
     const action = this._getCrewAction(event);
     await this._crewAction(action);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onRotateLeft(event) {
     event.preventDefault();
-    await this.actor.rotateToken(-60);
+    await shipRotateAction(this.actor, -60);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onRotateRight(event) {
     event.preventDefault();
-    await this.actor.rotateToken(60);
+    await shipRotateAction(this.actor, 60);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _onCrewClick(event) {
     event.preventDefault();
-    game.actors.get(this._getItemId(event)).sheet.render(true);
+    game.actors.get(this.getItemId(event)).sheet.render(true);
   }
 
-  _onSkillRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onSkillRoll(event) {
     event.preventDefault();
-    this.actor.testShipSkill();
+    await shipRollSkillAction(this.actor);
   }
 
-  _onAgilityRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onAgilityRoll(event) {
     event.preventDefault();
-    this.actor.testShipAgility();
+    await shipRollAgilityAction(this.actor);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onInitiativeRoll(event) {
     event.preventDefault();
-    rollIndividualInitiative(this.actor);
+    await actorInitiativeAction(this.actor);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onRemoveCrew(event) {
     event.preventDefault();
-    await this.actor.removeCrew(this._getItemId(event));
+    await this.actor.removeCrew(this.getItemId(event));
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onSetCaptain(event) {
     event.preventDefault();
-    const captainId = this._getItemId(event);
+    const captainId = this.getItemId(event);
     if (this.actor.captain === captainId) {
       await this.actor.setCaptain(null);
     } else {
@@ -211,21 +272,39 @@ export class PBActorSheetVehicle extends PBActorSheet {
     }
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onArmorTierRadio(event) {
     event.preventDefault();
-    await this.actor.update({ "data.hull.value": parseInt($(event.currentTarget)[0].value) });
+    await this.actor.update({
+      "data.attributes.hull.value": parseInt($(event.currentTarget)[0].value),
+    });
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onActionShanties(event) {
     event.preventDefault();
-    await this.actor.invokeShanties(this.actor.items.get(this._getItemId(event)));
+    const item = this.getItem(event);
+    await shipInvokeShantyAction(this.actor, item);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   async _onRollMysticShanties(event) {
     event.preventDefault();
-    await this.actor.rollMysticShantiesPerDay();
+    await shipShantiesPerDayAction(this.actor);
   }
 
+  /**
+   * @private
+   */
   async _onCreateCargo() {
     const itemData = {
       name: game.i18n.localize("PB.ShipCargo"),
@@ -235,10 +314,18 @@ export class PBActorSheetVehicle extends PBActorSheet {
     await this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
+  /**
+   * @private
+   */
   async _onSinking() {
-    await this.actor.rollShipSink();
+    await shipSinkAction(this.actor);
   }
 
+  /**
+   * @param {DragEvent} event
+   * @param {ActorSheet.DropData.Actor} actorData
+   * @private
+   */
   async _onDropActor(event, actorData) {
     const actor = game.actors.get(actorData.id);
     if (["character", "creature"].includes(actor.type)) {

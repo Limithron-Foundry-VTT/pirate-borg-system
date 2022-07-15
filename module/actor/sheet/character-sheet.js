@@ -1,6 +1,28 @@
 import PBActorSheet from "./actor-sheet.js";
-import RestDialog from "../../dialog/rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../system/settings.js";
+import {
+  actorPartyInitiativeAction,
+  characterAttackAction,
+  characterBrokenAction,
+  characterDefendAction,
+  characterExtraResourcePerDayAction,
+  characterGetBetterAction,
+  characterInvokeExtraResourceAction,
+  characterInvokeRelicAction,
+  characterInvokeRitualAction,
+  characterLuckPerDayAction,
+  characterReloadAction,
+  characterRestAction,
+  characterRitualsPerDayAction,
+  characterRollAgilityAction,
+  characterRollPresenceAction,
+  characterRollSpiritAction,
+  characterRollStrengthAction,
+  characterRollToughnessAction,
+} from "../../api/action/actions.js";
+import { showCharacterGeneratorDialog } from "../../dialog/character-generator-dialog.js";
+import { showActorBaseClassDialog } from "../../dialog/actor-base-class-dialog.js";
+import { characterUseItemAction } from "../../api/action/character/character-use-item-action.js";
 
 /**
  * @extends {ActorSheet}
@@ -25,6 +47,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     });
   }
 
+  /** @override */
   _getHeaderButtons() {
     return [
       {
@@ -44,13 +67,13 @@ export class PBActorSheetCharacter extends PBActorSheet {
   }
 
   /** @override */
-  async getData() {
-    const superData = await super.getData();
-    const data = superData.data;
+  async getData(options) {
+    const superData = await super.getData(options);
+    const { data } = superData;
     data.config = CONFIG.PB;
 
     for (const [a, abl] of Object.entries(data.data.abilities)) {
-      const translationKey = CONFIG.PB.abilities[a];
+      const translationKey = CONFIG.PB.abilityKey[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
@@ -79,160 +102,295 @@ export class PBActorSheetCharacter extends PBActorSheet {
       return items;
     };
 
-    sheetData.data.class = this.actor.getCharacterClass();
+    sheetData.data.dynamic.class = this.actor.characterClass?.toObject(false);
+    sheetData.data.dynamic.baseClass = this.actor.characterBaseClass?.toObject(false);
 
-    sheetData.data.equipment = sheetData.items
+    sheetData.data.dynamic.equipment = sheetData.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
       .filter((item) => !item.data.hasContainer)
       .sort(byName);
 
-    sheetData.data.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
+    sheetData.data.dynamic.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
 
-    sheetData.data.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
+    sheetData.data.dynamic.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
 
-    sheetData.data.equippedWeapons = sheetData.items
+    sheetData.data.dynamic.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
-    for (const weapon of sheetData.data.equippedWeapons) {
+    for (const weapon of sheetData.data.dynamic.equippedWeapons) {
       if (weapon.data.needsReloading && weapon.data.reloadTime) {
         weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
       }
     }
 
-    sheetData.data.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
+    sheetData.data.dynamic.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
-    sheetData.data.features = sheetData.items
+    sheetData.data.dynamic.features = sheetData.items
       .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.invokables = sheetData.items
+    sheetData.data.dynamic.invokables = sheetData.items
       .filter((item) => [CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.baseClass = (await this.actor.getCharacterBaseClass())?.data;
-    sheetData.data.useExtraResource = sheetData.data.class?.data?.data?.useExtraResource || sheetData.data.baseClass?.data?.useExtraResource;
-    sheetData.data.extraResourceNamePlural =
-      sheetData.data.class?.data?.data?.extraResourceNamePlural || sheetData.data.baseClass?.data?.extraResourceNamePlural;
-    sheetData.data.extraResourceFormulaLabel =
-      sheetData.data.class?.data?.data?.extraResourceFormulaLabel || sheetData.data.baseClass?.data?.extraResourceFormulaLabel;
-    sheetData.data.luckDie = sheetData.data.class?.data?.data?.luckDie || sheetData.data.baseClass?.data?.luckDie;
-    sheetData.data.trackCarryingCapacity = trackCarryingCapacity();
-    sheetData.data.trackAmmo = trackAmmo();
-
-    console.log(sheetData.data);
+    sheetData.data.dynamic.trackCarryingCapacity = trackCarryingCapacity();
+    sheetData.data.dynamic.trackAmmo = trackAmmo();
   }
 
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // sheet header
-    html.find(".ability-label.rollable.strength").on("click", this._onStrengthRoll.bind(this));
-    html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
-    html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
-    html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
-    html.find(".ability-label.rollable.spirit").on("click", this._onSpiritRoll.bind(this));
-
-    html.find(".broken-button").on("click", this._onBroken.bind(this));
-    html.find(".rest-button").on("click", this._onRest.bind(this));
-    html.find(".luck-rule").on("click", this._onLuckRoll.bind(this));
-    html.find(".luck-label").on("click", this._onLuckLabel.bind(this));
-
-    html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
-
-    // feats tab
-    html.find(".action-macro-button").on("click", this._onActionMacroRoll.bind(this));
-    html.find(".action-invokable").on("click", this._onActionInvokable.bind(this));
-
-    html.find(".ritual-per-day-text").on("click", this._onRitualPerDay.bind(this));
-    html.find(".extra-resources-per-day-text").on("click", this._onExtraResourcePerDay.bind(this));
-
-    html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
-
-    html.find(".item-base-class").on("click", async () => {
-      (await this.actor.getCharacterBaseClass()).sheet.render(true);
+    this.bindSelectorsEvent("click", {
+      ".item-toggle-equipped": this._onToggleEquippedItem,
+      ".item-toggle-carried": this._onToggleCarriedItem,
+      ".ability-label.rollable.strength": this._onStrengthRoll,
+      ".ability-label.rollable.agility": this._onAgilityRoll,
+      ".ability-label.rollable.presence": this._onPresenceRoll,
+      ".ability-label.rollable.toughness": this._onToughnessRoll,
+      ".ability-label.rollable.spirit": this._onSpiritRoll,
+      ".party-initiative-button": this._onPartyInitiativeRoll,
+      ".attack-button": this._onAttackRoll,
+      ".reload-button": this._onReload,
+      ".defend-button": this._onDefendRoll,
+      ".tier-radio": this._onArmorTierRadio,
+      ".broken-button": this._onBroken,
+      ".rest-button": this._onRest,
+      ".luck-rule": this._onLuckRoll,
+      ".luck-label": this._onLuckLabel,
+      ".get-better-button": this._onGetBetter,
+      ".action-macro-button": this._onActionMacroRoll,
+      ".action-invokable": this._onActionInvokable,
+      ".ritual-per-day-text": this._onRitualPerDay,
+      ".extra-resources-per-day-text": this._onExtraResourcePerDay,
+      ".item-base-class": this._onBaseClassItem,
+      ".item-class": this._onClassItem,
     });
-    html.find(".item-class").on("click", async () => {
-      (await this.actor.getCharacterClass()).sheet.render(true);
+
+    this.bindSelectorsEvent("change", {
+      "select.ammo-select": this._onAmmoSelect,
     });
   }
 
-  _onStrengthRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onBaseClassItem(event) {
     event.preventDefault();
-    this.actor.testStrength();
+    this.actor.characterBaseClass.sheet.render(true);
   }
 
-  _onAgilityRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onClassItem(event) {
     event.preventDefault();
-    this.actor.testAgility();
+    this.actor.characterClass.sheet.render(true);
   }
 
-  _onPresenceRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onPartyInitiativeRoll(event) {
     event.preventDefault();
-    this.actor.testPresence();
+    await actorPartyInitiativeAction();
   }
 
-  _onToughnessRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onAttackRoll(event) {
     event.preventDefault();
-    this.actor.testToughness();
+    const item = this.getItem(event);
+    await characterAttackAction(this.actor, item);
   }
 
-  _onSpiritRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onArmorTierRadio(event) {
     event.preventDefault();
-    this.actor.testSpirit();
+    const input = $(event.currentTarget);
+    const item = this.getItem(event);
+    await item.setTier({ value: parseInt(input[0].value, 10) });
   }
 
-  _onLuckRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onDefendRoll(event) {
     event.preventDefault();
-    this.actor.rollLuck();
+    await characterDefendAction(this.actor);
   }
 
-  _onPowersPerDayRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onReload(event) {
     event.preventDefault();
-    this.actor.rollPowersPerDay();
+    const item = this.getItem(event);
+    await characterReloadAction(this.actor, item);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onToggleEquippedItem(event) {
+    event.preventDefault();
+    const item = this.getItem(event);
+
+    if (item.equipped) {
+      await this.actor.unequipItem(item);
+    } else {
+      await this.actor.equipItem(item);
+    }
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onToggleCarriedItem(event) {
+    event.preventDefault();
+    const item = this.getItem(event);
+    if (item.carried) {
+      await item.drop();
+    } else {
+      await item.carry();
+    }
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onAmmoSelect(event) {
+    event.preventDefault();
+    const select = $(event.currentTarget);
+    const weapon = this.getItem(event);
+    if (weapon) {
+      await weapon.setAmmoId(select.val());
+    }
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onStrengthRoll(event) {
+    event.preventDefault();
+    await characterRollStrengthAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onAgilityRoll(event) {
+    event.preventDefault();
+    await characterRollAgilityAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onPresenceRoll(event) {
+    event.preventDefault();
+    await characterRollPresenceAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onToughnessRoll(event) {
+    event.preventDefault();
+    await characterRollToughnessAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onSpiritRoll(event) {
+    event.preventDefault();
+    await characterRollSpiritAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onLuckRoll(event) {
+    event.preventDefault();
+    await characterLuckPerDayAction(this.actor);
+  }
+
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _onRegenerateCharacter(event) {
     event.preventDefault();
-    this.actor.regenerateCharacter();
+    showCharacterGeneratorDialog(this.actor);
+
+    //new CharacterGeneratorDialog(this.actor).render(true);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _onBaseClass(event) {
     event.preventDefault();
-    this.actor.showBaseClassDialog();
+    showActorBaseClassDialog(this.actor);
   }
 
-  _onBroken(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onBroken(event) {
     event.preventDefault();
-    this.actor.rollBroken();
+    await characterBrokenAction(this.actor);
   }
 
-  _onRest(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onRest(event) {
     event.preventDefault();
-    const restDialog = new RestDialog();
-    // TODO: maybe move this into a constructor,
-    // if we can resolve the mergeObject() Maximum call stack size exceeded error
-    restDialog.actor = this.actor;
-    restDialog.render(true);
+    await characterRestAction(this.actor);
   }
 
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
   _onGetBetter(event) {
     event.preventDefault();
-    // confirm before doing get better
     const d = new Dialog({
       title: game.i18n.localize("PB.GetBetter"),
-      content:
-        "<p>The game master decides when a character should be improved.</p><p>It might be after: a raid, acquiring treasure, dividing the plunder, burying treasure, or acquiring a new ship</p>",
+      content: game.i18n.localize("PB.GetBetterConfirmMessage"),
       buttons: {
         cancel: {
           label: game.i18n.localize("PB.Cancel"),
@@ -240,7 +398,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         getbetter: {
           icon: '<i class="fas fa-check"></i>',
           label: game.i18n.localize("PB.GetBetter"),
-          callback: () => this.actor.getBetter(),
+          callback: async () => characterGetBetterAction(this.actor),
         },
       },
       default: "cancel",
@@ -248,35 +406,60 @@ export class PBActorSheetCharacter extends PBActorSheet {
     d.render(true);
   }
 
-  _onRitualPerDay() {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onRitualPerDay(event) {
     event.preventDefault();
-    this.actor.rollRitualPerDay();
+    await characterRitualsPerDayAction(this.actor);
   }
 
-  _onExtraResourcePerDay() {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onExtraResourcePerDay(event) {
     event.preventDefault();
-    this.actor.rollExtraResourcePerDay();
+    await characterExtraResourcePerDayAction(this.actor);
   }
 
-  _onActionInvokable(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onActionInvokable(event) {
     event.preventDefault();
-    const button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const itemId = li.data("item-id");
-    this.actor.invokeInvokable(itemId);
+    const item = this.getItem(event);
+    switch (true) {
+      case item.isArcaneRitual:
+        await characterInvokeRitualAction(this.actor, item);
+        break;
+      case item.isAncientRelic:
+        await characterInvokeRelicAction(this.actor, item);
+        break;
+      case item.isExtraResource:
+        await characterInvokeExtraResourceAction(this.actor, item);
+        break;
+    }
   }
 
-  _onActionMacroRoll(event) {
+  /**
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onActionMacroRoll(event) {
     event.preventDefault();
-    const button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const itemId = li.data("item-id");
-    this.actor.useActionMacro(itemId);
+    const item = this.getItem(event);
+    await characterUseItemAction(this.actor, item);
   }
 
+  /**
+   * @private
+   */
   async _onLuckLabel() {
     await ChatMessage.create({
-      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html"),
+      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html", {}),
     });
   }
 }

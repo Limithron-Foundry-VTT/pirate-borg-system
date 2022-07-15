@@ -28,32 +28,43 @@
       margin: 16px 0 8px 0;
     }
 
+    .warning {
+      color: var(--highlight-background-color);
+    }
+
     .section {
+      .module {
+        margin-bottom: 24px;
+        .module-info {
+          font-size: 14px;
+        }
+      }
+
       .buttons-row {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-      }
-    }
 
-    button,
-    a {
-      background: var(--button-background);
-      color: var(--button-color);
-      font-family: var(--button-font);
-      border: none;
-      border-radius: 24px;
-      font-size: 14px;
-      width: auto;
-      padding: 0 16px;
-      line-height: 24px;
-      padding-top: 1px;
-      display: inline-block;
-      text-decoration: none;
-      margin: 8px;
-      text-align: center;
-      min-width: 200px;
+        button,
+        a {
+          background: var(--button-background);
+          color: var(--button-color);
+          font-family: var(--button-font);
+          border: none;
+          border-radius: 24px;
+          font-size: 14px;
+          width: auto;
+          padding: 0 16px;
+          line-height: 24px;
+          padding-top: 1px;
+          display: inline-block;
+          text-decoration: none;
+          margin: 8px;
+          text-align: center;
+          min-width: 200px;
+        }
+      }
     }
   }
 }
