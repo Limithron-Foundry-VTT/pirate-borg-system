@@ -1,3 +1,7 @@
+# v0.4.3
+
+- Fix Sequencer error when it's not activated.
+
 # v0.4.2
 
 - Floating text for roll outcomes (Dodge, miss, success, etc.), damages and heals. Sequencer modules required

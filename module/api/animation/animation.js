@@ -51,6 +51,9 @@ export const playAdvancedAnimation = async (tokenIds = [], fn) => {
 };
 
 export const playFloatingAnimation = async (tokenId, text, styles = {}) => {
+  if (!isSequencerEnabled()) {
+    return;
+  }
   const token = canvas.tokens.get(tokenId);
   if (!token) {
     return;
