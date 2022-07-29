@@ -16,19 +16,15 @@ export const ANIMATION_TYPE = {
 };
 
 const criticalStyle = {
-  fontSize: 64,
   fill: "#d20608",
 };
 
 const damageStyle = {
   fill: "#d20608",
-  direction: 1,
-  jitter: 0.5,
 };
 
 const healStyle = {
   fill: "#00FF00",
-  jitter: 0.5,
 };
 
 /**

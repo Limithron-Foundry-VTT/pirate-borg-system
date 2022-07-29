@@ -384,8 +384,8 @@ export const rollCharacterForClass = async (cls) => {
     items: allDocs,
     description,
     silver,
-    powerUses: powerUsesRoll.total,
-    extraResourceUses: extraResourceRoll.total,
+    powerUses: powerUsesRoll,
+    extraResourceUses: extraResourceRoll,
   };
 };
 

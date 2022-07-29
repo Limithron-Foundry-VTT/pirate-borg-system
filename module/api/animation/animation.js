@@ -56,18 +56,23 @@ export const playFloatingAnimation = async (tokenId, text, styles = {}) => {
     return;
   }
 
-  await token.hud.createScrollingText(text, {
-    anchor: CONST.TEXT_ANCHOR_POINTS.TOP,
-    fill: "#FFFFFF",
-    stroke: "#000000",
-    fontSize: 48,
-    fontFamily: CONFIG.PB.scrollingTextFont,
-    fontWeight: 600,
-    duration: 1500,
-    strokeThickness: 1,
-    jitter: 0,
-    ...styles,
-  });
+  new Sequence()
+    .effect()
+    .atLocation(token)
+    .text(text, {
+      fill: "#FFFFFF",
+      stroke: "#000000",
+      fontSize: 32,
+      fontFamily: CONFIG.PB.scrollingTextFont,
+      fontWeight: 600,
+      strokeThickness: 1,
+      ...styles,
+    })
+    .animateProperty("sprite", "position.y", { from: -75, to: -150, duration: 1000, ease: "easeInCubic" })
+    .fadeIn(200)
+    .fadeOut(400)
+    //
+    .play();
 };
 
 export const playFloatingDamageAnimation = async (tokenId, text, styles = {}) => {
