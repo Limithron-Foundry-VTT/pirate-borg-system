@@ -1,4 +1,31 @@
+# v0.4.2
+
+- Floating text for roll outcomes (Dodge, miss, success, etc.), damages and heals. Sequencer modules required
+- Advanced animation for attack, defense, ship actions, relics, rituals and spells. Sequencer and JB2A Free or JB2A Patreon modules required
+- Targeting support. Required for advanced animation, roll outcome animation, and automatic damage and heal.
+- Attack and Defense dialog values are pre-filled from the target.
+- Animation configuration added to the weapon sheet.
+- Default animations added to most weapons.
+- Fix compatibility for popular modules such as Drag Ruler, Easy Target, Dice So Nice!, Dice Tray, Always HP, Tidy UI, etc.
+- List of recommended modules added to the Help Dialog
+- Macro in the toolbar can be created from most actor items types.
+- Getting better chat message improved.
+- Rest chat messages improved.
+- First startup chat messages improved.
+- Target and ammo used added to the attack chat message.
+- Update actor attributes to follow D&D 5E standard for better compatibility with modules.
+- Dinghy added as item.
+- Sea Chest and Dinghy fixed in the d6 Container table.
+- Improved combat tracker ordering.
+- Huge refactoring of actors, items, and sheets.
+- System setting: Enforce target selection when in combat. (default: false)
+- System setting: Automatic damage and heal. (default: true)
+- System setting: Outcome animation. (default: true)
+- System setting: Damages & Heals animation. (default: true)
+- System setting: Advanced animation. (default: true)
+
 # v0.4.1
+
 - Ritual per day has now a minimum of zero at character creation
 - Add default vision range for character and ships actor
 

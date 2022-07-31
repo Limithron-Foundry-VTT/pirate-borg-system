@@ -6,27 +6,39 @@ import { PBCombat } from "./combat.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
-import { createPirateBorgMacro, rollItemMacro } from "../macros.js";
-import * as characterGenerator from "../generator/character-generator.js";
-import * as macroHelpers from "../macro-helpers.js";
-import * as compendiumHelpers from "../compendium.js";
+import * as characterGenerator from "../api/generator/character-generator.js";
+import * as macros from "../api/macros.js";
+import * as utils from "../api/utils.js";
+import * as compendium from "../api/compendium.js";
+import * as actions from "../api/action/actions.js";
+import * as animations from "../api/animation/animation.js";
+import * as advancedAnimations from "../api/animation/advanced-animation.js";
+import * as outcomeAnimations from "../api/animation/outcome-animation.js";
+import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
+import { showGenericCard } from "../chat-message/generic-card.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
     config: PB,
-    createPirateBorgMacro,
     PBActor,
     PBItem,
-    rollItemMacro,
-    characterGenerator,
-    macroHelpers,
-    compendiumHelpers,
+    api: {
+      actions,
+      compendium,
+      utils,
+      animations,
+      advancedAnimations,
+      outcomeAnimations,
+      characterGenerator,
+      showGenericCard,
+      outcomes,
+      macros,
+    },
   };
 
   CONFIG.Actor.documentClass = PBActor;
-  CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Item.documentClass = PBItem;
 
   Actors.unregisterSheet("core", ActorSheet);
@@ -67,6 +79,7 @@ export const configureSystem = () => {
     label: "PB.SheetItem",
   });
 
+  CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
   };

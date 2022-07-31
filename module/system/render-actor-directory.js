@@ -1,4 +1,4 @@
-import CharacterGeneratorDialog from "../dialog/character-generator-dialog.js";
+import { showCharacterGeneratorDialog } from "../dialog/character-generator-dialog.js";
 
 /**
  * @param {Application} app
@@ -21,7 +21,7 @@ export const renderActorDirectory = (app, html) => {
       `
     );
     section.querySelector(".create-character-generator-button").addEventListener("click", () => {
-      new CharacterGeneratorDialog().render(true);
+      showCharacterGeneratorDialog();
     });
   }
 };

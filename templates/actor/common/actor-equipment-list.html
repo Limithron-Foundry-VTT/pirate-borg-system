@@ -57,7 +57,7 @@
   </li>
   {{/inline}} 
 
-  {{#each data.data.equipment as |item id|}} 
+  {{#each data.data.dynamic.equipment as |item id|}} 
     {{> item-row item=item}} 
     {{#ifEq item.type 'container'}} 
       {{#each item.data.itemsData as |item|}} 

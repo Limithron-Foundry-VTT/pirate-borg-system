@@ -1,11 +1,7 @@
-import { findClassPacks } from "../compendium.js";
+import { findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses } from "../system/settings.js";
 
 export class AllowedCharacterClassesDialog extends FormApplication {
-  constructor() {
-    super();
-  }
-
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       id: "allowed-character-generator-classes-dialog",
@@ -20,10 +16,10 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".toggle-all").click((event) => this._onToggleAll(event));
-    html.find(".toggle-none").click((event) => this._onToggleNone(event));
-    html.find(".cancel-button").click((event) => this._onCancel(event));
-    html.find(".ok-button").click((event) => this._onOk(event));
+    html.find(".toggle-all").on("click", (event) => this._onToggleAll(event));
+    html.find(".toggle-none").on("click", (event) => this._onToggleNone(event));
+    html.find(".cancel-button").on("click", (event) => this._onCancel(event));
+    html.find(".ok-button").on("click", (event) => this._onOk(event));
   }
 
   getData(options = {}) {
@@ -35,13 +31,11 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   _getAllowedClasses() {
     const classPacks = findClassPacks();
     return classPacks
-      .map((classPack) => {
-        return {
-          name: classPack,
-          label: classPack.split("class-")[1].replace(/-/g, " "),
-          checked: isCharacterGeneratorClassAllowed(classPack),
-        };
-      })
+      .map((classPack) => ({
+        name: classPack,
+        label: classPack.split("class-")[1].replace(/-/g, " "),
+        checked: isCharacterGeneratorClassAllowed(classPack),
+      }))
       .sort((a, b) => (a.label > b.label ? 1 : -1));
   }
 
@@ -57,9 +51,9 @@ export class AllowedCharacterClassesDialog extends FormApplication {
     $(form).find(".class-checkbox").prop("checked", false);
   }
 
-  _onCancel(event) {
+  async _onCancel(event) {
     event.preventDefault();
-    this.close();
+    await this.close();
   }
 
   _onOk(event) {
@@ -73,12 +67,11 @@ export class AllowedCharacterClassesDialog extends FormApplication {
 
     if (selected.length === 0) {
       event.preventDefault();
-      return;
     }
   }
 
   /** @override */
   async _updateObject(event, formData) {
-    setAllowedCharacterGeneratorClasses(formData);
+    await setAllowedCharacterGeneratorClasses(formData);
   }
 }

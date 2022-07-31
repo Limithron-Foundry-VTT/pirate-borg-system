@@ -26,13 +26,13 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
     <div class="tab" data-group="primary" data-tab="details">
       <div class="form-group">
         <label>{{localize "PB.ItemValue"}}:</label>
-        <input type="text" name="data.value" value="{{data.data.value}}" placeholder="2d6" data-dtype="String" />
+        <input type="text" name="data.value" value="{{item.data.value}}" placeholder="2d6" data-dtype="String" />
       </div>
     </div>
   </section>

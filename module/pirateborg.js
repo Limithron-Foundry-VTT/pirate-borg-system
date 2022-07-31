@@ -1,16 +1,18 @@
-import { createPirateBorgMacro } from "./macros.js";
+import { createPirateBorgMacro } from "./api/macros.js";
 import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
-import { renderChatMessage } from "./system/render-chat-message.js";
+import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
+import { onDragRulerReady } from "./system/drag-ruler.js";
+import { configureAutomation } from "./system/configure-automation.js";
 
-Hooks.once("init", async function () {
+Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
   registerSystemSettings();
   configureHandlebar();
@@ -21,17 +23,17 @@ Hooks.once("init", async function () {
 Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
-  Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
-  Hooks.call("pirateborgReady");
+  configureAutomation();
 
-  // To fix a strange behavior with foundry
+  Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
+
   ui.chat.scrollBottom();
 });
 
 Hooks.on("renderActorDirectory", renderActorDirectory);
-
 Hooks.on("renderCombatTracker", renderCombatTracker);
-
 Hooks.on("renderSettings", renderSettings);
-
-Hooks.on("renderChatMessage", renderChatMessage);
+Hooks.on("renderChatMessage", handleChatMessageButton);
+Hooks.on("renderChatMessage", handleChatMessageGMOnly);
+Hooks.on("renderChatMessage", handleChatMessageAutomation);
+Hooks.on("dragRuler.ready", onDragRulerReady);

@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,19 +34,19 @@
       {{! Price }}
       <div class="form-group">
         <label>{{localize "PB.ItemPrice"}}:</label>
-        <input type="text" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
+        <input type="text" name="data.price" value="{{item.data.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
       {{! Carry weight }}
       <div class="form-group">
         <label>{{localize "PB.CarryWeight"}}:</label>
-        <input type="text" name="data.carryWeight" value="{{data.data.carryWeight}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="data.carryWeight" value="{{item.data.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Capacity }}
       <div class="form-group">
         <label>{{localize "PB.ItemCapacity"}}:</label>
-        <input type="text" name="data.capacity" value="{{data.data.capacity}}" placeholder="1d4" data-dtype="Number" />
+        <input type="text" name="data.capacity" value="{{item.data.capacity}}" placeholder="1d4" data-dtype="Number" />
       </div>
     </div>
   </section>

@@ -1,0 +1,57 @@
+{{#*inline "outcome"}}
+  <div class="outcome">
+    {{#if outcome.title}}
+      <div class="outcome-text">
+        <span class="attack-outcome">{{outcome.title}}</span>  
+      </div>
+    {{/if}}  
+    {{#if outcome.formulaLabel}}
+      <div class="roll-title">
+        <span>{{outcome.formulaLabel}} {{#if outcome.dr}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{outcome.dr}}{{/if}}</span>
+      </div>        
+    {{/if}} 
+    {{#if outcome.roll}} 
+      <div class="roll-result">
+        <span>{{xtotal outcome.roll}}</span>
+      </div>
+    {{/if}}  
+    {{#if outcome.description}}
+      <div class="card-outcome-description">{{{outcome.description}}}</div>
+    {{/if}}        
+  
+    {{#if button}}
+      <div class="item-buttons">
+        <button type="button" class="button item-button rollable" {{#each button.data}} data-{{@key}}="{{this}}"{{/each}} title="{{title}}">
+          {{button.title}}
+        </button>
+      </div>
+    {{/if}}
+  </div>
+{{/inline}} 
+
+<form class="roll-card wield-power-roll-card">
+  <div class="card-title">{{title}}</div>
+  {{#if target}}
+    <div class="attack-outcome-target">{{{target}}}</div>
+  {{/if}}       
+
+  {{#each items as |item id|}}
+    {{#if item.name}}
+      <div class="item-row">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+        <span class="item-name">{{item.name}}</span>
+      </div>
+    {{/if}}
+  {{/each}}
+  
+  {{#if description}}
+    <div class="card-description">{{{description}}}</div>
+  {{/if}}
+
+  {{#each outcomes as |outcome| }}
+    {{> outcome outcome=outcome }}
+    {{#if outcome.secondaryOutcome }}
+      {{> outcome outcome=outcome.secondaryOutcome }}
+    {{/if}}
+  {{/each}}
+</form>

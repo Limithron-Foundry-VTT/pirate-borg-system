@@ -1,15 +1,14 @@
-import { rollPartyInitiative } from "./combat.js";
+import { actorPartyInitiativeAction } from "../api/action/actor/actor-party-initiative-action.js";
 
 /**
  * @param {CombatTracker} tracker
- * @param {jQuery} html
+ * @param {JQuery.<HTMLElement>} html
  */
 export const renderCombatTracker = (tracker, html) => {
-  const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
-    "PB.RollPartyInitiative"
-  )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
-  html.find("header").find("nav").last().prepend(partyInitiativeButton);
-  html.find("a[dataControl=rollParty]").click(() => {
-    rollPartyInitiative();
-  });
+  html
+    .find("header")
+    .find("nav")
+    .last()
+    .prepend(`<a class="combat-control" title="${game.i18n.localize("PB.RollPartyInitiative")}" data-control="rollParty"><i class="fas fa-dice-six"></i></a>`);
+  html.find("a[data-control=rollParty]").on("click", actorPartyInitiativeAction);
 };

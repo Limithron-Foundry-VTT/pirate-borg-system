@@ -43,19 +43,21 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
   }
 
   /** @override */
-  async getData() {
-    const superData = super.getData();
+  async getData(options) {
+    const superData = super.getData(options);
     superData.config = CONFIG.PB;
     superData.data.data = {
       ...superData.data.data,
-      ...(await this._prepareItems(superData.data)),
+      dynamic: {
+        ...(await this._prepareItems(superData.data)),
+      },
     };
     return superData;
   }
 
   /**
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {ActorSheet.Data} sheetData The actor to prepare.
    *
    * @return {Object}
    */

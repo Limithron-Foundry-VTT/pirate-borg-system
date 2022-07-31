@@ -23,19 +23,13 @@ export const configureHandlebar = () => {
     return arg1 != arg2 ? options.fn(this) : options.inverse(this);
   });
 
-  Handlebars.registerHelper("ifPrint", function (cond, v1) {
-    return cond ? v1 : "";
-  });
+  Handlebars.registerHelper("ifPrint", (cond, v1) => (cond ? v1 : ""));
 
-  Handlebars.registerHelper("ifPrintElse", function (cond, v1, v2) {
-    return cond ? v1 : v2;
-  });
+  Handlebars.registerHelper("ifPrintElse", (cond, v1, v2) => (cond ? v1 : v2));
 
   Handlebars.registerHelper("eq", function () {
     const args = Array.prototype.slice.call(arguments, 0, -1);
-    return args.every(function (expression) {
-      return args[0] === expression;
-    });
+    return args.every((expression) => args[0] === expression);
   });
 
   /**
@@ -44,10 +38,9 @@ export const configureHandlebar = () => {
   Handlebars.registerHelper("xtotal", (roll) => {
     const result = roll.result.replace("+  -", "-").replace("+ -", "-");
     if (result !== roll.total.toString()) {
-      return `${result} = ${roll.total}`;
-    } else {
-      return result;
+      return `${result} = ${Math.round(roll.total)}`;
     }
+    return result;
   });
 
   loadTemplates([
