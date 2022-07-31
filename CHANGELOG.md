@@ -1,6 +1,7 @@
 # v0.4.3
 
 - Fix Sequencer error when it's not activated.
+- Fix time of latest commit
 
 # v0.4.2
 
