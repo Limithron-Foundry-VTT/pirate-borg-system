@@ -111,7 +111,6 @@ export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   for (const result of results) {
-
     const type = getResultType(result);
     if (type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
       item = await findCompendiumItem(getResultCollection(result), getResultText(result));

@@ -1516,6 +1516,14 @@ footer.nue {
   border-top: 2px groove var(--light-border-color);
 }
 
+h3 {
+  border-bottom: 0;
+}
+
+.sheet.journal-entry .journal-entry-content {
+  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */

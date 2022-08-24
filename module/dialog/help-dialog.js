@@ -34,7 +34,7 @@ export class HelpDialog extends FormApplication {
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
-      version: getSystemVersion(),  //V10
+      version: getSystemVersion(), //V10
       isGM: game.user.isGM,
       modules: {
         highlyRecommended: this.getModulesData("highly_recommended"),

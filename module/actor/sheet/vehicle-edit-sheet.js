@@ -48,7 +48,7 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
 
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),
-      ...(await this._prepareItems(formData))
+      ...(await this._prepareItems(formData)),
     };
 
     console.log(formData);

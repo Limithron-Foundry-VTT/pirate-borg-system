@@ -72,7 +72,7 @@ export class PBItemSheet extends ItemSheet {
     // V10
     if (!this.item.system) {
       formData = Object.keys(formData).reduce((data, key) => {
-        data[key.replace('system.', 'data.')] = formData[key];
+        data[key.replace("system.", "data.")] = formData[key];
         return data;
       }, {});
     }

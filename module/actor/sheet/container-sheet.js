@@ -32,7 +32,7 @@ export class PBActorSheetContainer extends PBActorSheet {
 
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),
-      ...(await this._prepareItems(formData))
+      ...(await this._prepareItems(formData)),
     };
 
     console.log(formData);
@@ -46,7 +46,7 @@ export class PBActorSheetContainer extends PBActorSheet {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const data = {};
 
-    data.equipment= formData.data.items
+    data.equipment = formData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.system.hasContainer)
       .sort(byName);

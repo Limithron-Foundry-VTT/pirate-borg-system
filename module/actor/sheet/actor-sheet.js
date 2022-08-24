@@ -164,10 +164,13 @@ export default class PBActorSheet extends ActorSheet {
 
     if (isContainer) {
       await item.clearItems();
-      const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.items.map((itemId) => {
-        const item = originalActor.items.get(itemId);
-        return item.toObject(false);
-      }));
+      const newItems = await this.actor.createEmbeddedDocuments(
+        "Item",
+        originalItem.items.map((itemId) => {
+          const item = originalActor.items.get(itemId);
+          return item.toObject(false);
+        })
+      );
 
       await this._addItemsToItemContainer(newItems, item);
     }
@@ -198,7 +201,7 @@ export default class PBActorSheet extends ActorSheet {
    * @param {Object} itemData
    */
   async _onSortItem(event, itemData) {
-    const item = this.actor.items.get(itemData._id)
+    const item = this.actor.items.get(itemData._id);
     const target = this.getItem(event);
     if (target) {
       await this._handleDropOnItemContainer(item, target);
@@ -279,7 +282,7 @@ export default class PBActorSheet extends ActorSheet {
     // V10
     if (!this.actor.system) {
       formData = Object.keys(formData).reduce((data, key) => {
-        data[key.replace('system.', 'data.')] = formData[key];
+        data[key.replace("system.", "data.")] = formData[key];
         return data;
       }, {});
     }
@@ -296,7 +299,7 @@ export default class PBActorSheet extends ActorSheet {
     if (!this.actor.system) {
       formData.data.system = formData.data.data;
       formData.data.items = formData.items.map((item) => {
-        item.system = item.data
+        item.system = item.data;
         delete item.data;
         return item;
       });
@@ -307,8 +310,8 @@ export default class PBActorSheet extends ActorSheet {
       if (item.type === CONFIG.PB.itemTypes.container) {
         item.system.dynamic = {
           ...item.system.dynamic,
-          items: item.system.items.map((itemId) => formData.items.find(item => item._id === itemId))
-        }
+          items: item.system.items.map((itemId) => formData.items.find((item) => item._id === itemId)),
+        };
       }
       return item;
     });

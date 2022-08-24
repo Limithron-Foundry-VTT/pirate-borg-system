@@ -10,7 +10,7 @@ import {
   rollTableItems,
 } from "../compendium.js";
 import { PB } from "../../config.js";
-import { evaluateFormula, getDocumentFlags } from "../utils.js";
+import { evaluateFormula } from "../utils.js";
 
 /**
  * @param {PBItem} cls
@@ -294,10 +294,10 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
       }
       draw.results.forEach((result) => {
         //V10
-        if (result.drawn === false){
+        if (result.drawn === false) {
           result.drawn = true;
         } else {
-          result.data.drawn = true
+          result.data.drawn = true;
         }
       });
     }
@@ -442,7 +442,7 @@ const characterToActorData = (characterData) => ({
         i.getData().equipped = true;
       }
     }
-    return i.toObject(false);
+    return { ...i.toObject(false), _id: null };
   }),
   token: {
     img: characterData.actorImg,

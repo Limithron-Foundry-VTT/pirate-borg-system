@@ -68,11 +68,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-
     const formData = super.getData(options);
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),
-      ...(await this._prepareItems(formData))
+      ...(await this._prepareItems(formData)),
     };
 
     console.log(formData);

@@ -41,8 +41,8 @@ export const configureHandlebar = () => {
       const documents = options.hash.documents !== false;
       const owner = Boolean(options.hash.owner);
       const rollData = options.hash.rollData;
-      options.hash.content = TextEditor.enrichHTML(options.hash.content, {secrets: owner, documents, rollData, async: false});
-      return HandlebarsHelpers.editor(options)
+      options.hash.content = TextEditor.enrichHTML(options.hash.content, { secrets: owner, documents, rollData, async: false });
+      return HandlebarsHelpers.editor(options);
     }
   });
 
