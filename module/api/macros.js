@@ -4,6 +4,7 @@ import { characterInvokeRitualAction } from "./action/character/character-invoke
 import { characterInvokeRelicAction } from "./action/character/character-invoke-relic-action.js";
 import { characterInvokeExtraResourceAction } from "./action/character/character-invoke-extra-resource-action.js";
 import { characterUseItemAction } from "./action/character/character-use-item-action.js";
+import { getInfoFromDropData, getMacroCommand } from "./utils.js";
 
 /**
  * @param {Object} data
@@ -11,25 +12,28 @@ import { characterUseItemAction } from "./action/character/character-use-item-ac
  * @return {Promise.<void>}
  */
 export const createPirateBorgMacro = async (data, slot) => {
+  const { item, actor } = await getInfoFromDropData(data);
+
+  console.log(item, actor);
+
   if (data.type !== "Item") {
     return;
   }
 
-  if (!("data" in data)) {
+  if (!actor) {
     return ui.notifications.warn("You can only create macro buttons for owned Items");
   }
 
-  const item = data.data;
   const supportedItemTypes = ["armor", "hat", "weapon", "invokable", "feature", "misc"];
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(", ")}`);
   }
 
-  if (["feature", "misc"].includes(item.type) && !item.data.actionMacro) {
+  if (["feature", "misc"].includes(item.type) && !item.actionMacro) {
     return ui.notifications.warn("Macros only supported for features and items with a macro.");
   }
 
-  const command = `game.pirateborg.api.macros.rollItemMacro("${item.name}");`;
+  const command = `game.pirateborg.api.macros.rollItemMacro("${actor.id}", "${item.id}");`;
   let macro = game.macros.find((m) => m.name === item.name && m.command === command);
   if (!macro) {
     macro = await Macro.create({
@@ -44,17 +48,16 @@ export const createPirateBorgMacro = async (data, slot) => {
 };
 
 /**
- * @param {string} itemName
+ * @param {string} actorId
+ * @param {string} itemId
  * @return {Promise.<void>}
  */
-export const rollItemMacro = async (itemName) => {
-  const speaker = ChatMessage.getSpeaker();
-  const actor = game.actors.tokens[speaker.token] ?? game.actors.get(speaker.actor);
+export const rollItemMacro = async (actorId, itemId) => {
+  const actor = game.actors.get(actorId);
+  const item = actor.items.get(itemId);
 
-  const item = actor?.items.find((i) => i.name === itemName);
-
-  if (!item) {
-    return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+  if (!item && !actor) {
+    return ui.notifications.warn(`Actor "${actor.name}" does not have an item named ${item.name}`);
   }
 
   switch (true) {
@@ -88,7 +91,7 @@ export const executeMacro = async (macro, { actor, token, item, outcome, chatMes
   actor = actor || game.actors.get(speaker.actor);
   token = token || (canvas.ready ? canvas.tokens.get(speaker.token) : null);
   const body = `(async () => {
-      ${macro.data.command}
+      ${getMacroCommand(macro)}
     })()`;
 
   const fn = Function("speaker", "actor", "token", "character", "item", "outcome", "chatMessage", body);
@@ -110,7 +113,7 @@ export const executeMacro = async (macro, { actor, token, item, outcome, chatMes
  */
 export const executeCharacterCreationMacro = async (macro, { actor, selectedClass, selectedClasses } = {}) => {
   const body = `(async () => {
-      ${macro.data.command}
+      ${getMacroCommand(macro)}
     })()`;
   const fn = Function("actor", "selectedClass", "selectedClasses", body);
   try {

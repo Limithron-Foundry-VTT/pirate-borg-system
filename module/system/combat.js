@@ -1,4 +1,4 @@
-import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+import { getCombatantInitiative, getSystemFlag, getTokenDisposition, setSystemFlag } from "../api/utils.js";
 
 /**
  * @extends Combat
@@ -14,9 +14,10 @@ export class PBCombat extends Combat {
 
   async setPartyInitiative(rollTotal) {
     await this.updatePartyInitiative(rollTotal);
+    console.log("setPartyInitiative", this.turns);
     const updates = this.turns.map((t) => ({
       _id: t.id,
-      initiative: t.data.initiative,
+      initiative: getCombatantInitiative(t),
     }));
     await game.combat.resetAll();
     await this.updateEmbeddedDocuments("Combatant", updates);
@@ -25,8 +26,8 @@ export class PBCombat extends Combat {
   /** @private */
   _sortCombatants(a, b) {
     const combat = a.combat; // game.combats is not initialized at first render
-    const isFriendlyA = a.token?.data.disposition === 1 ?? false;
-    const isFriendlyB = b.token?.data.disposition === 1 ?? false;
+    const isFriendlyA = (a.token && getTokenDisposition(a.token)) === 1 ?? false;
+    const isFriendlyB = (b.token && getTokenDisposition(b.token)) === 1 ?? false;
     const isVehicleA = a.actor?.isAnyVehicle ?? false;
     const isVehicleB = b.actor?.isAnyVehicle ?? false;
 

@@ -59,7 +59,7 @@ const rollLoot = async (actor) => {
   const outcome = await createRollLootOutcome();
   switch (true) {
     case outcome.hasSilver:
-      await actor.updateSilver(actor.silver + outcome.secondaryOutcome.total);
+      await actor.updateSilver(actor.silver + outcome.secondaryOutcome.silver);
       break;
     case outcome.hasRitual:
     case outcome.hasRelic:

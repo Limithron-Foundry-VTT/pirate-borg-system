@@ -1,4 +1,5 @@
 import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../system/settings.js";
+import { getModuleDependencies, getSystemVersion } from "../api/utils.js";
 
 export class HelpDialog extends FormApplication {
   constructor(options = {}) {
@@ -33,7 +34,7 @@ export class HelpDialog extends FormApplication {
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
-      version: game.system.data.version,
+      version: getSystemVersion(),  //V10
       isGM: game.user.isGM,
       modules: {
         highlyRecommended: this.getModulesData("highly_recommended"),
@@ -50,7 +51,7 @@ export class HelpDialog extends FormApplication {
         ...module,
         installed: !!game.modules.get(module.package),
         active: !!game.modules.get(module.package)?.active,
-        dependencies: game.modules.get(module.package)?.data.dependencies.map((dependency) => ({
+        dependencies: getModuleDependencies(game.modules.get(module.package)).map((dependency) => ({
           name: dependency.name,
           installed: !!game.modules.get(dependency.name),
           active: !!game.modules.get(dependency.name)?.active,
@@ -70,7 +71,7 @@ export class HelpDialog extends FormApplication {
 
 export const showHelpDialogOnStartup = () => {
   const latestVersion = getSystemHelpDialogVersion();
-  const currentVersion = game.system.data.version;
+  const currentVersion = getSystemVersion();
 
   if (latestVersion === null || isNewerVersion(currentVersion, latestVersion)) {
     setSystemHelpDialogVersion(currentVersion);

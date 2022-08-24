@@ -32,6 +32,20 @@ export const configureHandlebar = () => {
     return args.every((expression) => args[0] === expression);
   });
 
+  Handlebars.registerHelper("wysiwig", function (options) {
+    if (game.release.generation >= 10) {
+      const content = options.hash.content;
+      delete options.hash.content;
+      return HandlebarsHelpers.editor(content, options);
+    } else {
+      const documents = options.hash.documents !== false;
+      const owner = Boolean(options.hash.owner);
+      const rollData = options.hash.rollData;
+      options.hash.content = TextEditor.enrichHTML(options.hash.content, {secrets: owner, documents, rollData, async: false});
+      return HandlebarsHelpers.editor(options)
+    }
+  });
+
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */

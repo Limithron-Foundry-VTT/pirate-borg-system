@@ -2,6 +2,7 @@ import { configureEditor } from "../../system/configure-editor.js";
 import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
+import { getInfoFromDropData } from "../../api/utils.js";
 
 /**
  * @extends {ActorSheet}
@@ -68,7 +69,10 @@ export default class PBActorSheet extends ActorSheet {
    */
   async _onItemEdit(event) {
     event.preventDefault();
-    this.getItem(event).sheet.render(true);
+    const item = this.getItem(event);
+    if (item) {
+      item.sheet.render(true);
+    }
   }
 
   /**
@@ -151,16 +155,20 @@ export default class PBActorSheet extends ActorSheet {
     const item = ((await super._onDropItem(event, itemData)) || []).pop();
     if (!item) return;
 
+    const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
+
     const target = this.getItem(event);
-    const originalActor = game.actors.get(itemData.actorId);
-    const originalItem = originalActor ? originalActor.items.get(itemData.data._id) : null;
     const isContainer = originalItem && originalItem.isContainer;
 
     await this._cleanDroppedItem(item);
 
     if (isContainer) {
       await item.clearItems();
-      const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.itemsData);
+      const newItems = await this.actor.createEmbeddedDocuments("Item", originalItem.items.map((itemId) => {
+        const item = originalActor.items.get(itemId);
+        return item.toObject(false);
+      }));
+
       await this._addItemsToItemContainer(newItems, item);
     }
 
@@ -190,8 +198,7 @@ export default class PBActorSheet extends ActorSheet {
    * @param {Object} itemData
    */
   async _onSortItem(event, itemData) {
-    /** @type {PBItem} */
-    const item = this.actor.items.get(itemData._id);
+    const item = this.actor.items.get(itemData._id)
     const target = this.getItem(event);
     if (target) {
       await this._handleDropOnItemContainer(item, target);
@@ -265,5 +272,46 @@ export default class PBActorSheet extends ActorSheet {
     if (item.container) {
       await item.container.removeItem(item.id);
     }
+  }
+
+  /** @override */
+  async _updateObject(event, formData) {
+    // V10
+    if (!this.actor.system) {
+      formData = Object.keys(formData).reduce((data, key) => {
+        data[key.replace('system.', 'data.')] = formData[key];
+        return data;
+      }, {});
+    }
+    return super._updateObject(event, formData);
+  }
+
+  /** @override */
+  getData(options) {
+    const formData = super.getData(options);
+    formData.config = CONFIG.PB;
+    formData.isV10 = game.release.generation >= 10;
+
+    // V10 Backward compatibility
+    if (!this.actor.system) {
+      formData.data.system = formData.data.data;
+      formData.data.items = formData.items.map((item) => {
+        item.system = item.data
+        delete item.data;
+        return item;
+      });
+      delete formData.data.data;
+    }
+
+    formData.data.items.forEach((item) => {
+      if (item.type === CONFIG.PB.itemTypes.container) {
+        item.system.dynamic = {
+          ...item.system.dynamic,
+          items: item.system.items.map((itemId) => formData.items.find(item => item._id === itemId))
+        }
+      }
+      return item;
+    });
+    return formData;
   }
 }

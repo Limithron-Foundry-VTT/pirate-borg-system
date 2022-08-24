@@ -1,5 +1,5 @@
 import { diceSound } from "../dice.js";
-import { getSystemFlag, setSystemFlag } from "../utils.js";
+import { getMessageContent, getMessageSpeaker, getSystemFlag, setSystemFlag } from "../utils.js";
 
 export const OUTCOME_BUTTON = {
   ANCIENT_RELIC: "button-ancient-relic",
@@ -30,7 +30,7 @@ export class OutcomeChatButton {
    * @return {Promise<void>}
    */
   static async handleChatMessage(message, htmlButton) {
-    const actor = ChatMessage.getSpeakerActor(message.data.speaker);
+    const actor = ChatMessage.getSpeakerActor(getMessageSpeaker(message));
     if (!actor) {
       return;
     }
@@ -52,7 +52,7 @@ export class OutcomeChatButton {
    * @return {Promise<void>}
    */
   static async updateMessageCard(message, outcome, outcomes) {
-    const messageContent = $(message.data.content);
+    const messageContent = $(getMessageContent(message));
     const content = await renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
 
     messageContent.find(`[data-outcome='${outcome.id}']`).remove();

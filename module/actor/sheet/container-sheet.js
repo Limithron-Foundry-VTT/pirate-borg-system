@@ -27,24 +27,30 @@ export class PBActorSheetContainer extends PBActorSheet {
    * @override
    * @returns {ActorSheet.Data}
    */
-  getData(options) {
-    const superData = super.getData(options);
-    superData.config = CONFIG.PB;
-    if (this.actor.data.type === "container") {
-      this._prepareContainerItems(superData.data);
-    }
-    return superData;
+  async getData(options) {
+    const formData = super.getData(options);
+
+    formData.data.system.dynamic = {
+      ...(formData.data.system.dynamic ?? {}),
+      ...(await this._prepareItems(formData))
+    };
+
+    console.log(formData);
+    return formData;
   }
 
   /**
-   * @param {Object} sheetData
+   * @param {Object} formData
    */
-  _prepareContainerItems(sheetData) {
+  async _prepareItems(formData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+    const data = {};
 
-    sheetData.data.dynamic.equipment = sheetData.items
+    data.equipment= formData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !item.system.hasContainer)
       .sort(byName);
+
+    return data;
   }
 }

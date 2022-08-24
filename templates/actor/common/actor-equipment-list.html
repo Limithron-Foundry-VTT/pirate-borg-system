@@ -18,19 +18,19 @@
   <li class="item flexrow item-type-{{item.type}} {{class}}" data-item-id="{{item._id}}">
     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
     <h4 class="item-name item-edit rollable">
-      {{item.name}} 
+      {{item.name}}
       {{#ifEq item.type 'container'}}
-        ({{item.data.totalContainerSpace}} / {{item.data.capacity}}) 
+        ({{item.system.totalContainerSpace}} / {{item.system.capacity}})
       {{/ifEq}} 
-      {{#ifGt item.data.quantity 1}}
-        ({{item.data.quantity}}) 
+      {{#ifGt item.system.quantity 1}}
+        ({{item.system.quantity}})
       {{/ifGt}}
     </h4>
     <div class="item-buttons">
       {{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}
     </div>
     <div class="item-controls">
-      {{#if item.data.canPlusMinus}}
+      {{#if item.system.canPlusMinus}}
         <a class="item-control item-qty-plus" title="Add Quantity">
           <i class="fas fa-plus"></i>
         </a>
@@ -39,13 +39,13 @@
         </a>
       {{/if}} 
       {{#ifNe disableCarryAndEquipButton true}} 
-        {{#if item.data.equippable}}
-          <a class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}" title="{{ifPrintElse item.data.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}">
+        {{#if item.system.equippable}}
+          <a class="item-control item-toggle item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}" title="{{ifPrintElse item.system.equipped (localize 'PB.ItemEquipped') (localize 'PB.ItemUnequipped')}}">
             <i class="fas fa-fist-raised"></i>
           </a>
         {{/if}} 
-        {{#if item.data.droppable}}
-          <a class="item-control item-toggle item-toggle-carried {{ifPrint item.data.carried 'carried'}}" title="{{ifPrintElse item.data.carried (localize 'PB.ItemCarried') (localize 'PB.ItemDropped')}}">
+        {{#if item.system.droppable}}
+          <a class="item-control item-toggle item-toggle-carried {{ifPrint item.system.carried 'carried'}}" title="{{ifPrintElse item.system.carried (localize 'PB.ItemCarried') (localize 'PB.ItemDropped')}}">
             <i class="fas fa-user-check"></i>
           </a>
         {{/if}} 
@@ -57,10 +57,10 @@
   </li>
   {{/inline}} 
 
-  {{#each data.data.dynamic.equipment as |item id|}} 
+  {{#each data.system.dynamic.equipment as |item id|}}
     {{> item-row item=item}} 
     {{#ifEq item.type 'container'}} 
-      {{#each item.data.itemsData as |item|}} 
+      {{#each item.system.dynamic.items as |item|}}
         {{> item-row item=item class="item-container-item" disableCarryAndEquipButton=true}} 
       {{else}}
         <li class="item empty-container" data-item-id="{{item._id}}">

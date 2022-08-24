@@ -68,18 +68,16 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-    const superData = await super.getData(options);
-    const { data } = superData;
-    data.config = CONFIG.PB;
 
-    for (const [a, abl] of Object.entries(data.data.abilities)) {
-      const translationKey = CONFIG.PB.abilityKey[a];
-      abl.label = game.i18n.localize(translationKey);
-    }
+    const formData = super.getData(options);
+    formData.data.system.dynamic = {
+      ...(formData.data.system.dynamic ?? {}),
+      ...(await this._prepareItems(formData))
+    };
 
-    await this._prepareCharacterData(data);
+    console.log(formData);
 
-    return superData;
+    return formData;
   }
 
   /**
@@ -88,11 +86,11 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @param {Object} sheetData The sheet data to prepare.
    * @return {Promise}
    */
-  async _prepareCharacterData(sheetData) {
+  async _prepareItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
     const groupByType = (items, item) => {
-      const key = item.data.featureType || item.data.invokableType || item.type;
+      const key = item.system.featureType || item.system.invokableType || item.type;
       let group = items.find((i) => i.type === key);
       if (!group) {
         group = { type: key, items: [] };
@@ -102,46 +100,50 @@ export class PBActorSheetCharacter extends PBActorSheet {
       return items;
     };
 
-    sheetData.data.dynamic.class = this.actor.characterClass?.toObject(false);
-    sheetData.data.dynamic.baseClass = this.actor.characterBaseClass?.toObject(false);
+    const data = {};
 
-    sheetData.data.dynamic.equipment = sheetData.items
+    data.class = this.actor.characterClass?.toObject(false);
+    data.baseClass = this.actor.characterBaseClass?.toObject(false);
+
+    data.equipment = sheetData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
+      .filter((item) => !item.system.hasContainer)
       .sort(byName);
 
-    sheetData.data.dynamic.equippedArmor = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.data.equipped);
+    data.equippedArmor = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.system.equipped);
 
-    sheetData.data.dynamic.equippedHat = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.data.equipped);
+    data.equippedHat = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.system.equipped);
 
-    sheetData.data.dynamic.equippedWeapons = sheetData.items
+    data.equippedWeapons = sheetData.data.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
-      .filter((item) => item.data.equipped)
+      .filter((item) => item.system.equipped)
       .sort(byName);
 
-    for (const weapon of sheetData.data.dynamic.equippedWeapons) {
-      if (weapon.data.needsReloading && weapon.data.reloadTime) {
-        weapon.data.loadingStatus = weapon.data.reloadTime - (weapon.data.loadingCount || 0);
+    for (const weapon of data.equippedWeapons) {
+      if (weapon.system.needsReloading && weapon.system.reloadTime) {
+        weapon.system.loadingStatus = weapon.system.reloadTime - (weapon.system.loadingCount || 0);
       }
     }
 
-    sheetData.data.dynamic.ammo = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
+    data.ammo = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
 
-    sheetData.data.dynamic.features = sheetData.items
+    data.features = sheetData.data.items
       .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))
-      .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
+      .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.system.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.dynamic.invokables = sheetData.items
+    data.invokables = sheetData.data.items
       .filter((item) => [CONFIG.PB.itemTypes.invokable].includes(item.type))
-      .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.data.invokableType))
+      .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.system.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    sheetData.data.dynamic.trackCarryingCapacity = trackCarryingCapacity();
-    sheetData.data.dynamic.trackAmmo = trackAmmo();
+    data.trackCarryingCapacity = trackCarryingCapacity();
+    data.trackAmmo = trackAmmo();
+
+    return data;
   }
 
   /** @override */

@@ -2,21 +2,21 @@
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <div class="header-col1">
-      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
     </div>
     <div class="header-col2">
       <div class="header-title-row">
-        <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
+        <input class="actor-name container-name" name="name" type="text" value="{{data.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{actor.type}}</span>
+        <span class="item-type">{{data.type}}</span>
       </div>
       <div class="header-stats-row">
         <div class="stats-block">
           <span class="stat-label">{{ localize "PB.ContainerHolding" }}</span>
-          <span class="stat-value stat-right">{{data.data.dynamic.containerSpace}}</span>
+          <span class="stat-value stat-right">{{data.system.dynamic.containerSpace}}</span>
           <span class="stat-separator">/</span>
-          <span class="stat-value stat-left">{{data.data.capacity.max}}</span>
+          <span class="stat-value stat-left">{{data.system.capacity.max}}</span>
         </div>
       </div>
     </div>
@@ -35,18 +35,18 @@
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
       <div class="form-group">
         <label>{{ localize "PB.ItemPrice" }}:</label>
-        <input type="text" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
+        <input type="text" name="system.price" value="{{data.system.price}}" placeholder="2" data-dtype="Number" />
       </div>
       <div class="form-group">
         <label>{{ localize "PB.ItemCapacity" }}:</label>
-        <input name="data.capacity.max" type="text" value="{{data.data.capacity.max}}" placeholder="10" data-dtype="Number" />
+        <input name="system.capacity.max" type="text" value="{{data.system.capacity.max}}" placeholder="10" data-dtype="Number" />
       </div>
     </div>
 

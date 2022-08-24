@@ -2,14 +2,14 @@
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
-      <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
+      <img class="profile-img" src="{{data.img}}" title="{{data.name}}" data-edit="img" />
     </div>
     <div class="header-col2">
       <div class="header-title-row">
-        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{item.type}}</span>
+        <span class="item-type">{{data.type}}</span>
       </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
+      {{wysiwig data.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,17 +34,17 @@
       {{! Starting Gold }}
       <div class="form-group">
         <label>{{localize "PB.ItemStartingGold"}}:</label>
-        <input type="text" name="data.startingGold" value="{{item.data.startingGold}}" placeholder="2d6" data-dtype="String" />
+        <input type="text" name="system.startingGold" value="{{data.system.startingGold}}" placeholder="2d6" data-dtype="String" />
       </div>
 
       <div class="form-group">
         <label>{{localize "PB.StartingBonusItems"}}:</label>
-        <textarea name="data.startingBonusItems" placeholder="compendium;item" rows="4">{{item.data.startingBonusItems}}</textarea>
+        <textarea name="system.startingBonusItems" placeholder="compendium;item" rows="4">{{data.system.startingBonusItems}}</textarea>
       </div>
 
       <div class="form-group">
         <label>{{localize "PB.StartingBonusRolls"}}:</label>
-        <textarea name="data.startingBonusRolls" placeholder="compendium;table;count" rows="4">{{item.data.startingBonusRolls}}</textarea>
+        <textarea name="system.startingBonusRolls" placeholder="compendium;table;count" rows="4">{{data.system.startingBonusRolls}}</textarea>
       </div>
     </div>
   </section>

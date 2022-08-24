@@ -136,7 +136,11 @@ export class PBActor extends Actor {
    * @return {Promise<void>}
    */
   async updateData(key, value) {
-    await this.update({ [`data.${key}`]: value });
+    if (this.system) {
+      await this.update({ [`system.${key}`]: value });
+    } else {
+      await this.update({ [`data.${key}`]: value });
+    }
   }
 
   // actor type properties
@@ -407,7 +411,7 @@ export class PBActor extends Actor {
    * @return {Number}
    */
   get carryingWeight() {
-    return this.data.items
+    return this.items
       .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
       .filter((item) => !(item.isHat && item.equipped))
       .filter((item) => !(item.isArmor && item.equipped))
@@ -428,7 +432,7 @@ export class PBActor extends Actor {
    * @return {Number}
    */
   get containerSpace() {
-    return this.data.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
+    return this.items.filter((item) => item.isEquipment && !item.hasContainer).reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
 
   /**

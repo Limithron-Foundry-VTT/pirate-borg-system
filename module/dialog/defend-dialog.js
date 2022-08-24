@@ -83,7 +83,7 @@ class DefendDialog extends Application {
     };
     const armor = this.actor.equippedArmor;
     if (armor) {
-      const { defenseModifier } = CONFIG.PB.armorTiers[armor.data.data.tier.max];
+      const { defenseModifier } = CONFIG.PB.armorTiers[armor.tier.max];
       if (defenseModifier) {
         modifiers.total += defenseModifier;
         modifiers.warning.push(`${armor.name}: ${game.i18n.localize("PB.DR")} + ${defenseModifier}`);
