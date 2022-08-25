@@ -14,8 +14,6 @@ import { getInfoFromDropData, getMacroCommand } from "./utils.js";
 export const createPirateBorgMacro = async (data, slot) => {
   const { item, actor } = await getInfoFromDropData(data);
 
-  console.log(item, actor);
-
   if (data.type !== "Item") {
     return;
   }

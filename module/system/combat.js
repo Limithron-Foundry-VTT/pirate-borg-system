@@ -14,7 +14,6 @@ export class PBCombat extends Combat {
 
   async setPartyInitiative(rollTotal) {
     await this.updatePartyInitiative(rollTotal);
-    console.log("setPartyInitiative", this.turns);
     const updates = this.turns.map((t) => ({
       _id: t.id,
       initiative: getCombatantInitiative(t),
