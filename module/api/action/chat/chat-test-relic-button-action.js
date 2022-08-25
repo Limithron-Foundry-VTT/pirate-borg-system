@@ -6,11 +6,12 @@ import { createTestRelicOutcome } from "../../outcome/character/test-relic-outco
  * @returns {Promise.<Array.<Object>>}
  */
 export const chatTestRelicButtonAction = async (originalOutcome) => {
-  const initiatorToken = canvas.tokens.get(originalOutcome.initiatorToken);
+  const initiatorToken = canvas.ready ? canvas.tokens?.get(originalOutcome.initiatorToken) : null;
+  const initiatorActor = initiatorToken?.actor ?? game.actors.get(originalOutcome.initiatorActor);
 
   const outcome = await createTestRelicOutcome({
-    actor: initiatorToken?.actor,
-    data: canvas.tokens.get(originalOutcome.initiatorToken)?.actor?.getRollData() ?? {},
+    actor: initiatorActor,
+    data: initiatorActor.getRollData() ?? {},
   });
 
   await showDiceWithSound([outcome.roll]);

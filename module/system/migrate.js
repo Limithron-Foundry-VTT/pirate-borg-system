@@ -1,5 +1,6 @@
 import { findCompendiumItem } from "../api/compendium.js";
 import { getSystemMigrationVersion, setSystemMigrationVersion } from "./settings.js";
+import { getSystemVersion } from "../api/utils.js";
 
 export const migrate = async () => {
   // Determine whether a system migration is required and feasible
@@ -23,14 +24,14 @@ export const migrate = async () => {
 
 const migrateWorld = async () => {
   ui.notifications.info(
-    `Applying PIRATE BORG System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`,
+    `Applying PIRATE BORG System Migration for version ${getSystemVersion()}. Please be patient and do not close your game or shut down your server.`,
     { permanent: true }
   );
   await migrateActors();
 
-  setSystemMigrationVersion(game.system.data.version);
+  setSystemMigrationVersion(getSystemVersion());
 
-  ui.notifications.info(`PIRATE BORG System Migration to version ${game.system.data.version} completed!`, {
+  ui.notifications.info(`PIRATE BORG System Migration to version ${getSystemVersion()} completed!`, {
     permanent: true,
   });
 };

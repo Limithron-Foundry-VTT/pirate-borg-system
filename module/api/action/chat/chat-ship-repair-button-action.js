@@ -6,10 +6,11 @@ import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
  * @returns {Promise.<Array.<Object>>}
  */
 export const chatShipRepairButtonAction = async (originalOutcome) => {
-  const initiatorToken = canvas.tokens.get(originalOutcome.initiatorToken);
+  const initiatorToken = canvas.ready ? canvas.tokens?.get(originalOutcome.initiatorToken) : null;
+  const initiatorActor = initiatorToken?.actor ?? game.actors.get(originalOutcome.initiatorActor);
 
   const outcome = await createHealOutcome({
-    actor: initiatorToken?.actor,
+    actor: initiatorActor,
     formula: "d6",
   });
 

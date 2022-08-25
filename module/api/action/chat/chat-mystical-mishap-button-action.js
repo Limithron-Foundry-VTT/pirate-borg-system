@@ -7,10 +7,11 @@ import { createMysticalMishapOutcome } from "../../outcome/character/mystical-mi
  * @returns {Promise.<Array.<Object>>}
  */
 export const chatMysticalMyshapButtonAction = async (originalOutcome) => {
-  const initiatorToken = canvas.tokens.get(originalOutcome.initiatorToken);
+  const initiatorToken = canvas.ready ? canvas.tokens?.get(originalOutcome.initiatorToken) : null;
+  const initiatorActor = initiatorToken?.actor ?? game.actors.get(originalOutcome.initiatorActor);
 
   const outcome = await createMysticalMishapOutcome({
-    actor: initiatorToken?.actor,
+    actor: initiatorActor,
     isFumble: originalOutcome.isFumble,
     roll: await evaluateFormula(originalOutcome.isFumble ? "2d20kl" : "1d20"),
   });

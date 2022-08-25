@@ -92,6 +92,7 @@ export const withTarget =
   ({ actor, targetToken } = {}) =>
   async (outcome) => ({
     ...outcome,
+    initiatorActor: actor.id,
     initiatorToken: getInitiatorToken(actor)?.id,
     targetToken: targetToken?.id,
   });

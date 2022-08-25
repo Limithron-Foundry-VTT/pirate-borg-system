@@ -418,7 +418,9 @@ export const playDefendAdvancedAnimation = async (outcome) => {
 };
 
 export const playItemAdvancedAnimation = async (outcome) => {
-  const actor = canvas.tokens.get(outcome.initiatorToken)?.actor;
+  const actor = canvas.ready ? canvas.tokens.get(outcome.initiatorToken)?.actor : null;
+  if (!actor) return;
+
   /** @type {PBItem} */
   const item = actor?.items.get(outcome.item);
   const animation = getSystemFlag(item, CONFIG.PB.flags.ANIMATION);
