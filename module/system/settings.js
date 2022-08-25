@@ -21,7 +21,7 @@ export const registerSystemSettings = () => {
   /** Track the last help dialog */
   game.settings.register("pirateborg", "systemHelpDialogVersion", {
     name: "System Help Dialog Version",
-    scope: "client",
+    scope: "world",
     config: false,
     type: String,
     default: "",

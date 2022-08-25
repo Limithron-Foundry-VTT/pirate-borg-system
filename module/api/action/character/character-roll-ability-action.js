@@ -5,7 +5,7 @@ export const characterRollAgilityAction = async (actor) => {
   const armor = actor.equippedArmor;
 
   if (armor) {
-    const armorTier = CONFIG.PB.armorTiers[armor.data.data.tier.max];
+    const armorTier = CONFIG.PB.armorTiers[armor.tier.max];
     if (armorTier.agilityModifier) {
       drModifiers.push(`${armor.name} (${game.i18n.localize("PB.DR")} + ${armorTier.agilityModifier})`);
     }

@@ -2,14 +2,14 @@
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
-      <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
+      <img class="profile-img" src="{{data.img}}" title="{{data.name}}" data-edit="img" />
     </div>
     <div class="header-col2">
       <div class="header-title-row">
-        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{item.type}} {{#if item.data.invokableType}} - {{item.data.invokableType}}{{/if}}</span>
+        <span class="item-type">{{data.type}} {{#if data.system.invokableType}} - {{data.system.invokableType}}{{/if}}</span>
       </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
+      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,53 +34,53 @@
       {{! Price }}
       <div class="form-group">
         <label>{{localize "PB.ItemPrice"}}:</label>
-        <input type="text" name="data.price" value="{{item.data.price}}" placeholder="2" data-dtype="Number" />
+        <input type="text" name="system.price" value="{{data.system.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
       {{! Carry weight }}
       <div class="form-group">
         <label>{{localize "PB.CarryWeight"}}:</label>
-        <input type="text" name="data.carryWeight" value="{{item.data.carryWeight}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.carryWeight" value="{{data.system.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
       <div class="form-group">
         <label>{{localize "PB.Quantity"}}:</label>
-        <input type="text" name="data.quantity" value="{{item.data.quantity}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.quantity" value="{{data.system.quantity}}" placeholder="1" data-dtype="Number" />
       </div>
 
       <div class="form-group">
         <label>{{localize "PB.MaxQuantity"}}:</label>
-        <input type="text" name="data.maxQuantity" value="{{item.data.maxQuantity}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.maxQuantity" value="{{data.system.maxQuantity}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Container space }}
       <div class="form-group">
         <label>{{localize "PB.ContainerSpace"}}:</label>
-        <input type="text" name="data.containerSpace" value="{{item.data.containerSpace}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.containerSpace" value="{{data.system.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Invokable type }}
       <div class="form-group">
         <label>{{localize "PB.ItemInvokableType"}}:</label>
-        <input type="text" name="data.invokableType" value="{{item.data.invokableType}}" placeholder="Arcane Ritual|Ancient Relic" data-dtype="String" />
+        <input type="text" name="system.invokableType" value="{{data.system.invokableType}}" placeholder="Arcane Ritual|Ancient Relic" data-dtype="String" />
       </div>
 
       {{! Uses ammo }}
       <div class="form-group">
         <label>{{localize "PB.ItemIsEquipment"}}:</label>
-        <input type="checkbox" name="data.isEquipment" {{checked item.data.isEquipment}} data-dtype="Boolean" />
+        <input type="checkbox" name="system.isEquipment" {{checked data.system.isEquipment}} data-dtype="Boolean" />
       </div>
 
       {{! Action Macro }}
       <div class="form-group">
         <label>{{localize "PB.ActionMacro"}}:</label>
-        <input type="text" name="data.actionMacro" value="{{item.data.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
+        <input type="text" name="system.actionMacro" value="{{data.system.actionMacro}}" placeholder="compendium;macro" data-dtype="String" />
       </div>
 
       {{! Action Macro Label }}
       <div class="form-group">
         <label>{{localize "PB.ActionMacroLabel"}}:</label>
-        <input type="text" name="data.actionMacroLabel" value="{{item.data.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
+        <input type="text" name="system.actionMacroLabel" value="{{data.system.actionMacroLabel}}" placeholder="Use" data-dtype="String" />
       </div>
     </div>
   </section>

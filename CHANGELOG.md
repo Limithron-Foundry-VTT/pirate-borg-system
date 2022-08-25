@@ -1,3 +1,12 @@
+# v0.4.4
+
+- Foundry V10 compatibility.
+- Fix silver gain on getting better.
+- Fix some character creation and getting better macros.
+- Fix chat buttons not working with an active token
+- Fix bug when Sequencer module is not installed
+- Fix sample ships attacks
+
 # v0.4.3
 
 - Fix Sequencer error when it's not activated.

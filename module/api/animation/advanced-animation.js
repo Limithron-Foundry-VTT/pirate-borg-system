@@ -1,5 +1,5 @@
 import { playAdvancedAnimation } from "./animation.js";
-import { getSystemFlag } from "../utils.js";
+import { getSystemFlag, getTokenRotation, getTokenScale, getTokenWidth } from "../utils.js";
 
 export const ADVANCED_ANIMATION_TYPE = {
   ITEM: "advanced-animation-item",
@@ -126,7 +126,7 @@ export const playRamAdvancedAnimation = async (outcome) => {
       .effect("jb2a.impact.ground_crack.still_frame")
       .atLocation(targetToken)
       .scaleToObject(1)
-      .rotate(-targetToken.data.rotation)
+      .rotate(-getTokenRotation(targetToken))
       //
       .effect("jb2a.smoke.puff.centered.grey")
       .atLocation(targetToken)
@@ -144,19 +144,19 @@ export const playFullSailAdvancedAnimation = async (outcome) => {
       .effect("jb2a.gust_of_wind.veryfast")
       .playIf(!outcome.isCriticalSuccess)
       .atLocation(initiatorToken)
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .scaleToObject(0.8)
       //
       .effect("jb2a.wind_stream.white")
       .playIf(outcome.isCriticalSuccess)
       .atLocation(initiatorToken)
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .screenSpaceScale({ fitX: true, fitY: true })
       //
       .effect("jb2a.wind_stream.white")
       .playIf(outcome.isCriticalSuccess)
       .atLocation(initiatorToken)
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .screenSpaceScale({ fitX: true, fitY: true })
       //
       .play();
@@ -169,7 +169,7 @@ export const playComeAboutAdvancedAnimation = async (outcome) => {
   await playAdvancedAnimation([outcome.initiatorToken], async (initiatorToken) => {
     new Sequence()
       .effect("jb2a.zoning.outward.indicator.once.bluegreen.02.01")
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .atLocation(initiatorToken)
       .scale(outcome.isCriticalSuccess ? 1 : 0.5)
       //
@@ -195,7 +195,7 @@ export const playWeighAnchorAdvancedAnimation = async (outcome) => {
     new Sequence()
       .effect("jb2a.wind_stream.white")
       .atLocation(initiatorToken)
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .scaleToObject(1, { uniform: true })
       //
       .play();
@@ -208,7 +208,7 @@ export const playDropAnchorAdvancedAnimation = async (outcome) => {
       .effect("jb2a.wind_stream.white")
       .atLocation(initiatorToken)
       .scaleToObject(1, { uniform: true })
-      .rotate(-initiatorToken.data.rotation - 180)
+      .rotate(-getTokenRotation(initiatorToken) - 180)
       //
       .play();
   });
@@ -266,13 +266,13 @@ export const playSinkingAdvancedAnimation = async (outcome) => {
       .effect("jb2a.liquid.splash.blue")
       .atLocation(initiatorToken)
       .belowTokens()
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       .scaleToObject(1)
       //
       .effect("jb2a.impact.ground_crack.still_frame")
       .atLocation(initiatorToken)
       .scaleToObject(1)
-      .rotate(-initiatorToken.data.rotation)
+      .rotate(-getTokenRotation(initiatorToken))
       //
       .effect("jb2a.explosion.01.orange")
       .playIf(outcome.isExplosion || outcome.isMajorExplosion || outcome.isFatalExplosion)
@@ -418,7 +418,9 @@ export const playDefendAdvancedAnimation = async (outcome) => {
 };
 
 export const playItemAdvancedAnimation = async (outcome) => {
-  const actor = canvas.tokens.get(outcome.initiatorToken)?.actor;
+  const actor = canvas.ready ? canvas.tokens.get(outcome.initiatorToken)?.actor : null;
+  if (!actor) return;
+
   /** @type {PBItem} */
   const item = actor?.items.get(outcome.item);
   const animation = getSystemFlag(item, CONFIG.PB.flags.ANIMATION);
@@ -439,7 +441,7 @@ export const playItemMeleeAnimation = async (outcome, animation) => {
       .effect(animation)
       .atLocation(initiatorToken)
       .missed(outcome.isFailure)
-      .size(initiatorToken.data.width * initiatorToken.data.scale * 4, { gridUnits: true })
+      .size(getTokenWidth(initiatorToken) * getTokenScale(initiatorToken) * 4, { gridUnits: true })
       .randomizeMirrorY()
       .rotateTowards(targetToken)
       .anchor({ x: 0.4, y: 0.5 })

@@ -13,7 +13,12 @@ export class PBItem extends Item {
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
+    if (this.system) {
+      this.img = this.img || CONST.DEFAULT_TOKEN;
+    } else {
+      this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
+    }
+
 
     if (this.type === CONFIG.PB.itemTypes.armor) {
       this.getData().damageReductionDie = CONFIG.PB.armorTiers[this.tier.value].damageReductionDie;
@@ -27,14 +32,15 @@ export class PBItem extends Item {
     if (actor.type === "character") {
       this.getData().equippable = CONFIG.PB.equippableItemTypes.includes(this.type);
       this.getData().droppable = CONFIG.PB.droppableItemTypes.includes(this.type) && this.getData().carryWeight !== 0;
-      this.getData().canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(this.type);
     } else {
       this.getData().equippable = false;
       this.getData().droppable = false;
     }
 
+    this.getData().canPlusMinus = CONFIG.PB.plusMinusItemTypes.includes(this.type);
+
     if (this.isContainer) {
-      this.getData().itemsData = this._getItemsData(actor);
+      this.getData().items = this.items || [];
       this.getData().totalContainerSpace = this._getTotalContainerSpace(actor);
     }
 
@@ -59,7 +65,11 @@ export class PBItem extends Item {
    * @return {Promise<void>}
    */
   async updateData(key, value) {
-    await this.update({ [`data.${key}`]: value });
+    if (this.system) {
+      await this.update({ [`system.${key}`]: value });
+    } else {
+      await this.update({ [`data.${key}`]: value });
+    }
   }
 
   /**
@@ -370,6 +380,104 @@ export class PBItem extends Item {
   }
 
   /**
+   * @returns {String}
+   */
+  get startingArmorTableFormula() {
+    return this.getData().startingArmorTableFormula;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingHatTableFormula() {
+    return this.getData().startingHatTableFormula;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingWeaponTableFormula() {
+    return this.getData().startingWeaponTableFormula;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingRolls() {
+    return this.getData().startingRolls;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingAbilityScoreFormula() {
+    return this.getData().startingAbilityScoreFormula;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingStrengthBonus() {
+    return this.getData().startingStrengthBonus;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingAgilityBonus() {
+    return this.getData().startingAgilityBonus;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingPresenceBonus() {
+    return this.getData().startingPresenceBonus;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingToughnessBonus() {
+    return this.getData().startingToughnessBonus;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingSpiritBonus() {
+    return this.getData().startingSpiritBonus;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingHitPoints() {
+    return this.getData().startingHitPoints;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingItems() {
+    return this.getData().startingItems;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get requireBaseClass() {
+    return this.getData().requireBaseClass;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get characterGeneratorMacro() {
+    return this.getData().characterGeneratorMacro;
+  }
+
+  /**
    * feature properties
    */
 
@@ -413,7 +521,7 @@ export class PBItem extends Item {
   }
 
   /**
-   * @returns {Number}
+   * @returns {String}
    */
   get luckDie() {
     return this.getData().luckDie;
@@ -648,10 +756,6 @@ export class PBItem extends Item {
     return this.totalContainerSpace + Math.ceil(this.containerSpace * this.getData().quantity);
   }
 
-  get itemsData() {
-    return this.getData().itemsData || [];
-  }
-
   get items() {
     return this.getData().items || [];
   }
@@ -761,21 +865,6 @@ export class PBItem extends Item {
       }
       return space;
     }, 0);
-  }
-
-  /**
-   * @private
-   * @param {PBActor} actor
-   * @return {Number}
-   */
-  _getItemsData(actor) {
-    return this.items.reduce((initial, itemId) => {
-      const item = actor.items.get(itemId);
-      if (item) {
-        initial.push(item.data);
-      }
-      return initial;
-    }, []);
   }
 
   /**

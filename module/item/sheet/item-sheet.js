@@ -21,9 +21,9 @@ export class PBItemSheet extends ItemSheet {
         },
       ],
       dragDrop: [
-        { dropSelector: 'textarea[name="data.startingBonusItems"]' },
-        { dropSelector: 'textarea[name="data.startingBonusRolls"]' },
-        { dropSelector: 'input[name="data.startingMacro"]' },
+        { dropSelector: 'textarea[name="system.startingBonusItems"]' },
+        { dropSelector: 'textarea[name="system.startingBonusRolls"]' },
+        { dropSelector: 'input[name="system.startingMacro"]' },
       ],
     });
   }
@@ -31,8 +31,8 @@ export class PBItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/pirateborg/templates/item";
-    if (Object.keys(PB.itemTypeKeys).includes(this.item.data.type)) {
-      return `${path}/${this.item.data.type}-sheet.html`;
+    if (Object.keys(PB.itemTypeKeys).includes(this.item.type)) {
+      return `${path}/${this.item.type}-sheet.html`;
     }
     return `${path}/item-sheet.html`;
   }
@@ -57,25 +57,29 @@ export class PBItemSheet extends ItemSheet {
 
   /** @override */
   async getData(options) {
-    const data = super.getData(options);
-    data.config = CONFIG.PB;
-
-    data.item = {
-      id: this.item.id,
-      img: this.item.img,
-      name: this.item.name,
-      type: this.item.type,
-      data: this.item.getData(),
-    };
-    return data;
+    const formData = super.getData(options);
+    formData.config = CONFIG.PB;
+    if (!this.item.system) {
+      formData.data.system = formData.data.data;
+      delete formData.data.data;
+    }
+    return formData;
   }
 
   /** @override */
   async _updateObject(event, formData) {
+    // V10
+    if (!this.item.system) {
+      formData = Object.keys(formData).reduce((data, key) => {
+        data[key.replace("system.", "data.")] = formData[key];
+        return data;
+      }, {});
+    }
+
     if (this.object.type === CONFIG.PB.itemTypes.weapon) {
       // Ensure weapons that need reloading have a reloading time
-      if (formData["data.needsReloading"] && (!formData["data.reloadTime"] || formData["data.reloadTime"] < 0)) {
-        formData["data.reloadTime"] = 1;
+      if (formData["system.needsReloading"] && (!formData["system.reloadTime"] || formData["system.reloadTime"] < 0)) {
+        formData["system.reloadTime"] = 1;
       }
     }
 
@@ -118,8 +122,8 @@ export class PBItemSheet extends ItemSheet {
     }
 
     if (
-      (event.target?.name === "data.startingBonusItems" && data?.type !== "Item") ||
-      (event.target?.name === "data.startingBonusRolls" && data?.type !== "RollTable")
+      (event.target?.name === "system.startingBonusItems" && data?.type !== "Item") ||
+      (event.target?.name === "system.startingBonusRolls" && data?.type !== "RollTable")
     ) {
       return;
     }

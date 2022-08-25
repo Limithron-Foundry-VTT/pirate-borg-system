@@ -2,14 +2,14 @@
   {{! Item Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
-      <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img" />
+      <img class="profile-img" src="{{data.img}}" title="{{data.name}}" data-edit="img" />
     </div>
     <div class="header-col2">
       <div class="header-title-row">
-        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PB.ItemName'}}" />
+        <input name="name" type="text" value="{{data.name}}" placeholder="{{localize 'PB.ItemName'}}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{item.type}}</span>
+        <span class="item-type">{{data.type}}</span>
       </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=item.data.description target="data.description" button=true owner=owner editable=true}}
+      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -34,31 +34,31 @@
       {{! Price }}
       <div class="form-group">
         <label>{{localize "PB.ItemPrice"}}:</label>
-        <input type="text" name="data.price" value="{{item.data.price}}" placeholder="2" data-dtype="Number" />
+        <input type="text" name="system.price" value="{{data.system.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
       {{! reduce damage }}
       <div class="form-group">
         <label>{{localize "PB.ItemReduceDamage"}}:</label>
-        <input type="checkbox" name="data.reduceDamage" {{checked item.data.reduceDamage}} data-dtype="Boolean" />
+        <input type="checkbox" name="system.reduceDamage" {{checked data.system.reduceDamage}} data-dtype="Boolean" />
       </div>
 
       {{! rule Text }}
       <div class="form-group">
         <label>{{localize "PB.RuleText"}}:</label>
-        <input type="text" name="data.ruleText" value="{{item.data.ruleText}}" placeholder="" data-dtype="String" />
+        <input type="text" name="system.ruleText" value="{{data.system.ruleText}}" placeholder="" data-dtype="String" />
       </div>
 
       {{! Carry weight }}
       <div class="form-group">
         <label>{{localize "PB.CarryWeight"}}:</label>
-        <input type="text" name="data.carryWeight" value="{{item.data.carryWeight}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.carryWeight" value="{{data.system.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Container space }}
       <div class="form-group">
         <label>{{localize "PB.ContainerSpace"}}:</label>
-        <input type="text" name="data.containerSpace" value="{{item.data.containerSpace}}" placeholder="1" data-dtype="Number" />
+        <input type="text" name="system.containerSpace" value="{{data.system.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
     </div>
   </section>

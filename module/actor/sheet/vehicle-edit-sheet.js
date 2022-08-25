@@ -44,29 +44,29 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-    const superData = super.getData(options);
-    superData.config = CONFIG.PB;
-    superData.data.data = {
-      ...superData.data.data,
-      dynamic: {
-        ...(await this._prepareItems(superData.data)),
-      },
+    const formData = super.getData(options);
+
+    formData.data.system.dynamic = {
+      ...(formData.data.system.dynamic ?? {}),
+      ...(await this._prepareItems(formData)),
     };
-    return superData;
+
+    console.log(formData);
+    return formData;
   }
 
   /**
    *
-   * @param {ActorSheet.Data} sheetData The actor to prepare.
+   * @param {ActorSheet.Data} formData
    *
    * @return {Object}
    */
-  async _prepareItems(sheetData) {
+  async _prepareItems(formData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    const items = {};
+    const data = {};
 
-    items.equipment = sheetData.items.filter((item) => !item.data.hasContainer).sort(byName);
+    data.equipment = formData.data.items.filter((item) => !item.system.hasContainer).sort(byName);
 
-    return items;
+    return data;
   }
 }

@@ -2,21 +2,21 @@
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
-      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+      <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
     </div>
     <div class="header-col2">
       <div class="header-title-row">
-        <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" />
+        <input class="actor-name container-name" name="name" type="text" value="{{data.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
       <div class="header-subtitle-row">
-        <span class="item-type">{{actor.type}}</span>
+        <span class="item-type">{{data.type}}</span>
       </div>
       <div class="header-stats-row">
         <div class="stats-block">
           <span class="stat-label">{{localize "PB.HP"}}</span>
-          <input class="stat-input" name="data.attributes.hp.value" type="number" value="{{data.data.attributes.hp.value}}" data-dtype="Number" />
+          <input class="stat-input" name="system.attributes.hp.value" type="number" value="{{data.system.attributes.hp.value}}" data-dtype="Number" />
           <span class="stat-separator">/</span>
-          <input class="stat-input" name="data.attributes.hp.max" type="number" value="{{data.data.attributes.hp.max}}" data-dtype="Number" />
+          <input class="stat-input" name="system.attributes.hp.max" type="number" value="{{data.system.attributes.hp.max}}" data-dtype="Number" />
         </div>
       </div>
       <div class="header-buttons-row">
@@ -39,7 +39,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
+      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -47,36 +47,36 @@
       {{! Morale }}
       <div class="form-group">
         <label>{{localize "PB.Morale"}}:</label>
-        <input name="data.attributes.morale" type="text" value="{{data.data.attributes.morale}}" placeholder="" data-dtype="Number" />
+        <input name="system.attributes.morale" type="text" value="{{data.system.attributes.morale}}" placeholder="" data-dtype="Number" />
       </div>
 
       {{! Armor }}
       <div class="form-group">
         <label>{{localize "PB.CreatureArmor"}}:</label>
-        <input type="text" name="data.attributes.armor.formula" value="{{data.data.attributes.armor.formula}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="system.attributes.armor.formula" value="{{data.system.attributes.armor.formula}}" placeholder="None" data-dtype="String" />
       </div>
 
       {{! Armor }}
       <div class="form-group">
         <label>{{localize "PB.CreatureArmorDescription"}}:</label>
-        <input type="text" name="data.attributes.armor.description" value="{{data.data.attributes.armor.description}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="system.attributes.armor.description" value="{{data.system.attributes.armor.description}}" placeholder="None" data-dtype="String" />
       </div>
 
       {{! Attack }}
       <div class="form-group">
         <label>{{localize "PB.CreatureAttack"}}:</label>
-        <input type="text" name="data.attributes.attack.formula" value="{{data.data.attributes.attack.formula}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="system.attributes.attack.formula" value="{{data.system.attributes.attack.formula}}" placeholder="None" data-dtype="String" />
       </div>
       
       <div class="form-group">
         <label>{{localize "PB.CreatureAttackDescription"}}:</label>
-        <input type="text" name="data.attributes.attack.description" value="{{data.data.attributes.attack.description}}" placeholder="None" data-dtype="String" />
+        <input type="text" name="system.attributes.attack.description" value="{{data.system.attributes.attack.description}}" placeholder="None" data-dtype="String" />
       </div>
 
       {{! Special }}
       <div class="form-group">
         <label>{{localize "PB.CreatureSpecial"}}:</label>
-        <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
+        <textarea name="system.special" rows="10">{{data.system.special}}</textarea>
       </div>
     </div>
   </section>

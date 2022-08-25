@@ -50,7 +50,7 @@ export const updateActorWithCharacter = async (actor, characterData) => {
   await actor.update(data);
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.data.img,
+      img: actor.img,
       name: actor.name,
     });
   }
@@ -130,7 +130,7 @@ export const rollHitPoints = async (startingHitPoints, toughness) => {
  * @param {PBItem} background
  * @returns {Promise.<Number>}
  */
-export const rollSilver = async (background) => (await evaluateFormula(background.data.data.startingGold)).total;
+export const rollSilver = async (background) => (await evaluateFormula(background.startingGold)).total;
 
 /**
  * @param {String} formula
@@ -192,8 +192,8 @@ export const rollRollItems = async (rollString) => {
 export const findStartingBonusItems = async (items) => {
   let results = [];
   for (const feature of items) {
-    if (feature.data.data.startingBonusItems) {
-      results = results.concat(await findItemsFromCompendiumString(feature.data.data.startingBonusItems));
+    if (feature.startingBonusItems) {
+      results = results.concat(await findItemsFromCompendiumString(feature.startingBonusItems));
     }
   }
   return results;
@@ -206,8 +206,8 @@ export const findStartingBonusItems = async (items) => {
 export const findStartingBonusRollsItems = async (items) => {
   let results = [];
   for (const feature of items) {
-    if (feature.data.data.startingBonusRolls) {
-      results = results.concat(await rollRollItems(feature.data.data.startingBonusRolls));
+    if (feature.startingBonusRolls) {
+      results = results.concat(await rollRollItems(feature.startingBonusRolls));
     }
   }
   return results;
@@ -221,11 +221,11 @@ export const handleActorGettingBetterItems = async (actor) => {
   const actorClass = actor.characterClass;
   const baseClass = actor.characterBaseClass;
   let items = [];
-  if (actorClass.data.data.gettingBetterRolls) {
-    items = items.concat(await handleClassGettingBetterItems(actor, actorClass.data.data.gettingBetterRolls));
+  if (actorClass.getData().gettingBetterRolls) {
+    items = items.concat(await handleClassGettingBetterItems(actor, actorClass.getData().gettingBetterRolls));
   }
-  if (baseClass && baseClass.data.data.gettingBetterRolls) {
-    items = items.concat(await handleClassGettingBetterItems(actor, baseClass.data.data.gettingBetterRolls));
+  if (baseClass && baseClass.getData().gettingBetterRolls) {
+    items = items.concat(await handleClassGettingBetterItems(actor, baseClass.getData().gettingBetterRolls));
   }
   return items;
 };
@@ -248,14 +248,14 @@ export const handleClassGettingBetterItems = async (actor, compendiumTable) => {
 const updateOrCreateActorItems = async (actor, items) => {
   // here we assume the first item is the "feature"
   const item = items[0];
-  const actorItem = actor.items.find((i) => i.data.name === item?.data.name);
+  const actorItem = actor.items.find((i) => i.name === item?.name);
   if (actorItem) {
-    const actorItemQuantity = actorItem ? actorItem.data.data.quantity || 1 : 0;
-    await actorItem.update({ "data.quantity": actorItemQuantity + 1 });
+    const actorItemQuantity = actorItem ? actorItem.quantity || 1 : 0;
+    await actorItem.updateData("quantity", actorItemQuantity + 1);
   } else {
     await actor.createEmbeddedDocuments(
       "Item",
-      items.map((item) => item.data)
+      items.map((item) => item.toObject(false))
     );
   }
 };
@@ -284,15 +284,22 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
       }
 
       const item = items[0];
-      const actorItem = actor.items.find((i) => i.data.name === item.data.name);
-      const noLimits = item.data.data.maxQuantity === 0;
-      const actorItemQuantity = actorItem ? actorItem.data.data.quantity || 1 : 0;
-      const itemMaxQuantity = item.data.data.maxQuantity || 1;
+      const actorItem = actor.items.find((i) => i.name === item.name);
+      const noLimits = item.maxQuantity === 0;
+      const actorItemQuantity = actorItem ? actorItem.quantity || 1 : 0;
+      const itemMaxQuantity = item.maxQuantity || 1;
 
       if (noLimits || actorItemQuantity < itemMaxQuantity) {
         break;
       }
-      draw.results.forEach((result) => (result.data.drawn = true));
+      draw.results.forEach((result) => {
+        //V10
+        if (result.drawn === false) {
+          result.drawn = true;
+        } else {
+          result.data.drawn = true;
+        }
+      });
     }
   }
   return items;
@@ -304,19 +311,19 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
  * @returns {String}
  */
 export const generateDescription = (cls, items) => {
-  const thingOfImportance = items.find((item) => item.data.data.featureType === "Thing of Importance");
+  const thingOfImportance = items.find((item) => item.featureType === "Thing of Importance");
   const description = items
     .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
-    .filter((item) => item.data.data.featureType !== "Thing of Importance")
-    .map((doc) => doc.data.name)
+    .filter((item) => item.featureType !== "Thing of Importance")
+    .map((item) => item.name)
     .concat([
       game.i18n.format("PB.YouOwn", {
-        item: thingOfImportance.data.name,
+        item: thingOfImportance.name,
       }),
     ])
     .join("...");
 
-  return `<p>${cls.data.data.flavorText}</p><p>${description}</p>`;
+  return `<p>${cls.flavorText}</p><p>${description}</p>`;
 };
 
 /**
@@ -324,28 +331,28 @@ export const generateDescription = (cls, items) => {
  * @returns {Object}
  */
 export const rollCharacterForClass = async (cls) => {
-  console.log(`Creating new ${cls.data.name}`);
+  console.log(`Creating new ${cls.name}`);
 
-  const { data } = cls.data;
+  //const { data } = cls.getData();
 
   const name = await rollName();
-  const abilities = await rollAbilities(data);
-  const luck = await rollLuck(data.luckDie);
-  const hitPoints = await rollHitPoints(data.startingHitPoints, abilities.toughness);
+  const abilities = await rollAbilities(cls);
+  const luck = await rollLuck(cls.luckDie);
+  const hitPoints = await rollHitPoints(cls.startingHitPoints, abilities.toughness);
   const baseTables = await rollBaseTables();
 
   const background = baseTables.find((item) => item.type === CONFIG.PB.itemTypes.background);
   const features = baseTables.filter((item) => item.type === CONFIG.PB.itemTypes.feature);
-  const hasRelic = baseTables.some((item) => item.data.data.invokableType === "Ancient Relic");
+  const hasRelic = baseTables.some((item) => item.invokableType === "Ancient Relic");
 
   const silver = await rollSilver(background);
 
-  const armor = cls.data.data.startingArmorTableFormula ? await rollArmor(!hasRelic ? cls.data.data.startingArmorTableFormula : "1d6") : [];
-  const hat = cls.data.data.startingHatTableFormula ? await rollHat(cls.data.data.startingHatTableFormula) : [];
-  const weapon = cls.data.data.startingWeaponTableFormula ? await rollWeapon(cls.data.data.startingWeaponTableFormula) : [];
+  const armor = cls.startingArmorTableFormula ? await rollArmor(!hasRelic ? cls.startingArmorTableFormula : "1d6") : [];
+  const hat = cls.startingHatTableFormula ? await rollHat(cls.startingHatTableFormula) : [];
+  const weapon = cls.startingWeaponTableFormula ? await rollWeapon(cls.startingWeaponTableFormula) : [];
 
-  const startingRollItems = await rollRollItems(cls.data.data.startingRolls);
-  const startingItems = await findItemsFromCompendiumString(cls.data.data.startingItems);
+  const startingRollItems = await rollRollItems(cls.startingRolls);
+  const startingItems = await findItemsFromCompendiumString(cls.startingItems);
 
   // Both of the rolls should loop until nothing is returning to have a kind of recursive configuration
   const startingBonusItems = await findStartingBonusItems([...(features || []), ...(startingItems || []), ...(startingRollItems || []), background]);
@@ -426,19 +433,12 @@ const characterToActorData = (characterData) => ({
     baseClass: characterData.baseClass || "",
   },
   img: characterData.actorImg,
-  items: characterData.items.map((i) => ({
-    data: {
-      ...i.data.data,
-      ...([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type) ? { equipped: true } : {}),
-    },
-    flags: {
-      ...i.data.flags,
-    },
-    img: i.data.img,
-    name: i.data.name,
-    type: i.data.type,
-  })),
-  flags: {},
+  items: characterData.items.map((i) => {
+    if ([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type)) {
+      i.getData().equipped = true;
+    }
+    return { ...i.toObject(false), _id: null };
+  }),
   token: {
     img: characterData.actorImg,
     name: characterData.name,

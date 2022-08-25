@@ -30,7 +30,7 @@ class ActorBaseClassDialog extends Application {
   async getClassData() {
     return (await this.getClasses(findClassPacks()))
       .filter((clazz) => !clazz.getData().requireBaseClass)
-      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.data.name))
+      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.name))
       .map((clazz) => ({
         name: clazz.name,
         baseClass: `${clazz.pack};${clazz.name}`,

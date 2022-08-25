@@ -60,17 +60,16 @@ export class PBActorSheetVehicle extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-    const superData = super.getData(options);
-    superData.config = CONFIG.PB;
-    superData.data = superData.data ?? {};
-    superData.data.data = {
-      ...superData.data.data,
-      dynamic: {
-        hasCrew: !!this.actor.crews.length,
-        ...(await this._prepareItems(superData.data)),
-      },
+    const formData = super.getData(options);
+    formData.data.system.dynamic = {
+      ...(formData.data.system.dynamic ?? {}),
+      hasCrew: !!this.actor.crews.length,
+      ...(await this._prepareItems(formData)),
     };
-    return superData;
+
+    console.log(formData);
+
+    return formData;
   }
 
   /**
@@ -79,35 +78,37 @@ export class PBActorSheetVehicle extends PBActorSheet {
    */
   async _prepareItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    const items = {};
+    const data = {};
 
-    items.cargos = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo).sort(byName);
+    data.cargos = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo).sort(byName);
 
-    items.features = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.feature).sort(byName);
+    data.features = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.feature).sort(byName);
 
-    items.mysticShanties = sheetData.items.filter((item) => item.type === CONFIG.PB.itemTypes.shanty).sort(byName);
+    data.mysticShanties = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.shanty).sort(byName);
 
-    items.crews = (sheetData.data.crews || []).map((actorId) => {
-      const actorData = game.actors.get(actorId);
+    data.crews = [];
+    for (const actorId of sheetData.data.system.crews || []) {
+      const actor = game.actors.get(actorId);
+      const actorData = actor ? (await actor.sheet.getData()).data : null;
       if (actorData) {
-        actorData.data.data.isCaptain = this.actor.captain === actorId;
+        actorData.system.isCaptain = this.actor.captain === actorId;
       }
-      return (
-        actorData.data || {
+      data.crews.push(
+        actorData || {
           _id: actorId,
           name: "<Deleted Character>",
           type: "character",
         }
       );
-    });
+    }
 
-    items.equipment = sheetData.items
+    data.equipment = sheetData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.data.isEquipment))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
+      .filter((item) => !item.system.hasContainer)
       .sort(byName);
 
-    return items;
+    return data;
   }
 
   /** @override */
@@ -278,9 +279,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
    */
   async _onArmorTierRadio(event) {
     event.preventDefault();
-    await this.actor.update({
-      "data.attributes.hull.value": parseInt($(event.currentTarget)[0].value),
-    });
+    await this.actor.updateData("attributes.hull.value", parseInt($(event.currentTarget)[0].value));
   }
 
   /**
@@ -327,7 +326,13 @@ export class PBActorSheetVehicle extends PBActorSheet {
    * @private
    */
   async _onDropActor(event, actorData) {
-    const actor = game.actors.get(actorData.id);
+    const actorFromUuid = actorData.uuid ? await fromUuid(actorData.uuid) : null;
+    const actor = actorFromUuid
+      ? actorFromUuid
+      : actorData.sceneId
+      ? game.scenes.get(actorData.sceneId).tokens.get(actorData.tokenId).actor
+      : game.actors.get(actorData.actorId);
+
     if (["character", "creature"].includes(actor.type)) {
       await this.actor.addCrew(actor.id);
       if (!this.actor.captain) {

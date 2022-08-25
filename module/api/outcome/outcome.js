@@ -1,4 +1,4 @@
-import { asyncPipe, evaluateFormula } from "../utils.js";
+import { asyncPipe, evaluateFormula, getResultText } from "../utils.js";
 import { getInitiatorToken } from "../targeting.js";
 
 export const OUTCOME_TEST = {
@@ -85,13 +85,14 @@ export const withDraw =
     formula: draw.roll.formula,
     formulaLabel: draw.roll.formula,
     roll: draw.roll,
-    description: draw.results.map((r) => r.data.text),
+    description: draw.results.map((r) => getResultText(r)),
   });
 
 export const withTarget =
   ({ actor, targetToken } = {}) =>
   async (outcome) => ({
     ...outcome,
+    initiatorActor: actor.id,
     initiatorToken: getInitiatorToken(actor)?.id,
     targetToken: targetToken?.id,
   });

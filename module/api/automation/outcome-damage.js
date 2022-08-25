@@ -13,6 +13,7 @@ export const DAMAGE_TYPE = {
  * @return {Promise<void>}
  */
 export const applyOnToken = async (outcome, tokenId, fn) => {
+  if (!tokenId) return;
   const token = canvas.tokens.get(tokenId);
   const isValid = token && token?.actor && isAutomaticDamageEnabled();
 

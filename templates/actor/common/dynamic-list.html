@@ -12,7 +12,7 @@
 {{/inline}} 
 
 {{#*inline "basic-item"}}
-  {{#> static-list-item type=item.type class=class id=item._id}}
+  {{#> static-list-item type=type class=class id=item._id}}
     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
 
     <h4 class="item-name item-edit rollable">
@@ -49,7 +49,7 @@
 
 {{#*inline "crew"}}
   {{#*inline "item-controls"}}
-    <a class="item-control item-toggle item-crew-captain {{#if item.data.isCaptain}}is-captain{{/if}}" title="Captain"> <i class="fas fa-skull-crossbones"></i></a>
+    <a class="item-control item-toggle item-crew-captain {{#if item.system.isCaptain}}is-captain{{/if}}" title="Captain"> <i class="fas fa-skull-crossbones"></i></a>
     <a class="item-control item-remove-crew" title="Remove Crew"> <i class="fas fa-trash"></i></a>
   {{/inline}}
   {{> basic-item noDeleteButton=true}}

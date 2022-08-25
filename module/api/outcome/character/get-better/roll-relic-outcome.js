@@ -11,7 +11,7 @@ export const createRollRelicOutcome = async () => {
   return asyncPipe(
     drawOutcome({ draw }),
     withAsyncProps({
-      itemData: async () => item.data,
+      itemData: async () => item.toObject(false),
       description: () => game.i18n.format("PB.GetBetterLootRelic", { link: item.link }),
     })
   )();

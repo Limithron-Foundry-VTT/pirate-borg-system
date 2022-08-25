@@ -8,11 +8,13 @@ import { createTakeDamageOutcome } from "../../outcome/actor/take-damage-outcome
  */
 export const chatTakeDamageButtonAction = async (originalOutcome) => {
   const armorOutcome = await createArmorOutcome({ formula: originalOutcome.armorFormula });
-  const initiatorToken = canvas.tokens.get(originalOutcome.initiatorToken);
-  const targetToken = canvas.tokens.get(originalOutcome.targetToken);
+  const initiatorToken = canvas.ready ? canvas.tokens?.get(originalOutcome.initiatorToken) : null;
+  const initiatorActor = initiatorToken?.actor ?? game.actors.get(originalOutcome.initiatorActor);
+
+  const targetToken = canvas.ready ? canvas.tokens.get(originalOutcome.targetToken) : null;
 
   const outcome = await createTakeDamageOutcome({
-    actor: initiatorToken?.actor,
+    actor: initiatorActor,
     formula: originalOutcome.damageFormula,
     damageReduction: armorOutcome.total,
     targetToken,

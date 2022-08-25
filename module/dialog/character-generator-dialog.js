@@ -36,7 +36,7 @@ class CharacterGeneratorDialog extends Application {
       .map((cls) => ({
         name: cls.name,
         pack: cls.pack,
-        requireBaseClass: cls.data.data.requireBaseClass,
+        requireBaseClass: cls.requireBaseClass,
         checked: this.lastCharacterGeneratorSelection.length > 0 ? this.lastCharacterGeneratorSelection.includes(cls.pack) : true,
       }))
       .filter((cls) => isCharacterGeneratorClassAllowed(cls.pack))
@@ -97,7 +97,7 @@ class CharacterGeneratorDialog extends Application {
     }
 
     const selectedClasses = await this.getClasses(selection);
-    const isValid = selectedClasses.some((selectedClass) => !selectedClass.data.data.requireBaseClass);
+    const isValid = selectedClasses.some((selectedClass) => !selectedClass.requireBaseClass);
     if (!isValid) {
       // require at least one normal class
       return;
@@ -109,8 +109,8 @@ class CharacterGeneratorDialog extends Application {
     await this.close();
     ui.notifications.info(`${game.users.current.name} is creating ${randomClass.name}.`);
 
-    if (randomClass.data.data.characterGeneratorMacro) {
-      const [compendium, macroName] = randomClass.data.data.characterGeneratorMacro.split(";");
+    if (randomClass.characterGeneratorMacro) {
+      const [compendium, macroName] = randomClass.characterGeneratorMacro.split(";");
       if (compendium) {
         const macro = await findCompendiumItem(compendium, macroName);
         await executeCharacterCreationMacro(macro, {

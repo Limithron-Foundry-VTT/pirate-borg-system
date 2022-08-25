@@ -62,7 +62,7 @@ class CrewActionDialog extends Application {
       ...data,
       config: CONFIG.pirateborg,
       buttonLabel: this.buttonLabel,
-      crews: this.actor.crews.map((actorId) => game.actors.get(actorId).data),
+      crews: this.actor.crews.map((actorId) => game.actors.get(actorId).toObject()),
       enableCrewSelection: this.enableCrewSelection,
       enableDrSelection: this.enableDrSelection,
       enableArmorSelection: this.enableArmorSelection,

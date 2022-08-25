@@ -1,4 +1,5 @@
 import { executeMacro } from "./macros.js";
+import { getResultCollection, getResultText, getResultType } from "./utils.js";
 
 /**
  * @param {String} compendiumString
@@ -110,20 +111,22 @@ export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   for (const result of results) {
-    if (result.data.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
-      item = await findCompendiumItem(result.data.collection, result.data.text);
+    const type = getResultType(result);
+    if (type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
+      item = await findCompendiumItem(getResultCollection(result), getResultText(result));
       if (item) {
         items.push(item);
       }
-    } else if (result.data.type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
+    } else if (type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
       const [property, value] = result.getChatText().split(": ");
       const enrichHtml = TextEditor.enrichHTML(value, {
         options: { command: true },
+        async: false,
       });
       if (property === "description") {
-        item.data.data.description = enrichHtml;
+        item.getData().description = enrichHtml;
       } else if (property === "quantity") {
-        item.data.data.quantity = parseInt($(`<span>${enrichHtml}</span>`).text().trim(), 10);
+        item.getData().quantity = parseInt($(`<span>${enrichHtml}</span>`).text().trim(), 10);
       }
     }
   }
@@ -155,7 +158,7 @@ export const classItemFromPack = async (compendiumName) => {
   const compendium = game.packs.get(compendiumName);
   /** @type {Item[]} */
   const documents = await compendium.getDocuments();
-  return documents.find((i) => i.data.type === "class");
+  return documents.find((i) => i.type === "class");
 };
 
 /**

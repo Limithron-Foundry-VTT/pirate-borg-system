@@ -4,7 +4,7 @@ const ACTION = {
 };
 
 export const registerSocketHandler = () => {
-  socket.on("system.pirateborg", ({ action } = {}) => {
+  game.socket.on("system.pirateborg", ({ action } = {}) => {
     switch (action) {
       case ACTION.SCROLL_CHAT_TO_BOTTOM:
         scrollChatToBottom();
@@ -15,4 +15,4 @@ export const registerSocketHandler = () => {
 
 const scrollChatToBottom = () => ui.chat.scrollBottom();
 
-export const emitScrollChatToBottom = () => socket.emit("system.pirateborg", { action: ACTION.SCROLL_CHAT_TO_BOTTOM });
+export const emitScrollChatToBottom = () => game.socket.emit("system.pirateborg", { action: ACTION.SCROLL_CHAT_TO_BOTTOM });

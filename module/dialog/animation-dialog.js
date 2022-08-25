@@ -40,6 +40,7 @@ class AnimationDialog extends Application {
   }
 
   getAnimations() {
+    if (typeof Sequencer === "undefined") return [];
     return Sequencer.Database.getEntry("jb2a")
       .filter((sequencerFile) => {
         const file = sequencerFile.getAllFiles().pop();
