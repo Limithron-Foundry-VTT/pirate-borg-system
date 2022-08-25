@@ -13,7 +13,12 @@ export class PBItem extends Item {
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.getData().img = this.img || CONST.DEFAULT_TOKEN;
+    if (this.system) {
+      this.img = this.img || CONST.DEFAULT_TOKEN;
+    } else {
+      this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
+    }
+
 
     if (this.type === CONFIG.PB.itemTypes.armor) {
       this.getData().damageReductionDie = CONFIG.PB.armorTiers[this.tier.value].damageReductionDie;

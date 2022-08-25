@@ -59,7 +59,6 @@ export class PBItemSheet extends ItemSheet {
   async getData(options) {
     const formData = super.getData(options);
     formData.config = CONFIG.PB;
-    formData.isV10 = game.release.generation >= 10;
     if (!this.item.system) {
       formData.data.system = formData.data.data;
       delete formData.data.data;

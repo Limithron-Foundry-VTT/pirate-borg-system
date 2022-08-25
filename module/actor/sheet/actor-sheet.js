@@ -293,7 +293,6 @@ export default class PBActorSheet extends ActorSheet {
   getData(options) {
     const formData = super.getData(options);
     formData.config = CONFIG.PB;
-    formData.isV10 = game.release.generation >= 10;
 
     // V10 Backward compatibility
     if (!this.actor.system) {
@@ -310,7 +309,7 @@ export default class PBActorSheet extends ActorSheet {
       if (item.type === CONFIG.PB.itemTypes.container) {
         item.system.dynamic = {
           ...item.system.dynamic,
-          items: item.system.items.map((itemId) => formData.items.find((item) => item._id === itemId)),
+          items: item.system.items?.map((itemId) => formData.items.find((item) => item._id === itemId)) ?? [],
         };
       }
       return item;

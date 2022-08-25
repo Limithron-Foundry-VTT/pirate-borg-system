@@ -435,12 +435,7 @@ const characterToActorData = (characterData) => ({
   img: characterData.actorImg,
   items: characterData.items.map((i) => {
     if ([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type)) {
-      //V10
-      if (i.system) {
-        i.system.equipped = true;
-      } else {
-        i.getData().equipped = true;
-      }
+      i.getData().equipped = true;
     }
     return { ...i.toObject(false), _id: null };
   }),
