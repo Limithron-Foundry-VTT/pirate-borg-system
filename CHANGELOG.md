@@ -1,16 +1,26 @@
-# v0.4.4
+# v0.5.0
 
 - Foundry V10 compatibility.
-- Fix silver gain on getting better.
+- Fix silver gain when gaining experience.
 - Fix some character creation and getting better macros.
-- Fix chat buttons not working with an active token
-- Fix bug when Sequencer module is not installed
-- Fix sample ships attacks
+- Fix chat buttons not working with an active token.
+- Fix bug when Sequencer module is not installed.
+- Fix sample ships attacks.
+- Dice roll sound from chat message without any rolls were removed.
+- Prayers and Sorceries test removed.
+- "Whom dost thou serve?" class items were moved to the Zealot compendium.
+- Broken table updated.
+- Gaining experience updated.
+- Starting table updated.
+- Add tooltip to each abilities.
+- All texts and rules update for final book.
+- Fix extra critical hit applying to all hits.
+- Add a new weapon type for thrown weapons using agility.
 
 # v0.4.3
 
 - Fix Sequencer error when it's not activated.
-- Fix time of latest commit
+- Fix time of the latest commit
 
 # v0.4.2
 

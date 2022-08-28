@@ -216,6 +216,7 @@ PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc, PB.itemTypes.feat
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
   ranged: "PB.WeaponTypeRanged",
+  thrown: "PB.WeaponTypeThrown"
 };
 
 PB.characterGenerator = {
@@ -238,7 +239,7 @@ PB.characterGenerator = {
     "pirateborg.rolls-character-creation;d12 Cheap gear",
     "pirateborg.rolls-character-creation;d12 Fancy gear",
     "pirateborg.rolls-character-creation;d20 Distinctive Flaws",
-    "pirateborg.rolls-character-creation;d20 Physical Ailments",
+    "pirateborg.rolls-character-creation;d20 Physical Trademark",
     "pirateborg.rolls-character-creation;d20 Idiosyncrasies",
     "pirateborg.rolls-character-creation;d20 Unfortunate Incidents & Conditions",
     "pirateborg.rolls-character-creation;d100 Thing of Importance",

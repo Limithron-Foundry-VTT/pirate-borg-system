@@ -201,3 +201,9 @@ export const drawRelic = async (options = {}) => drawTable("pirateborg.rolls-cha
  * @returns {Promise.<RollTableDraw>}
  */
 export const drawRitual = async (options = {}) => drawTable("pirateborg.rolls-character-creation", "d20 Arcane rituals", options);
+
+/**
+ * @param {Object} options
+ * @returns {Promise.<RollTableDraw>}
+ */
+export const drawWeapon = async (options = {}) => drawTable("pirateborg.rolls-character-creation", "d10 Starting weapons", options);

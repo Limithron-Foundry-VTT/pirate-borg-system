@@ -18,8 +18,8 @@ export const characterGetBetterAction = async (actor) => {
     await rollAbility(actor, CONFIG.PB.ability.presence),
     await rollAbility(actor, CONFIG.PB.ability.toughness),
     await rollAbility(actor, CONFIG.PB.ability.spirit),
-    await rollLoot(actor),
     ...((await rollGetBetterItems(actor)) ?? []),
+    await rollLoot(actor),
   ];
 
   await showGenericCard({
@@ -33,11 +33,11 @@ export const characterGetBetterAction = async (actor) => {
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<Object[]>}
+ * @returns {Promise.<Object>}
  */
 const rollHP = async (actor) => {
   const outcome = await createRollHPOutcome({ hp: actor.attributes.hp.max });
-  await actor.updateHp({ max: outcome.newHP });
+  await actor.updateData('attributes.hp.max', outcome.newHp);
   return outcome;
 };
 
@@ -61,6 +61,7 @@ const rollLoot = async (actor) => {
     case outcome.hasSilver:
       await actor.updateSilver(actor.silver + outcome.secondaryOutcome.silver);
       break;
+    case outcome.hasWeapon:
     case outcome.hasRitual:
     case outcome.hasRelic:
       await actor.createEmbeddedDocuments("Item", [outcome.secondaryOutcome.itemData]);

@@ -120,9 +120,9 @@
     },
     {
       "name": "feature-physical-ailments",
-      "label": "Feature - Physical ailments",
+      "label": "Feature - Physical trademark",
       "system": "pirateborg",
-      "path": "./packs/feature-physical-ailments.db",
+      "path": "./packs/feature-physical-trademark.db",
       "entity": "Item"
     },
     {

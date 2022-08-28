@@ -11,7 +11,7 @@ class RestDialog extends Application {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       id: "rest-dialog",
-      classes: ["rest-dialog"],
+      classes: ["custom-dialog", "rest-dialog"],
       template: REST_DIALOG_TEMPLATE,
       title: game.i18n.localize("PB.Rest"),
       width: 420,

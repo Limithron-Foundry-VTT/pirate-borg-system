@@ -19,6 +19,8 @@ export const characterInvokeExtraResourceAction = async (actor, item) => {
 
   const outcome = await createInvokeExtraResourceOutcome({ actor });
 
+  console.log(outcome);
+
   await actor.updateExtraResource({
     value: Math.max(0, actor.extraResource.value - 1),
   });

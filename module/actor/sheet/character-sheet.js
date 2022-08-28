@@ -389,7 +389,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _onGetBetter(event) {
     event.preventDefault();
-    const d = new Dialog({
+    const getingBetterConfirmDialog = new Dialog({
       title: game.i18n.localize("PB.GetBetter"),
       content: game.i18n.localize("PB.GetBetterConfirmMessage"),
       buttons: {
@@ -403,8 +403,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
         },
       },
       default: "cancel",
-    });
-    d.render(true);
+    }, { classes: ['dialog', 'custom-dialog']});
+    getingBetterConfirmDialog.render(true);
   }
 
   /**

@@ -54,7 +54,7 @@ const getDescription = async ({ isGunpowderWeapon = false, isFumble = false, isC
 const getDamageFormula = ({ actor, outcome, weapon, ammo, targetToken } = {}) => {
   let damageFormula = weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie;
   damageFormula = outcome.isCriticalSuccess ? `(${weapon.damageDie}) * 2` : damageFormula;
-  damageFormula = weapon.critExtraDamage ? `(${damageFormula}) + ${weapon.critExtraDamage}` : damageFormula;
+  damageFormula = outcome.isCriticalSuccess && weapon.critExtraDamage ? `(${damageFormula}) + ${weapon.critExtraDamage}` : damageFormula;
   return actor.getScaledDamageFormula(targetToken?.actor, damageFormula);
 };
 

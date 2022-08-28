@@ -1,18 +1,18 @@
 import { asyncPipe } from "../../../utils.js";
 import { drawOutcome, withAsyncProps } from "../../outcome.js";
-import { drawRelic, findTableItems } from "../../../compendium.js";
+import { drawWeapon, findTableItems } from "../../../compendium.js";
 
 /**
  * @return {Promise<Object>}
  */
-export const createRollRelicOutcome = async () => {
-  const draw = await drawRelic();
+export const createRollWeaponOutcome = async () => {
+  const draw = await drawWeapon();
   const item = (await findTableItems(draw.results))[0];
   return asyncPipe(
     drawOutcome({ draw }),
     withAsyncProps({
       itemData: async () => item.toObject(false),
-      description: () => game.i18n.format("PB.GetBetterLootRelic", { link: item.link }),
+      description: () => game.i18n.format("PB.GetBetterLootWeapon", { link: item.link }),
     })
   )();
 };

@@ -85,7 +85,7 @@ export const withDraw =
     formula: draw.roll.formula,
     formulaLabel: draw.roll.formula,
     roll: draw.roll,
-    description: draw.results.map((r) => getResultText(r)),
+    description: draw.results.map((r) => getResultText(r)).join(", "),
   });
 
 export const withTarget =

@@ -19,6 +19,8 @@ export const showGenericCard = async ({ actor, target, title, description, outco
     await showDiceWithSound(rolls);
   }
 
+  console.log(outcomes);
+
   return ChatMessage.create({
     content: await renderTemplate(GENERIC_CARD_TEMPLATE, {
       title,
@@ -29,7 +31,7 @@ export const showGenericCard = async ({ actor, target, title, description, outco
       items,
     }),
     speaker: ChatMessage.getSpeaker({ actor }),
-    sound: diceSound(),
+    ...(rolls.length ? { sound: diceSound() }: {}),
     flags: {
       [CONFIG.PB.flagScope]: {
         [CONFIG.PB.flags.OUTCOMES]: outcomes,

@@ -139,6 +139,7 @@ export class PBActor extends Actor {
     if (this.system) {
       await this.update({ [`system.${key}`]: value });
     } else {
+      console.log(key, value)
       await this.update({ [`data.${key}`]: value });
     }
   }
