@@ -19,7 +19,6 @@ export class PBItem extends Item {
       this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
     }
 
-
     if (this.type === CONFIG.PB.itemTypes.armor) {
       this.getData().damageReductionDie = CONFIG.PB.armorTiers[this.tier.value].damageReductionDie;
     }
@@ -690,10 +689,24 @@ export class PBItem extends Item {
   }
 
   /**
+   * @returns {Boolean}
+   */
+  get isThrown() {
+    return this.weaponType === "thrown";
+  }
+
+  /**
    * @returns {String}
    */
   get attackAbility() {
-    return this.isRanged ? CONFIG.PB.ability.presence : CONFIG.PB.ability.strength;
+    switch(true) {
+      case this.isRanged:
+        return CONFIG.PB.ability.presence;
+      case this.isThrown:
+        return CONFIG.PB.ability.agility;
+      default:
+        return CONFIG.PB.ability.strength;
+    }
   }
 
   /**
