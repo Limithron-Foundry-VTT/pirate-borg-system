@@ -119,7 +119,7 @@
       "entity": "Item"
     },
     {
-      "name": "feature-physical-ailments",
+      "name": "feature-physical-trademark",
       "label": "Feature - Physical trademark",
       "system": "pirateborg",
       "path": "./packs/feature-physical-trademark.db",
