@@ -348,6 +348,7 @@ form.editable .results {
       display: flex;
       margin-top: 20px;
       justify-content: center;
+      flex-direction: column;
     }
 
     .gm-only {

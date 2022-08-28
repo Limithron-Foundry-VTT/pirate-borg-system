@@ -1054,6 +1054,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   display: flex;
   margin-top: 20px;
   justify-content: center;
+  flex-direction: column;
 }
 #chat-log .chat-message .gm-only {
   display: none;
