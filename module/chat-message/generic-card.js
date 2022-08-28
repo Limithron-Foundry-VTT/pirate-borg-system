@@ -19,8 +19,6 @@ export const showGenericCard = async ({ actor, target, title, description, outco
     await showDiceWithSound(rolls);
   }
 
-  console.log(outcomes);
-
   return ChatMessage.create({
     content: await renderTemplate(GENERIC_CARD_TEMPLATE, {
       title,
