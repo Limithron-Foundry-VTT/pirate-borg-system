@@ -9,9 +9,9 @@ export const createShantiesPerDayOutcome = async ({ actor }) =>
   asyncPipe(
     rollOutcome({
       type: "shanties-per-day",
-      formula: "d4+@abilities.spirit.value",
+      formula: "1+@abilities.spirit.value",
       formulaLabel: game.i18n.localize("PB.ShipShantiesPerDayFormula"),
-      data: actor.getRollData(),
+      data: actor?.getRollData() ?? {},
     }),
     withAsyncProps({
       title: (outcome) => `${outcome.roll.total} ${game.i18n.localize("PB.ShipMysticShanties")}`,

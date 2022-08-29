@@ -40,6 +40,7 @@
 /* ====================== */
 
 .custom-dialog {
+  font-family: var(--item-font);
   font-size: 14px;
   margin: 0;
 
@@ -97,6 +98,8 @@
     label div {
       display: block;
       margin-left: 30px;
+      font-family: var(--item-font);
+      font-size: 12pt;
     }
   }
 
