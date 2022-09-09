@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap");
+:root {
+  /* try to deprecated */
+  --background-color: #000;
+  --foreground-color: #000;
+  --foreground-alt-color: #fff;
+  --highlight-background-color: #d20608;
+  --highlight-foreground-color: #ffffff;
+  --warning-color: var(--highlight-background-color);
+  --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
+  --window-header-color: #ffffff;
+  --window-header-background-color: #000000;
+  --sidebar-tab-background: #000000;
+  --sidebar-tab-color: #ffffff;
+  --light-border-color: #f6dec2;
+  --dark-border-color: #a29280;
+  --sidebar-background: var(--window-background);
+  --sidebar-color: #000000;
+  --button-background: #000000;
+  --button-color: #ffffff;
+  --icon-backgroud-color: #000000;
+  --h1-font: "Roman Antique Regular";
+  --h2-font: "IM Fell English SC";
+  --h3-font: "IM Fell English";
+  --chat-card-header-font: "IM Fell English";
+  --chat-font: "Alegreya";
+  --chat-info-font: "Alegreya";
+  --item-font: "Alegreya";
+  --compendium-font: "IM Fell English";
+  --button-font: "Alegreya";
+  --color-text-hyperlink: var(--foreground-color);
+  /* foundry core */
+  --color-text-light-6: var(--foreground-color);
+  --color-text-light-5: var(--foreground-color);
+  --color-text-light-primary: var(--foreground-color);
+  --color-border-light-1: var(--light-border-color);
+  --color-border-light-tertiary: var(--light-border-color);
+  --color-border-dark-4: var(--light-border-color);
+  --color-border-light-primary: var(--light-border-color);
+}
+
+/* ====================== */
+/* Fonts */
+/* ====================== */
+@font-face {
+  font-family: "Roman Antique Regular";
+  src: url("../fonts/Roman Antique Regular.ttf") format("truetype");
+}
+.pb-highlight {
+  color: var(--color-underline-header);
+}
+
+table {
+  border-color: var(--dark-border-color);
+}
+
+/*# sourceMappingURL=editor.css.map */

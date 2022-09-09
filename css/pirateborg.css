@@ -34,7 +34,6 @@
   --color-text-light-5: var(--foreground-color);
   --color-text-light-primary: var(--foreground-color);
   --color-border-light-1: var(--light-border-color);
-  --color-text-light-6: var(--foreground-color);
   --color-border-light-tertiary: var(--light-border-color);
   --color-border-dark-4: var(--light-border-color);
   --color-border-light-primary: var(--light-border-color);
@@ -878,9 +877,14 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-.table-results .table-result .result-text .entity-link {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+.chat-message .table-draw .table-description {
+  color: var(--foreground-color);
+  font-size: var(--font-size-14);
+}
+
+.table-results .table-result .result-text .entity-link,
+.table-results .table-result .result-text .entity-link i {
+  color: var(--foreground-color);
 }
 
 /* Fixes Module Management dialog */
@@ -1425,10 +1429,10 @@ form .form-group-stacked {
 }
 .window-app.app.journal-sheet .window-content h1 {
   font-family: var(--h2-font);
-  border-bottom: 2px solid #222222;
+  border-bottom: 2px solid var(--color-underline-header);
 }
 .window-app.app.journal-sheet .window-content h2 {
-  border-bottom: 1px solid #252525;
+  border-bottom: 2px solid var(--color-underline-header);
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
