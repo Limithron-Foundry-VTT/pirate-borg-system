@@ -116,9 +116,14 @@ form.editable .results {
   }
 }
 
-.table-results .table-result .result-text .entity-link {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+.chat-message .table-draw .table-description {
+  color: var(--foreground-color);
+  font-size: var(--font-size-14);
+}
+
+.table-results .table-result .result-text .entity-link,
+.table-results .table-result .result-text .entity-link i {
+  color: var(--foreground-color);
 }
 
 /* Fixes Module Management dialog */
@@ -797,11 +802,11 @@ form .form-group-stacked {
 
     h1 {
       font-family: var(--h2-font);
-      border-bottom: 2px solid #222222;
+      border-bottom: 2px solid var(--color-underline-header);
     }
 
     h2 {
-      border-bottom: 1px solid #252525;
+      border-bottom: 2px solid var(--color-underline-header);
     }
   }
 }

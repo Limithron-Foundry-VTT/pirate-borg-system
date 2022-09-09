@@ -7,7 +7,7 @@
   "author": "maqloner",
   "scripts": [],
   "esmodules": ["module/pirateborg.js"],
-  "styles": ["css/pirateborg.css"],
+  "styles": ["css/editor.css", "css/pirateborg.css"],
   "packs": [
     {
       "name": "containers",
