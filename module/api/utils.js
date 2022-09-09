@@ -106,6 +106,13 @@ export const getResultCollection = (result) => result.documentCollection ?? resu
 export const getResultText = (result) => result.text ?? result.data.text;
 
 /**
+ * @param {TableResult[]} results
+ * @param {String} [separator=", "]
+ * @return {String}
+ */
+export const getResultsAsText = (results, separator = ', ') => results.map(r => r.getChatText()).join(separator);
+
+/**
  * @param {Macro} macro
  * @return {String}
  */
