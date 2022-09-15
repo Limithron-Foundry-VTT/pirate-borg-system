@@ -1,3 +1,9 @@
+# v0.5.3
+- Fix ship repair action
+
+# v0.5.2
+- Fix armor calculation
+
 # v0.5.0
 
 - Foundry V10 compatibility.

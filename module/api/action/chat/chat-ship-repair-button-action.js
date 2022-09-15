@@ -1,5 +1,5 @@
 import { showDiceWithSound } from "../../dice.js";
-import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
+import { createShipApplyRepairOutcome } from "../../outcome/ship/ship-apply-repair-outcome.js";
 
 /**
  * @param {Object} originalOutcome
@@ -9,7 +9,7 @@ export const chatShipRepairButtonAction = async (originalOutcome) => {
   const initiatorToken = canvas.ready ? canvas.tokens?.get(originalOutcome.initiatorToken) : null;
   const initiatorActor = initiatorToken?.actor ?? game.actors.get(originalOutcome.initiatorActor);
 
-  const outcome = await createHealOutcome({
+  const outcome = await createShipApplyRepairOutcome({
     actor: initiatorActor,
     formula: "d6",
   });
