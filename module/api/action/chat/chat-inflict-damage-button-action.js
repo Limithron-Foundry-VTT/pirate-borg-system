@@ -16,7 +16,7 @@ export const chatInflictDamageButtonAction = async (originalOutcome) => {
   const outcome = await createInflictDamageOutcome({
     actor: initiatorActor,
     formula: originalOutcome.damageFormula,
-    damageReduction: armorOutcome.total,
+    damageReduction: armorOutcome.roll.total,
     targetToken,
   });
 
