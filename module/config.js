@@ -116,8 +116,6 @@ PB.actorDefaults = {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       vision: true,
-      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
     },
   },
   [PB.actorTypes.container]: {
@@ -142,8 +140,6 @@ PB.actorDefaults = {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       vision: true,
-      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
     },
   },
   [PB.actorTypes.vehicle_npc]: {

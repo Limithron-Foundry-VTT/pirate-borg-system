@@ -309,7 +309,7 @@
   "PB.ShipPCAction": "PC Action",
   "PB.ShipRamMessage": "<p>A ship that ends its movement touching another ship can ram. All ships involved roll ram damage.</p><p> Add +1 for each hex they traveled on their last move. A ship that rams <strong>cannot</strong> take any other crew actions on its turn.</p>",
   "PB.ShipRepairButton": "Recover HP",
-  "PB.ShipRepairMessage": "<p>Ship recovers d6 HP or repairs misfired cannons.</p><p><i>Can only be taken if ship has less than 50% hp.</i></p>",
+  "PB.ShipRepairMessage": "<p>Ship recovers d6 HP or repairs misfired cannons.</p><p><i>A ship can only recover up to 50% of its maximum HP using this action</i></p>",
   "PB.ShipRotateLeft": "Rotate Left",
   "PB.ShipRotateRight": "Rotate Right",
   "PB.ShipShantiesPerDayFormula": "1 + Captain's Spirit",

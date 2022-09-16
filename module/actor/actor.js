@@ -415,6 +415,7 @@ export class PBActor extends Actor {
       .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
       .filter((item) => !(item.isHat && item.equipped))
       .filter((item) => !(item.isArmor && item.equipped))
+      .filter((item) => !(item.isWeapon && item.equipped))
       .reduce((weight, item) => weight + item.totalCarryWeight, 0);
   }
 

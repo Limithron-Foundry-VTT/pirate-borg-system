@@ -442,8 +442,8 @@ const characterToActorData = (characterData) => ({
   token: {
     img: characterData.actorImg,
     name: characterData.name,
-    displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER,
-    displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+    actorLink: true,
+    vision: true,
   },
   type: "character",
 });
