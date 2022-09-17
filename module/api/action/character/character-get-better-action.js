@@ -37,7 +37,7 @@ export const characterGetBetterAction = async (actor) => {
  */
 const rollHP = async (actor) => {
   const outcome = await createRollHPOutcome({ hp: actor.attributes.hp.max });
-  await actor.updateData('attributes.hp.max', outcome.newHp);
+  await actor.updateData("attributes.hp.max", outcome.newHp);
   return outcome;
 };
 

@@ -29,7 +29,7 @@ export const showGenericCard = async ({ actor, target, title, description, outco
       items,
     }),
     speaker: ChatMessage.getSpeaker({ actor }),
-    ...(rolls.length ? { sound: diceSound() }: {}),
+    ...(rolls.length ? { sound: diceSound() } : {}),
     flags: {
       [CONFIG.PB.flagScope]: {
         [CONFIG.PB.flags.OUTCOMES]: outcomes,

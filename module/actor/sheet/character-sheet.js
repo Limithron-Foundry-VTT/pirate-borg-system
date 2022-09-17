@@ -389,21 +389,24 @@ export class PBActorSheetCharacter extends PBActorSheet {
    */
   _onGetBetter(event) {
     event.preventDefault();
-    const getingBetterConfirmDialog = new Dialog({
-      title: game.i18n.localize("PB.GetBetter"),
-      content: game.i18n.localize("PB.GetBetterConfirmMessage"),
-      buttons: {
-        cancel: {
-          label: game.i18n.localize("PB.Cancel"),
+    const getingBetterConfirmDialog = new Dialog(
+      {
+        title: game.i18n.localize("PB.GetBetter"),
+        content: game.i18n.localize("PB.GetBetterConfirmMessage"),
+        buttons: {
+          cancel: {
+            label: game.i18n.localize("PB.Cancel"),
+          },
+          getbetter: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("PB.GetBetter"),
+            callback: async () => characterGetBetterAction(this.actor),
+          },
         },
-        getbetter: {
-          icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("PB.GetBetter"),
-          callback: async () => characterGetBetterAction(this.actor),
-        },
+        default: "cancel",
       },
-      default: "cancel",
-    }, { classes: ['dialog', 'custom-dialog']});
+      { classes: ["dialog", "custom-dialog"] }
+    );
     getingBetterConfirmDialog.render(true);
   }
 

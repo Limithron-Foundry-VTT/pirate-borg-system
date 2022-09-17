@@ -699,7 +699,7 @@ export class PBItem extends Item {
    * @returns {String}
    */
   get attackAbility() {
-    switch(true) {
+    switch (true) {
       case this.isRanged:
         return CONFIG.PB.ability.presence;
       case this.isThrown:

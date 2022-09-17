@@ -85,16 +85,16 @@ export const configureSystem = () => {
   };
 
   for (const styleFormat of CONFIG.TinyMCE.style_formats) {
-    if (styleFormat.title !== 'Custom') continue;
+    if (styleFormat.title !== "Custom") continue;
     styleFormat.items.push({
       inline: "span",
       classes: "pb-highlight",
       title: "Highlight Text",
       wrapper: true,
-    })
+    });
   }
   if (!(CONFIG.TinyMCE.content_css instanceof Array)) {
     CONFIG.TinyMCE.content_css = [CONFIG.TinyMCE.content_css];
   }
-  CONFIG.TinyMCE.content_css.push('systems/pirateborg/css/editor.css');
+  CONFIG.TinyMCE.content_css.push("systems/pirateborg/css/editor.css");
 };

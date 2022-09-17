@@ -36,12 +36,14 @@ export const configureHandlebar = () => {
     if (game.release.generation >= 10) {
       const content = options.hash.content;
       delete options.hash.content;
-      return HandlebarsHelpers.editor(content, options);
-    } else {
+
       const documents = options.hash.documents !== false;
       const owner = Boolean(options.hash.owner);
       const rollData = options.hash.rollData;
-      options.hash.content = TextEditor.enrichHTML(options.hash.content, { secrets: owner, documents, rollData, async: false });
+
+      const enrichedContent = TextEditor.enrichHTML(content, { secrets: owner, documents, rollData, async: false });
+      return HandlebarsHelpers.editor(enrichedContent, options);
+    } else {
       return HandlebarsHelpers.editor(options);
     }
   });

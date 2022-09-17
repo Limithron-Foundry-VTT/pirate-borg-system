@@ -1,7 +1,20 @@
+# v0.5.5
+- The sound controls for playlist are now darker
+- Fix weapons animations not working in v10
+- Fix formulas not working in html fields
+
+# v0.5.4
+
+- Update wording of the Ship Repair action
+- Equipped weapons should not take an inventory space
+- System should respect the default token configuration of the world
+
 # v0.5.3
+
 - Fix ship repair action
 
 # v0.5.2
+
 - Fix armor calculation
 
 # v0.5.0

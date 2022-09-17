@@ -18,7 +18,7 @@ export const createShipApplyRepairOutcome = async ({ actor, formula = "" }) =>
         if (actor.hp.value >= max) {
           return 0;
         }
-        if ((actor.hp.value + outcome.roll.total) >= max) {
+        if (actor.hp.value + outcome.roll.total >= max) {
           return max - actor.hp.value;
         }
         return outcome.roll.total;

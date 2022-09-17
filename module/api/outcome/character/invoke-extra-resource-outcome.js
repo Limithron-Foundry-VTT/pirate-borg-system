@@ -1,8 +1,7 @@
 import { asyncPipe } from "../../utils.js";
 import { ANIMATION_TYPE } from "../../animation/outcome-animation.js";
-import { outcome, testOutcome, withAsyncProps, withAutomations, withButton, withTarget, withWhen } from "../outcome.js";
+import { outcome, testOutcome, withAsyncProps, withAutomations, withTarget, withWhen } from "../outcome.js";
 import { ADVANCED_ANIMATION_TYPE } from "../../animation/advanced-animation.js";
-import { OUTCOME_BUTTON } from "../../automation/outcome-chat-button.js";
 
 /**
  * @param {Boolean} isFumble
@@ -37,13 +36,13 @@ export const createInvokeExtraResourceOutcome = async ({ actor }) =>
         formula: actor.extraResourceTestFormula,
         formulaLabel: actor.extraResourceTestFormulaLabel,
         data: actor.getRollData(),
-      }),
+      })
     ),
     withWhen(
       () => !actor.extraResourceTestFormula,
       outcome({
         type: "invoke-extra-resource",
-      }),
+      })
     ),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),

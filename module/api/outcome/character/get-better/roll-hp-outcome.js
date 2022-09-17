@@ -1,5 +1,5 @@
 import { asyncPipe } from "../../../utils.js";
-import { rollOutcome, withAsyncProps, withWhen } from "../../outcome.js";
+import { rollOutcome, withAsyncProps } from "../../outcome.js";
 
 /**
  * @param {String} hp
@@ -14,6 +14,6 @@ export const createRollHPOutcome = async ({ hp }) =>
     }),
     withAsyncProps({
       description: (outcome) => game.i18n.format("PB.GetBetterHP", { hp: outcome.roll.total }),
-      newHp: (outcome) => outcome.roll.total + hp
-    }),
+      newHp: (outcome) => outcome.roll.total + hp,
+    })
   )();

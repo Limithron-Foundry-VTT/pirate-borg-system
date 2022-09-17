@@ -58,7 +58,7 @@ export const getTokenWidth = (token) => token.document.width ?? token.data.width
  * @param {Token} token
  * @return {Number}
  */
-export const getTokenScale = (token) => token.document.scale ?? token.data.scale;
+export const getTokenScale = (token) => token.document.texture?.scaleX ?? token.data.scale;
 
 /**
  * @param {ChatMessage} chatMessage
@@ -110,7 +110,7 @@ export const getResultText = (result) => result.text ?? result.data.text;
  * @param {String} [separator=", "]
  * @return {String}
  */
-export const getResultsAsText = (results, separator = ', ') => results.map(r => r.getChatText()).join(separator);
+export const getResultsAsText = (results, separator = ", ") => results.map((r) => r.getChatText()).join(separator);
 
 /**
  * @param {Macro} macro

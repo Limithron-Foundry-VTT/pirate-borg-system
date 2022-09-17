@@ -212,7 +212,7 @@ PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.misc, PB.itemTypes.feat
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
   ranged: "PB.WeaponTypeRanged",
-  thrown: "PB.WeaponTypeThrown"
+  thrown: "PB.WeaponTypeThrown",
 };
 
 PB.characterGenerator = {
