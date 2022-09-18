@@ -146,3 +146,16 @@ export const getSystemVersion = () => game.system.version ?? game.system.data.ve
  * @return {Array}
  */
 export const getModuleDependencies = (module) => module?.dependencies ?? module?.data?.dependencies ?? [];
+
+/**
+ * @param {String} type
+ * @return {Object}
+ */
+export const getActorDefaults = (type) => {
+  const actorDefault = CONFIG.PB.actorDefaults[type] ?? {};
+  if (game.release.generation < 10) {
+    actorDefault.token = actorDefault.prototypeToken;
+    delete actorDefault.prototypeToken;
+  }
+  return actorDefault;
+}

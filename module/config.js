@@ -112,7 +112,7 @@ PB.itemTypeKeys = {
 PB.actorDefaults = {
   [PB.actorTypes.character]: {
     img: "systems/pirateborg/tokens/class.png",
-    token: {
+    prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       vision: true,
@@ -120,7 +120,7 @@ PB.actorDefaults = {
   },
   [PB.actorTypes.container]: {
     img: "systems/pirateborg/icons/misc/container.png",
-    token: {
+    prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
       vision: false,
@@ -128,7 +128,7 @@ PB.actorDefaults = {
   },
   [PB.actorTypes.creature]: {
     img: "systems/pirateborg/icons/misc/monster.png",
-    token: {
+    prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
       vision: false,
@@ -136,7 +136,7 @@ PB.actorDefaults = {
   },
   [PB.actorTypes.vehicle]: {
     img: "systems/pirateborg/icons/misc/ship.png",
-    token: {
+    prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
       vision: true,
@@ -144,7 +144,7 @@ PB.actorDefaults = {
   },
   [PB.actorTypes.vehicle_npc]: {
     img: "systems/pirateborg/icons/misc/ship.png",
-    token: {
+    prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
       vision: false,

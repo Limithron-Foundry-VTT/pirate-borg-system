@@ -1,5 +1,5 @@
 import { trackCarryingCapacity } from "../system/settings.js";
-import { setSystemFlag } from "../api/utils.js";
+import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
 
 /**
@@ -8,7 +8,7 @@ import { findCompendiumItem } from "../api/compendium.js";
 export class PBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
-    mergeObject(data, CONFIG.PB.actorDefaults[data.type] || {}, { overwrite: false });
+    mergeObject(data, getActorDefaults(data.type), { overwrite: false });
     return super.create(data, options);
   }
 

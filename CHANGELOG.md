@@ -1,3 +1,6 @@
+# v0.5.6
+- Fix actor duplication
+
 # v0.5.5
 - The sound controls for playlist are now darker
 - Fix weapons animations not working in v10
