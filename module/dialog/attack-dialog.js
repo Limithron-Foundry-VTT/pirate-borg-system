@@ -5,15 +5,17 @@ import { getSystemFlag, setSystemFlag } from "../api/utils.js";
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 
 class AttackDialog extends Application {
-  constructor({ actor, callback } = {}) {
+  constructor({ actor, weapon, callback } = {}) {
     super();
     this.actor = actor;
+    this.weapon = weapon;
     this.callback = callback;
 
     this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
     this.targetToken = findTargettedToken();
+    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
     this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
   }
 
@@ -32,7 +34,7 @@ class AttackDialog extends Application {
   async getData(options) {
     const data = super.getData(options);
     const attackDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
-    const targetArmor = await this._getTargetArmor();
+    const targetArmor = this.shouldIgnoreArmor ? "0" : await this._getTargetArmor();
 
     return {
       ...data,
@@ -40,6 +42,7 @@ class AttackDialog extends Application {
       attackDR,
       targetArmor,
       target: this.targetToken?.actor,
+      shouldIgnoreArmor: this.shouldIgnoreArmor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
       hasTargetWarning: this._hasTargetWarning(),
@@ -57,10 +60,20 @@ class AttackDialog extends Application {
     return this.hasTargets;
   }
 
+  _shouldIgnoreArmor() {
+    if (this.targetToken?.actor.isAnyVehicle) {
+      return false;
+    }
+    if (this.weapon.isGunpowderWeapon) {
+      return true;
+    }
+  }
+
   _onTargetChanged() {
     this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
+    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
     this.render();
   }
 

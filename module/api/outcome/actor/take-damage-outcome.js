@@ -16,7 +16,7 @@ export const createTakeDamageOutcome = async ({ actor, formula = "", damageReduc
     rollOutcome({
       type: "take-damage",
       formula,
-      formulaLabel: `${game.i18n.localize("PB.TargetArmor")}: ${formula}`,
+      formulaLabel: `${game.i18n.localize("PB.Damage")}: ${formula}`,
     }),
     withAsyncProps({
       totalDamage: (outcome) => Math.round(Math.max(0, outcome.roll.total - damageReduction)),

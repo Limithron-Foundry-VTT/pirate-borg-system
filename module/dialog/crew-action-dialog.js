@@ -29,6 +29,7 @@ class CrewActionDialog extends Application {
     this.enableMovementSelection = enableMovementSelection;
     this.enableTargetSelection = enableTargetSelection;
     this.enforceTargetSelection = isEnforceTargetEnabled();
+    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
     this.buttonLabel = buttonLabel;
     this.callback = callback;
 
@@ -56,7 +57,7 @@ class CrewActionDialog extends Application {
     const data = super.getData(options);
     const selectedCrewId = await getSystemFlag(this.actor, CONFIG.PB.flags.SELECTED_CREW);
     const selectedDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
-    const selectedArmor = await this._getTargetArmor();
+    const selectedArmor = this.shouldIgnoreArmor ? "0" : await this._getTargetArmor();
 
     return {
       ...data,
@@ -73,6 +74,7 @@ class CrewActionDialog extends Application {
       selectedDR,
       selectedCrewId,
       selectedArmor,
+      shouldIgnoreArmor: this.shouldIgnoreArmor,
       target: this.targetToken?.actor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
@@ -98,7 +100,12 @@ class CrewActionDialog extends Application {
     this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
+    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
     this.render();
+  }
+
+  _shouldIgnoreArmor() {
+    return !this.targetToken?.actor.isAnyVehicle;
   }
 
   async _getTargetArmor() {

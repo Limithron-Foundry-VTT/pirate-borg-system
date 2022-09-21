@@ -78,8 +78,14 @@
   {{#if enableArmorSelection}}
     <div class="form-group">
       <label>{{localize "PB.TargetArmor"}}:</label>
-      <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
-    </div>    
+      <div class="form-fields">
+        <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
+        {{#if shouldIgnoreArmor}}
+          <div class="form-warning-icon" title="{{localize "PB.ShouldIgnoreArmor"}}"><i class="fas fa-exclamation-circle"></i></div>
+        {{/if}}
+      </div>
+    </div>
+
     <div class="form-group form-group-radio-selector">
       <label></label>
       <ul class="radio-group-radio armor-tier">

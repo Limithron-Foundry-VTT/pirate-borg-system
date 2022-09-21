@@ -111,7 +111,13 @@
   <div class="form-group">
     <label>{{localize "PB.Armor"}}:</label>
     <input id="defendArmor" type="text" name="defendarmor" value="{{defendArmor}}" placeholder="0" data-dtype="String" />
-  </div>    
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "PB.IgnoreArmor"}}:</label>
+    <input id="ignoreArmor" type="checkbox" name="ignoreArmor" value="true" data-dtype="Boolean" {{#if ignoreArmor}}checked{{/if}} />
+  </div>
+
   <!-- <div class="form-group">
     <label></label>
     <ul class="radio-group-radio defend-armor">

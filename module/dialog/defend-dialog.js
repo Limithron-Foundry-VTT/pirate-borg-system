@@ -17,6 +17,7 @@ class DefendDialog extends Application {
     this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     this.targetToken = findTargettedToken();
     this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
+    this.ignoreArmor = this._shouldIgnoreArmor();
   }
 
   /** @override */
@@ -34,7 +35,7 @@ class DefendDialog extends Application {
   async getData(options) {
     const data = super.getData(options);
     const defendDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
-    const defendArmor = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor?.damageReductionDie ?? 0;
+    const defendArmor = this.ignoreArmor ? 0 : await this._getDefendArmor();
     const incomingAttack = await this._getIncomingAttack();
 
     return {
@@ -45,10 +46,15 @@ class DefendDialog extends Application {
       defendArmor,
       drModifiers: this.modifiers.warning,
       target: this.targetToken?.actor,
+      ignoreArmor: this.ignoreArmor,
       isTargetSelectionValid: this.isTargetSelectionValid,
       shouldShowTarget: this._shouldShowTarget(),
       hasTargetWarning: this._hasTargetWarning(),
     };
+  }
+
+  async _getDefendArmor() {
+    return (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor?.damageReductionDie ?? 0;
   }
 
   async _getIncomingAttack() {
@@ -69,10 +75,15 @@ class DefendDialog extends Application {
     return this.hasTargets;
   }
 
+  _shouldIgnoreArmor() {
+    return this.targetToken?.actor.isAnyVehicle ?? false;
+  }
+
   _onTargetChanged() {
     this.targetToken = findTargettedToken();
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
+    this.ignoreArmor = this._shouldIgnoreArmor();
     this.render();
   }
 
@@ -110,6 +121,14 @@ class DefendDialog extends Application {
     html.find("#incomingAttack").on("change", this._onIncomingAttackInputChanged.bind(this));
 
     html.find("#defendArmor").on("change", this._onDefendArmorRadioInputChanged.bind(this));
+    html.find("#ignoreArmor").on("change", this._onIgnoreArmorChanged.bind(this));
+  }
+
+  _onIgnoreArmorChanged(event) {
+    const input = $(event.currentTarget);
+    this.ignoreArmor = input.prop("checked");
+    console.log(this.ignoreArmor);
+    this.render();
   }
 
   _onDefenseDrRadioInputChanged(event) {

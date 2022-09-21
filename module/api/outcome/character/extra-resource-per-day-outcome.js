@@ -9,7 +9,7 @@ export const createExtraResourcePerDayOutcome = async ({ actor }) =>
   asyncPipe(
     rollOutcome({
       type: "extra-resource-per-day",
-      formula: actor.extraResourceFormula,
+      formula: `max(${actor.extraResourceFormula}, 0)`,
       formulaLabel: actor.extraResourceFormulaLabel,
       data: actor.getRollData(),
     }),

@@ -9,11 +9,14 @@ export const createRitualPerDayOutcome = async ({ actor }) =>
   asyncPipe(
     rollOutcome({
       type: "rituals-per-day",
-      formula: "d4+@abilities.spirit.value",
-      formulaLabel: game.i18n.localize("PB.RitualPerDayFormula"),
+      formula: "max(d4 + @abilities.spirit.value, 0)",
       data: actor.getRollData(),
     }),
     withAsyncProps({
       title: (outcome) => `${outcome.roll.total} ${game.i18n.localize("PB.Rituals")}`,
+      formulaLabel: () =>
+        game.i18n.format("PB.RitualPerDayFormula", {
+          score: actor.abilities.spirit.value,
+        }),
     })
   )();

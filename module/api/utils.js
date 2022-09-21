@@ -158,4 +158,4 @@ export const getActorDefaults = (type) => {
     delete actorDefault.prototypeToken;
   }
   return actorDefault;
-}
+};

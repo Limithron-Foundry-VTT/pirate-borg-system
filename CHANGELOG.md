@@ -1,7 +1,12 @@
-# v0.5.6
+# v0.6.0
+
 - Fix actor duplication
+- Amount of rituals, prayers and sorceries per day should not go under 0
+- Update Attack, Defend and Ship attack dialogs for Blackpowder weapons ignoring armor
+- Changed the label "Armor" to "Damage" in Defend chat message
 
 # v0.5.5
+
 - The sound controls for playlist are now darker
 - Fix weapons animations not working in v10
 - Fix formulas not working in html fields

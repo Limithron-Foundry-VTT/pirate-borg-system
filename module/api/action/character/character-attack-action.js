@@ -17,6 +17,7 @@ export const characterAttackAction = async (actor, weapon) => {
 
   const { attackDR, targetArmor, targetToken } = await showAttackDialog({
     actor,
+    weapon,
   });
 
   const outcome = await createAttackOutcome({
