@@ -127,7 +127,6 @@ class DefendDialog extends Application {
   _onIgnoreArmorChanged(event) {
     const input = $(event.currentTarget);
     this.ignoreArmor = input.prop("checked");
-    console.log(this.ignoreArmor);
     this.render();
   }
 
