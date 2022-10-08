@@ -10,7 +10,8 @@ export const createInitiativeOutcome = async ({ actor }) =>
     rollOutcome({
       type: "initiative",
       title: game.i18n.localize("PB.Initiative"),
-      formula: "d6",
+      formula: "d6 + @abilities.agility.value",
+      formulaLabel: game.i18n.localize("PB.InitiativeFormula"),
       data: actor.getRollData(),
     })
   )();

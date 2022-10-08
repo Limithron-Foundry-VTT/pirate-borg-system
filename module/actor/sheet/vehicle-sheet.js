@@ -327,11 +327,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
    */
   async _onDropActor(event, actorData) {
     const actorFromUuid = actorData.uuid ? await fromUuid(actorData.uuid) : null;
-    const actor = actorFromUuid
-      ? actorFromUuid
-      : actorData.sceneId
-      ? game.scenes.get(actorData.sceneId).tokens.get(actorData.tokenId).actor
-      : game.actors.get(actorData.actorId);
+    const actor = actorFromUuid ? actorFromUuid : game.actors.get(actorData.id);
 
     if (["character", "creature"].includes(actor.type)) {
       await this.actor.addCrew(actor.id);
