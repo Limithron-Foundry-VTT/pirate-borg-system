@@ -1,9 +1,9 @@
 # v0.6.3
 
-- Official V10 release
-- Fix sidebar style when popout
-- Fix combat tracker style
-- Update the README to includes a link to the V9 version
+- Official V10 release.
+- Fix the sidebar styles when popout.
+- Fix the combat tracker style.
+- Update the README to includes instruction of how to install the system for Foundry v9 and v10.
 
 # v0.6.0
 
