@@ -128,7 +128,9 @@ class DefendDialog extends Application {
     const form = $(event.currentTarget).parents("form")[0];
     const input = $(event.currentTarget);
     this.ignoreArmor = input.prop("checked");
-    $(form).find("#defendArmor").val(this.ignoreArmor ? 0 : await this._getDefendArmor());
+    $(form)
+      .find("#defendArmor")
+      .val(this.ignoreArmor ? 0 : await this._getDefendArmor());
   }
 
   _onDefenseDrRadioInputChanged(event) {

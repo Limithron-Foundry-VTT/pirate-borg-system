@@ -1,11 +1,19 @@
 {
-  "name": "pirateborg",
+  "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.4.2",
-  "templateVersion": 2,
-  "author": "maqloner",
-  "scripts": [],
+  "version": "v0.6.3",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  },
+  "authors": [
+    {
+      "name": "Limithron",
+      "url": "https://www.limithron.com/"
+    }
+  ],
+  "license": "LICENSE.MB3PL",
   "esmodules": ["module/pirateborg.js"],
   "styles": ["css/editor.css", "css/pirateborg.css"],
   "packs": [
@@ -14,77 +22,77 @@
       "label": "Containers",
       "system": "pirateborg",
       "path": "./packs/containers.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "creatures",
       "label": "Creatures",
       "system": "pirateborg",
       "path": "./packs/creatures.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "equipment-melee-weapons",
       "label": "Equipment - Melee weapons",
       "system": "pirateborg",
       "path": "./packs/equipment-melee-weapons.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-ranged-weapons",
       "label": "Equipment - Ranged weapons",
       "system": "pirateborg",
       "path": "./packs/equipment-ranged-weapons.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-bombs",
       "label": "Equipment - Bombs",
       "system": "pirateborg",
       "path": "./packs/equipment-bombs.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-ammo",
       "label": "Equipment - Ammo",
       "system": "pirateborg",
       "path": "./packs/equipment-ammo.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-gear",
       "label": "Equipment - Gear",
       "system": "pirateborg",
       "path": "./packs/equipment-gear.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-pets",
       "label": "Equipment - Pets",
       "system": "pirateborg",
       "path": "./packs/equipment-pets.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-instruments",
       "label": "Equipment - Instruments",
       "system": "pirateborg",
       "path": "./packs/equipment-instruments.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-clothing-and-armors",
       "label": "Equipment - Clothing and armors",
       "system": "pirateborg",
       "path": "./packs/equipment-clothing-and-armors.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-hats",
       "label": "Equipment - Hats",
       "system": "pirateborg",
       "path": "./packs/equipment-hats.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -92,7 +100,7 @@
       "label": "Backgrounds",
       "system": "pirateborg",
       "path": "./packs/backgrounds.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -100,7 +108,7 @@
       "label": "Backgrounds - Items",
       "system": "pirateborg",
       "path": "./packs/backgrounds-items.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -108,7 +116,7 @@
       "label": "Macros - Pirate Borg",
       "system": "pirateborg",
       "path": "./packs/macros-pirateborg.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -116,35 +124,35 @@
       "label": "Feature - Distinctive flaws",
       "system": "pirateborg",
       "path": "./packs/feature-distinctive-flaws.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "feature-physical-trademark",
       "label": "Feature - Physical trademark",
       "system": "pirateborg",
       "path": "./packs/feature-physical-trademark.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "feature-idiosyncrasies",
       "label": "Feature - Idiosyncrasies",
       "system": "pirateborg",
       "path": "./packs/feature-idiosyncrasies.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "feature-unfortunate-incidents-conditions",
       "label": "Feature - Unfortunate incidents & conditions",
       "system": "pirateborg",
       "path": "./packs/feature-unfortunate-incidents-conditions.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "feature-thing-of-importance",
       "label": "Feature - Thing of importance",
       "system": "pirateborg",
       "path": "./packs/feature-thing-of-importance.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -152,14 +160,14 @@
       "label": "Ancient relics",
       "system": "pirateborg",
       "path": "./packs/invokable-ancient-relics.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "invokable-arcane-rituals",
       "label": "Arcane Rituals",
       "system": "pirateborg",
       "path": "./packs/invokable-arcane-rituals.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -167,7 +175,7 @@
       "label": "Macros - Ancient relics",
       "system": "pirateborg",
       "path": "./packs/macros-ancient-relics.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -175,14 +183,14 @@
       "label": "Macros - Arcane Rituals",
       "system": "pirateborg",
       "path": "./packs/macros-arcane-rituals.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
     {
       "name": "rolls-character-creation",
       "label": "Rolls - Character creation",
       "system": "pirateborg",
       "path": "./packs/rolls-character-creation.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
 
     {
@@ -190,7 +198,7 @@
       "label": "Rolls - Gamemaster",
       "system": "pirateborg",
       "path": "./packs/rolls-gamemaster.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
 
     {
@@ -198,42 +206,42 @@
       "label": "Ships - Features",
       "system": "pirateborg",
       "path": "./packs/ships-features.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "ships-cargo",
       "label": "Ships - Cargo",
       "system": "pirateborg",
       "path": "./packs/ships-cargo.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-ships",
       "label": "Rolls - Ships",
       "system": "pirateborg",
       "path": "./packs/rolls-ships.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "ships-mystic-shanties",
       "label": "Ships - Mystic Shanties",
       "system": "pirateborg",
       "path": "./packs/ships-mystic-shanties.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "ships",
       "label": "Ships",
       "system": "pirateborg",
       "path": "./packs/ships.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "ships-npc",
       "label": "Ships NPC",
       "system": "pirateborg",
       "path": "./packs/ships-npc.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
 
     {
@@ -241,7 +249,7 @@
       "label": "Class - Landlubber",
       "system": "pirateborg",
       "path": "./packs/class-landlubber.db",
-      "entity": "Item"
+      "type": "Item"
     },
 
     {
@@ -249,21 +257,21 @@
       "label": "Class - Brute",
       "system": "pirateborg",
       "path": "./packs/class-brute.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-brute",
       "label": "Rolls - Brute",
       "system": "pirateborg",
       "path": "./packs/rolls-brute.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-brute",
       "label": "Macros - Brute",
       "system": "pirateborg",
       "path": "./packs/macros-brute.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -271,21 +279,21 @@
       "label": "Class - Rapscallion",
       "system": "pirateborg",
       "path": "./packs/class-rapscallion.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-rapscallion",
       "label": "Rolls - Rapscallion",
       "system": "pirateborg",
       "path": "./packs/rolls-rapscallion.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-rapscallion",
       "label": "Macros - Rapscallion",
       "system": "pirateborg",
       "path": "./packs/macros-rapscallion.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -293,21 +301,21 @@
       "label": "Class - Buccaneer",
       "system": "pirateborg",
       "path": "./packs/class-buccaneer.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-buccaneer",
       "label": "Rolls - Buccaneer",
       "system": "pirateborg",
       "path": "./packs/rolls-buccaneer.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-buccaneer",
       "label": "Macros - Buccaneer",
       "system": "pirateborg",
       "path": "./packs/macros-buccaneer.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -315,21 +323,21 @@
       "label": "Class - Swashbuckler",
       "system": "pirateborg",
       "path": "./packs/class-swashbuckler.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-swashbuckler",
       "label": "Rolls - Swashbuckler",
       "system": "pirateborg",
       "path": "./packs/rolls-swashbuckler.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-swashbuckler",
       "label": "Macros - Swashbuckler",
       "system": "pirateborg",
       "path": "./packs/macros-swashbuckler.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -337,21 +345,21 @@
       "label": "Class - Zealot",
       "system": "pirateborg",
       "path": "./packs/class-zealot.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-zealot",
       "label": "Rolls - Zealot",
       "system": "pirateborg",
       "path": "./packs/rolls-zealot.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-zealot",
       "label": "Macros - Zealot",
       "system": "pirateborg",
       "path": "./packs/macros-zealot.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -359,21 +367,21 @@
       "label": "Class - Sorcerer",
       "system": "pirateborg",
       "path": "./packs/class-sorcerer.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-sorcerer",
       "label": "Rolls - Sorcerer",
       "system": "pirateborg",
       "path": "./packs/rolls-sorcerer.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-sorcerer",
       "label": "Macros - Sorcerer",
       "system": "pirateborg",
       "path": "./packs/macros-sorcerer.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -381,21 +389,21 @@
       "label": "Class - Tall Tale",
       "system": "pirateborg",
       "path": "./packs/class-tall-tale.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-tall-tale",
       "label": "Rolls - Tall Tale",
       "system": "pirateborg",
       "path": "./packs/rolls-tall-tale.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-tall-tale",
       "label": "Macros - Tall Tale",
       "system": "pirateborg",
       "path": "./packs/macros-tall-tale.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
 
     {
@@ -403,21 +411,21 @@
       "label": "Class - Haunted Soul",
       "system": "pirateborg",
       "path": "./packs/class-haunted-soul.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "rolls-haunted-soul",
       "label": "Rolls - Haunted Soul",
       "system": "pirateborg",
       "path": "./packs/rolls-haunted-soul.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "macros-haunted-soul",
       "label": "Macros - Haunted Soul",
       "system": "pirateborg",
       "path": "./packs/macros-haunted-soul.db",
-      "entity": "Macro"
+      "type": "Macro"
     }
   ],
   "languages": [
@@ -433,8 +441,6 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "minimumCoreVersion": "9.245",
-  "compatibleCoreVersion": "9",
   "url": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.json",
   "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.zip"

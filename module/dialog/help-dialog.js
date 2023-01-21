@@ -52,9 +52,9 @@ export class HelpDialog extends FormApplication {
         installed: !!game.modules.get(module.package),
         active: !!game.modules.get(module.package)?.active,
         dependencies: getModuleDependencies(game.modules.get(module.package)).map((dependency) => ({
-          name: dependency.name,
-          installed: !!game.modules.get(dependency.name),
-          active: !!game.modules.get(dependency.name)?.active,
+          name: dependency.id,
+          installed: !!game.modules.get(dependency.id),
+          active: !!game.modules.get(dependency.id)?.active,
         })),
       }));
   }

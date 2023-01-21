@@ -930,3 +930,20 @@ h3 {
 #playlists .sound-control {
   color: var(--button-background);
 }
+
+.sidebar-popout {
+  &.sidebar-tab.directory li.folder > .folder-header h3 {
+    color: white;
+  }
+
+  a {
+    color: white;
+  }
+
+  &.combat-sidebar .combat-tracker-header h3,
+  &.combat-sidebar .combat-tracker-header nav.encounters h4,
+  &.combat-sidebar .directory-list .directory-item h4,
+  &.combat-sidebar .combat-tracker-header a.combat-button {
+    color: white;
+  }
+}

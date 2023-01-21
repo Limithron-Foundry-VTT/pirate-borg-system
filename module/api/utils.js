@@ -122,7 +122,8 @@ export const getMacroCommand = (macro) => macro.command ?? macro.data.command;
  * @param {Combatant} combatant
  * @return {Number}
  */
-export const getCombatantInitiative = (combatant) => combatant.initiative ?? combatant.data.initiative;
+export const getCombatantInitiative = (combatant) =>
+  Object.getOwnPropertyDescriptor(combatant, "initiative") ? combatant.initiative : combatant.data.initiative;
 
 /**
  * @param {Token} token
@@ -145,7 +146,7 @@ export const getSystemVersion = () => game.system.version ?? game.system.data.ve
  * @param {Object} module
  * @return {Array}
  */
-export const getModuleDependencies = (module) => module?.dependencies ?? module?.data?.dependencies ?? [];
+export const getModuleDependencies = (module) => module?.relationships?.requires ?? module?.data?.dependencies ?? [];
 
 /**
  * @param {String} type

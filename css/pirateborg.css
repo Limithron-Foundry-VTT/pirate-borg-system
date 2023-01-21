@@ -1533,6 +1533,16 @@ h3 {
   color: var(--button-background);
 }
 
+.sidebar-popout.sidebar-tab.directory li.folder > .folder-header h3 {
+  color: white;
+}
+.sidebar-popout a {
+  color: white;
+}
+.sidebar-popout.combat-sidebar .combat-tracker-header h3, .sidebar-popout.combat-sidebar .combat-tracker-header nav.encounters h4, .sidebar-popout.combat-sidebar .directory-list .directory-item h4, .sidebar-popout.combat-sidebar .combat-tracker-header a.combat-button {
+  color: white;
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
