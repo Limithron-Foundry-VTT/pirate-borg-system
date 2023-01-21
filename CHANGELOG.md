@@ -4,6 +4,7 @@
 - Fix the sidebar styles when popout.
 - Fix the combat tracker style.
 - Update the README to includes instruction of how to install the system for Foundry v9 and v10.
+- Add `createCharacter` and `updateCharacter` hooks when creating and updating a character. A module could listen to those events to further customize a character.
 
 # v0.6.0
 

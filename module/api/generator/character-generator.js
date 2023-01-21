@@ -34,6 +34,9 @@ export const createActorWithCharacter = async (characterData) => {
   const data = characterToActorData(characterData);
   const actor = await PBActor.create(data);
   await invokeStartingMacro(actor);
+  
+  Hooks.call('createCharacter', actor);
+
   return actor;
 };
 
@@ -54,6 +57,9 @@ export const updateActorWithCharacter = async (actor, characterData) => {
       name: actor.name,
     });
   }
+
+  Hooks.call('updateCharacter', actor);
+
   await invokeStartingMacro(actor);
 };
 
