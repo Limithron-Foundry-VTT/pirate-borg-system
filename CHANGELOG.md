@@ -1,3 +1,10 @@
+# v0.6.3
+
+- Official V10 release
+- Fix sidebar style when popout
+- Fix combat tracker style
+- Update the README to includes a link to the V9 version
+
 # v0.6.0
 
 - Fix actor duplication
