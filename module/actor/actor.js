@@ -17,7 +17,7 @@ export class PBActor extends Actor {
     if (data.type === CONFIG.PB.actorTypes.character) {
       if (!this.characterClass) {
         const defaultClass = await findCompendiumItem("pirateborg.class-landlubber", "Landlubber");
-        await this.createEmbeddedDocuments("Item", [defaultClass.data]);
+        await this.createEmbeddedDocuments("Item", [defaultClass]);
       }
     }
     await super._onCreate(data, options, userId);

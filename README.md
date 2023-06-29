@@ -24,7 +24,7 @@ PIRATE BORG is an independent production by community contributors, and is not a
 
 1. In the Game Systems Tab, click `Install System`
 2. Enter the Manifest URL: `https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v0.6.2/system.json`
-u
+
 
 ## Questions? Suggestions? Bugs?
 

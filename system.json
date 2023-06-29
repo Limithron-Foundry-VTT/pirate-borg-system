@@ -2,10 +2,10 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.6.3",
+  "version": "v0.6.4",
   "compatibility": {
     "minimum": "10",
-    "verified": "10"
+    "verified": "11"
   },
   "authors": [
     {
@@ -441,7 +441,9 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
+  "background": "https://raw.githubusercontent.com/Limithron-Foundry-VTT/pirate-borg-system/main/ui/background.jpg",
   "url": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.json",
-  "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.zip"
+  "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.zip",
+  "changelog": "https://raw.githubusercontent.com/Limithron-Foundry-VTT/pirate-borg-system/main/CHANGELOG.md"
 }
