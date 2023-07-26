@@ -1,4 +1,9 @@
+# v0.6.5
+
+- Text updates to Buccaneer, Rapscallion, Swashbuckler and Zealot classes.
+
 # v0.6.4
+
 - Official V11 release.
 
 # v0.6.3
