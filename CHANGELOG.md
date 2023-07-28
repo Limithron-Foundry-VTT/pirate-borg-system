@@ -1,3 +1,7 @@
+# v0.6.6
+
+- Fix [DragRuler](https://foundryvtt.com/packages/drag-ruler) distance calculations for Ships.
+
 # v0.6.5
 
 - Text updates to Buccaneer, Rapscallion, Swashbuckler and Zealot classes.

@@ -323,6 +323,8 @@
   "PB.ShipWeighAnchorMessage": "The ship is no longer anchored.",
   "PB.ShouldIgnoreArmor": "Black powder weapons ignore armor",
   "PB.Silver": "Silver",
+  "PB.SpeedsMove": "Move",
+  "PB.SpeedsStay": "Stay",
   "PB.StandsFirm": "Stands firm",
   "PB.Starting": "Starting",
   "PB.StartingBonusDropInvalid": "Item must exist in a compendium pack",
