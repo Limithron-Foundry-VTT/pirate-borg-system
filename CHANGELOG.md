@@ -1,3 +1,8 @@
+# v0.6.7
+
+- Fix CSS interactions with Monk's Enhanced Journals.
+- Updated link to premium module.
+
 # v0.6.6
 
 - Fix [DragRuler](https://foundryvtt.com/packages/drag-ruler) distance calculations for Ships.

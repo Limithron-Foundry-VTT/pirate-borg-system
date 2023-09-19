@@ -92,9 +92,6 @@
   font-size: 13px;
   color: #191813;
 }
-.pirateborg form {
-  height: 100%;
-}
 .pirateborg ::-webkit-scrollbar-thumb {
   background: var(--highlight-background-color);
   border: 1px solid lightgray;
