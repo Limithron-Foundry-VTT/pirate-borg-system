@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.6.7",
+  "version": "v0.6.8",
   "compatibility": {
     "minimum": "10",
     "verified": "11"

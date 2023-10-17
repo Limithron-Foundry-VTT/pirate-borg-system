@@ -1,3 +1,7 @@
+# v0.6.8
+
+- Fix Zealot Prayers roll table formula (thanks Félix).
+
 # v0.6.7
 
 - Fix CSS interactions with Monk's Enhanced Journals.
