@@ -1,3 +1,7 @@
+# v0.6.9
+
+- System chat message cards should now display in the selected chat message mode (public, private etc.).
+
 # v0.6.8
 
 - Fix Zealot Prayers roll table formula (thanks Félix).

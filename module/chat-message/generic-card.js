@@ -19,7 +19,7 @@ export const showGenericCard = async ({ actor, target, title, description, outco
     await showDiceWithSound(rolls);
   }
 
-  return ChatMessage.create({
+  const messageData = {
     content: await renderTemplate(GENERIC_CARD_TEMPLATE, {
       title,
       description,
@@ -35,5 +35,7 @@ export const showGenericCard = async ({ actor, target, title, description, outco
         [CONFIG.PB.flags.OUTCOMES]: outcomes,
       },
     },
-  });
+  };
+  ChatMessage.applyRollMode(messageData, game.settings.get('core','rollMode'));
+  return ChatMessage.create(messageData);
 };
