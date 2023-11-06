@@ -28,10 +28,6 @@ class CrewActionDialog extends Application {
     this.enableArmorSelection = enableArmorSelection;
     this.enableMovementSelection = enableMovementSelection;
     this.enableTargetSelection = enableTargetSelection;
-    this.enforceTargetSelection = isEnforceTargetEnabled();
-    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
-    this.buttonLabel = buttonLabel;
-    this.callback = callback;
 
     if (this.enableTargetSelection) {
       this.isTargetSelectionValid = isTargetSelectionValid();
@@ -39,6 +35,11 @@ class CrewActionDialog extends Application {
       this.targetToken = findTargettedToken();
       this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     }
+
+    this.enforceTargetSelection = isEnforceTargetEnabled();
+    this.shouldIgnoreArmor = this._shouldIgnoreArmor();
+    this.buttonLabel = buttonLabel;
+    this.callback = callback;
   }
 
   /** @override */

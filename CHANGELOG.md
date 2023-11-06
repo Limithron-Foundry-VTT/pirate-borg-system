@@ -1,3 +1,8 @@
+# v0.6.10
+
+- Fix ships incorrectly ignoring armor when attacking other ships.
+  - They now list the target ship's armor in the attack dialog without you needing to re-target the ship.
+
 # v0.6.9
 
 - System chat message cards should now display in the selected chat message mode (public, private etc.).
