@@ -374,7 +374,7 @@ export const rollCharacterForClass = async (cls) => {
   const description = generateDescription(cls, baseTables);
 
   const powerUsesRoll = Math.max(0, (await evaluateFormula(`1d4 + ${abilities.spirit}`)).total);
-  const extraResourceRoll = Math.max(0, (await evaluateFormula(`1d4 + ${abilities.spirit}`)).total);
+  const extraResourceRoll = Math.max(0, (await evaluateFormula(cls.system.extraResourceFormula.replace("@abilities.spirit.value", abilities.spirit))).total);
 
   const allDocs = [
     ...baseTables,

@@ -1,3 +1,7 @@
+# v0.6.11
+
+- Fix Zealot's rolled from The Tavern incorrectly having `1d4 + spirit` prayers, instead of the correct `1d2 + spirit` (thanks 525600Mimics).
+
 # v0.6.10
 
 - Fix ships incorrectly ignoring armor when attacking other ships.
