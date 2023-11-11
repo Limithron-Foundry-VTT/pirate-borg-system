@@ -1,3 +1,9 @@
+# v0.6.12
+
+- Fix classes that don't have any extra resources from failing to generate in the Tavern.
+  - Bug was introduced in v0.6.11
+- Naval NPCs now correctly show their movement speed in the drag ruler (thanks 525600Mimics).
+
 # v0.6.11
 
 - Fix Zealot's rolled from The Tavern incorrectly having `1d4 + spirit` prayers, instead of the correct `1d2 + spirit` (thanks 525600Mimics).
