@@ -9,7 +9,7 @@ import { getInfoFromDropData, getMacroCommand } from "./utils.js";
 /**
  * @param {Object} data
  * @param {Number} slot
- * @return {Promise.<void>}
+ * @return {Promise.<void> | boolean}
  */
 export const createPirateBorgMacro = async (data, slot) => {
   const { item, actor } = await getInfoFromDropData(data);
@@ -43,6 +43,9 @@ export const createPirateBorgMacro = async (data, slot) => {
     });
   }
   game.user.assignHotbarMacro(macro, slot);
+
+  // Prevent the default Foundry VTT macro creation workflow
+  return false;
 };
 
 /**

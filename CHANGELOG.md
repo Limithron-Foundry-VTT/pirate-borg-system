@@ -1,3 +1,9 @@
+# v0.6.13
+
+- Fixed dragging an item onto the macro hotbar creating the wrong macro syntax.
+- Fixed Machete not having the correct damage formula (thanks VinceFox).
+  - It's now 1d6 damage.
+
 # v0.6.12
 
 - Fix classes that don't have any extra resources from failing to generate in the Tavern.
