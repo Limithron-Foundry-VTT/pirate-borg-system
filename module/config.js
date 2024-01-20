@@ -294,13 +294,6 @@ PB.recommendedModules = [
   },
   {
     type: "recommended",
-    name: "Combat Carousel",
-    package: "combat-carousel",
-    url: "https://foundryvtt.com/packages/combat-carousel",
-    description: "A Foundry VTT module to display CRPG-style Combatant cards in carousel-like format.",
-  },
-  {
-    type: "recommended",
     name: "FXMaster",
     package: "fxmaster",
     url: "https://foundryvtt.com/packages/fxmaster",

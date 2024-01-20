@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.6.13",
+  "version": "v0.6.14",
   "compatibility": {
     "minimum": "10",
     "verified": "11"
@@ -22,13 +22,6 @@
       "label": "Containers",
       "system": "pirateborg",
       "path": "./packs/containers.db",
-      "type": "Actor"
-    },
-    {
-      "name": "creatures",
-      "label": "Creatures",
-      "system": "pirateborg",
-      "path": "./packs/creatures.db",
       "type": "Actor"
     },
     {
