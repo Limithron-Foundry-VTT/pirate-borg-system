@@ -1,3 +1,11 @@
+# v0.6.14
+
+- Updated Rapscallion class. Changes made to:
+  - Back Stabber feature.
+  - Sneaky Bastard feature.
+- Removed empty "creatures" compendium that should not have been included in the system.
+- Removed deprecated "Combat Carousel" module from recommended modules list.
+
 # v0.6.13
 
 - Fixed dragging an item onto the macro hotbar creating the wrong macro syntax.
