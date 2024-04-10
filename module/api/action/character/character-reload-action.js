@@ -4,6 +4,7 @@ import { createReloadingOutcome } from "../../outcome/character/reloading-outcom
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
+ * @returns {Promise<Object>}
  */
 export const characterReloadAction = async (actor, item) => {
   const reloadTime = item.reloadTime || 1;
@@ -27,4 +28,6 @@ export const characterReloadAction = async (actor, item) => {
     }),
     outcomes: [outcome],
   });
+
+  return outcome;
 };

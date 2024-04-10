@@ -3,7 +3,7 @@ import { createInitiativeOutcome } from "../../outcome/actor/initiative-outcome.
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const actorInitiativeAction = async (actor) => {
   const outcome = await createInitiativeOutcome({ actor });
@@ -20,4 +20,6 @@ export const actorInitiativeAction = async (actor) => {
       combatant.update({ initiative: outcome.roll.total });
     }
   }
+
+  return outcome;
 };

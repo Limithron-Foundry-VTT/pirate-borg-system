@@ -1,3 +1,7 @@
+# v0.6.15
+
+- Exposed the "outcomes" of rolls performed via the Pirate Borg API to allow for better integration with other modules and/or macros.
+
 # v0.6.14
 
 - Updated Rapscallion class. Changes made to:

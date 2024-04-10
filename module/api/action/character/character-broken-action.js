@@ -3,7 +3,7 @@ import { createBrokenOutcome } from "../../outcome/character/broken-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<ChatMessage>}
+ * @returns {Promise<Object>}
  */
 export const characterBrokenAction = async (actor) => {
   const outcome = await createBrokenOutcome({ actor });
@@ -13,4 +13,6 @@ export const characterBrokenAction = async (actor) => {
     actor,
     outcomes: [outcome],
   });
+
+  return outcome;
 };

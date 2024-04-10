@@ -5,7 +5,7 @@ import { createLuckPerDayOutcome } from "../../outcome/character/luck-per-day-ou
  * @param {PBActor} actor
  * @param {Object} options
  * @param {Boolean} options.silent
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const characterLuckPerDayAction = async (actor, { silent = false } = {}) => {
   const outcome = await createLuckPerDayOutcome({ actor });

@@ -14,21 +14,24 @@ import { evaluateFormula } from "../utils.js";
 
 /**
  * @param {PBItem} cls
- * @returns {Promise.<Actor>}
+ * @returns {Promise.<PBActor>}
  */
 export const createCharacter = async (cls) => createActorWithCharacter(await rollCharacterForClass(cls));
 
 /**
  * @param {PBActor} actor
  * @param {PBItem} cls
+ * @returns {Promise.<PBActor>}
  */
 export const regenerateActor = async (actor, cls) => {
   await updateActorWithCharacter(actor, await rollCharacterForClass(cls));
+
+  return actor;
 };
 
 /**
  * @param {Object} characterData
- * @returns {Promise.<Actor>}
+ * @returns {Promise.<PBActor>}
  */
 export const createActorWithCharacter = async (characterData) => {
   const data = characterToActorData(characterData);
@@ -43,6 +46,7 @@ export const createActorWithCharacter = async (characterData) => {
 /**
  * @param {PBActor} actor
  * @param {Object} characterData
+ * @returns {Promise.<PBActor>}
  */
 export const updateActorWithCharacter = async (actor, characterData) => {
   const data = characterToActorData(characterData);
@@ -61,10 +65,13 @@ export const updateActorWithCharacter = async (actor, characterData) => {
   Hooks.call('updateCharacter', actor);
 
   await invokeStartingMacro(actor);
+
+  return actor;
 };
 
 /**
  * @param {PBActor} actor
+ * @returns {Promise.<PBActor>}
  */
 export const invokeStartingMacro = async (actor) => {
   const cls = actor.characterClass;
@@ -79,6 +86,8 @@ export const invokeStartingMacro = async (actor) => {
       item: baseClass,
     });
   }
+
+  return actor;
 };
 
 /**

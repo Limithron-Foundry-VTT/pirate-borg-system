@@ -5,7 +5,7 @@ import { showGenericCard } from "../../../chat-message/generic-card.js";
 /**
  * @param {PBActor} actor
  * @param {Boolean} isPCAction
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const shipBroadsidesAction = async (actor, isPCAction) => {
   const { selectedActor, selectedDR, selectedArmor, targetToken } = await showCrewActionDialog({

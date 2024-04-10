@@ -3,7 +3,7 @@ import { createShantiesPerDayOutcome } from "../../outcome/ship/ship-shanties-pe
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const shipShantiesPerDayAction = async (actor) => {
   const captain = game.actors.get(actor.captain);
@@ -17,4 +17,6 @@ export const shipShantiesPerDayAction = async (actor) => {
     title: game.i18n.localize("PB.ShipMysticShanties"),
     outcomes: [outcome],
   });
+
+  return outcome;
 };
