@@ -5,7 +5,7 @@ import { characterUseItemAction } from "./character-use-item-action.js";
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const characterInvokeRelicAction = async (actor, item) => {
   const outcome = await createInvokeRelicOutcome({ actor });
@@ -18,4 +18,6 @@ export const characterInvokeRelicAction = async (actor, item) => {
   });
 
   await characterUseItemAction(actor, item, outcome, chatMessage);
+
+  return outcome;
 };

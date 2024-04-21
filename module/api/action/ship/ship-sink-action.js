@@ -3,7 +3,7 @@ import { createSinkingOutcome } from "../../outcome/ship/ship-sinking-outcome.js
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const shipSinkAction = async (actor) => {
   const outcome = await createSinkingOutcome({ actor });
@@ -14,4 +14,6 @@ export const shipSinkAction = async (actor) => {
     actor,
     outcomes: [outcome],
   });
+
+  return outcome;
 };

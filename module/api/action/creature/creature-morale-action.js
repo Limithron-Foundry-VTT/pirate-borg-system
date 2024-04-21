@@ -3,7 +3,7 @@ import { createMoraleOutcome } from "../../outcome/creature/morale-outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const creatureMoraleAction = async (actor) => {
   if (!actor.attributes.morale || actor.attributes.morale === "-") {
@@ -18,4 +18,6 @@ export const creatureMoraleAction = async (actor) => {
     actor,
     outcomes: [outcome],
   });
+
+  return outcome;
 };

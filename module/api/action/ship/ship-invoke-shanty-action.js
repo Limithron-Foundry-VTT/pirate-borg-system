@@ -4,7 +4,7 @@ import { createInvokeShantyOutcome } from "../../outcome/ship/ship-invoke-shanty
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const shipInvokeShantyAction = async (actor, item) => {
   if (actor.shanties.value < 1) {
@@ -22,5 +22,6 @@ export const shipInvokeShantyAction = async (actor, item) => {
     description: item.getData().description,
     outcomes: [outcome],
   });
-  // await this.useActionMacro(item.id);
+
+  return outcome;
 };

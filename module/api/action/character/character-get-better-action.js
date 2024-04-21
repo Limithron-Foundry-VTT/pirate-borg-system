@@ -8,7 +8,7 @@ import { outcome } from "../../outcome/outcome.js";
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<void>}
+ * @returns {Promise<Object[]>}
  */
 export const characterGetBetterAction = async (actor) => {
   const outcomes = [
@@ -29,6 +29,8 @@ export const characterGetBetterAction = async (actor) => {
   });
 
   await invokeGettingBetterMacro(actor);
+
+  return outcomes;
 };
 
 /**

@@ -5,7 +5,7 @@ import { characterUseItemAction } from "./character-use-item-action.js";
 /**
  * @param {PBActor} actor
  * @param {PBItem} item
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const characterInvokeRitualAction = async (actor, item) => {
   if (actor.rituals.value < 1) {
@@ -27,4 +27,6 @@ export const characterInvokeRitualAction = async (actor, item) => {
   });
 
   await characterUseItemAction(actor, item, outcome, chatMessage);
+
+  return outcome;
 };

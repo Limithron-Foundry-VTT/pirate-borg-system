@@ -5,7 +5,7 @@ import { createTestAbilityOutcome } from "../../outcome/actor/test-ability-outco
  * @param {PBActor} actor
  * @param {String} ability
  * @param {Array.<String>} drModifiers
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const actorRollAbilityAction = async (actor, ability, drModifiers = []) => {
   const outcome = await createTestAbilityOutcome({ actor, ability });
@@ -16,6 +16,8 @@ export const actorRollAbilityAction = async (actor, ability, drModifiers = []) =
     actor,
     outcomes: [outcome],
   });
+
+  return outcome;
 };
 
 /**

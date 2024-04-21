@@ -31,4 +31,6 @@ export const characterInvokeExtraResourceAction = async (actor, item) => {
   });
 
   await characterUseItemAction(actor, item, outcome, chatMessage);
+
+  return outcome;
 };

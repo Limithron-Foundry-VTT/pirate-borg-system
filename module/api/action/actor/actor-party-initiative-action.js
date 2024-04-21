@@ -2,7 +2,7 @@ import { showGenericCard } from "../../../chat-message/generic-card.js";
 import { createPartyInitiativeOutcome } from "../../outcome/actor/party-initiative-outcome.js";
 
 /**
- * @returns {Promise.<void>}
+ * @returns {Promise<Object>}
  */
 export const actorPartyInitiativeAction = async () => {
   const outcome = await createPartyInitiativeOutcome();
@@ -15,4 +15,6 @@ export const actorPartyInitiativeAction = async () => {
   if (game.combats && game.combat) {
     await game.combat.setPartyInitiative(outcome.roll.total);
   }
+
+  return outcome;
 };

@@ -3,7 +3,7 @@ import { createReactionOutcome } from "../../outcome/creature/reaction-outcome.j
 
 /**
  * @param {PBActor} actor
- * @returns {Promise.<ChatMessage>}
+ * @returns {Promise<Object>}
  */
 export const creatureReactionAction = async (actor) => {
   const outcome = await createReactionOutcome();
@@ -13,4 +13,6 @@ export const creatureReactionAction = async (actor) => {
     actor,
     outcomes: [outcome],
   });
+
+  return outcome;
 };

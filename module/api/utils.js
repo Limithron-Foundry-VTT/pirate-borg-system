@@ -89,7 +89,7 @@ export const getInfoFromDropData = async (dropData) => {
 
 /**
  * @param {TableResult} result
- * @return {String}
+ * @return {Number}
  */
 export const getResultType = (result) => result.type ?? result.data.type;
 

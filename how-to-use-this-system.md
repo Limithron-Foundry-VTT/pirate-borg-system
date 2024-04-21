@@ -95,3 +95,30 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
   - Allowed classes: edit the classes in the character generator.
   - Apply overcapacity Penalty: +2 STR/AGI DR when carrying more than STR+8 items.
   - Track ammo: Select and auto-decrement ammo for ranged weapons.
+
+## API
+
+- An API is exposed at `game.pirateborg.api` for developers and GMs to use.
+
+The following are some examples provided by `Ashendar` on the Discord server.
+- An example of how to use the API to roll a character's attack is:
+  ```javascript
+  const outcome = game.pirateborg.api.characterAttackAction(actor, weapon);
+  ```
+- An example of how to roll a character strength check and test the outcome against a DR 18 is:
+  ```javascript
+  const outcome = await game.pirateborg.api.actions.actorRollAbilityAction(actor, "strength", ["Mining DR18"]);
+  return outcome.roll.total >= 18;
+  ```
+- An example of combining this with the multiple [landings feature](https://github.com/ironmonk88/monks-module-wiki/wiki/MATT-Landing) of [Monk's Active Tile Triggers](https://foundryvtt.com/packages/monks-active-tiles) is:
+  ```javascript
+  const outcome = await game.pirateborg.api.actions.actorRollAbilityAction(actor, "strength", ["Mining DR18"]);
+  let goto = [];
+  if (outcome.roll.total >= 18) {
+    goto.push({ tokens: arguments[0].tokens, tag: "Success" });
+  } else {
+    goto.push({ tokens: arguments[0].tokens, tag: "Fail" });
+  }
+  goto = goto.filter(g => g.tokens.length > 0);
+  return {goto: goto};
+  ```
