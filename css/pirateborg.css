@@ -129,7 +129,9 @@
   word-wrap: break-word;
   color: var(--foreground-color);
 }
-
+.sheet {
+  min-width: fit-content;
+}
 .pirateborg.sheet {
   margin-top: 0;
 }
@@ -168,6 +170,39 @@
   flex-direction: column;
   gap: 4px;
 }
+.pirateborg.sheet .tab .effects{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.pirateborg.sheet .tab .effects img {
+  flex: 0 0 24px;
+  overflow: auto;
+}
+.active-effect-sheet .change-flags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.active-effect-sheet .change-flags .conditional-code {
+  flex: 0 0 20px;
+  margin: 5px;
+}
+
+#effect-script-config .ace-editor,
+  #effect-script-config textarea {
+  width: 100%;
+  height: calc(50% - 65px);
+  resize: none;
+} 
+
+#effect-script-config .ace-editor  > *{
+  height: 95%
+}
+
+
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-title-row,
 .pirateborg.sheet .window-content .sheet-header .header-col2 .item-name,
 .pirateborg.sheet .window-content .sheet-header .header-col2 .name-row {
@@ -525,7 +560,7 @@
 }
 
 .pirateborg.sheet.actor.character {
-  min-width: 600px;
+  min-width: 750px;
   min-height: 600px;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
@@ -679,7 +714,7 @@
 .pirateborg .items-list .items-header {
   margin: 0;
   padding: 0;
-  align-items: center;
+  align-items: left;
 }
 .pirateborg .items-list .items-header .item-name {
   font-family: var(--h2-font);
@@ -694,6 +729,37 @@
 }
 .pirateborg .items-list:last-of-type {
   margin: 0;
+}
+.pirateborg.sheet .condition-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.pirateborg.sheet.actor .character .sheet-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-basis: 100%;
+  font-size: 18px;
+  font-family: var(--font-text);
+  font-weight: bold;
+  margin: 8px 0;
+  border: 8px solid transparent;
+  border-image: var(--image-border) 8 8 8 8 repeat repeat;
+}
+
+.pirateborg.sheet .condition-list .condition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pirateborg.sheet .condition-list .condition img{
+  width: 50px;
+  height: 50px;
+  border: none
 }
 .pirateborg .item-list {
   list-style: none;
@@ -788,6 +854,7 @@ body {
 .window-app .window-header {
   background: var(--window-header-background-color);
   color: var(--window-header-color);
+  width: auto;
 }
 
 .form-group input[type=text] {

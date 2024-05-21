@@ -19,6 +19,7 @@
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
     <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+      <a class="item" data-tab="effects">Effects</a>
     <span class="spacer"></span>
   </nav>
 
@@ -123,6 +124,9 @@
         <label for="fumble-on">{{localize "PB.ItemFumbleOn"}}:</label>
         <input type="text" id="fumble-on" name="system.fumbleOn" value="{{data.system.fumbleOn}}" placeholder="1" data-dtype="Number" />
       </div>
+    </div>
+        <div class="tab" data-group="primary" data-tab="effects">
+        {{> systems/pirateborg/templates/item/tab/effects.html}}
     </div>
   </section>
 </form>

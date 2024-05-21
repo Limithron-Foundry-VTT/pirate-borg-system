@@ -25,6 +25,15 @@ export default class PBActorSheet extends ActorSheet {
       this.element.find(selector).on(event, callback.bind(this));
     }
   }
+  constructEffectLists(sheetData) {
+    let effects = {}
+
+    effects.temporary = sheetData.actor.effects.filter(i => i.isTemporary && !i.disabled && !i.isCondition)
+    effects.disabled = sheetData.actor.effects.filter(i => i.disabled && !i.isCondition)
+    effects.passive = sheetData.actor.effects.filter(i => !i.isTemporary && !i.disabled && !i.isCondition)
+
+    sheetData.effects = effects;
+}
 
   /**
    * @param {MouseEvent} event
@@ -60,8 +69,70 @@ export default class PBActorSheet extends ActorSheet {
       ".item-qty-minus": this._onItemSubtractQuantity,
       ".individual-initiative-button": this._onIndividualInitiativeRoll,
     });
+    
+    html.find(".effect-create").click(this._onEffectCreate.bind(this));
+    html.find(".effect-edit").click(this._onEffectEdit.bind(this));
+    html.find(".effect-delete").click(this._onEffectDelete.bind(this));
+    html.find(".effect-toggle").click(this._onEffectToggle.bind(this));
+    html.find(".effect-select").change(this._onEffectSelect.bind(this));
   }
 
+  async _onEffectCreate(ev) {
+    let type = ev.currentTarget.attributes["data-type"].value
+    let effectData = { label: "New Effect", icon: "icons/svg/aura.svg" }
+    if (type == "temporary") {
+        effectData["duration.rounds"] = 1;
+    }
+
+    let html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html")
+    let dialog = new Dialog({
+        title: "Quick Effect",
+        content: html,
+        buttons: {
+            "create": {
+                label: "Create",
+                callback: html => {
+                    let mode = 2
+                    let label = html.find(".label").val()
+                    let key = html.find(".key").val()
+                    let value = parseInt(html.find(".modifier").val())
+                    effectData.name = label
+                    effectData.changes = [{ key, mode, value }]
+                    this.actor.createEmbeddedDocuments("ActiveEffect", [effectData])
+                }
+            },
+            "skip": {
+                label: "Skip",
+                callback: () => this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then(effect => effect[0].sheet.render(true))
+            }
+        }
+    })
+    await dialog._render(true)
+    dialog._element.find(".label").select()
+
+
+}
+
+_onEffectSelect(ev) {
+  let selection = ev.currentTarget.value
+  this.actor.addCondition(selection)
+}
+_onEffectEdit(ev) {
+    let id = $(ev.currentTarget).parents(".item").attr("data-effect-id")
+    this.object.effects.get(id).sheet.render(true)
+}
+
+_onEffectDelete(ev) {
+    let id = $(ev.currentTarget).parents(".item").attr("data-effect-id")
+    this.object.deleteEmbeddedDocuments("ActiveEffect", [id])
+}
+
+_onEffectToggle(ev) {
+    let id = $(ev.currentTarget).parents(".item").attr("data-effect-id")
+    let effect = this.object.effects.get(id)
+
+    effect.update({ "disabled": !effect.disabled })
+}
   /**
    * @private
    *
@@ -305,6 +376,7 @@ export default class PBActorSheet extends ActorSheet {
       delete formData.data.data;
     }
 
+    this.constructEffectLists(formData)
     formData.data.items.forEach((item) => {
       if (item.type === CONFIG.PB.itemTypes.container) {
         item.system.dynamic = {

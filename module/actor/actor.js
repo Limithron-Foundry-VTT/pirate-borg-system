@@ -95,7 +95,7 @@ export class PBActor extends Actor {
   }
 
   /** @override */
-  async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onCreateDescendedDocuments(embeddedName, documents, result, options, userId) {
     if (this.type === CONFIG.PB.actorTypes.character && documents[0].type === CONFIG.PB.itemTypes.class) {
       await this.deleteEmbeddedDocuments(
         "Item",
@@ -106,11 +106,11 @@ export class PBActor extends Actor {
           .map((item) => item.id)
       );
     }
-    await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onCreateDescendedDocuments(embeddedName, documents, result, options, userId);
   }
 
   /** @override */
-  async _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onDeleteDescendantDocuments(embeddedName, documents, result, options, userId) {
     for (const document of documents) {
       if (document.isContainer) {
         await this.deleteEmbeddedDocuments("Item", document.items);
@@ -119,9 +119,51 @@ export class PBActor extends Actor {
         document.container.removeItem(document.id);
       }
     }
-    await super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onDeleteDescendantDocuments(embeddedName, documents, result, options, userId);
   }
+  async addCondition(effect, flags = {}) {
+      if (typeof (effect) === "string")
+          effect = duplicate(CONFIG.statusEffects.concat(Object.values(game.pirateborg.config.systemEffects)).find(e => e.id == effect))
+      if (!effect)
+          return "No Effect Found"
 
+      if (!effect.id)
+          return "Conditions require an id field"
+
+      if (!effect.flags)
+          effect.flags = flags
+      else
+          mergeObject(effect.flags, flags);
+
+      let existing = this.hasCondition(effect.id)
+
+      if (!existing) {
+          effect.name = game.i18n.localize(effect.name)
+          effect.statuses = [effect.id];
+          delete effect.id
+          return this.createEmbeddedDocuments("ActiveEffect", [effect])
+      }
+  }
+  hasCondition(conditionKey) {
+    let existing = this.effects.find(e => e.statuses.has(conditionKey))
+    return existing
+}
+
+  async removeCondition(effect, value = 1) {
+      if (typeof (effect) === "string")
+          effect = duplicate(CONFIG.statusEffects.concat(Object.values(game.pirateborg.config.systemEffects)).find(e => e.id == effect))
+      if (!effect)
+          return "No Effect Found"
+
+      if (!effect.id)
+          return "Conditions require an id field"
+
+      let existing = this.hasCondition(effect.id)
+
+      if (existing) {
+          return existing.delete()
+      }
+  }
   /** V10 */
   /**
    * @return {Object}

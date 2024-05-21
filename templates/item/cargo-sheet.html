@@ -19,6 +19,7 @@
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
     <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+      <a class="item" data-tab="effects">Effects</a>
     <span class="spacer"></span>
   </nav>
 
@@ -34,6 +35,8 @@
         <label>{{localize "PB.ItemValue"}}:</label>
         <input type="text" name="system.value" value="{{data.system.value}}" placeholder="2d6" data-dtype="String" />
       </div>
+    </div>        <div class="tab" data-group="primary" data-tab="effects">
+        {{> systems/pirateborg/templates/item/tab/effects.html}}
     </div>
   </section>
 </form>

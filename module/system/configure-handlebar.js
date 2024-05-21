@@ -31,7 +31,7 @@ export const configureHandlebar = () => {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.every((expression) => args[0] === expression);
   });
-
+  
   Handlebars.registerHelper("wysiwig", function (options) {
     if (game.release.generation >= 10) {
       const content = options.hash.content;
@@ -64,6 +64,8 @@ export const configureHandlebar = () => {
     "systems/pirateborg/templates/actor/common/actor-item-button.html",
     "systems/pirateborg/templates/actor/common/dynamic-list.html",
     "systems/pirateborg/templates/actor/common/static-list.html",
+    "systems/pirateborg/templates/actor/common/effects.html",
     "systems/pirateborg/templates/actor/common/static-list-item.html",
+    "systems/pirateborg/templates/item/tab/effects.html",
   ]);
 };
