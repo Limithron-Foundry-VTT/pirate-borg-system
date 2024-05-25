@@ -25,7 +25,7 @@ import { PBActorSheetVehicleEdit } from "./vehicle-edit-sheet.js";
 export class PBActorSheetVehicle extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "vehicle", "character"],
       template: "systems/pirateborg/templates/actor/vehicle-sheet.html",
       width: 540,

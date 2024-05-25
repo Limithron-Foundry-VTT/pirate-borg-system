@@ -37,8 +37,8 @@ export const createActorWithCharacter = async (characterData) => {
   const data = characterToActorData(characterData);
   const actor = await PBActor.create(data);
   await invokeStartingMacro(actor);
-  
-  Hooks.call('createCharacter', actor);
+
+  Hooks.call("createCharacter", actor);
 
   return actor;
 };
@@ -62,7 +62,7 @@ export const updateActorWithCharacter = async (actor, characterData) => {
     });
   }
 
-  Hooks.call('updateCharacter', actor);
+  Hooks.call("updateCharacter", actor);
 
   await invokeStartingMacro(actor);
 
@@ -418,7 +418,7 @@ export const rollCharacterForClass = async (cls) => {
  */
 const characterToActorData = (characterData) => ({
   name: characterData.name,
-  data: {
+  system: {
     abilities: {
       strength: { value: characterData.strength },
       agility: { value: characterData.agility },

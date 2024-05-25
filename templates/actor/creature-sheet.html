@@ -31,7 +31,8 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
-    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>    
+    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
     <span class="spacer"></span>
   </nav>
 
@@ -39,7 +40,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
+      {{editor descriptionHTML target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -78,6 +79,11 @@
         <label>{{localize "PB.CreatureSpecial"}}:</label>
         <textarea name="system.special" rows="10">{{data.system.special}}</textarea>
       </div>
+    </div>
+
+    {{! Effects }}
+    <div class="tab" data-group="primary" data-tab="effects">
+      {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>
 </form>

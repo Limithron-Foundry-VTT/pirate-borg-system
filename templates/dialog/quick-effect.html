@@ -1,0 +1,32 @@
+<div class="dialog-fields">
+  <div class="quick-effect">
+    <div>
+      <label for="quick-effect-label">{{ localize "PB.Label" }}</label>
+      <div class="form-fields">
+        <input type="text" id="quick-effect-label" class="label" name="label" value="{{label}}">
+      </div>
+    </div>
+
+    <div>
+      <label for="quick-effect-key">{{ localize "PB.Change" }}</label>
+      <select class="key" id="quick-effect-key" name="key">
+        <option value="">-</option>
+        <optgroup label="{{ localize 'PB.Abilities' }}">
+          <option value="system.abilities.strength.value">{{localize "PB.AbilityStrength"}}</option>
+          <option value="system.abilities.agility.value">{{localize "PB.AbilityAgility"}}</option>
+          <option value="system.abilities.presence.value">{{localize "PB.AbilityPresence"}}</option>
+          <option value="system.abilities.toughness.value">{{localize "PB.AbilityToughness"}}</option>
+          <option value="system.abilities.spirit.value">{{localize "PB.AbilitySpirit"}}</option>
+          <option value="system.abilities.skill.value">{{localize "PB.AbilitySkill"}}</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div>
+      <label for="quick-effect-modifier">{{ localize "PB.Modifier" }}</label>
+      <div class="form-fields">
+        <input type="number" class="modifier" id="quick-effect-modifier" name="modifier" value="0">
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ class AddItemDialog extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       template: ADD_ITEM_TEMPLATE,
       title: game.i18n.localize("PB.CreateNewItem"),
       width: 420,

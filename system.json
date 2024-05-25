@@ -2,10 +2,10 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v0.6.15",
+  "version": "1.0.0",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11"
+    "minimum": "11",
+    "verified": "12"
   },
   "authors": [
     {
@@ -421,6 +421,70 @@
       "type": "Macro"
     }
   ],
+  "packFolders": [
+    {
+      "name": "Pirate Borg System",
+      "sorting": "a",
+      "color": "#ff0000",
+      "packs": [
+        "containers",
+        "equipment-melee-weapons",
+        "equipment-ranged-weapons",
+        "equipment-bombs",
+        "equipment-ammo",
+        "equipment-gear",
+        "equipment-pets",
+        "equipment-instruments",
+        "equipment-clothing-and-armors",
+        "equipment-hats",
+        "backgrounds",
+        "backgrounds-items",
+        "macros-pirateborg",
+        "feature-distinctive-flaws",
+        "feature-physical-trademark",
+        "feature-idiosyncrasies",
+        "feature-unfortunate-incidents-conditions",
+        "feature-thing-of-importance",
+        "invokable-ancient-relics",
+        "invokable-arcane-rituals",
+        "macros-ancient-relics",
+        "macros-arcane-rituals",
+        "rolls-character-creation",
+        "rolls-gamemaster",
+        "ships-features",
+        "ships-cargo",
+        "rolls-ships",
+        "ships-mystic-shanties",
+        "ships",
+        "ships-npc",
+        "class-landlubber",
+        "class-brute",
+        "rolls-brute",
+        "macros-brute",
+        "class-rapscallion",
+        "rolls-rapscallion",
+        "macros-rapscallion",
+        "class-buccaneer",
+        "rolls-buccaneer",
+        "macros-buccaneer",
+        "class-swashbuckler",
+        "rolls-swashbuckler",
+        "macros-swashbuckler",
+        "class-zealot",
+        "rolls-zealot",
+        "macros-zealot",
+        "class-sorcerer",
+        "rolls-sorcerer",
+        "macros-sorcerer",
+        "class-tall-tale",
+        "rolls-tall-tale",
+        "macros-tall-tale",
+        "class-haunted-soul",
+        "rolls-haunted-soul",
+        "macros-haunted-soul"
+      ]
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -432,6 +496,10 @@
   "initiative": "1d6",
   "gridDistance": 5,
   "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
   "background": "https://raw.githubusercontent.com/Limithron-Foundry-VTT/pirate-borg-system/main/ui/background.jpg",

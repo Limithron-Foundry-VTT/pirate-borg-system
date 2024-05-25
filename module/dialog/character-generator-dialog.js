@@ -25,7 +25,7 @@ class CharacterGeneratorDialog extends Application {
 
   /** @override */
   async getData(options = {}) {
-    return mergeObject(super.getData(options), {
+    return foundry.utils.mergeObject(super.getData(options), {
       classes: await this.getClassData(),
       forActor: this.actor !== undefined && this.actor !== null,
     });

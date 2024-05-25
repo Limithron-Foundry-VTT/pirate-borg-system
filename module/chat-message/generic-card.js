@@ -36,6 +36,6 @@ export const showGenericCard = async ({ actor, target, title, description, outco
       },
     },
   };
-  ChatMessage.applyRollMode(messageData, game.settings.get('core','rollMode'));
+  ChatMessage.applyRollMode(messageData, game.settings.get("core", "rollMode"));
   return ChatMessage.create(messageData);
 };

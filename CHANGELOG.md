@@ -1,3 +1,17 @@
+# v1.0.0
+
+- Foundry VTT v12 compatibility.
+  - Tavern generator now works correctly.
+  - Removed the majority of deprecation warnings.
+- Added basic Active Effects support.
+  - Huge thanks to [adracea](https://github.com/adracea) for their contributions to this release.
+- Updated styling:
+  - Grouped system compendiums together.
+  - Adjusted the pause icon.
+  - Border and shadow highlights are now more red.
+  - Fixed icon references for Ancient Relics and Arcane Rituals compendiums.
+- Removed support for Foundry VTT v10.
+
 # v0.6.15
 
 - Exposed the "outcomes" of rolls performed via the Pirate Borg API to allow for better integration with other modules and/or macros.

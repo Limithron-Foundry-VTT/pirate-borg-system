@@ -23,6 +23,9 @@ export const asyncPipe =
  */
 export const evaluateFormula = async (formula, data) => {
   const roll = new Roll(formula, data);
+  if (game.release.generation >= 12) {
+    return roll.evaluate();
+  }
   return roll.evaluate({ async: true });
 };
 
@@ -153,10 +156,5 @@ export const getModuleDependencies = (module) => module?.relationships?.requires
  * @return {Object}
  */
 export const getActorDefaults = (type) => {
-  const actorDefault = CONFIG.PB.actorDefaults[type] ?? {};
-  if (game.release.generation < 10) {
-    actorDefault.token = actorDefault.prototypeToken;
-    delete actorDefault.prototypeToken;
-  }
-  return actorDefault;
+  return CONFIG.PB.actorDefaults[type] ?? {};
 };

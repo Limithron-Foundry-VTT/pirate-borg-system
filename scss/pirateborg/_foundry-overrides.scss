@@ -893,8 +893,6 @@ hr {
 }
 
 #compendium h3 {
-  border: none;
-  background: var(--background-color);
   color: var(--foreground-alt-color);
 }
 
@@ -945,5 +943,35 @@ h3 {
   &.combat-sidebar .directory-list .directory-item h4,
   &.combat-sidebar .combat-tracker-header a.combat-button {
     color: white;
+  }
+}
+
+li.folder > .folder-header {
+  text-shadow: none;
+}
+
+.pirateborg#pause {
+  background: none;
+  bottom: 15%;
+  filter: drop-shadow(10px 10px 5px #404040);
+
+  img {
+    animation: pulsate 3s infinite ease-in-out;
+    opacity: 1;
+    top: -96px;
+    left: calc(50% - 96px);
+    height: 192px;
+    width: 192px;
+  }
+}
+@keyframes pulsate {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(255, 0, 0, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 0, 0, 0));
   }
 }

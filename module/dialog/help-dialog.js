@@ -8,7 +8,7 @@ export class HelpDialog extends FormApplication {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "help-dialog",
       classes: ["pirateborg", "sheet"],
       template: "systems/pirateborg/templates/dialog/help-dialog.html",
@@ -73,7 +73,7 @@ export const showHelpDialogOnStartup = () => {
   const latestVersion = getSystemHelpDialogVersion();
   const currentVersion = getSystemVersion();
 
-  if (latestVersion === null || isNewerVersion(currentVersion, latestVersion)) {
+  if (latestVersion === null || foundry.utils.isNewerVersion(currentVersion, latestVersion)) {
     setSystemHelpDialogVersion(currentVersion);
     showHelpDialog();
   }

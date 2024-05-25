@@ -30,11 +30,11 @@ import { characterUseItemAction } from "../../api/action/character/character-use
 export class PBActorSheetCharacter extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "character"],
       template: "systems/pirateborg/templates/actor/character-sheet.html",
       width: 600,
-      height: 600,
+      height: 700,
       scrollY: [".tab"],
       tabs: [
         {
@@ -68,7 +68,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-    const formData = super.getData(options);
+    const formData = await super.getData(options);
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),
       ...(await this._prepareItems(formData)),
@@ -125,7 +125,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
       }
     }
 
-    data.ammo = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.ammo).sort(byName);
+    data.ammo = sheetData.data.items
+      .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
+      .sort(byName)
+      .map((i) => ({ ...i, fullName: `${i.name} (${i.system.quantity})` }));
 
     data.features = sheetData.data.items
       .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))

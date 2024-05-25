@@ -17,7 +17,6 @@
   "author": "maqloner",
   "license": "MIT",
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "eslint": "^8.17.0",
     "eslint-plugin-i18n-json": "^3.1.0",

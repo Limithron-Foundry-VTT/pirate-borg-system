@@ -44,7 +44,7 @@ class CrewActionDialog extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["crew-action-dialog"],
       template: SHIP_CREW_ACTION_TEMPLATE,
       title: game.i18n.localize("PB.ShipCrewAction"),

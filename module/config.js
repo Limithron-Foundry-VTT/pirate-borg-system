@@ -301,21 +301,6 @@ PB.recommendedModules = [
   },
   {
     type: "recommended",
-    name: "Perfect Vision",
-    package: "perfect-vision",
-    url: "https://foundryvtt.com/packages/perfect-vision",
-    description:
-      "Darkvision rules for Dungeons & Dragons 3.5e/5e, Pathfinder 1e/2e, and other systems, as well as other lighting/vision features and improvements.",
-  },
-  {
-    type: "recommended",
-    name: "SmallTime",
-    package: "smalltime",
-    url: "https://foundryvtt.com/packages/smalltime",
-    description: "A small module for displaying and controlling the current time of day.",
-  },
-  {
-    type: "recommended",
     name: "Splatter",
     package: "splatter",
     url: "https://foundryvtt.com/packages/splatter",
