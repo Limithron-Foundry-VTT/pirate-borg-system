@@ -26,7 +26,7 @@ export const diceSound = () => {
  */
 export const playDiceSound = () => {
   if (!game.dice3d) {
-    AudioHelper.play({ src: CONFIG.sounds.dice, volume: 0.8, autoplay: true, loop: false }, true);
+    foundry.audio.AudioHelper.play({ src: CONFIG.sounds.dice, volume: 0.8, autoplay: true, loop: false }, true);
   }
 };
 
@@ -34,7 +34,7 @@ export const playDiceSound = () => {
  * @param {Roll[]} rolls
  */
 export const showDiceWithSound = async (rolls) => {
-  await showDice(Roll.fromTerms([PoolTerm.fromRolls(rolls)]));
+  await showDice(Roll.fromTerms([foundry.dice.terms.PoolTerm.fromRolls(rolls)]));
   playDiceSound();
 };
 

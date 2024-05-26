@@ -312,6 +312,7 @@
   border-bottom: 1px solid var(--dark-border-color);
   display: block;
   padding-left: 16px;
+  height: 36px;
 }
 .pirateborg.sheet .editable .rollable:hover {
   text-shadow: 0 0 16px var(--highlight-background-color);
