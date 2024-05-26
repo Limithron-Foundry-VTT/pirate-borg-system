@@ -380,5 +380,23 @@
   "PB.YouAreHit": "You are Hit",
   "PB.YouHaveNoFeatures": "You have no Features",
   "PB.YouHaveNoUsableItems": "You have no usable items",
-  "PB.YouOwn": "You own {item}"
+  "PB.YouOwn": "You own {item}",
+
+  "TYPES.Actor.character": "Character",
+  "TYPES.Actor.container": "Container",
+  "TYPES.Actor.creature": "Creature",
+  "TYPES.Actor.vehicle": "Vehicle",
+  "TYPES.Actor.vehicle_npc": "Vehicle NPC",
+  "TYPES.Item.ammo": "Ammo",
+  "TYPES.Item.armor": "Armor",
+  "TYPES.Item.background": "Background",
+  "TYPES.Item.cargo": "Cargo",
+  "TYPES.Item.class": "Class",
+  "TYPES.Item.container": "Container",
+  "TYPES.Item.feature": "Feature",
+  "TYPES.Item.hat": "Hat",
+  "TYPES.Item.invokable": "Invokable",
+  "TYPES.Item.misc": "Misc",
+  "TYPES.Item.shanty": "Shanty",
+  "TYPES.Item.weapon": "Weapon"
 }
