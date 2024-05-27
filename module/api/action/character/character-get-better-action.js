@@ -49,9 +49,20 @@ const rollHP = async (actor) => {
  * @returns {Promise.<Object>}
  */
 const rollAbility = async (actor, ability) => {
+  // Calculate the ability modifier based on active effects
+  let abilityModifier = 0;
+  const abilityEffects = actor.effects.filter((effect) => !effect.disabled && !effect.isSuppressed && effect.changes.some((change) => change.key === `system.abilities.${ability}.value`));
+  if (abilityEffects.length) {
+    // Currently only "ADD" style effects are supported (CONST.ACTIVE_EFFECT_MODES.ADD)
+    abilityModifier = abilityEffects.reduce((
+      total,
+      effect
+    ) => total + parseInt(effect.changes.find((change) => change.key === `system.abilities.${ability}.value`).value), abilityModifier);
+  }
+
   const outcome = await createRollAbilityOutcome({
     ability: game.i18n.localize(CONFIG.PB.abilityKey[ability]),
-    value: actor.abilities[ability].value,
+    value: actor.abilities[ability].value - abilityModifier, // Reduce the current attribute value by the effect modifier (to invert the ADD)
   });
   await actor.updateData(`abilities.${ability}.value`, outcome.newValue);
   return outcome;
