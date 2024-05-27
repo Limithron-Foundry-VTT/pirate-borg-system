@@ -1,7 +1,7 @@
 {
   "name": "pirateborg",
   "version": "1.0.0",
-  "description": "Unofficial system for PIRATE BORG on Foundry VTT.",
+  "description": "Official system for PIRATE BORG on Foundry VTT.",
   "main": "./module/pirateborg.js",
   "scripts": {
     "build:clean": "node ./utils/packs.mjs package clean",
