@@ -405,6 +405,9 @@ export default class PBActorSheet extends ActorSheet {
       }
       return item;
     });
+
+    formData.data.localizedType = `TYPES.${formData.actor.documentName}.${formData.data.type}`;
+
     return formData;
   }
 }
