@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Smallsword",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/smallsword.png",
@@ -25,7 +28,10 @@
       "text": "Machete",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/machete.png",

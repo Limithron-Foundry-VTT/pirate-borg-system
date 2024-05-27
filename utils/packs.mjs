@@ -76,7 +76,7 @@ function cleanPackEntry(data, { clearSourceId = true, ownership = 0 } = {}) {
   if (clearSourceId) delete data.flags?.core?.sourceId;
   delete data.flags?.importSource;
   delete data.flags?.exportSource;
-  if (data._stats?.lastModifiedBy) data._stats.lastModifiedBy = "pbbuilder0000";
+  if (data._stats?.lastModifiedBy) data._stats.lastModifiedBy = "pbbuilder0000000";
 
   // Remove empty entries in flags
   if (!data.flags) data.flags = {};

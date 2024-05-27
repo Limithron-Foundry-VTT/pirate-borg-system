@@ -9,7 +9,10 @@
       "type": 0,
       "text": "The Devil comes for your soul. You are sucked into a fiery portal. This is the end of your story.",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -24,7 +27,10 @@
       "type": 0,
       "text": "Lose all of your remaining luck points.",
       "weight": 1,
-      "range": [2, 9],
+      "range": [
+        2,
+        9
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -39,7 +45,10 @@
       "type": 0,
       "text": "Regain 2 luck points.",
       "weight": 1,
-      "range": [10, 19],
+      "range": [
+        10,
+        19
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -54,7 +63,10 @@
       "type": 0,
       "text": "Gain 4 Luck points (to a max of 4)",
       "weight": 1,
-      "range": [20, 20],
+      "range": [
+        20,
+        20
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

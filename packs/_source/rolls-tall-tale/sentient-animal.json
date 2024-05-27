@@ -12,7 +12,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "4qW6PHlQ23EX4jBd",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 1,
@@ -27,7 +30,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "a1dn6FUP6fy7N9r0",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -42,7 +48,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "sdTjTdmBYkJ4Ak97",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 3,
@@ -57,7 +66,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "iDVD29wjXnI9oDBf",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 4,
@@ -72,7 +84,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "C8LdpjrOpMpyZB98",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -87,7 +102,10 @@
       "collection": "pirateborg.class-tall-tale",
       "resultId": "yW11H9GNe9cMbgub",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 6,

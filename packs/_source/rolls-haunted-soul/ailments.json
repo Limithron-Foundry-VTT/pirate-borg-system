@@ -8,7 +8,10 @@
       "type": 2,
       "text": "Ghost",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -24,7 +27,10 @@
       "text": "Conduit",
       "collection": "pirateborg.class-haunted-soul",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -39,7 +45,10 @@
       "text": "Eldritch Mind",
       "collection": "pirateborg.class-haunted-soul",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -54,7 +63,10 @@
       "text": "Zombie",
       "collection": "pirateborg.class-haunted-soul",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -69,7 +81,10 @@
       "text": "Vampirism",
       "collection": "pirateborg.class-haunted-soul",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -84,7 +99,10 @@
       "text": "Skeleton",
       "collection": "pirateborg.class-haunted-soul",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",

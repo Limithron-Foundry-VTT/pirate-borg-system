@@ -7,7 +7,10 @@
       "type": 0,
       "text": "Aberration",
       "img": "icons/svg/d20.svg",
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 1,
@@ -19,7 +22,10 @@
       "type": 0,
       "text": "Angel Slayer",
       "img": "icons/svg/d20.svg",
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -31,7 +37,10 @@
       "type": 0,
       "text": "Apex",
       "img": "icons/svg/d20.svg",
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 3,
@@ -43,7 +52,10 @@
       "type": 0,
       "text": "Badness",
       "img": "icons/svg/d20.svg",
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 4,
@@ -55,7 +67,10 @@
       "type": 0,
       "text": "Bailey",
       "img": "icons/svg/d20.svg",
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -67,7 +82,10 @@
       "type": 0,
       "text": "Barnacle",
       "img": "icons/svg/d20.svg",
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 6,
@@ -79,7 +97,10 @@
       "type": 0,
       "text": "Bart",
       "img": "icons/svg/d20.svg",
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 7,
@@ -91,7 +112,10 @@
       "type": 0,
       "text": "Beard",
       "img": "icons/svg/d20.svg",
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 8,
@@ -103,7 +127,10 @@
       "type": 0,
       "text": "Bedlam",
       "img": "icons/svg/d20.svg",
-      "range": [9, 9],
+      "range": [
+        9,
+        9
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 9,
@@ -115,7 +142,10 @@
       "type": 0,
       "text": "Bipolar",
       "img": "icons/svg/d20.svg",
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 10,
@@ -127,7 +157,10 @@
       "type": 0,
       "text": "Black",
       "img": "icons/svg/d20.svg",
-      "range": [11, 11],
+      "range": [
+        11,
+        11
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 11,
@@ -139,7 +172,10 @@
       "type": 0,
       "text": "Black Cat",
       "img": "icons/svg/d20.svg",
-      "range": [12, 12],
+      "range": [
+        12,
+        12
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 12,
@@ -151,7 +187,10 @@
       "type": 0,
       "text": "Blackout",
       "img": "icons/svg/d20.svg",
-      "range": [13, 13],
+      "range": [
+        13,
+        13
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 13,
@@ -163,7 +202,10 @@
       "type": 0,
       "text": "Blink",
       "img": "icons/svg/d20.svg",
-      "range": [14, 14],
+      "range": [
+        14,
+        14
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 14,
@@ -175,7 +217,10 @@
       "type": 0,
       "text": "Bloodline",
       "img": "icons/svg/d20.svg",
-      "range": [15, 15],
+      "range": [
+        15,
+        15
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 15,
@@ -187,7 +232,10 @@
       "type": 0,
       "text": "Blue",
       "img": "icons/svg/d20.svg",
-      "range": [16, 16],
+      "range": [
+        16,
+        16
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 16,
@@ -199,7 +247,10 @@
       "type": 0,
       "text": "Blur",
       "img": "icons/svg/d20.svg",
-      "range": [17, 17],
+      "range": [
+        17,
+        17
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 17,
@@ -211,7 +262,10 @@
       "type": 0,
       "text": "Brother",
       "img": "icons/svg/d20.svg",
-      "range": [18, 18],
+      "range": [
+        18,
+        18
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 18,
@@ -223,7 +277,10 @@
       "type": 0,
       "text": "Bucko",
       "img": "icons/svg/d20.svg",
-      "range": [19, 19],
+      "range": [
+        19,
+        19
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 19,
@@ -235,7 +292,10 @@
       "type": 0,
       "text": "Bucky",
       "img": "icons/svg/d20.svg",
-      "range": [20, 20],
+      "range": [
+        20,
+        20
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 20,
@@ -247,7 +307,10 @@
       "type": 0,
       "text": "Burn",
       "img": "icons/svg/d20.svg",
-      "range": [21, 21],
+      "range": [
+        21,
+        21
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 21,
@@ -259,7 +322,10 @@
       "type": 0,
       "text": "Burnout",
       "img": "icons/svg/d20.svg",
-      "range": [22, 22],
+      "range": [
+        22,
+        22
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 22,
@@ -271,7 +337,10 @@
       "type": 0,
       "text": "Buttons",
       "img": "icons/svg/d20.svg",
-      "range": [23, 23],
+      "range": [
+        23,
+        23
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 23,
@@ -283,7 +352,10 @@
       "type": 0,
       "text": "Byrd",
       "img": "icons/svg/d20.svg",
-      "range": [24, 24],
+      "range": [
+        24,
+        24
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 24,
@@ -295,7 +367,10 @@
       "type": 0,
       "text": "Cannonball",
       "img": "icons/svg/d20.svg",
-      "range": [25, 25],
+      "range": [
+        25,
+        25
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 25,
@@ -307,7 +382,10 @@
       "type": 0,
       "text": "Capin'",
       "img": "icons/svg/d20.svg",
-      "range": [26, 26],
+      "range": [
+        26,
+        26
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 26,
@@ -319,7 +397,10 @@
       "type": 0,
       "text": "Cascade",
       "img": "icons/svg/d20.svg",
-      "range": [27, 27],
+      "range": [
+        27,
+        27
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 27,
@@ -331,7 +412,10 @@
       "type": 0,
       "text": "Cat's Meow",
       "img": "icons/svg/d20.svg",
-      "range": [28, 28],
+      "range": [
+        28,
+        28
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 28,
@@ -343,7 +427,10 @@
       "type": 0,
       "text": "Chaos",
       "img": "icons/svg/d20.svg",
-      "range": [29, 29],
+      "range": [
+        29,
+        29
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 29,
@@ -355,7 +442,10 @@
       "type": 0,
       "text": "Checkmate",
       "img": "icons/svg/d20.svg",
-      "range": [30, 30],
+      "range": [
+        30,
+        30
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 30,
@@ -367,7 +457,10 @@
       "type": 0,
       "text": "Chumbucket",
       "img": "icons/svg/d20.svg",
-      "range": [31, 31],
+      "range": [
+        31,
+        31
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 31,
@@ -379,7 +472,10 @@
       "type": 0,
       "text": "Cold Cut",
       "img": "icons/svg/d20.svg",
-      "range": [32, 32],
+      "range": [
+        32,
+        32
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 32,
@@ -391,7 +487,10 @@
       "type": 0,
       "text": "Crabs",
       "img": "icons/svg/d20.svg",
-      "range": [33, 33],
+      "range": [
+        33,
+        33
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 33,
@@ -403,7 +502,10 @@
       "type": 0,
       "text": "Crimson",
       "img": "icons/svg/d20.svg",
-      "range": [34, 34],
+      "range": [
+        34,
+        34
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 34,
@@ -415,7 +517,10 @@
       "type": 0,
       "text": "Crossfire",
       "img": "icons/svg/d20.svg",
-      "range": [35, 35],
+      "range": [
+        35,
+        35
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 35,
@@ -427,7 +532,10 @@
       "type": 0,
       "text": "Cut Throat",
       "img": "icons/svg/d20.svg",
-      "range": [36, 36],
+      "range": [
+        36,
+        36
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 36,
@@ -439,7 +547,10 @@
       "type": 0,
       "text": "Cyclone",
       "img": "icons/svg/d20.svg",
-      "range": [37, 37],
+      "range": [
+        37,
+        37
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 37,
@@ -451,7 +562,10 @@
       "type": 0,
       "text": "Dead Eyes",
       "img": "icons/svg/d20.svg",
-      "range": [38, 38],
+      "range": [
+        38,
+        38
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 38,
@@ -463,7 +577,10 @@
       "type": 0,
       "text": "Dead Man",
       "img": "icons/svg/d20.svg",
-      "range": [39, 39],
+      "range": [
+        39,
+        39
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 39,
@@ -475,7 +592,10 @@
       "type": 0,
       "text": "Death Angel",
       "img": "icons/svg/d20.svg",
-      "range": [40, 40],
+      "range": [
+        40,
+        40
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 40,
@@ -487,7 +607,10 @@
       "type": 0,
       "text": "Denizen",
       "img": "icons/svg/d20.svg",
-      "range": [41, 41],
+      "range": [
+        41,
+        41
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 41,
@@ -499,7 +622,10 @@
       "type": 0,
       "text": "Deuces Wild",
       "img": "icons/svg/d20.svg",
-      "range": [42, 42],
+      "range": [
+        42,
+        42
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 42,
@@ -511,7 +637,10 @@
       "type": 0,
       "text": "Diamondback",
       "img": "icons/svg/d20.svg",
-      "range": [43, 43],
+      "range": [
+        43,
+        43
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 43,
@@ -523,7 +652,10 @@
       "type": 0,
       "text": "Dirty",
       "img": "icons/svg/d20.svg",
-      "range": [44, 44],
+      "range": [
+        44,
+        44
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 44,
@@ -535,7 +667,10 @@
       "type": 0,
       "text": "Ditch",
       "img": "icons/svg/d20.svg",
-      "range": [45, 45],
+      "range": [
+        45,
+        45
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 45,
@@ -547,7 +682,10 @@
       "type": 0,
       "text": "Drift",
       "img": "icons/svg/d20.svg",
-      "range": [46, 46],
+      "range": [
+        46,
+        46
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 46,
@@ -559,7 +697,10 @@
       "type": 0,
       "text": "Dust",
       "img": "icons/svg/d20.svg",
-      "range": [47, 47],
+      "range": [
+        47,
+        47
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 47,
@@ -571,7 +712,10 @@
       "type": 0,
       "text": "East Indy",
       "img": "icons/svg/d20.svg",
-      "range": [48, 48],
+      "range": [
+        48,
+        48
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 48,
@@ -583,7 +727,10 @@
       "type": 0,
       "text": "Engineer",
       "img": "icons/svg/d20.svg",
-      "range": [49, 49],
+      "range": [
+        49,
+        49
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 49,
@@ -595,7 +742,10 @@
       "type": 0,
       "text": "Felon",
       "img": "icons/svg/d20.svg",
-      "range": [50, 50],
+      "range": [
+        50,
+        50
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 50,
@@ -607,7 +757,10 @@
       "type": 0,
       "text": "Fish Face",
       "img": "icons/svg/d20.svg",
-      "range": [51, 51],
+      "range": [
+        51,
+        51
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 51,
@@ -619,7 +772,10 @@
       "type": 0,
       "text": "Flatline",
       "img": "icons/svg/d20.svg",
-      "range": [52, 52],
+      "range": [
+        52,
+        52
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 52,
@@ -631,7 +787,10 @@
       "type": 0,
       "text": "Flood",
       "img": "icons/svg/d20.svg",
-      "range": [53, 53],
+      "range": [
+        53,
+        53
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 53,
@@ -643,7 +802,10 @@
       "type": 0,
       "text": "Fluffbucket",
       "img": "icons/svg/d20.svg",
-      "range": [54, 54],
+      "range": [
+        54,
+        54
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 54,
@@ -655,7 +817,10 @@
       "type": 0,
       "text": "Freebooter",
       "img": "icons/svg/d20.svg",
-      "range": [55, 55],
+      "range": [
+        55,
+        55
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 55,
@@ -667,7 +832,10 @@
       "type": 0,
       "text": "Frenzy",
       "img": "icons/svg/d20.svg",
-      "range": [56, 56],
+      "range": [
+        56,
+        56
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 56,
@@ -679,7 +847,10 @@
       "type": 0,
       "text": "From the West",
       "img": "icons/svg/d20.svg",
-      "range": [57, 57],
+      "range": [
+        57,
+        57
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 57,
@@ -691,7 +862,10 @@
       "type": 0,
       "text": "Genesis",
       "img": "icons/svg/d20.svg",
-      "range": [58, 58],
+      "range": [
+        58,
+        58
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 58,
@@ -703,7 +877,10 @@
       "type": 0,
       "text": "Grifter",
       "img": "icons/svg/d20.svg",
-      "range": [59, 59],
+      "range": [
+        59,
+        59
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 59,
@@ -715,7 +892,10 @@
       "type": 0,
       "text": "Guilty Conscience",
       "img": "icons/svg/d20.svg",
-      "range": [60, 60],
+      "range": [
+        60,
+        60
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 60,
@@ -727,7 +907,10 @@
       "type": 0,
       "text": "Gunpoweder",
       "img": "icons/svg/d20.svg",
-      "range": [61, 61],
+      "range": [
+        61,
+        61
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 61,
@@ -739,7 +922,10 @@
       "type": 0,
       "text": "Hex",
       "img": "icons/svg/d20.svg",
-      "range": [62, 62],
+      "range": [
+        62,
+        62
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 62,
@@ -751,7 +937,10 @@
       "type": 0,
       "text": "Hook",
       "img": "icons/svg/d20.svg",
-      "range": [63, 63],
+      "range": [
+        63,
+        63
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 63,
@@ -763,7 +952,10 @@
       "type": 0,
       "text": "Hornswaggle",
       "img": "icons/svg/d20.svg",
-      "range": [64, 64],
+      "range": [
+        64,
+        64
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 64,
@@ -775,7 +967,10 @@
       "type": 0,
       "text": "Hype",
       "img": "icons/svg/d20.svg",
-      "range": [65, 65],
+      "range": [
+        65,
+        65
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 65,
@@ -787,7 +982,10 @@
       "type": 0,
       "text": "Inferno",
       "img": "icons/svg/d20.svg",
-      "range": [66, 66],
+      "range": [
+        66,
+        66
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 66,
@@ -799,7 +997,10 @@
       "type": 0,
       "text": "Jackson",
       "img": "icons/svg/d20.svg",
-      "range": [67, 67],
+      "range": [
+        67,
+        67
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 67,
@@ -811,7 +1012,10 @@
       "type": 0,
       "text": "Jolly",
       "img": "icons/svg/d20.svg",
-      "range": [68, 68],
+      "range": [
+        68,
+        68
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 68,
@@ -823,7 +1027,10 @@
       "type": 0,
       "text": "Jolly Roger",
       "img": "icons/svg/d20.svg",
-      "range": [69, 69],
+      "range": [
+        69,
+        69
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 69,
@@ -835,7 +1042,10 @@
       "type": 0,
       "text": "Jones",
       "img": "icons/svg/d20.svg",
-      "range": [70, 70],
+      "range": [
+        70,
+        70
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 70,
@@ -847,7 +1057,10 @@
       "type": 0,
       "text": "Jungle",
       "img": "icons/svg/d20.svg",
-      "range": [71, 71],
+      "range": [
+        71,
+        71
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 71,
@@ -859,7 +1072,10 @@
       "type": 0,
       "text": "Kidd",
       "img": "icons/svg/d20.svg",
-      "range": [72, 72],
+      "range": [
+        72,
+        72
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 72,
@@ -871,7 +1087,10 @@
       "type": 0,
       "text": "Lady",
       "img": "icons/svg/d20.svg",
-      "range": [73, 73],
+      "range": [
+        73,
+        73
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 73,
@@ -883,7 +1102,10 @@
       "type": 0,
       "text": "Limerick",
       "img": "icons/svg/d20.svg",
-      "range": [74, 74],
+      "range": [
+        74,
+        74
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 74,
@@ -895,7 +1117,10 @@
       "type": 0,
       "text": "Lobster Legs",
       "img": "icons/svg/d20.svg",
-      "range": [75, 75],
+      "range": [
+        75,
+        75
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 75,
@@ -907,7 +1132,10 @@
       "type": 0,
       "text": "Lonely Heart",
       "img": "icons/svg/d20.svg",
-      "range": [76, 76],
+      "range": [
+        76,
+        76
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 76,
@@ -919,7 +1147,10 @@
       "type": 0,
       "text": "Longshot",
       "img": "icons/svg/d20.svg",
-      "range": [77, 77],
+      "range": [
+        77,
+        77
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 77,
@@ -931,7 +1162,10 @@
       "type": 0,
       "text": "Mad",
       "img": "icons/svg/d20.svg",
-      "range": [78, 78],
+      "range": [
+        78,
+        78
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 78,
@@ -943,7 +1177,10 @@
       "type": 0,
       "text": "Malice",
       "img": "icons/svg/d20.svg",
-      "range": [79, 79],
+      "range": [
+        79,
+        79
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 79,
@@ -955,7 +1192,10 @@
       "type": 0,
       "text": "Matey",
       "img": "icons/svg/d20.svg",
-      "range": [80, 80],
+      "range": [
+        80,
+        80
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 80,
@@ -967,7 +1207,10 @@
       "type": 0,
       "text": "Mayhem",
       "img": "icons/svg/d20.svg",
-      "range": [81, 81],
+      "range": [
+        81,
+        81
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 81,
@@ -979,7 +1222,10 @@
       "type": 0,
       "text": "McStinky",
       "img": "icons/svg/d20.svg",
-      "range": [82, 82],
+      "range": [
+        82,
+        82
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 82,
@@ -991,7 +1237,10 @@
       "type": 0,
       "text": "McStubby",
       "img": "icons/svg/d20.svg",
-      "range": [83, 83],
+      "range": [
+        83,
+        83
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 83,
@@ -1003,7 +1252,10 @@
       "type": 0,
       "text": "Meathook",
       "img": "icons/svg/d20.svg",
-      "range": [84, 84],
+      "range": [
+        84,
+        84
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 84,
@@ -1015,7 +1267,10 @@
       "type": 0,
       "text": "Mermaid",
       "img": "icons/svg/d20.svg",
-      "range": [85, 85],
+      "range": [
+        85,
+        85
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 85,
@@ -1027,7 +1282,10 @@
       "type": 0,
       "text": "Mimic",
       "img": "icons/svg/d20.svg",
-      "range": [86, 86],
+      "range": [
+        86,
+        86
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 86,
@@ -1039,7 +1297,10 @@
       "type": 0,
       "text": "Miracle",
       "img": "icons/svg/d20.svg",
-      "range": [87, 87],
+      "range": [
+        87,
+        87
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 87,
@@ -1051,7 +1312,10 @@
       "type": 0,
       "text": "Misfit",
       "img": "icons/svg/d20.svg",
-      "range": [88, 88],
+      "range": [
+        88,
+        88
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 88,
@@ -1063,7 +1327,10 @@
       "type": 0,
       "text": "Miss",
       "img": "icons/svg/d20.svg",
-      "range": [89, 89],
+      "range": [
+        89,
+        89
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 89,
@@ -1075,7 +1342,10 @@
       "type": 0,
       "text": "Mockingbird",
       "img": "icons/svg/d20.svg",
-      "range": [90, 90],
+      "range": [
+        90,
+        90
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 90,
@@ -1087,7 +1357,10 @@
       "type": 0,
       "text": "Monster of Port-au-Prince",
       "img": "icons/svg/d20.svg",
-      "range": [91, 91],
+      "range": [
+        91,
+        91
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 91,
@@ -1099,7 +1372,10 @@
       "type": 0,
       "text": "Morgan",
       "img": "icons/svg/d20.svg",
-      "range": [92, 92],
+      "range": [
+        92,
+        92
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 92,
@@ -1111,7 +1387,10 @@
       "type": 0,
       "text": "Mudlark",
       "img": "icons/svg/d20.svg",
-      "range": [93, 93],
+      "range": [
+        93,
+        93
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 93,
@@ -1123,7 +1402,10 @@
       "type": 0,
       "text": "Mutilator",
       "img": "icons/svg/d20.svg",
-      "range": [94, 94],
+      "range": [
+        94,
+        94
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 94,
@@ -1135,7 +1417,10 @@
       "type": 0,
       "text": "Nashville Psycho",
       "img": "icons/svg/d20.svg",
-      "range": [95, 95],
+      "range": [
+        95,
+        95
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 95,
@@ -1147,7 +1432,10 @@
       "type": 0,
       "text": "Ned Head",
       "img": "icons/svg/d20.svg",
-      "range": [96, 96],
+      "range": [
+        96,
+        96
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 96,
@@ -1159,7 +1447,10 @@
       "type": 0,
       "text": "Night Eyes",
       "img": "icons/svg/d20.svg",
-      "range": [97, 97],
+      "range": [
+        97,
+        97
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 97,
@@ -1171,7 +1462,10 @@
       "type": 0,
       "text": "Nocturne",
       "img": "icons/svg/d20.svg",
-      "range": [98, 98],
+      "range": [
+        98,
+        98
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 98,
@@ -1183,7 +1477,10 @@
       "type": 0,
       "text": "O’ Fish",
       "img": "icons/svg/d20.svg",
-      "range": [99, 99],
+      "range": [
+        99,
+        99
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 99,
@@ -1195,7 +1492,10 @@
       "type": 0,
       "text": "O’ Malley",
       "img": "icons/svg/d20.svg",
-      "range": [100, 100],
+      "range": [
+        100,
+        100
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 100,
@@ -1207,7 +1507,10 @@
       "type": 0,
       "text": "Oblique",
       "img": "icons/svg/d20.svg",
-      "range": [101, 101],
+      "range": [
+        101,
+        101
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 101,
@@ -1219,7 +1522,10 @@
       "type": 0,
       "text": "Ocean",
       "img": "icons/svg/d20.svg",
-      "range": [102, 102],
+      "range": [
+        102,
+        102
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 102,
@@ -1231,7 +1537,10 @@
       "type": 0,
       "text": "Of Atlantis",
       "img": "icons/svg/d20.svg",
-      "range": [103, 103],
+      "range": [
+        103,
+        103
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 103,
@@ -1243,7 +1552,10 @@
       "type": 0,
       "text": "Of Dark Water",
       "img": "icons/svg/d20.svg",
-      "range": [104, 104],
+      "range": [
+        104,
+        104
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 104,
@@ -1255,7 +1567,10 @@
       "type": 0,
       "text": "Of the Coast",
       "img": "icons/svg/d20.svg",
-      "range": [105, 105],
+      "range": [
+        105,
+        105
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 105,
@@ -1267,7 +1582,10 @@
       "type": 0,
       "text": "Old",
       "img": "icons/svg/d20.svg",
-      "range": [106, 106],
+      "range": [
+        106,
+        106
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 106,
@@ -1279,7 +1597,10 @@
       "type": 0,
       "text": "Old Lace",
       "img": "icons/svg/d20.svg",
-      "range": [107, 107],
+      "range": [
+        107,
+        107
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 107,
@@ -1291,7 +1612,10 @@
       "type": 0,
       "text": "Omega",
       "img": "icons/svg/d20.svg",
-      "range": [108, 108],
+      "range": [
+        108,
+        108
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 108,
@@ -1303,7 +1627,10 @@
       "type": 0,
       "text": "One Eye",
       "img": "icons/svg/d20.svg",
-      "range": [109, 109],
+      "range": [
+        109,
+        109
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 109,
@@ -1315,7 +1642,10 @@
       "type": 0,
       "text": "One Leg",
       "img": "icons/svg/d20.svg",
-      "range": [110, 110],
+      "range": [
+        110,
+        110
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 110,
@@ -1327,7 +1657,10 @@
       "type": 0,
       "text": "One Shot",
       "img": "icons/svg/d20.svg",
-      "range": [111, 111],
+      "range": [
+        111,
+        111
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 111,
@@ -1339,7 +1672,10 @@
       "type": 0,
       "text": "Papa",
       "img": "icons/svg/d20.svg",
-      "range": [112, 112],
+      "range": [
+        112,
+        112
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 112,
@@ -1351,7 +1687,10 @@
       "type": 0,
       "text": "Parallax",
       "img": "icons/svg/d20.svg",
-      "range": [113, 113],
+      "range": [
+        113,
+        113
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 113,
@@ -1363,7 +1702,10 @@
       "type": 0,
       "text": "Patches",
       "img": "icons/svg/d20.svg",
-      "range": [114, 114],
+      "range": [
+        114,
+        114
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 114,
@@ -1375,7 +1717,10 @@
       "type": 0,
       "text": "Peg Leg",
       "img": "icons/svg/d20.svg",
-      "range": [115, 115],
+      "range": [
+        115,
+        115
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 115,
@@ -1387,7 +1732,10 @@
       "type": 0,
       "text": "Pied Piper",
       "img": "icons/svg/d20.svg",
-      "range": [116, 116],
+      "range": [
+        116,
+        116
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 116,
@@ -1399,7 +1747,10 @@
       "type": 0,
       "text": "Pitfall",
       "img": "icons/svg/d20.svg",
-      "range": [117, 117],
+      "range": [
+        117,
+        117
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 117,
@@ -1411,7 +1762,10 @@
       "type": 0,
       "text": "Pyro",
       "img": "icons/svg/d20.svg",
-      "range": [118, 118],
+      "range": [
+        118,
+        118
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 118,
@@ -1423,7 +1777,10 @@
       "type": 0,
       "text": "Queen Anders",
       "img": "icons/svg/d20.svg",
-      "range": [119, 119],
+      "range": [
+        119,
+        119
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 119,
@@ -1435,7 +1792,10 @@
       "type": 0,
       "text": "Rampage",
       "img": "icons/svg/d20.svg",
-      "range": [120, 120],
+      "range": [
+        120,
+        120
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 120,
@@ -1447,7 +1807,10 @@
       "type": 0,
       "text": "Rascal",
       "img": "icons/svg/d20.svg",
-      "range": [121, 121],
+      "range": [
+        121,
+        121
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 121,
@@ -1459,7 +1822,10 @@
       "type": 0,
       "text": "Recluse",
       "img": "icons/svg/d20.svg",
-      "range": [122, 122],
+      "range": [
+        122,
+        122
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 122,
@@ -1471,7 +1837,10 @@
       "type": 0,
       "text": "Red",
       "img": "icons/svg/d20.svg",
-      "range": [123, 123],
+      "range": [
+        123,
+        123
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 123,
@@ -1483,7 +1852,10 @@
       "type": 0,
       "text": "Red Cloud",
       "img": "icons/svg/d20.svg",
-      "range": [124, 124],
+      "range": [
+        124,
+        124
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 124,
@@ -1495,7 +1867,10 @@
       "type": 0,
       "text": "Red Saint",
       "img": "icons/svg/d20.svg",
-      "range": [125, 125],
+      "range": [
+        125,
+        125
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 125,
@@ -1507,7 +1882,10 @@
       "type": 0,
       "text": "Red Wolf",
       "img": "icons/svg/d20.svg",
-      "range": [126, 126],
+      "range": [
+        126,
+        126
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 126,
@@ -1519,7 +1897,10 @@
       "type": 0,
       "text": "Rewind",
       "img": "icons/svg/d20.svg",
-      "range": [127, 127],
+      "range": [
+        127,
+        127
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 127,
@@ -1531,7 +1912,10 @@
       "type": 0,
       "text": "Rivers",
       "img": "icons/svg/d20.svg",
-      "range": [128, 128],
+      "range": [
+        128,
+        128
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 128,
@@ -1543,7 +1927,10 @@
       "type": 0,
       "text": "Ropeburn",
       "img": "icons/svg/d20.svg",
-      "range": [129, 129],
+      "range": [
+        129,
+        129
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 129,
@@ -1555,7 +1942,10 @@
       "type": 0,
       "text": "Rundown",
       "img": "icons/svg/d20.svg",
-      "range": [130, 130],
+      "range": [
+        130,
+        130
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 130,
@@ -1567,7 +1957,10 @@
       "type": 0,
       "text": "Sabbath",
       "img": "icons/svg/d20.svg",
-      "range": [131, 131],
+      "range": [
+        131,
+        131
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 131,
@@ -1579,7 +1972,10 @@
       "type": 0,
       "text": "Safari",
       "img": "icons/svg/d20.svg",
-      "range": [132, 132],
+      "range": [
+        132,
+        132
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 132,
@@ -1591,7 +1987,10 @@
       "type": 0,
       "text": "Salty",
       "img": "icons/svg/d20.svg",
-      "range": [133, 133],
+      "range": [
+        133,
+        133
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 133,
@@ -1603,7 +2002,10 @@
       "type": 0,
       "text": "Scallywag",
       "img": "icons/svg/d20.svg",
-      "range": [134, 134],
+      "range": [
+        134,
+        134
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 134,
@@ -1615,7 +2017,10 @@
       "type": 0,
       "text": "Sea Devil",
       "img": "icons/svg/d20.svg",
-      "range": [135, 135],
+      "range": [
+        135,
+        135
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 135,
@@ -1627,7 +2032,10 @@
       "type": 0,
       "text": "Sea Turtle",
       "img": "icons/svg/d20.svg",
-      "range": [136, 136],
+      "range": [
+        136,
+        136
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 136,
@@ -1639,7 +2047,10 @@
       "type": 0,
       "text": "Sea Wolf",
       "img": "icons/svg/d20.svg",
-      "range": [137, 137],
+      "range": [
+        137,
+        137
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 137,
@@ -1651,7 +2062,10 @@
       "type": 0,
       "text": "Seachest",
       "img": "icons/svg/d20.svg",
-      "range": [138, 138],
+      "range": [
+        138,
+        138
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 138,
@@ -1663,7 +2077,10 @@
       "type": 0,
       "text": "Shakespeare",
       "img": "icons/svg/d20.svg",
-      "range": [139, 139],
+      "range": [
+        139,
+        139
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 139,
@@ -1675,7 +2092,10 @@
       "type": 0,
       "text": "Sharkbait",
       "img": "icons/svg/d20.svg",
-      "range": [140, 140],
+      "range": [
+        140,
+        140
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 140,
@@ -1687,7 +2107,10 @@
       "type": 0,
       "text": "Shivers",
       "img": "icons/svg/d20.svg",
-      "range": [141, 141],
+      "range": [
+        141,
+        141
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 141,
@@ -1699,7 +2122,10 @@
       "type": 0,
       "text": "Sick Sin",
       "img": "icons/svg/d20.svg",
-      "range": [142, 142],
+      "range": [
+        142,
+        142
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 142,
@@ -1711,7 +2137,10 @@
       "type": 0,
       "text": "Siren",
       "img": "icons/svg/d20.svg",
-      "range": [143, 143],
+      "range": [
+        143,
+        143
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 143,
@@ -1723,7 +2152,10 @@
       "type": 0,
       "text": "Sister",
       "img": "icons/svg/d20.svg",
-      "range": [144, 144],
+      "range": [
+        144,
+        144
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 144,
@@ -1735,7 +2167,10 @@
       "type": 0,
       "text": "Slicer",
       "img": "icons/svg/d20.svg",
-      "range": [145, 145],
+      "range": [
+        145,
+        145
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 145,
@@ -1747,7 +2182,10 @@
       "type": 0,
       "text": "Snake",
       "img": "icons/svg/d20.svg",
-      "range": [146, 146],
+      "range": [
+        146,
+        146
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 146,
@@ -1759,7 +2197,10 @@
       "type": 0,
       "text": "Solstice",
       "img": "icons/svg/d20.svg",
-      "range": [147, 147],
+      "range": [
+        147,
+        147
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 147,
@@ -1771,7 +2212,10 @@
       "type": 0,
       "text": "Sparrow",
       "img": "icons/svg/d20.svg",
-      "range": [148, 148],
+      "range": [
+        148,
+        148
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 148,
@@ -1783,7 +2227,10 @@
       "type": 0,
       "text": "Spasm",
       "img": "icons/svg/d20.svg",
-      "range": [149, 149],
+      "range": [
+        149,
+        149
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 149,
@@ -1795,7 +2242,10 @@
       "type": 0,
       "text": "Spike",
       "img": "icons/svg/d20.svg",
-      "range": [150, 150],
+      "range": [
+        150,
+        150
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 150,
@@ -1807,7 +2257,10 @@
       "type": 0,
       "text": "Spite",
       "img": "icons/svg/d20.svg",
-      "range": [151, 151],
+      "range": [
+        151,
+        151
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 151,
@@ -1819,7 +2272,10 @@
       "type": 0,
       "text": "Squidlips",
       "img": "icons/svg/d20.svg",
-      "range": [152, 152],
+      "range": [
+        152,
+        152
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 152,
@@ -1831,7 +2287,10 @@
       "type": 0,
       "text": "Standoff",
       "img": "icons/svg/d20.svg",
-      "range": [153, 153],
+      "range": [
+        153,
+        153
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 153,
@@ -1843,7 +2302,10 @@
       "type": 0,
       "text": "Stinky",
       "img": "icons/svg/d20.svg",
-      "range": [154, 154],
+      "range": [
+        154,
+        154
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 154,
@@ -1855,7 +2317,10 @@
       "type": 0,
       "text": "Stonewall",
       "img": "icons/svg/d20.svg",
-      "range": [155, 155],
+      "range": [
+        155,
+        155
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 155,
@@ -1867,7 +2332,10 @@
       "type": 0,
       "text": "Strangler",
       "img": "icons/svg/d20.svg",
-      "range": [156, 156],
+      "range": [
+        156,
+        156
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 156,
@@ -1879,7 +2347,10 @@
       "type": 0,
       "text": "Stubby",
       "img": "icons/svg/d20.svg",
-      "range": [157, 157],
+      "range": [
+        157,
+        157
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 157,
@@ -1891,7 +2362,10 @@
       "type": 0,
       "text": "Surge",
       "img": "icons/svg/d20.svg",
-      "range": [158, 158],
+      "range": [
+        158,
+        158
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 158,
@@ -1903,7 +2377,10 @@
       "type": 0,
       "text": "Swamp Skin",
       "img": "icons/svg/d20.svg",
-      "range": [159, 159],
+      "range": [
+        159,
+        159
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 159,
@@ -1915,7 +2392,10 @@
       "type": 0,
       "text": "Task Rabbit",
       "img": "icons/svg/d20.svg",
-      "range": [160, 160],
+      "range": [
+        160,
+        160
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 160,
@@ -1927,7 +2407,10 @@
       "type": 0,
       "text": "Tempo",
       "img": "icons/svg/d20.svg",
-      "range": [161, 161],
+      "range": [
+        161,
+        161
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 161,
@@ -1939,7 +2422,10 @@
       "type": 0,
       "text": "Tempus",
       "img": "icons/svg/d20.svg",
-      "range": [162, 162],
+      "range": [
+        162,
+        162
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 162,
@@ -1951,7 +2437,10 @@
       "type": 0,
       "text": "The Barber",
       "img": "icons/svg/d20.svg",
-      "range": [163, 163],
+      "range": [
+        163,
+        163
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 163,
@@ -1963,7 +2452,10 @@
       "type": 0,
       "text": "The Bride",
       "img": "icons/svg/d20.svg",
-      "range": [164, 164],
+      "range": [
+        164,
+        164
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 164,
@@ -1975,7 +2467,10 @@
       "type": 0,
       "text": "The Claw",
       "img": "icons/svg/d20.svg",
-      "range": [165, 165],
+      "range": [
+        165,
+        165
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 165,
@@ -1987,7 +2482,10 @@
       "type": 0,
       "text": "The Fisherman",
       "img": "icons/svg/d20.svg",
-      "range": [166, 166],
+      "range": [
+        166,
+        166
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 166,
@@ -1999,7 +2497,10 @@
       "type": 0,
       "text": "The Hunter",
       "img": "icons/svg/d20.svg",
-      "range": [167, 167],
+      "range": [
+        167,
+        167
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 167,
@@ -2011,7 +2512,10 @@
       "type": 0,
       "text": "The Kingston Executioner",
       "img": "icons/svg/d20.svg",
-      "range": [168, 168],
+      "range": [
+        168,
+        168
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 168,
@@ -2023,7 +2527,10 @@
       "type": 0,
       "text": "The Knave",
       "img": "icons/svg/d20.svg",
-      "range": [169, 169],
+      "range": [
+        169,
+        169
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 169,
@@ -2035,7 +2542,10 @@
       "type": 0,
       "text": "The Knife",
       "img": "icons/svg/d20.svg",
-      "range": [170, 170],
+      "range": [
+        170,
+        170
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 170,
@@ -2047,7 +2557,10 @@
       "type": 0,
       "text": "The Leperchaun",
       "img": "icons/svg/d20.svg",
-      "range": [171, 171],
+      "range": [
+        171,
+        171
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 171,
@@ -2059,7 +2572,10 @@
       "type": 0,
       "text": "Three Gates",
       "img": "icons/svg/d20.svg",
-      "range": [172, 172],
+      "range": [
+        172,
+        172
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 172,
@@ -2071,7 +2587,10 @@
       "type": 0,
       "text": "Three Sheets",
       "img": "icons/svg/d20.svg",
-      "range": [173, 173],
+      "range": [
+        173,
+        173
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 173,
@@ -2083,7 +2602,10 @@
       "type": 0,
       "text": "Tidal Wave",
       "img": "icons/svg/d20.svg",
-      "range": [174, 174],
+      "range": [
+        174,
+        174
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 174,
@@ -2095,7 +2617,10 @@
       "type": 0,
       "text": "Tiger Eye",
       "img": "icons/svg/d20.svg",
-      "range": [175, 175],
+      "range": [
+        175,
+        175
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 175,
@@ -2107,7 +2632,10 @@
       "type": 0,
       "text": "Tortuga",
       "img": "icons/svg/d20.svg",
-      "range": [176, 176],
+      "range": [
+        176,
+        176
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 176,
@@ -2119,7 +2647,10 @@
       "type": 0,
       "text": "Turtle",
       "img": "icons/svg/d20.svg",
-      "range": [177, 177],
+      "range": [
+        177,
+        177
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 177,
@@ -2131,7 +2662,10 @@
       "type": 0,
       "text": "Two Toes",
       "img": "icons/svg/d20.svg",
-      "range": [178, 178],
+      "range": [
+        178,
+        178
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 178,
@@ -2143,7 +2677,10 @@
       "type": 0,
       "text": "Upgrade",
       "img": "icons/svg/d20.svg",
-      "range": [179, 179],
+      "range": [
+        179,
+        179
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 179,
@@ -2155,7 +2692,10 @@
       "type": 0,
       "text": "Venom",
       "img": "icons/svg/d20.svg",
-      "range": [180, 180],
+      "range": [
+        180,
+        180
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 180,
@@ -2167,7 +2707,10 @@
       "type": 0,
       "text": "Vex",
       "img": "icons/svg/d20.svg",
-      "range": [181, 181],
+      "range": [
+        181,
+        181
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 181,
@@ -2179,7 +2722,10 @@
       "type": 0,
       "text": "Voodoo",
       "img": "icons/svg/d20.svg",
-      "range": [182, 182],
+      "range": [
+        182,
+        182
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 182,
@@ -2191,7 +2737,10 @@
       "type": 0,
       "text": "West Indie Bandit",
       "img": "icons/svg/d20.svg",
-      "range": [183, 183],
+      "range": [
+        183,
+        183
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 183,
@@ -2203,7 +2752,10 @@
       "type": 0,
       "text": "West Indy",
       "img": "icons/svg/d20.svg",
-      "range": [184, 184],
+      "range": [
+        184,
+        184
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 184,
@@ -2215,7 +2767,10 @@
       "type": 0,
       "text": "Whight",
       "img": "icons/svg/d20.svg",
-      "range": [185, 185],
+      "range": [
+        185,
+        185
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 185,
@@ -2227,7 +2782,10 @@
       "type": 0,
       "text": "Whip",
       "img": "icons/svg/d20.svg",
-      "range": [186, 186],
+      "range": [
+        186,
+        186
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 186,
@@ -2239,7 +2797,10 @@
       "type": 0,
       "text": "Whistler",
       "img": "icons/svg/d20.svg",
-      "range": [187, 187],
+      "range": [
+        187,
+        187
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 187,
@@ -2251,7 +2812,10 @@
       "type": 0,
       "text": "White",
       "img": "icons/svg/d20.svg",
-      "range": [188, 188],
+      "range": [
+        188,
+        188
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 188,
@@ -2263,7 +2827,10 @@
       "type": 0,
       "text": "Whitewash",
       "img": "icons/svg/d20.svg",
-      "range": [189, 189],
+      "range": [
+        189,
+        189
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 189,
@@ -2275,7 +2842,10 @@
       "type": 0,
       "text": "Wild Onion",
       "img": "icons/svg/d20.svg",
-      "range": [190, 190],
+      "range": [
+        190,
+        190
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 190,
@@ -2287,7 +2857,10 @@
       "type": 0,
       "text": "Zeus",
       "img": "icons/svg/d20.svg",
-      "range": [191, 191],
+      "range": [
+        191,
+        191
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 191,

@@ -12,7 +12,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "kHcRmAtOroMngfQi",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 1,
@@ -27,7 +30,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "ILBVXEghnlGKOoRB",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -42,7 +48,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "j2IxvcDHsnGVVNNb",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -57,7 +66,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "FZXm37HkCs8KyETv",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 3,
@@ -72,7 +84,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "ECzX6kt6cDp5vlMm",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 4,
@@ -87,7 +102,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "KxOX04r930J39HiU",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -102,7 +120,10 @@
       "collection": "pirateborg.class-brute",
       "resultId": "uNsmrnbUAMn0Te26",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 6,
@@ -115,7 +136,10 @@
       "text": "Rounds of shot",
       "collection": "pirateborg.equipment-ammo",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",

@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Lantern",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/lantern.png",
@@ -25,7 +28,10 @@
       "text": "Candle",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/candle.png",
@@ -40,7 +46,10 @@
       "text": "Rope",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/rope.png",
@@ -55,7 +64,10 @@
       "text": "Shovel",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/shovel.png",
@@ -70,7 +82,10 @@
       "text": "Weighted dice",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/weighted-dice.png",
@@ -85,7 +100,10 @@
       "text": "Flint and steel",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/flint-and-steel.png",
@@ -100,7 +118,10 @@
       "text": "Hammer",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/hammer.png",
@@ -115,7 +136,10 @@
       "text": "Mess kit",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [9, 9],
+      "range": [
+        9,
+        9
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/mess-kit.png",
@@ -130,7 +154,10 @@
       "text": "Smoking pipe",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/smoking-pipe.png",
@@ -145,7 +172,10 @@
       "text": "Torch",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [11, 11],
+      "range": [
+        11,
+        11
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/torch.png",
@@ -159,7 +189,10 @@
       "type": 0,
       "text": "quantity: [[d6]]",
       "weight": 1,
-      "range": [11, 11],
+      "range": [
+        11,
+        11
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -175,7 +208,10 @@
       "text": "d10 Pets",
       "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
-      "range": [12, 12],
+      "range": [
+        12,
+        12
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -190,7 +226,10 @@
       "text": "Lantern oil",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/lantern-oil.png",
@@ -204,7 +243,10 @@
       "type": 0,
       "text": "description: [[d6]] hour of oil",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -219,7 +261,10 @@
       "type": 0,
       "text": "quantity: [[d4]]",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -234,7 +279,10 @@
       "type": 0,
       "text": "description: hammer & nails",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -250,7 +298,10 @@
       "text": "Tobacco",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/tobacco.png",
@@ -265,7 +316,10 @@
       "text": "Medical kit",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/medical-kit.png",

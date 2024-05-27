@@ -7,7 +7,10 @@
       "type": 2,
       "text": "Marlinspike",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/marlinspike.png",
@@ -23,7 +26,10 @@
       "text": "Belaying pin",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/belaying-pin.png",

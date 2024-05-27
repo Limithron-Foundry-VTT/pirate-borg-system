@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Marlinspike or Belaying Pin",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -25,7 +28,10 @@
       "text": "Knife or Bayonet",
       "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -40,7 +46,10 @@
       "text": "Smallsword or Machete",
       "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -55,7 +64,10 @@
       "text": "Cat O' Nine Tails",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/cat-o-nine-tails.png",
@@ -70,7 +82,10 @@
       "text": "Boarding axe",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/boarding-axe.png",
@@ -85,7 +100,10 @@
       "text": "Cutlass",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/cutlass.png",
@@ -100,7 +118,10 @@
       "text": "Flintlock pistol",
       "collection": "pirateborg.equipment-ranged-weapons",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ranged-weapons/flintlock-pistol.png",
@@ -115,7 +136,10 @@
       "text": "Finely crafted rapier",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/finely-crafted-rapier.png",
@@ -130,7 +154,10 @@
       "text": "Boarding pike",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [9, 9],
+      "range": [
+        9,
+        9
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/boarding-pike.png",
@@ -145,7 +172,10 @@
       "text": "Musket",
       "collection": "pirateborg.equipment-ranged-weapons",
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ranged-weapons/musket.png",
@@ -160,7 +190,10 @@
       "text": "Rounds of shot",
       "collection": "pirateborg.equipment-ammo",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
@@ -175,7 +208,10 @@
       "text": "quantity: 10",
       "collection": null,
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -190,7 +226,10 @@
       "text": "Rounds of shot",
       "collection": "pirateborg.equipment-ammo",
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
@@ -205,7 +244,10 @@
       "text": "quantity: 10",
       "collection": null,
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

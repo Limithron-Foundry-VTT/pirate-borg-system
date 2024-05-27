@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Back Stabber",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -22,7 +25,10 @@
       "type": 2,
       "text": "Burglar",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -35,7 +41,10 @@
       "type": 2,
       "text": "Skylarker",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -48,7 +57,10 @@
       "type": 2,
       "text": "Sneaky Bastard",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -61,7 +73,10 @@
       "type": 2,
       "text": "Lucky Devil",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -74,7 +89,10 @@
       "type": 2,
       "text": "Grog Brewer",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -98,7 +116,7 @@
     "coreVersion": "10.291",
     "createdTime": null,
     "modifiedTime": 1680575571210,
-    "lastModifiedBy": "pbbuilder0000"
+    "lastModifiedBy": "pbbuilder0000000"
   },
   "_key": "!tables!9MLLyTBKzzXwk4UY"
 }

@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Bucket",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/bucket.png",
@@ -25,7 +28,10 @@
       "text": "Bandolier",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/belt-pouch.png",
@@ -40,7 +46,10 @@
       "text": "Satchel",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sack.png",
@@ -55,7 +64,10 @@
       "text": "Backpack",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/backpack.png",
@@ -70,7 +82,10 @@
       "text": "Dinghy",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sail.png",
@@ -87,7 +102,10 @@
       "collection": "pirateborg.equipment-gear",
       "resultId": "AsFDi5YpVrkdTWjg",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -100,7 +118,10 @@
       "text": "description: A large sea chest or one of the above of your choice",
       "collection": null,
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/large-sea-chest.png",
@@ -115,7 +136,10 @@
       "text": "description: A dinghy or one of the above of your choice",
       "collection": null,
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sail.png",

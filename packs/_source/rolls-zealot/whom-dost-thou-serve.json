@@ -9,7 +9,10 @@
       "type": 2,
       "text": "The One True God",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -25,7 +28,10 @@
       "text": "The Church",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -40,7 +46,10 @@
       "text": "Mother Nature",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -55,7 +64,10 @@
       "text": "The Great Old One",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -70,7 +82,10 @@
       "text": "The Ancient Gods",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -85,7 +100,10 @@
       "text": "The Dark One",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -100,7 +118,10 @@
       "text": "The Chaos",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
@@ -115,7 +136,10 @@
       "text": "The Deep",
       "collection": "pirateborg.class-zealot",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",

@@ -7,7 +7,10 @@
       "type": 2,
       "text": "Knife",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/knife.png",
@@ -23,7 +26,10 @@
       "text": "Bayonet",
       "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/bayonet.png",

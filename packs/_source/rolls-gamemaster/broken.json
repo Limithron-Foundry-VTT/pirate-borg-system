@@ -9,7 +9,10 @@
       "type": 0,
       "text": "Instant death",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -25,7 +28,10 @@
       "text": "Broken or severed limb or Lost eye",
       "collection": "pirateborg.rolls-gamemaster",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -39,7 +45,10 @@
       "type": 0,
       "text": "Hemorrhage : Death in [[d2]] hours unless treated. All tests are DR16 the first hour. DR18 the last hour.",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -54,7 +63,10 @@
       "type": 0,
       "text": "Brain injury : You awake in 1 hour with a -3 to Presence for [[d8]] days.",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -69,7 +81,10 @@
       "type": 0,
       "text": "Can’t act for [[d4]] rounds then become active with [[d4]] HP.",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -85,7 +100,10 @@
       "text": "Fall unconscious for [[d4]] rounds, awaken with 1 HP and 0 Devil's Luck.",
       "collection": null,
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -100,7 +118,10 @@
       "text": "Fall unconscious for [[d2]] rounds, awaken with [[d4]] HP and [[d2]] Devil's Luck.",
       "collection": null,
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

@@ -9,7 +9,10 @@
       "type": 2,
       "text": "Ostentatious Fencer",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -25,7 +28,10 @@
       "text": "Flintlock Fanatic",
       "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -40,7 +46,10 @@
       "text": "Scurvy Scallywag",
       "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -55,7 +64,10 @@
       "text": "Inspiring Leader",
       "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -70,7 +82,10 @@
       "text": "Knife Knave",
       "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -85,7 +100,10 @@
       "text": "Black Powder Poet",
       "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
