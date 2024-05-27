@@ -115,7 +115,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
-      vision: true,
+      sight: { enabled: true },
     },
   },
   [PB.actorTypes.container]: {
@@ -123,7 +123,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
-      vision: false,
+      sight: { enabled: false },
     },
   },
   [PB.actorTypes.creature]: {
@@ -131,7 +131,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      vision: false,
+      sight: { enabled: false },
     },
   },
   [PB.actorTypes.vehicle]: {
@@ -139,7 +139,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
-      vision: true,
+      sight: { enabled: true },
     },
   },
   [PB.actorTypes.vehicle_npc]: {
@@ -147,7 +147,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      vision: false,
+      sight: { enabled: false },
     },
   },
 };
