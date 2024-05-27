@@ -1,0 +1,21 @@
+{
+  "_id": "qEK6CL1RJWfo2Key",
+  "name": "You escaped captivity, and will never go back.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You escaped captivity, and will never go back.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!qEK6CL1RJWfo2Key",
+  "ownership": {
+    "default": 0
+  }
+}

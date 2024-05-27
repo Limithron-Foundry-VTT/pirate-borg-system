@@ -1,0 +1,33 @@
+{
+  "_id": "HMT5ThVUlSdqrZeE",
+  "name": "Back Stabber",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>If you attack by surprise (from hiding, distracted enemy, etc.) lower the attack DR by 2 and deal d2 extra damage.</p>\n<p>If taken again, draw a card.</p>\n<ul>\n<li>Black: Lower DR by 1 more.</li>\n<li>Red: Increase damage die [d2&gt;d4&gt;d6&gt;d8].</li>\n<li>Joker: Both</li>\n</ul>",
+    "featureType": "Class",
+    "maxQuantity": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.14",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1705726890044,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!HMT5ThVUlSdqrZeE"
+}

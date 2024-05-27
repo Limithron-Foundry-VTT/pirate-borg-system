@@ -1,0 +1,30 @@
+{
+  "_id": "5Hvh44QLKtg1FihC",
+  "name": "the respect of some crew",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/minions.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!5Hvh44QLKtg1FihC",
+  "ownership": {
+    "default": 0
+  }
+}

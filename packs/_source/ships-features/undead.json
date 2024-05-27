@@ -1,0 +1,25 @@
+{
+  "_id": "gWLZn0fAwc2k0bRd",
+  "name": "Undead",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>Can only be crewed by the dead, and will sink when the captain is destroyed</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!gWLZn0fAwc2k0bRd",
+  "ownership": {
+    "default": 0
+  }
+}

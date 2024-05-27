@@ -1,0 +1,21 @@
+{
+  "_id": "TjuzCzueBM7PqApu",
+  "name": "Extremely obsessive with tasks and relationships.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Extremely obsessive with tasks and relationships.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!TjuzCzueBM7PqApu",
+  "ownership": {
+    "default": 0
+  }
+}

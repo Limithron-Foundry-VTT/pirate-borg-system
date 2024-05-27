@@ -1,0 +1,21 @@
+{
+  "_id": "2Jh0Cgr23wpPBRlv",
+  "name": "You narrowly escaped a cannibalistic ending, but you didn't escape that smell.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You narrowly escaped a cannibalistic ending, but you didn't escape that smell.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!2Jh0Cgr23wpPBRlv",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "8icD0S2DCLEhq1TS",
+  "name": "dark robe, cape, or cloak",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>dark robe, cape, or cloak</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!8icD0S2DCLEhq1TS",
+  "ownership": {
+    "default": 0
+  }
+}

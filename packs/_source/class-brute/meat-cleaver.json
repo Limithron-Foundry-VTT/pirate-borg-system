@@ -1,0 +1,37 @@
+{
+  "_id": "Js9wTTMz6L7F4WRj",
+  "name": "Meat Cleaver",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/misc/weapon.png",
+  "data": {
+    "description": "<p><strong>You begin with a trusted weapon . It will never break, but you drop it on a Fumble. It is DR -2 to attack. What is its name?</strong></p>\n<p>Caked in layers of dried blood. d4 damage, and on a damage roll of 1 it spreads a disease from one of its prior victims: the target loses d6 HP at the start of its next two turns.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d4",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Js9wTTMz6L7F4WRj",
+  "ownership": {
+    "default": 0
+  }
+}

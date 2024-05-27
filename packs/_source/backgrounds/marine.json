@@ -1,0 +1,20 @@
+{
+  "_id": "wCQMjpf1uh9rgNh3",
+  "name": "Marine",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a military cutlass</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Cutlass"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!wCQMjpf1uh9rgNh3",
+  "ownership": {
+    "default": 0
+  }
+}

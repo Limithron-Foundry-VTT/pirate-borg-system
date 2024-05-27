@@ -1,0 +1,21 @@
+{
+  "_id": "oZzXLfIuoJrboqjX",
+  "name": "Cargo",
+  "type": "cargo",
+  "img": "systems/pirateborg/icons/misc/cargo.png",
+  "data": {
+    "description": "",
+    "value": "2d6",
+    "startingGold": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!oZzXLfIuoJrboqjX",
+  "ownership": {
+    "default": 0
+  }
+}

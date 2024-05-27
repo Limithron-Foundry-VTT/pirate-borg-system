@@ -1,0 +1,21 @@
+{
+  "_id": "n4sMcdcRMASIBg3i",
+  "name": "You always say you \"know the right way\", but are prone to getting lost.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>You always say you \"know the right way\", but are prone to getting lost.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!n4sMcdcRMASIBg3i",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "jN395ATWP72q5A1v",
+  "name": "noose taken from a corpse",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>noose taken from a corpse</p>\n<p>&nbsp;</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!jN395ATWP72q5A1v",
+  "ownership": {
+    "default": 0
+  }
+}

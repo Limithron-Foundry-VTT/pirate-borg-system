@@ -1,0 +1,21 @@
+{
+  "_id": "F3JO98XuGt3Ce8RP",
+  "name": "Missing an ear",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Missing an ear</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!F3JO98XuGt3Ce8RP",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "XSTOcYE2uLNejb6l",
+  "name": "So good looking people are jealous",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>So good looking people are jealous</p>",
+    "featureType": "Physical Trademark",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!XSTOcYE2uLNejb6l",
+  "ownership": {
+    "default": 0
+  }
+}

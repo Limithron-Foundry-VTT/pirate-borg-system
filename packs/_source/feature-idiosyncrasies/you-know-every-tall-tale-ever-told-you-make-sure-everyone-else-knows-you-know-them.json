@@ -1,0 +1,21 @@
+{
+  "_id": "PFB2jpkX1UUPbxTa",
+  "name": "You know every tall tale ever told. You make sure everyone else knows you know them.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>You know every tall tale ever told. You make sure everyone else knows you know them.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!PFB2jpkX1UUPbxTa",
+  "ownership": {
+    "default": 0
+  }
+}

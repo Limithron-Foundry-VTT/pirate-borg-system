@@ -1,0 +1,25 @@
+{
+  "_id": "nP40GEWA0xBuWXTH",
+  "name": "Inspiring Leader",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Once each combat, roll a d4. Each of your allies may add or subtract that value from any one roll during this combat.</p>",
+    "featureType": "Class",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!nP40GEWA0xBuWXTH",
+  "ownership": {
+    "default": 0
+  }
+}

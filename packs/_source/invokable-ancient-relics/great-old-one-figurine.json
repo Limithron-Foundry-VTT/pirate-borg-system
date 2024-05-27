@@ -1,0 +1,36 @@
+{
+  "_id": "PXgxd8lYBAsxUPnD",
+  "name": "Great Old One Figurine",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-great-old-one-figurine.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>One human is terrorized for d4 rounds unless they succeed a PRESENCE DR14 test. They can test each round.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931963,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!PXgxd8lYBAsxUPnD"
+}

@@ -1,0 +1,49 @@
+{
+  "_id": "4EvzYI2zDaLt18pV",
+  "name": "Machete",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/melee-weapons/machete.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.shortsword.melee.01.white"
+    }
+  },
+  "system": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 25,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d6",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.12",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1700210992374,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!4EvzYI2zDaLt18pV"
+}

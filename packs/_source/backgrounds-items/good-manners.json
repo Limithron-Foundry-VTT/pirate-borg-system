@@ -1,0 +1,30 @@
+{
+  "_id": "lZ7F3PyCTU3fnrZe",
+  "name": "good manners",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/king.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!lZ7F3PyCTU3fnrZe",
+  "ownership": {
+    "default": 0
+  }
+}

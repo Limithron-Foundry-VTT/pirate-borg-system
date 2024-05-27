@@ -1,0 +1,21 @@
+{
+  "_id": "j0wYTXq2JObxht3h",
+  "name": "Monk",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a holy symbol and scripture</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;holy symbol\npirateborg.feature-thing-of-importance;book of scripture",
+    "startingBonusRolls": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!j0wYTXq2JObxht3h",
+  "ownership": {
+    "default": 0
+  }
+}

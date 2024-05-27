@@ -1,0 +1,30 @@
+{
+  "_id": "9QPCQDVtxDF9Nz1S",
+  "name": "desire for a new home",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/camping-tent.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!9QPCQDVtxDF9Nz1S",
+  "ownership": {
+    "default": 0
+  }
+}

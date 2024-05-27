@@ -1,0 +1,21 @@
+{
+  "_id": "bNPVcyOgwVOllKWl",
+  "name": "Smokes constantly. Coughs even more.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Smokes constantly. Coughs even more.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!bNPVcyOgwVOllKWl",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "8TeDkySSKBo21WLL",
+  "name": "You were once marooned on an island for far too long. The voices must be real.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You were once marooned on an island for far too long. The voices must be real.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!8TeDkySSKBo21WLL",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "eZHvVDlMlZD5k8DG",
+  "name": "Ostentatious",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/flaw.png",
+  "data": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!eZHvVDlMlZD5k8DG",
+  "ownership": {
+    "default": 0
+  }
+}

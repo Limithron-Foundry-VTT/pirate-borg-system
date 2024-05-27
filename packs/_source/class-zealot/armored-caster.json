@@ -1,0 +1,23 @@
+{
+  "_id": "ZKGXvpKtJgHuAD89",
+  "name": "Armored Caster",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Thou may use relic and arcane rituals while wearing medium armor (-d4 or lower).&nbsp;</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ZKGXvpKtJgHuAD89",
+  "ownership": {
+    "default": 0
+  }
+}

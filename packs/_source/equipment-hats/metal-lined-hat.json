@@ -1,0 +1,27 @@
+{
+  "_id": "cljgtksYMJJYMvEs",
+  "name": "Metal lined hat",
+  "type": "hat",
+  "img": "systems/pirateborg/icons/equipment/hats/metal-lined-hat.png",
+  "data": {
+    "description": "<p>-1 damage.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "reduceDamage": true,
+    "ruleText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!cljgtksYMJJYMvEs",
+  "ownership": {
+    "default": 0
+  }
+}

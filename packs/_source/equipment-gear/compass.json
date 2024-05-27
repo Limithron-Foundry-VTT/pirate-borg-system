@@ -1,0 +1,25 @@
+{
+  "_id": "TmZzfjWNeaEiG1fP",
+  "name": "Compass",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/compass.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 75,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!TmZzfjWNeaEiG1fP",
+  "ownership": {
+    "default": 0
+  }
+}

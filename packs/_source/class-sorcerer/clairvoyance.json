@@ -1,0 +1,28 @@
+{
+  "_id": "C8XtCS4iUyTBPEIq",
+  "name": "Clairvoyance",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
+  "data": {
+    "description": "<p>Ask the spirits a question about an adjacent room or area, though their answer may be a lie. Test SPIRIT to know if they are telling the truth.</p>\n<p><strong>I.</strong> DR12 <strong>II.</strong> DR10 <strong>III.</strong> DR8</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Sorceries",
+    "isEquipment": false,
+    "maxQuantity": 3
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!C8XtCS4iUyTBPEIq",
+  "ownership": {
+    "default": 0
+  }
+}

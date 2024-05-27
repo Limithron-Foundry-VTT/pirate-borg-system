@@ -1,0 +1,34 @@
+{
+  "_id": "VijIdnYVecVxfw9t",
+  "name": "Octopus - Tentacles",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/classes/tall-tale/octopus.png",
+  "data": {
+    "description": "",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "2d4",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!VijIdnYVecVxfw9t",
+  "ownership": {
+    "default": 0
+  }
+}

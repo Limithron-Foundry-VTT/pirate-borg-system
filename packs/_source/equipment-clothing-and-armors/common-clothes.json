@@ -1,0 +1,32 @@
+{
+  "_id": "A9KiPk8tYsigSiVG",
+  "name": "Common clothes",
+  "type": "armor",
+  "img": "systems/pirateborg/icons/equipment/armors/common-clothes.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "currentTier": 1,
+    "maxTier": 1,
+    "tier": {
+      "min": 0,
+      "max": 0,
+      "value": 0
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!A9KiPk8tYsigSiVG",
+  "ownership": {
+    "default": 0
+  }
+}

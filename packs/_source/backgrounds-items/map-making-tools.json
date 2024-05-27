@@ -1,0 +1,25 @@
+{
+  "_id": "exTjVSxIQMdxK5y5",
+  "name": "map making tools",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/treasure-map.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!exTjVSxIQMdxK5y5",
+  "ownership": {
+    "default": 0
+  }
+}

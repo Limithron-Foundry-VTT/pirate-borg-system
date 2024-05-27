@@ -1,0 +1,21 @@
+{
+  "_id": "huKPXu4gV6NicO0Z",
+  "name": "The last three ships you crewed all sank.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>The last three ships you crewed all sank.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!huKPXu4gV6NicO0Z",
+  "ownership": {
+    "default": 0
+  }
+}

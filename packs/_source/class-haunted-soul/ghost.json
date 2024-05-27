@@ -1,0 +1,25 @@
+{
+  "_id": "m4Wt3GrEca8LYbUJ",
+  "name": "Ghost",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You are a lost soul from beyond the grave inhabiting the body of another.</p>\n<p>Once per night, you can apparate and terrify a target with your g hostly visage: test Spirit DR14 to deal d12 damage.</p>\n<p>If you are reduced to 1 HP or are somehow exorcised from your vessel, you become incorporeal and must find a new host in d12 hours or dissipate into the void.</p>\n<p>Possessing a new target: test Spirit DR16 (limit one attempt per target)</p>",
+    "featureType": "Ailment (Haunted Soul)",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!m4Wt3GrEca8LYbUJ",
+  "ownership": {
+    "default": 0
+  }
+}

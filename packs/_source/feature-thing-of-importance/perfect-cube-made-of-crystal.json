@@ -1,0 +1,21 @@
+{
+  "_id": "Dy582xQ51vckikQL",
+  "name": "perfect cube made of crystal",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a perfect cube made of crystal</p>",
+    "featureType": "Thing of Importance",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Dy582xQ51vckikQL",
+  "ownership": {
+    "default": 0
+  }
+}

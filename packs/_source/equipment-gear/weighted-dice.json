@@ -1,0 +1,25 @@
+{
+  "_id": "0dJCJC1IKzFITe73",
+  "name": "Weighted dice",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/weighted-dice.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!0dJCJC1IKzFITe73",
+  "ownership": {
+    "default": 0
+  }
+}

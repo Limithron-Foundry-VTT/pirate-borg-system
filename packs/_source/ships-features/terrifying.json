@@ -1,0 +1,25 @@
+{
+  "_id": "tTRbdUqJQOSDIbYs",
+  "name": "Terrifying",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>At start of combat, ships and PCs cannot take crew actions until passing a Morale test.</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!tTRbdUqJQOSDIbYs",
+  "ownership": {
+    "default": 0
+  }
+}

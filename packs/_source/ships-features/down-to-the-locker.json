@@ -1,0 +1,25 @@
+{
+  "_id": "w07OdJ6ySDwnTqYM",
+  "name": "Down to the Locker!",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>Can submerge/surface instead of attacking. Speed 3\" when underwater.</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!w07OdJ6ySDwnTqYM",
+  "ownership": {
+    "default": 0
+  }
+}

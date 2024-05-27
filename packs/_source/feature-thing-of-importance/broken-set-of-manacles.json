@@ -1,0 +1,25 @@
+{
+  "_id": "iYiopsAkZcUq8aON",
+  "name": "broken set of manacles",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a broken set of manacles</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!iYiopsAkZcUq8aON",
+  "ownership": {
+    "default": 0
+  }
+}

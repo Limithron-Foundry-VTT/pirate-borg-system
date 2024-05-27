@@ -1,0 +1,20 @@
+{
+  "_id": "mZeaPRRsh2T4tpl4",
+  "name": "Revolutionary",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; bold plans and a few allies</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;bold plans and a few allies"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!mZeaPRRsh2T4tpl4",
+  "ownership": {
+    "default": 0
+  }
+}

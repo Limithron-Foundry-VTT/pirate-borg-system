@@ -1,0 +1,20 @@
+{
+  "_id": "8sYHUsF5QcRl3eHX",
+  "name": "Gunner",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; skill at shooting</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;skill at shooting"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!8sYHUsF5QcRl3eHX",
+  "ownership": {
+    "default": 0
+  }
+}

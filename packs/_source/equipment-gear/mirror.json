@@ -1,0 +1,25 @@
+{
+  "_id": "ovoaKMNAxHYRQ0ih",
+  "name": "Mirror",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/mirror.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 15,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ovoaKMNAxHYRQ0ih",
+  "ownership": {
+    "default": 0
+  }
+}

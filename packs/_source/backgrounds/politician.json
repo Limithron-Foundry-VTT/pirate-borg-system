@@ -1,0 +1,20 @@
+{
+  "_id": "wAr9l5khcm62Przm",
+  "name": "Politician",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; skill at deception</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;skill at deception"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!wAr9l5khcm62Przm",
+  "ownership": {
+    "default": 0
+  }
+}

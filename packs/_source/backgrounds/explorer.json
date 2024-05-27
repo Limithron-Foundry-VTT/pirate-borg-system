@@ -1,0 +1,20 @@
+{
+  "_id": "u9lqaTi4Uq4XCaxF",
+  "name": "Explorer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a map and compass</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Compass\npirateborg.backgrounds-items;map making tools"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!u9lqaTi4Uq4XCaxF",
+  "ownership": {
+    "default": 0
+  }
+}

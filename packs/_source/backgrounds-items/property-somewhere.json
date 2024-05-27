@@ -1,0 +1,30 @@
+{
+  "_id": "KOTFao6DMfAljoM9",
+  "name": "property somewhere",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/farmer.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!KOTFao6DMfAljoM9",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "QHC3p65jdNdpYMhQ",
+  "name": "Stupid",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/flaw.png",
+  "data": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!QHC3p65jdNdpYMhQ",
+  "ownership": {
+    "default": 0
+  }
+}

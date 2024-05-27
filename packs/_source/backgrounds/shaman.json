@@ -1,0 +1,20 @@
+{
+  "_id": "PuojVXcnGoG8HAIa",
+  "name": "Shaman",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d4 x 10s &amp; herbs and mystic knowledge</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;herbs\npirateborg.backgrounds-items;mystic knowledge"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!PuojVXcnGoG8HAIa",
+  "ownership": {
+    "default": 0
+  }
+}

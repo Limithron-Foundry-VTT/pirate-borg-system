@@ -1,0 +1,25 @@
+{
+  "_id": "AxeYPFRnlVp2Z2Fv",
+  "name": "Fast Reloading",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Reloading black powder weapons takes you 1 round instead of 2</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!AxeYPFRnlVp2Z2Fv",
+  "ownership": {
+    "default": 0
+  }
+}

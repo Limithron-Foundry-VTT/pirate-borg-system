@@ -1,0 +1,21 @@
+{
+  "_id": "cfaFGdAEZ3aD5ji5",
+  "name": "Infested with bugs",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Infested with bugs</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!cfaFGdAEZ3aD5ji5",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "_id": "4ZffqELXxRNJXjNM",
+  "name": "Tall Tale",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "7rohXK22iPe0pmX4",
+      "type": 2,
+      "text": "Merfolk",
+      "img": "systems/pirateborg/icons/classes/tall-tale/merfolk.png",
+      "collection": "pirateborg.class-tall-tale",
+      "resultId": "36B5BJPdwYbBQutL",
+      "weight": 1,
+      "range": [1, 2],
+      "drawn": false,
+      "flags": {},
+      "rangeL": 1,
+      "rangeH": 2,
+      "_key": "!tables.results!4ZffqELXxRNJXjNM.7rohXK22iPe0pmX4"
+    },
+    {
+      "_id": "lWpnCmIwUnMMmNIq",
+      "type": 2,
+      "text": "Aquatic Mutant",
+      "img": "systems/pirateborg/icons/classes/tall-tale/aquatic-mutant.png",
+      "collection": "pirateborg.class-tall-tale",
+      "resultId": "bI48oC7ecHauJXnZ",
+      "weight": 1,
+      "range": [3, 4],
+      "drawn": false,
+      "flags": {},
+      "rangeL": 3,
+      "rangeH": 4,
+      "_key": "!tables.results!4ZffqELXxRNJXjNM.lWpnCmIwUnMMmNIq"
+    },
+    {
+      "_id": "7pEiNp0ui3QXF3IF",
+      "type": 2,
+      "text": "Sentient Animal",
+      "img": "systems/pirateborg/icons/classes/tall-tale/sentient-animal.png",
+      "collection": "pirateborg.class-tall-tale",
+      "resultId": "3cyYeSPQD1dj3AAC",
+      "weight": 1,
+      "range": [5, 6],
+      "drawn": false,
+      "flags": {},
+      "rangeL": 5,
+      "rangeH": 6,
+      "_key": "!tables.results!4ZffqELXxRNJXjNM.7pEiNp0ui3QXF3IF"
+    }
+  ],
+  "formula": "d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!tables!4ZffqELXxRNJXjNM",
+  "ownership": {
+    "default": 0
+  }
+}

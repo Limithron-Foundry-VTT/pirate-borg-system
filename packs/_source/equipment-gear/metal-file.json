@@ -1,0 +1,25 @@
+{
+  "_id": "1QYP4S7SljXyUjAH",
+  "name": "Metal file",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/metal-file.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 10,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!1QYP4S7SljXyUjAH",
+  "ownership": {
+    "default": 0
+  }
+}

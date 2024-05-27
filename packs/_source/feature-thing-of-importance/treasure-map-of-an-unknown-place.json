@@ -1,0 +1,25 @@
+{
+  "_id": "BgSGpbFMBU9LQS58",
+  "name": "treasure map of an unknown place",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a treasure map of an unknown place</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!BgSGpbFMBU9LQS58",
+  "ownership": {
+    "default": 0
+  }
+}

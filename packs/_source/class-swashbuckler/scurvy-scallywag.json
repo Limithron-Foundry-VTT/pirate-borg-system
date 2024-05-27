@@ -1,0 +1,25 @@
+{
+  "_id": "Kfa9yjgp5OcRadeZ",
+  "name": "Scurvy Scallywag",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You don&rsquo;t fight fair. -2 DR when attacking an enemy that has already been attacked this turn.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Kfa9yjgp5OcRadeZ",
+  "ownership": {
+    "default": 0
+  }
+}

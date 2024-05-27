@@ -1,0 +1,25 @@
+{
+  "_id": "Ykd1a9OnvfMsX1FI",
+  "name": "set of tools",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/toolbox.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Ykd1a9OnvfMsX1FI",
+  "ownership": {
+    "default": 0
+  }
+}

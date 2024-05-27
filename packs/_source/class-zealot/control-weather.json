@@ -1,0 +1,36 @@
+{
+  "_id": "aXuWVdKdkY2ptYZy",
+  "name": "Control Weather",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Test Spirit DR10 to change the direction of the wind. If thou succeedeth by 5 or more, thou can also conjure or repel precipitation.</p>\n<p><strong>Crit</strong>: Lightning striketh thine enemy, d12.</p>\n<p><strong>Fumble</strong>: Lightning strikes thee for d6</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.4",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1690381668261,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!aXuWVdKdkY2ptYZy"
+}

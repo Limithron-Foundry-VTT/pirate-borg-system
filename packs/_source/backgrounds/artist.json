@@ -1,0 +1,20 @@
+{
+  "_id": "Z83dXk0eHaZDlCHz",
+  "name": "Artist",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; art supplies</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;art supplies"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Z83dXk0eHaZDlCHz",
+  "ownership": {
+    "default": 0
+  }
+}

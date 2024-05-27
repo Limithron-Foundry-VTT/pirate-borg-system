@@ -1,0 +1,25 @@
+{
+  "_id": "fhG0IQ1LruVhm6nA",
+  "name": "Torch",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/torch.png",
+  "data": {
+    "description": "<p>1 hour each</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!fhG0IQ1LruVhm6nA",
+  "ownership": {
+    "default": 0
+  }
+}

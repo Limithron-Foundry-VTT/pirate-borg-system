@@ -1,0 +1,16 @@
+{
+  "_id": "SBz9xP1KHDAh4Fxr",
+  "name": "Joker Table",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "game.pirateborg.api.compendium.drawTable('pirateborg.rolls-rapscallion', 'Joker Table',{displayChat: true});",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!macros!SBz9xP1KHDAh4Fxr",
+  "ownership": {
+    "default": 0
+  }
+}

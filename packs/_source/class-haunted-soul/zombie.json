@@ -1,0 +1,25 @@
+{
+  "_id": "mTbonlttaA0EMUZr",
+  "name": "Zombie",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You are secretly a zombie.</p>\n<p>Your flesh slowly rots and falls from your skin. You lose d2 HP every day that you don&rsquo;t consume human flesh.</p>\n<p>Eating a human brain restores 2d6 HP.</p>\n<p>As long as your brain is intact, you maintain control of all of your body parts, attached or not.</p>",
+    "featureType": "Ailment (Haunted Soul)",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!mTbonlttaA0EMUZr",
+  "ownership": {
+    "default": 0
+  }
+}

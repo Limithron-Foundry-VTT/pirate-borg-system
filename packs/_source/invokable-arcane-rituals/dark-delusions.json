@@ -1,0 +1,36 @@
+{
+  "_id": "0YT9OwwBIzFUOv1D",
+  "name": "Dark Delusions",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>An illusion or vision of your design appears in the mind of any creatures you can see for d4+spirit minutes.</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931678,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!0YT9OwwBIzFUOv1D"
+}

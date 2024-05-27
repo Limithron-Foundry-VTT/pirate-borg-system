@@ -1,0 +1,25 @@
+{
+  "_id": "r3zHXqxvw2U2fQIj",
+  "name": "ancient gold coin",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a ancient gold coin</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!r3zHXqxvw2U2fQIj",
+  "ownership": {
+    "default": 0
+  }
+}

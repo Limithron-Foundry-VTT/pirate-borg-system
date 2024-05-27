@@ -1,0 +1,16 @@
+{
+  "_id": "t02N8BGuZCCpmV1U",
+  "name": "Character creation",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "const characterGenerator = game.pirateborg.api.characterGenerator;\n\nconst validBaseClasses = selectedClasses.filter((selectedClass) => !selectedClass.requireBaseClass);\nconst baseClass = validBaseClasses[Math.floor(Math.random() * validBaseClasses.length)];\nconst pirateData = await characterGenerator.rollCharacterForClass(baseClass);\n\nconst startingRollItems = await characterGenerator.rollRollItems(selectedClass.startingRolls);\nconst startingItems = await game.pirateborg.api.compendium.findItemsFromCompendiumString(selectedClass.startingItems);\n\nbaseClass.isBaseClass = true;\n\npirateData.items = pirateData.items\n .filter((item) => item.type !== 'class' && item.isBaseClass !== true)\n .concat(startingRollItems)\n .concat(startingItems)\n .concat([baseClass])\n .concat([selectedClass]);\n\nconst ailment = pirateData.items.find((item) => item.type === 'feature' && item.featureType === 'Ailment (Haunted Soul)');\n\nif (selectedClass.system) {\n  selectedClass.name = `${selectedClass.name} - ${ailment.name}`;\n} else {\n  selectedClass.data.name = `${selectedClass.data.name} - ${ailment.data.name}`;\n}\n\npirateData.description = `${selectedClass.flavorText}${pirateData.description}`\npirateData.actorImg = selectedClass.img;\n\nif (actor) {\n await characterGenerator.updateActorWithCharacter(actor, pirateData);\n} else {\n await characterGenerator.createActorWithCharacter(pirateData);\n}",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!macros!t02N8BGuZCCpmV1U",
+  "ownership": {
+    "default": 0
+  }
+}

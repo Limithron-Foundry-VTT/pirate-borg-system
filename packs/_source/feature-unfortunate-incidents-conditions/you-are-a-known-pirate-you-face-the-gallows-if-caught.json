@@ -1,0 +1,21 @@
+{
+  "_id": "Yu4Zs5KwQ3BeTgdH",
+  "name": "You are a known pirate. You face the gallows if caught.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You are a known pirate. You face the gallows if caught.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Yu4Zs5KwQ3BeTgdH",
+  "ownership": {
+    "default": 0
+  }
+}

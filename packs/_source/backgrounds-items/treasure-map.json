@@ -1,0 +1,30 @@
+{
+  "_id": "pcb6tZV2XVM6EGQF",
+  "name": "treasure map",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/equipment/gear/treasure-map.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!pcb6tZV2XVM6EGQF",
+  "ownership": {
+    "default": 0
+  }
+}

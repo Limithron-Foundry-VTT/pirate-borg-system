@@ -1,0 +1,30 @@
+{
+  "_id": "R2rddWyuorHz5stz",
+  "name": "small inn somewhere",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/water-mill.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!R2rddWyuorHz5stz",
+  "ownership": {
+    "default": 0
+  }
+}

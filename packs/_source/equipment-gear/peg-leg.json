@@ -1,0 +1,25 @@
+{
+  "_id": "5idjN8fxJ2y4EMVf",
+  "name": "Peg leg",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/peg-leg.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 15,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!5idjN8fxJ2y4EMVf",
+  "ownership": {
+    "default": 0
+  }
+}

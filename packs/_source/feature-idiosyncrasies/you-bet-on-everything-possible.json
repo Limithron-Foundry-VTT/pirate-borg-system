@@ -1,0 +1,21 @@
+{
+  "_id": "uDiWSEr77uBQY8uT",
+  "name": "You bet on everything possible.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>You bet on everything possible.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!uDiWSEr77uBQY8uT",
+  "ownership": {
+    "default": 0
+  }
+}

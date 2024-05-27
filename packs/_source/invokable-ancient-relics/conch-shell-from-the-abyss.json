@@ -1,0 +1,36 @@
+{
+  "_id": "LmBxqKGa5K6Q5cw2",
+  "name": "Conch Shell from the Abyss",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-Conch-shell-from-the-Abyss.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Ask a nearby corpse (or any creature that died at sea within 100 miles) one question</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931936,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!LmBxqKGa5K6Q5cw2"
+}

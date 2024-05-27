@@ -1,0 +1,25 @@
+{
+  "_id": "1Y3gM4XjlMh0oURf",
+  "name": "Ink, quill, parchment",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/ink-quill-paper.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!1Y3gM4XjlMh0oURf",
+  "ownership": {
+    "default": 0
+  }
+}

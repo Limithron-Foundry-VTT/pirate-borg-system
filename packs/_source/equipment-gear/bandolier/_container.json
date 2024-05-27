@@ -1,0 +1,26 @@
+{
+  "_id": "QXNQEg9fH2FBZguz",
+  "name": "Bandolier",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/belt-pouch.png",
+  "data": {
+    "description": "<p>Carry 6 small-sized items</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 4,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 6
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!QXNQEg9fH2FBZguz",
+  "ownership": {
+    "default": 0
+  }
+}

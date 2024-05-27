@@ -1,0 +1,25 @@
+{
+  "_id": "k8YgOB348fEPCml5",
+  "name": "Gnarly facial scar",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Gnarly facial scar</p>",
+    "featureType": "Physical Trademark",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!k8YgOB348fEPCml5",
+  "ownership": {
+    "default": 0
+  }
+}

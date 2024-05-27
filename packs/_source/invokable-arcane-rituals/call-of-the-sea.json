@@ -1,0 +1,36 @@
+{
+  "_id": "JIcvijvyiIIEFGyV",
+  "name": "Call of the Sea",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>d6 creatures can breathe underwater and swim 40' a round for d4+spirit hours</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931626,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!JIcvijvyiIIEFGyV"
+}

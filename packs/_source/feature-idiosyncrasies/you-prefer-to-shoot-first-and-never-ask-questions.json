@@ -1,0 +1,21 @@
+{
+  "_id": "0Gwh00yXQDMwddHW",
+  "name": "You prefer to shoot first and never ask questions.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>You prefer to shoot first and never ask questions.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!0Gwh00yXQDMwddHW",
+  "ownership": {
+    "default": 0
+  }
+}

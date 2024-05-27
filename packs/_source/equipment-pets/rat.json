@@ -1,0 +1,25 @@
+{
+  "_id": "GUtagFMIrE42FrGc",
+  "name": "Rat",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/pets/rat.png",
+  "data": {
+    "description": "",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!GUtagFMIrE42FrGc",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "wE1e7ugjEMuy3k52",
+  "name": "Winds of Hell",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>Not affected by wind conditions (can always move its full speed).</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!wE1e7ugjEMuy3k52",
+  "ownership": {
+    "default": 0
+  }
+}

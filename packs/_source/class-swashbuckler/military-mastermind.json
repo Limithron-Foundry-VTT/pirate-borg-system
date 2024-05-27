@@ -1,0 +1,25 @@
+{
+  "_id": "jriB3l8NfDCtxVxc",
+  "name": "Military Mastermind",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Your experience in combat makes you and your allies a deadly threat. When combat starts, test Presence DR10 to take a surprise attack round against the enemy or prevent them from surprising you</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!jriB3l8NfDCtxVxc",
+  "ownership": {
+    "default": 0
+  }
+}

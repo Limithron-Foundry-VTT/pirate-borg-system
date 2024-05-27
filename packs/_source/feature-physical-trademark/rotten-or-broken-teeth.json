@@ -1,0 +1,21 @@
+{
+  "_id": "oJOornosFf3GCcBo",
+  "name": "Rotten or broken teeth",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Rotten or broken teeth</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!oJOornosFf3GCcBo",
+  "ownership": {
+    "default": 0
+  }
+}

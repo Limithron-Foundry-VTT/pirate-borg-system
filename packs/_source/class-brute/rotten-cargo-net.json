@@ -1,0 +1,37 @@
+{
+  "_id": "VkWVHzTozuYHHtS2",
+  "name": "Rotten Cargo Net",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/misc/weapon.png",
+  "data": {
+    "description": "<p><strong>You begin with a trusted weapon . It will never break, but you drop it on a Fumble. It is DR -2 to attack. What is its name?</strong></p>\n<p>Test agility dr12 to throw it at something and stop it from moving for d2 rounds. Trapped targets take d2 damage/round.</p>\n<p>&nbsp;</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "0",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "thrown",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!VkWVHzTozuYHHtS2",
+  "ownership": {
+    "default": 0
+  }
+}

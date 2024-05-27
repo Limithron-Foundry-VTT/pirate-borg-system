@@ -1,0 +1,25 @@
+{
+  "_id": "LDoVK8giitqlSfDt",
+  "name": "Calculating Cutthroat",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You critical hit on natural dice rolls of 19 and 20 ( when attack &amp; defending).</p>\n<p>Foundry note: Not automatic, update the \"Crit On\" value of your weapons</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!LDoVK8giitqlSfDt",
+  "ownership": {
+    "default": 0
+  }
+}

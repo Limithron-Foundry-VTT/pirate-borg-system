@@ -1,0 +1,33 @@
+{
+  "_id": "6E1mLAFydr0EDuPa",
+  "name": "Skylarker",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>You&rsquo;re as nimble in the rigging as you are on the deck.</p>\n<p>If you attack after swinging, jumping, or making an acrobatic maneuver, test Agility DR10 to automatically hit and deal +2 damage.</p>\n<p>If taken again: increase extra damage by +1.</p>",
+    "featureType": "Class",
+    "maxQuantity": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.4.2",
+    "coreVersion": "10.291",
+    "createdTime": null,
+    "modifiedTime": 1679571306485,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!6E1mLAFydr0EDuPa"
+}

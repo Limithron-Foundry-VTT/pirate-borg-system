@@ -1,0 +1,37 @@
+{
+  "_id": "ECzX6kt6cDp5vlMm",
+  "name": "Tavern Boxer",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/misc/weapon.png",
+  "data": {
+    "description": "<p>Your fists deal 2d4 and ignore Fumbles.</p>\n<p>&nbsp;</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "2d4",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ECzX6kt6cDp5vlMm",
+  "ownership": {
+    "default": 0
+  }
+}

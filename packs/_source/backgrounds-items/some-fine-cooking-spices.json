@@ -1,0 +1,25 @@
+{
+  "_id": "s0yUWH7KdLwT6EVz",
+  "name": "some fine cooking spices",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/misc/fish-smoking.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!s0yUWH7KdLwT6EVz",
+  "ownership": {
+    "default": 0
+  }
+}

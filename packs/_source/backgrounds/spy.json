@@ -1,0 +1,20 @@
+{
+  "_id": "HENODBpaOM9Wg6BF",
+  "name": "Spy",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a dark cloak</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;dark cloak"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!HENODBpaOM9Wg6BF",
+  "ownership": {
+    "default": 0
+  }
+}

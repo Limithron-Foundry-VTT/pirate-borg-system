@@ -1,0 +1,41 @@
+{
+  "name": "Blunderbuss (melee)",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/ranged-weapons/blunderbuss.png",
+  "data": {
+    "description": "<p>Reload 2, range 30', deals d10 under 10'.</p>",
+    "containerSpace": 0,
+    "carryWeight": null,
+    "equipped": false,
+    "carried": true,
+    "price": 65,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "d10",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 2,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.bullet.02.orange"
+    }
+  },
+  "_id": "exD5uUBrDPwper1f",
+  "_key": "!items!exD5uUBrDPwper1f",
+  "ownership": {
+    "default": 0
+  }
+}

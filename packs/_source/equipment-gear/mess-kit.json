@@ -1,0 +1,25 @@
+{
+  "_id": "1Y4xuIuu8wRdP2J2",
+  "name": "Mess kit",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/mess-kit.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 8,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!1Y4xuIuu8wRdP2J2",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "dqsO0UiRsYFKCNlS",
+  "name": "Bandit",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a club</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Heavy club"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!dqsO0UiRsYFKCNlS",
+  "ownership": {
+    "default": 0
+  }
+}

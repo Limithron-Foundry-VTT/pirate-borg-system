@@ -1,0 +1,20 @@
+{
+  "_id": "sD6yWCXE0vlAPadQ",
+  "name": "Farmer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d4 x 10s &amp; a reason to leave your farm</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;reason to leave your farm"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!sD6yWCXE0vlAPadQ",
+  "ownership": {
+    "default": 0
+  }
+}

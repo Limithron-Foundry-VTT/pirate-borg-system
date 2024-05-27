@@ -1,0 +1,32 @@
+{
+  "_id": "RHaVob7nxkIrhAj1",
+  "name": "Thick Skin",
+  "type": "armor",
+  "img": "systems/pirateborg/icons/equipment/armors/hide-armor.png",
+  "data": {
+    "description": "<p>You count as wearing light armor even when you aren&rsquo;t (tier 1, -d2)</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "tier": {
+      "min": 0,
+      "max": 1,
+      "value": 1
+    },
+    "currentTier": 1,
+    "maxTier": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!RHaVob7nxkIrhAj1",
+  "ownership": {
+    "default": 0
+  }
+}

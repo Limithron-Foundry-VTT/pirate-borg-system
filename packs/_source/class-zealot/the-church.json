@@ -1,0 +1,25 @@
+{
+  "name": "The Church",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+  "data": {
+    "description": "<p>Whom dost thou serve? The Church</p>",
+    "featureType": "Whom dost thou serve?",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "uEFgubQ4BgWmCyGM",
+  "_key": "!items!uEFgubQ4BgWmCyGM",
+  "ownership": {
+    "default": 0
+  }
+}

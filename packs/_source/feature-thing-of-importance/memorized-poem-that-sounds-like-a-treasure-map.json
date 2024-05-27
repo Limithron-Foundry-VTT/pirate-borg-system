@@ -1,0 +1,21 @@
+{
+  "_id": "qZGptrxaarSrcIa3",
+  "name": "memorized poem that sounds like a treasure map",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a memorized poem that sounds like a treasure map</p>",
+    "featureType": "Thing of Importance",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!qZGptrxaarSrcIa3",
+  "ownership": {
+    "default": 0
+  }
+}

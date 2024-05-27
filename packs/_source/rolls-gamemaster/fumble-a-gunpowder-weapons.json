@@ -1,0 +1,56 @@
+{
+  "name": "Fumble a gunpowder weapons",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "Hc0EkPcFTukMvz2l",
+      "type": 0,
+      "text": "BACKFIRE. Take [[d2]] damage",
+      "weight": 1,
+      "range": [1, 2],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 1,
+      "rangeH": 2,
+      "_key": "!tables.results!aqr8t8t8Llk8Hkcs.Hc0EkPcFTukMvz2l"
+    },
+    {
+      "_id": "HVbixUzwi558Fzrc",
+      "type": 0,
+      "text": "BROKEN. Weapon is broken.",
+      "weight": 1,
+      "range": [3, 4],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 3,
+      "rangeH": 4,
+      "_key": "!tables.results!aqr8t8t8Llk8Hkcs.HVbixUzwi558Fzrc"
+    },
+    {
+      "_id": "06rWPI51HQ2XxjP3",
+      "type": 0,
+      "text": "BACKFIRE & BROKEN. Take [[d2]] damage and weapon is broken",
+      "weight": 1,
+      "range": [5, 6],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 5,
+      "rangeH": 6,
+      "_key": "!tables.results!aqr8t8t8Llk8Hkcs.06rWPI51HQ2XxjP3"
+    }
+  ],
+  "formula": "d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "aqr8t8t8Llk8Hkcs",
+  "_key": "!tables!aqr8t8t8Llk8Hkcs",
+  "ownership": {
+    "default": 0
+  }
+}

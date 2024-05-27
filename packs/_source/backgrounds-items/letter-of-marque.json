@@ -1,0 +1,25 @@
+{
+  "_id": "ddSe7Y3GXxUuN3JY",
+  "name": "letter of marque",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/misc/scroll-quill.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ddSe7Y3GXxUuN3JY",
+  "ownership": {
+    "default": 0
+  }
+}

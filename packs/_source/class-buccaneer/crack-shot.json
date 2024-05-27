@@ -1,0 +1,25 @@
+{
+  "_id": "faput8RkeUiNkwzx",
+  "name": "Crack Shot",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>All ranged attacks are -2 DR.</p>\n<p>If taken again: -4 DR.</p>",
+    "featureType": "Class",
+    "maxQuantity": 2,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!faput8RkeUiNkwzx",
+  "ownership": {
+    "default": 0
+  }
+}

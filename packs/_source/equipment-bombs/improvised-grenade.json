@@ -1,0 +1,25 @@
+{
+  "_id": "TuWjs3hHzwnJ5Eal",
+  "name": "Improvised grenade",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/bombs/improvised-grenade.png",
+  "data": {
+    "description": "<p><strong>Light fuse, throw the bomb (test Agility DR12)</strong>: Anyone within 5' must test Agility DR12 or take damage.&nbsp;<strong>Crit&nbsp;</strong>: double damage.&nbsp;<strong>Fumble</strong>&nbsp;: hit d4 allies instead.</p>\n<p>1d10 damage</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 10,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!TuWjs3hHzwnJ5Eal",
+  "ownership": {
+    "default": 0
+  }
+}

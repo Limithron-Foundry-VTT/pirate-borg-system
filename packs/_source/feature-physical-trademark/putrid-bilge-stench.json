@@ -1,0 +1,21 @@
+{
+  "_id": "vuwAuaMaaws1KzEI",
+  "name": "Putrid, bilge stench",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Putrid, bilge stench</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!vuwAuaMaaws1KzEI",
+  "ownership": {
+    "default": 0
+  }
+}

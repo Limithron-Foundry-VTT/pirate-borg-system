@@ -1,0 +1,25 @@
+{
+  "_id": "4qW6PHlQ23EX4jBd",
+  "name": "Foul Fowl",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/foul-fowl.png",
+  "data": {
+    "description": "<p>Gain the ability from one random Relic &amp; one random Ritual. When you are killed, the ghosts of a hundred chickens swarm your assailant, ripping their spiritual soul from their flesh.</p>\n<p>Spirit : +3.</p>\n<p>HP : d4+toughness.</p>\n<p>Beak Peck: d2</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Foul Fowl - Beak Peck",
+    "startingBonusRolls": "pirateborg.rolls-character-creation;d20 Ancient relics\npirateborg.rolls-character-creation;d20 Arcane rituals",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!4qW6PHlQ23EX4jBd",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "fGzP477fNIDHs2id",
+  "name": "Sword Master",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You have mastered the art of swordplay. -2 to DR when attacking with any kind of sword.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!fGzP477fNIDHs2id",
+  "ownership": {
+    "default": 0
+  }
+}

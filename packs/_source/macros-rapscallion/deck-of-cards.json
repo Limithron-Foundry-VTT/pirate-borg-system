@@ -1,0 +1,16 @@
+{
+  "_id": "JyQNvVlEmXVsdRJm",
+  "name": "Deck of Cards",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "game.pirateborg.api.compendium.drawTable('pirateborg.rolls-rapscallion', 'Deck of Cards',{displayChat: true});",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!macros!JyQNvVlEmXVsdRJm",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_id": "XvxgVhYWPr4g1nfe",
+  "name": "Charon's Obol",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-charons-obol.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>If you are killed, return to life the next round with 1 hp. Disappears after one use.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931919,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!XvxgVhYWPr4g1nfe"
+}

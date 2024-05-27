@@ -1,0 +1,25 @@
+{
+  "_id": "iABAIiMpaWgMsSvS",
+  "name": "play or book",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/worn-out-book.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!iABAIiMpaWgMsSvS",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "CAS8qI6rGnf43xEp",
+  "name": "Assassin",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a dagger</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Dagger"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!CAS8qI6rGnf43xEp",
+  "ownership": {
+    "default": 0
+  }
+}

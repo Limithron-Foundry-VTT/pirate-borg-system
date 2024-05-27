@@ -1,0 +1,20 @@
+{
+  "_id": "yZQcs53OhdE9nCPE",
+  "name": "Criminal",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>1d10 x 10s &amp; lockpick or a crowbar</p>",
+    "startingGold": "1d10 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Lock picks"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!yZQcs53OhdE9nCPE",
+  "ownership": {
+    "default": 0
+  }
+}

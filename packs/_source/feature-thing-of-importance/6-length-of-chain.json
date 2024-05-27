@@ -1,0 +1,25 @@
+{
+  "_id": "Cf6zj53VEHD27dcv",
+  "name": "6' length of chain",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a 6' length of chain</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Cf6zj53VEHD27dcv",
+  "ownership": {
+    "default": 0
+  }
+}

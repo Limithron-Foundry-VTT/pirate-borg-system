@@ -1,0 +1,20 @@
+{
+  "_id": "Rph0EfFC4j9BNISs",
+  "name": "Innkeeper",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>3d4 x 10s &amp; a small inn somewhere</p>",
+    "startingGold": "3d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;small inn somewhere"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Rph0EfFC4j9BNISs",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "NbYDW5k7I4dxJXNV",
+  "name": "Fire Down Below",
+  "type": "shanty",
+  "img": "systems/pirateborg/icons/misc/shanty.png",
+  "data": {
+    "description": "<p>Extinguish all fires on the ship and repair d6 HP.</p>\n<p><strong><em>Chorus<br /></em></strong><em>Fire in the galley, fire in the house,<br /></em><em>Fire in the beef kid, scorching the scouse.<br /></em><em>Fire, fire, fire down below,<br /></em><em>Fetch a bucket of water,<br /></em><em>Fire down below.</em></p>\n<p><a href=\"https://youtu.be/4mLR_W4JZdI\">Play Song</a></p>",
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "price": null,
+    "carryWeight": null,
+    "containerSpace": null,
+    "quantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!NbYDW5k7I4dxJXNV",
+  "ownership": {
+    "default": 0
+  }
+}

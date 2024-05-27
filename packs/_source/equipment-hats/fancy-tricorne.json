@@ -1,0 +1,27 @@
+{
+  "_id": "Q0MKChZGQGR7s8ir",
+  "name": "Fancy tricorne",
+  "type": "hat",
+  "img": "systems/pirateborg/icons/equipment/hats/fancy-tricorne.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 90,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "reduceDamage": false,
+    "ruleText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Q0MKChZGQGR7s8ir",
+  "ownership": {
+    "default": 0
+  }
+}

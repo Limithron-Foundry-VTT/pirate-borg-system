@@ -1,0 +1,20 @@
+{
+  "_id": "zYtisv7EoFeF6gF9",
+  "name": "Quartermaster",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; the respect of a ship's crew</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;the respect of a ship's crew"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!zYtisv7EoFeF6gF9",
+  "ownership": {
+    "default": 0
+  }
+}

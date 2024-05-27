@@ -1,0 +1,25 @@
+{
+  "_id": "vyViHBpBclBAkwki",
+  "name": "Rope",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/rope.png",
+  "data": {
+    "description": "<p>30 feet</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 4,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!vyViHBpBclBAkwki",
+  "ownership": {
+    "default": 0
+  }
+}

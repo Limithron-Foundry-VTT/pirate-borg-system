@@ -1,0 +1,26 @@
+{
+  "_id": "uUV4dGxC8W8GMVQO",
+  "name": "Bucket",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/bucket.png",
+  "data": {
+    "description": "<p>Carry 4 normal-sized items.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 3,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 4
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!uUV4dGxC8W8GMVQO",
+  "ownership": {
+    "default": 0
+  }
+}

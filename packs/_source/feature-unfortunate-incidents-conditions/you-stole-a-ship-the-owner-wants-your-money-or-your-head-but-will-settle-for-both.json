@@ -1,0 +1,21 @@
+{
+  "_id": "OaZqsLg3Vfz97SQq",
+  "name": "You stole a ship. The owner wants your money or your head, but will settle for both.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You stole a ship. The owner wants your money or your head, but will settle for both.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!OaZqsLg3Vfz97SQq",
+  "ownership": {
+    "default": 0
+  }
+}

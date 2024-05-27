@@ -1,0 +1,21 @@
+{
+  "_id": "qzQjeMC34Mu6bkBg",
+  "name": "Many, many tattoos",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Many, many tattoos</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!qzQjeMC34Mu6bkBg",
+  "ownership": {
+    "default": 0
+  }
+}

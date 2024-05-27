@@ -1,0 +1,36 @@
+{
+  "_id": "nLzAjJaU8DhwF13N",
+  "name": "Jade Die",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-jade-die.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Roll a die. Odd: you gain d8 temporary HP. Even: Choose a creature. It gets +d8 on its next damage roll</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931982,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!nLzAjJaU8DhwF13N"
+}

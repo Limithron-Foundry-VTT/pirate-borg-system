@@ -1,0 +1,21 @@
+{
+  "_id": "jnLrDXhBoDntcUx6",
+  "name": "You have no memory before a few days ago.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You have no memory before a few days ago.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!jnLrDXhBoDntcUx6",
+  "ownership": {
+    "default": 0
+  }
+}

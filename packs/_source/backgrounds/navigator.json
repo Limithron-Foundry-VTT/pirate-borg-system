@@ -1,0 +1,20 @@
+{
+  "_id": "6aokL9nwftVStozv",
+  "name": "Navigator",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a compass</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Compass"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!6aokL9nwftVStozv",
+  "ownership": {
+    "default": 0
+  }
+}

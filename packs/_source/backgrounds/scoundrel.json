@@ -1,0 +1,20 @@
+{
+  "_id": "kHiWeTXrQZ6yO4ez",
+  "name": "Scoundrel",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d8 x 10s &amp; a few enemies along the way</p>",
+    "startingGold": "2d8 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;few enemies along the way"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!kHiWeTXrQZ6yO4ez",
+  "ownership": {
+    "default": 0
+  }
+}

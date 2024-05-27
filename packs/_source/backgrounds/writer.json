@@ -1,0 +1,21 @@
+{
+  "_id": "YE7VXx0AdSzfOtSL",
+  "name": "Writer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; ink, quills, and parchment</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Ink, quill, parchment",
+    "startingBonusRolls": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!YE7VXx0AdSzfOtSL",
+  "ownership": {
+    "default": 0
+  }
+}

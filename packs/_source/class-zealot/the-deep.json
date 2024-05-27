@@ -1,0 +1,25 @@
+{
+  "name": "The Deep",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+  "data": {
+    "description": "<p>Whom dost thou serve? The Deep</p>",
+    "featureType": "Whom dost thou serve?",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "FGTdGp6FfBm1v4oy",
+  "_key": "!items!FGTdGp6FfBm1v4oy",
+  "ownership": {
+    "default": 0
+  }
+}

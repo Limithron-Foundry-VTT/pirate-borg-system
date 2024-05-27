@@ -1,0 +1,25 @@
+{
+  "_id": "C6aigUZ5x0f5j4Kp",
+  "name": "Flint and steel",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/flint-and-steel.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 3,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!C6aigUZ5x0f5j4Kp",
+  "ownership": {
+    "default": 0
+  }
+}

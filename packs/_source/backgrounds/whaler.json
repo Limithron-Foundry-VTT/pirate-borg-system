@@ -1,0 +1,20 @@
+{
+  "_id": "MYRJURolSIslGoDc",
+  "name": "Whaler",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a harpoon</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Harpoon"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!MYRJURolSIslGoDc",
+  "ownership": {
+    "default": 0
+  }
+}

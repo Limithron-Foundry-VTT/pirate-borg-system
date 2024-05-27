@@ -1,0 +1,21 @@
+{
+  "_id": "HCFRgtwSxETe9goU",
+  "name": "Habitual procrastinator... if you even finish the task.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Habitual procrastinator... if you even finish the task.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!HCFRgtwSxETe9goU",
+  "ownership": {
+    "default": 0
+  }
+}

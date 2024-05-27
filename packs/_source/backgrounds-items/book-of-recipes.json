@@ -1,0 +1,25 @@
+{
+  "_id": "E3GzepGj71uM3O3F",
+  "name": "book of recipes",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/book-cover.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!E3GzepGj71uM3O3F",
+  "ownership": {
+    "default": 0
+  }
+}

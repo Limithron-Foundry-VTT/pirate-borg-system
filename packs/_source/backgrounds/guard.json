@@ -1,0 +1,20 @@
+{
+  "_id": "x87ANONYHIkOclSY",
+  "name": "Guard",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a keen eye for mischief</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;keen eye for mischief"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!x87ANONYHIkOclSY",
+  "ownership": {
+    "default": 0
+  }
+}

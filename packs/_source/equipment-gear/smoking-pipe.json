@@ -1,0 +1,25 @@
+{
+  "_id": "ht2OJUPWNLh7j51f",
+  "name": "Smoking pipe",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/smoking-pipe.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 10,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ht2OJUPWNLh7j51f",
+  "ownership": {
+    "default": 0
+  }
+}

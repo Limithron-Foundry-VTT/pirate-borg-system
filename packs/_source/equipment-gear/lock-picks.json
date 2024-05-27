@@ -1,0 +1,25 @@
+{
+  "_id": "pAdTZb6nbGMUICS8",
+  "name": "Lock picks",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/lock-picks.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!pAdTZb6nbGMUICS8",
+  "ownership": {
+    "default": 0
+  }
+}

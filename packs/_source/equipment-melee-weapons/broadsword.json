@@ -1,0 +1,41 @@
+{
+  "_id": "9FFd16S1WXu5yR8g",
+  "name": "Broadsword",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/melee-weapons/broadsword.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 35,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d8",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.glaive.melee.01.white"
+    }
+  },
+  "_key": "!items!9FFd16S1WXu5yR8g",
+  "ownership": {
+    "default": 0
+  }
+}

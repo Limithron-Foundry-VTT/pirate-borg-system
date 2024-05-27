@@ -1,0 +1,20 @@
+{
+  "_id": "f5BCX6sIGBhw2fqb",
+  "name": "Vagabond",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d4 x 10s &amp; a leather backpack</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Backpack"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!f5BCX6sIGBhw2fqb",
+  "ownership": {
+    "default": 0
+  }
+}

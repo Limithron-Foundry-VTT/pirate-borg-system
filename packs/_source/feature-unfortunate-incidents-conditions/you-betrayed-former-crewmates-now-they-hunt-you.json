@@ -1,0 +1,25 @@
+{
+  "_id": "7aZ76s6mVAOaJX7i",
+  "name": "You betrayed former crewmates. Now they hunt you",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You betrayed former crew mates. Now they hunt you</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!7aZ76s6mVAOaJX7i",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "MTW8SGXhzCsrnikH",
+  "name": "A close relative has become your greatest enemy.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>A close relative has become your greatest enemy.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!MTW8SGXhzCsrnikH",
+  "ownership": {
+    "default": 0
+  }
+}

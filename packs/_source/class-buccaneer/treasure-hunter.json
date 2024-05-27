@@ -1,0 +1,25 @@
+{
+  "_id": "lgzHS7vSvM7xgDOv",
+  "name": "Treasure Hunter",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Ability tests related to mapping, navigating, treasure hunting, finding &amp; disarming traps, and tracking prey are -3 DR.</p>\n<p>If taken again: -6 DR</p>\n<p>&nbsp;</p>",
+    "featureType": "Class",
+    "maxQuantity": 2,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!lgzHS7vSvM7xgDOv",
+  "ownership": {
+    "default": 0
+  }
+}

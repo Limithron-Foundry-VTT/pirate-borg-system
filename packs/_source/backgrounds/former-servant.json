@@ -1,0 +1,20 @@
+{
+  "_id": "pScK3STc0GftBaVY",
+  "name": "Former servant",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d4 x 10s &amp; someone looking for you</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;someone looking for you"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!pScK3STc0GftBaVY",
+  "ownership": {
+    "default": 0
+  }
+}

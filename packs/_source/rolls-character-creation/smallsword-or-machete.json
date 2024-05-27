@@ -1,0 +1,48 @@
+{
+  "_id": "xi3UyD2W0uSLuaoP",
+  "name": "Smallsword or Machete",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "g3Cmtl98lpnx8Gsx",
+      "type": 2,
+      "text": "Smallsword",
+      "weight": 1,
+      "range": [1, 1],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/melee-weapons/smallsword.png",
+      "collection": "pirateborg.equipment-melee-weapons",
+      "resultId": "PIGilnhOPMRmlx2l",
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!xi3UyD2W0uSLuaoP.g3Cmtl98lpnx8Gsx"
+    },
+    {
+      "_id": "m0FezqfakUNgF4kr",
+      "type": 2,
+      "text": "Machete",
+      "collection": "pirateborg.equipment-melee-weapons",
+      "weight": 1,
+      "range": [2, 2],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/melee-weapons/machete.png",
+      "resultId": "4EvzYI2zDaLt18pV",
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!xi3UyD2W0uSLuaoP.m0FezqfakUNgF4kr"
+    }
+  ],
+  "formula": "d2",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!tables!xi3UyD2W0uSLuaoP",
+  "ownership": {
+    "default": 0
+  }
+}

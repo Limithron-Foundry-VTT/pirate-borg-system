@@ -1,0 +1,25 @@
+{
+  "_id": "C7uvNw9eMWLglqtt",
+  "name": "Monkey",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/pets/monkey.png",
+  "data": {
+    "description": "",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!C7uvNw9eMWLglqtt",
+  "ownership": {
+    "default": 0
+  }
+}

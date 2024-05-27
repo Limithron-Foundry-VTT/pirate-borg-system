@@ -1,0 +1,25 @@
+{
+  "_id": "cn3cvgzJcJUn4joc",
+  "name": "two coconut shells",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>two coconut shells</p>\n<p>&nbsp;</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!cn3cvgzJcJUn4joc",
+  "ownership": {
+    "default": 0
+  }
+}

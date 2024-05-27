@@ -1,0 +1,23 @@
+{
+  "_id": "Sfvhhxr6Qz6JkPHF",
+  "name": "Intimidating Presence",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Your stature strikes fear in the hearts and minds of your enemies. Enemies close to you suffer -2 Morale.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Sfvhhxr6Qz6JkPHF",
+  "ownership": {
+    "default": 0
+  }
+}

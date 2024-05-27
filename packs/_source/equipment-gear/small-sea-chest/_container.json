@@ -1,0 +1,26 @@
+{
+  "name": "Small sea chest",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/large-sea-chest.png",
+  "data": {
+    "description": "<p>Carry 10 normal-sized items.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 50,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 10
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "hzv3tR6NiQY9896F",
+  "_key": "!items!hzv3tR6NiQY9896F",
+  "ownership": {
+    "default": 0
+  }
+}

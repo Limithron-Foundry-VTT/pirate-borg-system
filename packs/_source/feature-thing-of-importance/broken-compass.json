@@ -1,0 +1,25 @@
+{
+  "_id": "Ngri4cZPbLGcHf5v",
+  "name": "broken compass",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>broken compass</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!Ngri4cZPbLGcHf5v",
+  "ownership": {
+    "default": 0
+  }
+}

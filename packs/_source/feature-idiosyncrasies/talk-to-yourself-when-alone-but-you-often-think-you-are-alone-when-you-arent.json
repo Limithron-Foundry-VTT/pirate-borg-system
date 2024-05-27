@@ -1,0 +1,21 @@
+{
+  "_id": "VfFb5I4WQlZ25wYb",
+  "name": "Talk to yourself when alone, but you often think you are alone when you aren't.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Talk to yourself when alone, but you often think you are alone when you aren't.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!VfFb5I4WQlZ25wYb",
+  "ownership": {
+    "default": 0
+  }
+}

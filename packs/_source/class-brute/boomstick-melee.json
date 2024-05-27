@@ -1,0 +1,37 @@
+{
+  "_id": "ILBVXEghnlGKOoRB",
+  "name": "Boomstick (melee)",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/misc/weapon.png",
+  "data": {
+    "description": "<p>Listen up. You find a top-of-the-line blunderbuss. You got that?</p>\n<p><strong>&ldquo;Boomstick\" Blunderbuss<br /></strong>dr8 to hit &amp; d10 damage when in melee range, otherwise dr12 and d4</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d10",
+    "critOn": 20,
+    "critExtraDamage": "0",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": true,
+    "useAmmoDamage": false,
+    "weaponType": "ranged",
+    "isGunpowderWeapon": true,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!ILBVXEghnlGKOoRB",
+  "ownership": {
+    "default": 0
+  }
+}

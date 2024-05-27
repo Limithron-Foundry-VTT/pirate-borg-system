@@ -1,0 +1,25 @@
+{
+  "_id": "2UrikGJeiCaJAUrH",
+  "name": "Exquisite smoked meat",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/dried-food.png",
+  "data": {
+    "description": "<p>Eating it immediately recovers d4 hp</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!2UrikGJeiCaJAUrH",
+  "ownership": {
+    "default": 0
+  }
+}

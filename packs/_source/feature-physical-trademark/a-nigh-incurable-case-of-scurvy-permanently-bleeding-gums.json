@@ -1,0 +1,25 @@
+{
+  "_id": "lUW1TkwxQge1NrMu",
+  "name": "A nigh incurable case of scurvy: permanently bleeding gums",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>A nigh incurable case of scurvy: permanently bleeding gums</p>",
+    "featureType": "Physical Trademark",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!lUW1TkwxQge1NrMu",
+  "ownership": {
+    "default": 0
+  }
+}

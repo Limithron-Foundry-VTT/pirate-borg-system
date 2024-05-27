@@ -1,0 +1,21 @@
+{
+  "_id": "XkxTR5ve2knOavS4",
+  "name": "You become a murderous grump when hungry",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>You become a murderous grump when hungry</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!XkxTR5ve2knOavS4",
+  "ownership": {
+    "default": 0
+  }
+}

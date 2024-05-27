@@ -1,0 +1,21 @@
+{
+  "_id": "kqZxtcxXvfKJpA74",
+  "name": "Blacksmith",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a set of files and tools</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Metal file\npirateborg.backgrounds-items;set of tools",
+    "startingBonusRolls": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!kqZxtcxXvfKJpA74",
+  "ownership": {
+    "default": 0
+  }
+}

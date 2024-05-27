@@ -1,0 +1,25 @@
+{
+  "_id": "LIVDlxiVbcRDI7fb",
+  "name": "healing kit",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/medical-kit.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!LIVDlxiVbcRDI7fb",
+  "ownership": {
+    "default": 0
+  }
+}

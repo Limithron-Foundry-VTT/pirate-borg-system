@@ -1,0 +1,26 @@
+{
+  "_id": "qIUIdi1swbrMZPZq",
+  "name": "Backpack",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/backpack.png",
+  "data": {
+    "description": "<p>Carry 10 normal-sized items.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 6,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 10
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!qIUIdi1swbrMZPZq",
+  "ownership": {
+    "default": 0
+  }
+}

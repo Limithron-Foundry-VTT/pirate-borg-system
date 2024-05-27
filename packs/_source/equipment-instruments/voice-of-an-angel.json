@@ -1,0 +1,21 @@
+{
+  "_id": "rkw5WvBSr8Hk7T9d",
+  "name": "Voice of an angel",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+  "data": {
+    "description": "",
+    "featureType": "Misc",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!rkw5WvBSr8Hk7T9d",
+  "ownership": {
+    "default": 0
+  }
+}

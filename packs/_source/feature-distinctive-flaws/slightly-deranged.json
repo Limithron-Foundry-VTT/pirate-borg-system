@@ -1,0 +1,25 @@
+{
+  "_id": "oExWqSF2aehNt82S",
+  "name": "Slightly deranged",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/flaw.png",
+  "data": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!oExWqSF2aehNt82S",
+  "ownership": {
+    "default": 0
+  }
+}

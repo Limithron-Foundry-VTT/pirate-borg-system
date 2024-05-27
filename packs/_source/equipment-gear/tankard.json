@@ -1,0 +1,25 @@
+{
+  "_id": "geoDIQbytnZNBeaN",
+  "name": "Tankard",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/tankard.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!geoDIQbytnZNBeaN",
+  "ownership": {
+    "default": 0
+  }
+}

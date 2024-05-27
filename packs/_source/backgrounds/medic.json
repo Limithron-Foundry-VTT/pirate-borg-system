@@ -1,0 +1,20 @@
+{
+  "_id": "zr9jEZJ3QitYWE9Z",
+  "name": "Medic",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a medical kit</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Medical kit"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!zr9jEZJ3QitYWE9Z",
+  "ownership": {
+    "default": 0
+  }
+}

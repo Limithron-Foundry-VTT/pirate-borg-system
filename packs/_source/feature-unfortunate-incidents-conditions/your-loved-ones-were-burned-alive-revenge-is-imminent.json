@@ -1,0 +1,21 @@
+{
+  "_id": "rhd9Rs1v2rD90O6X",
+  "name": "Your loved ones were burned alive. Revenge is imminent.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>Your loved ones were burned alive. Revenge is imminent.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!rhd9Rs1v2rD90O6X",
+  "ownership": {
+    "default": 0
+  }
+}

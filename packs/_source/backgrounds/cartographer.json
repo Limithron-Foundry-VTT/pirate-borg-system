@@ -1,0 +1,20 @@
+{
+  "_id": "RxOzFHLhV729E2UN",
+  "name": "Cartographer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; map making tools</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;map making tools"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!RxOzFHLhV729E2UN",
+  "ownership": {
+    "default": 0
+  }
+}

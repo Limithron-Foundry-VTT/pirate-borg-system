@@ -1,0 +1,24 @@
+{
+  "_id": "fjDoLNXtBfWIwQSJ",
+  "name": "Character creation",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "const hasItem = actor.items.some(item => item.name === 'Black Powder Poet');\nif (hasItem) {\n const table = await game.pirateborg.api.compendium.findCompendiumItem('pirateborg.rolls-character-creation', 'd6 Grenades & Bombs');\n const total = (await game.pirateborg.api.utils.evaluateFormula('d4')).total;\n const draw = await table.drawMany(total, { displayChat: false });\n const items = await game.pirateborg.api.compendium.findTableItems(draw.results);\n await actor.createEmbeddedDocuments('Item', items.map(item => item.toObject(false))); \n}",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.4.2",
+    "coreVersion": "10.277",
+    "createdTime": null,
+    "modifiedTime": 1661362369632,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!macros!fjDoLNXtBfWIwQSJ"
+}

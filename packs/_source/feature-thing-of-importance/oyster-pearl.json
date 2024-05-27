@@ -1,0 +1,21 @@
+{
+  "_id": "8zFPOXKmsHfgaBtw",
+  "name": "oyster pearl",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>an oyster pearl</p>",
+    "featureType": "Thing of Importance",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!8zFPOXKmsHfgaBtw",
+  "ownership": {
+    "default": 0
+  }
+}

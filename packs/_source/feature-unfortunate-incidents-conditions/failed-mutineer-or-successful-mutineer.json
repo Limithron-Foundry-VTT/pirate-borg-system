@@ -1,0 +1,21 @@
+{
+  "_id": "cxWwsiEZfe4aHXDy",
+  "name": "Failed mutineer or Successful mutineer.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>[d2] 1: Failed mutineer. 2: Successful mutineer.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!cxWwsiEZfe4aHXDy",
+  "ownership": {
+    "default": 0
+  }
+}

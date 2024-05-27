@@ -1,0 +1,21 @@
+{
+  "_id": "zDGetWVnrs1mFSfr",
+  "name": "Harlot",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d8 x 10s &amp; an admirer and syphilis</p>",
+    "startingGold": "2d8 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.feature-physical-ailments;Contagious\npirateborg.backgrounds-items;an admirer",
+    "startingBonusRolls": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!zDGetWVnrs1mFSfr",
+  "ownership": {
+    "default": 0
+  }
+}

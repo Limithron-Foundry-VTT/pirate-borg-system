@@ -1,0 +1,25 @@
+{
+  "_id": "B6sotdDjppok1cQp",
+  "name": "Corpulent",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Corpulent</p>",
+    "featureType": "Physical Trademark",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!B6sotdDjppok1cQp",
+  "ownership": {
+    "default": 0
+  }
+}

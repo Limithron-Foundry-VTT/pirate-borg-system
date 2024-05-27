@@ -1,0 +1,23 @@
+{
+  "_id": "OanvNBBhECR1Smf2",
+  "name": "Down Among the Dead Men",
+  "type": "shanty",
+  "img": "systems/pirateborg/icons/misc/shanty.png",
+  "data": {
+    "description": "<p>Dark waves crash against another ship. Move it 1 hex (1\") in any direction and it looses d8 HP.</p>\n<p><strong><em>Chorus<br /></em></strong><em>Down among the dead men<br /></em><em>Down among the dead men<br /></em><em>Down, down, down, down<br /></em><em>Down among the dead men let him lie!</em></p>\n<p><a href=\"https://youtu.be/MdAif-z1hHQ\">Play Song</a></p>",
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "price": null,
+    "carryWeight": null,
+    "containerSpace": null,
+    "quantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!OanvNBBhECR1Smf2",
+  "ownership": {
+    "default": 0
+  }
+}

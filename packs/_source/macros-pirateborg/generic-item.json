@@ -1,0 +1,24 @@
+{
+  "_id": "tqhNnoWL2ekLZIaB",
+  "name": "Generic Item",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "await game.pirateborg.api.showGenericCard({\n  actor: actor,\n  title: item.name,\n  description: item.description,\n});",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.4.2",
+    "coreVersion": "10.277",
+    "createdTime": null,
+    "modifiedTime": 1661362208060,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!macros!tqhNnoWL2ekLZIaB"
+}

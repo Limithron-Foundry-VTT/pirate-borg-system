@@ -1,0 +1,36 @@
+{
+  "_id": "pM1Vy3BDdi8qMbu3",
+  "name": "Undead Bird",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-undead-bird.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>It can speak with animals (dead or alive) for d6+SPIRIT rounds</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604932025,
+    "lastModifiedBy": "pbbuilder0000"
+  },
+  "_key": "!items!pM1Vy3BDdi8qMbu3"
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "6DYsd2roZzXW9woX",
+  "name": "Marrow Cannons",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>See pg. 74.</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!6DYsd2roZzXW9woX",
+  "ownership": {
+    "default": 0
+  }
+}

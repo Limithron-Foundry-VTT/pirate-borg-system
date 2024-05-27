@@ -1,0 +1,25 @@
+{
+  "_id": "XH3MoTJneAvB25Yx",
+  "name": "Pocket watch",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/pocket-watch.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 45,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!XH3MoTJneAvB25Yx",
+  "ownership": {
+    "default": 0
+  }
+}

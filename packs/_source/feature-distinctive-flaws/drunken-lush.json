@@ -1,0 +1,21 @@
+{
+  "_id": "41rz8mPGGnBIiCeG",
+  "name": "Drunken Lush",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/flaw.png",
+  "data": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!41rz8mPGGnBIiCeG",
+  "ownership": {
+    "default": 0
+  }
+}

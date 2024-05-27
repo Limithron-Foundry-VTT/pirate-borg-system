@@ -1,0 +1,25 @@
+{
+  "_id": "RhmQ5Yf8VOYNmTsB",
+  "name": "Flask",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/flask.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!RhmQ5Yf8VOYNmTsB",
+  "ownership": {
+    "default": 0
+  }
+}

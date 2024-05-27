@@ -1,0 +1,25 @@
+{
+  "_id": "vUb1yA8XHFsLWhsL",
+  "name": "Dried food",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/dried-food.png",
+  "data": {
+    "description": "<p>1 day</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!vUb1yA8XHFsLWhsL",
+  "ownership": {
+    "default": 0
+  }
+}

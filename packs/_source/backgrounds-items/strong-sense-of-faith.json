@@ -1,0 +1,30 @@
+{
+  "_id": "nwgajzGr1avL12KA",
+  "name": "strong sense of faith",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/kneeling.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!nwgajzGr1avL12KA",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "_id": "SwXcfVFdonmgYkQu",
+  "name": "book and a puzzling disposition",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/equipment/gear/book-cover.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!SwXcfVFdonmgYkQu",
+  "ownership": {
+    "default": 0
+  }
+}

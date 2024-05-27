@@ -1,0 +1,30 @@
+{
+  "_id": "h1GJEiYh0MhK2OmY",
+  "name": "skill at deception",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/surprised.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!h1GJEiYh0MhK2OmY",
+  "ownership": {
+    "default": 0
+  }
+}

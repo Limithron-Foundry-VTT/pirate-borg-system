@@ -1,0 +1,20 @@
+{
+  "_id": "8f2BRXPfav86iMMn",
+  "name": "Barkeep",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a flask of fine rum</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Bottle of fine rum"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!8f2BRXPfav86iMMn",
+  "ownership": {
+    "default": 0
+  }
+}

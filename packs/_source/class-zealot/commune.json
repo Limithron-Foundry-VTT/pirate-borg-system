@@ -1,0 +1,28 @@
+{
+  "_id": "VUZ32Ta2ZPB0Kmz3",
+  "name": "Commune",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>Test Spirit DR8: Asketh thy deity a singular &ldquo;yay\" or &ldquo;nay\" query. Thy response may be &ldquo;unclear&rdquo; or thou may receiveth no answer</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!VUZ32Ta2ZPB0Kmz3",
+  "ownership": {
+    "default": 0
+  }
+}

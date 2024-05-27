@@ -1,0 +1,21 @@
+{
+  "_id": "zkhaHqcWvbORqmdU",
+  "name": "Missing a leg: peg leg or crutch",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Missing a leg: peg leg or crutch</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!zkhaHqcWvbORqmdU",
+  "ownership": {
+    "default": 0
+  }
+}

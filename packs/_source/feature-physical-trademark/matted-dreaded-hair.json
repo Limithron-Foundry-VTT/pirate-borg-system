@@ -1,0 +1,21 @@
+{
+  "_id": "opWND0HzQaG5Ygfe",
+  "name": "Matted, dreaded hair",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Matted, dreaded hair</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!opWND0HzQaG5Ygfe",
+  "ownership": {
+    "default": 0
+  }
+}

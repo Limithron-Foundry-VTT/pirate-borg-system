@@ -1,0 +1,32 @@
+{
+  "_id": "3wYpsUWbgcNF4Fcx",
+  "name": "Grappling hook",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/melee-weapons/grappling-hook.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 35,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d6",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "weaponType": "melee"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!3wYpsUWbgcNF4Fcx",
+  "ownership": {
+    "default": 0
+  }
+}

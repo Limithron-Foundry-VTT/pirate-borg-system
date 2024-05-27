@@ -1,0 +1,25 @@
+{
+  "_id": "fwONdZFfKfhY0S6v",
+  "name": "Livestock",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/livestock.png",
+  "data": {
+    "description": "<p>20-200s</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!fwONdZFfKfhY0S6v",
+  "ownership": {
+    "default": 0
+  }
+}

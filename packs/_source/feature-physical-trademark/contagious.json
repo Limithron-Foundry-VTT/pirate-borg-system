@@ -1,0 +1,25 @@
+{
+  "_id": "7MSBS9ElYMiKtXcX",
+  "name": "Contagious",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Contagious</p>",
+    "featureType": "Physical Trademark",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_key": "!items!7MSBS9ElYMiKtXcX",
+  "ownership": {
+    "default": 0
+  }
+}

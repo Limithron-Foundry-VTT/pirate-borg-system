@@ -1,0 +1,41 @@
+{
+  "_id": "KVXOXcFxBvlL1KCp",
+  "name": "Flintlock pistol",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/ranged-weapons/flintlock-pistol.png",
+  "data": {
+    "description": "<p>Reload 2 actions, range 30'</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 50,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "2d4",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": true,
+    "useAmmoDamage": false,
+    "weaponType": "ranged",
+    "isGunpowderWeapon": true,
+    "needsReloading": true,
+    "reloadTime": 2,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.bullet.01.orange"
+    }
+  },
+  "_key": "!items!KVXOXcFxBvlL1KCp",
+  "ownership": {
+    "default": 0
+  }
+}
