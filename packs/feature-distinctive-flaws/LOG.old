@@ -1,5 +1,3 @@
-2024/05/26-16:10:12.671771 16f5bb000 Delete type=3 #1
-2024/05/26-16:10:33.039820 1706eb000 Level-0 table #5: started
-2024/05/26-16:10:33.040048 1706eb000 Level-0 table #5: 2028 bytes OK
-2024/05/26-16:10:33.040216 1706eb000 Delete type=0 #3
-2024/05/26-16:10:33.042784 1706eb000 Manual compaction at level-0 from '!items!41rz8mPGGnBIiCeG' @ 72057594037927935 : 1 .. '!items!xTcsHH9WEdJINFN3' @ 0 : 0; will stop at (end)
+2024/05/27-10:44:52.150256 16e85f000 Recovering log #41
+2024/05/27-10:44:52.150673 16e85f000 Delete type=3 #39
+2024/05/27-10:44:52.150832 16e85f000 Delete type=0 #41

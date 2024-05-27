@@ -8,7 +8,10 @@
       "type": 0,
       "text": "No effect",
       "weight": 1,
-      "range": [1, 2],
+      "range": [
+        1,
+        2
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -21,7 +24,10 @@
       "type": 0,
       "text": "Sinks in [[d2]] rounds",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -34,7 +40,10 @@
       "type": 0,
       "text": "Sinks next round.",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -47,7 +56,10 @@
       "type": 0,
       "text": "Sinks now.",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -60,7 +72,10 @@
       "type": 0,
       "text": "Minor explosion. All aboard test Agility DR12 or take d6 damage.",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -73,7 +88,10 @@
       "type": 0,
       "text": "Major Explosion. Ship sinks, all aboard take d8 damage.",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -86,7 +104,10 @@
       "type": 0,
       "text": "Magazine Explosion. Instant death to all aboard.",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -101,8 +122,8 @@
   "folder": null,
   "sort": 0,
   "flags": {},
-  "_key": "!tables!YP2AgCC8hPlMy3sV",
   "ownership": {
     "default": 0
-  }
+  },
+  "_key": "!tables!YP2AgCC8hPlMy3sV"
 }

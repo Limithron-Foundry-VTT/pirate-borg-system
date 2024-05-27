@@ -1,5 +1,3 @@
-2024/05/26-16:10:13.134787 1705d3000 Delete type=3 #1
-2024/05/26-16:10:33.061026 1706eb000 Level-0 table #5: started
-2024/05/26-16:10:33.061718 1706eb000 Level-0 table #5: 1358 bytes OK
-2024/05/26-16:10:33.062218 1706eb000 Delete type=0 #3
-2024/05/26-16:10:33.064565 1706eb000 Manual compaction at level-0 from '!actors!gdSstJD7IFRLWPIr' @ 72057594037927935 : 1 .. '!actors!gdSstJD7IFRLWPIr' @ 0 : 0; will stop at (end)
+2024/05/27-10:44:52.327648 178807000 Recovering log #41
+2024/05/27-10:44:52.328089 178807000 Delete type=3 #39
+2024/05/27-10:44:52.328269 178807000 Delete type=0 #41

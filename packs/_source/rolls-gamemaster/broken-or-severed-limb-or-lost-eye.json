@@ -7,7 +7,10 @@
       "type": 0,
       "text": "Broken or severed limb",
       "weight": 1,
-      "range": [1, 5],
+      "range": [
+        1,
+        5
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -20,7 +23,10 @@
       "type": 0,
       "text": "Lost eye",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -36,8 +42,8 @@
   "sort": 0,
   "flags": {},
   "_id": "akVJTxuCEoiyE1Sw",
-  "_key": "!tables!akVJTxuCEoiyE1Sw",
   "ownership": {
     "default": 0
-  }
+  },
+  "_key": "!tables!akVJTxuCEoiyE1Sw"
 }

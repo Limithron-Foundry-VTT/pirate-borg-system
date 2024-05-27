@@ -11,7 +11,10 @@
       "resultId": "JIcvijvyiIIEFGyV",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [1, 1],
+      "range": [
+        1,
+        1
+      ],
       "drawn": false,
       "_id": "ckxkc5i2dv5ftdsl",
       "flags": {},
@@ -26,7 +29,10 @@
       "resultId": "n2hI94U5o3CY0wI9",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [2, 2],
+      "range": [
+        2,
+        2
+      ],
       "drawn": false,
       "_id": "8vcdesnknood4h9g",
       "flags": {},
@@ -41,7 +47,10 @@
       "resultId": "0YT9OwwBIzFUOv1D",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [3, 3],
+      "range": [
+        3,
+        3
+      ],
       "drawn": false,
       "_id": "26ws8ce1bry42i47",
       "flags": {},
@@ -56,7 +65,10 @@
       "resultId": "lgxbkDCqZ2bBQ8wo",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [4, 4],
+      "range": [
+        4,
+        4
+      ],
       "drawn": false,
       "_id": "6qs4xer92bf3wcxl",
       "flags": {},
@@ -71,7 +83,10 @@
       "resultId": "pxGux1jivInKvMx9",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [5, 5],
+      "range": [
+        5,
+        5
+      ],
       "drawn": false,
       "_id": "ob849elkc41sivgp",
       "flags": {},
@@ -86,7 +101,10 @@
       "resultId": "xhQBrTfC09FYje8q",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [6, 6],
+      "range": [
+        6,
+        6
+      ],
       "drawn": false,
       "_id": "1pho0mps4r614s67",
       "flags": {},
@@ -101,7 +119,10 @@
       "resultId": "AwPCCxUcnSRqIRco",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [7, 7],
+      "range": [
+        7,
+        7
+      ],
       "drawn": false,
       "_id": "r1ioz2156orh58x8",
       "flags": {},
@@ -116,7 +137,10 @@
       "resultId": "Qc8lbxQg03PVRkl0",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [8, 8],
+      "range": [
+        8,
+        8
+      ],
       "drawn": false,
       "_id": "cfjculfiht5qqrfx",
       "flags": {},
@@ -131,7 +155,10 @@
       "resultId": "8qy6kGcq6YfiiWYX",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [9, 9],
+      "range": [
+        9,
+        9
+      ],
       "drawn": false,
       "_id": "u2viws1ycos1vghh",
       "flags": {},
@@ -146,7 +173,10 @@
       "resultId": "XmNX5qADwgu5oDb8",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [10, 10],
+      "range": [
+        10,
+        10
+      ],
       "drawn": false,
       "_id": "rh1h4px2uojumtpn",
       "flags": {},
@@ -161,7 +191,10 @@
       "resultId": "AjfhYyj0bpTUN1hI",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [11, 11],
+      "range": [
+        11,
+        11
+      ],
       "drawn": false,
       "_id": "d7zttus8w3cria8y",
       "flags": {},
@@ -176,7 +209,10 @@
       "resultId": "kMuqoc7AI5xGWTdL",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [12, 12],
+      "range": [
+        12,
+        12
+      ],
       "drawn": false,
       "_id": "5tsbhivoo1878j2o",
       "flags": {},
@@ -191,7 +227,10 @@
       "resultId": "Hkp58x5UM1YPh8OV",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [13, 13],
+      "range": [
+        13,
+        13
+      ],
       "drawn": false,
       "_id": "nrcv8n4b9wmgvpra",
       "flags": {},
@@ -206,7 +245,10 @@
       "resultId": "LjAGl888s3KWBKar",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [14, 14],
+      "range": [
+        14,
+        14
+      ],
       "drawn": false,
       "_id": "8m2jfad1z5qlob2d",
       "flags": {},
@@ -221,7 +263,10 @@
       "resultId": "Oo5wutwGkEKWXZfq",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [15, 15],
+      "range": [
+        15,
+        15
+      ],
       "drawn": false,
       "_id": "zoyy5dezjrurcllc",
       "flags": {},
@@ -236,7 +281,10 @@
       "resultId": "fORCeX7DPICYhKUF",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [16, 16],
+      "range": [
+        16,
+        16
+      ],
       "drawn": false,
       "_id": "e7dp5g406u0e5k8k",
       "flags": {},
@@ -251,7 +299,10 @@
       "resultId": "zWSeDetkyDGR3eM8",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [17, 17],
+      "range": [
+        17,
+        17
+      ],
       "drawn": false,
       "_id": "r67c75m66ojkydwr",
       "flags": {},
@@ -266,7 +317,10 @@
       "resultId": "emwlVE39waM3F8gq",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [18, 18],
+      "range": [
+        18,
+        18
+      ],
       "drawn": false,
       "_id": "sqnj356sh4kymyfn",
       "flags": {},
@@ -281,7 +335,10 @@
       "resultId": "Its92jEPpQG0UGjq",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [19, 19],
+      "range": [
+        19,
+        19
+      ],
       "drawn": false,
       "_id": "tn5dnxacf21x8g8f",
       "flags": {},
@@ -296,7 +353,10 @@
       "resultId": "p3mIODXVefl5j6C5",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
-      "range": [20, 20],
+      "range": [
+        20,
+        20
+      ],
       "drawn": false,
       "_id": "bns74b5fy6qur9m1",
       "flags": {},
@@ -311,8 +371,8 @@
   "folder": null,
   "sort": 0,
   "flags": {},
-  "_key": "!tables!WxY6dDA8UGahiukE",
   "ownership": {
     "default": 0
-  }
+  },
+  "_key": "!tables!WxY6dDA8UGahiukE"
 }
