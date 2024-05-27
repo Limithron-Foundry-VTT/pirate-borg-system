@@ -12,10 +12,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "JAltE9OMjrWqbScg",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "rangeL": 1,
@@ -30,10 +27,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "tKz4LJkcrel0Vqaj",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -48,10 +42,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "Js9wTTMz6L7F4WRj",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "rangeL": 3,
@@ -66,10 +57,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "NErfYxFeOyPeccY5",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "rangeL": 4,
@@ -84,10 +72,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "puM6lNl5KcjbLYIh",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -102,10 +87,7 @@
       "collection": "pirateborg.class-brute",
       "resultId": "VkWVHzTozuYHHtS2",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "rangeL": 6,
@@ -118,10 +100,7 @@
       "text": "Whaling Harpoon (thrown)",
       "collection": "pirateborg.class-brute",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/weapon.png",

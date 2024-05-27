@@ -9,10 +9,7 @@
       "type": 2,
       "text": "Compass",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/compass.png",
@@ -28,10 +25,7 @@
       "text": "Spyglass",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/spyglass.png",
@@ -46,10 +40,7 @@
       "text": "Fishing rod",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/fishing-rod.png",
@@ -64,10 +55,7 @@
       "text": "d20 Ancient relics",
       "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -82,10 +70,7 @@
       "text": "Bottle of fine rum",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/bottle-fine-rum.png",
@@ -100,10 +85,7 @@
       "text": "Pocket watch",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/pocket-watch.png",
@@ -118,10 +100,7 @@
       "text": "Blanket & pillow",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/blanket-pillow.png",
@@ -136,10 +115,7 @@
       "text": "Ink, quill, parchment",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/ink-quill-paper.png",
@@ -154,10 +130,7 @@
       "text": "Worn out book",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/worn-out-book.png",
@@ -172,10 +145,7 @@
       "text": "Tent",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/tent.png",
@@ -190,10 +160,7 @@
       "text": "Whetstone",
       "collection": "pirateborg.equipment-gear",
       "weight": 1,
-      "range": [
-        11,
-        11
-      ],
+      "range": [11, 11],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/whetstone.png",
@@ -208,10 +175,7 @@
       "text": "d10 Instruments",
       "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
-      "range": [
-        12,
-        12
-      ],
+      "range": [12, 12],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
@@ -226,10 +190,7 @@
       "text": "description: old pocket watch",
       "collection": null,
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

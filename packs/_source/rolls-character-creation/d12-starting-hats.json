@@ -10,10 +10,7 @@
       "text": "Wig",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/wig.png",
@@ -28,10 +25,7 @@
       "text": "Bandanna",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/bandanna.png",
@@ -46,10 +40,7 @@
       "text": "Cavalier",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/cavalier.png",
@@ -64,10 +55,7 @@
       "text": "Bicorne",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/bicorne.png",
@@ -82,10 +70,7 @@
       "text": "Plain tricorne",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/plain-tricorne.png",
@@ -100,10 +85,7 @@
       "text": "Fancy tricorne",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/fancy-tricorne.png",
@@ -118,10 +100,7 @@
       "text": "Metal lined hat",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        11,
-        11
-      ],
+      "range": [11, 11],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/metal-lined-hat.png",
@@ -136,10 +115,7 @@
       "text": "Morion",
       "collection": "pirateborg.equipment-hats",
       "weight": 1,
-      "range": [
-        12,
-        12
-      ],
+      "range": [12, 12],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/conquistador-helmet.png",
@@ -153,10 +129,7 @@
       "type": 0,
       "text": "",
       "weight": 1,
-      "range": [
-        1,
-        4
-      ],
+      "range": [1, 4],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

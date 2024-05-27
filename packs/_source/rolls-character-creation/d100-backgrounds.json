@@ -9,10 +9,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        1,
-        20
-      ],
+      "range": [1, 20],
       "drawn": false,
       "_id": "b0bp8tmxf7smngiu",
       "flags": {},
@@ -25,10 +22,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        21,
-        21
-      ],
+      "range": [21, 21],
       "drawn": false,
       "_id": "j9i2e4f9szq93ocn",
       "flags": {},
@@ -41,10 +35,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        22,
-        22
-      ],
+      "range": [22, 22],
       "drawn": false,
       "_id": "v1inivmrz3gwo95u",
       "flags": {},
@@ -57,10 +48,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        23,
-        23
-      ],
+      "range": [23, 23],
       "drawn": false,
       "_id": "wkfw5mfa4phqfjyg",
       "flags": {},
@@ -73,10 +61,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        24,
-        24
-      ],
+      "range": [24, 24],
       "drawn": false,
       "_id": "z31q5u1euua2aurk",
       "flags": {},
@@ -89,10 +74,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        25,
-        25
-      ],
+      "range": [25, 25],
       "drawn": false,
       "_id": "m0grntirr4ij036r",
       "flags": {},
@@ -105,10 +87,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        26,
-        26
-      ],
+      "range": [26, 26],
       "drawn": false,
       "_id": "x1co3nf217zq4vaq",
       "flags": {},
@@ -121,10 +100,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        27,
-        27
-      ],
+      "range": [27, 27],
       "drawn": false,
       "_id": "rygm4ybd63oxoojd",
       "flags": {},
@@ -137,10 +113,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        28,
-        28
-      ],
+      "range": [28, 28],
       "drawn": false,
       "_id": "31vnglokrya84fw8",
       "flags": {},
@@ -153,10 +126,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        29,
-        29
-      ],
+      "range": [29, 29],
       "drawn": false,
       "_id": "eyaywrgyjju3pl0p",
       "flags": {},
@@ -169,10 +139,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        30,
-        30
-      ],
+      "range": [30, 30],
       "drawn": false,
       "_id": "9s9cr0562uj8fdyy",
       "flags": {},
@@ -185,10 +152,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        31,
-        31
-      ],
+      "range": [31, 31],
       "drawn": false,
       "_id": "ha5vu5iq19r8a3c0",
       "flags": {},
@@ -201,10 +165,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        32,
-        32
-      ],
+      "range": [32, 32],
       "drawn": false,
       "_id": "9d1tvmx70e2f9z9a",
       "flags": {},
@@ -217,10 +178,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        33,
-        33
-      ],
+      "range": [33, 33],
       "drawn": false,
       "_id": "ys4kec5gnl91b5hw",
       "flags": {},
@@ -233,10 +191,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        34,
-        34
-      ],
+      "range": [34, 34],
       "drawn": false,
       "_id": "rqty2f2j6dxf8znf",
       "flags": {},
@@ -249,10 +204,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        35,
-        35
-      ],
+      "range": [35, 35],
       "drawn": false,
       "_id": "skxnefus1mm1pkqg",
       "flags": {},
@@ -265,10 +217,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        36,
-        36
-      ],
+      "range": [36, 36],
       "drawn": false,
       "_id": "dca8nhqvoj4dwz4t",
       "flags": {},
@@ -281,10 +230,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        37,
-        37
-      ],
+      "range": [37, 37],
       "drawn": false,
       "_id": "qf72hvwwmu21zpxa",
       "flags": {},
@@ -297,10 +243,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        38,
-        38
-      ],
+      "range": [38, 38],
       "drawn": false,
       "_id": "tcwozpum11knw495",
       "flags": {},
@@ -313,10 +256,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        39,
-        39
-      ],
+      "range": [39, 39],
       "drawn": false,
       "_id": "15uf966rkog4xdd6",
       "flags": {},
@@ -329,10 +269,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        40,
-        40
-      ],
+      "range": [40, 40],
       "drawn": false,
       "_id": "bllrx3s3wvg7pivi",
       "flags": {},
@@ -345,10 +282,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        41,
-        41
-      ],
+      "range": [41, 41],
       "drawn": false,
       "_id": "71nrg71azq242nne",
       "flags": {},
@@ -361,10 +295,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        42,
-        42
-      ],
+      "range": [42, 42],
       "drawn": false,
       "_id": "ygxa2dzlkegfzl1r",
       "flags": {},
@@ -377,10 +308,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        43,
-        43
-      ],
+      "range": [43, 43],
       "drawn": false,
       "_id": "h0wi3b558ptx03pn",
       "flags": {},
@@ -393,10 +321,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        44,
-        44
-      ],
+      "range": [44, 44],
       "drawn": false,
       "_id": "1p4vvzkn84u8mofa",
       "flags": {},
@@ -409,10 +334,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        45,
-        45
-      ],
+      "range": [45, 45],
       "drawn": false,
       "_id": "r48erz7g2u0ndhyn",
       "flags": {},
@@ -425,10 +347,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        46,
-        46
-      ],
+      "range": [46, 46],
       "drawn": false,
       "_id": "ad5d5iwgpghc1dao",
       "flags": {},
@@ -441,10 +360,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        47,
-        47
-      ],
+      "range": [47, 47],
       "drawn": false,
       "_id": "fvofx9xl9e9icg3b",
       "flags": {},
@@ -457,10 +373,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        48,
-        48
-      ],
+      "range": [48, 48],
       "drawn": false,
       "_id": "7ym33x6ensb9tnwy",
       "flags": {},
@@ -473,10 +386,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        49,
-        49
-      ],
+      "range": [49, 49],
       "drawn": false,
       "_id": "071tei3me1nmzl9d",
       "flags": {},
@@ -489,10 +399,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        50,
-        50
-      ],
+      "range": [50, 50],
       "drawn": false,
       "_id": "niq4cqvsszhftoxt",
       "flags": {},
@@ -505,10 +412,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        51,
-        51
-      ],
+      "range": [51, 51],
       "drawn": false,
       "_id": "4avcfusa1ahd221v",
       "flags": {},
@@ -521,10 +425,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        52,
-        52
-      ],
+      "range": [52, 52],
       "drawn": false,
       "_id": "yab9roymqrm31zlx",
       "flags": {},
@@ -537,10 +438,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        53,
-        53
-      ],
+      "range": [53, 53],
       "drawn": false,
       "_id": "ioxf45kxdknjgnoz",
       "flags": {},
@@ -553,10 +451,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        54,
-        54
-      ],
+      "range": [54, 54],
       "drawn": false,
       "_id": "61om0tn11hy4sifo",
       "flags": {},
@@ -569,10 +464,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        55,
-        55
-      ],
+      "range": [55, 55],
       "drawn": false,
       "_id": "qb28hkp2qyksiqwo",
       "flags": {},
@@ -585,10 +477,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        56,
-        56
-      ],
+      "range": [56, 56],
       "drawn": false,
       "_id": "zbqhua5tb8m6p8sg",
       "flags": {},
@@ -601,10 +490,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        57,
-        57
-      ],
+      "range": [57, 57],
       "drawn": false,
       "_id": "tz8jcpfasf9ngxyr",
       "flags": {},
@@ -617,10 +503,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        58,
-        58
-      ],
+      "range": [58, 58],
       "drawn": false,
       "_id": "2acafsb4cg6hqvj7",
       "flags": {},
@@ -633,10 +516,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        59,
-        59
-      ],
+      "range": [59, 59],
       "drawn": false,
       "_id": "5xrnbo147lewf168",
       "flags": {},
@@ -649,10 +529,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        60,
-        60
-      ],
+      "range": [60, 60],
       "drawn": false,
       "_id": "0jabycxfsacty0x7",
       "flags": {},
@@ -665,10 +542,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        61,
-        61
-      ],
+      "range": [61, 61],
       "drawn": false,
       "_id": "zq8br3ufli6pigtw",
       "flags": {},
@@ -681,10 +555,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        62,
-        62
-      ],
+      "range": [62, 62],
       "drawn": false,
       "_id": "r26ezx9f7j2hcsm1",
       "flags": {},
@@ -697,10 +568,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        63,
-        63
-      ],
+      "range": [63, 63],
       "drawn": false,
       "_id": "s8ncom9grepohouc",
       "flags": {},
@@ -713,10 +581,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        64,
-        64
-      ],
+      "range": [64, 64],
       "drawn": false,
       "_id": "e3j6amll08jg8dnb",
       "flags": {},
@@ -729,10 +594,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        65,
-        65
-      ],
+      "range": [65, 65],
       "drawn": false,
       "_id": "b3xvo9pqkeikhkhp",
       "flags": {},
@@ -745,10 +607,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        66,
-        66
-      ],
+      "range": [66, 66],
       "drawn": false,
       "_id": "xe24ii0js8gdos14",
       "flags": {},
@@ -761,10 +620,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        67,
-        67
-      ],
+      "range": [67, 67],
       "drawn": false,
       "_id": "1cjcgazmcochktu8",
       "flags": {},
@@ -777,10 +633,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        68,
-        68
-      ],
+      "range": [68, 68],
       "drawn": false,
       "_id": "39t7opk09nl7caje",
       "flags": {},
@@ -793,10 +646,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        69,
-        69
-      ],
+      "range": [69, 69],
       "drawn": false,
       "_id": "um098bi5j759rrju",
       "flags": {},
@@ -809,10 +659,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        70,
-        70
-      ],
+      "range": [70, 70],
       "drawn": false,
       "_id": "6iu6fmzxkfohzjk0",
       "flags": {},
@@ -825,10 +672,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        71,
-        71
-      ],
+      "range": [71, 71],
       "drawn": false,
       "_id": "d8ukfp9jj8ou8k4k",
       "flags": {},
@@ -841,10 +685,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        72,
-        72
-      ],
+      "range": [72, 72],
       "drawn": false,
       "_id": "v8ozgqzbncs6loov",
       "flags": {},
@@ -857,10 +698,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        73,
-        73
-      ],
+      "range": [73, 73],
       "drawn": false,
       "_id": "3r5ncg6bwiyo9ind",
       "flags": {},
@@ -873,10 +711,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        74,
-        74
-      ],
+      "range": [74, 74],
       "drawn": false,
       "_id": "hjghkthq19bjobdm",
       "flags": {},
@@ -889,10 +724,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        75,
-        75
-      ],
+      "range": [75, 75],
       "drawn": false,
       "_id": "gu88ucg2e26hqhym",
       "flags": {},
@@ -905,10 +737,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        76,
-        76
-      ],
+      "range": [76, 76],
       "drawn": false,
       "_id": "frksxu08rtzhf2tu",
       "flags": {},
@@ -921,10 +750,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        77,
-        77
-      ],
+      "range": [77, 77],
       "drawn": false,
       "_id": "5eqyehzfrpyulfrl",
       "flags": {},
@@ -937,10 +763,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        78,
-        78
-      ],
+      "range": [78, 78],
       "drawn": false,
       "_id": "xwjtbp0ni2n1rzr6",
       "flags": {},
@@ -953,10 +776,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        79,
-        79
-      ],
+      "range": [79, 79],
       "drawn": false,
       "_id": "xy6nifwjv4kijced",
       "flags": {},
@@ -969,10 +789,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        80,
-        80
-      ],
+      "range": [80, 80],
       "drawn": false,
       "_id": "qfm4k4x5hofcgh0c",
       "flags": {},
@@ -985,10 +802,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        81,
-        81
-      ],
+      "range": [81, 81],
       "drawn": false,
       "_id": "11r158ddjpagmhko",
       "flags": {},
@@ -1001,10 +815,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        82,
-        82
-      ],
+      "range": [82, 82],
       "drawn": false,
       "_id": "g9oypi6y9g6w9pxq",
       "flags": {},
@@ -1017,10 +828,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        83,
-        83
-      ],
+      "range": [83, 83],
       "drawn": false,
       "_id": "7fwdvj0xno3s0lgr",
       "flags": {},
@@ -1033,10 +841,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        84,
-        84
-      ],
+      "range": [84, 84],
       "drawn": false,
       "_id": "p6mti4042bise60h",
       "flags": {},
@@ -1049,10 +854,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        85,
-        85
-      ],
+      "range": [85, 85],
       "drawn": false,
       "_id": "lakaoz14r6gejv8s",
       "flags": {},
@@ -1065,10 +867,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        86,
-        86
-      ],
+      "range": [86, 86],
       "drawn": false,
       "_id": "39eoecsfn282dly0",
       "flags": {},
@@ -1081,10 +880,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        87,
-        87
-      ],
+      "range": [87, 87],
       "drawn": false,
       "_id": "jltc0p9us4l36cir",
       "flags": {},
@@ -1097,10 +893,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        88,
-        88
-      ],
+      "range": [88, 88],
       "drawn": false,
       "_id": "hgj3m92fy2tscsgq",
       "flags": {},
@@ -1113,10 +906,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        89,
-        89
-      ],
+      "range": [89, 89],
       "drawn": false,
       "_id": "pru2n8j115dp010r",
       "flags": {},
@@ -1129,10 +919,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        90,
-        90
-      ],
+      "range": [90, 90],
       "drawn": false,
       "_id": "o2wwbtfbsebw299t",
       "flags": {},
@@ -1145,10 +932,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        91,
-        91
-      ],
+      "range": [91, 91],
       "drawn": false,
       "_id": "52oq4eewgtyt9h0p",
       "flags": {},
@@ -1161,10 +945,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        92,
-        92
-      ],
+      "range": [92, 92],
       "drawn": false,
       "_id": "5yx6qbm23o8ge5al",
       "flags": {},
@@ -1177,10 +958,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        93,
-        93
-      ],
+      "range": [93, 93],
       "drawn": false,
       "_id": "5qwp3bwt9k6rcd2f",
       "flags": {},
@@ -1193,10 +971,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        94,
-        94
-      ],
+      "range": [94, 94],
       "drawn": false,
       "_id": "9cyg2job5ea99861",
       "flags": {},
@@ -1209,10 +984,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        95,
-        95
-      ],
+      "range": [95, 95],
       "drawn": false,
       "_id": "05hh7x9f56hhdwf0",
       "flags": {},
@@ -1225,10 +997,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        96,
-        96
-      ],
+      "range": [96, 96],
       "drawn": false,
       "_id": "q8peo89g5of9qs7o",
       "flags": {},
@@ -1241,10 +1010,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        97,
-        97
-      ],
+      "range": [97, 97],
       "drawn": false,
       "_id": "brrvdl7o2wv5j1us",
       "flags": {},
@@ -1257,10 +1023,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        98,
-        98
-      ],
+      "range": [98, 98],
       "drawn": false,
       "_id": "kxppasyhvdo4gwgb",
       "flags": {},
@@ -1273,10 +1036,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        99,
-        99
-      ],
+      "range": [99, 99],
       "drawn": false,
       "_id": "i923g63zv5mt2e57",
       "flags": {},
@@ -1289,10 +1049,7 @@
       "type": 2,
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
-      "range": [
-        100,
-        100
-      ],
+      "range": [100, 100],
       "drawn": false,
       "_id": "6apogyo9bf99zwwf",
       "flags": {},

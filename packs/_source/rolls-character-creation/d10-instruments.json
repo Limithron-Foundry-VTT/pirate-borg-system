@@ -11,10 +11,7 @@
       "resultId": "V0dB0Fq4ZtAITHRu",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "_id": "w6dwien8eof3l8n7",
       "flags": {},
@@ -29,10 +26,7 @@
       "resultId": "XQ1VAfDxa5Wz0DMx",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "_id": "zm9t0utzep82xqln",
       "flags": {},
@@ -47,10 +41,7 @@
       "resultId": "ms9h28N1UBJCg2yb",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "_id": "87gkujuhvolsplmm",
       "flags": {},
@@ -65,10 +56,7 @@
       "resultId": "LQGrUJMPdsvFvnts",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "_id": "1sq0ehuizxazt6dh",
       "flags": {},
@@ -83,10 +71,7 @@
       "resultId": "OJbhqszMWJBlqaXa",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "_id": "en9w1wo1cntmtu9m",
       "flags": {},
@@ -101,10 +86,7 @@
       "resultId": "SMBMDAUjTYv89FBm",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "_id": "aqvip72qlak4k0mw",
       "flags": {},
@@ -119,10 +101,7 @@
       "resultId": "23E2WIpYnGCEB2PC",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "_id": "pr7kp8ipspei7cok",
       "flags": {},
@@ -137,10 +116,7 @@
       "resultId": "Mkp5VugSa2ayQd6w",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "_id": "zhhvwszxiedsw3f9",
       "flags": {},
@@ -155,10 +131,7 @@
       "resultId": "lrFhWVlsYOXIxVeY",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "_id": "hqm8h3l6lhvkbqvj",
       "flags": {},
@@ -173,10 +146,7 @@
       "resultId": "rkw5WvBSr8Hk7T9d",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "_id": "i5wtq8a7bv2tigzl",
       "flags": {},

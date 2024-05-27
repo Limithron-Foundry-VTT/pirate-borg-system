@@ -13,10 +13,7 @@
       "text": "Six of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Hearts.png",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "rangeL": 1,
       "rangeH": 1,
@@ -31,10 +28,7 @@
       "text": "Eight of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Hearts.png",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "rangeL": 2,
       "rangeH": 2,
@@ -49,10 +43,7 @@
       "text": "Seven of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Hearts.png",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "rangeL": 3,
       "rangeH": 3,
@@ -67,10 +58,7 @@
       "text": "Ace of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Hearts.png",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "rangeL": 4,
       "rangeH": 4,
@@ -85,10 +73,7 @@
       "text": "Five of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Spades.png",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "rangeL": 5,
       "rangeH": 5,
@@ -103,10 +88,7 @@
       "text": "Black Joker",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Black_Joker.png",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "rangeL": 6,
       "rangeH": 6,
@@ -121,10 +103,7 @@
       "text": "Six of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Clubs.png",
       "weight": 1,
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "rangeL": 7,
       "rangeH": 7,
@@ -139,10 +118,7 @@
       "text": "Seven of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Clubs.png",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "rangeL": 8,
       "rangeH": 8,
@@ -157,10 +133,7 @@
       "text": "King of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Hearts.png",
       "weight": 1,
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "rangeL": 9,
       "rangeH": 9,
@@ -175,10 +148,7 @@
       "text": "Five of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "rangeL": 10,
       "rangeH": 10,
@@ -193,10 +163,7 @@
       "text": "Five of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Clubs.png",
       "weight": 1,
-      "range": [
-        11,
-        11
-      ],
+      "range": [11, 11],
       "drawn": false,
       "rangeL": 11,
       "rangeH": 11,
@@ -211,10 +178,7 @@
       "text": "King of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        12,
-        12
-      ],
+      "range": [12, 12],
       "drawn": false,
       "rangeL": 12,
       "rangeH": 12,
@@ -229,10 +193,7 @@
       "text": "Queen of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Spades.png",
       "weight": 1,
-      "range": [
-        13,
-        13
-      ],
+      "range": [13, 13],
       "drawn": false,
       "rangeL": 13,
       "rangeH": 13,
@@ -247,10 +208,7 @@
       "text": "Ten of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Hearts.png",
       "weight": 1,
-      "range": [
-        14,
-        14
-      ],
+      "range": [14, 14],
       "drawn": false,
       "rangeL": 14,
       "rangeH": 14,
@@ -265,10 +223,7 @@
       "text": "Jack of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Hearts.png",
       "weight": 1,
-      "range": [
-        15,
-        15
-      ],
+      "range": [15, 15],
       "drawn": false,
       "rangeL": 15,
       "rangeH": 15,
@@ -283,10 +238,7 @@
       "text": "Ten of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Spades.png",
       "weight": 1,
-      "range": [
-        16,
-        16
-      ],
+      "range": [16, 16],
       "drawn": false,
       "rangeL": 16,
       "rangeH": 16,
@@ -301,10 +253,7 @@
       "text": "Ten of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        17,
-        17
-      ],
+      "range": [17, 17],
       "drawn": false,
       "rangeL": 17,
       "rangeH": 17,
@@ -319,10 +268,7 @@
       "text": "Ten of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Clubs.png",
       "weight": 1,
-      "range": [
-        18,
-        18
-      ],
+      "range": [18, 18],
       "drawn": false,
       "rangeL": 18,
       "rangeH": 18,
@@ -337,10 +283,7 @@
       "text": "Six of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        19,
-        19
-      ],
+      "range": [19, 19],
       "drawn": false,
       "rangeL": 19,
       "rangeH": 19,
@@ -355,10 +298,7 @@
       "text": "Queen of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        20,
-        20
-      ],
+      "range": [20, 20],
       "drawn": false,
       "rangeL": 20,
       "rangeH": 20,
@@ -373,10 +313,7 @@
       "text": "Three of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        21,
-        21
-      ],
+      "range": [21, 21],
       "drawn": false,
       "rangeL": 21,
       "rangeH": 21,
@@ -391,10 +328,7 @@
       "text": "Two of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Hearts.png",
       "weight": 1,
-      "range": [
-        22,
-        22
-      ],
+      "range": [22, 22],
       "drawn": false,
       "rangeL": 22,
       "rangeH": 22,
@@ -409,10 +343,7 @@
       "text": "Ace of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        23,
-        23
-      ],
+      "range": [23, 23],
       "drawn": false,
       "rangeL": 23,
       "rangeH": 23,
@@ -427,10 +358,7 @@
       "text": "Seven of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Spades.png",
       "weight": 1,
-      "range": [
-        24,
-        24
-      ],
+      "range": [24, 24],
       "drawn": false,
       "rangeL": 24,
       "rangeH": 24,
@@ -445,10 +373,7 @@
       "text": "Three of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Clubs.png",
       "weight": 1,
-      "range": [
-        25,
-        25
-      ],
+      "range": [25, 25],
       "drawn": false,
       "rangeL": 25,
       "rangeH": 25,
@@ -463,10 +388,7 @@
       "text": "Nine of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Hearts.png",
       "weight": 1,
-      "range": [
-        26,
-        26
-      ],
+      "range": [26, 26],
       "drawn": false,
       "rangeL": 26,
       "rangeH": 26,
@@ -481,10 +403,7 @@
       "text": "King of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Clubs.png",
       "weight": 1,
-      "range": [
-        27,
-        27
-      ],
+      "range": [27, 27],
       "drawn": false,
       "rangeL": 27,
       "rangeH": 27,
@@ -499,10 +418,7 @@
       "text": "Four of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Spades.png",
       "weight": 1,
-      "range": [
-        28,
-        28
-      ],
+      "range": [28, 28],
       "drawn": false,
       "rangeL": 28,
       "rangeH": 28,
@@ -517,10 +433,7 @@
       "text": "Seven of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        29,
-        29
-      ],
+      "range": [29, 29],
       "drawn": false,
       "rangeL": 29,
       "rangeH": 29,
@@ -535,10 +448,7 @@
       "text": "Jack of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Clubs.png",
       "weight": 1,
-      "range": [
-        30,
-        30
-      ],
+      "range": [30, 30],
       "drawn": false,
       "rangeL": 30,
       "rangeH": 30,
@@ -553,10 +463,7 @@
       "text": "King of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Spades.png",
       "weight": 1,
-      "range": [
-        31,
-        31
-      ],
+      "range": [31, 31],
       "drawn": false,
       "rangeL": 31,
       "rangeH": 31,
@@ -571,10 +478,7 @@
       "text": "Jack of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Spades.png",
       "weight": 1,
-      "range": [
-        32,
-        32
-      ],
+      "range": [32, 32],
       "drawn": false,
       "rangeL": 32,
       "rangeH": 32,
@@ -589,10 +493,7 @@
       "text": "Four of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Clubs.png",
       "weight": 1,
-      "range": [
-        33,
-        33
-      ],
+      "range": [33, 33],
       "drawn": false,
       "rangeL": 33,
       "rangeH": 33,
@@ -607,10 +508,7 @@
       "text": "Nine of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Spades.png",
       "weight": 1,
-      "range": [
-        34,
-        34
-      ],
+      "range": [34, 34],
       "drawn": false,
       "rangeL": 34,
       "rangeH": 34,
@@ -625,10 +523,7 @@
       "text": "Eight of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        35,
-        35
-      ],
+      "range": [35, 35],
       "drawn": false,
       "rangeL": 35,
       "rangeH": 35,
@@ -643,10 +538,7 @@
       "text": "Five of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Hearts.png",
       "weight": 1,
-      "range": [
-        36,
-        36
-      ],
+      "range": [36, 36],
       "drawn": false,
       "rangeL": 36,
       "rangeH": 36,
@@ -661,10 +553,7 @@
       "text": "Queen of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Clubs.png",
       "weight": 1,
-      "range": [
-        37,
-        37
-      ],
+      "range": [37, 37],
       "drawn": false,
       "rangeL": 37,
       "rangeH": 37,
@@ -679,10 +568,7 @@
       "text": "Three of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Spades.png",
       "weight": 1,
-      "range": [
-        38,
-        38
-      ],
+      "range": [38, 38],
       "drawn": false,
       "rangeL": 38,
       "rangeH": 38,
@@ -697,10 +583,7 @@
       "text": "Four of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Hearts.png",
       "weight": 1,
-      "range": [
-        39,
-        39
-      ],
+      "range": [39, 39],
       "drawn": false,
       "rangeL": 39,
       "rangeH": 39,
@@ -715,10 +598,7 @@
       "text": "Six of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Spades.png",
       "weight": 1,
-      "range": [
-        40,
-        40
-      ],
+      "range": [40, 40],
       "drawn": false,
       "rangeL": 40,
       "rangeH": 40,
@@ -733,10 +613,7 @@
       "text": "Four of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        41,
-        41
-      ],
+      "range": [41, 41],
       "drawn": false,
       "rangeL": 41,
       "rangeH": 41,
@@ -751,10 +628,7 @@
       "text": "Two of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Clubs.png",
       "weight": 1,
-      "range": [
-        42,
-        42
-      ],
+      "range": [42, 42],
       "drawn": false,
       "rangeL": 42,
       "rangeH": 42,
@@ -769,10 +643,7 @@
       "text": "Eight of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Spades.png",
       "weight": 1,
-      "range": [
-        43,
-        43
-      ],
+      "range": [43, 43],
       "drawn": false,
       "rangeL": 43,
       "rangeH": 43,
@@ -787,10 +658,7 @@
       "text": "Three of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Hearts.png",
       "weight": 1,
-      "range": [
-        44,
-        44
-      ],
+      "range": [44, 44],
       "drawn": false,
       "rangeL": 44,
       "rangeH": 44,
@@ -805,10 +673,7 @@
       "text": "Nine of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        45,
-        45
-      ],
+      "range": [45, 45],
       "drawn": false,
       "rangeL": 45,
       "rangeH": 45,
@@ -823,10 +688,7 @@
       "text": "Jack of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        46,
-        46
-      ],
+      "range": [46, 46],
       "drawn": false,
       "rangeL": 46,
       "rangeH": 46,
@@ -841,10 +703,7 @@
       "text": "Nine of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Clubs.png",
       "weight": 1,
-      "range": [
-        47,
-        47
-      ],
+      "range": [47, 47],
       "drawn": false,
       "rangeL": 47,
       "rangeH": 47,
@@ -859,10 +718,7 @@
       "text": "Ace of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Clubs.png",
       "weight": 1,
-      "range": [
-        48,
-        48
-      ],
+      "range": [48, 48],
       "drawn": false,
       "rangeL": 48,
       "rangeH": 48,
@@ -877,10 +733,7 @@
       "text": "Two of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Spades.png",
       "weight": 1,
-      "range": [
-        49,
-        49
-      ],
+      "range": [49, 49],
       "drawn": false,
       "rangeL": 49,
       "rangeH": 49,
@@ -895,10 +748,7 @@
       "text": "Eight of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Clubs.png",
       "weight": 1,
-      "range": [
-        50,
-        50
-      ],
+      "range": [50, 50],
       "drawn": false,
       "rangeL": 50,
       "rangeH": 50,
@@ -913,10 +763,7 @@
       "text": "Queen of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Hearts.png",
       "weight": 1,
-      "range": [
-        51,
-        51
-      ],
+      "range": [51, 51],
       "drawn": false,
       "rangeL": 51,
       "rangeH": 51,
@@ -931,10 +778,7 @@
       "text": "Ace of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Spades.png",
       "weight": 1,
-      "range": [
-        52,
-        52
-      ],
+      "range": [52, 52],
       "drawn": false,
       "rangeL": 52,
       "rangeH": 52,
@@ -949,10 +793,7 @@
       "text": "Red Joker",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Red_Joker.png",
       "weight": 1,
-      "range": [
-        53,
-        53
-      ],
+      "range": [53, 53],
       "drawn": false,
       "rangeL": 53,
       "rangeH": 53,
@@ -967,10 +808,7 @@
       "text": "Two of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Diamonds.png",
       "weight": 1,
-      "range": [
-        54,
-        54
-      ],
+      "range": [54, 54],
       "drawn": false,
       "rangeL": 54,
       "rangeH": 54,

@@ -9,10 +9,7 @@
       "type": 2,
       "text": "Treasure Hunter",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -28,10 +25,7 @@
       "text": "Crack Shot",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -46,10 +40,7 @@
       "text": "Fix Bayonets!",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -64,10 +55,7 @@
       "text": "Focused Aim",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -82,10 +70,7 @@
       "text": "Buccan Cook",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -100,10 +85,7 @@
       "text": "Survivalist",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
@@ -118,10 +100,7 @@
       "text": "Bayonets",
       "collection": "pirateborg.class-buccaneer",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/weapon.png",

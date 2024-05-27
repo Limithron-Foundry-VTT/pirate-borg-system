@@ -9,10 +9,7 @@
       "type": 0,
       "text": "All before you vanishes, and you are alone on a gray island. A figure robed in black can be seen on a boat in the distance. Welcome to purgatory.",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -27,10 +24,7 @@
       "type": 0,
       "text": "Everyone within [[d20]] ft. vomits briny water and sea urchins ( and lose 4hp).",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -45,10 +39,7 @@
       "type": 0,
       "text": "A wraith appears, the ghost of an old captain. Roll reaction for it (pg. 30). It leaves after d6 rounds.",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -63,10 +54,7 @@
       "type": 0,
       "text": "You are possessed by an ancient, arcane spirit for [[d4]] rounds. Roll reaction (pg. 30) to see how it behaves to others.",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -81,10 +69,7 @@
       "type": 0,
       "text": "You go insane, as you become convinced that this world is a dream and that you must wake up from. Test SPIRIT DR12 every dawn to see if you come to your senses.",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -99,10 +84,7 @@
       "type": 0,
       "text": "Nothing happens...until the Kraken appears in [[d6]] days.",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -117,10 +99,7 @@
       "type": 0,
       "text": "Gravity behaves as if everything within 30' is underwater... for [[d8]] minutes",
       "weight": 1,
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -135,10 +114,7 @@
       "type": 0,
       "text": "[[d12]] BIRDS! They swarm you and all around.",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -153,10 +129,7 @@
       "type": 0,
       "text": "All metal within 30ft become molten hot and glows red. The effect lasts for 1 minute. Any one touching metal after the first round is burnt for d2 damage.",
       "weight": 1,
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -171,10 +144,7 @@
       "type": 0,
       "text": "Your vision permanently fills with water and the world around you looks submerged and obfuscated. Presence Checks involving sight are +4 DR from now on. Underwater you see like fish.",
       "weight": 1,
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -189,10 +159,7 @@
       "type": 0,
       "text": "The weather and time of day are immediately, completely different. You and everything within a 3 mile radius have traveled 4d12 hours into the future.",
       "weight": 1,
-      "range": [
-        11,
-        11
-      ],
+      "range": [11, 11],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -207,10 +174,7 @@
       "type": 0,
       "text": "Clouds darken, winds pick up, the temperature drops [[d10 * 10]] degrees. A thunderstorm moves in.",
       "weight": 1,
-      "range": [
-        12,
-        12
-      ],
+      "range": [12, 12],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -225,10 +189,7 @@
       "type": 0,
       "text": "A massive earthquake shakes the ground. At sea, tidal waves swell.",
       "weight": 1,
-      "range": [
-        13,
-        13
-      ],
+      "range": [13, 13],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -243,10 +204,7 @@
       "type": 0,
       "text": "You've simply forgotten how to cast the ritual. You no longer know it. Remove it from your sheet.",
       "weight": 1,
-      "range": [
-        14,
-        14
-      ],
+      "range": [14, 14],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -261,10 +219,7 @@
       "type": 0,
       "text": "Eldritch voices whisper in your ears. Test SPIRIT DR12 or take d2 damage out of horror. If you pass, then next time you consider accessing the arcane you discover you know one random new ritual.",
       "weight": 1,
-      "range": [
-        15,
-        15
-      ],
+      "range": [15, 15],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -279,10 +234,7 @@
       "type": 0,
       "text": "The ritual succeeds, but in the worst way possible. GM decides: different target, goes off at the wrong time, you cast it on yourself, etc.",
       "weight": 1,
-      "range": [
-        16,
-        16
-      ],
+      "range": [16, 16],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -297,10 +249,7 @@
       "type": 0,
       "text": "Your mind is lost at sea for what seems like [[3d10]] years, yet no time has passed. Others watch as you age 3d10 years in a matter of seconds.",
       "weight": 1,
-      "range": [
-        17,
-        17
-      ],
+      "range": [17, 17],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -315,10 +264,7 @@
       "type": 0,
       "text": "Hundreds of tiny crabs swarm you. They are harmless, and provide an extra -2 armor. They leave after [[d6]] days, but return every full moon.",
       "weight": 1,
-      "range": [
-        18,
-        18
-      ],
+      "range": [18, 18],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -333,10 +279,7 @@
       "type": 0,
       "text": "Everyone you can see recovers 3d6 hp including your enemies...",
       "weight": 1,
-      "range": [
-        19,
-        19
-      ],
+      "range": [19, 19],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -351,10 +294,7 @@
       "type": 0,
       "text": "Time stops. You experience a moment of absolute cosmic understanding and bliss. When you gain your composure, time resumes and you have learned a new ritual of your choice and your Spirit score is increased by +1.",
       "weight": 1,
-      "range": [
-        20,
-        20
-      ],
+      "range": [20, 20],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -369,10 +309,7 @@
       "type": 0,
       "text": "HP 2 Morale - No Armor Bite d2. They flee when half are defeated.",
       "weight": 1,
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

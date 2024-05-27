@@ -7,10 +7,7 @@
       "type": 0,
       "text": "BACKFIRE. Take [[d2]] damage",
       "weight": 1,
-      "range": [
-        1,
-        2
-      ],
+      "range": [1, 2],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -23,10 +20,7 @@
       "type": 0,
       "text": "BROKEN. Weapon is broken.",
       "weight": 1,
-      "range": [
-        3,
-        4
-      ],
+      "range": [3, 4],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -39,10 +33,7 @@
       "type": 0,
       "text": "BACKFIRE & BROKEN. Take [[d2]] damage and weapon is broken",
       "weight": 1,
-      "range": [
-        5,
-        6
-      ],
+      "range": [5, 6],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

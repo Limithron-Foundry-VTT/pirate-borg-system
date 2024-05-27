@@ -9,10 +9,7 @@
       "type": 2,
       "text": "Smoke Bomb",
       "weight": 1,
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/smoke-bomb.png",
@@ -27,10 +24,7 @@
       "type": 2,
       "text": "Improvised grenade",
       "weight": 1,
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/improvised-grenade.png",
@@ -45,10 +39,7 @@
       "type": 2,
       "text": "Clay grenade",
       "weight": 1,
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/clay-grenade.png",
@@ -63,10 +54,7 @@
       "type": 2,
       "text": "Iron grenade",
       "weight": 1,
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/iron-grenade.png",
@@ -81,10 +69,7 @@
       "type": 2,
       "text": "Fire pot",
       "weight": 1,
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/fire-pot.png",
@@ -99,10 +84,7 @@
       "type": 2,
       "text": "Stink ball",
       "weight": 1,
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/bombs/fire-pot.png",

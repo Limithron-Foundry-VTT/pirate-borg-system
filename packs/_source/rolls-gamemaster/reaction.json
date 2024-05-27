@@ -9,10 +9,7 @@
       "type": 0,
       "text": "Bloodthirsty",
       "weight": 1,
-      "range": [
-        2,
-        3
-      ],
+      "range": [2, 3],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -27,10 +24,7 @@
       "type": 0,
       "text": "Angered or alarmed",
       "weight": 1,
-      "range": [
-        4,
-        6
-      ],
+      "range": [4, 6],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -45,10 +39,7 @@
       "type": 0,
       "text": "Indifferent, neutral",
       "weight": 1,
-      "range": [
-        7,
-        8
-      ],
+      "range": [7, 8],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -63,10 +54,7 @@
       "type": 0,
       "text": "Almost friendly",
       "weight": 1,
-      "range": [
-        9,
-        10
-      ],
+      "range": [9, 10],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
@@ -82,10 +70,7 @@
       "text": "Helpful",
       "collection": null,
       "weight": 1,
-      "range": [
-        11,
-        12
-      ],
+      "range": [11, 12],
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",

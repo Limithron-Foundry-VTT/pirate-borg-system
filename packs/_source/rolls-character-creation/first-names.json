@@ -7,10 +7,7 @@
       "type": 0,
       "text": "Aad",
       "img": "icons/svg/d20.svg",
-      "range": [
-        1,
-        1
-      ],
+      "range": [1, 1],
       "drawn": false,
       "flags": {},
       "rangeL": 1,
@@ -22,10 +19,7 @@
       "type": 0,
       "text": "Aadje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        2,
-        2
-      ],
+      "range": [2, 2],
       "drawn": false,
       "flags": {},
       "rangeL": 2,
@@ -37,10 +31,7 @@
       "type": 0,
       "text": "Aafje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        3,
-        3
-      ],
+      "range": [3, 3],
       "drawn": false,
       "flags": {},
       "rangeL": 3,
@@ -52,10 +43,7 @@
       "type": 0,
       "text": "Aagje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        4,
-        4
-      ],
+      "range": [4, 4],
       "drawn": false,
       "flags": {},
       "rangeL": 4,
@@ -67,10 +55,7 @@
       "type": 0,
       "text": "Aagtje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        5,
-        5
-      ],
+      "range": [5, 5],
       "drawn": false,
       "flags": {},
       "rangeL": 5,
@@ -82,10 +67,7 @@
       "type": 0,
       "text": "Aalbert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        6,
-        6
-      ],
+      "range": [6, 6],
       "drawn": false,
       "flags": {},
       "rangeL": 6,
@@ -97,10 +79,7 @@
       "type": 0,
       "text": "Aalbrecht",
       "img": "icons/svg/d20.svg",
-      "range": [
-        7,
-        7
-      ],
+      "range": [7, 7],
       "drawn": false,
       "flags": {},
       "rangeL": 7,
@@ -112,10 +91,7 @@
       "type": 0,
       "text": "Aalderik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        8,
-        8
-      ],
+      "range": [8, 8],
       "drawn": false,
       "flags": {},
       "rangeL": 8,
@@ -127,10 +103,7 @@
       "type": 0,
       "text": "Aaldert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        9,
-        9
-      ],
+      "range": [9, 9],
       "drawn": false,
       "flags": {},
       "rangeL": 9,
@@ -142,10 +115,7 @@
       "type": 0,
       "text": "Aaldrik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        10,
-        10
-      ],
+      "range": [10, 10],
       "drawn": false,
       "flags": {},
       "rangeL": 10,
@@ -157,10 +127,7 @@
       "type": 0,
       "text": "Aalrik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        11,
-        11
-      ],
+      "range": [11, 11],
       "drawn": false,
       "flags": {},
       "rangeL": 11,
@@ -172,10 +139,7 @@
       "type": 0,
       "text": "Aard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        12,
-        12
-      ],
+      "range": [12, 12],
       "drawn": false,
       "flags": {},
       "rangeL": 12,
@@ -187,10 +151,7 @@
       "type": 0,
       "text": "Aardse",
       "img": "icons/svg/d20.svg",
-      "range": [
-        13,
-        13
-      ],
+      "range": [13, 13],
       "drawn": false,
       "flags": {},
       "rangeL": 13,
@@ -202,10 +163,7 @@
       "type": 0,
       "text": "Aarnout",
       "img": "icons/svg/d20.svg",
-      "range": [
-        14,
-        14
-      ],
+      "range": [14, 14],
       "drawn": false,
       "flags": {},
       "rangeL": 14,
@@ -217,10 +175,7 @@
       "type": 0,
       "text": "Aäron",
       "img": "icons/svg/d20.svg",
-      "range": [
-        15,
-        15
-      ],
+      "range": [15, 15],
       "drawn": false,
       "flags": {},
       "rangeL": 15,
@@ -232,10 +187,7 @@
       "type": 0,
       "text": "Aart",
       "img": "icons/svg/d20.svg",
-      "range": [
-        16,
-        16
-      ],
+      "range": [16, 16],
       "drawn": false,
       "flags": {},
       "rangeL": 16,
@@ -247,10 +199,7 @@
       "type": 0,
       "text": "Aat",
       "img": "icons/svg/d20.svg",
-      "range": [
-        17,
-        17
-      ],
+      "range": [17, 17],
       "drawn": false,
       "flags": {},
       "rangeL": 17,
@@ -262,10 +211,7 @@
       "type": 0,
       "text": "Abby",
       "img": "icons/svg/d20.svg",
-      "range": [
-        18,
-        18
-      ],
+      "range": [18, 18],
       "drawn": false,
       "flags": {},
       "rangeL": 18,
@@ -277,10 +223,7 @@
       "type": 0,
       "text": "Abdel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        19,
-        19
-      ],
+      "range": [19, 19],
       "drawn": false,
       "flags": {},
       "rangeL": 19,
@@ -292,10 +235,7 @@
       "type": 0,
       "text": "Abdoel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        20,
-        20
-      ],
+      "range": [20, 20],
       "drawn": false,
       "flags": {},
       "rangeL": 20,
@@ -307,10 +247,7 @@
       "type": 0,
       "text": "Abdoella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        21,
-        21
-      ],
+      "range": [21, 21],
       "drawn": false,
       "flags": {},
       "rangeL": 21,
@@ -322,10 +259,7 @@
       "type": 0,
       "text": "Abe",
       "img": "icons/svg/d20.svg",
-      "range": [
-        22,
-        22
-      ],
+      "range": [22, 22],
       "drawn": false,
       "flags": {},
       "rangeL": 22,
@@ -337,10 +271,7 @@
       "type": 0,
       "text": "Abel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        23,
-        23
-      ],
+      "range": [23, 23],
       "drawn": false,
       "flags": {},
       "rangeL": 23,
@@ -352,10 +283,7 @@
       "type": 0,
       "text": "Abelone",
       "img": "icons/svg/d20.svg",
-      "range": [
-        24,
-        24
-      ],
+      "range": [24, 24],
       "drawn": false,
       "flags": {},
       "rangeL": 24,
@@ -367,10 +295,7 @@
       "type": 0,
       "text": "Abeltje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        25,
-        25
-      ],
+      "range": [25, 25],
       "drawn": false,
       "flags": {},
       "rangeL": 25,
@@ -382,10 +307,7 @@
       "type": 0,
       "text": "Abraham",
       "img": "icons/svg/d20.svg",
-      "range": [
-        26,
-        26
-      ],
+      "range": [26, 26],
       "drawn": false,
       "flags": {},
       "rangeL": 26,
@@ -397,10 +319,7 @@
       "type": 0,
       "text": "Acco",
       "img": "icons/svg/d20.svg",
-      "range": [
-        27,
-        27
-      ],
+      "range": [27, 27],
       "drawn": false,
       "flags": {},
       "rangeL": 27,
@@ -412,10 +331,7 @@
       "type": 0,
       "text": "Achiel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        28,
-        28
-      ],
+      "range": [28, 28],
       "drawn": false,
       "flags": {},
       "rangeL": 28,
@@ -427,10 +343,7 @@
       "type": 0,
       "text": "Achmed",
       "img": "icons/svg/d20.svg",
-      "range": [
-        29,
-        29
-      ],
+      "range": [29, 29],
       "drawn": false,
       "flags": {},
       "rangeL": 29,
@@ -442,10 +355,7 @@
       "type": 0,
       "text": "Ad",
       "img": "icons/svg/d20.svg",
-      "range": [
-        30,
-        30
-      ],
+      "range": [30, 30],
       "drawn": false,
       "flags": {},
       "rangeL": 30,
@@ -457,10 +367,7 @@
       "type": 0,
       "text": "Adaemkin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        31,
-        31
-      ],
+      "range": [31, 31],
       "drawn": false,
       "flags": {},
       "rangeL": 31,
@@ -472,10 +379,7 @@
       "type": 0,
       "text": "Adalmar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        32,
-        32
-      ],
+      "range": [32, 32],
       "drawn": false,
       "flags": {},
       "rangeL": 32,
@@ -487,10 +391,7 @@
       "type": 0,
       "text": "Adam",
       "img": "icons/svg/d20.svg",
-      "range": [
-        33,
-        33
-      ],
+      "range": [33, 33],
       "drawn": false,
       "flags": {},
       "rangeL": 33,
@@ -502,10 +403,7 @@
       "type": 0,
       "text": "Adelheid",
       "img": "icons/svg/d20.svg",
-      "range": [
-        34,
-        34
-      ],
+      "range": [34, 34],
       "drawn": false,
       "flags": {},
       "rangeL": 34,
@@ -517,10 +415,7 @@
       "type": 0,
       "text": "Adelmar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        35,
-        35
-      ],
+      "range": [35, 35],
       "drawn": false,
       "flags": {},
       "rangeL": 35,
@@ -532,10 +427,7 @@
       "type": 0,
       "text": "Adelwijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        36,
-        36
-      ],
+      "range": [36, 36],
       "drawn": false,
       "flags": {},
       "rangeL": 36,
@@ -547,10 +439,7 @@
       "type": 0,
       "text": "Adelwin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        37,
-        37
-      ],
+      "range": [37, 37],
       "drawn": false,
       "flags": {},
       "rangeL": 37,
@@ -562,10 +451,7 @@
       "type": 0,
       "text": "Adolf",
       "img": "icons/svg/d20.svg",
-      "range": [
-        38,
-        38
-      ],
+      "range": [38, 38],
       "drawn": false,
       "flags": {},
       "rangeL": 38,
@@ -577,10 +463,7 @@
       "type": 0,
       "text": "Adri",
       "img": "icons/svg/d20.svg",
-      "range": [
-        39,
-        39
-      ],
+      "range": [39, 39],
       "drawn": false,
       "flags": {},
       "rangeL": 39,
@@ -592,10 +475,7 @@
       "type": 0,
       "text": "Adriaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        40,
-        40
-      ],
+      "range": [40, 40],
       "drawn": false,
       "flags": {},
       "rangeL": 40,
@@ -607,10 +487,7 @@
       "type": 0,
       "text": "Adrie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        41,
-        41
-      ],
+      "range": [41, 41],
       "drawn": false,
       "flags": {},
       "rangeL": 41,
@@ -622,10 +499,7 @@
       "type": 0,
       "text": "Agatha",
       "img": "icons/svg/d20.svg",
-      "range": [
-        42,
-        42
-      ],
+      "range": [42, 42],
       "drawn": false,
       "flags": {},
       "rangeL": 42,
@@ -637,10 +511,7 @@
       "type": 0,
       "text": "Agnes",
       "img": "icons/svg/d20.svg",
-      "range": [
-        43,
-        43
-      ],
+      "range": [43, 43],
       "drawn": false,
       "flags": {},
       "rangeL": 43,
@@ -652,10 +523,7 @@
       "type": 0,
       "text": "Agustín",
       "img": "icons/svg/d20.svg",
-      "range": [
-        44,
-        44
-      ],
+      "range": [44, 44],
       "drawn": false,
       "flags": {},
       "rangeL": 44,
@@ -667,10 +535,7 @@
       "type": 0,
       "text": "Albert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        45,
-        45
-      ],
+      "range": [45, 45],
       "drawn": false,
       "flags": {},
       "rangeL": 45,
@@ -682,10 +547,7 @@
       "type": 0,
       "text": "Albrecht",
       "img": "icons/svg/d20.svg",
-      "range": [
-        46,
-        46
-      ],
+      "range": [46, 46],
       "drawn": false,
       "flags": {},
       "rangeL": 46,
@@ -697,10 +559,7 @@
       "type": 0,
       "text": "Aldemar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        47,
-        47
-      ],
+      "range": [47, 47],
       "drawn": false,
       "flags": {},
       "rangeL": 47,
@@ -712,10 +571,7 @@
       "type": 0,
       "text": "Aldert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        48,
-        48
-      ],
+      "range": [48, 48],
       "drawn": false,
       "flags": {},
       "rangeL": 48,
@@ -727,10 +583,7 @@
       "type": 0,
       "text": "Alex",
       "img": "icons/svg/d20.svg",
-      "range": [
-        49,
-        49
-      ],
+      "range": [49, 49],
       "drawn": false,
       "flags": {},
       "rangeL": 49,
@@ -742,10 +595,7 @@
       "type": 0,
       "text": "Alexander",
       "img": "icons/svg/d20.svg",
-      "range": [
-        50,
-        50
-      ],
+      "range": [50, 50],
       "drawn": false,
       "flags": {},
       "rangeL": 50,
@@ -757,10 +607,7 @@
       "type": 0,
       "text": "Alfons",
       "img": "icons/svg/d20.svg",
-      "range": [
-        51,
-        51
-      ],
+      "range": [51, 51],
       "drawn": false,
       "flags": {},
       "rangeL": 51,
@@ -772,10 +619,7 @@
       "type": 0,
       "text": "Alfred",
       "img": "icons/svg/d20.svg",
-      "range": [
-        52,
-        52
-      ],
+      "range": [52, 52],
       "drawn": false,
       "flags": {},
       "rangeL": 52,
@@ -787,10 +631,7 @@
       "type": 0,
       "text": "Ali",
       "img": "icons/svg/d20.svg",
-      "range": [
-        53,
-        53
-      ],
+      "range": [53, 53],
       "drawn": false,
       "flags": {},
       "rangeL": 53,
@@ -802,10 +643,7 @@
       "type": 0,
       "text": "Alice",
       "img": "icons/svg/d20.svg",
-      "range": [
-        54,
-        54
-      ],
+      "range": [54, 54],
       "drawn": false,
       "flags": {},
       "rangeL": 54,
@@ -817,10 +655,7 @@
       "type": 0,
       "text": "Alida",
       "img": "icons/svg/d20.svg",
-      "range": [
-        55,
-        55
-      ],
+      "range": [55, 55],
       "drawn": false,
       "flags": {},
       "rangeL": 55,
@@ -832,10 +667,7 @@
       "type": 0,
       "text": "Allen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        56,
-        56
-      ],
+      "range": [56, 56],
       "drawn": false,
       "flags": {},
       "rangeL": 56,
@@ -847,10 +679,7 @@
       "type": 0,
       "text": "Almar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        57,
-        57
-      ],
+      "range": [57, 57],
       "drawn": false,
       "flags": {},
       "rangeL": 57,
@@ -862,10 +691,7 @@
       "type": 0,
       "text": "Alonso",
       "img": "icons/svg/d20.svg",
-      "range": [
-        58,
-        58
-      ],
+      "range": [58, 58],
       "drawn": false,
       "flags": {},
       "rangeL": 58,
@@ -877,10 +703,7 @@
       "type": 0,
       "text": "Alonzo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        59,
-        59
-      ],
+      "range": [59, 59],
       "drawn": false,
       "flags": {},
       "rangeL": 59,
@@ -892,10 +715,7 @@
       "type": 0,
       "text": "Alphons",
       "img": "icons/svg/d20.svg",
-      "range": [
-        60,
-        60
-      ],
+      "range": [60, 60],
       "drawn": false,
       "flags": {},
       "rangeL": 60,
@@ -907,10 +727,7 @@
       "type": 0,
       "text": "Alvaro",
       "img": "icons/svg/d20.svg",
-      "range": [
-        61,
-        61
-      ],
+      "range": [61, 61],
       "drawn": false,
       "flags": {},
       "rangeL": 61,
@@ -922,10 +739,7 @@
       "type": 0,
       "text": "Amber",
       "img": "icons/svg/d20.svg",
-      "range": [
-        62,
-        62
-      ],
+      "range": [62, 62],
       "drawn": false,
       "flags": {},
       "rangeL": 62,
@@ -937,10 +751,7 @@
       "type": 0,
       "text": "Amy",
       "img": "icons/svg/d20.svg",
-      "range": [
-        63,
-        63
-      ],
+      "range": [63, 63],
       "drawn": false,
       "flags": {},
       "rangeL": 63,
@@ -952,10 +763,7 @@
       "type": 0,
       "text": "André",
       "img": "icons/svg/d20.svg",
-      "range": [
-        64,
-        64
-      ],
+      "range": [64, 64],
       "drawn": false,
       "flags": {},
       "rangeL": 64,
@@ -967,10 +775,7 @@
       "type": 0,
       "text": "Andreas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        65,
-        65
-      ],
+      "range": [65, 65],
       "drawn": false,
       "flags": {},
       "rangeL": 65,
@@ -982,10 +787,7 @@
       "type": 0,
       "text": "Andrés",
       "img": "icons/svg/d20.svg",
-      "range": [
-        66,
-        66
-      ],
+      "range": [66, 66],
       "drawn": false,
       "flags": {},
       "rangeL": 66,
@@ -997,10 +799,7 @@
       "type": 0,
       "text": "Andrew",
       "img": "icons/svg/d20.svg",
-      "range": [
-        67,
-        67
-      ],
+      "range": [67, 67],
       "drawn": false,
       "flags": {},
       "rangeL": 67,
@@ -1012,10 +811,7 @@
       "type": 0,
       "text": "Andries",
       "img": "icons/svg/d20.svg",
-      "range": [
-        68,
-        68
-      ],
+      "range": [68, 68],
       "drawn": false,
       "flags": {},
       "rangeL": 68,
@@ -1027,10 +823,7 @@
       "type": 0,
       "text": "Anna",
       "img": "icons/svg/d20.svg",
-      "range": [
-        69,
-        69
-      ],
+      "range": [69, 69],
       "drawn": false,
       "flags": {},
       "rangeL": 69,
@@ -1042,10 +835,7 @@
       "type": 0,
       "text": "Anne",
       "img": "icons/svg/d20.svg",
-      "range": [
-        70,
-        70
-      ],
+      "range": [70, 70],
       "drawn": false,
       "flags": {},
       "rangeL": 70,
@@ -1057,10 +847,7 @@
       "type": 0,
       "text": "Anne-Marie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        71,
-        71
-      ],
+      "range": [71, 71],
       "drawn": false,
       "flags": {},
       "rangeL": 71,
@@ -1072,10 +859,7 @@
       "type": 0,
       "text": "Anneke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        72,
-        72
-      ],
+      "range": [72, 72],
       "drawn": false,
       "flags": {},
       "rangeL": 72,
@@ -1087,10 +871,7 @@
       "type": 0,
       "text": "Annelies",
       "img": "icons/svg/d20.svg",
-      "range": [
-        73,
-        73
-      ],
+      "range": [73, 73],
       "drawn": false,
       "flags": {},
       "rangeL": 73,
@@ -1102,10 +883,7 @@
       "type": 0,
       "text": "Annemieke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        74,
-        74
-      ],
+      "range": [74, 74],
       "drawn": false,
       "flags": {},
       "rangeL": 74,
@@ -1117,10 +895,7 @@
       "type": 0,
       "text": "Anouk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        75,
-        75
-      ],
+      "range": [75, 75],
       "drawn": false,
       "flags": {},
       "rangeL": 75,
@@ -1132,10 +907,7 @@
       "type": 0,
       "text": "Ans",
       "img": "icons/svg/d20.svg",
-      "range": [
-        76,
-        76
-      ],
+      "range": [76, 76],
       "drawn": false,
       "flags": {},
       "rangeL": 76,
@@ -1147,10 +919,7 @@
       "type": 0,
       "text": "Anthony",
       "img": "icons/svg/d20.svg",
-      "range": [
-        77,
-        77
-      ],
+      "range": [77, 77],
       "drawn": false,
       "flags": {},
       "rangeL": 77,
@@ -1162,10 +931,7 @@
       "type": 0,
       "text": "Antoine",
       "img": "icons/svg/d20.svg",
-      "range": [
-        78,
-        78
-      ],
+      "range": [78, 78],
       "drawn": false,
       "flags": {},
       "rangeL": 78,
@@ -1177,10 +943,7 @@
       "type": 0,
       "text": "Antón",
       "img": "icons/svg/d20.svg",
-      "range": [
-        79,
-        79
-      ],
+      "range": [79, 79],
       "drawn": false,
       "flags": {},
       "rangeL": 79,
@@ -1192,10 +955,7 @@
       "type": 0,
       "text": "Antonio",
       "img": "icons/svg/d20.svg",
-      "range": [
-        80,
-        80
-      ],
+      "range": [80, 80],
       "drawn": false,
       "flags": {},
       "rangeL": 80,
@@ -1207,10 +967,7 @@
       "type": 0,
       "text": "Antoon",
       "img": "icons/svg/d20.svg",
-      "range": [
-        81,
-        81
-      ],
+      "range": [81, 81],
       "drawn": false,
       "flags": {},
       "rangeL": 81,
@@ -1222,10 +979,7 @@
       "type": 0,
       "text": "Archibald",
       "img": "icons/svg/d20.svg",
-      "range": [
-        82,
-        82
-      ],
+      "range": [82, 82],
       "drawn": false,
       "flags": {},
       "rangeL": 82,
@@ -1237,10 +991,7 @@
       "type": 0,
       "text": "Arend",
       "img": "icons/svg/d20.svg",
-      "range": [
-        83,
-        83
-      ],
+      "range": [83, 83],
       "drawn": false,
       "flags": {},
       "rangeL": 83,
@@ -1252,10 +1003,7 @@
       "type": 0,
       "text": "Arie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        84,
-        84
-      ],
+      "range": [84, 84],
       "drawn": false,
       "flags": {},
       "rangeL": 84,
@@ -1267,10 +1015,7 @@
       "type": 0,
       "text": "Armando",
       "img": "icons/svg/d20.svg",
-      "range": [
-        85,
-        85
-      ],
+      "range": [85, 85],
       "drawn": false,
       "flags": {},
       "rangeL": 85,
@@ -1282,10 +1027,7 @@
       "type": 0,
       "text": "Arnoud",
       "img": "icons/svg/d20.svg",
-      "range": [
-        86,
-        86
-      ],
+      "range": [86, 86],
       "drawn": false,
       "flags": {},
       "rangeL": 86,
@@ -1297,10 +1039,7 @@
       "type": 0,
       "text": "Arnout",
       "img": "icons/svg/d20.svg",
-      "range": [
-        87,
-        87
-      ],
+      "range": [87, 87],
       "drawn": false,
       "flags": {},
       "rangeL": 87,
@@ -1312,10 +1051,7 @@
       "type": 0,
       "text": "Arthur",
       "img": "icons/svg/d20.svg",
-      "range": [
-        88,
-        88
-      ],
+      "range": [88, 88],
       "drawn": false,
       "flags": {},
       "rangeL": 88,
@@ -1327,10 +1063,7 @@
       "type": 0,
       "text": "Artus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        89,
-        89
-      ],
+      "range": [89, 89],
       "drawn": false,
       "flags": {},
       "rangeL": 89,
@@ -1342,10 +1075,7 @@
       "type": 0,
       "text": "Aster",
       "img": "icons/svg/d20.svg",
-      "range": [
-        90,
-        90
-      ],
+      "range": [90, 90],
       "drawn": false,
       "flags": {},
       "rangeL": 90,
@@ -1357,10 +1087,7 @@
       "type": 0,
       "text": "Astrid",
       "img": "icons/svg/d20.svg",
-      "range": [
-        91,
-        91
-      ],
+      "range": [91, 91],
       "drawn": false,
       "flags": {},
       "rangeL": 91,
@@ -1372,10 +1099,7 @@
       "type": 0,
       "text": "Atte",
       "img": "icons/svg/d20.svg",
-      "range": [
-        92,
-        92
-      ],
+      "range": [92, 92],
       "drawn": false,
       "flags": {},
       "rangeL": 92,
@@ -1387,10 +1111,7 @@
       "type": 0,
       "text": "Audebert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        93,
-        93
-      ],
+      "range": [93, 93],
       "drawn": false,
       "flags": {},
       "rangeL": 93,
@@ -1402,10 +1123,7 @@
       "type": 0,
       "text": "Audrey",
       "img": "icons/svg/d20.svg",
-      "range": [
-        94,
-        94
-      ],
+      "range": [94, 94],
       "drawn": false,
       "flags": {},
       "rangeL": 94,
@@ -1417,10 +1135,7 @@
       "type": 0,
       "text": "Authur",
       "img": "icons/svg/d20.svg",
-      "range": [
-        95,
-        95
-      ],
+      "range": [95, 95],
       "drawn": false,
       "flags": {},
       "rangeL": 95,
@@ -1432,10 +1147,7 @@
       "type": 0,
       "text": "Avis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        96,
-        96
-      ],
+      "range": [96, 96],
       "drawn": false,
       "flags": {},
       "rangeL": 96,
@@ -1447,10 +1159,7 @@
       "type": 0,
       "text": "Baltasar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        97,
-        97
-      ],
+      "range": [97, 97],
       "drawn": false,
       "flags": {},
       "rangeL": 97,
@@ -1462,10 +1171,7 @@
       "type": 0,
       "text": "Barbara",
       "img": "icons/svg/d20.svg",
-      "range": [
-        98,
-        98
-      ],
+      "range": [98, 98],
       "drawn": false,
       "flags": {},
       "rangeL": 98,
@@ -1477,10 +1183,7 @@
       "type": 0,
       "text": "Barnard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        99,
-        99
-      ],
+      "range": [99, 99],
       "drawn": false,
       "flags": {},
       "rangeL": 99,
@@ -1492,10 +1195,7 @@
       "type": 0,
       "text": "Barros",
       "img": "icons/svg/d20.svg",
-      "range": [
-        100,
-        100
-      ],
+      "range": [100, 100],
       "drawn": false,
       "flags": {},
       "rangeL": 100,
@@ -1507,10 +1207,7 @@
       "type": 0,
       "text": "Bart",
       "img": "icons/svg/d20.svg",
-      "range": [
-        101,
-        101
-      ],
+      "range": [101, 101],
       "drawn": false,
       "flags": {},
       "rangeL": 101,
@@ -1522,10 +1219,7 @@
       "type": 0,
       "text": "Barthelemi",
       "img": "icons/svg/d20.svg",
-      "range": [
-        102,
-        102
-      ],
+      "range": [102, 102],
       "drawn": false,
       "flags": {},
       "rangeL": 102,
@@ -1537,10 +1231,7 @@
       "type": 0,
       "text": "Bartholemew",
       "img": "icons/svg/d20.svg",
-      "range": [
-        103,
-        103
-      ],
+      "range": [103, 103],
       "drawn": false,
       "flags": {},
       "rangeL": 103,
@@ -1552,10 +1243,7 @@
       "type": 0,
       "text": "Bartolomé",
       "img": "icons/svg/d20.svg",
-      "range": [
-        104,
-        104
-      ],
+      "range": [104, 104],
       "drawn": false,
       "flags": {},
       "rangeL": 104,
@@ -1567,10 +1255,7 @@
       "type": 0,
       "text": "Bartram",
       "img": "icons/svg/d20.svg",
-      "range": [
-        105,
-        105
-      ],
+      "range": [105, 105],
       "drawn": false,
       "flags": {},
       "rangeL": 105,
@@ -1582,10 +1267,7 @@
       "type": 0,
       "text": "Basiel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        106,
-        106
-      ],
+      "range": [106, 106],
       "drawn": false,
       "flags": {},
       "rangeL": 106,
@@ -1597,10 +1279,7 @@
       "type": 0,
       "text": "Bastía",
       "img": "icons/svg/d20.svg",
-      "range": [
-        107,
-        107
-      ],
+      "range": [107, 107],
       "drawn": false,
       "flags": {},
       "rangeL": 107,
@@ -1612,10 +1291,7 @@
       "type": 0,
       "text": "Bastiaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        108,
-        108
-      ],
+      "range": [108, 108],
       "drawn": false,
       "flags": {},
       "rangeL": 108,
@@ -1627,10 +1303,7 @@
       "type": 0,
       "text": "Bautista",
       "img": "icons/svg/d20.svg",
-      "range": [
-        109,
-        109
-      ],
+      "range": [109, 109],
       "drawn": false,
       "flags": {},
       "rangeL": 109,
@@ -1642,10 +1315,7 @@
       "type": 0,
       "text": "Beatrice",
       "img": "icons/svg/d20.svg",
-      "range": [
-        110,
-        110
-      ],
+      "range": [110, 110],
       "drawn": false,
       "flags": {},
       "rangeL": 110,
@@ -1657,10 +1327,7 @@
       "type": 0,
       "text": "Beatrijs",
       "img": "icons/svg/d20.svg",
-      "range": [
-        111,
-        111
-      ],
+      "range": [111, 111],
       "drawn": false,
       "flags": {},
       "rangeL": 111,
@@ -1672,10 +1339,7 @@
       "type": 0,
       "text": "Benito",
       "img": "icons/svg/d20.svg",
-      "range": [
-        112,
-        112
-      ],
+      "range": [112, 112],
       "drawn": false,
       "flags": {},
       "rangeL": 112,
@@ -1687,10 +1351,7 @@
       "type": 0,
       "text": "Benjamin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        113,
-        113
-      ],
+      "range": [113, 113],
       "drawn": false,
       "flags": {},
       "rangeL": 113,
@@ -1702,10 +1363,7 @@
       "type": 0,
       "text": "Bep",
       "img": "icons/svg/d20.svg",
-      "range": [
-        114,
-        114
-      ],
+      "range": [114, 114],
       "drawn": false,
       "flags": {},
       "rangeL": 114,
@@ -1717,10 +1375,7 @@
       "type": 0,
       "text": "Bernardino",
       "img": "icons/svg/d20.svg",
-      "range": [
-        115,
-        115
-      ],
+      "range": [115, 115],
       "drawn": false,
       "flags": {},
       "rangeL": 115,
@@ -1732,10 +1387,7 @@
       "type": 0,
       "text": "Bert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        116,
-        116
-      ],
+      "range": [116, 116],
       "drawn": false,
       "flags": {},
       "rangeL": 116,
@@ -1747,10 +1399,7 @@
       "type": 0,
       "text": "Bevil",
       "img": "icons/svg/d20.svg",
-      "range": [
-        117,
-        117
-      ],
+      "range": [117, 117],
       "drawn": false,
       "flags": {},
       "rangeL": 117,
@@ -1762,10 +1411,7 @@
       "type": 0,
       "text": "Blanche",
       "img": "icons/svg/d20.svg",
-      "range": [
-        118,
-        118
-      ],
+      "range": [118, 118],
       "drawn": false,
       "flags": {},
       "rangeL": 118,
@@ -1777,10 +1423,7 @@
       "type": 0,
       "text": "Blas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        119,
-        119
-      ],
+      "range": [119, 119],
       "drawn": false,
       "flags": {},
       "rangeL": 119,
@@ -1792,10 +1435,7 @@
       "type": 0,
       "text": "Bo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        120,
-        120
-      ],
+      "range": [120, 120],
       "drawn": false,
       "flags": {},
       "rangeL": 120,
@@ -1807,10 +1447,7 @@
       "type": 0,
       "text": "Bob",
       "img": "icons/svg/d20.svg",
-      "range": [
-        121,
-        121
-      ],
+      "range": [121, 121],
       "drawn": false,
       "flags": {},
       "rangeL": 121,
@@ -1822,10 +1459,7 @@
       "type": 0,
       "text": "Boudewijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        122,
-        122
-      ],
+      "range": [122, 122],
       "drawn": false,
       "flags": {},
       "rangeL": 122,
@@ -1837,10 +1471,7 @@
       "type": 0,
       "text": "Bram",
       "img": "icons/svg/d20.svg",
-      "range": [
-        123,
-        123
-      ],
+      "range": [123, 123],
       "drawn": false,
       "flags": {},
       "rangeL": 123,
@@ -1852,10 +1483,7 @@
       "type": 0,
       "text": "Bridget",
       "img": "icons/svg/d20.svg",
-      "range": [
-        124,
-        124
-      ],
+      "range": [124, 124],
       "drawn": false,
       "flags": {},
       "rangeL": 124,
@@ -1867,10 +1495,7 @@
       "type": 0,
       "text": "Bryan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        125,
-        125
-      ],
+      "range": [125, 125],
       "drawn": false,
       "flags": {},
       "rangeL": 125,
@@ -1882,10 +1507,7 @@
       "type": 0,
       "text": "Calvijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        126,
-        126
-      ],
+      "range": [126, 126],
       "drawn": false,
       "flags": {},
       "rangeL": 126,
@@ -1897,10 +1519,7 @@
       "type": 0,
       "text": "Carlos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        127,
-        127
-      ],
+      "range": [127, 127],
       "drawn": false,
       "flags": {},
       "rangeL": 127,
@@ -1912,10 +1531,7 @@
       "type": 0,
       "text": "Carmen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        128,
-        128
-      ],
+      "range": [128, 128],
       "drawn": false,
       "flags": {},
       "rangeL": 128,
@@ -1927,10 +1543,7 @@
       "type": 0,
       "text": "Catharijne",
       "img": "icons/svg/d20.svg",
-      "range": [
-        129,
-        129
-      ],
+      "range": [129, 129],
       "drawn": false,
       "flags": {},
       "rangeL": 129,
@@ -1942,10 +1555,7 @@
       "type": 0,
       "text": "Catherine",
       "img": "icons/svg/d20.svg",
-      "range": [
-        130,
-        130
-      ],
+      "range": [130, 130],
       "drawn": false,
       "flags": {},
       "rangeL": 130,
@@ -1957,10 +1567,7 @@
       "type": 0,
       "text": "Cecily",
       "img": "icons/svg/d20.svg",
-      "range": [
-        131,
-        131
-      ],
+      "range": [131, 131],
       "drawn": false,
       "flags": {},
       "rangeL": 131,
@@ -1972,10 +1579,7 @@
       "type": 0,
       "text": "Charity",
       "img": "icons/svg/d20.svg",
-      "range": [
-        132,
-        132
-      ],
+      "range": [132, 132],
       "drawn": false,
       "flags": {},
       "rangeL": 132,
@@ -1987,10 +1591,7 @@
       "type": 0,
       "text": "Charles",
       "img": "icons/svg/d20.svg",
-      "range": [
-        133,
-        133
-      ],
+      "range": [133, 133],
       "drawn": false,
       "flags": {},
       "rangeL": 133,
@@ -2002,10 +1603,7 @@
       "type": 0,
       "text": "Chris",
       "img": "icons/svg/d20.svg",
-      "range": [
-        134,
-        134
-      ],
+      "range": [134, 134],
       "drawn": false,
       "flags": {},
       "rangeL": 134,
@@ -2017,10 +1615,7 @@
       "type": 0,
       "text": "Christa",
       "img": "icons/svg/d20.svg",
-      "range": [
-        135,
-        135
-      ],
+      "range": [135, 135],
       "drawn": false,
       "flags": {},
       "rangeL": 135,
@@ -2032,10 +1627,7 @@
       "type": 0,
       "text": "Christiaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        136,
-        136
-      ],
+      "range": [136, 136],
       "drawn": false,
       "flags": {},
       "rangeL": 136,
@@ -2047,10 +1639,7 @@
       "type": 0,
       "text": "Christian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        137,
-        137
-      ],
+      "range": [137, 137],
       "drawn": false,
       "flags": {},
       "rangeL": 137,
@@ -2062,10 +1651,7 @@
       "type": 0,
       "text": "Christoffel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        138,
-        138
-      ],
+      "range": [138, 138],
       "drawn": false,
       "flags": {},
       "rangeL": 138,
@@ -2077,10 +1663,7 @@
       "type": 0,
       "text": "Christofle",
       "img": "icons/svg/d20.svg",
-      "range": [
-        139,
-        139
-      ],
+      "range": [139, 139],
       "drawn": false,
       "flags": {},
       "rangeL": 139,
@@ -2092,10 +1675,7 @@
       "type": 0,
       "text": "Christopher",
       "img": "icons/svg/d20.svg",
-      "range": [
-        140,
-        140
-      ],
+      "range": [140, 140],
       "drawn": false,
       "flags": {},
       "rangeL": 140,
@@ -2107,10 +1687,7 @@
       "type": 0,
       "text": "Claude",
       "img": "icons/svg/d20.svg",
-      "range": [
-        141,
-        141
-      ],
+      "range": [141, 141],
       "drawn": false,
       "flags": {},
       "rangeL": 141,
@@ -2122,10 +1699,7 @@
       "type": 0,
       "text": "Clemence",
       "img": "icons/svg/d20.svg",
-      "range": [
-        142,
-        142
-      ],
+      "range": [142, 142],
       "drawn": false,
       "flags": {},
       "rangeL": 142,
@@ -2137,10 +1711,7 @@
       "type": 0,
       "text": "Co",
       "img": "icons/svg/d20.svg",
-      "range": [
-        143,
-        143
-      ],
+      "range": [143, 143],
       "drawn": false,
       "flags": {},
       "rangeL": 143,
@@ -2152,10 +1723,7 @@
       "type": 0,
       "text": "Coen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        144,
-        144
-      ],
+      "range": [144, 144],
       "drawn": false,
       "flags": {},
       "rangeL": 144,
@@ -2167,10 +1735,7 @@
       "type": 0,
       "text": "Coenraad",
       "img": "icons/svg/d20.svg",
-      "range": [
-        145,
-        145
-      ],
+      "range": [145, 145],
       "drawn": false,
       "flags": {},
       "rangeL": 145,
@@ -2182,10 +1747,7 @@
       "type": 0,
       "text": "Conrad",
       "img": "icons/svg/d20.svg",
-      "range": [
-        146,
-        146
-      ],
+      "range": [146, 146],
       "drawn": false,
       "flags": {},
       "rangeL": 146,
@@ -2197,10 +1759,7 @@
       "type": 0,
       "text": "Constantijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        147,
-        147
-      ],
+      "range": [147, 147],
       "drawn": false,
       "flags": {},
       "rangeL": 147,
@@ -2212,10 +1771,7 @@
       "type": 0,
       "text": "Cor",
       "img": "icons/svg/d20.svg",
-      "range": [
-        148,
-        148
-      ],
+      "range": [148, 148],
       "drawn": false,
       "flags": {},
       "rangeL": 148,
@@ -2227,10 +1783,7 @@
       "type": 0,
       "text": "Cornelia",
       "img": "icons/svg/d20.svg",
-      "range": [
-        149,
-        149
-      ],
+      "range": [149, 149],
       "drawn": false,
       "flags": {},
       "rangeL": 149,
@@ -2242,10 +1795,7 @@
       "type": 0,
       "text": "Cornelis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        150,
-        150
-      ],
+      "range": [150, 150],
       "drawn": false,
       "flags": {},
       "rangeL": 150,
@@ -2257,10 +1807,7 @@
       "type": 0,
       "text": "Corrie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        151,
-        151
-      ],
+      "range": [151, 151],
       "drawn": false,
       "flags": {},
       "rangeL": 151,
@@ -2272,10 +1819,7 @@
       "type": 0,
       "text": "Cosme",
       "img": "icons/svg/d20.svg",
-      "range": [
-        152,
-        152
-      ],
+      "range": [152, 152],
       "drawn": false,
       "flags": {},
       "rangeL": 152,
@@ -2287,10 +1831,7 @@
       "type": 0,
       "text": "Cristóbal",
       "img": "icons/svg/d20.svg",
-      "range": [
-        153,
-        153
-      ],
+      "range": [153, 153],
       "drawn": false,
       "flags": {},
       "rangeL": 153,
@@ -2302,10 +1843,7 @@
       "type": 0,
       "text": "Cuthbert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        154,
-        154
-      ],
+      "range": [154, 154],
       "drawn": false,
       "flags": {},
       "rangeL": 154,
@@ -2317,10 +1855,7 @@
       "type": 0,
       "text": "Daan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        155,
-        155
-      ],
+      "range": [155, 155],
       "drawn": false,
       "flags": {},
       "rangeL": 155,
@@ -2332,10 +1867,7 @@
       "type": 0,
       "text": "Daas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        156,
-        156
-      ],
+      "range": [156, 156],
       "drawn": false,
       "flags": {},
       "rangeL": 156,
@@ -2347,10 +1879,7 @@
       "type": 0,
       "text": "Daniel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        157,
-        157
-      ],
+      "range": [157, 157],
       "drawn": false,
       "flags": {},
       "rangeL": 157,
@@ -2362,10 +1891,7 @@
       "type": 0,
       "text": "Daniël",
       "img": "icons/svg/d20.svg",
-      "range": [
-        158,
-        158
-      ],
+      "range": [158, 158],
       "drawn": false,
       "flags": {},
       "rangeL": 158,
@@ -2377,10 +1903,7 @@
       "type": 0,
       "text": "David",
       "img": "icons/svg/d20.svg",
-      "range": [
-        159,
-        159
-      ],
+      "range": [159, 159],
       "drawn": false,
       "flags": {},
       "rangeL": 159,
@@ -2392,10 +1915,7 @@
       "type": 0,
       "text": "Denise",
       "img": "icons/svg/d20.svg",
-      "range": [
-        160,
-        160
-      ],
+      "range": [160, 160],
       "drawn": false,
       "flags": {},
       "rangeL": 160,
@@ -2407,10 +1927,7 @@
       "type": 0,
       "text": "Denys",
       "img": "icons/svg/d20.svg",
-      "range": [
-        161,
-        161
-      ],
+      "range": [161, 161],
       "drawn": false,
       "flags": {},
       "rangeL": 161,
@@ -2422,10 +1939,7 @@
       "type": 0,
       "text": "Desiree",
       "img": "icons/svg/d20.svg",
-      "range": [
-        162,
-        162
-      ],
+      "range": [162, 162],
       "drawn": false,
       "flags": {},
       "rangeL": 162,
@@ -2437,10 +1951,7 @@
       "type": 0,
       "text": "Diego",
       "img": "icons/svg/d20.svg",
-      "range": [
-        163,
-        163
-      ],
+      "range": [163, 163],
       "drawn": false,
       "flags": {},
       "rangeL": 163,
@@ -2452,10 +1963,7 @@
       "type": 0,
       "text": "Dirk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        164,
-        164
-      ],
+      "range": [164, 164],
       "drawn": false,
       "flags": {},
       "rangeL": 164,
@@ -2467,10 +1975,7 @@
       "type": 0,
       "text": "Dirkje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        165,
-        165
-      ],
+      "range": [165, 165],
       "drawn": false,
       "flags": {},
       "rangeL": 165,
@@ -2482,10 +1987,7 @@
       "type": 0,
       "text": "Domingo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        166,
-        166
-      ],
+      "range": [166, 166],
       "drawn": false,
       "flags": {},
       "rangeL": 166,
@@ -2497,10 +1999,7 @@
       "type": 0,
       "text": "Dorothy",
       "img": "icons/svg/d20.svg",
-      "range": [
-        167,
-        167
-      ],
+      "range": [167, 167],
       "drawn": false,
       "flags": {},
       "rangeL": 167,
@@ -2512,10 +2011,7 @@
       "type": 0,
       "text": "Edgar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        168,
-        168
-      ],
+      "range": [168, 168],
       "drawn": false,
       "flags": {},
       "rangeL": 168,
@@ -2527,10 +2023,7 @@
       "type": 0,
       "text": "Edith",
       "img": "icons/svg/d20.svg",
-      "range": [
-        169,
-        169
-      ],
+      "range": [169, 169],
       "drawn": false,
       "flags": {},
       "rangeL": 169,
@@ -2542,10 +2035,7 @@
       "type": 0,
       "text": "Edmund",
       "img": "icons/svg/d20.svg",
-      "range": [
-        170,
-        170
-      ],
+      "range": [170, 170],
       "drawn": false,
       "flags": {},
       "rangeL": 170,
@@ -2557,10 +2047,7 @@
       "type": 0,
       "text": "Eduard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        171,
-        171
-      ],
+      "range": [171, 171],
       "drawn": false,
       "flags": {},
       "rangeL": 171,
@@ -2572,10 +2059,7 @@
       "type": 0,
       "text": "Edward",
       "img": "icons/svg/d20.svg",
-      "range": [
-        172,
-        172
-      ],
+      "range": [172, 172],
       "drawn": false,
       "flags": {},
       "rangeL": 172,
@@ -2587,10 +2071,7 @@
       "type": 0,
       "text": "Eliene",
       "img": "icons/svg/d20.svg",
-      "range": [
-        173,
-        173
-      ],
+      "range": [173, 173],
       "drawn": false,
       "flags": {},
       "rangeL": 173,
@@ -2602,10 +2083,7 @@
       "type": 0,
       "text": "Eline",
       "img": "icons/svg/d20.svg",
-      "range": [
-        174,
-        174
-      ],
+      "range": [174, 174],
       "drawn": false,
       "flags": {},
       "rangeL": 174,
@@ -2617,10 +2095,7 @@
       "type": 0,
       "text": "Elinor",
       "img": "icons/svg/d20.svg",
-      "range": [
-        175,
-        175
-      ],
+      "range": [175, 175],
       "drawn": false,
       "flags": {},
       "rangeL": 175,
@@ -2632,10 +2107,7 @@
       "type": 0,
       "text": "Elizabeth",
       "img": "icons/svg/d20.svg",
-      "range": [
-        176,
-        176
-      ],
+      "range": [176, 176],
       "drawn": false,
       "flags": {},
       "rangeL": 176,
@@ -2647,10 +2119,7 @@
       "type": 0,
       "text": "Ellen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        177,
-        177
-      ],
+      "range": [177, 177],
       "drawn": false,
       "flags": {},
       "rangeL": 177,
@@ -2662,10 +2131,7 @@
       "type": 0,
       "text": "Emma",
       "img": "icons/svg/d20.svg",
-      "range": [
-        178,
-        178
-      ],
+      "range": [178, 178],
       "drawn": false,
       "flags": {},
       "rangeL": 178,
@@ -2677,10 +2143,7 @@
       "type": 0,
       "text": "Esmée",
       "img": "icons/svg/d20.svg",
-      "range": [
-        179,
-        179
-      ],
+      "range": [179, 179],
       "drawn": false,
       "flags": {},
       "rangeL": 179,
@@ -2692,10 +2155,7 @@
       "type": 0,
       "text": "Esteban",
       "img": "icons/svg/d20.svg",
-      "range": [
-        180,
-        180
-      ],
+      "range": [180, 180],
       "drawn": false,
       "flags": {},
       "rangeL": 180,
@@ -2707,10 +2167,7 @@
       "type": 0,
       "text": "Esther",
       "img": "icons/svg/d20.svg",
-      "range": [
-        181,
-        181
-      ],
+      "range": [181, 181],
       "drawn": false,
       "flags": {},
       "rangeL": 181,
@@ -2722,10 +2179,7 @@
       "type": 0,
       "text": "Estienne",
       "img": "icons/svg/d20.svg",
-      "range": [
-        182,
-        182
-      ],
+      "range": [182, 182],
       "drawn": false,
       "flags": {},
       "rangeL": 182,
@@ -2737,10 +2191,7 @@
       "type": 0,
       "text": "Etienne",
       "img": "icons/svg/d20.svg",
-      "range": [
-        183,
-        183
-      ],
+      "range": [183, 183],
       "drawn": false,
       "flags": {},
       "rangeL": 183,
@@ -2752,10 +2203,7 @@
       "type": 0,
       "text": "Eva",
       "img": "icons/svg/d20.svg",
-      "range": [
-        184,
-        184
-      ],
+      "range": [184, 184],
       "drawn": false,
       "flags": {},
       "rangeL": 184,
@@ -2767,10 +2215,7 @@
       "type": 0,
       "text": "Eveline",
       "img": "icons/svg/d20.svg",
-      "range": [
-        185,
-        185
-      ],
+      "range": [185, 185],
       "drawn": false,
       "flags": {},
       "rangeL": 185,
@@ -2782,10 +2227,7 @@
       "type": 0,
       "text": "Evert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        186,
-        186
-      ],
+      "range": [186, 186],
       "drawn": false,
       "flags": {},
       "rangeL": 186,
@@ -2797,10 +2239,7 @@
       "type": 0,
       "text": "Evi",
       "img": "icons/svg/d20.svg",
-      "range": [
-        187,
-        187
-      ],
+      "range": [187, 187],
       "drawn": false,
       "flags": {},
       "rangeL": 187,
@@ -2812,10 +2251,7 @@
       "type": 0,
       "text": "Eyague",
       "img": "icons/svg/d20.svg",
-      "range": [
-        188,
-        188
-      ],
+      "range": [188, 188],
       "drawn": false,
       "flags": {},
       "rangeL": 188,
@@ -2827,10 +2263,7 @@
       "type": 0,
       "text": "Fake",
       "img": "icons/svg/d20.svg",
-      "range": [
-        189,
-        189
-      ],
+      "range": [189, 189],
       "drawn": false,
       "flags": {},
       "rangeL": 189,
@@ -2842,10 +2275,7 @@
       "type": 0,
       "text": "Felipe",
       "img": "icons/svg/d20.svg",
-      "range": [
-        190,
-        190
-      ],
+      "range": [190, 190],
       "drawn": false,
       "flags": {},
       "rangeL": 190,
@@ -2857,10 +2287,7 @@
       "type": 0,
       "text": "Femke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        191,
-        191
-      ],
+      "range": [191, 191],
       "drawn": false,
       "flags": {},
       "rangeL": 191,
@@ -2872,10 +2299,7 @@
       "type": 0,
       "text": "Filomena",
       "img": "icons/svg/d20.svg",
-      "range": [
-        192,
-        192
-      ],
+      "range": [192, 192],
       "drawn": false,
       "flags": {},
       "rangeL": 192,
@@ -2887,10 +2311,7 @@
       "type": 0,
       "text": "Firmin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        193,
-        193
-      ],
+      "range": [193, 193],
       "drawn": false,
       "flags": {},
       "rangeL": 193,
@@ -2902,10 +2323,7 @@
       "type": 0,
       "text": "Folkert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        194,
-        194
-      ],
+      "range": [194, 194],
       "drawn": false,
       "flags": {},
       "rangeL": 194,
@@ -2917,10 +2335,7 @@
       "type": 0,
       "text": "Fortune",
       "img": "icons/svg/d20.svg",
-      "range": [
-        195,
-        195
-      ],
+      "range": [195, 195],
       "drawn": false,
       "flags": {},
       "rangeL": 195,
@@ -2932,10 +2347,7 @@
       "type": 0,
       "text": "Frances",
       "img": "icons/svg/d20.svg",
-      "range": [
-        196,
-        196
-      ],
+      "range": [196, 196],
       "drawn": false,
       "flags": {},
       "rangeL": 196,
@@ -2947,10 +2359,7 @@
       "type": 0,
       "text": "Francis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        197,
-        197
-      ],
+      "range": [197, 197],
       "drawn": false,
       "flags": {},
       "rangeL": 197,
@@ -2962,10 +2371,7 @@
       "type": 0,
       "text": "Francisco",
       "img": "icons/svg/d20.svg",
-      "range": [
-        198,
-        198
-      ],
+      "range": [198, 198],
       "drawn": false,
       "flags": {},
       "rangeL": 198,
@@ -2977,10 +2383,7 @@
       "type": 0,
       "text": "Franco",
       "img": "icons/svg/d20.svg",
-      "range": [
-        199,
-        199
-      ],
+      "range": [199, 199],
       "drawn": false,
       "flags": {},
       "rangeL": 199,
@@ -2992,10 +2395,7 @@
       "type": 0,
       "text": "Francois",
       "img": "icons/svg/d20.svg",
-      "range": [
-        200,
-        200
-      ],
+      "range": [200, 200],
       "drawn": false,
       "flags": {},
       "rangeL": 200,
@@ -3007,10 +2407,7 @@
       "type": 0,
       "text": "François",
       "img": "icons/svg/d20.svg",
-      "range": [
-        201,
-        201
-      ],
+      "range": [201, 201],
       "drawn": false,
       "flags": {},
       "rangeL": 201,
@@ -3022,10 +2419,7 @@
       "type": 0,
       "text": "Frank",
       "img": "icons/svg/d20.svg",
-      "range": [
-        202,
-        202
-      ],
+      "range": [202, 202],
       "drawn": false,
       "flags": {},
       "rangeL": 202,
@@ -3037,10 +2431,7 @@
       "type": 0,
       "text": "Frans",
       "img": "icons/svg/d20.svg",
-      "range": [
-        203,
-        203
-      ],
+      "range": [203, 203],
       "drawn": false,
       "flags": {},
       "rangeL": 203,
@@ -3052,10 +2443,7 @@
       "type": 0,
       "text": "Frederick",
       "img": "icons/svg/d20.svg",
-      "range": [
-        204,
-        204
-      ],
+      "range": [204, 204],
       "drawn": false,
       "flags": {},
       "rangeL": 204,
@@ -3067,10 +2455,7 @@
       "type": 0,
       "text": "Frederik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        205,
-        205
-      ],
+      "range": [205, 205],
       "drawn": false,
       "flags": {},
       "rangeL": 205,
@@ -3082,10 +2467,7 @@
       "type": 0,
       "text": "Freek",
       "img": "icons/svg/d20.svg",
-      "range": [
-        206,
-        206
-      ],
+      "range": [206, 206],
       "drawn": false,
       "flags": {},
       "rangeL": 206,
@@ -3097,10 +2479,7 @@
       "type": 0,
       "text": "Frideswide",
       "img": "icons/svg/d20.svg",
-      "range": [
-        207,
-        207
-      ],
+      "range": [207, 207],
       "drawn": false,
       "flags": {},
       "rangeL": 207,
@@ -3112,10 +2491,7 @@
       "type": 0,
       "text": "Frits",
       "img": "icons/svg/d20.svg",
-      "range": [
-        208,
-        208
-      ],
+      "range": [208, 208],
       "drawn": false,
       "flags": {},
       "rangeL": 208,
@@ -3127,10 +2503,7 @@
       "type": 0,
       "text": "Frutos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        209,
-        209
-      ],
+      "range": [209, 209],
       "drawn": false,
       "flags": {},
       "rangeL": 209,
@@ -3142,10 +2515,7 @@
       "type": 0,
       "text": "Gabriel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        210,
-        210
-      ],
+      "range": [210, 210],
       "drawn": false,
       "flags": {},
       "rangeL": 210,
@@ -3157,10 +2527,7 @@
       "type": 0,
       "text": "Garci",
       "img": "icons/svg/d20.svg",
-      "range": [
-        211,
-        211
-      ],
+      "range": [211, 211],
       "drawn": false,
       "flags": {},
       "rangeL": 211,
@@ -3172,10 +2539,7 @@
       "type": 0,
       "text": "Gaspar",
       "img": "icons/svg/d20.svg",
-      "range": [
-        212,
-        212
-      ],
+      "range": [212, 212],
       "drawn": false,
       "flags": {},
       "rangeL": 212,
@@ -3187,10 +2551,7 @@
       "type": 0,
       "text": "Geoffrey",
       "img": "icons/svg/d20.svg",
-      "range": [
-        213,
-        213
-      ],
+      "range": [213, 213],
       "drawn": false,
       "flags": {},
       "rangeL": 213,
@@ -3202,10 +2563,7 @@
       "type": 0,
       "text": "George",
       "img": "icons/svg/d20.svg",
-      "range": [
-        214,
-        214
-      ],
+      "range": [214, 214],
       "drawn": false,
       "flags": {},
       "rangeL": 214,
@@ -3217,10 +2575,7 @@
       "type": 0,
       "text": "Gerard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        215,
-        215
-      ],
+      "range": [215, 215],
       "drawn": false,
       "flags": {},
       "rangeL": 215,
@@ -3232,10 +2587,7 @@
       "type": 0,
       "text": "Gerardus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        216,
-        216
-      ],
+      "range": [216, 216],
       "drawn": false,
       "flags": {},
       "rangeL": 216,
@@ -3247,10 +2599,7 @@
       "type": 0,
       "text": "Gerrit",
       "img": "icons/svg/d20.svg",
-      "range": [
-        217,
-        217
-      ],
+      "range": [217, 217],
       "drawn": false,
       "flags": {},
       "rangeL": 217,
@@ -3262,10 +2611,7 @@
       "type": 0,
       "text": "Gert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        218,
-        218
-      ],
+      "range": [218, 218],
       "drawn": false,
       "flags": {},
       "rangeL": 218,
@@ -3277,10 +2623,7 @@
       "type": 0,
       "text": "Gideon",
       "img": "icons/svg/d20.svg",
-      "range": [
-        219,
-        219
-      ],
+      "range": [219, 219],
       "drawn": false,
       "flags": {},
       "rangeL": 219,
@@ -3292,10 +2635,7 @@
       "type": 0,
       "text": "Gijs",
       "img": "icons/svg/d20.svg",
-      "range": [
-        220,
-        220
-      ],
+      "range": [220, 220],
       "drawn": false,
       "flags": {},
       "rangeL": 220,
@@ -3307,10 +2647,7 @@
       "type": 0,
       "text": "Gilbert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        221,
-        221
-      ],
+      "range": [221, 221],
       "drawn": false,
       "flags": {},
       "rangeL": 221,
@@ -3322,10 +2659,7 @@
       "type": 0,
       "text": "Gilles",
       "img": "icons/svg/d20.svg",
-      "range": [
-        222,
-        222
-      ],
+      "range": [222, 222],
       "drawn": false,
       "flags": {},
       "rangeL": 222,
@@ -3337,10 +2671,7 @@
       "type": 0,
       "text": "Gillian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        223,
-        223
-      ],
+      "range": [223, 223],
       "drawn": false,
       "flags": {},
       "rangeL": 223,
@@ -3352,10 +2683,7 @@
       "type": 0,
       "text": "Gines",
       "img": "icons/svg/d20.svg",
-      "range": [
-        224,
-        224
-      ],
+      "range": [224, 224],
       "drawn": false,
       "flags": {},
       "rangeL": 224,
@@ -3367,10 +2695,7 @@
       "type": 0,
       "text": "Giraldo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        225,
-        225
-      ],
+      "range": [225, 225],
       "drawn": false,
       "flags": {},
       "rangeL": 225,
@@ -3382,10 +2707,7 @@
       "type": 0,
       "text": "Glies",
       "img": "icons/svg/d20.svg",
-      "range": [
-        226,
-        226
-      ],
+      "range": [226, 226],
       "drawn": false,
       "flags": {},
       "rangeL": 226,
@@ -3397,10 +2719,7 @@
       "type": 0,
       "text": "Godelieve",
       "img": "icons/svg/d20.svg",
-      "range": [
-        227,
-        227
-      ],
+      "range": [227, 227],
       "drawn": false,
       "flags": {},
       "rangeL": 227,
@@ -3412,10 +2731,7 @@
       "type": 0,
       "text": "Goedele",
       "img": "icons/svg/d20.svg",
-      "range": [
-        228,
-        228
-      ],
+      "range": [228, 228],
       "drawn": false,
       "flags": {},
       "rangeL": 228,
@@ -3427,10 +2743,7 @@
       "type": 0,
       "text": "Goele",
       "img": "icons/svg/d20.svg",
-      "range": [
-        229,
-        229
-      ],
+      "range": [229, 229],
       "drawn": false,
       "flags": {},
       "rangeL": 229,
@@ -3442,10 +2755,7 @@
       "type": 0,
       "text": "Gonzalo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        230,
-        230
-      ],
+      "range": [230, 230],
       "drawn": false,
       "flags": {},
       "rangeL": 230,
@@ -3457,10 +2767,7 @@
       "type": 0,
       "text": "Gordon",
       "img": "icons/svg/d20.svg",
-      "range": [
-        231,
-        231
-      ],
+      "range": [231, 231],
       "drawn": false,
       "flags": {},
       "rangeL": 231,
@@ -3472,10 +2779,7 @@
       "type": 0,
       "text": "Grace",
       "img": "icons/svg/d20.svg",
-      "range": [
-        232,
-        232
-      ],
+      "range": [232, 232],
       "drawn": false,
       "flags": {},
       "rangeL": 232,
@@ -3487,10 +2791,7 @@
       "type": 0,
       "text": "Gregorio",
       "img": "icons/svg/d20.svg",
-      "range": [
-        233,
-        233
-      ],
+      "range": [233, 233],
       "drawn": false,
       "flags": {},
       "rangeL": 233,
@@ -3502,10 +2803,7 @@
       "type": 0,
       "text": "Gudula",
       "img": "icons/svg/d20.svg",
-      "range": [
-        234,
-        234
-      ],
+      "range": [234, 234],
       "drawn": false,
       "flags": {},
       "rangeL": 234,
@@ -3517,10 +2815,7 @@
       "type": 0,
       "text": "Guillaume",
       "img": "icons/svg/d20.svg",
-      "range": [
-        235,
-        235
-      ],
+      "range": [235, 235],
       "drawn": false,
       "flags": {},
       "rangeL": 235,
@@ -3532,10 +2827,7 @@
       "type": 0,
       "text": "Guillen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        236,
-        236
-      ],
+      "range": [236, 236],
       "drawn": false,
       "flags": {},
       "rangeL": 236,
@@ -3547,10 +2839,7 @@
       "type": 0,
       "text": "Gustaaf",
       "img": "icons/svg/d20.svg",
-      "range": [
-        237,
-        237
-      ],
+      "range": [237, 237],
       "drawn": false,
       "flags": {},
       "rangeL": 237,
@@ -3562,10 +2851,7 @@
       "type": 0,
       "text": "Hadewig",
       "img": "icons/svg/d20.svg",
-      "range": [
-        238,
-        238
-      ],
+      "range": [238, 238],
       "drawn": false,
       "flags": {},
       "rangeL": 238,
@@ -3577,10 +2863,7 @@
       "type": 0,
       "text": "Hanna",
       "img": "icons/svg/d20.svg",
-      "range": [
-        239,
-        239
-      ],
+      "range": [239, 239],
       "drawn": false,
       "flags": {},
       "rangeL": 239,
@@ -3592,10 +2875,7 @@
       "type": 0,
       "text": "Hans",
       "img": "icons/svg/d20.svg",
-      "range": [
-        240,
-        240
-      ],
+      "range": [240, 240],
       "drawn": false,
       "flags": {},
       "rangeL": 240,
@@ -3607,10 +2887,7 @@
       "type": 0,
       "text": "Harm",
       "img": "icons/svg/d20.svg",
-      "range": [
-        241,
-        241
-      ],
+      "range": [241, 241],
       "drawn": false,
       "flags": {},
       "rangeL": 241,
@@ -3622,10 +2899,7 @@
       "type": 0,
       "text": "Hassan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        242,
-        242
-      ],
+      "range": [242, 242],
       "drawn": false,
       "flags": {},
       "rangeL": 242,
@@ -3637,10 +2911,7 @@
       "type": 0,
       "text": "Hector",
       "img": "icons/svg/d20.svg",
-      "range": [
-        243,
-        243
-      ],
+      "range": [243, 243],
       "drawn": false,
       "flags": {},
       "rangeL": 243,
@@ -3652,10 +2923,7 @@
       "type": 0,
       "text": "Hein",
       "img": "icons/svg/d20.svg",
-      "range": [
-        244,
-        244
-      ],
+      "range": [244, 244],
       "drawn": false,
       "flags": {},
       "rangeL": 244,
@@ -3667,10 +2935,7 @@
       "type": 0,
       "text": "Heleen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        245,
-        245
-      ],
+      "range": [245, 245],
       "drawn": false,
       "flags": {},
       "rangeL": 245,
@@ -3682,10 +2947,7 @@
       "type": 0,
       "text": "Helen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        246,
-        246
-      ],
+      "range": [246, 246],
       "drawn": false,
       "flags": {},
       "rangeL": 246,
@@ -3697,10 +2959,7 @@
       "type": 0,
       "text": "Helena",
       "img": "icons/svg/d20.svg",
-      "range": [
-        247,
-        247
-      ],
+      "range": [247, 247],
       "drawn": false,
       "flags": {},
       "rangeL": 247,
@@ -3712,10 +2971,7 @@
       "type": 0,
       "text": "Helga",
       "img": "icons/svg/d20.svg",
-      "range": [
-        248,
-        248
-      ],
+      "range": [248, 248],
       "drawn": false,
       "flags": {},
       "rangeL": 248,
@@ -3727,10 +2983,7 @@
       "type": 0,
       "text": "Hella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        249,
-        249
-      ],
+      "range": [249, 249],
       "drawn": false,
       "flags": {},
       "rangeL": 249,
@@ -3742,10 +2995,7 @@
       "type": 0,
       "text": "Hendrick",
       "img": "icons/svg/d20.svg",
-      "range": [
-        250,
-        250
-      ],
+      "range": [250, 250],
       "drawn": false,
       "flags": {},
       "rangeL": 250,
@@ -3757,10 +3007,7 @@
       "type": 0,
       "text": "Hendrik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        251,
-        251
-      ],
+      "range": [251, 251],
       "drawn": false,
       "flags": {},
       "rangeL": 251,
@@ -3772,10 +3019,7 @@
       "type": 0,
       "text": "Henk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        252,
-        252
-      ],
+      "range": [252, 252],
       "drawn": false,
       "flags": {},
       "rangeL": 252,
@@ -3787,10 +3031,7 @@
       "type": 0,
       "text": "Henri",
       "img": "icons/svg/d20.svg",
-      "range": [
-        253,
-        253
-      ],
+      "range": [253, 253],
       "drawn": false,
       "flags": {},
       "rangeL": 253,
@@ -3802,10 +3043,7 @@
       "type": 0,
       "text": "Henry",
       "img": "icons/svg/d20.svg",
-      "range": [
-        254,
-        254
-      ],
+      "range": [254, 254],
       "drawn": false,
       "flags": {},
       "rangeL": 254,
@@ -3817,10 +3055,7 @@
       "type": 0,
       "text": "Herman",
       "img": "icons/svg/d20.svg",
-      "range": [
-        255,
-        255
-      ],
+      "range": [255, 255],
       "drawn": false,
       "flags": {},
       "rangeL": 255,
@@ -3832,10 +3067,7 @@
       "type": 0,
       "text": "Hernán",
       "img": "icons/svg/d20.svg",
-      "range": [
-        256,
-        256
-      ],
+      "range": [256, 256],
       "drawn": false,
       "flags": {},
       "rangeL": 256,
@@ -3847,10 +3079,7 @@
       "type": 0,
       "text": "Hernando",
       "img": "icons/svg/d20.svg",
-      "range": [
-        257,
-        257
-      ],
+      "range": [257, 257],
       "drawn": false,
       "flags": {},
       "rangeL": 257,
@@ -3862,10 +3091,7 @@
       "type": 0,
       "text": "Hidde",
       "img": "icons/svg/d20.svg",
-      "range": [
-        258,
-        258
-      ],
+      "range": [258, 258],
       "drawn": false,
       "flags": {},
       "rangeL": 258,
@@ -3877,10 +3103,7 @@
       "type": 0,
       "text": "Hilarius",
       "img": "icons/svg/d20.svg",
-      "range": [
-        259,
-        259
-      ],
+      "range": [259, 259],
       "drawn": false,
       "flags": {},
       "rangeL": 259,
@@ -3892,10 +3115,7 @@
       "type": 0,
       "text": "Hubert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        260,
-        260
-      ],
+      "range": [260, 260],
       "drawn": false,
       "flags": {},
       "rangeL": 260,
@@ -3907,10 +3127,7 @@
       "type": 0,
       "text": "Huberta",
       "img": "icons/svg/d20.svg",
-      "range": [
-        261,
-        261
-      ],
+      "range": [261, 261],
       "drawn": false,
       "flags": {},
       "rangeL": 261,
@@ -3922,10 +3139,7 @@
       "type": 0,
       "text": "Hubrecht",
       "img": "icons/svg/d20.svg",
-      "range": [
-        262,
-        262
-      ],
+      "range": [262, 262],
       "drawn": false,
       "flags": {},
       "rangeL": 262,
@@ -3937,10 +3151,7 @@
       "type": 0,
       "text": "Hugh",
       "img": "icons/svg/d20.svg",
-      "range": [
-        263,
-        263
-      ],
+      "range": [263, 263],
       "drawn": false,
       "flags": {},
       "rangeL": 263,
@@ -3952,10 +3163,7 @@
       "type": 0,
       "text": "Huib",
       "img": "icons/svg/d20.svg",
-      "range": [
-        264,
-        264
-      ],
+      "range": [264, 264],
       "drawn": false,
       "flags": {},
       "rangeL": 264,
@@ -3967,10 +3175,7 @@
       "type": 0,
       "text": "Humphrey",
       "img": "icons/svg/d20.svg",
-      "range": [
-        265,
-        265
-      ],
+      "range": [265, 265],
       "drawn": false,
       "flags": {},
       "rangeL": 265,
@@ -3982,10 +3187,7 @@
       "type": 0,
       "text": "Huub",
       "img": "icons/svg/d20.svg",
-      "range": [
-        266,
-        266
-      ],
+      "range": [266, 266],
       "drawn": false,
       "flags": {},
       "rangeL": 266,
@@ -3997,10 +3199,7 @@
       "type": 0,
       "text": "Hylke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        267,
-        267
-      ],
+      "range": [267, 267],
       "drawn": false,
       "flags": {},
       "rangeL": 267,
@@ -4012,10 +3211,7 @@
       "type": 0,
       "text": "Iacques",
       "img": "icons/svg/d20.svg",
-      "range": [
-        268,
-        268
-      ],
+      "range": [268, 268],
       "drawn": false,
       "flags": {},
       "rangeL": 268,
@@ -4027,10 +3223,7 @@
       "type": 0,
       "text": "Ida",
       "img": "icons/svg/d20.svg",
-      "range": [
-        269,
-        269
-      ],
+      "range": [269, 269],
       "drawn": false,
       "flags": {},
       "rangeL": 269,
@@ -4042,10 +3235,7 @@
       "type": 0,
       "text": "Iean",
       "img": "icons/svg/d20.svg",
-      "range": [
-        270,
-        270
-      ],
+      "range": [270, 270],
       "drawn": false,
       "flags": {},
       "rangeL": 270,
@@ -4057,10 +3247,7 @@
       "type": 0,
       "text": "Ieneke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        271,
-        271
-      ],
+      "range": [271, 271],
       "drawn": false,
       "flags": {},
       "rangeL": 271,
@@ -4072,10 +3259,7 @@
       "type": 0,
       "text": "Ienje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        272,
-        272
-      ],
+      "range": [272, 272],
       "drawn": false,
       "flags": {},
       "rangeL": 272,
@@ -4087,10 +3271,7 @@
       "type": 0,
       "text": "Imke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        273,
-        273
-      ],
+      "range": [273, 273],
       "drawn": false,
       "flags": {},
       "rangeL": 273,
@@ -4102,10 +3283,7 @@
       "type": 0,
       "text": "Ina",
       "img": "icons/svg/d20.svg",
-      "range": [
-        274,
-        274
-      ],
+      "range": [274, 274],
       "drawn": false,
       "flags": {},
       "rangeL": 274,
@@ -4117,10 +3295,7 @@
       "type": 0,
       "text": "Ineke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        275,
-        275
-      ],
+      "range": [275, 275],
       "drawn": false,
       "flags": {},
       "rangeL": 275,
@@ -4132,10 +3307,7 @@
       "type": 0,
       "text": "Ines",
       "img": "icons/svg/d20.svg",
-      "range": [
-        276,
-        276
-      ],
+      "range": [276, 276],
       "drawn": false,
       "flags": {},
       "rangeL": 276,
@@ -4147,10 +3319,7 @@
       "type": 0,
       "text": "Ingrid",
       "img": "icons/svg/d20.svg",
-      "range": [
-        277,
-        277
-      ],
+      "range": [277, 277],
       "drawn": false,
       "flags": {},
       "rangeL": 277,
@@ -4162,10 +3331,7 @@
       "type": 0,
       "text": "Ioseph",
       "img": "icons/svg/d20.svg",
-      "range": [
-        278,
-        278
-      ],
+      "range": [278, 278],
       "drawn": false,
       "flags": {},
       "rangeL": 278,
@@ -4177,10 +3343,7 @@
       "type": 0,
       "text": "Irene",
       "img": "icons/svg/d20.svg",
-      "range": [
-        279,
-        279
-      ],
+      "range": [279, 279],
       "drawn": false,
       "flags": {},
       "rangeL": 279,
@@ -4192,10 +3355,7 @@
       "type": 0,
       "text": "Iris",
       "img": "icons/svg/d20.svg",
-      "range": [
-        280,
-        280
-      ],
+      "range": [280, 280],
       "drawn": false,
       "flags": {},
       "rangeL": 280,
@@ -4207,10 +3367,7 @@
       "type": 0,
       "text": "Irma",
       "img": "icons/svg/d20.svg",
-      "range": [
-        281,
-        281
-      ],
+      "range": [281, 281],
       "drawn": false,
       "flags": {},
       "rangeL": 281,
@@ -4222,10 +3379,7 @@
       "type": 0,
       "text": "Isabel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        282,
-        282
-      ],
+      "range": [282, 282],
       "drawn": false,
       "flags": {},
       "rangeL": 282,
@@ -4237,10 +3391,7 @@
       "type": 0,
       "text": "Isabella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        283,
-        283
-      ],
+      "range": [283, 283],
       "drawn": false,
       "flags": {},
       "rangeL": 283,
@@ -4252,10 +3403,7 @@
       "type": 0,
       "text": "Jaap",
       "img": "icons/svg/d20.svg",
-      "range": [
-        284,
-        284
-      ],
+      "range": [284, 284],
       "drawn": false,
       "flags": {},
       "rangeL": 284,
@@ -4267,10 +3415,7 @@
       "type": 0,
       "text": "Jacob",
       "img": "icons/svg/d20.svg",
-      "range": [
-        285,
-        285
-      ],
+      "range": [285, 285],
       "drawn": false,
       "flags": {},
       "rangeL": 285,
@@ -4282,10 +3427,7 @@
       "type": 0,
       "text": "Jacoba",
       "img": "icons/svg/d20.svg",
-      "range": [
-        286,
-        286
-      ],
+      "range": [286, 286],
       "drawn": false,
       "flags": {},
       "rangeL": 286,
@@ -4297,10 +3439,7 @@
       "type": 0,
       "text": "Jacobus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        287,
-        287
-      ],
+      "range": [287, 287],
       "drawn": false,
       "flags": {},
       "rangeL": 287,
@@ -4312,10 +3451,7 @@
       "type": 0,
       "text": "Jacqueline",
       "img": "icons/svg/d20.svg",
-      "range": [
-        288,
-        288
-      ],
+      "range": [288, 288],
       "drawn": false,
       "flags": {},
       "rangeL": 288,
@@ -4327,10 +3463,7 @@
       "type": 0,
       "text": "Jacques",
       "img": "icons/svg/d20.svg",
-      "range": [
-        289,
-        289
-      ],
+      "range": [289, 289],
       "drawn": false,
       "flags": {},
       "rangeL": 289,
@@ -4342,10 +3475,7 @@
       "type": 0,
       "text": "Jaike",
       "img": "icons/svg/d20.svg",
-      "range": [
-        290,
-        290
-      ],
+      "range": [290, 290],
       "drawn": false,
       "flags": {},
       "rangeL": 290,
@@ -4357,10 +3487,7 @@
       "type": 0,
       "text": "Jaime",
       "img": "icons/svg/d20.svg",
-      "range": [
-        291,
-        291
-      ],
+      "range": [291, 291],
       "drawn": false,
       "flags": {},
       "rangeL": 291,
@@ -4372,10 +3499,7 @@
       "type": 0,
       "text": "Jakob",
       "img": "icons/svg/d20.svg",
-      "range": [
-        292,
-        292
-      ],
+      "range": [292, 292],
       "drawn": false,
       "flags": {},
       "rangeL": 292,
@@ -4387,10 +3511,7 @@
       "type": 0,
       "text": "James",
       "img": "icons/svg/d20.svg",
-      "range": [
-        293,
-        293
-      ],
+      "range": [293, 293],
       "drawn": false,
       "flags": {},
       "rangeL": 293,
@@ -4402,10 +3523,7 @@
       "type": 0,
       "text": "Jan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        294,
-        294
-      ],
+      "range": [294, 294],
       "drawn": false,
       "flags": {},
       "rangeL": 294,
@@ -4417,10 +3535,7 @@
       "type": 0,
       "text": "Jane",
       "img": "icons/svg/d20.svg",
-      "range": [
-        295,
-        295
-      ],
+      "range": [295, 295],
       "drawn": false,
       "flags": {},
       "rangeL": 295,
@@ -4432,10 +3547,7 @@
       "type": 0,
       "text": "Janet",
       "img": "icons/svg/d20.svg",
-      "range": [
-        296,
-        296
-      ],
+      "range": [296, 296],
       "drawn": false,
       "flags": {},
       "rangeL": 296,
@@ -4447,10 +3559,7 @@
       "type": 0,
       "text": "Janneke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        297,
-        297
-      ],
+      "range": [297, 297],
       "drawn": false,
       "flags": {},
       "rangeL": 297,
@@ -4462,10 +3571,7 @@
       "type": 0,
       "text": "Jannetje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        298,
-        298
-      ],
+      "range": [298, 298],
       "drawn": false,
       "flags": {},
       "rangeL": 298,
@@ -4477,10 +3583,7 @@
       "type": 0,
       "text": "Jannie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        299,
-        299
-      ],
+      "range": [299, 299],
       "drawn": false,
       "flags": {},
       "rangeL": 299,
@@ -4492,10 +3595,7 @@
       "type": 0,
       "text": "Jasmijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        300,
-        300
-      ],
+      "range": [300, 300],
       "drawn": false,
       "flags": {},
       "rangeL": 300,
@@ -4507,10 +3607,7 @@
       "type": 0,
       "text": "Jean",
       "img": "icons/svg/d20.svg",
-      "range": [
-        301,
-        301
-      ],
+      "range": [301, 301],
       "drawn": false,
       "flags": {},
       "rangeL": 301,
@@ -4522,10 +3619,7 @@
       "type": 0,
       "text": "Jelle",
       "img": "icons/svg/d20.svg",
-      "range": [
-        302,
-        302
-      ],
+      "range": [302, 302],
       "drawn": false,
       "flags": {},
       "rangeL": 302,
@@ -4537,10 +3631,7 @@
       "type": 0,
       "text": "Jelmer",
       "img": "icons/svg/d20.svg",
-      "range": [
-        303,
-        303
-      ],
+      "range": [303, 303],
       "drawn": false,
       "flags": {},
       "rangeL": 303,
@@ -4552,10 +3643,7 @@
       "type": 0,
       "text": "Jens",
       "img": "icons/svg/d20.svg",
-      "range": [
-        304,
-        304
-      ],
+      "range": [304, 304],
       "drawn": false,
       "flags": {},
       "rangeL": 304,
@@ -4567,10 +3655,7 @@
       "type": 0,
       "text": "Jeroen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        305,
-        305
-      ],
+      "range": [305, 305],
       "drawn": false,
       "flags": {},
       "rangeL": 305,
@@ -4582,10 +3667,7 @@
       "type": 0,
       "text": "Jerónimo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        306,
-        306
-      ],
+      "range": [306, 306],
       "drawn": false,
       "flags": {},
       "rangeL": 306,
@@ -4597,10 +3679,7 @@
       "type": 0,
       "text": "Jet",
       "img": "icons/svg/d20.svg",
-      "range": [
-        307,
-        307
-      ],
+      "range": [307, 307],
       "drawn": false,
       "flags": {},
       "rangeL": 307,
@@ -4612,10 +3691,7 @@
       "type": 0,
       "text": "Jezus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        308,
-        308
-      ],
+      "range": [308, 308],
       "drawn": false,
       "flags": {},
       "rangeL": 308,
@@ -4627,10 +3703,7 @@
       "type": 0,
       "text": "Jip",
       "img": "icons/svg/d20.svg",
-      "range": [
-        309,
-        309
-      ],
+      "range": [309, 309],
       "drawn": false,
       "flags": {},
       "rangeL": 309,
@@ -4642,10 +3715,7 @@
       "type": 0,
       "text": "Jo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        310,
-        310
-      ],
+      "range": [310, 310],
       "drawn": false,
       "flags": {},
       "rangeL": 310,
@@ -4657,10 +3727,7 @@
       "type": 0,
       "text": "Joachim",
       "img": "icons/svg/d20.svg",
-      "range": [
-        311,
-        311
-      ],
+      "range": [311, 311],
       "drawn": false,
       "flags": {},
       "rangeL": 311,
@@ -4672,10 +3739,7 @@
       "type": 0,
       "text": "Joan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        312,
-        312
-      ],
+      "range": [312, 312],
       "drawn": false,
       "flags": {},
       "rangeL": 312,
@@ -4687,10 +3751,7 @@
       "type": 0,
       "text": "Job",
       "img": "icons/svg/d20.svg",
-      "range": [
-        313,
-        313
-      ],
+      "range": [313, 313],
       "drawn": false,
       "flags": {},
       "rangeL": 313,
@@ -4702,10 +3763,7 @@
       "type": 0,
       "text": "Jochem",
       "img": "icons/svg/d20.svg",
-      "range": [
-        314,
-        314
-      ],
+      "range": [314, 314],
       "drawn": false,
       "flags": {},
       "rangeL": 314,
@@ -4717,10 +3775,7 @@
       "type": 0,
       "text": "Johan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        315,
-        315
-      ],
+      "range": [315, 315],
       "drawn": false,
       "flags": {},
       "rangeL": 315,
@@ -4732,10 +3787,7 @@
       "type": 0,
       "text": "Johanna",
       "img": "icons/svg/d20.svg",
-      "range": [
-        316,
-        316
-      ],
+      "range": [316, 316],
       "drawn": false,
       "flags": {},
       "rangeL": 316,
@@ -4747,10 +3799,7 @@
       "type": 0,
       "text": "Johannes",
       "img": "icons/svg/d20.svg",
-      "range": [
-        317,
-        317
-      ],
+      "range": [317, 317],
       "drawn": false,
       "flags": {},
       "rangeL": 317,
@@ -4762,10 +3811,7 @@
       "type": 0,
       "text": "John",
       "img": "icons/svg/d20.svg",
-      "range": [
-        318,
-        318
-      ],
+      "range": [318, 318],
       "drawn": false,
       "flags": {},
       "rangeL": 318,
@@ -4777,10 +3823,7 @@
       "type": 0,
       "text": "Joke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        319,
-        319
-      ],
+      "range": [319, 319],
       "drawn": false,
       "flags": {},
       "rangeL": 319,
@@ -4792,10 +3835,7 @@
       "type": 0,
       "text": "Jonas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        320,
-        320
-      ],
+      "range": [320, 320],
       "drawn": false,
       "flags": {},
       "rangeL": 320,
@@ -4807,10 +3847,7 @@
       "type": 0,
       "text": "Jonathan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        321,
-        321
-      ],
+      "range": [321, 321],
       "drawn": false,
       "flags": {},
       "rangeL": 321,
@@ -4822,10 +3859,7 @@
       "type": 0,
       "text": "Joop",
       "img": "icons/svg/d20.svg",
-      "range": [
-        322,
-        322
-      ],
+      "range": [322, 322],
       "drawn": false,
       "flags": {},
       "rangeL": 322,
@@ -4837,10 +3871,7 @@
       "type": 0,
       "text": "Joost",
       "img": "icons/svg/d20.svg",
-      "range": [
-        323,
-        323
-      ],
+      "range": [323, 323],
       "drawn": false,
       "flags": {},
       "rangeL": 323,
@@ -4852,10 +3883,7 @@
       "type": 0,
       "text": "Jopie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        324,
-        324
-      ],
+      "range": [324, 324],
       "drawn": false,
       "flags": {},
       "rangeL": 324,
@@ -4867,10 +3895,7 @@
       "type": 0,
       "text": "Jordi",
       "img": "icons/svg/d20.svg",
-      "range": [
-        325,
-        325
-      ],
+      "range": [325, 325],
       "drawn": false,
       "flags": {},
       "rangeL": 325,
@@ -4882,10 +3907,7 @@
       "type": 0,
       "text": "Jordy",
       "img": "icons/svg/d20.svg",
-      "range": [
-        326,
-        326
-      ],
+      "range": [326, 326],
       "drawn": false,
       "flags": {},
       "rangeL": 326,
@@ -4897,10 +3919,7 @@
       "type": 0,
       "text": "Jorge",
       "img": "icons/svg/d20.svg",
-      "range": [
-        327,
-        327
-      ],
+      "range": [327, 327],
       "drawn": false,
       "flags": {},
       "rangeL": 327,
@@ -4912,10 +3931,7 @@
       "type": 0,
       "text": "Joris",
       "img": "icons/svg/d20.svg",
-      "range": [
-        328,
-        328
-      ],
+      "range": [328, 328],
       "drawn": false,
       "flags": {},
       "rangeL": 328,
@@ -4927,10 +3943,7 @@
       "type": 0,
       "text": "Jos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        329,
-        329
-      ],
+      "range": [329, 329],
       "drawn": false,
       "flags": {},
       "rangeL": 329,
@@ -4942,10 +3955,7 @@
       "type": 0,
       "text": "Jose",
       "img": "icons/svg/d20.svg",
-      "range": [
-        330,
-        330
-      ],
+      "range": [330, 330],
       "drawn": false,
       "flags": {},
       "rangeL": 330,
@@ -4957,10 +3967,7 @@
       "type": 0,
       "text": "Josefien",
       "img": "icons/svg/d20.svg",
-      "range": [
-        331,
-        331
-      ],
+      "range": [331, 331],
       "drawn": false,
       "flags": {},
       "rangeL": 331,
@@ -4972,10 +3979,7 @@
       "type": 0,
       "text": "Joseph",
       "img": "icons/svg/d20.svg",
-      "range": [
-        332,
-        332
-      ],
+      "range": [332, 332],
       "drawn": false,
       "flags": {},
       "rangeL": 332,
@@ -4987,10 +3991,7 @@
       "type": 0,
       "text": "Josepha",
       "img": "icons/svg/d20.svg",
-      "range": [
-        333,
-        333
-      ],
+      "range": [333, 333],
       "drawn": false,
       "flags": {},
       "rangeL": 333,
@@ -5002,10 +4003,7 @@
       "type": 0,
       "text": "Josephine",
       "img": "icons/svg/d20.svg",
-      "range": [
-        334,
-        334
-      ],
+      "range": [334, 334],
       "drawn": false,
       "flags": {},
       "rangeL": 334,
@@ -5017,10 +4015,7 @@
       "type": 0,
       "text": "Josian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        335,
-        335
-      ],
+      "range": [335, 335],
       "drawn": false,
       "flags": {},
       "rangeL": 335,
@@ -5032,10 +4027,7 @@
       "type": 0,
       "text": "Josien",
       "img": "icons/svg/d20.svg",
-      "range": [
-        336,
-        336
-      ],
+      "range": [336, 336],
       "drawn": false,
       "flags": {},
       "rangeL": 336,
@@ -5047,10 +4039,7 @@
       "type": 0,
       "text": "Josina",
       "img": "icons/svg/d20.svg",
-      "range": [
-        337,
-        337
-      ],
+      "range": [337, 337],
       "drawn": false,
       "flags": {},
       "rangeL": 337,
@@ -5062,10 +4051,7 @@
       "type": 0,
       "text": "Jospeh",
       "img": "icons/svg/d20.svg",
-      "range": [
-        338,
-        338
-      ],
+      "range": [338, 338],
       "drawn": false,
       "flags": {},
       "rangeL": 338,
@@ -5077,10 +4063,7 @@
       "type": 0,
       "text": "Joyce",
       "img": "icons/svg/d20.svg",
-      "range": [
-        339,
-        339
-      ],
+      "range": [339, 339],
       "drawn": false,
       "flags": {},
       "rangeL": 339,
@@ -5092,10 +4075,7 @@
       "type": 0,
       "text": "Juan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        340,
-        340
-      ],
+      "range": [340, 340],
       "drawn": false,
       "flags": {},
       "rangeL": 340,
@@ -5107,10 +4087,7 @@
       "type": 0,
       "text": "Judith",
       "img": "icons/svg/d20.svg",
-      "range": [
-        341,
-        341
-      ],
+      "range": [341, 341],
       "drawn": false,
       "flags": {},
       "rangeL": 341,
@@ -5122,10 +4099,7 @@
       "type": 0,
       "text": "Julia",
       "img": "icons/svg/d20.svg",
-      "range": [
-        342,
-        342
-      ],
+      "range": [342, 342],
       "drawn": false,
       "flags": {},
       "rangeL": 342,
@@ -5137,10 +4111,7 @@
       "type": 0,
       "text": "Julian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        343,
-        343
-      ],
+      "range": [343, 343],
       "drawn": false,
       "flags": {},
       "rangeL": 343,
@@ -5152,10 +4123,7 @@
       "type": 0,
       "text": "Juliana",
       "img": "icons/svg/d20.svg",
-      "range": [
-        344,
-        344
-      ],
+      "range": [344, 344],
       "drawn": false,
       "flags": {},
       "rangeL": 344,
@@ -5167,10 +4135,7 @@
       "type": 0,
       "text": "Jurre",
       "img": "icons/svg/d20.svg",
-      "range": [
-        345,
-        345
-      ],
+      "range": [345, 345],
       "drawn": false,
       "flags": {},
       "rangeL": 345,
@@ -5182,10 +4147,7 @@
       "type": 0,
       "text": "Karel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        346,
-        346
-      ],
+      "range": [346, 346],
       "drawn": false,
       "flags": {},
       "rangeL": 346,
@@ -5197,10 +4159,7 @@
       "type": 0,
       "text": "Kees",
       "img": "icons/svg/d20.svg",
-      "range": [
-        347,
-        347
-      ],
+      "range": [347, 347],
       "drawn": false,
       "flags": {},
       "rangeL": 347,
@@ -5212,10 +4171,7 @@
       "type": 0,
       "text": "Kelly",
       "img": "icons/svg/d20.svg",
-      "range": [
-        348,
-        348
-      ],
+      "range": [348, 348],
       "drawn": false,
       "flags": {},
       "rangeL": 348,
@@ -5227,10 +4183,7 @@
       "type": 0,
       "text": "Kenzo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        349,
-        349
-      ],
+      "range": [349, 349],
       "drawn": false,
       "flags": {},
       "rangeL": 349,
@@ -5242,10 +4195,7 @@
       "type": 0,
       "text": "Kim",
       "img": "icons/svg/d20.svg",
-      "range": [
-        350,
-        350
-      ],
+      "range": [350, 350],
       "drawn": false,
       "flags": {},
       "rangeL": 350,
@@ -5257,10 +4207,7 @@
       "type": 0,
       "text": "Klaas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        351,
-        351
-      ],
+      "range": [351, 351],
       "drawn": false,
       "flags": {},
       "rangeL": 351,
@@ -5272,10 +4219,7 @@
       "type": 0,
       "text": "Koen",
       "img": "icons/svg/d20.svg",
-      "range": [
-        352,
-        352
-      ],
+      "range": [352, 352],
       "drawn": false,
       "flags": {},
       "rangeL": 352,
@@ -5287,10 +4231,7 @@
       "type": 0,
       "text": "Koenraad",
       "img": "icons/svg/d20.svg",
-      "range": [
-        353,
-        353
-      ],
+      "range": [353, 353],
       "drawn": false,
       "flags": {},
       "rangeL": 353,
@@ -5302,10 +4243,7 @@
       "type": 0,
       "text": "Laura",
       "img": "icons/svg/d20.svg",
-      "range": [
-        354,
-        354
-      ],
+      "range": [354, 354],
       "drawn": false,
       "flags": {},
       "rangeL": 354,
@@ -5317,10 +4255,7 @@
       "type": 0,
       "text": "Laurens",
       "img": "icons/svg/d20.svg",
-      "range": [
-        355,
-        355
-      ],
+      "range": [355, 355],
       "drawn": false,
       "flags": {},
       "rangeL": 355,
@@ -5332,10 +4267,7 @@
       "type": 0,
       "text": "Lazare",
       "img": "icons/svg/d20.svg",
-      "range": [
-        356,
-        356
-      ],
+      "range": [356, 356],
       "drawn": false,
       "flags": {},
       "rangeL": 356,
@@ -5347,10 +4279,7 @@
       "type": 0,
       "text": "Leendert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        357,
-        357
-      ],
+      "range": [357, 357],
       "drawn": false,
       "flags": {},
       "rangeL": 357,
@@ -5362,10 +4291,7 @@
       "type": 0,
       "text": "Leentje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        358,
-        358
-      ],
+      "range": [358, 358],
       "drawn": false,
       "flags": {},
       "rangeL": 358,
@@ -5377,10 +4303,7 @@
       "type": 0,
       "text": "Leo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        359,
-        359
-      ],
+      "range": [359, 359],
       "drawn": false,
       "flags": {},
       "rangeL": 359,
@@ -5392,10 +4315,7 @@
       "type": 0,
       "text": "Leonard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        360,
-        360
-      ],
+      "range": [360, 360],
       "drawn": false,
       "flags": {},
       "rangeL": 360,
@@ -5407,10 +4327,7 @@
       "type": 0,
       "text": "Leopold",
       "img": "icons/svg/d20.svg",
-      "range": [
-        361,
-        361
-      ],
+      "range": [361, 361],
       "drawn": false,
       "flags": {},
       "rangeL": 361,
@@ -5422,10 +4339,7 @@
       "type": 0,
       "text": "Lia",
       "img": "icons/svg/d20.svg",
-      "range": [
-        362,
-        362
-      ],
+      "range": [362, 362],
       "drawn": false,
       "flags": {},
       "rangeL": 362,
@@ -5437,10 +4351,7 @@
       "type": 0,
       "text": "Lidewij",
       "img": "icons/svg/d20.svg",
-      "range": [
-        363,
-        363
-      ],
+      "range": [363, 363],
       "drawn": false,
       "flags": {},
       "rangeL": 363,
@@ -5452,10 +4363,7 @@
       "type": 0,
       "text": "Lieke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        364,
-        364
-      ],
+      "range": [364, 364],
       "drawn": false,
       "flags": {},
       "rangeL": 364,
@@ -5467,10 +4375,7 @@
       "type": 0,
       "text": "Lies",
       "img": "icons/svg/d20.svg",
-      "range": [
-        365,
-        365
-      ],
+      "range": [365, 365],
       "drawn": false,
       "flags": {},
       "rangeL": 365,
@@ -5482,10 +4387,7 @@
       "type": 0,
       "text": "Lieve",
       "img": "icons/svg/d20.svg",
-      "range": [
-        366,
-        366
-      ],
+      "range": [366, 366],
       "drawn": false,
       "flags": {},
       "rangeL": 366,
@@ -5497,10 +4399,7 @@
       "type": 0,
       "text": "Lieven",
       "img": "icons/svg/d20.svg",
-      "range": [
-        367,
-        367
-      ],
+      "range": [367, 367],
       "drawn": false,
       "flags": {},
       "rangeL": 367,
@@ -5512,10 +4411,7 @@
       "type": 0,
       "text": "Linda",
       "img": "icons/svg/d20.svg",
-      "range": [
-        368,
-        368
-      ],
+      "range": [368, 368],
       "drawn": false,
       "flags": {},
       "rangeL": 368,
@@ -5527,10 +4423,7 @@
       "type": 0,
       "text": "Lisa",
       "img": "icons/svg/d20.svg",
-      "range": [
-        369,
-        369
-      ],
+      "range": [369, 369],
       "drawn": false,
       "flags": {},
       "rangeL": 369,
@@ -5542,10 +4435,7 @@
       "type": 0,
       "text": "Lodewijk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        370,
-        370
-      ],
+      "range": [370, 370],
       "drawn": false,
       "flags": {},
       "rangeL": 370,
@@ -5557,10 +4447,7 @@
       "type": 0,
       "text": "Loes",
       "img": "icons/svg/d20.svg",
-      "range": [
-        371,
-        371
-      ],
+      "range": [371, 371],
       "drawn": false,
       "flags": {},
       "rangeL": 371,
@@ -5572,10 +4459,7 @@
       "type": 0,
       "text": "Lola",
       "img": "icons/svg/d20.svg",
-      "range": [
-        372,
-        372
-      ],
+      "range": [372, 372],
       "drawn": false,
       "flags": {},
       "rangeL": 372,
@@ -5587,10 +4471,7 @@
       "type": 0,
       "text": "Lope",
       "img": "icons/svg/d20.svg",
-      "range": [
-        373,
-        373
-      ],
+      "range": [373, 373],
       "drawn": false,
       "flags": {},
       "rangeL": 373,
@@ -5602,10 +4483,7 @@
       "type": 0,
       "text": "Lore",
       "img": "icons/svg/d20.svg",
-      "range": [
-        374,
-        374
-      ],
+      "range": [374, 374],
       "drawn": false,
       "flags": {},
       "rangeL": 374,
@@ -5617,10 +4495,7 @@
       "type": 0,
       "text": "Lorenzo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        375,
-        375
-      ],
+      "range": [375, 375],
       "drawn": false,
       "flags": {},
       "rangeL": 375,
@@ -5632,10 +4507,7 @@
       "type": 0,
       "text": "Lotte",
       "img": "icons/svg/d20.svg",
-      "range": [
-        376,
-        376
-      ],
+      "range": [376, 376],
       "drawn": false,
       "flags": {},
       "rangeL": 376,
@@ -5647,10 +4519,7 @@
       "type": 0,
       "text": "Louis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        377,
-        377
-      ],
+      "range": [377, 377],
       "drawn": false,
       "flags": {},
       "rangeL": 377,
@@ -5662,10 +4531,7 @@
       "type": 0,
       "text": "Lucas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        378,
-        378
-      ],
+      "range": [378, 378],
       "drawn": false,
       "flags": {},
       "rangeL": 378,
@@ -5677,10 +4543,7 @@
       "type": 0,
       "text": "Lucy",
       "img": "icons/svg/d20.svg",
-      "range": [
-        379,
-        379
-      ],
+      "range": [379, 379],
       "drawn": false,
       "flags": {},
       "rangeL": 379,
@@ -5692,10 +4555,7 @@
       "type": 0,
       "text": "Luis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        380,
-        380
-      ],
+      "range": [380, 380],
       "drawn": false,
       "flags": {},
       "rangeL": 380,
@@ -5707,10 +4567,7 @@
       "type": 0,
       "text": "Luk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        381,
-        381
-      ],
+      "range": [381, 381],
       "drawn": false,
       "flags": {},
       "rangeL": 381,
@@ -5722,10 +4579,7 @@
       "type": 0,
       "text": "Luuk",
       "img": "icons/svg/d20.svg",
-      "range": [
-        382,
-        382
-      ],
+      "range": [382, 382],
       "drawn": false,
       "flags": {},
       "rangeL": 382,
@@ -5737,10 +4591,7 @@
       "type": 0,
       "text": "Lyonell",
       "img": "icons/svg/d20.svg",
-      "range": [
-        383,
-        383
-      ],
+      "range": [383, 383],
       "drawn": false,
       "flags": {},
       "rangeL": 383,
@@ -5752,10 +4603,7 @@
       "type": 0,
       "text": "Maaike",
       "img": "icons/svg/d20.svg",
-      "range": [
-        384,
-        384
-      ],
+      "range": [384, 384],
       "drawn": false,
       "flags": {},
       "rangeL": 384,
@@ -5767,10 +4615,7 @@
       "type": 0,
       "text": "Maarten",
       "img": "icons/svg/d20.svg",
-      "range": [
-        385,
-        385
-      ],
+      "range": [385, 385],
       "drawn": false,
       "flags": {},
       "rangeL": 385,
@@ -5782,10 +4627,7 @@
       "type": 0,
       "text": "Maartje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        386,
-        386
-      ],
+      "range": [386, 386],
       "drawn": false,
       "flags": {},
       "rangeL": 386,
@@ -5797,10 +4639,7 @@
       "type": 0,
       "text": "Mabel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        387,
-        387
-      ],
+      "range": [387, 387],
       "drawn": false,
       "flags": {},
       "rangeL": 387,
@@ -5812,10 +4651,7 @@
       "type": 0,
       "text": "Machteld",
       "img": "icons/svg/d20.svg",
-      "range": [
-        388,
-        388
-      ],
+      "range": [388, 388],
       "drawn": false,
       "flags": {},
       "rangeL": 388,
@@ -5827,10 +4663,7 @@
       "type": 0,
       "text": "Madelief",
       "img": "icons/svg/d20.svg",
-      "range": [
-        389,
-        389
-      ],
+      "range": [389, 389],
       "drawn": false,
       "flags": {},
       "rangeL": 389,
@@ -5842,10 +4675,7 @@
       "type": 0,
       "text": "Manon",
       "img": "icons/svg/d20.svg",
-      "range": [
-        390,
-        390
-      ],
+      "range": [390, 390],
       "drawn": false,
       "flags": {},
       "rangeL": 390,
@@ -5857,10 +4687,7 @@
       "type": 0,
       "text": "Manuel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        391,
-        391
-      ],
+      "range": [391, 391],
       "drawn": false,
       "flags": {},
       "rangeL": 391,
@@ -5872,10 +4699,7 @@
       "type": 0,
       "text": "Marcos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        392,
-        392
-      ],
+      "range": [392, 392],
       "drawn": false,
       "flags": {},
       "rangeL": 392,
@@ -5887,10 +4711,7 @@
       "type": 0,
       "text": "Marcus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        393,
-        393
-      ],
+      "range": [393, 393],
       "drawn": false,
       "flags": {},
       "rangeL": 393,
@@ -5902,10 +4723,7 @@
       "type": 0,
       "text": "Margaret",
       "img": "icons/svg/d20.svg",
-      "range": [
-        394,
-        394
-      ],
+      "range": [394, 394],
       "drawn": false,
       "flags": {},
       "rangeL": 394,
@@ -5917,10 +4735,7 @@
       "type": 0,
       "text": "Margery",
       "img": "icons/svg/d20.svg",
-      "range": [
-        395,
-        395
-      ],
+      "range": [395, 395],
       "drawn": false,
       "flags": {},
       "rangeL": 395,
@@ -5932,10 +4747,7 @@
       "type": 0,
       "text": "Margreet",
       "img": "icons/svg/d20.svg",
-      "range": [
-        396,
-        396
-      ],
+      "range": [396, 396],
       "drawn": false,
       "flags": {},
       "rangeL": 396,
@@ -5947,10 +4759,7 @@
       "type": 0,
       "text": "Margriet",
       "img": "icons/svg/d20.svg",
-      "range": [
-        397,
-        397
-      ],
+      "range": [397, 397],
       "drawn": false,
       "flags": {},
       "rangeL": 397,
@@ -5962,10 +4771,7 @@
       "type": 0,
       "text": "Maria",
       "img": "icons/svg/d20.svg",
-      "range": [
-        398,
-        398
-      ],
+      "range": [398, 398],
       "drawn": false,
       "flags": {},
       "rangeL": 398,
@@ -5977,10 +4783,7 @@
       "type": 0,
       "text": "Marie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        399,
-        399
-      ],
+      "range": [399, 399],
       "drawn": false,
       "flags": {},
       "rangeL": 399,
@@ -5992,10 +4795,7 @@
       "type": 0,
       "text": "Marieke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        400,
-        400
-      ],
+      "range": [400, 400],
       "drawn": false,
       "flags": {},
       "rangeL": 400,
@@ -6007,10 +4807,7 @@
       "type": 0,
       "text": "Mariëlle",
       "img": "icons/svg/d20.svg",
-      "range": [
-        401,
-        401
-      ],
+      "range": [401, 401],
       "drawn": false,
       "flags": {},
       "rangeL": 401,
@@ -6022,10 +4819,7 @@
       "type": 0,
       "text": "Marietje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        402,
-        402
-      ],
+      "range": [402, 402],
       "drawn": false,
       "flags": {},
       "rangeL": 402,
@@ -6037,10 +4831,7 @@
       "type": 0,
       "text": "Marije",
       "img": "icons/svg/d20.svg",
-      "range": [
-        403,
-        403
-      ],
+      "range": [403, 403],
       "drawn": false,
       "flags": {},
       "rangeL": 403,
@@ -6052,10 +4843,7 @@
       "type": 0,
       "text": "Marijke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        404,
-        404
-      ],
+      "range": [404, 404],
       "drawn": false,
       "flags": {},
       "rangeL": 404,
@@ -6067,10 +4855,7 @@
       "type": 0,
       "text": "Marin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        405,
-        405
-      ],
+      "range": [405, 405],
       "drawn": false,
       "flags": {},
       "rangeL": 405,
@@ -6082,10 +4867,7 @@
       "type": 0,
       "text": "Mario",
       "img": "icons/svg/d20.svg",
-      "range": [
-        406,
-        406
-      ],
+      "range": [406, 406],
       "drawn": false,
       "flags": {},
       "rangeL": 406,
@@ -6097,10 +4879,7 @@
       "type": 0,
       "text": "Marion",
       "img": "icons/svg/d20.svg",
-      "range": [
-        407,
-        407
-      ],
+      "range": [407, 407],
       "drawn": false,
       "flags": {},
       "rangeL": 407,
@@ -6112,10 +4891,7 @@
       "type": 0,
       "text": "Maritje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        408,
-        408
-      ],
+      "range": [408, 408],
       "drawn": false,
       "flags": {},
       "rangeL": 408,
@@ -6127,10 +4903,7 @@
       "type": 0,
       "text": "Marius",
       "img": "icons/svg/d20.svg",
-      "range": [
-        409,
-        409
-      ],
+      "range": [409, 409],
       "drawn": false,
       "flags": {},
       "rangeL": 409,
@@ -6142,10 +4915,7 @@
       "type": 0,
       "text": "Marja",
       "img": "icons/svg/d20.svg",
-      "range": [
-        410,
-        410
-      ],
+      "range": [410, 410],
       "drawn": false,
       "flags": {},
       "rangeL": 410,
@@ -6157,10 +4927,7 @@
       "type": 0,
       "text": "Mark",
       "img": "icons/svg/d20.svg",
-      "range": [
-        411,
-        411
-      ],
+      "range": [411, 411],
       "drawn": false,
       "flags": {},
       "rangeL": 411,
@@ -6172,10 +4939,7 @@
       "type": 0,
       "text": "Marke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        412,
-        412
-      ],
+      "range": [412, 412],
       "drawn": false,
       "flags": {},
       "rangeL": 412,
@@ -6187,10 +4951,7 @@
       "type": 0,
       "text": "Martha",
       "img": "icons/svg/d20.svg",
-      "range": [
-        413,
-        413
-      ],
+      "range": [413, 413],
       "drawn": false,
       "flags": {},
       "rangeL": 413,
@@ -6202,10 +4963,7 @@
       "type": 0,
       "text": "Martijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        414,
-        414
-      ],
+      "range": [414, 414],
       "drawn": false,
       "flags": {},
       "rangeL": 414,
@@ -6217,10 +4975,7 @@
       "type": 0,
       "text": "Martín",
       "img": "icons/svg/d20.svg",
-      "range": [
-        415,
-        415
-      ],
+      "range": [415, 415],
       "drawn": false,
       "flags": {},
       "rangeL": 415,
@@ -6232,10 +4987,7 @@
       "type": 0,
       "text": "Martinus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        416,
-        416
-      ],
+      "range": [416, 416],
       "drawn": false,
       "flags": {},
       "rangeL": 416,
@@ -6247,10 +4999,7 @@
       "type": 0,
       "text": "Mary",
       "img": "icons/svg/d20.svg",
-      "range": [
-        417,
-        417
-      ],
+      "range": [417, 417],
       "drawn": false,
       "flags": {},
       "rangeL": 417,
@@ -6262,10 +5011,7 @@
       "type": 0,
       "text": "Mateo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        418,
-        418
-      ],
+      "range": [418, 418],
       "drawn": false,
       "flags": {},
       "rangeL": 418,
@@ -6277,10 +5023,7 @@
       "type": 0,
       "text": "Matias",
       "img": "icons/svg/d20.svg",
-      "range": [
-        419,
-        419
-      ],
+      "range": [419, 419],
       "drawn": false,
       "flags": {},
       "rangeL": 419,
@@ -6292,10 +5035,7 @@
       "type": 0,
       "text": "Matthew",
       "img": "icons/svg/d20.svg",
-      "range": [
-        420,
-        420
-      ],
+      "range": [420, 420],
       "drawn": false,
       "flags": {},
       "rangeL": 420,
@@ -6307,10 +5047,7 @@
       "type": 0,
       "text": "Matthijs",
       "img": "icons/svg/d20.svg",
-      "range": [
-        421,
-        421
-      ],
+      "range": [421, 421],
       "drawn": false,
       "flags": {},
       "rangeL": 421,
@@ -6322,10 +5059,7 @@
       "type": 0,
       "text": "Maud",
       "img": "icons/svg/d20.svg",
-      "range": [
-        422,
-        422
-      ],
+      "range": [422, 422],
       "drawn": false,
       "flags": {},
       "rangeL": 422,
@@ -6337,10 +5071,7 @@
       "type": 0,
       "text": "Maurits",
       "img": "icons/svg/d20.svg",
-      "range": [
-        423,
-        423
-      ],
+      "range": [423, 423],
       "drawn": false,
       "flags": {},
       "rangeL": 423,
@@ -6352,10 +5083,7 @@
       "type": 0,
       "text": "Max",
       "img": "icons/svg/d20.svg",
-      "range": [
-        424,
-        424
-      ],
+      "range": [424, 424],
       "drawn": false,
       "flags": {},
       "rangeL": 424,
@@ -6367,10 +5095,7 @@
       "type": 0,
       "text": "Maximiliaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        425,
-        425
-      ],
+      "range": [425, 425],
       "drawn": false,
       "flags": {},
       "rangeL": 425,
@@ -6382,10 +5107,7 @@
       "type": 0,
       "text": "Maximilian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        426,
-        426
-      ],
+      "range": [426, 426],
       "drawn": false,
       "flags": {},
       "rangeL": 426,
@@ -6397,10 +5119,7 @@
       "type": 0,
       "text": "Maya",
       "img": "icons/svg/d20.svg",
-      "range": [
-        427,
-        427
-      ],
+      "range": [427, 427],
       "drawn": false,
       "flags": {},
       "rangeL": 427,
@@ -6412,10 +5131,7 @@
       "type": 0,
       "text": "Mees",
       "img": "icons/svg/d20.svg",
-      "range": [
-        428,
-        428
-      ],
+      "range": [428, 428],
       "drawn": false,
       "flags": {},
       "rangeL": 428,
@@ -6427,10 +5143,7 @@
       "type": 0,
       "text": "Meeuwis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        429,
-        429
-      ],
+      "range": [429, 429],
       "drawn": false,
       "flags": {},
       "rangeL": 429,
@@ -6442,10 +5155,7 @@
       "type": 0,
       "text": "Meike",
       "img": "icons/svg/d20.svg",
-      "range": [
-        430,
-        430
-      ],
+      "range": [430, 430],
       "drawn": false,
       "flags": {},
       "rangeL": 430,
@@ -6457,10 +5167,7 @@
       "type": 0,
       "text": "Melchor",
       "img": "icons/svg/d20.svg",
-      "range": [
-        431,
-        431
-      ],
+      "range": [431, 431],
       "drawn": false,
       "flags": {},
       "rangeL": 431,
@@ -6472,10 +5179,7 @@
       "type": 0,
       "text": "Menno",
       "img": "icons/svg/d20.svg",
-      "range": [
-        432,
-        432
-      ],
+      "range": [432, 432],
       "drawn": false,
       "flags": {},
       "rangeL": 432,
@@ -6487,10 +5191,7 @@
       "type": 0,
       "text": "Mergildo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        433,
-        433
-      ],
+      "range": [433, 433],
       "drawn": false,
       "flags": {},
       "rangeL": 433,
@@ -6502,10 +5203,7 @@
       "type": 0,
       "text": "Michael",
       "img": "icons/svg/d20.svg",
-      "range": [
-        434,
-        434
-      ],
+      "range": [434, 434],
       "drawn": false,
       "flags": {},
       "rangeL": 434,
@@ -6517,10 +5215,7 @@
       "type": 0,
       "text": "Michel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        435,
-        435
-      ],
+      "range": [435, 435],
       "drawn": false,
       "flags": {},
       "rangeL": 435,
@@ -6532,10 +5227,7 @@
       "type": 0,
       "text": "Michiel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        436,
-        436
-      ],
+      "range": [436, 436],
       "drawn": false,
       "flags": {},
       "rangeL": 436,
@@ -6547,10 +5239,7 @@
       "type": 0,
       "text": "Mie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        437,
-        437
-      ],
+      "range": [437, 437],
       "drawn": false,
       "flags": {},
       "rangeL": 437,
@@ -6562,10 +5251,7 @@
       "type": 0,
       "text": "Miek",
       "img": "icons/svg/d20.svg",
-      "range": [
-        438,
-        438
-      ],
+      "range": [438, 438],
       "drawn": false,
       "flags": {},
       "rangeL": 438,
@@ -6577,10 +5263,7 @@
       "type": 0,
       "text": "Mieke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        439,
-        439
-      ],
+      "range": [439, 439],
       "drawn": false,
       "flags": {},
       "rangeL": 439,
@@ -6592,10 +5275,7 @@
       "type": 0,
       "text": "Miep",
       "img": "icons/svg/d20.svg",
-      "range": [
-        440,
-        440
-      ],
+      "range": [440, 440],
       "drawn": false,
       "flags": {},
       "rangeL": 440,
@@ -6607,10 +5287,7 @@
       "type": 0,
       "text": "Mies",
       "img": "icons/svg/d20.svg",
-      "range": [
-        441,
-        441
-      ],
+      "range": [441, 441],
       "drawn": false,
       "flags": {},
       "rangeL": 441,
@@ -6622,10 +5299,7 @@
       "type": 0,
       "text": "Miguel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        442,
-        442
-      ],
+      "range": [442, 442],
       "drawn": false,
       "flags": {},
       "rangeL": 442,
@@ -6637,10 +5311,7 @@
       "type": 0,
       "text": "Miles",
       "img": "icons/svg/d20.svg",
-      "range": [
-        443,
-        443
-      ],
+      "range": [443, 443],
       "drawn": false,
       "flags": {},
       "rangeL": 443,
@@ -6652,10 +5323,7 @@
       "type": 0,
       "text": "Millicent",
       "img": "icons/svg/d20.svg",
-      "range": [
-        444,
-        444
-      ],
+      "range": [444, 444],
       "drawn": false,
       "flags": {},
       "rangeL": 444,
@@ -6667,10 +5335,7 @@
       "type": 0,
       "text": "Miriam",
       "img": "icons/svg/d20.svg",
-      "range": [
-        445,
-        445
-      ],
+      "range": [445, 445],
       "drawn": false,
       "flags": {},
       "rangeL": 445,
@@ -6682,10 +5347,7 @@
       "type": 0,
       "text": "Mirjam",
       "img": "icons/svg/d20.svg",
-      "range": [
-        446,
-        446
-      ],
+      "range": [446, 446],
       "drawn": false,
       "flags": {},
       "rangeL": 446,
@@ -6697,10 +5359,7 @@
       "type": 0,
       "text": "Monica",
       "img": "icons/svg/d20.svg",
-      "range": [
-        447,
-        447
-      ],
+      "range": [447, 447],
       "drawn": false,
       "flags": {},
       "rangeL": 447,
@@ -6712,10 +5371,7 @@
       "type": 0,
       "text": "Monique",
       "img": "icons/svg/d20.svg",
-      "range": [
-        448,
-        448
-      ],
+      "range": [448, 448],
       "drawn": false,
       "flags": {},
       "rangeL": 448,
@@ -6727,10 +5383,7 @@
       "type": 0,
       "text": "Naomi",
       "img": "icons/svg/d20.svg",
-      "range": [
-        449,
-        449
-      ],
+      "range": [449, 449],
       "drawn": false,
       "flags": {},
       "rangeL": 449,
@@ -6742,10 +5395,7 @@
       "type": 0,
       "text": "Natasja",
       "img": "icons/svg/d20.svg",
-      "range": [
-        450,
-        450
-      ],
+      "range": [450, 450],
       "drawn": false,
       "flags": {},
       "rangeL": 450,
@@ -6757,10 +5407,7 @@
       "type": 0,
       "text": "Nathalie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        451,
-        451
-      ],
+      "range": [451, 451],
       "drawn": false,
       "flags": {},
       "rangeL": 451,
@@ -6772,10 +5419,7 @@
       "type": 0,
       "text": "Neeltje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        452,
-        452
-      ],
+      "range": [452, 452],
       "drawn": false,
       "flags": {},
       "rangeL": 452,
@@ -6787,10 +5431,7 @@
       "type": 0,
       "text": "Nel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        453,
-        453
-      ],
+      "range": [453, 453],
       "drawn": false,
       "flags": {},
       "rangeL": 453,
@@ -6802,10 +5443,7 @@
       "type": 0,
       "text": "Nicholas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        454,
-        454
-      ],
+      "range": [454, 454],
       "drawn": false,
       "flags": {},
       "rangeL": 454,
@@ -6817,10 +5455,7 @@
       "type": 0,
       "text": "Nico",
       "img": "icons/svg/d20.svg",
-      "range": [
-        455,
-        455
-      ],
+      "range": [455, 455],
       "drawn": false,
       "flags": {},
       "rangeL": 455,
@@ -6832,10 +5467,7 @@
       "type": 0,
       "text": "Nicolaas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        456,
-        456
-      ],
+      "range": [456, 456],
       "drawn": false,
       "flags": {},
       "rangeL": 456,
@@ -6847,10 +5479,7 @@
       "type": 0,
       "text": "Nicolas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        457,
-        457
-      ],
+      "range": [457, 457],
       "drawn": false,
       "flags": {},
       "rangeL": 457,
@@ -6862,10 +5491,7 @@
       "type": 0,
       "text": "Niels",
       "img": "icons/svg/d20.svg",
-      "range": [
-        458,
-        458
-      ],
+      "range": [458, 458],
       "drawn": false,
       "flags": {},
       "rangeL": 458,
@@ -6877,10 +5503,7 @@
       "type": 0,
       "text": "Nienke",
       "img": "icons/svg/d20.svg",
-      "range": [
-        459,
-        459
-      ],
+      "range": [459, 459],
       "drawn": false,
       "flags": {},
       "rangeL": 459,
@@ -6892,10 +5515,7 @@
       "type": 0,
       "text": "Noel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        460,
-        460
-      ],
+      "range": [460, 460],
       "drawn": false,
       "flags": {},
       "rangeL": 460,
@@ -6907,10 +5527,7 @@
       "type": 0,
       "text": "Nora",
       "img": "icons/svg/d20.svg",
-      "range": [
-        461,
-        461
-      ],
+      "range": [461, 461],
       "drawn": false,
       "flags": {},
       "rangeL": 461,
@@ -6922,10 +5539,7 @@
       "type": 0,
       "text": "Olivier",
       "img": "icons/svg/d20.svg",
-      "range": [
-        462,
-        462
-      ],
+      "range": [462, 462],
       "drawn": false,
       "flags": {},
       "rangeL": 462,
@@ -6937,10 +5551,7 @@
       "type": 0,
       "text": "Oswold",
       "img": "icons/svg/d20.svg",
-      "range": [
-        463,
-        463
-      ],
+      "range": [463, 463],
       "drawn": false,
       "flags": {},
       "rangeL": 463,
@@ -6952,10 +5563,7 @@
       "type": 0,
       "text": "Pablo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        464,
-        464
-      ],
+      "range": [464, 464],
       "drawn": false,
       "flags": {},
       "rangeL": 464,
@@ -6967,10 +5575,7 @@
       "type": 0,
       "text": "Pascual",
       "img": "icons/svg/d20.svg",
-      "range": [
-        465,
-        465
-      ],
+      "range": [465, 465],
       "drawn": false,
       "flags": {},
       "rangeL": 465,
@@ -6982,10 +5587,7 @@
       "type": 0,
       "text": "Paul",
       "img": "icons/svg/d20.svg",
-      "range": [
-        466,
-        466
-      ],
+      "range": [466, 466],
       "drawn": false,
       "flags": {},
       "rangeL": 466,
@@ -6997,10 +5599,7 @@
       "type": 0,
       "text": "Pedro",
       "img": "icons/svg/d20.svg",
-      "range": [
-        467,
-        467
-      ],
+      "range": [467, 467],
       "drawn": false,
       "flags": {},
       "rangeL": 467,
@@ -7012,10 +5611,7 @@
       "type": 0,
       "text": "Percivell",
       "img": "icons/svg/d20.svg",
-      "range": [
-        468,
-        468
-      ],
+      "range": [468, 468],
       "drawn": false,
       "flags": {},
       "rangeL": 468,
@@ -7027,10 +5623,7 @@
       "type": 0,
       "text": "Peter",
       "img": "icons/svg/d20.svg",
-      "range": [
-        469,
-        469
-      ],
+      "range": [469, 469],
       "drawn": false,
       "flags": {},
       "rangeL": 469,
@@ -7042,10 +5635,7 @@
       "type": 0,
       "text": "Petra",
       "img": "icons/svg/d20.svg",
-      "range": [
-        470,
-        470
-      ],
+      "range": [470, 470],
       "drawn": false,
       "flags": {},
       "rangeL": 470,
@@ -7057,10 +5647,7 @@
       "type": 0,
       "text": "Petronella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        471,
-        471
-      ],
+      "range": [471, 471],
       "drawn": false,
       "flags": {},
       "rangeL": 471,
@@ -7072,10 +5659,7 @@
       "type": 0,
       "text": "Petrus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        472,
-        472
-      ],
+      "range": [472, 472],
       "drawn": false,
       "flags": {},
       "rangeL": 472,
@@ -7087,10 +5671,7 @@
       "type": 0,
       "text": "Philippa",
       "img": "icons/svg/d20.svg",
-      "range": [
-        473,
-        473
-      ],
+      "range": [473, 473],
       "drawn": false,
       "flags": {},
       "rangeL": 473,
@@ -7102,10 +5683,7 @@
       "type": 0,
       "text": "Philippes",
       "img": "icons/svg/d20.svg",
-      "range": [
-        474,
-        474
-      ],
+      "range": [474, 474],
       "drawn": false,
       "flags": {},
       "rangeL": 474,
@@ -7117,10 +5695,7 @@
       "type": 0,
       "text": "Pia",
       "img": "icons/svg/d20.svg",
-      "range": [
-        475,
-        475
-      ],
+      "range": [475, 475],
       "drawn": false,
       "flags": {},
       "rangeL": 475,
@@ -7132,10 +5707,7 @@
       "type": 0,
       "text": "Pien",
       "img": "icons/svg/d20.svg",
-      "range": [
-        476,
-        476
-      ],
+      "range": [476, 476],
       "drawn": false,
       "flags": {},
       "rangeL": 476,
@@ -7147,10 +5719,7 @@
       "type": 0,
       "text": "Pier",
       "img": "icons/svg/d20.svg",
-      "range": [
-        477,
-        477
-      ],
+      "range": [477, 477],
       "drawn": false,
       "flags": {},
       "rangeL": 477,
@@ -7162,10 +5731,7 @@
       "type": 0,
       "text": "Pierre",
       "img": "icons/svg/d20.svg",
-      "range": [
-        478,
-        478
-      ],
+      "range": [478, 478],
       "drawn": false,
       "flags": {},
       "rangeL": 478,
@@ -7177,10 +5743,7 @@
       "type": 0,
       "text": "Piet",
       "img": "icons/svg/d20.svg",
-      "range": [
-        479,
-        479
-      ],
+      "range": [479, 479],
       "drawn": false,
       "flags": {},
       "rangeL": 479,
@@ -7192,10 +5755,7 @@
       "type": 0,
       "text": "Pieter",
       "img": "icons/svg/d20.svg",
-      "range": [
-        480,
-        480
-      ],
+      "range": [480, 480],
       "drawn": false,
       "flags": {},
       "rangeL": 480,
@@ -7207,10 +5767,7 @@
       "type": 0,
       "text": "Pieternel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        481,
-        481
-      ],
+      "range": [481, 481],
       "drawn": false,
       "flags": {},
       "rangeL": 481,
@@ -7222,10 +5779,7 @@
       "type": 0,
       "text": "Pieternella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        482,
-        482
-      ],
+      "range": [482, 482],
       "drawn": false,
       "flags": {},
       "rangeL": 482,
@@ -7237,10 +5791,7 @@
       "type": 0,
       "text": "Pim",
       "img": "icons/svg/d20.svg",
-      "range": [
-        483,
-        483
-      ],
+      "range": [483, 483],
       "drawn": false,
       "flags": {},
       "rangeL": 483,
@@ -7252,10 +5803,7 @@
       "type": 0,
       "text": "Pol",
       "img": "icons/svg/d20.svg",
-      "range": [
-        484,
-        484
-      ],
+      "range": [484, 484],
       "drawn": false,
       "flags": {},
       "rangeL": 484,
@@ -7267,10 +5815,7 @@
       "type": 0,
       "text": "Priscilla",
       "img": "icons/svg/d20.svg",
-      "range": [
-        485,
-        485
-      ],
+      "range": [485, 485],
       "drawn": false,
       "flags": {},
       "rangeL": 485,
@@ -7282,10 +5827,7 @@
       "type": 0,
       "text": "Rachel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        486,
-        486
-      ],
+      "range": [486, 486],
       "drawn": false,
       "flags": {},
       "rangeL": 486,
@@ -7297,10 +5839,7 @@
       "type": 0,
       "text": "Raphe",
       "img": "icons/svg/d20.svg",
-      "range": [
-        487,
-        487
-      ],
+      "range": [487, 487],
       "drawn": false,
       "flags": {},
       "rangeL": 487,
@@ -7312,10 +5851,7 @@
       "type": 0,
       "text": "Raymond",
       "img": "icons/svg/d20.svg",
-      "range": [
-        488,
-        488
-      ],
+      "range": [488, 488],
       "drawn": false,
       "flags": {},
       "rangeL": 488,
@@ -7327,10 +5863,7 @@
       "type": 0,
       "text": "Rebecca",
       "img": "icons/svg/d20.svg",
-      "range": [
-        489,
-        489
-      ],
+      "range": [489, 489],
       "drawn": false,
       "flags": {},
       "rangeL": 489,
@@ -7342,10 +5875,7 @@
       "type": 0,
       "text": "Remco",
       "img": "icons/svg/d20.svg",
-      "range": [
-        490,
-        490
-      ],
+      "range": [490, 490],
       "drawn": false,
       "flags": {},
       "rangeL": 490,
@@ -7357,10 +5887,7 @@
       "type": 0,
       "text": "Renaat",
       "img": "icons/svg/d20.svg",
-      "range": [
-        491,
-        491
-      ],
+      "range": [491, 491],
       "drawn": false,
       "flags": {},
       "rangeL": 491,
@@ -7372,10 +5899,7 @@
       "type": 0,
       "text": "Renate",
       "img": "icons/svg/d20.svg",
-      "range": [
-        492,
-        492
-      ],
+      "range": [492, 492],
       "drawn": false,
       "flags": {},
       "rangeL": 492,
@@ -7387,10 +5911,7 @@
       "type": 0,
       "text": "Rhijnvis",
       "img": "icons/svg/d20.svg",
-      "range": [
-        493,
-        493
-      ],
+      "range": [493, 493],
       "drawn": false,
       "flags": {},
       "rangeL": 493,
@@ -7402,10 +5923,7 @@
       "type": 0,
       "text": "Richard",
       "img": "icons/svg/d20.svg",
-      "range": [
-        494,
-        494
-      ],
+      "range": [494, 494],
       "drawn": false,
       "flags": {},
       "rangeL": 494,
@@ -7417,10 +5935,7 @@
       "type": 0,
       "text": "Rie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        495,
-        495
-      ],
+      "range": [495, 495],
       "drawn": false,
       "flags": {},
       "rangeL": 495,
@@ -7432,10 +5947,7 @@
       "type": 0,
       "text": "Rik",
       "img": "icons/svg/d20.svg",
-      "range": [
-        496,
-        496
-      ],
+      "range": [496, 496],
       "drawn": false,
       "flags": {},
       "rangeL": 496,
@@ -7447,10 +5959,7 @@
       "type": 0,
       "text": "Rinus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        497,
-        497
-      ],
+      "range": [497, 497],
       "drawn": false,
       "flags": {},
       "rangeL": 497,
@@ -7462,10 +5971,7 @@
       "type": 0,
       "text": "Rivka",
       "img": "icons/svg/d20.svg",
-      "range": [
-        498,
-        498
-      ],
+      "range": [498, 498],
       "drawn": false,
       "flags": {},
       "rangeL": 498,
@@ -7477,10 +5983,7 @@
       "type": 0,
       "text": "Rob",
       "img": "icons/svg/d20.svg",
-      "range": [
-        499,
-        499
-      ],
+      "range": [499, 499],
       "drawn": false,
       "flags": {},
       "rangeL": 499,
@@ -7492,10 +5995,7 @@
       "type": 0,
       "text": "Robbert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        500,
-        500
-      ],
+      "range": [500, 500],
       "drawn": false,
       "flags": {},
       "rangeL": 500,
@@ -7507,10 +6007,7 @@
       "type": 0,
       "text": "Robert",
       "img": "icons/svg/d20.svg",
-      "range": [
-        501,
-        501
-      ],
+      "range": [501, 501],
       "drawn": false,
       "flags": {},
       "rangeL": 501,
@@ -7522,10 +6019,7 @@
       "type": 0,
       "text": "Robin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        502,
-        502
-      ],
+      "range": [502, 502],
       "drawn": false,
       "flags": {},
       "rangeL": 502,
@@ -7537,10 +6031,7 @@
       "type": 0,
       "text": "Rodrigo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        503,
-        503
-      ],
+      "range": [503, 503],
       "drawn": false,
       "flags": {},
       "rangeL": 503,
@@ -7552,10 +6043,7 @@
       "type": 0,
       "text": "Roel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        504,
-        504
-      ],
+      "range": [504, 504],
       "drawn": false,
       "flags": {},
       "rangeL": 504,
@@ -7567,10 +6055,7 @@
       "type": 0,
       "text": "Roeland",
       "img": "icons/svg/d20.svg",
-      "range": [
-        505,
-        505
-      ],
+      "range": [505, 505],
       "drawn": false,
       "flags": {},
       "rangeL": 505,
@@ -7582,10 +6067,7 @@
       "type": 0,
       "text": "Roelof",
       "img": "icons/svg/d20.svg",
-      "range": [
-        506,
-        506
-      ],
+      "range": [506, 506],
       "drawn": false,
       "flags": {},
       "rangeL": 506,
@@ -7597,10 +6079,7 @@
       "type": 0,
       "text": "Roger",
       "img": "icons/svg/d20.svg",
-      "range": [
-        507,
-        507
-      ],
+      "range": [507, 507],
       "drawn": false,
       "flags": {},
       "rangeL": 507,
@@ -7612,10 +6091,7 @@
       "type": 0,
       "text": "Rogier",
       "img": "icons/svg/d20.svg",
-      "range": [
-        508,
-        508
-      ],
+      "range": [508, 508],
       "drawn": false,
       "flags": {},
       "rangeL": 508,
@@ -7627,10 +6103,7 @@
       "type": 0,
       "text": "Romaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        509,
-        509
-      ],
+      "range": [509, 509],
       "drawn": false,
       "flags": {},
       "rangeL": 509,
@@ -7642,10 +6115,7 @@
       "type": 0,
       "text": "Roos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        510,
-        510
-      ],
+      "range": [510, 510],
       "drawn": false,
       "flags": {},
       "rangeL": 510,
@@ -7657,10 +6127,7 @@
       "type": 0,
       "text": "Rose",
       "img": "icons/svg/d20.svg",
-      "range": [
-        511,
-        511
-      ],
+      "range": [511, 511],
       "drawn": false,
       "flags": {},
       "rangeL": 511,
@@ -7672,10 +6139,7 @@
       "type": 0,
       "text": "Rowland",
       "img": "icons/svg/d20.svg",
-      "range": [
-        512,
-        512
-      ],
+      "range": [512, 512],
       "drawn": false,
       "flags": {},
       "rangeL": 512,
@@ -7687,10 +6151,7 @@
       "type": 0,
       "text": "Ruben",
       "img": "icons/svg/d20.svg",
-      "range": [
-        513,
-        513
-      ],
+      "range": [513, 513],
       "drawn": false,
       "flags": {},
       "rangeL": 513,
@@ -7702,10 +6163,7 @@
       "type": 0,
       "text": "Ruud",
       "img": "icons/svg/d20.svg",
-      "range": [
-        514,
-        514
-      ],
+      "range": [514, 514],
       "drawn": false,
       "flags": {},
       "rangeL": 514,
@@ -7717,10 +6175,7 @@
       "type": 0,
       "text": "Sabine",
       "img": "icons/svg/d20.svg",
-      "range": [
-        515,
-        515
-      ],
+      "range": [515, 515],
       "drawn": false,
       "flags": {},
       "rangeL": 515,
@@ -7732,10 +6187,7 @@
       "type": 0,
       "text": "Salomon",
       "img": "icons/svg/d20.svg",
-      "range": [
-        516,
-        516
-      ],
+      "range": [516, 516],
       "drawn": false,
       "flags": {},
       "rangeL": 516,
@@ -7747,10 +6199,7 @@
       "type": 0,
       "text": "Salvador",
       "img": "icons/svg/d20.svg",
-      "range": [
-        517,
-        517
-      ],
+      "range": [517, 517],
       "drawn": false,
       "flags": {},
       "rangeL": 517,
@@ -7762,10 +6211,7 @@
       "type": 0,
       "text": "Sam",
       "img": "icons/svg/d20.svg",
-      "range": [
-        518,
-        518
-      ],
+      "range": [518, 518],
       "drawn": false,
       "flags": {},
       "rangeL": 518,
@@ -7777,10 +6223,7 @@
       "type": 0,
       "text": "Samuel",
       "img": "icons/svg/d20.svg",
-      "range": [
-        519,
-        519
-      ],
+      "range": [519, 519],
       "drawn": false,
       "flags": {},
       "rangeL": 519,
@@ -7792,10 +6235,7 @@
       "type": 0,
       "text": "Sancho",
       "img": "icons/svg/d20.svg",
-      "range": [
-        520,
-        520
-      ],
+      "range": [520, 520],
       "drawn": false,
       "flags": {},
       "rangeL": 520,
@@ -7807,10 +6247,7 @@
       "type": 0,
       "text": "Sander",
       "img": "icons/svg/d20.svg",
-      "range": [
-        521,
-        521
-      ],
+      "range": [521, 521],
       "drawn": false,
       "flags": {},
       "rangeL": 521,
@@ -7822,10 +6259,7 @@
       "type": 0,
       "text": "Sanne",
       "img": "icons/svg/d20.svg",
-      "range": [
-        522,
-        522
-      ],
+      "range": [522, 522],
       "drawn": false,
       "flags": {},
       "rangeL": 522,
@@ -7837,10 +6271,7 @@
       "type": 0,
       "text": "Santiago",
       "img": "icons/svg/d20.svg",
-      "range": [
-        523,
-        523
-      ],
+      "range": [523, 523],
       "drawn": false,
       "flags": {},
       "rangeL": 523,
@@ -7852,10 +6283,7 @@
       "type": 0,
       "text": "Sara",
       "img": "icons/svg/d20.svg",
-      "range": [
-        524,
-        524
-      ],
+      "range": [524, 524],
       "drawn": false,
       "flags": {},
       "rangeL": 524,
@@ -7867,10 +6295,7 @@
       "type": 0,
       "text": "Sarah",
       "img": "icons/svg/d20.svg",
-      "range": [
-        525,
-        525
-      ],
+      "range": [525, 525],
       "drawn": false,
       "flags": {},
       "rangeL": 525,
@@ -7882,10 +6307,7 @@
       "type": 0,
       "text": "Saskia",
       "img": "icons/svg/d20.svg",
-      "range": [
-        526,
-        526
-      ],
+      "range": [526, 526],
       "drawn": false,
       "flags": {},
       "rangeL": 526,
@@ -7897,10 +6319,7 @@
       "type": 0,
       "text": "Sebastiaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        527,
-        527
-      ],
+      "range": [527, 527],
       "drawn": false,
       "flags": {},
       "rangeL": 527,
@@ -7912,10 +6331,7 @@
       "type": 0,
       "text": "Sebastian",
       "img": "icons/svg/d20.svg",
-      "range": [
-        528,
-        528
-      ],
+      "range": [528, 528],
       "drawn": false,
       "flags": {},
       "rangeL": 528,
@@ -7927,10 +6343,7 @@
       "type": 0,
       "text": "Sem",
       "img": "icons/svg/d20.svg",
-      "range": [
-        529,
-        529
-      ],
+      "range": [529, 529],
       "drawn": false,
       "flags": {},
       "rangeL": 529,
@@ -7942,10 +6355,7 @@
       "type": 0,
       "text": "Sieme",
       "img": "icons/svg/d20.svg",
-      "range": [
-        530,
-        530
-      ],
+      "range": [530, 530],
       "drawn": false,
       "flags": {},
       "rangeL": 530,
@@ -7957,10 +6367,7 @@
       "type": 0,
       "text": "Sietse",
       "img": "icons/svg/d20.svg",
-      "range": [
-        531,
-        531
-      ],
+      "range": [531, 531],
       "drawn": false,
       "flags": {},
       "rangeL": 531,
@@ -7972,10 +6379,7 @@
       "type": 0,
       "text": "Sietske",
       "img": "icons/svg/d20.svg",
-      "range": [
-        532,
-        532
-      ],
+      "range": [532, 532],
       "drawn": false,
       "flags": {},
       "rangeL": 532,
@@ -7987,10 +6391,7 @@
       "type": 0,
       "text": "Silas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        533,
-        533
-      ],
+      "range": [533, 533],
       "drawn": false,
       "flags": {},
       "rangeL": 533,
@@ -8002,10 +6403,7 @@
       "type": 0,
       "text": "Simón",
       "img": "icons/svg/d20.svg",
-      "range": [
-        534,
-        534
-      ],
+      "range": [534, 534],
       "drawn": false,
       "flags": {},
       "rangeL": 534,
@@ -8017,10 +6415,7 @@
       "type": 0,
       "text": "Simond",
       "img": "icons/svg/d20.svg",
-      "range": [
-        535,
-        535
-      ],
+      "range": [535, 535],
       "drawn": false,
       "flags": {},
       "rangeL": 535,
@@ -8032,10 +6427,7 @@
       "type": 0,
       "text": "Sjaak",
       "img": "icons/svg/d20.svg",
-      "range": [
-        536,
-        536
-      ],
+      "range": [536, 536],
       "drawn": false,
       "flags": {},
       "rangeL": 536,
@@ -8047,10 +6439,7 @@
       "type": 0,
       "text": "Sjaan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        537,
-        537
-      ],
+      "range": [537, 537],
       "drawn": false,
       "flags": {},
       "rangeL": 537,
@@ -8062,10 +6451,7 @@
       "type": 0,
       "text": "Sjakie",
       "img": "icons/svg/d20.svg",
-      "range": [
-        538,
-        538
-      ],
+      "range": [538, 538],
       "drawn": false,
       "flags": {},
       "rangeL": 538,
@@ -8077,10 +6463,7 @@
       "type": 0,
       "text": "Spencer",
       "img": "icons/svg/d20.svg",
-      "range": [
-        539,
-        539
-      ],
+      "range": [539, 539],
       "drawn": false,
       "flags": {},
       "rangeL": 539,
@@ -8092,10 +6475,7 @@
       "type": 0,
       "text": "Stefan",
       "img": "icons/svg/d20.svg",
-      "range": [
-        540,
-        540
-      ],
+      "range": [540, 540],
       "drawn": false,
       "flags": {},
       "rangeL": 540,
@@ -8107,10 +6487,7 @@
       "type": 0,
       "text": "Stella",
       "img": "icons/svg/d20.svg",
-      "range": [
-        541,
-        541
-      ],
+      "range": [541, 541],
       "drawn": false,
       "flags": {},
       "rangeL": 541,
@@ -8122,10 +6499,7 @@
       "type": 0,
       "text": "Steven",
       "img": "icons/svg/d20.svg",
-      "range": [
-        542,
-        542
-      ],
+      "range": [542, 542],
       "drawn": false,
       "flags": {},
       "rangeL": 542,
@@ -8137,10 +6511,7 @@
       "type": 0,
       "text": "Stijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        543,
-        543
-      ],
+      "range": [543, 543],
       "drawn": false,
       "flags": {},
       "rangeL": 543,
@@ -8152,10 +6523,7 @@
       "type": 0,
       "text": "Susanna",
       "img": "icons/svg/d20.svg",
-      "range": [
-        544,
-        544
-      ],
+      "range": [544, 544],
       "drawn": false,
       "flags": {},
       "rangeL": 544,
@@ -8167,10 +6535,7 @@
       "type": 0,
       "text": "Sven",
       "img": "icons/svg/d20.svg",
-      "range": [
-        545,
-        545
-      ],
+      "range": [545, 545],
       "drawn": false,
       "flags": {},
       "rangeL": 545,
@@ -8182,10 +6547,7 @@
       "type": 0,
       "text": "Sybil",
       "img": "icons/svg/d20.svg",
-      "range": [
-        546,
-        546
-      ],
+      "range": [546, 546],
       "drawn": false,
       "flags": {},
       "rangeL": 546,
@@ -8197,10 +6559,7 @@
       "type": 0,
       "text": "Tessa",
       "img": "icons/svg/d20.svg",
-      "range": [
-        547,
-        547
-      ],
+      "range": [547, 547],
       "drawn": false,
       "flags": {},
       "rangeL": 547,
@@ -8212,10 +6571,7 @@
       "type": 0,
       "text": "Theo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        548,
-        548
-      ],
+      "range": [548, 548],
       "drawn": false,
       "flags": {},
       "rangeL": 548,
@@ -8227,10 +6583,7 @@
       "type": 0,
       "text": "Theodore",
       "img": "icons/svg/d20.svg",
-      "range": [
-        549,
-        549
-      ],
+      "range": [549, 549],
       "drawn": false,
       "flags": {},
       "rangeL": 549,
@@ -8242,10 +6595,7 @@
       "type": 0,
       "text": "Thijs",
       "img": "icons/svg/d20.svg",
-      "range": [
-        550,
-        550
-      ],
+      "range": [550, 550],
       "drawn": false,
       "flags": {},
       "rangeL": 550,
@@ -8257,10 +6607,7 @@
       "type": 0,
       "text": "Thomas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        551,
-        551
-      ],
+      "range": [551, 551],
       "drawn": false,
       "flags": {},
       "rangeL": 551,
@@ -8272,10 +6619,7 @@
       "type": 0,
       "text": "Thomasin",
       "img": "icons/svg/d20.svg",
-      "range": [
-        552,
-        552
-      ],
+      "range": [552, 552],
       "drawn": false,
       "flags": {},
       "rangeL": 552,
@@ -8287,10 +6631,7 @@
       "type": 0,
       "text": "Tijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        553,
-        553
-      ],
+      "range": [553, 553],
       "drawn": false,
       "flags": {},
       "rangeL": 553,
@@ -8302,10 +6643,7 @@
       "type": 0,
       "text": "Tim",
       "img": "icons/svg/d20.svg",
-      "range": [
-        554,
-        554
-      ],
+      "range": [554, 554],
       "drawn": false,
       "flags": {},
       "rangeL": 554,
@@ -8317,10 +6655,7 @@
       "type": 0,
       "text": "Timo",
       "img": "icons/svg/d20.svg",
-      "range": [
-        555,
-        555
-      ],
+      "range": [555, 555],
       "drawn": false,
       "flags": {},
       "rangeL": 555,
@@ -8332,10 +6667,7 @@
       "type": 0,
       "text": "Timothy",
       "img": "icons/svg/d20.svg",
-      "range": [
-        556,
-        556
-      ],
+      "range": [556, 556],
       "drawn": false,
       "flags": {},
       "rangeL": 556,
@@ -8347,10 +6679,7 @@
       "type": 0,
       "text": "Tobias",
       "img": "icons/svg/d20.svg",
-      "range": [
-        557,
-        557
-      ],
+      "range": [557, 557],
       "drawn": false,
       "flags": {},
       "rangeL": 557,
@@ -8362,10 +6691,7 @@
       "type": 0,
       "text": "Tobir",
       "img": "icons/svg/d20.svg",
-      "range": [
-        558,
-        558
-      ],
+      "range": [558, 558],
       "drawn": false,
       "flags": {},
       "rangeL": 558,
@@ -8377,10 +6703,7 @@
       "type": 0,
       "text": "Tom",
       "img": "icons/svg/d20.svg",
-      "range": [
-        559,
-        559
-      ],
+      "range": [559, 559],
       "drawn": false,
       "flags": {},
       "rangeL": 559,
@@ -8392,10 +6715,7 @@
       "type": 0,
       "text": "Tomas",
       "img": "icons/svg/d20.svg",
-      "range": [
-        560,
-        560
-      ],
+      "range": [560, 560],
       "drawn": false,
       "flags": {},
       "rangeL": 560,
@@ -8407,10 +6727,7 @@
       "type": 0,
       "text": "Tomás",
       "img": "icons/svg/d20.svg",
-      "range": [
-        561,
-        561
-      ],
+      "range": [561, 561],
       "drawn": false,
       "flags": {},
       "rangeL": 561,
@@ -8422,10 +6739,7 @@
       "type": 0,
       "text": "Tomé",
       "img": "icons/svg/d20.svg",
-      "range": [
-        562,
-        562
-      ],
+      "range": [562, 562],
       "drawn": false,
       "flags": {},
       "rangeL": 562,
@@ -8437,10 +6751,7 @@
       "type": 0,
       "text": "Tonny",
       "img": "icons/svg/d20.svg",
-      "range": [
-        563,
-        563
-      ],
+      "range": [563, 563],
       "drawn": false,
       "flags": {},
       "rangeL": 563,
@@ -8452,10 +6763,7 @@
       "type": 0,
       "text": "Trees",
       "img": "icons/svg/d20.svg",
-      "range": [
-        564,
-        564
-      ],
+      "range": [564, 564],
       "drawn": false,
       "flags": {},
       "rangeL": 564,
@@ -8467,10 +6775,7 @@
       "type": 0,
       "text": "Trijntje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        565,
-        565
-      ],
+      "range": [565, 565],
       "drawn": false,
       "flags": {},
       "rangeL": 565,
@@ -8482,10 +6787,7 @@
       "type": 0,
       "text": "Truus",
       "img": "icons/svg/d20.svg",
-      "range": [
-        566,
-        566
-      ],
+      "range": [566, 566],
       "drawn": false,
       "flags": {},
       "rangeL": 566,
@@ -8497,10 +6799,7 @@
       "type": 0,
       "text": "Truylos",
       "img": "icons/svg/d20.svg",
-      "range": [
-        567,
-        567
-      ],
+      "range": [567, 567],
       "drawn": false,
       "flags": {},
       "rangeL": 567,
@@ -8512,10 +6811,7 @@
       "type": 0,
       "text": "Ursula",
       "img": "icons/svg/d20.svg",
-      "range": [
-        568,
-        568
-      ],
+      "range": [568, 568],
       "drawn": false,
       "flags": {},
       "rangeL": 568,
@@ -8527,10 +6823,7 @@
       "type": 0,
       "text": "Valentijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        569,
-        569
-      ],
+      "range": [569, 569],
       "drawn": false,
       "flags": {},
       "rangeL": 569,
@@ -8542,10 +6835,7 @@
       "type": 0,
       "text": "Veerle",
       "img": "icons/svg/d20.svg",
-      "range": [
-        570,
-        570
-      ],
+      "range": [570, 570],
       "drawn": false,
       "flags": {},
       "rangeL": 570,
@@ -8557,10 +6847,7 @@
       "type": 0,
       "text": "Veerletje",
       "img": "icons/svg/d20.svg",
-      "range": [
-        571,
-        571
-      ],
+      "range": [571, 571],
       "drawn": false,
       "flags": {},
       "rangeL": 571,
@@ -8572,10 +6859,7 @@
       "type": 0,
       "text": "Vera",
       "img": "icons/svg/d20.svg",
-      "range": [
-        572,
-        572
-      ],
+      "range": [572, 572],
       "drawn": false,
       "flags": {},
       "rangeL": 572,
@@ -8587,10 +6871,7 @@
       "type": 0,
       "text": "Vlinder",
       "img": "icons/svg/d20.svg",
-      "range": [
-        573,
-        573
-      ],
+      "range": [573, 573],
       "drawn": false,
       "flags": {},
       "rangeL": 573,
@@ -8602,10 +6883,7 @@
       "type": 0,
       "text": "Wieb",
       "img": "icons/svg/d20.svg",
-      "range": [
-        574,
-        574
-      ],
+      "range": [574, 574],
       "drawn": false,
       "flags": {},
       "rangeL": 574,
@@ -8617,10 +6895,7 @@
       "type": 0,
       "text": "Wiebrand",
       "img": "icons/svg/d20.svg",
-      "range": [
-        575,
-        575
-      ],
+      "range": [575, 575],
       "drawn": false,
       "flags": {},
       "rangeL": 575,
@@ -8632,10 +6907,7 @@
       "type": 0,
       "text": "Wilco",
       "img": "icons/svg/d20.svg",
-      "range": [
-        576,
-        576
-      ],
+      "range": [576, 576],
       "drawn": false,
       "flags": {},
       "rangeL": 576,
@@ -8647,10 +6919,7 @@
       "type": 0,
       "text": "Wilhelmina",
       "img": "icons/svg/d20.svg",
-      "range": [
-        577,
-        577
-      ],
+      "range": [577, 577],
       "drawn": false,
       "flags": {},
       "rangeL": 577,
@@ -8662,10 +6931,7 @@
       "type": 0,
       "text": "Willem",
       "img": "icons/svg/d20.svg",
-      "range": [
-        578,
-        578
-      ],
+      "range": [578, 578],
       "drawn": false,
       "flags": {},
       "rangeL": 578,
@@ -8677,10 +6943,7 @@
       "type": 0,
       "text": "Willemijn",
       "img": "icons/svg/d20.svg",
-      "range": [
-        579,
-        579
-      ],
+      "range": [579, 579],
       "drawn": false,
       "flags": {},
       "rangeL": 579,
@@ -8692,10 +6955,7 @@
       "type": 0,
       "text": "William",
       "img": "icons/svg/d20.svg",
-      "range": [
-        580,
-        580
-      ],
+      "range": [580, 580],
       "drawn": false,
       "flags": {},
       "rangeL": 580,
@@ -8707,10 +6967,7 @@
       "type": 0,
       "text": "Wim",
       "img": "icons/svg/d20.svg",
-      "range": [
-        581,
-        581
-      ],
+      "range": [581, 581],
       "drawn": false,
       "flags": {},
       "rangeL": 581,
@@ -8722,10 +6979,7 @@
       "type": 0,
       "text": "Wouder",
       "img": "icons/svg/d20.svg",
-      "range": [
-        582,
-        582
-      ],
+      "range": [582, 582],
       "drawn": false,
       "flags": {},
       "rangeL": 582,
@@ -8737,10 +6991,7 @@
       "type": 0,
       "text": "Wouter",
       "img": "icons/svg/d20.svg",
-      "range": [
-        583,
-        583
-      ],
+      "range": [583, 583],
       "drawn": false,
       "flags": {},
       "rangeL": 583,
