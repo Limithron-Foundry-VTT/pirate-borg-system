@@ -95,7 +95,7 @@ export class PBActor extends Actor {
   }
 
   /** @override */
-  async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
     if (this.type === CONFIG.PB.actorTypes.character && documents[0].type === CONFIG.PB.itemTypes.class) {
       await this.deleteEmbeddedDocuments(
         "Item",
@@ -106,11 +106,11 @@ export class PBActor extends Actor {
           .map((item) => item.id)
       );
     }
-    await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
   }
 
   /** @override */
-  async _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
     for (const document of documents) {
       if (document.isContainer) {
         await this.deleteEmbeddedDocuments("Item", document.items);
@@ -119,7 +119,7 @@ export class PBActor extends Actor {
         document.container.removeItem(document.id);
       }
     }
-    await super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
   }
 
   async addCondition(effect, flags = {}) {
