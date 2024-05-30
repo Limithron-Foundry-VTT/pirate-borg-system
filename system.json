@@ -502,7 +502,7 @@
   },
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "background": "https://raw.githubusercontent.com/Limithron-Foundry-VTT/pirate-borg-system/main/ui/background.jpg",
+  "background": "systems/pirateborg/ui/pirate-borg.png",
   "url": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.json",
   "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/latest/download/system.zip",
