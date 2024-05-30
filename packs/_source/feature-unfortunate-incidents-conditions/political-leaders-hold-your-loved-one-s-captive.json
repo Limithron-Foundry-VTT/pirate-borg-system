@@ -1,0 +1,21 @@
+{
+  "_id": "rzRpKtApguVcHvBv",
+  "name": "Political leaders hold your loved one(s) captive.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>Political leaders hold your loved one(s) captive.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!rzRpKtApguVcHvBv"
+}

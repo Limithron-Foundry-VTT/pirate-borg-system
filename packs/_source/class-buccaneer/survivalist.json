@@ -1,0 +1,33 @@
+{
+  "_id": "aLnujMWeM7tsNsek",
+  "name": "Survivalist",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Your body has developed into a finely tuned machine for existing in the wild. Gain +1 Toughness . You cannot become infected, sick, or poisoned, and your maximum HP increases by d4.</p>\n<p>If taken again: gain +1 Toughness and HP increases another d4</p>",
+    "featureType": "Class",
+    "maxQuantity": 2,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.4.2",
+    "coreVersion": "10.291",
+    "createdTime": null,
+    "modifiedTime": 1679571515556,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!aLnujMWeM7tsNsek"
+}

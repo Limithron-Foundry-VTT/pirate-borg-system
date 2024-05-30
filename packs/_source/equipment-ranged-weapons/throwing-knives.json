@@ -1,0 +1,41 @@
+{
+  "_id": "dKZLxSHRplrCo4e7",
+  "name": "Throwing knives",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/ranged-weapons/throwing-knife.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 8,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d4",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "ranged",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.dagger.throw.01.white"
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!dKZLxSHRplrCo4e7"
+}

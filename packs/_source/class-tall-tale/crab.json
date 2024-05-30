@@ -1,0 +1,25 @@
+{
+  "_id": "WsNJPvaU4ZhZJ1MY",
+  "name": "Crab",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/crab.png",
+  "data": {
+    "description": "<p>Pincher: d6.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Crab - Pincher",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!WsNJPvaU4ZhZJ1MY"
+}

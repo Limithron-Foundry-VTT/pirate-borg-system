@@ -1,0 +1,25 @@
+{
+  "_id": "llfwA4T1PokLgWkS",
+  "name": "Black Powder Poet",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You start with explosives. Roll d4 times on the Bombs table.</p>\n<p>Your DR is -2 when throwing bombs</p>",
+    "featureType": "Class",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!llfwA4T1PokLgWkS"
+}

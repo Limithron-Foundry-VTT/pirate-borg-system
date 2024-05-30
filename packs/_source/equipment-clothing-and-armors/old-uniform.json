@@ -1,0 +1,32 @@
+{
+  "_id": "7hLixvuL9S6mXREu",
+  "name": "Old uniform",
+  "type": "armor",
+  "img": "systems/pirateborg/icons/equipment/armors/old-uniform.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 8,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "currentTier": 1,
+    "maxTier": 1,
+    "tier": {
+      "min": 0,
+      "max": 0,
+      "value": 0
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!7hLixvuL9S6mXREu"
+}

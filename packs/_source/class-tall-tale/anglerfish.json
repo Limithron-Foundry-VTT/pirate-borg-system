@@ -1,0 +1,25 @@
+{
+  "_id": "lt6FGtfR0faT7qR4",
+  "name": "Anglerfish",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/angler-fish.png",
+  "data": {
+    "description": "<p>See in the dark. Bite: d4.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Anglerfish - Bite",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!lt6FGtfR0faT7qR4"
+}

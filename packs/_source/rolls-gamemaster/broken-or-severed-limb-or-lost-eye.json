@@ -1,0 +1,49 @@
+{
+  "name": "Broken or severed limb or Lost eye",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "Gq6CFvw9WFTuwZWX",
+      "type": 0,
+      "text": "Broken or severed limb",
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 1,
+      "rangeH": 5,
+      "_key": "!tables.results!akVJTxuCEoiyE1Sw.Gq6CFvw9WFTuwZWX"
+    },
+    {
+      "_id": "SolwypgX2lVwvR4B",
+      "type": 0,
+      "text": "Lost eye",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!akVJTxuCEoiyE1Sw.SolwypgX2lVwvR4B"
+    }
+  ],
+  "formula": "d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "akVJTxuCEoiyE1Sw",
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!akVJTxuCEoiyE1Sw"
+}

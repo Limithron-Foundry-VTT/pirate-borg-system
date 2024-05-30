@@ -1,0 +1,25 @@
+{
+  "_id": "FZXm37HkCs8KyETv",
+  "name": "Blood Frenzy",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>+2 to damage rolls for each enemy you&rsquo;ve killed so far this battle. Resets/ends after 10 rounds (1 minute) of no death.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!FZXm37HkCs8KyETv"
+}

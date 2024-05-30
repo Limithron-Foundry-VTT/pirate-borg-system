@@ -1,0 +1,378 @@
+{
+  "_id": "WxY6dDA8UGahiukE",
+  "name": "d20 Arcane rituals",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "A random table created from the contents of the Arcane rituals Folder.",
+  "results": [
+    {
+      "text": "Call of the Sea",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "JIcvijvyiIIEFGyV",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "ckxkc5i2dv5ftdsl",
+      "flags": {},
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.ckxkc5i2dv5ftdsl"
+    },
+    {
+      "text": "Curse of the Drowned",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "n2hI94U5o3CY0wI9",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "8vcdesnknood4h9g",
+      "flags": {},
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.8vcdesnknood4h9g"
+    },
+    {
+      "text": "Dark Delusions",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "0YT9OwwBIzFUOv1D",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "26ws8ce1bry42i47",
+      "flags": {},
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.26ws8ce1bry42i47"
+    },
+    {
+      "text": "Divination",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "lgxbkDCqZ2bBQ8wo",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "6qs4xer92bf3wcxl",
+      "flags": {},
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.6qs4xer92bf3wcxl"
+    },
+    {
+      "text": "Eldritch Tentacles",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "pxGux1jivInKvMx9",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_id": "ob849elkc41sivgp",
+      "flags": {},
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.ob849elkc41sivgp"
+    },
+    {
+      "text": "Heart Hex",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "xhQBrTfC09FYje8q",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_id": "1pho0mps4r614s67",
+      "flags": {},
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.1pho0mps4r614s67"
+    },
+    {
+      "text": "Thalassomancy",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "AwPCCxUcnSRqIRco",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_id": "r1ioz2156orh58x8",
+      "flags": {},
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.r1ioz2156orh58x8"
+    },
+    {
+      "text": "Light of a Thousand Stars",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "Qc8lbxQg03PVRkl0",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_id": "cfjculfiht5qqrfx",
+      "flags": {},
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.cfjculfiht5qqrfx"
+    },
+    {
+      "text": "Mermaid's Kiss",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "8qy6kGcq6YfiiWYX",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_id": "u2viws1ycos1vghh",
+      "flags": {},
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.u2viws1ycos1vghh"
+    },
+    {
+      "text": "Mind Manacles",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "XmNX5qADwgu5oDb8",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_id": "rh1h4px2uojumtpn",
+      "flags": {},
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.rh1h4px2uojumtpn"
+    },
+    {
+      "text": "Mists of Confusion",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "AjfhYyj0bpTUN1hI",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_id": "d7zttus8w3cria8y",
+      "flags": {},
+      "rangeL": 11,
+      "rangeH": 11,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.d7zttus8w3cria8y"
+    },
+    {
+      "text": "Obfuscate Time",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "kMuqoc7AI5xGWTdL",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_id": "5tsbhivoo1878j2o",
+      "flags": {},
+      "rangeL": 12,
+      "rangeH": 12,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.5tsbhivoo1878j2o"
+    },
+    {
+      "text": "Phantasmal Fauna",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "Hkp58x5UM1YPh8OV",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_id": "nrcv8n4b9wmgvpra",
+      "flags": {},
+      "rangeL": 13,
+      "rangeH": 13,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.nrcv8n4b9wmgvpra"
+    },
+    {
+      "text": "Release the Kraken",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "LjAGl888s3KWBKar",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_id": "8m2jfad1z5qlob2d",
+      "flags": {},
+      "rangeL": 14,
+      "rangeH": 14,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.8m2jfad1z5qlob2d"
+    },
+    {
+      "text": "Reopen the Grave",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "Oo5wutwGkEKWXZfq",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_id": "zoyy5dezjrurcllc",
+      "flags": {},
+      "rangeL": 15,
+      "rangeH": 15,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.zoyy5dezjrurcllc"
+    },
+    {
+      "text": "Return from the Locker",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "fORCeX7DPICYhKUF",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_id": "e7dp5g406u0e5k8k",
+      "flags": {},
+      "rangeL": 16,
+      "rangeH": 16,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.e7dp5g406u0e5k8k"
+    },
+    {
+      "text": "Spiritual Ward",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "zWSeDetkyDGR3eM8",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_id": "r67c75m66ojkydwr",
+      "flags": {},
+      "rangeL": 17,
+      "rangeH": 17,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.r67c75m66ojkydwr"
+    },
+    {
+      "text": "Summon the Ferryman",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "emwlVE39waM3F8gq",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_id": "sqnj356sh4kymyfn",
+      "flags": {},
+      "rangeL": 18,
+      "rangeH": 18,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.sqnj356sh4kymyfn"
+    },
+    {
+      "text": "The Black Spot",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "Its92jEPpQG0UGjq",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "_id": "tn5dnxacf21x8g8f",
+      "flags": {},
+      "rangeL": 19,
+      "rangeH": 19,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.tn5dnxacf21x8g8f"
+    },
+    {
+      "text": "Weathercraft",
+      "type": 2,
+      "collection": "pirateborg.invokable-arcane-rituals",
+      "resultId": "p3mIODXVefl5j6C5",
+      "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_id": "bns74b5fy6qur9m1",
+      "flags": {},
+      "rangeL": 20,
+      "rangeH": 20,
+      "_key": "!tables.results!WxY6dDA8UGahiukE.bns74b5fy6qur9m1"
+    }
+  ],
+  "formula": "1d20",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!WxY6dDA8UGahiukE"
+}

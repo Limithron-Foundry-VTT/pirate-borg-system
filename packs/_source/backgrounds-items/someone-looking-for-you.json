@@ -1,0 +1,30 @@
+{
+  "_id": "eEy9p3qujBYy98s5",
+  "name": "someone looking for you",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/crow-nest.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!eEy9p3qujBYy98s5"
+}

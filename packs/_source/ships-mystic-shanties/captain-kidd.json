@@ -1,0 +1,23 @@
+{
+  "_id": "5sGIaD4NrgbDmBhF",
+  "name": "Captain Kidd",
+  "type": "shanty",
+  "img": "systems/pirateborg/icons/misc/shanty.png",
+  "data": {
+    "description": "<p>Attacks from this ship are DR -2 for d6 rounds.</p>\n<p><strong><em>Chorus<br /></em></strong><em>My name is Captain Kidd<br /></em><em>As I sailed, as I sailed<br /></em><em>Oh my name is Captain Kidd as I sailed<br /></em><em>My name is Captain Kidd<br /></em><em>And God's laws I did forbid<br /></em><em>And most wickedly I did as I sailed</em></p>\n<p><a href=\"https://youtu.be/sZT90L4D8Gw\">Play Song</a></p>",
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "price": null,
+    "carryWeight": null,
+    "containerSpace": null,
+    "quantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!5sGIaD4NrgbDmBhF"
+}

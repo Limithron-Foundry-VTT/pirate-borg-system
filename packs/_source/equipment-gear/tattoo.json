@@ -1,0 +1,25 @@
+{
+  "_id": "bF3UdJ1rFGquOhol",
+  "name": "Tattoo",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/tattoo.png",
+  "data": {
+    "description": "<p>10-150s</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 10,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!bF3UdJ1rFGquOhol"
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "GWVUuobnhYvBg5bk",
+  "name": "holy symbol",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/misc/holy-symbol.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!GWVUuobnhYvBg5bk"
+}

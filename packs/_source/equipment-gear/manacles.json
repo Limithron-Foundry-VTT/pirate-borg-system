@@ -1,0 +1,25 @@
+{
+  "_id": "2mYNX8h54DVRDlXa",
+  "name": "Manacles",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/manacles.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!2mYNX8h54DVRDlXa"
+}

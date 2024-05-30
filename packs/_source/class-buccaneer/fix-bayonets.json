@@ -1,0 +1,25 @@
+{
+  "_id": "a44UBgayTh0aBtcy",
+  "name": "Fix Bayonets!",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You now have a bayonet (d4). You can attack with it on the same turn you reload.</p>\n<p>If taken again: d6 damage instead.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!a44UBgayTh0aBtcy"
+}

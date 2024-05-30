@@ -1,0 +1,28 @@
+{
+  "_id": "hdwIegRvRbYUdkLR",
+  "name": "Blessed Guidance",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>Thou may add d4 to any roll thee or another player maketh. Use this at any time, including after a roll (does not taketh thy action).</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!hdwIegRvRbYUdkLR"
+}

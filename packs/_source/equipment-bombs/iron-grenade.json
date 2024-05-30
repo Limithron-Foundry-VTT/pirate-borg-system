@@ -1,0 +1,25 @@
+{
+  "_id": "tv4wG0SRp032hTmD",
+  "name": "Iron grenade",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/bombs/iron-grenade.png",
+  "data": {
+    "description": "<p><strong>Light fuse, throw the bomb (test Agility DR12)</strong>: Anyone within 5' must test Agility DR12 or take damage.&nbsp;<strong>Crit&nbsp;</strong>: double damage.&nbsp;<strong>Fumble</strong>&nbsp;: hit d4 allies instead.</p>\n<p>3d6 damage</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!tv4wG0SRp032hTmD"
+}

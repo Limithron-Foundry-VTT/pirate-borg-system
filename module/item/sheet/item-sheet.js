@@ -8,7 +8,7 @@ import { configureEditor } from "../../system/configure-editor.js";
 export class PBItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "item"],
       width: 500,
       height: 500,
@@ -25,6 +25,58 @@ export class PBItemSheet extends ItemSheet {
         { dropSelector: 'textarea[name="system.startingBonusRolls"]' },
         { dropSelector: 'input[name="system.startingMacro"]' },
       ],
+    });
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    html.find(".effect-create").click(async () => {
+      if (this.item.isOwned) {
+        ui.notifications.error(game.i18n.localize("PB.EffectsItemOwned"));
+      }
+      const effectData = {
+        label: this.item.name,
+        icon: this.item.img,
+      };
+
+      const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html", effectData);
+      const dialog = new Dialog({
+        title: game.i18n.localize("PB.EffectsQuick"),
+        content: html,
+        buttons: {
+          create: {
+            label: game.i18n.localize("PB.EffectsCreate"),
+            callback: (html) => {
+              effectData.name = html.find(".label").val();
+              effectData.changes = [
+                {
+                  key: html.find(".key").val(),
+                  mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+                  value: parseInt(html.find(".modifier").val()),
+                },
+              ];
+              this.object.createEmbeddedDocuments("ActiveEffect", [effectData]);
+            },
+          },
+          skip: {
+            label: game.i18n.localize("PB.EffectsSkip"),
+            callback: () => this.object.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
+          },
+        },
+      });
+      await dialog._render(true);
+      dialog._element.find(".label").select();
+    });
+
+    html.find(".effect-edit").click((ev) => {
+      const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+      this.object.effects.get(id).sheet.render(true);
+    });
+
+    html.find(".effect-delete").click((ev) => {
+      const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+      this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
     });
   }
 
@@ -63,6 +115,15 @@ export class PBItemSheet extends ItemSheet {
       formData.data.system = formData.data.data;
       delete formData.data.data;
     }
+
+    formData.descriptionHTML = formData.data.system.description
+      ? await TextEditor.enrichHTML(formData.data.system.description, {
+          secrets: !!formData.owner,
+          links: true,
+          async: true,
+        })
+      : "";
+
     return formData;
   }
 

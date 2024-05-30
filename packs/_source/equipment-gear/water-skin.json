@@ -1,0 +1,25 @@
+{
+  "_id": "6BwQx8gQbvqvhzXR",
+  "name": "Water skin",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/water-skin.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!6BwQx8gQbvqvhzXR"
+}

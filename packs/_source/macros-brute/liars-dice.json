@@ -1,0 +1,24 @@
+{
+  "_id": "hfmwHZOb042Rad2C",
+  "name": "Liar's Dice",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "const showGenericCard = game.pirateborg.api.showGenericCard;\nconst outcome = await game.pirateborg.api.outcomes.rollOutcome({\n formula: \"5d6\",\n data: actor.getRollData(), \n})();\n\noutcome.title = outcome.roll.total % 2 ? 'Failure' : 'Success' \n\nawait showGenericCard({\n actor: actor,\n title: item.name,\n description: item.description,\n outcomes: [outcome],\n})",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.4.2",
+    "coreVersion": "10.277",
+    "createdTime": null,
+    "modifiedTime": 1661361943295,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!macros!hfmwHZOb042Rad2C"
+}

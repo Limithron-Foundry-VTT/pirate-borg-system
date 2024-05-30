@@ -1,0 +1,25 @@
+{
+  "_id": "KcekWMrodqS4qmsy",
+  "name": "Cannon ball",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/cannon-ball.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 3,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!KcekWMrodqS4qmsy"
+}

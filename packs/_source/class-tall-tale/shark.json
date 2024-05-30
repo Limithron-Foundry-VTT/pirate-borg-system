@@ -1,0 +1,25 @@
+{
+  "_id": "eFihUJ3xVpEWIlhu",
+  "name": "Shark",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/shark.png",
+  "data": {
+    "description": "<p>Bite: d8</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Shark - Bite",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!eFihUJ3xVpEWIlhu"
+}

@@ -8,7 +8,7 @@ import { findCompendiumItem } from "../api/compendium.js";
 export class PBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
-    mergeObject(data, getActorDefaults(data.type), { overwrite: false });
+    foundry.utils.mergeObject(data, getActorDefaults(data.type), { overwrite: false });
     return super.create(data, options);
   }
 
@@ -95,7 +95,7 @@ export class PBActor extends Actor {
   }
 
   /** @override */
-  async _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
     if (this.type === CONFIG.PB.actorTypes.character && documents[0].type === CONFIG.PB.itemTypes.class) {
       await this.deleteEmbeddedDocuments(
         "Item",
@@ -106,11 +106,11 @@ export class PBActor extends Actor {
           .map((item) => item.id)
       );
     }
-    await super._onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
   }
 
   /** @override */
-  async _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+  async _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
     for (const document of documents) {
       if (document.isContainer) {
         await this.deleteEmbeddedDocuments("Item", document.items);
@@ -119,7 +119,56 @@ export class PBActor extends Actor {
         document.container.removeItem(document.id);
       }
     }
-    await super._onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId);
+    await super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+  }
+
+  async addCondition(effect, flags = {}) {
+    if (typeof effect === "string") {
+      effect = foundry.utils.duplicate(CONFIG.statusEffects.concat(Object.values(game.pirateborg.config.systemEffects)).find((e) => e.id === effect));
+    }
+    if (!effect) {
+      return game.i18n.localize("PB.EffectsNoneFound");
+    }
+
+    if (!effect.id) {
+      return game.i18n.localize("PB.EffectsConditionIDMissing");
+    }
+
+    if (!effect.flags) {
+      effect.flags = flags;
+    } else {
+      foundry.utils.mergeObject(effect.flags, flags);
+    }
+
+    if (!this.hasCondition(effect.id)) {
+      effect.name = game.i18n.localize(effect.name);
+      effect.statuses = [effect.id];
+      delete effect.id;
+      return this.createEmbeddedDocuments("ActiveEffect", [effect]);
+    }
+  }
+
+  hasCondition(conditionKey) {
+    return this.effects.find((e) => e.statuses.has(conditionKey));
+  }
+
+  async removeCondition(effect) {
+    if (typeof effect === "string") {
+      effect = foundry.utils.duplicate(CONFIG.statusEffects.concat(Object.values(game.pirateborg.config.systemEffects)).find((e) => e.id === effect));
+    }
+    if (!effect) {
+      return game.i18n.localize("PB.EffectsNoneFound");
+    }
+
+    if (!effect.id) {
+      return game.i18n.localize("PB.EffectsConditionIDMissing");
+    }
+
+    const existing = this.hasCondition(effect.id);
+
+    if (existing) {
+      return existing.delete();
+    }
   }
 
   /** V10 */

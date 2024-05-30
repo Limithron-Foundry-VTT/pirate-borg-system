@@ -7,7 +7,7 @@ import PBActorSheet from "./actor-sheet.js";
 export class PBActorSheetCreature extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "creature"],
       template: "systems/pirateborg/templates/actor/creature-sheet.html",
       width: 500,

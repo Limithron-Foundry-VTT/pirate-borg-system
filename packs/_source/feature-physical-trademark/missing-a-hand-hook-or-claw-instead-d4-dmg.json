@@ -1,0 +1,21 @@
+{
+  "_id": "vXf80GMPBHAeudoc",
+  "name": "Missing a hand: hook or claw instead [d4 dmg]",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Missing a hand: hook or claw instead [d4 dmg]</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!vXf80GMPBHAeudoc"
+}

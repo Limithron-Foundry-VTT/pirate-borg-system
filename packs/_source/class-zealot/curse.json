@@ -1,0 +1,28 @@
+{
+  "_id": "BIE7kmzIGj9anVVN",
+  "name": "Curse",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>Test Spirit DR10: deal d8 + Spirit damage to an enemy that thou cannot see. DR8 if it has already been hurt in this fight</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!BIE7kmzIGj9anVVN"
+}

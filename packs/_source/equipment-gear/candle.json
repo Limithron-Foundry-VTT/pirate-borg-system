@@ -1,0 +1,25 @@
+{
+  "_id": "ODkpsHRRjyHr37d5",
+  "name": "Candle",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/candle.png",
+  "data": {
+    "description": "<p>1 hour each</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!ODkpsHRRjyHr37d5"
+}

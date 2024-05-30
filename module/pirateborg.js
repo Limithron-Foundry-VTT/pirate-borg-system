@@ -37,3 +37,10 @@ Hooks.on("renderChatMessage", handleChatMessageButton);
 Hooks.on("renderChatMessage", handleChatMessageGMOnly);
 Hooks.on("renderChatMessage", handleChatMessageAutomation);
 Hooks.on("dragRuler.ready", onDragRulerReady);
+
+Hooks.on("renderPause", (app, [html]) => {
+  html.classList.add("pirateborg");
+  const img = html.querySelector("img");
+  img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
+  img.className = "";
+});

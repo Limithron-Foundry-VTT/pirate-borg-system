@@ -1,4 +1,5 @@
 css/
+packs/_source/
 node_modules
 *.min.css
 *.min.js

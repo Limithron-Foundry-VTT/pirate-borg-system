@@ -1,0 +1,25 @@
+{
+  "_id": "tMfu4Or6ga4eDqbz",
+  "name": "herbs",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/misc/herbs-bundle.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!tMfu4Or6ga4eDqbz"
+}

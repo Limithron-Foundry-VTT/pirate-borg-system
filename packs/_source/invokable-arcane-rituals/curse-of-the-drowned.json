@@ -1,0 +1,36 @@
+{
+  "_id": "n2hI94U5o3CY0wI9",
+  "name": "Curse of the Drowned",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>For d6 rounds, a creature gets +4 to all DRs and is dr-4 to defend against</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931647,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!n2hI94U5o3CY0wI9"
+}

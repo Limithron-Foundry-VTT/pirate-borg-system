@@ -1,0 +1,21 @@
+{
+  "_id": "cU8xBx8PHA92JELB",
+  "name": "You slaughtered them. Like animals.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You slaughtered them. Like animals.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!cU8xBx8PHA92JELB"
+}

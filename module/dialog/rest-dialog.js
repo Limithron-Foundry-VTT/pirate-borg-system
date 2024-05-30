@@ -9,7 +9,7 @@ class RestDialog extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "rest-dialog",
       classes: ["custom-dialog", "rest-dialog"],
       template: REST_DIALOG_TEMPLATE,

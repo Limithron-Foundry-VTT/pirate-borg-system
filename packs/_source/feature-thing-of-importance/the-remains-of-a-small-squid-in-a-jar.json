@@ -1,0 +1,25 @@
+{
+  "_id": "eh7K9Mq9cLsbGVY4",
+  "name": "the remains of a small squid in a jar",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>the remains of a small squid in a jar</p>\n<p>&nbsp;</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!eh7K9Mq9cLsbGVY4"
+}

@@ -11,7 +11,7 @@ export const OUTCOME_TEST = {
 export const outcome =
   ({ type = "outcome", title = "", description = "", ...props }) =>
   () => ({
-    id: randomID(),
+    id: foundry.utils.randomID(),
     type,
     title,
     description,
@@ -105,7 +105,7 @@ export const withButton =
       title,
       data: {
         type,
-        id: randomID(),
+        id: foundry.utils.randomID(),
         outcome: outcome.id,
       },
     },

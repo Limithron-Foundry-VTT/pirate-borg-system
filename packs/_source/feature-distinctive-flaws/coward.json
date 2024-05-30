@@ -1,0 +1,21 @@
+{
+  "_id": "qAiPz6UV8pgzAUoO",
+  "name": "Coward",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/flaw.png",
+  "data": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!qAiPz6UV8pgzAUoO"
+}

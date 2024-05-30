@@ -1,0 +1,21 @@
+{
+  "_id": "wpY4vk2fP2qcHy8m",
+  "name": "necklace carved from jade",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>a necklace carved from jade</p>",
+    "featureType": "Thing of Importance",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!wpY4vk2fP2qcHy8m"
+}

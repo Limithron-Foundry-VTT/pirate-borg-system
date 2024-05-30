@@ -1,0 +1,36 @@
+{
+  "_id": "uI3Nj4gXZLzZhgOq",
+  "name": "Mummified Monkey Head",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-mummified-monkey-head.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>The head speaks: 1 creature tests SPIRIT DR12 or must obey a 1 word command.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604932001,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!uI3Nj4gXZLzZhgOq"
+}

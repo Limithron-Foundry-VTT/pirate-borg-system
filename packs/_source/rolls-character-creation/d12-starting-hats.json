@@ -1,0 +1,180 @@
+{
+  "_id": "sjglJ6EDdyqC1qh9",
+  "name": "d12 Starting hats",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "cmXzmmJ6pZNxLK5Q",
+      "type": 2,
+      "text": "Wig",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/wig.png",
+      "resultId": "sKk6MBZIpdCjq5UI",
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.cmXzmmJ6pZNxLK5Q"
+    },
+    {
+      "_id": "WYcTySYV2FHnLzh3",
+      "type": 2,
+      "text": "Bandanna",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/bandanna.png",
+      "resultId": "KAuRP8a5VLFo0ze9",
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.WYcTySYV2FHnLzh3"
+    },
+    {
+      "_id": "70rKH6mcPpxCJdws",
+      "type": 2,
+      "text": "Cavalier",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/cavalier.png",
+      "resultId": "QUgXibCORTUeVEHI",
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.70rKH6mcPpxCJdws"
+    },
+    {
+      "_id": "x4h068dGjcfztDi8",
+      "type": 2,
+      "text": "Bicorne",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/bicorne.png",
+      "resultId": "OraNpvJhRBn9t2cS",
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.x4h068dGjcfztDi8"
+    },
+    {
+      "_id": "NO8WXvkXed53LwCj",
+      "type": 2,
+      "text": "Plain tricorne",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/plain-tricorne.png",
+      "resultId": "1jj2mk6uLb3glRXA",
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.NO8WXvkXed53LwCj"
+    },
+    {
+      "_id": "p7ezEXVRUnFF6phG",
+      "type": 2,
+      "text": "Fancy tricorne",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/fancy-tricorne.png",
+      "resultId": "Q0MKChZGQGR7s8ir",
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.p7ezEXVRUnFF6phG"
+    },
+    {
+      "_id": "ZFPN7gVVLosM4gri",
+      "type": 2,
+      "text": "Metal lined hat",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/metal-lined-hat.png",
+      "resultId": "cljgtksYMJJYMvEs",
+      "rangeL": 11,
+      "rangeH": 11,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.ZFPN7gVVLosM4gri"
+    },
+    {
+      "_id": "EcBZOgM4n82jrHmT",
+      "type": 2,
+      "text": "Morion",
+      "collection": "pirateborg.equipment-hats",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/hats/conquistador-helmet.png",
+      "resultId": "BgYoavjKu6Uc02bW",
+      "rangeL": 12,
+      "rangeH": 12,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.EcBZOgM4n82jrHmT"
+    },
+    {
+      "_id": "7Yqsf42xCaOYUKIE",
+      "type": 0,
+      "text": "",
+      "weight": 1,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 1,
+      "rangeH": 4,
+      "collection": null,
+      "resultId": null,
+      "_key": "!tables.results!sjglJ6EDdyqC1qh9.7Yqsf42xCaOYUKIE"
+    }
+  ],
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!sjglJ6EDdyqC1qh9"
+}

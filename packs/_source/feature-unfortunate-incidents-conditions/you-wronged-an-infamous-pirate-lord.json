@@ -1,0 +1,21 @@
+{
+  "_id": "vhQTzhjOBKUVGT4q",
+  "name": "You wronged an infamous pirate lord.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You wronged an infamous pirate lord.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!vhQTzhjOBKUVGT4q"
+}

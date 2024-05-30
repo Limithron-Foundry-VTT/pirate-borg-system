@@ -1,0 +1,25 @@
+{
+  "_id": "X9R5ECSLIqV7QyOZ",
+  "name": "Cat",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/pets/cat.png",
+  "data": {
+    "description": "",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!X9R5ECSLIqV7QyOZ"
+}

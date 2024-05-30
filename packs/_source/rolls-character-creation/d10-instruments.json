@@ -1,0 +1,198 @@
+{
+  "_id": "5LnpMiTEgxAqUtow",
+  "name": "d10 Instruments",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Instruments",
+  "results": [
+    {
+      "text": "Concertina",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "V0dB0Fq4ZtAITHRu",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "w6dwien8eof3l8n7",
+      "flags": {},
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.w6dwien8eof3l8n7"
+    },
+    {
+      "text": "Drum",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "XQ1VAfDxa5Wz0DMx",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "zm9t0utzep82xqln",
+      "flags": {},
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.zm9t0utzep82xqln"
+    },
+    {
+      "text": "Flute",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "ms9h28N1UBJCg2yb",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "87gkujuhvolsplmm",
+      "flags": {},
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.87gkujuhvolsplmm"
+    },
+    {
+      "text": "Fiddle",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "LQGrUJMPdsvFvnts",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "1sq0ehuizxazt6dh",
+      "flags": {},
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.1sq0ehuizxazt6dh"
+    },
+    {
+      "text": "Banjo",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "OJbhqszMWJBlqaXa",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_id": "en9w1wo1cntmtu9m",
+      "flags": {},
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.en9w1wo1cntmtu9m"
+    },
+    {
+      "text": "Horn",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "SMBMDAUjTYv89FBm",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_id": "aqvip72qlak4k0mw",
+      "flags": {},
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.aqvip72qlak4k0mw"
+    },
+    {
+      "text": "Hurdy-gurdy",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "23E2WIpYnGCEB2PC",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_id": "pr7kp8ipspei7cok",
+      "flags": {},
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.pr7kp8ipspei7cok"
+    },
+    {
+      "text": "Guitar",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "Mkp5VugSa2ayQd6w",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_id": "zhhvwszxiedsw3f9",
+      "flags": {},
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.zhhvwszxiedsw3f9"
+    },
+    {
+      "text": "Mandolin",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "lrFhWVlsYOXIxVeY",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_id": "hqm8h3l6lhvkbqvj",
+      "flags": {},
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.hqm8h3l6lhvkbqvj"
+    },
+    {
+      "text": "Voice of an angel",
+      "type": 2,
+      "collection": "pirateborg.equipment-instruments",
+      "resultId": "rkw5WvBSr8Hk7T9d",
+      "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_id": "i5wtq8a7bv2tigzl",
+      "flags": {},
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!5LnpMiTEgxAqUtow.i5wtq8a7bv2tigzl"
+    }
+  ],
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!5LnpMiTEgxAqUtow"
+}

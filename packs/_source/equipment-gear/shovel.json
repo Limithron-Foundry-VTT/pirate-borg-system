@@ -1,0 +1,25 @@
+{
+  "_id": "EPh1Aw2gGbG24Qj6",
+  "name": "Shovel",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/shovel.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!EPh1Aw2gGbG24Qj6"
+}

@@ -1,0 +1,26 @@
+{
+  "_id": "AudlYFTjflYGOnnF",
+  "name": "Sleep darts",
+  "type": "ammo",
+  "img": "systems/pirateborg/icons/equipment/ammo/sleep-dart.png",
+  "data": {
+    "description": "<p>Toughness DR12 or fall asleep for d6 rounds</p>",
+    "containerSpace": 0.1,
+    "carryWeight": 0.1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 10,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d4"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!AudlYFTjflYGOnnF"
+}

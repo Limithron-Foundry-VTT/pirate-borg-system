@@ -1,0 +1,108 @@
+{
+  "_id": "fw0HLPLjI0vmPAcF",
+  "name": "Reaction",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UizwAG5Mha1jx5gs",
+      "type": 0,
+      "text": "Bloodthirsty",
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 2,
+      "rangeH": 3,
+      "collection": null,
+      "resultId": null,
+      "_key": "!tables.results!fw0HLPLjI0vmPAcF.UizwAG5Mha1jx5gs"
+    },
+    {
+      "_id": "PLUby33LgjnPQaxq",
+      "type": 0,
+      "text": "Angered or alarmed",
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 4,
+      "rangeH": 6,
+      "collection": null,
+      "resultId": null,
+      "_key": "!tables.results!fw0HLPLjI0vmPAcF.PLUby33LgjnPQaxq"
+    },
+    {
+      "_id": "rUMz3KpiHKBMNObv",
+      "type": 0,
+      "text": "Indifferent, neutral",
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 7,
+      "rangeH": 8,
+      "collection": null,
+      "resultId": null,
+      "_key": "!tables.results!fw0HLPLjI0vmPAcF.rUMz3KpiHKBMNObv"
+    },
+    {
+      "_id": "7nmC87XqoEcXmHNt",
+      "type": 0,
+      "text": "Almost friendly",
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "rangeL": 9,
+      "rangeH": 10,
+      "collection": null,
+      "resultId": null,
+      "_key": "!tables.results!fw0HLPLjI0vmPAcF.7nmC87XqoEcXmHNt"
+    },
+    {
+      "_id": "0TO2wRq7UUBzoQaI",
+      "type": 0,
+      "text": "Helpful",
+      "collection": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "resultId": null,
+      "rangeL": 11,
+      "rangeH": 12,
+      "_key": "!tables.results!fw0HLPLjI0vmPAcF.0TO2wRq7UUBzoQaI"
+    }
+  ],
+  "formula": "2d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!fw0HLPLjI0vmPAcF"
+}

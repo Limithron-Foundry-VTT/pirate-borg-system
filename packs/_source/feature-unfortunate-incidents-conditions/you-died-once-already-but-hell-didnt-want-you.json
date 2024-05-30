@@ -1,0 +1,21 @@
+{
+  "_id": "ZM5pFGpBQKJE9YeI",
+  "name": "You died once already, but Hell didn't want you.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You died once already, but Hell didn't want you.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!ZM5pFGpBQKJE9YeI"
+}

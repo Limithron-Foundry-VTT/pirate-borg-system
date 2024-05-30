@@ -1,0 +1,25 @@
+{
+  "_id": "LXXWUiMO8qauWJXm",
+  "name": "art supplies",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/paint-brush.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!LXXWUiMO8qauWJXm"
+}

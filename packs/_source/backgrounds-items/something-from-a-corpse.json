@@ -1,0 +1,30 @@
+{
+  "_id": "Nwd8rvYfmtt1qb4m",
+  "name": "something from a corpse",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/skull-crossed-bones.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Nwd8rvYfmtt1qb4m"
+}

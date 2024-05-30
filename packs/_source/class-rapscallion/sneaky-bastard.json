@@ -1,0 +1,33 @@
+{
+  "_id": "vG4kUIlZdXqv1S7G",
+  "name": "Sneaky Bastard",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>When striking from the shadows or while sneaking, test Agility DR12. On a success you automatically deal a critical hit.</p>\n<p><em>If taken again: -2 to DR.</em></p>",
+    "featureType": "Class",
+    "maxQuantity": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.14",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1705726835093,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!vG4kUIlZdXqv1S7G"
+}

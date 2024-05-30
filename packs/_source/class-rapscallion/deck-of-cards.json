@@ -1,0 +1,25 @@
+{
+  "_id": "unvgFJ4af8wmlCgZ",
+  "name": "Deck of Cards",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/classes/rapscallion/card-random.png",
+  "data": {
+    "description": "",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-rapscallion;Deck of Cards",
+    "actionMacroLabel": "Draw",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!unvgFJ4af8wmlCgZ"
+}

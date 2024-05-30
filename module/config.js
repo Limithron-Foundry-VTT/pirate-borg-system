@@ -115,7 +115,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
-      vision: true,
+      sight: { enabled: true },
     },
   },
   [PB.actorTypes.container]: {
@@ -123,7 +123,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL,
-      vision: false,
+      sight: { enabled: false },
     },
   },
   [PB.actorTypes.creature]: {
@@ -131,7 +131,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      vision: false,
+      sight: { enabled: false },
     },
   },
   [PB.actorTypes.vehicle]: {
@@ -139,7 +139,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: true,
       disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
-      vision: true,
+      sight: { enabled: true },
     },
   },
   [PB.actorTypes.vehicle_npc]: {
@@ -147,7 +147,7 @@ PB.actorDefaults = {
     prototypeToken: {
       actorLink: false,
       disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE,
-      vision: false,
+      sight: { enabled: false },
     },
   },
 };
@@ -298,21 +298,6 @@ PB.recommendedModules = [
     package: "fxmaster",
     url: "https://foundryvtt.com/packages/fxmaster",
     description: "FXMaster provides various types of weather & filter effects.",
-  },
-  {
-    type: "recommended",
-    name: "Perfect Vision",
-    package: "perfect-vision",
-    url: "https://foundryvtt.com/packages/perfect-vision",
-    description:
-      "Darkvision rules for Dungeons & Dragons 3.5e/5e, Pathfinder 1e/2e, and other systems, as well as other lighting/vision features and improvements.",
-  },
-  {
-    type: "recommended",
-    name: "SmallTime",
-    package: "smalltime",
-    url: "https://foundryvtt.com/packages/smalltime",
-    description: "A small module for displaying and controlling the current time of day.",
   },
   {
     type: "recommended",

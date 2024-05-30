@@ -1,0 +1,25 @@
+{
+  "_id": "23E2WIpYnGCEB2PC",
+  "name": "Hurdy-gurdy",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
+  "data": {
+    "description": "<p>250s+</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 250,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!23E2WIpYnGCEB2PC"
+}

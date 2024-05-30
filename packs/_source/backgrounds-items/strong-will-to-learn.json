@@ -1,0 +1,30 @@
+{
+  "_id": "rfrm7Z0K8cZpfz6S",
+  "name": "strong will to learn",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/equipment/gear/book-pile.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!rfrm7Z0K8cZpfz6S"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "KAuRP8a5VLFo0ze9",
+  "name": "Bandanna",
+  "type": "hat",
+  "img": "systems/pirateborg/icons/equipment/hats/bandanna.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 2,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "reduceDamage": false,
+    "ruleText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!KAuRP8a5VLFo0ze9"
+}

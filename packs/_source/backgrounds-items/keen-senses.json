@@ -1,0 +1,30 @@
+{
+  "_id": "DhqsRr2g0B4tRPSg",
+  "name": "keen senses",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/awareness.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!DhqsRr2g0B4tRPSg"
+}

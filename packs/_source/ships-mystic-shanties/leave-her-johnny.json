@@ -1,0 +1,23 @@
+{
+  "_id": "Ww0BTi6vlINYTVO9",
+  "name": "Leave Her Johnny",
+  "type": "shanty",
+  "img": "systems/pirateborg/icons/misc/shanty.png",
+  "data": {
+    "description": "<p>Reroll Changing Winds (pg. 84)</p>\n<p><em><strong>Chorus<br /></strong></em><em>Leave her, Johnny, leave her<br /></em><em>Oh, leave her, Johnny, leave her<br /></em><em>For the voyage is long and the winds don't blow<br /></em><em>And it's time for us to leave her</em></p>\n<p><a href=\"https://youtu.be/Cko3xXovB5E\">Play Song</a></p>",
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "price": null,
+    "carryWeight": null,
+    "containerSpace": null,
+    "quantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Ww0BTi6vlINYTVO9"
+}

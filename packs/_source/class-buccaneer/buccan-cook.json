@@ -1,0 +1,25 @@
+{
+  "_id": "F8mnXcDUFOeAp141",
+  "name": "Buccan Cook",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Months of island life have taught you the art of cooking meats over the buccan fire. You start with d8 rations of exquisite smoked meat. Eating it immediately recovers d4 HP, and you can make d4 more rations from any edible animal you kill.</p>\n<p>If taken again: recovers d6 instead</p>",
+    "featureType": "Class",
+    "maxQuantity": 2,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!F8mnXcDUFOeAp141"
+}

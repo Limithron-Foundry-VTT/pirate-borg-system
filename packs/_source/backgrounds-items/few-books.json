@@ -1,0 +1,25 @@
+{
+  "_id": "J2vGAXgubsNstEKZ",
+  "name": "few books",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/book-pile.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!J2vGAXgubsNstEKZ"
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "6GtPUU2uRHWitZNf",
+  "name": "Blow the Man Down",
+  "type": "shanty",
+  "img": "systems/pirateborg/icons/misc/shanty.png",
+  "data": {
+    "description": "<p>The ship is +2 DR to hit until the end of combat.</p>\n<p><em><strong>Chorus<br /></strong></em><em>Blow the man down, bullies, blow the man down<br /></em><em>Wey hey, blow the man down<br /></em><em>Blow him right back into Liverpool town<br /></em><em>Gimme some time to blow the man down</em></p>\n<p><a href=\"https://youtu.be/gD1EGv0B-f0\">Play Song</a></p>",
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "price": null,
+    "carryWeight": null,
+    "containerSpace": null,
+    "quantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!6GtPUU2uRHWitZNf"
+}

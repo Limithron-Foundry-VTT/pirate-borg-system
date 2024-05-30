@@ -1,0 +1,21 @@
+{
+  "_id": "zh3pl8KkSNwDcJpQ",
+  "name": "Voluntary insomniac. Sleep is for the dead.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Voluntary insomniac. Sleep is for the dead.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!zh3pl8KkSNwDcJpQ"
+}

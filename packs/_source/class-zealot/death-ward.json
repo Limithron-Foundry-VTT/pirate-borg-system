@@ -1,0 +1,36 @@
+{
+  "_id": "Ne0tn1ArG7UBsCmi",
+  "name": "Death Ward",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Touch the corpse of one who hath just died and test Spirit DR 10: they return to life with 1 HP</p>\n<p><strong>Crit</strong>: Full HP</p>\n<p><strong>Fumble</strong>: They come back as a zombie and attacketh thee!</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.4",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1690381719476,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!Ne0tn1ArG7UBsCmi"
+}

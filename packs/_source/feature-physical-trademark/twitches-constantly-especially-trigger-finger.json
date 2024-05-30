@@ -1,0 +1,21 @@
+{
+  "_id": "g9QaodnStcXlh1el",
+  "name": "Twitches constantly, especially trigger finger",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ailment.png",
+  "data": {
+    "description": "<p>Twitches constantly, especially trigger finger</p>",
+    "featureType": "Physical Trademark",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!g9QaodnStcXlh1el"
+}

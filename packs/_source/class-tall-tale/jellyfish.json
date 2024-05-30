@@ -1,0 +1,25 @@
+{
+  "_id": "tzRkbIPOTs3NZTho",
+  "name": "Jellyfish",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/jellyfish.png",
+  "data": {
+    "description": "<p>Tendril: d2 &amp; Stun 1 round, 10 foot reach.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Jellyfish - Tendril",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!tzRkbIPOTs3NZTho"
+}

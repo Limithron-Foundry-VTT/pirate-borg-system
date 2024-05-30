@@ -1,0 +1,28 @@
+{
+  "_id": "Po7MIV5kAvS9YsNx",
+  "name": "Spiritual Possession",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
+  "data": {
+    "description": "<p>One random creature is possessed by a spirit or ghost.<br />Ally: -2 DR to attack and defense.<br />Enemy: -2 DR to attack or defend against it. Any Fumbles related to this creature cause the spirit to leave, stunning the host for 1 round.</p>\n<p><strong>I.</strong> Lasts for d2 rounds <strong>II.</strong> d4 <strong>III.</strong> Until combat ends</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Sorceries",
+    "isEquipment": false,
+    "maxQuantity": 3
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Po7MIV5kAvS9YsNx"
+}

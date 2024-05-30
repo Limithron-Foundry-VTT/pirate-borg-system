@@ -1,0 +1,25 @@
+{
+  "_id": "wNu5gYrET4yZKkY0",
+  "name": "Smoke Bomb",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/bombs/smoke-bomb.png",
+  "data": {
+    "description": "<p><strong>Light fuse, throw the bomb (test Agility DR12)</strong>: Anyone within 5' must test Agility DR12 or take damage. <strong>Crit </strong>: double damage. <strong>Fumble</strong> : hit d4 allies instead.</p>\n<p>Blind for d4 rounds</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 10,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!wNu5gYrET4yZKkY0"
+}

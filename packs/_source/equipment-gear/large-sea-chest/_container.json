@@ -1,0 +1,26 @@
+{
+  "_id": "AsFDi5YpVrkdTWjg",
+  "name": "Large sea chest",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/large-sea-chest.png",
+  "data": {
+    "description": "<p>Carry 20 normal-sized items.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 50,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 20
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!AsFDi5YpVrkdTWjg"
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "Y5G1q6RYUgGmW4dk",
+  "name": "Shipwright",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; skill with woodworking</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;skill with woodworking"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Y5G1q6RYUgGmW4dk"
+}

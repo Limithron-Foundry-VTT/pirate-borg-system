@@ -22,7 +22,7 @@ class DefendDialog extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["defend-dialog"],
       template: DEFEND_DIALOG_TEMPLATE,
       title: game.i18n.localize("PB.Defend"),

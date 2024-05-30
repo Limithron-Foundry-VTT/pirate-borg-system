@@ -19,6 +19,7 @@
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
     <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
+    <a class="item" data-tab="effects">{{ localize "PB.TabEffects" }}</a>
     <span class="spacer"></span>
   </nav>
 
@@ -26,7 +27,7 @@
   <section class="sheet-body">
     {{! Description Tab }}
     <div class="tab" data-group="primary" data-tab="description">
-      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
+      {{editor descriptionHTML target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{! Details Tab }}
@@ -174,6 +175,11 @@
         <label>{{localize "PB.CharacterGeneratorMacro"}}:</label>
         <input type="text" name="system.characterGeneratorMacro" value="{{data.system.characterGeneratorMacro}}" placeholder="" data-dtype="String" />
       </div>
+    </div>
+
+    {{! Effects }}
+    <div class="tab" data-group="primary" data-tab="effects">
+      {{> systems/pirateborg/templates/item/tab/effects.html}}
     </div>
   </section>
 </form>

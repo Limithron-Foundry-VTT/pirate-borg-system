@@ -1,0 +1,25 @@
+{
+  "_id": "uEPa3dSpWelONDim",
+  "name": "Burglar",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>You begin with lock picks.</p>\n<p>Pickpocket, disarm an enemy, or disable a trap: -4 to DR.</p>\n<p>If taken again: additional -2 to DR.</p>",
+    "featureType": "Class",
+    "maxQuantity": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "pirateborg.equipment-gear;Lock picks",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!uEPa3dSpWelONDim"
+}

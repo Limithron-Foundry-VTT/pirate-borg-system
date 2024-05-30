@@ -1,0 +1,25 @@
+{
+  "_id": "w8cDjHMWKoS2ZQRl",
+  "name": "Eldritch Mind",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Something dark and terrible wells underneath your conscious thoughts. You are drawn to The Deep and are prone to nightmarish visions of antediluvian horrors.</p>\n<p>Every time combat starts, test Presence DR12 to attempt to control your evil thoughts.</p>\n<p>Fail: They are coming! You panic. Your attacks are +4 DR to hit, but you may make 2 a turn.</p>\n<p>Pass: You harness the fear. Attacks are -2 DR to hit for this combat.</p>",
+    "featureType": "Ailment (Haunted Soul)",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!w8cDjHMWKoS2ZQRl"
+}

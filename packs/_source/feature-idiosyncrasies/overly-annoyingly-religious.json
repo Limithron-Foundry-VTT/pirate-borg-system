@@ -1,0 +1,21 @@
+{
+  "_id": "Tic7pL1FTVJKDe4k",
+  "name": "Overly, annoyingly religious.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Overly, annoyingly religious.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Tic7pL1FTVJKDe4k"
+}

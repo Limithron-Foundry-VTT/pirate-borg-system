@@ -1,0 +1,20 @@
+{
+  "_id": "MH0xPlNwb7hja8Ha",
+  "name": "Philosopher",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; a book and a puzzling disposition</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;book and a puzzling disposition"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!MH0xPlNwb7hja8Ha"
+}

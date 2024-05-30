@@ -1,0 +1,25 @@
+{
+  "_id": "NXOxzqM8AgvZYP44",
+  "name": "Whetstone",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/whetstone.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!NXOxzqM8AgvZYP44"
+}

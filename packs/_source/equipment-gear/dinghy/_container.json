@@ -1,0 +1,26 @@
+{
+  "_id": "v2JGvA3Rg2DS8paV",
+  "name": "Dinghy",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/sail.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 250,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "capacity": 20
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!v2JGvA3Rg2DS8paV"
+}

@@ -3,7 +3,7 @@ import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses }
 
 export class AllowedCharacterClassesDialog extends FormApplication {
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "allowed-character-generator-classes-dialog",
       title: game.i18n.localize("PB.AllowedCharacterGeneratorClassesEdit"),
       template: "systems/pirateborg/templates/dialog/allowed-character-generator-classes-dialog.html",
@@ -23,7 +23,7 @@ export class AllowedCharacterClassesDialog extends FormApplication {
   }
 
   getData(options = {}) {
-    return mergeObject(super.getData(options), {
+    return foundry.utils.mergeObject(super.getData(options), {
       classes: this._getAllowedClasses(),
     });
   }

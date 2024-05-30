@@ -10,7 +10,7 @@ export const migrate = async () => {
   const currentVersion = getSystemMigrationVersion();
 
   const NEEDS_MIGRATION_VERSION = "v0.4.2";
-  const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  const needsMigration = currentVersion === null || foundry.utils.isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
 
   console.log(`Current version: ${currentVersion}`);
 

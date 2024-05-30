@@ -1,0 +1,25 @@
+{
+  "_id": "9zAOcmckhadkzb0J",
+  "name": "Tattoo",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>tattoo, d4: 1 love, 2 revenge, 3 ancestors, 4 unknown origi</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!9zAOcmckhadkzb0J"
+}

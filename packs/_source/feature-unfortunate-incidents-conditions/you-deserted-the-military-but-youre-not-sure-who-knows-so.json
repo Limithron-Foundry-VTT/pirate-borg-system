@@ -1,0 +1,25 @@
+{
+  "_id": "nicPuvbfeHvsumpK",
+  "name": "You deserted the military, but you're not sure who knows so.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You deserted the military, but you're not sure who knows so.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!nicPuvbfeHvsumpK"
+}

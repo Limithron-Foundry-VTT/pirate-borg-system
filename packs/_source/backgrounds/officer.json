@@ -1,0 +1,20 @@
+{
+  "_id": "PNXdWlmE8xnDXs9c",
+  "name": "Officer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d8 x 10s &amp; a cutlass and military training</p>",
+    "startingGold": "2d8 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Cutlass\npirateborg.backgrounds-items;military training"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!PNXdWlmE8xnDXs9c"
+}

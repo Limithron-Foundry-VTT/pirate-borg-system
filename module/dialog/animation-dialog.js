@@ -14,7 +14,7 @@ class AnimationDialog extends Application {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["animation-dialog"],
       template: DEFEND_DIALOG_TEMPLATE,
       title: game.i18n.localize("PB.Animation"),

@@ -1,0 +1,30 @@
+{
+  "_id": "ya0LOeywkTDtBxBj",
+  "name": "keepsake from the island",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-item.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!ya0LOeywkTDtBxBj"
+}

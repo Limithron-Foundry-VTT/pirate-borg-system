@@ -1,0 +1,33 @@
+{
+  "_id": "63MCUD3Yr9iHCd9v",
+  "name": "Knife Knave",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>You start with 2 knives, and when attacking with them you can make two attacks a turn. They are -2 DR to hit, and if the first attack hits, the 2nd is an auto-hit.</p>",
+    "featureType": "Class",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "pirateborg.equipment-melee-weapons;Knife\npirateborg.equipment-melee-weapons;Knife",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.3",
+    "coreVersion": "10.291",
+    "createdTime": null,
+    "modifiedTime": 1680575302279,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!63MCUD3Yr9iHCd9v"
+}

@@ -1,0 +1,54 @@
+{
+  "_id": "lBXzEjWCut56xk9X",
+  "name": "Knife or Belaying Pin",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "QiJ5Rq0q8LYQwYBX",
+      "type": 2,
+      "text": "Knife",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/melee-weapons/knife.png",
+      "collection": "pirateborg.equipment-melee-weapons",
+      "resultId": "L83UgOYwaqNzXjuY",
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!lBXzEjWCut56xk9X.QiJ5Rq0q8LYQwYBX"
+    },
+    {
+      "_id": "88mvx016knSeW4xu",
+      "type": 2,
+      "text": "Belaying pin",
+      "collection": "pirateborg.equipment-melee-weapons",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/melee-weapons/belaying-pin.png",
+      "resultId": "rVwLJcUlrrLPBk3v",
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!lBXzEjWCut56xk9X.88mvx016knSeW4xu"
+    }
+  ],
+  "formula": "d2",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!lBXzEjWCut56xk9X"
+}

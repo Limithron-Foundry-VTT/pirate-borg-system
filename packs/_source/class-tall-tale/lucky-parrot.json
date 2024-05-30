@@ -1,0 +1,25 @@
+{
+  "_id": "sdTjTdmBYkJ4Ak97",
+  "name": "Lucky Parrot",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/lucky-parrot.png",
+  "data": {
+    "description": "<p>A colorful, talking, flying bird. Roll d6 for Devil&rsquo;s Luck points each day.</p>\n<p>Agility: +1.</p>\n<p>Presence: +2.</p>\n<p>HP: d2+toughness.</p>\n<p>Beak Peck: d4</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Lucky Parrot - Beak Peck",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!sdTjTdmBYkJ4Ak97"
+}

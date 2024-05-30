@@ -1,0 +1,198 @@
+{
+  "_id": "xmidqWr39OSvzIad",
+  "name": "d10 Pets",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Pets",
+  "results": [
+    {
+      "text": "Snake",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "67AoLwu1evs8aBeO",
+      "img": "systems/pirateborg/icons/equipment/pets/snake.png",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "nh04egy0hb0vy0sg",
+      "flags": {},
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!xmidqWr39OSvzIad.nh04egy0hb0vy0sg"
+    },
+    {
+      "text": "Rat",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "GUtagFMIrE42FrGc",
+      "img": "systems/pirateborg/icons/equipment/pets/rat.png",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "4ud3z3yobdjjrkkn",
+      "flags": {},
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!xmidqWr39OSvzIad.4ud3z3yobdjjrkkn"
+    },
+    {
+      "text": "Lizard",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "ADo01WjiofBtxra7",
+      "img": "systems/pirateborg/icons/equipment/pets/lizard.png",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "cs3jj2dr96fd2kdc",
+      "flags": {},
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!xmidqWr39OSvzIad.cs3jj2dr96fd2kdc"
+    },
+    {
+      "text": "Cat",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "X9R5ECSLIqV7QyOZ",
+      "img": "systems/pirateborg/icons/equipment/pets/cat.png",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_id": "x8jl7efv9f7wdbln",
+      "flags": {},
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!xmidqWr39OSvzIad.x8jl7efv9f7wdbln"
+    },
+    {
+      "text": "Hawk",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "skZGjLZo6iKoLUNW",
+      "img": "systems/pirateborg/icons/equipment/pets/hawk.png",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_id": "2dyagk4wtmfyakxt",
+      "flags": {},
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!xmidqWr39OSvzIad.2dyagk4wtmfyakxt"
+    },
+    {
+      "text": "Dog",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "qKehKNpSuZRddDYJ",
+      "img": "systems/pirateborg/icons/equipment/pets/dog.png",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_id": "k0jxqmck4gp2mxrt",
+      "flags": {},
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!xmidqWr39OSvzIad.k0jxqmck4gp2mxrt"
+    },
+    {
+      "text": "Monkey",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "C7uvNw9eMWLglqtt",
+      "img": "systems/pirateborg/icons/equipment/pets/monkey.png",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "6xqt9p8brc9fwy42",
+      "flags": {},
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!xmidqWr39OSvzIad.6xqt9p8brc9fwy42"
+    },
+    {
+      "text": "Parrot",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "aQUU4fd0Gj7W318U",
+      "img": "systems/pirateborg/icons/equipment/pets/parrot.png",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_id": "7lu5rom0sr52k4mj",
+      "flags": {},
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!xmidqWr39OSvzIad.7lu5rom0sr52k4mj"
+    },
+    {
+      "text": "Hermit crab",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "oEvsRegi51Eo18if",
+      "img": "systems/pirateborg/icons/equipment/pets/hermit-crab.png",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_id": "g24k4qa6zdh7byxi",
+      "flags": {},
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!xmidqWr39OSvzIad.g24k4qa6zdh7byxi"
+    },
+    {
+      "text": "Fish in a jar",
+      "type": 2,
+      "collection": "pirateborg.equipment-pets",
+      "resultId": "548x2lnYoID0eWxb",
+      "img": "systems/pirateborg/icons/equipment/pets/fish.png",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_id": "evrkdq5c536vasbc",
+      "flags": {},
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!xmidqWr39OSvzIad.evrkdq5c536vasbc"
+    }
+  ],
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!xmidqWr39OSvzIad"
+}

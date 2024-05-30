@@ -1,0 +1,25 @@
+{
+  "_id": "nOYIYKoKa3qXxU38",
+  "name": "Blanket & pillow",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/blanket-pillow.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!nOYIYKoKa3qXxU38"
+}

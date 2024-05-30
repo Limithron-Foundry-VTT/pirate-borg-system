@@ -1,0 +1,25 @@
+{
+  "_id": "dcmOcImwaH9iXmXz",
+  "name": "A silent ghost haunts you. It is always there, but only you can see it.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>A silent ghost haunts you. It is always there, but only you can see it.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!dcmOcImwaH9iXmXz"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "CJ6ANcWEXBGJAE7H",
+  "name": "Raise the Dead",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
+  "data": {
+    "description": "<p>You can create skeletal thralls from nearby corpses. They are stupid, but obey your verbal commands. They tumble into bones at sunrise.</p>\n<p><strong>I.</strong> 1 thrall <strong>II.</strong> 2 thralls <strong>III.</strong> d2+2 thralls</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Sorceries",
+    "isEquipment": false,
+    "maxQuantity": 3
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!CJ6ANcWEXBGJAE7H"
+}

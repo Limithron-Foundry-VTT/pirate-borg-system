@@ -1,0 +1,27 @@
+{
+  "_id": "QUgXibCORTUeVEHI",
+  "name": "Cavalier",
+  "type": "hat",
+  "img": "systems/pirateborg/icons/equipment/hats/cavalier.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 15,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "reduceDamage": false,
+    "ruleText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!QUgXibCORTUeVEHI"
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "4qJKa3zuUj7sPDKm",
+  "name": "Cabin boy/girl",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>2d4 x 10s &amp; a small toy or trinket</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;small toy or trinket",
+    "startingBonusRolls": ""
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.3",
+    "coreVersion": "10.291",
+    "createdTime": null,
+    "modifiedTime": 1680575402728,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!4qJKa3zuUj7sPDKm"
+}

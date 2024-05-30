@@ -1,0 +1,32 @@
+{
+  "_id": "sZXgoub4yEXpBflf",
+  "name": "Chain shirt",
+  "type": "armor",
+  "img": "systems/pirateborg/icons/equipment/armors/chain-shirt.png",
+  "data": {
+    "description": "<p>DR +2 on AGILITY tests including defense</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 100,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "currentTier": 1,
+    "maxTier": 1,
+    "tier": {
+      "min": 0,
+      "max": 2,
+      "value": 2
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!sZXgoub4yEXpBflf"
+}

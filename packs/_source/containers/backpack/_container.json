@@ -1,0 +1,72 @@
+{
+  "_id": "WX3lsGrzr8bYhO9d",
+  "name": "Backpack",
+  "type": "container",
+  "img": "systems/pirateborg/icons/equipment/gear/backpack.png",
+  "data": {
+    "description": "",
+    "capacity": {
+      "max": 8,
+      "value": 0
+    },
+    "price": 6
+  },
+  "token": {
+    "actorLink": false,
+    "disposition": 0,
+    "vision": false,
+    "name": "Backpack",
+    "displayName": 0,
+    "width": 1,
+    "height": 1,
+    "scale": 1,
+    "mirrorX": false,
+    "mirrorY": false,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "dimSight": 0,
+    "brightSight": 0,
+    "sightAngle": 0,
+    "light": {
+      "alpha": 0.5,
+      "angle": 0,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "gradual": true,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "flags": {},
+    "randomImg": false,
+    "img": "systems/pirateborg/icons/equipment/gear/backpack.png"
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!actors!WX3lsGrzr8bYhO9d"
+}

@@ -1,0 +1,36 @@
+{
+  "_id": "Qc8lbxQg03PVRkl0",
+  "name": "Light of a Thousand Stars",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>30' of light radiates from an object for 2d12 hours. It cannot be extinguished. All attacks are -4 DR to hit/+4 to defend</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931716,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!Qc8lbxQg03PVRkl0"
+}

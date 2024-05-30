@@ -1,0 +1,25 @@
+{
+  "_id": "2yZ7NAt6feE7KKTF",
+  "name": "Conduit",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Restless spirits often use you to communicate with the corporeal world.</p>\n<p>Every day at dawn, roll for a random Arcane Ritual.</p>\n<p>You can use that ritual once without testing Spirit , after which the spirits leave your body.</p>\n<p>If you do not cast the Ritual by dawn you lose d2 HP</p>",
+    "featureType": "Ailment (Haunted Soul)",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!2yZ7NAt6feE7KKTF"
+}

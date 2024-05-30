@@ -1,0 +1,21 @@
+{
+  "_id": "q96IacEntIbhJYCZ",
+  "name": "You are the mysterious lone survivor of a treasure expedition gone awry.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>You are the mysterious lone survivor of a treasure expedition gone awry.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!q96IacEntIbhJYCZ"
+}

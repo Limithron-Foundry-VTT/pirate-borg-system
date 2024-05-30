@@ -1,0 +1,378 @@
+{
+  "_id": "Xlk9LWFemTDgrege",
+  "name": "d20 Distinctive Flaws",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "Distinctive Flaws",
+  "results": [
+    {
+      "text": "Drunken Lush",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "41rz8mPGGnBIiCeG",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "dbvwpdnua5png4yu",
+      "flags": {},
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.dbvwpdnua5png4yu"
+    },
+    {
+      "text": "Mocking sardonic cheer",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "t0biGtiKxUhP2xPw",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "aj55bwszuc1rley1",
+      "flags": {},
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.aj55bwszuc1rley1"
+    },
+    {
+      "text": "Stubborn",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "StepuGH4xDXsyBHD",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "ofgbb0gf25eyvr9a",
+      "flags": {},
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.ofgbb0gf25eyvr9a"
+    },
+    {
+      "text": "Way too loud",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "kYbsLQef4U4CIXId",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "cf1ervqpsiggkywn",
+      "flags": {},
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.cf1ervqpsiggkywn"
+    },
+    {
+      "text": "Stupid",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "QHC3p65jdNdpYMhQ",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_id": "km7lns19wpdmct9u",
+      "flags": {},
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.km7lns19wpdmct9u"
+    },
+    {
+      "text": "Coward",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "qAiPz6UV8pgzAUoO",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_id": "l9hk7q1vayuxs4a2",
+      "flags": {},
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.l9hk7q1vayuxs4a2"
+    },
+    {
+      "text": "Cocky",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "xTcsHH9WEdJINFN3",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_id": "3wqpznct2lbup62h",
+      "flags": {},
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.3wqpznct2lbup62h"
+    },
+    {
+      "text": "Slightly deranged",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "oExWqSF2aehNt82S",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_id": "xrnsekhfwtsf801q",
+      "flags": {},
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.xrnsekhfwtsf801q"
+    },
+    {
+      "text": "Aggressive",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "FYfBoLWYiPQmJ5K6",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_id": "vh9lwosljoblw5kk",
+      "flags": {},
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.vh9lwosljoblw5kk"
+    },
+    {
+      "text": "Anxious",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "iZRTQ20YPrCWpDLr",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_id": "bxxhgcga6irmgd69",
+      "flags": {},
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.bxxhgcga6irmgd69"
+    },
+    {
+      "text": "Cheater",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "9EwrnbEkQu032WmV",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_id": "87hzq8jg0pvc156q",
+      "flags": {},
+      "rangeL": 11,
+      "rangeH": 11,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.87hzq8jg0pvc156q"
+    },
+    {
+      "text": "Selfish",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "vELsDFWl4LVPct6P",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_id": "vfeqcmwwj7p5r605",
+      "flags": {},
+      "rangeL": 12,
+      "rangeH": 12,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.vfeqcmwwj7p5r605"
+    },
+    {
+      "text": "Lazy",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "42R00x8cbhASQkt1",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "_id": "9yp1urdsva8y0dct",
+      "flags": {},
+      "rangeL": 13,
+      "rangeH": 13,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.9yp1urdsva8y0dct"
+    },
+    {
+      "text": "Hedonistic",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "CtNDZb4FQv04hUeW",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "_id": "wk314qngendptryt",
+      "flags": {},
+      "rangeL": 14,
+      "rangeH": 14,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.wk314qngendptryt"
+    },
+    {
+      "text": "Impulsive",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "XEjFbh2lDNZAbBNq",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "_id": "4h9t4drzuxevfcel",
+      "flags": {},
+      "rangeL": 15,
+      "rangeH": 15,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.4h9t4drzuxevfcel"
+    },
+    {
+      "text": "Ostentatious",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "eZHvVDlMlZD5k8DG",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "_id": "kh0mi04u0tdz72jp",
+      "flags": {},
+      "rangeL": 16,
+      "rangeH": 16,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.kh0mi04u0tdz72jp"
+    },
+    {
+      "text": "Paranoid",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "LQlky04w8pLLUeII",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_id": "pro9s39ybcirlc6h",
+      "flags": {},
+      "rangeL": 17,
+      "rangeH": 17,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.pro9s39ybcirlc6h"
+    },
+    {
+      "text": "Pretentious",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "Oy0GyRQgv3H9DD07",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_id": "g2f9as82spc4ms7w",
+      "flags": {},
+      "rangeL": 18,
+      "rangeH": 18,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.g2f9as82spc4ms7w"
+    },
+    {
+      "text": "Sadistic",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "OaSr5CYWdyo28vKE",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "_id": "2195clrfhle836qg",
+      "flags": {},
+      "rangeL": 19,
+      "rangeH": 19,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.2195clrfhle836qg"
+    },
+    {
+      "text": "Disloyal",
+      "type": 2,
+      "collection": "pirateborg.feature-distinctive-flaws",
+      "resultId": "oCZBJ3PU4dqS0hWe",
+      "img": "systems/pirateborg/icons/misc/flaw.png",
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_id": "wp7x5f2bi8ldp1b0",
+      "flags": {},
+      "rangeL": 20,
+      "rangeH": 20,
+      "_key": "!tables.results!Xlk9LWFemTDgrege.wp7x5f2bi8ldp1b0"
+    }
+  ],
+  "formula": "1d20",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!Xlk9LWFemTDgrege"
+}

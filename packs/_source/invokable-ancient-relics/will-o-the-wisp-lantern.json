@@ -1,0 +1,36 @@
+{
+  "_id": "TlHY15qbfmh8n5Z8",
+  "name": "Will-o'-the-wisp Lantern",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-will-o-the-wisp-lantern.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>Emit 15' of light or darkness for d6+SPIRIT rounds</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604932030,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!TlHY15qbfmh8n5Z8"
+}

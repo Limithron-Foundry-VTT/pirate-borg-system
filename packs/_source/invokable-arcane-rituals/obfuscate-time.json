@@ -1,0 +1,36 @@
+{
+  "_id": "kMuqoc7AI5xGWTdL",
+  "name": "Obfuscate Time",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>d2 creatures recovers 2d10+spirit hp, but age 2d10 months.</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931766,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!kMuqoc7AI5xGWTdL"
+}

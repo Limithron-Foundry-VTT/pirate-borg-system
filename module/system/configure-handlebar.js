@@ -32,22 +32,6 @@ export const configureHandlebar = () => {
     return args.every((expression) => args[0] === expression);
   });
 
-  Handlebars.registerHelper("wysiwig", function (options) {
-    if (game.release.generation >= 10) {
-      const content = options.hash.content;
-      delete options.hash.content;
-
-      const documents = options.hash.documents !== false;
-      const owner = Boolean(options.hash.owner);
-      const rollData = options.hash.rollData;
-
-      const enrichedContent = TextEditor.enrichHTML(content, { secrets: owner, documents, rollData, async: false });
-      return HandlebarsHelpers.editor(enrichedContent, options);
-    } else {
-      return HandlebarsHelpers.editor(options);
-    }
-  });
-
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */
@@ -64,6 +48,8 @@ export const configureHandlebar = () => {
     "systems/pirateborg/templates/actor/common/actor-item-button.html",
     "systems/pirateborg/templates/actor/common/dynamic-list.html",
     "systems/pirateborg/templates/actor/common/static-list.html",
+    "systems/pirateborg/templates/actor/common/effects.html",
     "systems/pirateborg/templates/actor/common/static-list-item.html",
+    "systems/pirateborg/templates/item/tab/effects.html",
   ]);
 };

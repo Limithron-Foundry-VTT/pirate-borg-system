@@ -1,0 +1,25 @@
+{
+  "_id": "XreLbxWXS15sZBuU",
+  "name": "Constantly counting. Teeth, cannon balls... everything.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Constantly counting. Teeth, cannon balls... everything.</p>",
+    "featureType": "Idiosyncrasies",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!XreLbxWXS15sZBuU"
+}

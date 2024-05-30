@@ -1,0 +1,126 @@
+{
+  "_id": "mZj16sIacrg2Ykgz",
+  "name": "d6 Grenades & Bombs",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "UGatbdLsHuDkZCyT",
+      "type": 2,
+      "text": "Smoke Bomb",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/smoke-bomb.png",
+      "rangeL": 1,
+      "rangeH": 1,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "wNu5gYrET4yZKkY0",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.UGatbdLsHuDkZCyT"
+    },
+    {
+      "_id": "i9QNYu6MQaUH048J",
+      "type": 2,
+      "text": "Improvised grenade",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/improvised-grenade.png",
+      "rangeL": 2,
+      "rangeH": 2,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "TuWjs3hHzwnJ5Eal",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.i9QNYu6MQaUH048J"
+    },
+    {
+      "_id": "CLVUxHppZg7ILj51",
+      "type": 2,
+      "text": "Clay grenade",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/clay-grenade.png",
+      "rangeL": 3,
+      "rangeH": 3,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "n6X4nrln5NpxBmUu",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.CLVUxHppZg7ILj51"
+    },
+    {
+      "_id": "CxyqlmNgzYP15urD",
+      "type": 2,
+      "text": "Iron grenade",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/iron-grenade.png",
+      "rangeL": 4,
+      "rangeH": 4,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "tv4wG0SRp032hTmD",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.CxyqlmNgzYP15urD"
+    },
+    {
+      "_id": "0OC86SJMKuA2l8T9",
+      "type": 2,
+      "text": "Fire pot",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/fire-pot.png",
+      "rangeL": 5,
+      "rangeH": 5,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "jH3xlUj9yxvB064H",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.0OC86SJMKuA2l8T9"
+    },
+    {
+      "_id": "vTE6e9cdWo79siLu",
+      "type": 2,
+      "text": "Stink ball",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/bombs/fire-pot.png",
+      "rangeL": 6,
+      "rangeH": 6,
+      "collection": "pirateborg.equipment-bombs",
+      "resultId": "xVQhtjSyoPMQSW8Y",
+      "_key": "!tables.results!mZj16sIacrg2Ykgz.vTE6e9cdWo79siLu"
+    }
+  ],
+  "formula": "d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!mZj16sIacrg2Ykgz"
+}

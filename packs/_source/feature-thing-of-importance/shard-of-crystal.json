@@ -1,0 +1,25 @@
+{
+  "name": "shard of crystal",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+  "data": {
+    "description": "<p>shard of crystal</p>\n<p>&nbsp;</p>",
+    "featureType": "Thing of Importance",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "7I4qz0noQUbI3Apl",
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!7I4qz0noQUbI3Apl"
+}

@@ -1,0 +1,37 @@
+<div class="effects">
+  <div class="condition-list">
+    {{#each conditions as |effect e|}}
+    <div class="condition" title={{effect.name}} data-key={{effect.key}} {{#unless effect.existing}}style="opacity:0.5"{{/unless}}>
+      <img src="{{effect.img}}"/>
+      <a class="condition-toggle">
+        {{#if effect.existing}}
+        <i class="far fa-check-square"></i>
+        {{else}}
+        <i class="far fa-square"></i>
+        {{/if}}
+      </a>
+    </div>
+    {{/each}}
+  </div>
+
+  <ol class="items-list flexcol">
+    <li class="items-header flexrow">
+      <span class="item-property item-name">{{localize "PB.TabEffects"}}</span>
+      <div class="item-create-button">
+        <a class="effect-create" title="{{localize 'PB.EffectsCreate'}}"><i class="fas fa-plus"></i></a>
+      </div>
+    </li>
+    <ol class="item-list">
+    {{#each item.effects as |effect|}}
+    <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
+      <img class="item-property item-image" src="{{effect.img}}"></img>
+      <div class="item-property item-name effect-edit">{{effect.name}}</div>
+
+      <div class="item-controls">
+        <a class="item-control effect-delete" title="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></a>
+      </div>
+    </li>
+    {{/each}}
+    </ol>
+  </ol>
+</div>

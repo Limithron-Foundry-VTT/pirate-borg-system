@@ -1,0 +1,25 @@
+{
+  "_id": "zmF3NfJi9qwNzNhT",
+  "name": "Sea Turtle",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/sea-turtle.png",
+  "data": {
+    "description": "<p>Extra -d2 to armor.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!zmF3NfJi9qwNzNhT"
+}

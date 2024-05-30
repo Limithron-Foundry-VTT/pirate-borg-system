@@ -1,0 +1,25 @@
+{
+  "_id": "vKcCqgp5tTmwYaWd",
+  "name": "Focused Aim",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Attacks against enemies you have already shot at during this combat are -4 DR to hit.</p>\n<p>If taken again: the attack also deals d4 extra damage</p>",
+    "featureType": "Class",
+    "maxQuantity": 2,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!vKcCqgp5tTmwYaWd"
+}

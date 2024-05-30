@@ -1,0 +1,25 @@
+{
+  "_id": "n5vt5Hvh1kyJnLPm",
+  "name": "dark cloak",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/armors/old-uniform.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!n5vt5Hvh1kyJnLPm"
+}

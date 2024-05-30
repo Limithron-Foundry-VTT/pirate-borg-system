@@ -110,6 +110,7 @@
     <a class="item" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>
     <a class="item" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
     <a class="item" data-tab="history">{{ localize 'PB.TabHistory' }}</a>
+    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
     <span class="spacer"></span>
   </nav>
 
@@ -117,7 +118,7 @@
   <section class="sheet-body">
     {{!-- History Tab --}}
     <div class="tab class-tab" data-group="primary" data-tab="history">
-      {{wysiwig content=data.system.description target="system.description" button=true owner=owner editable=true}}
+      {{editor descriptionHTML target="system.description" button=true owner=owner editable=true}}
     </div>
 
     {{!-- Combat Tab --}}
@@ -158,11 +159,8 @@
               {{#if ../data.system.dynamic.trackAmmo}} {{#if item.system.usesAmmo}}
               <div class="ammo-select-col">                
                 <select class="ammo-select" name="selectedAmmo-{{item._id}}" data-dtype="Number" data-item-id="{{item._id}}">
-                  {{#select item.system.ammoId}}
-                  <option value=""><span class="ammo-label">{{localize 'PB.SelectAmmo'}} </span></option>
-                  {{#each ../data.system.dynamic.ammo as |ammo ammoId|}}
-                  <option value="{{ammo._id}}">{{ammo.name}} ({{ammo.system.quantity}})</option>
-                  {{/each}} {{/select}}
+                  <option value="">{{localize 'PB.SelectAmmo'}}</option>
+                  {{selectOptions ../data.system.dynamic.ammo selected=item.system.ammoId valueAttr="_id" labelAttr="fullName"}}
                 </select>
               </div>
               {{/if}} {{/if}}
@@ -402,6 +400,11 @@
       <ol class="items-list equipment-list">
         {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab" data-group="primary" data-tab="effects">
+      {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>
 </form>

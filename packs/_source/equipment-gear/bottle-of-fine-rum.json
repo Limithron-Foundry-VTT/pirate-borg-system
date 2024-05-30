@@ -1,0 +1,25 @@
+{
+  "name": "Bottle of fine rum",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/bottle-fine-rum.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 3,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "lvMmr234xK4lDTt9",
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!lvMmr234xK4lDTt9"
+}

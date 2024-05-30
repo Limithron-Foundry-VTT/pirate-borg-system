@@ -6,7 +6,7 @@ import PBActorSheet from "./actor-sheet.js";
 export class PBActorSheetContainer extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "container"],
       template: "systems/pirateborg/templates/actor/container-sheet.html",
       width: 500,
@@ -28,7 +28,7 @@ export class PBActorSheetContainer extends PBActorSheet {
    * @returns {ActorSheet.Data}
    */
   async getData(options) {
-    const formData = super.getData(options);
+    const formData = await super.getData(options);
 
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),

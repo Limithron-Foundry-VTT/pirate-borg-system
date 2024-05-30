@@ -1,0 +1,23 @@
+{
+  "_id": "MX7IBXzkNpkY3an3",
+  "name": "Dazzling Acrobatics",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>Fancy footwork, superior upper body strength, and a dash of style give you the edge in a fight. Agility is +2 when defending.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!MX7IBXzkNpkY3an3"
+}

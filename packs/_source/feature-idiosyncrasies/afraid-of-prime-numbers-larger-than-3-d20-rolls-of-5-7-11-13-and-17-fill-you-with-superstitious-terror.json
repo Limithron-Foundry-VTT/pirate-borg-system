@@ -1,0 +1,21 @@
+{
+  "_id": "XOkfDcCMtpig6BPa",
+  "name": "Afraid of prime numbers larger than 3. d20 rolls of 5, 7, 11, 13, and 17 fill you with superstitious terror.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
+  "data": {
+    "description": "<p>Afraid of prime numbers larger than 3. d20 rolls of 5, 7, 11, 13, and 17 fill you with superstitious terror.</p>",
+    "featureType": "Idiosyncrasies",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!XOkfDcCMtpig6BPa"
+}

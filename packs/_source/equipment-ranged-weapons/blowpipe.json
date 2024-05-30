@@ -1,0 +1,109 @@
+{
+  "_id": "ACUVIOmoH3yornRd",
+  "name": "Blowpipe",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/equipment/ranged-weapons/blowpipe.png",
+  "data": {
+    "description": "<p>See darts</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 30,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": true,
+    "useAmmoDamage": true,
+    "weaponType": "ranged",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "autoanimations": {
+      "version": 4,
+      "killAnim": false,
+      "animLevel": false,
+      "override": true,
+      "sourceToken": {
+        "enable": false,
+        "menuType": "",
+        "name": "",
+        "variant": "",
+        "color": "",
+        "enableCustom": false,
+        "loops": null,
+        "loopDelay": null,
+        "scale": null,
+        "opacity": null,
+        "delayAfter": null,
+        "animLevel": false
+      },
+      "targetToken": {
+        "enable": false
+      },
+      "levels3d": {
+        "type": ""
+      },
+      "macro": {
+        "enable": false
+      },
+      "animType": "range",
+      "options": {
+        "menuType": "weapon",
+        "variant": "01",
+        "enableCustom": false,
+        "repeat": null,
+        "delay": null,
+        "customPath": "",
+        "onlyX": false
+      },
+      "animation": "dart",
+      "color": "white",
+      "audio": {
+        "a01": {
+          "enable": false,
+          "file": "",
+          "startTime": null,
+          "volume": null,
+          "delay": null
+        },
+        "e01": {
+          "enable": false
+        },
+        "s01": {
+          "enable": false
+        }
+      },
+      "preview": false,
+      "explosions": {
+        "enable": true,
+        "menuType": "generic",
+        "animation": "impact",
+        "variant": "01",
+        "color": "white",
+        "enableCustom": false,
+        "radius": null,
+        "delay": null,
+        "below": false
+      }
+    },
+    "pirateborg": {
+      "itemAnimation": "jb2a.bullet.Snipe.blue"
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!ACUVIOmoH3yornRd"
+}

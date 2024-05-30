@@ -1,0 +1,25 @@
+{
+  "_id": "kHcRmAtOroMngfQi",
+  "name": "Liar's Dice",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/misc/class-item.png",
+  "data": {
+    "description": "<p>A small bag of 5d6. Roll them at the start of combat. If the total is even, -2 dr for melee attacks, but defend with +2 dr .</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-brute;Liar's Dice",
+    "actionMacroLabel": "Use"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!kHcRmAtOroMngfQi"
+}

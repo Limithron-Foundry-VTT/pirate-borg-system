@@ -1,0 +1,25 @@
+{
+  "_id": "TTuT2NykyEA6hdzW",
+  "name": "Spyglass",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/spyglass.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 150,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!TTuT2NykyEA6hdzW"
+}

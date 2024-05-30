@@ -1,0 +1,28 @@
+{
+  "_id": "A6OTme1b7lAh033Z",
+  "name": "Sanctuary",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>All thy brethren in sight heal d4 HP.</p>\n<p>&nbsp;</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!A6OTme1b7lAh033Z"
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "eMb9HsrrFxiV6KZO",
+  "name": "Religious follower",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d4 x 10s &amp; a strong sense of faith</p>",
+    "startingGold": "2d4 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;strong sense of faith"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!eMb9HsrrFxiV6KZO"
+}

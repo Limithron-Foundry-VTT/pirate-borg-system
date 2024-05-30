@@ -1,0 +1,21 @@
+{
+  "_id": "gYLlF3hg0LhFCnko",
+  "name": "Performer",
+  "type": "background",
+  "img": "systems/pirateborg/icons/misc/background.png",
+  "data": {
+    "description": "<p>2d6 x 10s &amp; [roll on instrument table, pg. 11]</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "",
+    "startingBonusRolls": "pirateborg.rolls-character-creation;d10 Instruments;1"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!gYLlF3hg0LhFCnko"
+}

@@ -1,0 +1,26 @@
+{
+  "_id": "zjwKLD4E8M8XTMhv",
+  "name": "Poison darts",
+  "type": "ammo",
+  "img": "systems/pirateborg/icons/equipment/ammo/sleep-dart.png",
+  "data": {
+    "description": "<p>Toughness DR12 or d6 damage</p>",
+    "containerSpace": 0.1,
+    "carryWeight": 0.1,
+    "equipped": false,
+    "carried": true,
+    "price": 20,
+    "quantity": 10,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d4"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!zjwKLD4E8M8XTMhv"
+}

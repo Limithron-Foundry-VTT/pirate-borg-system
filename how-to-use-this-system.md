@@ -101,6 +101,7 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
 - An API is exposed at `game.pirateborg.api` for developers and GMs to use.
 
 The following are some examples provided by `Ashendar` on the Discord server.
+
 - An example of how to use the API to roll a character's attack is:
   ```javascript
   const outcome = game.pirateborg.api.characterAttackAction(actor, weapon);
@@ -119,6 +120,6 @@ The following are some examples provided by `Ashendar` on the Discord server.
   } else {
     goto.push({ tokens: arguments[0].tokens, tag: "Fail" });
   }
-  goto = goto.filter(g => g.tokens.length > 0);
-  return {goto: goto};
+  goto = goto.filter((g) => g.tokens.length > 0);
+  return { goto: goto };
   ```

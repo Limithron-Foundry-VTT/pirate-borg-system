@@ -1,0 +1,36 @@
+{
+  "_id": "ANjiGZyU2nFdx9PO",
+  "name": "Pages from the Necronomicon",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-pages-from-the-Necronomicon.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>All creatures that can hear your voice test DR14 or lose d4+SPIRIT HP (ignore armor)</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Ancient Relic",
+    "isEquipment": true,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604932013,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!ANjiGZyU2nFdx9PO"
+}

@@ -1,0 +1,25 @@
+{
+  "_id": "uNsmrnbUAMn0Te26",
+  "name": "Grog Breath",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/class-feature.png",
+  "data": {
+    "description": "<p>When in melee range, belch to stun an opponent for 1 round. Limit once an hour unless you drink more grog.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!uNsmrnbUAMn0Te26"
+}

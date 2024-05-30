@@ -1,0 +1,27 @@
+{
+  "_id": "BgYoavjKu6Uc02bW",
+  "name": "Morion",
+  "type": "hat",
+  "img": "systems/pirateborg/icons/equipment/hats/conquistador-helmet.png",
+  "data": {
+    "description": "<p>(conquistador helmet)</p>\n<p>-1 damage. You can choose to ignore all damage from one attack but the helmet breaks.</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 90,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "reduceDamage": true,
+    "ruleText": "You can choose to ignore all damage from one attack but the helmet breaks"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!BgYoavjKu6Uc02bW"
+}

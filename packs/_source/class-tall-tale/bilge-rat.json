@@ -1,0 +1,25 @@
+{
+  "_id": "C8LdpjrOpMpyZB98",
+  "name": "Bilge Rat",
+  "type": "feature",
+  "img": "systems/pirateborg/tokens/bilge-rat.png",
+  "data": {
+    "description": "<p>You are a filthy rodent.</p>\n<p>Agility: +3.</p>\n<p>Toughness: +2.</p>\n<p>HP: d2+toughness.</p>\n<p>Diseased Bite: d2 damage, 1 in 6 chance the target dies in d4 rounds from whatever disease you are carrying.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "pirateborg.class-tall-tale;Bilge Rat - Diseased Bite",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!C8LdpjrOpMpyZB98"
+}

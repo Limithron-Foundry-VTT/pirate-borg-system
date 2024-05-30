@@ -1,0 +1,252 @@
+{
+  "_id": "Nv1GjEGgyhydzSZf",
+  "name": "d12 Fancy gear",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "uVncD78adQywIigf",
+      "type": 2,
+      "text": "Compass",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/compass.png",
+      "collection": "pirateborg.equipment-gear",
+      "resultId": "TmZzfjWNeaEiG1fP",
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.uVncD78adQywIigf"
+    },
+    {
+      "_id": "DmjK9WpMlyQMzYT5",
+      "type": 2,
+      "text": "Spyglass",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/spyglass.png",
+      "resultId": "TTuT2NykyEA6hdzW",
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.DmjK9WpMlyQMzYT5"
+    },
+    {
+      "_id": "uERfrRXybSzhC6Cg",
+      "type": 2,
+      "text": "Fishing rod",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/fishing-rod.png",
+      "resultId": "GJRv4nqpSLc4g3qp",
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.uERfrRXybSzhC6Cg"
+    },
+    {
+      "_id": "EX9O1FoXBXIKoUMs",
+      "type": 2,
+      "text": "d20 Ancient relics",
+      "collection": "pirateborg.rolls-character-creation",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "resultId": "YXfRZ70cExWDvJq1",
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.EX9O1FoXBXIKoUMs"
+    },
+    {
+      "_id": "pItr7bic7FoA6Rzz",
+      "type": 2,
+      "text": "Bottle of fine rum",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/bottle-fine-rum.png",
+      "resultId": "lvMmr234xK4lDTt9",
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.pItr7bic7FoA6Rzz"
+    },
+    {
+      "_id": "6MMdWlzSFtwoJhr1",
+      "type": 2,
+      "text": "Pocket watch",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/pocket-watch.png",
+      "resultId": "XH3MoTJneAvB25Yx",
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.6MMdWlzSFtwoJhr1"
+    },
+    {
+      "_id": "XfTPYtuHIjqb0oxl",
+      "type": 2,
+      "text": "Blanket & pillow",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/blanket-pillow.png",
+      "resultId": "nOYIYKoKa3qXxU38",
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.XfTPYtuHIjqb0oxl"
+    },
+    {
+      "_id": "0KabruFEdm5cBJkU",
+      "type": 2,
+      "text": "Ink, quill, parchment",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/ink-quill-paper.png",
+      "resultId": "1Y3gM4XjlMh0oURf",
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.0KabruFEdm5cBJkU"
+    },
+    {
+      "_id": "RcvIgb5frO9txT7g",
+      "type": 2,
+      "text": "Worn out book",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/worn-out-book.png",
+      "resultId": "EQRw9OglGl0hq73c",
+      "rangeL": 9,
+      "rangeH": 9,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.RcvIgb5frO9txT7g"
+    },
+    {
+      "_id": "NSNm6uht66uodr0d",
+      "type": 2,
+      "text": "Tent",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/tent.png",
+      "resultId": "Eukb7s2KEbyoydHb",
+      "rangeL": 10,
+      "rangeH": 10,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.NSNm6uht66uodr0d"
+    },
+    {
+      "_id": "QfC3xsopIcr26aaw",
+      "type": 2,
+      "text": "Whetstone",
+      "collection": "pirateborg.equipment-gear",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/equipment/gear/whetstone.png",
+      "resultId": "NXOxzqM8AgvZYP44",
+      "rangeL": 11,
+      "rangeH": 11,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.QfC3xsopIcr26aaw"
+    },
+    {
+      "_id": "J81hDwGP4SkP7jSh",
+      "type": 2,
+      "text": "d10 Instruments",
+      "collection": "pirateborg.rolls-character-creation",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "resultId": "5LnpMiTEgxAqUtow",
+      "rangeL": 12,
+      "rangeH": 12,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.J81hDwGP4SkP7jSh"
+    },
+    {
+      "_id": "kP514vPgbSugMLTz",
+      "type": 0,
+      "text": "description: old pocket watch",
+      "collection": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "resultId": null,
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!Nv1GjEGgyhydzSZf.kP514vPgbSugMLTz"
+    }
+  ],
+  "formula": "d12",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!Nv1GjEGgyhydzSZf"
+}

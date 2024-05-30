@@ -1,0 +1,125 @@
+{
+  "_id": "tyvwJdRpz5gzlquR",
+  "name": "Ailments",
+  "img": "icons/svg/d20-grey.svg",
+  "results": [
+    {
+      "_id": "4OO4XWagD3ieEd3X",
+      "type": 2,
+      "text": "Ghost",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "collection": "pirateborg.class-haunted-soul",
+      "resultId": "m4Wt3GrEca8LYbUJ",
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.4OO4XWagD3ieEd3X"
+    },
+    {
+      "_id": "AGbbofJyJuqE6L2i",
+      "type": 2,
+      "text": "Conduit",
+      "collection": "pirateborg.class-haunted-soul",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "resultId": "2yZ7NAt6feE7KKTF",
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.AGbbofJyJuqE6L2i"
+    },
+    {
+      "_id": "dFAAmV12vaNjxt6v",
+      "type": 2,
+      "text": "Eldritch Mind",
+      "collection": "pirateborg.class-haunted-soul",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "resultId": "w8cDjHMWKoS2ZQRl",
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.dFAAmV12vaNjxt6v"
+    },
+    {
+      "_id": "7cINvbCV3XJ7TYPA",
+      "type": 2,
+      "text": "Zombie",
+      "collection": "pirateborg.class-haunted-soul",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "resultId": "mTbonlttaA0EMUZr",
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.7cINvbCV3XJ7TYPA"
+    },
+    {
+      "_id": "QbEv0SPWQNxvd9NE",
+      "type": 2,
+      "text": "Vampirism",
+      "collection": "pirateborg.class-haunted-soul",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "resultId": "OclojnYs2EJAieEh",
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.QbEv0SPWQNxvd9NE"
+    },
+    {
+      "_id": "EldpCMDUeom8li4p",
+      "type": 2,
+      "text": "Skeleton",
+      "collection": "pirateborg.class-haunted-soul",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/misc/class-feature.png",
+      "resultId": "NpzNqsyHT7pLi4AU",
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!tyvwJdRpz5gzlquR.EldpCMDUeom8li4p"
+    }
+  ],
+  "formula": "d6",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!tyvwJdRpz5gzlquR"
+}

@@ -7,7 +7,7 @@ import { PBActorSheetVehicle } from "./vehicle-sheet.js";
 export class PBActorSheetVehicleEdit extends PBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["pirateborg", "sheet", "actor", "vehicle-edit"],
       template: "systems/pirateborg/templates/actor/vehicle-edit-sheet.html",
       width: 500,
@@ -44,7 +44,7 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
 
   /** @override */
   async getData(options) {
-    const formData = super.getData(options);
+    const formData = await super.getData(options);
 
     formData.data.system.dynamic = {
       ...(formData.data.system.dynamic ?? {}),

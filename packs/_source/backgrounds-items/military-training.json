@@ -1,0 +1,30 @@
+{
+  "_id": "W1NMawKMEWpe0pHf",
+  "name": "military training",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/medieval-barracks.png",
+  "data": {
+    "description": "",
+    "featureType": "background",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!W1NMawKMEWpe0pHf"
+}

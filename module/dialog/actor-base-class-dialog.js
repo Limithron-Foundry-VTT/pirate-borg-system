@@ -21,7 +21,7 @@ class ActorBaseClassDialog extends Application {
 
   /** @override */
   async getData(options = {}) {
-    return mergeObject(super.getData(options), {
+    return foundry.utils.mergeObject(super.getData(options), {
       classes: await this.getClassData(),
       requireBaseClass: this.actor.characterClass.getData().requireBaseClass,
     });

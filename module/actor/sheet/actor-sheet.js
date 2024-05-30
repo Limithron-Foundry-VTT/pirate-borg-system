@@ -26,6 +26,16 @@ export default class PBActorSheet extends ActorSheet {
     }
   }
 
+  constructEffectLists(sheetData) {
+    const effects = {};
+
+    effects.temporary = sheetData.actor.effects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition);
+    effects.disabled = sheetData.actor.effects.filter((i) => i.disabled && !i.isCondition);
+    effects.passive = sheetData.actor.effects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition);
+
+    sheetData.effects = effects;
+  }
+
   /**
    * @param {MouseEvent} event
    * @returns {PBItem}
@@ -60,6 +70,72 @@ export default class PBActorSheet extends ActorSheet {
       ".item-qty-minus": this._onItemSubtractQuantity,
       ".individual-initiative-button": this._onIndividualInitiativeRoll,
     });
+
+    html.find(".effect-create").click(this._onEffectCreate.bind(this));
+    html.find(".effect-edit").click(this._onEffectEdit.bind(this));
+    html.find(".effect-delete").click(this._onEffectDelete.bind(this));
+    html.find(".effect-toggle").click(this._onEffectToggle.bind(this));
+    html.find(".effect-select").change(this._onEffectSelect.bind(this));
+  }
+
+  async _onEffectCreate(ev) {
+    const type = ev.currentTarget.attributes["data-type"].value;
+    const effectData = {
+      label: game.i18n.localize("PB.EffectsNew"),
+      icon: "icons/svg/aura.svg",
+    };
+    if (type === "temporary") {
+      effectData["duration.rounds"] = 1;
+    }
+
+    const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    const dialog = new Dialog({
+      title: game.i18n.localize("PB.EffectsQuick"),
+      content: html,
+      buttons: {
+        create: {
+          label: game.i18n.localize("PB.EffectsCreate"),
+          callback: (html) => {
+            effectData.name = html.find(".label").val();
+            effectData.changes = [
+              {
+                key: html.find(".key").val(),
+                mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+                value: parseInt(html.find(".modifier").val()),
+              },
+            ];
+            this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+          },
+        },
+        skip: {
+          label: game.i18n.localize("PB.EffectsSkip"),
+          callback: () => this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
+        },
+      },
+    });
+    await dialog._render(true);
+    dialog._element.find(".label").select();
+  }
+
+  _onEffectSelect(ev) {
+    this.actor.addCondition(ev.currentTarget.value);
+  }
+
+  _onEffectEdit(ev) {
+    const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+    this.object.effects.get(id).sheet.render(true);
+  }
+
+  _onEffectDelete(ev) {
+    const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+    this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
+  }
+
+  _onEffectToggle(ev) {
+    const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+    const effect = this.object.effects.get(id);
+
+    effect.update({ disabled: !effect.disabled });
   }
 
   /**
@@ -83,7 +159,12 @@ export default class PBActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const { name, type } = await showAddItemDialog();
-    await this.actor.createEmbeddedDocuments("Item", [{ name, type }]);
+    await this.actor.createEmbeddedDocuments("Item", [
+      {
+        name,
+        type,
+      },
+    ]);
   }
 
   /**
@@ -290,7 +371,7 @@ export default class PBActorSheet extends ActorSheet {
   }
 
   /** @override */
-  getData(options) {
+  async getData(options) {
     const formData = super.getData(options);
     formData.config = CONFIG.PB;
 
@@ -305,6 +386,16 @@ export default class PBActorSheet extends ActorSheet {
       delete formData.data.data;
     }
 
+    formData.descriptionHTML = formData.data.system.description
+      ? await TextEditor.enrichHTML(formData.data.system.description, {
+          secrets: !!formData.owner,
+          links: true,
+          async: true,
+        })
+      : "";
+
+    this.constructEffectLists(formData);
+
     formData.data.items.forEach((item) => {
       if (item.type === CONFIG.PB.itemTypes.container) {
         item.system.dynamic = {
@@ -314,6 +405,9 @@ export default class PBActorSheet extends ActorSheet {
       }
       return item;
     });
+
+    formData.data.localizedType = `TYPES.${formData.actor.documentName}.${formData.data.type}`;
+
     return formData;
   }
 }

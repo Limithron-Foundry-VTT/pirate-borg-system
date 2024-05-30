@@ -1,0 +1,43 @@
+{
+  "_id": "Y7sb7dOQ8lXr4fYK",
+  "name": "Landlubber",
+  "type": "class",
+  "img": "systems/pirateborg/tokens/landlubber.png",
+  "data": {
+    "description": "",
+    "flavorText": "",
+    "luckDie": "1d2",
+    "startingArmorTableFormula": "1d10",
+    "startingWeaponTableFormula": "1d10",
+    "startingHatTableFormula": "1d12",
+    "startingAbilityScoreFormula": "4d6dl",
+    "startingAgilityBonus": "",
+    "startingPresenceBonus": "",
+    "startingStrengthBonus": "",
+    "startingToughnessBonus": "",
+    "startingSpiritBonus": "",
+    "startingHitPoints": "1d10",
+    "startingItems": "",
+    "startingRolls": "",
+    "startingMacro": "",
+    "gettingBetterRolls": "",
+    "gettingBetterMacro": "",
+    "useExtraResource": false,
+    "extraResourceNameSingular": "",
+    "extraResourceNamePlural": "",
+    "extraResourceFormula": "",
+    "extraResourceFormulaLabel": "",
+    "extraResourceTestFormula": "",
+    "extraResourceTestFormulaLabel": "",
+    "requireBaseClass": false,
+    "characterGeneratorMacro": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!Y7sb7dOQ8lXr4fYK"
+}

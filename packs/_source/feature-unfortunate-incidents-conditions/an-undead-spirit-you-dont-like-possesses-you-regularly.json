@@ -1,0 +1,21 @@
+{
+  "_id": "YTTzEBIsXVbJckEv",
+  "name": "An undead spirit you don't like possesses you regularly.",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/incident.png",
+  "data": {
+    "description": "<p>An undead spirit you don't like possesses you regularly.</p>",
+    "featureType": "Unfortunate Incidents & Conditions",
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "maxQuantity": null
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!YTTzEBIsXVbJckEv"
+}

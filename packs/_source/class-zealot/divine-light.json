@@ -1,0 +1,28 @@
+{
+  "_id": "WNdlS2nOz6KIC7Kk",
+  "name": "Divine Light",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>Bright light radiates from thee for up to d6 x 10 minutes. Enemies that see it are -2 DR to defend against</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!WNdlS2nOz6KIC7Kk"
+}

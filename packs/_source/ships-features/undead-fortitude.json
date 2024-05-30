@@ -1,0 +1,25 @@
+{
+  "_id": "G0AhfsVuv1Hxg3ZR",
+  "name": "Undead Fortitude",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/misc/ship-feature.png",
+  "data": {
+    "description": "<p>If reduced to 0 HP or less, test DR12 to drop to 1 HP instead.</p>",
+    "featureType": "Ships",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!G0AhfsVuv1Hxg3ZR"
+}

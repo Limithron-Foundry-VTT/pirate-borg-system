@@ -1,0 +1,25 @@
+{
+  "_id": "fIlSoUxzIJUJUJUy",
+  "name": "Lantern oil",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/lantern-oil.png",
+  "data": {
+    "description": "<p>d6 hours</p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 5,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!fIlSoUxzIJUJUJUy"
+}

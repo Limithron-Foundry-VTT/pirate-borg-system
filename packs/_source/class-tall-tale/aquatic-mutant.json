@@ -1,0 +1,25 @@
+{
+  "_id": "bI48oC7ecHauJXnZ",
+  "name": "Aquatic Mutant",
+  "type": "feature",
+  "img": "systems/pirateborg/icons/classes/tall-tale/aquatic-mutant.png",
+  "data": {
+    "description": "<p>You are the spawn from an abominable union between man and the sea. Roll d8 to discover what creature makes up half of your ancestry, then roll d6 to gain an additional class.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": "You are the spawn from an abominable union between man and the sea."
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!bI48oC7ecHauJXnZ"
+}

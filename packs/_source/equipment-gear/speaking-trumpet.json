@@ -1,0 +1,25 @@
+{
+  "_id": "bfYLWYbXkyAYn04R",
+  "name": "Speaking trumpet",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/speaking-trumpet.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 30,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!bfYLWYbXkyAYn04R"
+}

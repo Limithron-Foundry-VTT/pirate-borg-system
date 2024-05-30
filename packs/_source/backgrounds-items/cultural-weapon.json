@@ -1,0 +1,25 @@
+{
+  "_id": "GacZvj9BC3F3ZPkz",
+  "name": "cultural weapon",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/melee-weapons/bone-mace.png",
+  "data": {
+    "description": "",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!GacZvj9BC3F3ZPkz"
+}

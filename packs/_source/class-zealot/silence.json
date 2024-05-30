@@ -1,0 +1,28 @@
+{
+  "_id": "6tqXTY8GtXuuW7jl",
+  "name": "Silence",
+  "type": "invokable",
+  "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
+  "data": {
+    "description": "<p>For the next 2d6 x 10 minutes, everything within 25' of thee maketh no sound. The effect only ends when the time doth expire</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Prayers",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!6tqXTY8GtXuuW7jl"
+}

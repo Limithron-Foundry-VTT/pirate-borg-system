@@ -1,0 +1,34 @@
+{
+  "_id": "PtDse6LgQ9ySWqZy",
+  "name": "Foul Fowl - Beak Peck",
+  "type": "weapon",
+  "img": "systems/pirateborg/icons/classes/tall-tale/foul-fowl.png",
+  "data": {
+    "description": "",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "damageDie": "1d2",
+    "critOn": 20,
+    "critExtraDamage": "",
+    "handed": "1",
+    "fumbleOn": 1,
+    "usesAmmo": false,
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!items!PtDse6LgQ9ySWqZy"
+}

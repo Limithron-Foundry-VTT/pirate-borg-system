@@ -1,0 +1,162 @@
+{
+  "_id": "86JvffxV6VQOdWWZ",
+  "name": "Whom dost thou serve?",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "_id": "4SrOrvpPFZDiqE9r",
+      "type": 2,
+      "text": "The One True God",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "collection": "pirateborg.class-zealot",
+      "resultId": "FDsQZbGiy3zIFpiH",
+      "rangeL": 1,
+      "rangeH": 1,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.4SrOrvpPFZDiqE9r"
+    },
+    {
+      "_id": "1qfZeH2csQxi8uKS",
+      "type": 2,
+      "text": "The Church",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "uEFgubQ4BgWmCyGM",
+      "rangeL": 7,
+      "rangeH": 7,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.1qfZeH2csQxi8uKS"
+    },
+    {
+      "_id": "hMTJ6QFe13n8vKsG",
+      "type": 2,
+      "text": "Mother Nature",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "mMQK3tTrH9hax9m3",
+      "rangeL": 2,
+      "rangeH": 2,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.hMTJ6QFe13n8vKsG"
+    },
+    {
+      "_id": "QpbFVW2J1kydekcT",
+      "type": 2,
+      "text": "The Great Old One",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "TtBV5LRwBcyZIscI",
+      "rangeL": 8,
+      "rangeH": 8,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.QpbFVW2J1kydekcT"
+    },
+    {
+      "_id": "rZb5hzIZE5GPr2k2",
+      "type": 2,
+      "text": "The Ancient Gods",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "X0nKXtrHZIYa5hN7",
+      "rangeL": 3,
+      "rangeH": 3,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.rZb5hzIZE5GPr2k2"
+    },
+    {
+      "_id": "P6a7iEXr7xaDklJB",
+      "type": 2,
+      "text": "The Dark One",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "JkZH6v7RnvtfPfOX",
+      "rangeL": 6,
+      "rangeH": 6,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.P6a7iEXr7xaDklJB"
+    },
+    {
+      "_id": "H6axmybtXAILnv0N",
+      "type": 2,
+      "text": "The Chaos",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "VWHXg6rOUNKJZPsV",
+      "rangeL": 4,
+      "rangeH": 4,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.H6axmybtXAILnv0N"
+    },
+    {
+      "_id": "qrWxJkkoJlfHOyIh",
+      "type": 2,
+      "text": "The Deep",
+      "collection": "pirateborg.class-zealot",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
+      "resultId": "FGTdGp6FfBm1v4oy",
+      "rangeL": 5,
+      "rangeH": 5,
+      "_key": "!tables.results!86JvffxV6VQOdWWZ.qrWxJkkoJlfHOyIh"
+    }
+  ],
+  "formula": "1d8",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_key": "!tables!86JvffxV6VQOdWWZ"
+}

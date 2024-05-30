@@ -1,0 +1,36 @@
+{
+  "_id": "Hkp58x5UM1YPh8OV",
+  "name": "Phantasmal Fauna",
+  "type": "invokable",
+  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "description": "<p>You summon a ghostly hound or shark. It obeys your commands. It dissipates at sunset.</p>\n<p><strong>hp</strong> 5 <strong>morale </strong>- <strong>ghostly form</strong> -d2 <strong>bite</strong> d6.</p>",
+    "containerSpace": 0,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "invokableType": "Arcane Ritual",
+    "isEquipment": false,
+    "maxQuantity": 1
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v0.6.13",
+    "coreVersion": "10.303",
+    "createdTime": null,
+    "modifiedTime": 1704604931770,
+    "lastModifiedBy": "pbbuilder0000000"
+  },
+  "_key": "!items!Hkp58x5UM1YPh8OV"
+}
