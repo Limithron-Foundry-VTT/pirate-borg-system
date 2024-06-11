@@ -1,3 +1,10 @@
+# v1.0.1
+
+- Allow actors to Long Rest without requiring their token to be on the canvas.
+- Fix display of ship type on the ship edit sheet.
+- Fix ammo not being consumed when using v11.
+  - Bug was introduced as part of v12 compatibility.
+
 # v1.0.0
 
 - Foundry VTT v12 compatibility.

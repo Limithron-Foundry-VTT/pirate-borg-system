@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v1.0.0",
+  "version": "v1.0.1",
   "compatibility": {
     "minimum": "11",
     "verified": "12"
@@ -425,7 +425,7 @@
     {
       "name": "Pirate Borg System",
       "sorting": "a",
-      "color": "#ff0000",
+      "color": "#000000",
       "packs": [
         "containers",
         "equipment-melee-weapons",
