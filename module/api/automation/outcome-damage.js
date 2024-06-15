@@ -13,13 +13,19 @@ export const DAMAGE_TYPE = {
  * @return {Promise<void>}
  */
 export const applyOnToken = async (outcome, tokenId, fn) => {
-  if (!tokenId) return;
+  if (!tokenId && !outcome.initiatorActor) return;
+  let actor;
   const token = canvas.tokens.get(tokenId);
-  const isValid = token && token?.actor && isAutomaticDamageEnabled();
+  if (token?.actor) {
+    actor = token.actor;
+  } else if (outcome.initiatorActor) {
+    actor = game.actors.get(outcome.initiatorActor);
+  }
+  const isValid = actor && isAutomaticDamageEnabled();
 
   if (!isValid) return;
 
-  await fn(outcome, token.actor);
+  await fn(outcome, actor);
 };
 
 /**
