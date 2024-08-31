@@ -1,3 +1,8 @@
+# v1.0.2
+
+- Fix Thing of Importance "animal skull" incorrectly being 5, it's now correctly 55.
+- Made it clearer that you can start without a hat (on a roll of 1-4).
+
 # v1.0.1
 
 - Allow actors to Long Rest without requiring their token to be on the canvas.
