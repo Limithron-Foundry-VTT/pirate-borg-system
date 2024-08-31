@@ -1002,14 +1002,14 @@
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
-        5,
-        5
+        55,
+        55
       ],
       "drawn": false,
       "_id": "aq0o2akxjmnmi9wd",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "rangeL": 55,
+      "rangeH": 55,
       "_key": "!tables.results!zdslrlczJyGmflFt.aq0o2akxjmnmi9wd"
     },
     {
