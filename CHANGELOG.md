@@ -2,6 +2,7 @@
 
 - Prompt the player when they try to reload a weapon that has run out of ammo.
 - Fumbling Gunpowder weapons now correctly rolls on the Gunpowder Fumble table.
+- Increased the width of the Ammo select dropdown on character sheets.
 
 # v1.0.2
 
