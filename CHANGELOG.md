@@ -1,3 +1,7 @@
+# v1.0.3
+
+- Prompt the player when they try to reload a weapon that has run out of ammo.
+
 # v1.0.2
 
 - Fix Thing of Importance "animal skull" incorrectly being 5, it's now correctly 55.
