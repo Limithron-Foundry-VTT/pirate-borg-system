@@ -92,7 +92,7 @@ const getItems = async (weapon, ammo) => {
  * @returns {Boolean}
  */
 const isAttackValid = (weapon, ammo) => {
-  if (!isAmmoValid(weapon, ammo)) {
+  if (trackAmmo() && !isAmmoValid(weapon, ammo)) {
     ui.notifications.error(game.i18n.format("PB.NoAmmoEquipped"));
     return false;
   }
