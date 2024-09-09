@@ -79,6 +79,12 @@
         <label>{{localize "PB.CreatureSpecial"}}:</label>
         <textarea name="system.special" rows="10">{{data.system.special}}</textarea>
       </div>
+
+      {{! Speed }}
+      <div class="form-group">
+        <label>{{ localize "PB.ItemCharacterSpeedMax" }}:</label>
+        <input type="text" name="system.attributes.speed.max" value="{{data.system.attributes.speed.max}}" data-dtype="Number" />
+      </div>
     </div>
 
     {{! Effects }}

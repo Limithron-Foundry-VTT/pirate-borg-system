@@ -3,6 +3,10 @@
 - Prompt the player when they try to reload a weapon that has run out of ammo.
 - Fumbling Gunpowder weapons now correctly rolls on the Gunpowder Fumble table.
 - Increased the width of the Ammo select dropdown on character sheets.
+- Added the ability to change the speed of characters.
+  - Speed is measured in grid units (5' grid scale for characters and 50' grid scale for ships).
+  - Player characters can change this value at the bottom of their Features tab.
+  - Non-player characters can change this value on their Details tab.
 
 # v1.0.2
 

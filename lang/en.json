@@ -189,6 +189,7 @@
   "PB.ItemSmallArmsQuantity": "Small Arms Quantity",
   "PB.ItemSmallArmsWarning": "Small Arms Warning",
   "PB.ItemSpecial": "Specials",
+  "PB.ItemCharacterSpeedMax": "Speed (in grid units)",
   "PB.ItemSpeedMax": "Max Speed",
   "PB.ItemStartingGold": "Starting Gold",
   "PB.ItemTypeAmmo": "Ammo",

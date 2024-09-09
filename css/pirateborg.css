@@ -535,6 +535,11 @@
   display: flex;
   justify-content: space-between;
 }
+.pirateborg.sheet.actor.character .sheet-body .stats-bottom-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
 .pirateborg.sheet.actor.character .sheet-body .wield-power {
   flex: 0 0 300px;
   display: flex;
