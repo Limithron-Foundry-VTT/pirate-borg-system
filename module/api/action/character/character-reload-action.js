@@ -13,26 +13,35 @@ export const characterReloadAction = async (actor, item) => {
     return;
   }
 
-  if (item.usesAmmo && item.ammoId && trackAmmo()) {
-    const ammo = actor.items.get(item.ammoId);
-    if (!ammo?.quantity) {
-      const decision = await Dialog.confirm({
-        title: game.i18n.localize("PB.OutOfAmmoTitle"),
-        content: `<p>${game.i18n.localize("PB.OutOfAmmo")}</p>`,
-      });
+  let reloadingWithoutAmmo = false;
+  if (item.usesAmmo && trackAmmo()) {
+    if (!item.ammoId) {
+      reloadingWithoutAmmo = true;
+    } else {
+      const ammo = actor.items.get(item.ammoId);
+      if (!ammo?.quantity) {
+        reloadingWithoutAmmo = true;
 
-      if (!decision) {
-        return;
+        const decision = await Dialog.confirm({
+          title: game.i18n.localize("PB.OutOfAmmoTitle"),
+          content: `<p>${game.i18n.localize("PB.OutOfAmmo")}</p>`,
+        });
+
+        if (!decision) {
+          return;
+        }
       }
-
-      await showGenericCard({
-        actor,
-        title: game.i18n.localize("PB.OutOfAmmoTitle"),
-        description: game.i18n.format("PB.OutOfAmmoReloaded", {
-          item: item.name,
-        }),
-      });
     }
+  }
+
+  if (reloadingWithoutAmmo) {
+    await showGenericCard({
+      actor,
+      title: game.i18n.localize("PB.OutOfAmmoTitle"),
+      description: game.i18n.format("PB.OutOfAmmoReloaded", {
+        item: item.name,
+      }),
+    });
   }
 
   let loadingCount = item.loadingCount || 0;
