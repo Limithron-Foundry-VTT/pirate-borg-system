@@ -336,6 +336,13 @@
           </ol>
         </ol>
       {{/unless}}
+
+      <div class="stats-bottom-row">
+        <div class="stats-block">
+          <label class="stat-label">{{ localize "PB.ItemCharacterSpeedMax" }}</label>
+          <input type="text" name="system.attributes.speed.max" value="{{data.system.attributes.speed.max}}" placeholder="6" data-dtype="Number" />
+        </div>
+      </div>
     </div>
 
     {{!-- Powers Tab --}}
