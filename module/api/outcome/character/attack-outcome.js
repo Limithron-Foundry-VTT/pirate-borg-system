@@ -34,10 +34,10 @@ const getTitle = ({ isFumble = false, isCriticalSuccess = false, isSuccess = fal
  */
 const getDescription = async ({ isGunpowderWeapon = false, isFumble = false, isCriticalSuccess = false }) => {
   switch (true) {
+    case isFumble && isGunpowderWeapon:
+      return drawGunpowderFumble();
     case isFumble:
       return "PB.AttackFumbleText";
-    case isCriticalSuccess && isGunpowderWeapon:
-      return drawGunpowderFumble();
     case isCriticalSuccess:
       return "PB.AttackCritText";
   }
@@ -77,6 +77,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       data: actor.getRollData(),
       dr,
       item: weapon?.id,
+      isGunpowderWeapon: weapon?.isGunpowderWeapon,
     }),
     withTarget({ actor, targetToken }),
     withAsyncProps({

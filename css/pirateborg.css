@@ -408,7 +408,7 @@
   font-size: 13px;
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
-  width: 100px;
+  width: 140px;
 }
 .pirateborg.sheet.actor .sheet-body .combat-tab .item-list .item-name {
   flex: 1;

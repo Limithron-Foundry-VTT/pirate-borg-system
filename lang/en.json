@@ -227,6 +227,9 @@
   "PB.NoPowerUsesRemaining": "No Arcane Ritual uses remaining",
   "PB.NoResourceUsesRemaining": "No {type} uses remaining",
   "PB.Ok": "Ok",
+  "PB.OutOfAmmo": "You have run out of ammo. Choose different ammo before reloading again.",
+  "PB.OutOfAmmoReloaded": "Tried to reload {item} without ammo.",
+  "PB.OutOfAmmoTitle": "Out of Ammo",
   "PB.Outcome": "Outcome",
   "PB.OutcomeAnimationBroken": "Broken!",
   "PB.OutcomeAnimationCriticalFailure": "Critical Failure!",
@@ -381,7 +384,6 @@
   "PB.YouHaveNoFeatures": "You have no Features",
   "PB.YouHaveNoUsableItems": "You have no usable items",
   "PB.YouOwn": "You own {item}",
-
   "TYPES.Actor.character": "Character",
   "TYPES.Actor.container": "Container",
   "TYPES.Actor.creature": "Creature",
