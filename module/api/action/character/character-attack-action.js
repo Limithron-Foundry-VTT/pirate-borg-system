@@ -105,6 +105,9 @@ const isAttackValid = (weapon, ammo) => {
  * @returns {Boolean}
  */
 const isAmmoValid = (weapon, ammo) => {
+  if (!weapon.usesAmmo) {
+    return true;
+  }
   if (!ammo) {
     return false;
   }

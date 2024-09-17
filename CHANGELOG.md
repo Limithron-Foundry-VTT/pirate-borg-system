@@ -1,3 +1,8 @@
+# v1.0.4
+
+- It turns out pirates don't use ammo for melee weapons.
+  - Melee weapons will no longer complain about invalid ammo.
+
 # v1.0.3
 
 - Prompt the player when they try to reload a weapon that has run out of ammo.
