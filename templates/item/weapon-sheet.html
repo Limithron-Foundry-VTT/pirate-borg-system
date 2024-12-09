@@ -56,9 +56,7 @@
       <div class="form-group">
         <label for="weapon-type">{{localize "PB.ItemWeaponType"}}:</label>
         <select id="weapon-type" name="system.weaponType">
-          {{#select data.system.weaponType}} {{#each config.weaponTypes as |name type|}}
-          <option value="{{type}}">{{localize name}}</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.weaponTypes selected=data.system.weaponType localize=true}}
         </select>
       </div>
 
@@ -72,9 +70,7 @@
       <div class="form-group">
         <label for="handed">{{localize "PB.ItemHanded"}}:</label>
         <select id="handed" name="system.handed">
-          {{#select data.system.handed}} {{#each config.handed as |name value|}}
-          <option value="{{value}}">{{localize name}}</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.handed selected=data.system.handed localize=true}}
         </select>
       </div>
 

@@ -4,7 +4,7 @@
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
   "data": {
-    "description": "<p>a shard of crystal</p>",
+    "description": "<p>a map of an unknown place</p>",
     "featureType": "Thing of Importance",
     "maxQuantity": null,
     "quantity": 1,

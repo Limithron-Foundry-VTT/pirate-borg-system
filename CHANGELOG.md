@@ -1,3 +1,8 @@
+# v1.0.5
+
+- Remove deprecation warnings from item and armor sheets.
+- Fixed several inconsistencies with the Thing of Importance items.
+
 # v1.0.4
 
 - It turns out pirates don't use ammo for melee weapons.

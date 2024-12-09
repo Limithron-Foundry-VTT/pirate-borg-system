@@ -4,7 +4,7 @@
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
   "data": {
-    "description": "<p>precious cooking salts in a tiny chest</p>\n<p>&nbsp;</p>",
+    "description": "<p>precious cooking salts and spices in a tiny chest</p>\n<p>&nbsp;</p>",
     "featureType": "Thing of Importance",
     "maxQuantity": null,
     "quantity": 1,
