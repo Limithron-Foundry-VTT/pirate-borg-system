@@ -4,7 +4,7 @@
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
   "data": {
-    "description": "<p>multi-colored feather</p>\n<p>&nbsp;</p>",
+    "description": "<p>a multi-colored feather from an exotic bird</p>\n<p>&nbsp;</p>",
     "featureType": "Thing of Importance",
     "maxQuantity": null,
     "quantity": 1,

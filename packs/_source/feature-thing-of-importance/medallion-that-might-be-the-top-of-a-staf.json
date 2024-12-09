@@ -1,10 +1,10 @@
 {
   "_id": "A9qMgrMJnEXZSDrU",
-  "name": "medallion that might be the top of a staf",
+  "name": "medallion that might be the top of a staff",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
   "data": {
-    "description": "<p>a medallion that might be the top of a staf</p>",
+    "description": "<p>a medallion that might be the top of a staff</p>",
     "featureType": "Thing of Importance",
     "actionMacro": null,
     "actionMacroLabel": null,

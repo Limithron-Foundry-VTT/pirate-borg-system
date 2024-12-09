@@ -54,9 +54,7 @@
       <div class="form-group">
         <label>{{localize "PB.ArmorCurrentTier"}}:</label>
         <select name="system.tier.value" data-dtype="Number">
-          {{#select data.system.tier.value}} {{#each config.armorTiers as |tierObj tierNum|}}
-          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.armorTiers selected=data.system.tier.value labelAttr="key" localize=true}}
         </select>
       </div>
 
@@ -64,9 +62,7 @@
       <div class="form-group">
         <label>{{localize "PB.ArmorMaxTier"}}:</label>
         <select name="system.tier.max" data-dtype="Number">
-          {{#select data.system.tier.max}} {{#each config.armorTiers as |tierObj tierNum|}}
-          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.armorTiers selected=data.system.tier.max labelAttr="key" localize=true}}
         </select>
       </div>
     </div>

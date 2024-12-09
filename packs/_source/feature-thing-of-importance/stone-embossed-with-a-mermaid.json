@@ -4,7 +4,7 @@
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
   "data": {
-    "description": "<p>a stone embossed with a mermaid</p>",
+    "description": "<p>a stone embossed with a beautiful mermaid</p>",
     "featureType": "Thing of Importance",
     "maxQuantity": null,
     "quantity": 1,
