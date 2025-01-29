@@ -33,9 +33,15 @@ Hooks.once("ready", () => {
 Hooks.on("renderActorDirectory", renderActorDirectory);
 Hooks.on("renderCombatTracker", renderCombatTracker);
 Hooks.on("renderSettings", renderSettings);
-Hooks.on("renderChatMessage", handleChatMessageButton);
-Hooks.on("renderChatMessage", handleChatMessageGMOnly);
-Hooks.on("renderChatMessage", handleChatMessageAutomation);
+if (foundry.utils.isNewerVersion(game.version, '13')) {
+  Hooks.on("renderChatMessageHTML", handleChatMessageButton);
+  Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
+  Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);
+} else {
+  Hooks.on("renderChatMessage", handleChatMessageButton);
+  Hooks.on("renderChatMessage", handleChatMessageGMOnly);
+  Hooks.on("renderChatMessage", handleChatMessageAutomation);
+}
 Hooks.on("dragRuler.ready", onDragRulerReady);
 
 Hooks.on("renderPause", (app, [html]) => {

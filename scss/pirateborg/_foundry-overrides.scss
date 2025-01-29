@@ -975,3 +975,9 @@ li.folder > .folder-header {
     filter: drop-shadow(0 0 0 rgba(255, 0, 0, 0));
   }
 }
+
+/* Monk's Sound Enhancement overrides */
+#playlists.sound-enhancement .playlist header.playlist-header,
+#playlists-popout.sound-enhancement .playlist header.playlist-header {
+  background: inherit;
+}

@@ -7,6 +7,10 @@ import { emitScrollChatToBottom } from "./sockets.js";
  * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageButton = async (message, html) => {
+  if (foundry.utils.isNewerVersion(game.version, '13')) {
+    // For now, wrap the html back to a jQuery object, same as it was prior to v13.
+    html = $(html);
+  }
   html.on("click", "button.item-button", async (event) => {
     event.preventDefault();
     const button = event.currentTarget;
@@ -25,6 +29,10 @@ export const handleChatMessageButton = async (message, html) => {
  * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageGMOnly = async (message, html) => {
+  if (foundry.utils.isNewerVersion(game.version, '13')) {
+    // For now, wrap the html back to a jQuery object, same as it was prior to v13.
+    html = $(html);
+  }
   html.find(".gm-only").removeClass("gm-only");
 };
 

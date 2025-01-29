@@ -1,3 +1,9 @@
+# v1.0.6
+
+- Fixed playlists not being visible in the sidebar when Monk's Sound Enhancements module is used.
+  - No longer will they be a deep purple and impossible to see.
+- Started initial v13 compatibility work.
+
 # v1.0.5
 
 - Remove deprecation warnings from item and armor sheets.
