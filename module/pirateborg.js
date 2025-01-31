@@ -14,6 +14,28 @@ import { configureAutomation } from "./system/configure-automation.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
+
+  Hooks.on("renderActorDirectory", renderActorDirectory);
+  Hooks.on("renderCombatTracker", renderCombatTracker);
+  Hooks.on("renderSettings", renderSettings);
+  if (foundry.utils.isNewerVersion(game.version, '13')) {
+    Hooks.on("renderChatMessageHTML", handleChatMessageButton);
+    Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
+    Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);
+  } else {
+    Hooks.on("renderChatMessage", handleChatMessageButton);
+    Hooks.on("renderChatMessage", handleChatMessageGMOnly);
+    Hooks.on("renderChatMessage", handleChatMessageAutomation);
+  }
+  Hooks.on("dragRuler.ready", onDragRulerReady);
+
+  Hooks.on("renderPause", (app, [html]) => {
+    html.classList.add("pirateborg");
+    const img = html.querySelector("img");
+    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
+    img.className = "";
+  });
+
   registerSystemSettings();
   configureHandlebar();
   configureSystem();
@@ -28,25 +50,4 @@ Hooks.once("ready", () => {
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
 
   ui.chat.scrollBottom();
-});
-
-Hooks.on("renderActorDirectory", renderActorDirectory);
-Hooks.on("renderCombatTracker", renderCombatTracker);
-Hooks.on("renderSettings", renderSettings);
-if (foundry.utils.isNewerVersion(game.version, '13')) {
-  Hooks.on("renderChatMessageHTML", handleChatMessageButton);
-  Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
-  Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);
-} else {
-  Hooks.on("renderChatMessage", handleChatMessageButton);
-  Hooks.on("renderChatMessage", handleChatMessageGMOnly);
-  Hooks.on("renderChatMessage", handleChatMessageAutomation);
-}
-Hooks.on("dragRuler.ready", onDragRulerReady);
-
-Hooks.on("renderPause", (app, [html]) => {
-  html.classList.add("pirateborg");
-  const img = html.querySelector("img");
-  img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
-  img.className = "";
 });

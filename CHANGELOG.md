@@ -1,3 +1,7 @@
+# v1.0.7
+
+- Fixed buttons on chat cards (such as attack rolls) not working.
+
 # v1.0.6
 
 - Fixed playlists not being visible in the sidebar when Monk's Sound Enhancements module is used.
