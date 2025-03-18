@@ -1,3 +1,7 @@
+# v1.0.8
+
+- Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.
+
 # v1.0.7
 
 - Fixed buttons on chat cards (such as attack rolls) not working.
