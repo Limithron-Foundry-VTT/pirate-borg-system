@@ -3,10 +3,17 @@
   "name": "Tall Tale",
   "type": "class",
   "img": "systems/pirateborg/tokens/tell-tale.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
     "description": "<p>You are a Merfolk, an Aquatic Mutant or a Sentient Animal</p>",
     "flavorText": "You are a Merfolk, an Aquatic Mutant or a Sentient Animal",
-    "luckDie": "",
+    "luckDie": "1d4",
     "startingArmorTableFormula": "",
     "startingWeaponTableFormula": "",
     "startingHatTableFormula": "",
@@ -40,12 +47,13 @@
     "startingSpiritBonus ": 0,
     "skipCharacterGenerator": false
   },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v1.0.8",
+    "coreVersion": "11.315",
+    "createdTime": null,
+    "modifiedTime": 1742330744017,
+    "lastModifiedBy": "pbbuilder0000000"
   },
   "_key": "!items!TDsJBLUG3b0P868Z"
 }

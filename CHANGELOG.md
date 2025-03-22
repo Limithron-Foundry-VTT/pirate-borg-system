@@ -1,4 +1,4 @@
-# v1.0.8-beta
+# v1.0.8-v13
 
 - Added support for Foundry VTT v13.
   - This is a beta release, and there may be some issues.
@@ -6,6 +6,10 @@
   - Please report any issues you encounter.
 - Removed support for Foundry VTT v11.
 - Added more folder categorization for the compendium packs.
+
+# v1.0.8
+
+- Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.
 
 # v1.0.7
 
