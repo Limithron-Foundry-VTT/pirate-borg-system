@@ -43,7 +43,7 @@ export const configureHandlebar = () => {
     return result;
   });
 
-  loadTemplates([
+  const templates = [
     "systems/pirateborg/templates/actor/common/actor-equipment-list.html",
     "systems/pirateborg/templates/actor/common/actor-item-button.html",
     "systems/pirateborg/templates/actor/common/dynamic-list.html",
@@ -51,5 +51,10 @@ export const configureHandlebar = () => {
     "systems/pirateborg/templates/actor/common/effects.html",
     "systems/pirateborg/templates/actor/common/static-list-item.html",
     "systems/pirateborg/templates/item/tab/effects.html",
-  ]);
+  ];
+  if (game.release.generation >= 13) {
+    foundry.applications.handlebars.loadTemplates(templates);
+  } else {
+    loadTemplates(templates);
+  }
 };

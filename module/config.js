@@ -306,13 +306,6 @@ PB.recommendedModules = [
     url: "https://foundryvtt.com/packages/splatter",
     description: "Add blood and gore to your games.",
   },
-  {
-    type: "recommended",
-    name: "Torch",
-    package: "torch",
-    url: "https://foundryvtt.com/packages/torch",
-    description: "Adds a HUD button to toggle light of a specific radius.",
-  },
 ];
 
 CONFIG.PB = PB;

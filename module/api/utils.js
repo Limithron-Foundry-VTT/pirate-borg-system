@@ -49,31 +49,31 @@ export const getSystemFlag = (document, flag) => document.getFlag(CONFIG.PB.flag
  * @param {Token} token
  * @return {Number}
  */
-export const getTokenRotation = (token) => token.document.rotation ?? token.data.rotation;
+export const getTokenRotation = (token) => token.document.rotation;
 
 /**
  * @param {Token} token
  * @return {Number}
  */
-export const getTokenWidth = (token) => token.document.width ?? token.data.width;
+export const getTokenWidth = (token) => token.document.width;
 
 /**
  * @param {Token} token
  * @return {Number}
  */
-export const getTokenScale = (token) => token.document.texture?.scaleX ?? token.data.scale;
+export const getTokenScale = (token) => token.document.texture?.scaleX;
 
 /**
  * @param {ChatMessage} chatMessage
  * @return {Object}
  */
-export const getMessageSpeaker = (chatMessage) => chatMessage.speaker ?? chatMessage.data.speaker;
+export const getMessageSpeaker = (chatMessage) => chatMessage.speaker;
 
 /**
  * @param {ChatMessage} chatMessage
  * @return {String}
  */
-export const getMessageContent = (chatMessage) => chatMessage.content ?? chatMessage.data.content;
+export const getMessageContent = (chatMessage) => chatMessage.content;
 
 /**
  * @param {Object} dropData
@@ -94,19 +94,32 @@ export const getInfoFromDropData = async (dropData) => {
  * @param {TableResult} result
  * @return {Number}
  */
-export const getResultType = (result) => result.type ?? result.data.type;
+export const getResultType = (result) => result.type;
 
 /**
  * @param {TableResult} result
  * @return {String}
  */
-export const getResultCollection = (result) => result.documentCollection ?? result.data.collection;
+export const getResultCollection = (result) => {
+  if (game.release.generation >= 13) {
+    const parsedUuid = foundry.utils.parseUuid(result.documentUuid);
+    return parsedUuid?.collection?.metadata?.id ?? parsedUuid.type ?? "";
+  }
+
+  return result.documentCollection;
+}
 
 /**
  * @param {TableResult} result
  * @return {String}
  */
-export const getResultText = (result) => result.text ?? result.data.text;
+export const getResultText = (result) => {
+  if (game.release.generation >= 13) {
+    return result.type === "text" ? result.description : result.name;
+  }
+
+  return result.text;
+}
 
 /**
  * @param {TableResult[]} results
@@ -119,14 +132,13 @@ export const getResultsAsText = (results, separator = ", ") => results.map((r) =
  * @param {Macro} macro
  * @return {String}
  */
-export const getMacroCommand = (macro) => macro.command ?? macro.data.command;
+export const getMacroCommand = (macro) => macro.command;
 
 /**
  * @param {Combatant} combatant
  * @return {Number}
  */
-export const getCombatantInitiative = (combatant) =>
-  Object.getOwnPropertyDescriptor(combatant, "initiative") ? combatant.initiative : combatant.data.initiative;
+export const getCombatantInitiative = (combatant) => combatant.initiative;
 
 /**
  * @param {Token} token
@@ -138,18 +150,18 @@ export const getTokenDisposition = (token) => token.disposition ?? token.data.di
  * @param {Document} document
  * @return {Object}
  */
-export const getDocumentFlags = (document) => document.flags ?? document.data.flags;
+export const getDocumentFlags = (document) => document.flags;
 
 /**
  * @return {String}
  */
-export const getSystemVersion = () => game.system.version ?? game.system.data.version;
+export const getSystemVersion = () => game.system.version;
 
 /**
  * @param {Object} module
  * @return {Array}
  */
-export const getModuleDependencies = (module) => module?.relationships?.requires ?? module?.data?.dependencies ?? [];
+export const getModuleDependencies = (module) => module?.relationships?.requires ?? [];
 
 /**
  * @param {String} type

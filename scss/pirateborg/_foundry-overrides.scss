@@ -4,17 +4,8 @@ body {
   background-size: cover;
 }
 
-.window-app {
-  .window-header {
-    background: var(--window-header-background-color);
-    color: var(--window-header-color);
-  }
-}
-
 .form-group {
   input[type="text"] {
-    color: var(--foreground-color);
-
     &:hover,
     &:focus {
       box-shadow: 0 0 10px var(--highlight-background-color);
@@ -22,9 +13,7 @@ body {
   }
 
   textarea {
-    color: var(--foreground-color);
     border: 2px groove var(--light-border-color);
-    background: rgba(255, 255, 255, 0.2);
 
     &:hover {
       box-shadow: 0 0 10px var(--highlight-background-color);
@@ -37,7 +26,7 @@ body {
   }
 }
 
-form button {
+.pirateborg.sheet form button {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -63,6 +52,22 @@ form button {
 .chat-message form button.item-button {
   font-size: 16px;
   width: 100%;
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  padding: 0 16px;
+  line-height: 24px;
+  height: 24px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+
+
 }
 
 a:hover {
@@ -70,9 +75,6 @@ a:hover {
 }
 
 input[type="text"] {
-  color: var(--foreground-color);
-  background: none;
-
   &:hover,
   &:focus {
     box-shadow: 0 0 10px var(--highlight-background-color);
@@ -80,13 +82,7 @@ input[type="text"] {
 }
 
 form.editable .results {
-  .result-image img {
-    background-color: var(--foreground-color);
-  }
-
   .result-type select {
-    color: var(--foreground-color);
-
     &:hover,
     &:focus {
       box-shadow: 0 0 10px var(--highlight-background-color);
@@ -94,9 +90,7 @@ form.editable .results {
   }
 
   select {
-    color: var(--foreground-color);
     border: 2px groove var(--light-border-color);
-    background: rgba(255, 255, 255, 0.2);
 
     &:hover,
     &:focus {
@@ -105,9 +99,7 @@ form.editable .results {
   }
 
   input[type="text"] {
-    color: var(--foreground-color);
     border: 2px groove var(--light-border-color);
-    background: rgba(255, 255, 255, 0.2);
 
     &:hover,
     &:focus {
@@ -117,29 +109,23 @@ form.editable .results {
 }
 
 .chat-message .table-draw .table-description {
-  color: var(--foreground-color);
   font-size: var(--font-size-14);
-}
-
-.table-results .table-result .result-text .entity-link,
-.table-results .table-result .result-text .entity-link i {
-  color: var(--foreground-color);
 }
 
 /* Fixes Module Management dialog */
 
 #module-management {
   input {
-    color: var(--foreground-color);
-    border: 2px groove var(--light-border-color);
-    background: rgba(255, 255, 255, 0.2);
+    //color: var(--foreground-color);
+    //border: 2px groove var(--light-border-color);
+    //background: rgba(255, 255, 255, 0.2);
   }
 
   .package-list {
     .package-title,
     .package-metadata,
     .package-description {
-      color: var(--foreground-color);
+      //color: var(--foreground-color);
     }
   }
 }
@@ -149,13 +135,8 @@ form.editable .results {
 .window-app {
   .window-content {
     background: var(--window-background);
-    color: var(--foreground-color);
 
     form {
-      button[type="submit"] {
-        height: 28px;
-        width: 100%;
-      }
       .tab {
         margin-bottom: 16px;
         border-bottom-left-radius: 16px;
@@ -165,7 +146,6 @@ form.editable .results {
         border-top: none;
         padding: 16px;
         overflow-y: auto;
-        max-height: calc(100vh - 250px);
 
         .tabs {
           .item {
@@ -256,7 +236,6 @@ form.editable .results {
     }
   }
 }
-/* TODO: determine if we need both .notes and form .notes styles specified */
 
 /* Fix readonly input on defend dialog */
 
@@ -332,7 +311,7 @@ form.editable .results {
   }
 }
 
-#chat-log {
+#chat, #chat-log {
   .message-header {
     align-items: center;
     line-height: normal;
@@ -615,19 +594,8 @@ form .form-group-stacked {
     border-top: 2px groove var(--color-border-dark-4) !important;
     border-bottom: 2px groovesolid var(--color-border-dark-4) !important;
   }
-
-  button {
-    background: var(--button-background);
-    color: var(--button-color);
-    font-family: var(--button-font);
-    border: none;
-    border-radius: 24px;
-    font-size: 14px;
-    padding: 0 16px;
-    cursor: pointer;
-  }
 }
-#sidebar {
+div#sidebar {
   background: var(--sidebar-background);
   color: var(--sidebar-color);
 
@@ -637,12 +605,13 @@ form .form-group-stacked {
   }
 }
 
-#sidebar-tabs {
+#sidebar-tabs:not(.faded-ui) {
   background: var(--sidebar-tab-background);
   color: var(--sidebar-tab-color);
 
-  border-bottom: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
+  > .collapse {
+    color: var(--sidebar-tab-color);
+  }
 
   > .item.active {
     color: var(--highlight-foreground-color);
@@ -654,7 +623,7 @@ form .form-group-stacked {
   }
 }
 
-.sidebar-tab {
+#sidebar.app .sidebar-tab {
   .action-buttons button {
     cursor: pointer;
     background: var(--button-background);
@@ -785,29 +754,24 @@ form .form-group-stacked {
   color: var(--highlight-foreground-color) !important;
 }
 
-.window-app {
-  &.app.journal-sheet .window-content {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) {
+  color: var(--background-color);
+  font-family: var(--item-font);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+
+  h1 {
+    font-family: var(--h2-font);
+    border-bottom: 2px solid var(--color-underline-header);
+  }
+
+  h2 {
+    border-bottom: 2px solid var(--color-underline-header);
+  }
+
+  h1, h2, h3, h4, h5, h6, button {
     color: var(--background-color);
-    background-position: -43px -120px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    overflow-y: hidden;
-    padding: 0px;
-    margin: 0px;
-    font-family: var(--item-font);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.5;
-
-    h1 {
-      font-family: var(--h2-font);
-      border-bottom: 2px solid var(--color-underline-header);
-    }
-
-    h2 {
-      border-bottom: 2px solid var(--color-underline-header);
-    }
   }
 }
 
@@ -834,28 +798,6 @@ form .form-group-stacked {
   .editor {
     border: 2px groove var(--light-border-color);
     background: rgba(255, 255, 255, 0.2);
-  }
-}
-
-a {
-  &.entity-link,
-  &.inline-roll {
-    background: transparent;
-    color: var(--foreground-color);
-    padding: 1px 4px;
-    border: none;
-    border-radius: 2px;
-    white-space: unset;
-    word-break: break-all;
-  }
-}
-
-#world-config {
-  .window-content {
-    .editor {
-      // crappy workaround so the tinymce editor black text is visible
-      background: #d8d8cc;
-    }
   }
 }
 

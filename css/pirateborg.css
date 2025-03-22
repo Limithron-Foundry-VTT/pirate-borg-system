@@ -39,6 +39,8 @@
   --color-border-light-primary: var(--light-border-color);
   --color-border-highlight: #ff0000;
   --color-shadow-highlight: #ff0000;
+  --color-underline-active: #44191A;
+  --color-underline-header: #782e22;
 }
 
 /* ====================== */
@@ -48,46 +50,8 @@
   font-family: "Roman Antique Regular";
   src: url("../fonts/Roman Antique Regular.ttf") format("truetype");
 }
-/* ====================== */
-/* Flex */
-/* ====================== */
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.flexrow > *,
-.flexrow .flex1 {
-  flex: 1;
-}
-.flexrow .flex2 {
-  flex: 2;
-}
-.flexrow .flex3 {
-  flex: 3;
-}
-.flexrow .flex4 {
-  flex: 4;
-}
-
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.flexcol > *,
-.flexcol .flex1 {
-  flex: 1;
-}
-.flexcol .flex2 {
-  flex: 2;
-}
-.flexcol .flex3 {
-  flex: 3;
-}
-.flexcol .flex4 {
-  flex: 4;
+.actors-sidebar .create-character-generator-button {
+  flex-basis: 100%;
 }
 
 .pirateborg .window-content {
@@ -793,21 +757,11 @@ body {
   background-size: cover;
 }
 
-.window-app .window-header {
-  background: var(--window-header-background-color);
-  color: var(--window-header-color);
-}
-
-.form-group input[type=text] {
-  color: var(--foreground-color);
-}
 .form-group input[type=text]:hover, .form-group input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group textarea {
-  color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
-  background: rgba(255, 255, 255, 0.2);
 }
 .form-group textarea:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -817,7 +771,7 @@ body {
   outline: none;
 }
 
-form button {
+.pirateborg.sheet form button {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -831,7 +785,7 @@ form button {
   white-space: nowrap;
   width: auto;
 }
-form button:hover {
+.pirateborg.sheet form button:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -842,76 +796,53 @@ form button:hover {
 .chat-message form button.item-button {
   font-size: 16px;
   width: 100%;
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font);
+  border: none;
+  border-radius: 24px;
+  padding: 0 16px;
+  line-height: 24px;
+  height: 24px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chat-message form button.item-button:hover {
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
-input[type=text] {
-  color: var(--foreground-color);
-  background: none;
-}
 input[type=text]:hover, input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-form.editable .results .result-image img {
-  background-color: var(--foreground-color);
-}
-form.editable .results .result-type select {
-  color: var(--foreground-color);
-}
 form.editable .results .result-type select:hover, form.editable .results .result-type select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results select {
-  color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
-  background: rgba(255, 255, 255, 0.2);
 }
 form.editable .results select:hover, form.editable .results select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results input[type=text] {
-  color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
-  background: rgba(255, 255, 255, 0.2);
 }
 form.editable .results input[type=text]:hover, form.editable .results input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .chat-message .table-draw .table-description {
-  color: var(--foreground-color);
   font-size: var(--font-size-14);
 }
 
-.table-results .table-result .result-text .entity-link,
-.table-results .table-result .result-text .entity-link i {
-  color: var(--foreground-color);
-}
-
 /* Fixes Module Management dialog */
-#module-management input {
-  color: var(--foreground-color);
-  border: 2px groove var(--light-border-color);
-  background: rgba(255, 255, 255, 0.2);
-}
-#module-management .package-list .package-title,
-#module-management .package-list .package-metadata,
-#module-management .package-list .package-description {
-  color: var(--foreground-color);
-}
-
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content {
   background: var(--window-background);
-  color: var(--foreground-color);
-}
-.window-app .window-content form button[type=submit] {
-  height: 28px;
-  width: 100%;
 }
 .window-app .window-content form .tab {
   margin-bottom: 16px;
@@ -922,7 +853,6 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   border-top: none;
   padding: 16px;
   overflow-y: auto;
-  max-height: calc(100vh - 250px);
 }
 .window-app .window-content form .tab .tabs .item {
   font-size: 16px;
@@ -994,7 +924,6 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   cursor: default;
 }
 
-/* TODO: determine if we need both .notes and form .notes styles specified */
 /* Fix readonly input on defend dialog */
 /* Fixes Journal image select dialog */
 .journal-sheet.image-popout .window-content .form-group input {
@@ -1043,11 +972,11 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-#chat-log .message-header {
+#chat .message-header, #chat-log .message-header {
   align-items: center;
   line-height: normal;
 }
-#chat-log .chat-message {
+#chat .chat-message, #chat-log .chat-message {
   background: var(--window-background);
   border: 2px groove var(--light-border-color);
   border-radius: 0;
@@ -1058,38 +987,40 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   padding: 8px;
   padding-bottom: 24px;
 }
-#chat-log .chat-message .table-draw .table-results {
+#chat .chat-message .table-draw .table-results, #chat-log .chat-message .table-draw .table-results {
   margin: 0;
   display: flex;
   margin-top: 20px;
   justify-content: center;
   flex-direction: column;
 }
-#chat-log .chat-message .gm-only {
+#chat .chat-message .gm-only, #chat-log .chat-message .gm-only {
   display: none;
 }
-#chat-log .message h4,
+#chat .message h4,
+#chat .message h3,
+#chat .message h2, #chat-log .message h4,
 #chat-log .message h3,
 #chat-log .message h2 {
   color: var(--foreground-color);
 }
-#chat-log .message-metadata {
+#chat .message-metadata, #chat-log .message-metadata {
   color: var(--foreground-color);
 }
-#chat-log .message h2 {
+#chat .message h2, #chat-log .message h2 {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
 }
-#chat-log .chat-message .message-header {
+#chat .chat-message .message-header, #chat-log .chat-message .message-header {
   margin-bottom: 8px;
 }
-#chat-log .chat-message .message-header .message-sender {
+#chat .chat-message .message-header .message-sender, #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
   font-size: 24px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-#chat-log .chat-message .message-header .message-metadata {
+#chat .chat-message .message-header .message-metadata, #chat-log .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
   font-size: 12px;
   display: flex;
@@ -1098,7 +1029,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   gap: 4px;
   flex: 0 0 70px;
 }
-#chat-log .chat-message .message-header span.flavor-text {
+#chat .chat-message .message-header span.flavor-text, #chat-log .chat-message .message-header span.flavor-text {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
@@ -1108,7 +1039,8 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   padding-top: 4px;
   line-height: 28px;
 }
-#chat-log .message .dice-formula,
+#chat .message .dice-formula,
+#chat .message .dice-total, #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
   font-size: 16px;
   border-radius: 0;
@@ -1275,33 +1207,24 @@ form .form-group-stacked {
   border-top: 2px groove var(--color-border-dark-4) !important;
   border-bottom: 2px groovesolid var(--color-border-dark-4) !important;
 }
-#settings button {
-  background: var(--button-background);
-  color: var(--button-color);
-  font-family: var(--button-font);
-  border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  padding: 0 16px;
-  cursor: pointer;
-}
 
-#sidebar {
+div#sidebar {
   background: var(--sidebar-background);
   color: var(--sidebar-color);
 }
-#sidebar.collapsed #sidebar-tabs > .item.active {
+div#sidebar.collapsed #sidebar-tabs > .item.active {
   border-bottom: 1px solid var(--highlight-background-color);
   border-radius: 5px;
 }
 
-#sidebar-tabs {
+#sidebar-tabs:not(.faded-ui) {
   background: var(--sidebar-tab-background);
   color: var(--sidebar-tab-color);
-  border-bottom: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
 }
-#sidebar-tabs > .item.active {
+#sidebar-tabs:not(.faded-ui) > .collapse {
+  color: var(--sidebar-tab-color);
+}
+#sidebar-tabs:not(.faded-ui) > .item.active {
   color: var(--highlight-foreground-color);
   background: var(--highlight-background-color);
   border: 1px solid var(--highlight-background-color);
@@ -1310,7 +1233,7 @@ form .form-group-stacked {
   text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
-.sidebar-tab .action-buttons button {
+#sidebar.app .sidebar-tab .action-buttons button {
   cursor: pointer;
   background: var(--button-background);
   color: var(--button-color);
@@ -1322,61 +1245,61 @@ form .form-group-stacked {
   padding: 0 16px;
   cursor: pointer;
 }
-.sidebar-tab .directory-header .header-search input {
+#sidebar.app .sidebar-tab .directory-header .header-search input {
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 0;
   font-family: var(--button-font);
 }
-.sidebar-tab .directory-header .header-search input[type=text]:focus {
+#sidebar.app .sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.sidebar-tab.directory .folder-header {
+#sidebar.app .sidebar-tab.directory .folder-header {
   border: none;
 }
-.sidebar-tab.directory .directory-header {
+#sidebar.app .sidebar-tab.directory .directory-header {
   border-bottom: 2px groove var(--light-border-color);
 }
-.sidebar-tab.directory li.folder > .folder-header {
+#sidebar.app .sidebar-tab.directory li.folder > .folder-header {
   background: none;
   border-bottom: 2px groove var(--light-border-color);
 }
-.sidebar-tab.directory li.folder > .folder-header h3 {
+#sidebar.app .sidebar-tab.directory li.folder > .folder-header h3 {
   color: var(--foreground-color);
   font-family: var(--compendium-font);
   font-size: 16px;
 }
-.sidebar-tab.directory li.folder {
+#sidebar.app .sidebar-tab.directory li.folder {
   background: none;
 }
-.sidebar-tab.directory li.folder.collapsed > .folder-header {
+#sidebar.app .sidebar-tab.directory li.folder.collapsed > .folder-header {
   background: none;
   border: none;
 }
-.sidebar-tab.directory .directory-list .directory-item:last-child {
+#sidebar.app .sidebar-tab.directory .directory-list .directory-item:last-child {
   border-bottom: 2px groove var(--light-border-color);
 }
-.sidebar-tab.directory .directory-list .subdirectory {
+#sidebar.app .sidebar-tab.directory .directory-list .subdirectory {
   border: none;
 }
-.sidebar-tab.directory .directory-list .subdirectory .directory-item:last-child {
+#sidebar.app .sidebar-tab.directory .directory-list .subdirectory .directory-item:last-child {
   border: none;
 }
-.sidebar-tab.directory .directory-list .subdirectory li {
+#sidebar.app .sidebar-tab.directory .directory-list .subdirectory li {
   padding-left: 16px;
 }
-.sidebar-tab.directory .directory-list .directory-item {
+#sidebar.app .sidebar-tab.directory .directory-list .directory-item {
   border-bottom: 2px groove var(--light-border-color);
   border-top: 0;
 }
-.sidebar-tab.directory .directory-list .directory-item.document-name {
+#sidebar.app .sidebar-tab.directory .directory-list .directory-item.document-name {
   border: none;
 }
-.sidebar-tab.directory .directory-list .directory-item h4 {
+#sidebar.app .sidebar-tab.directory .directory-list .directory-item h4 {
   font-family: var(--compendium-font);
   font-size: 14px;
 }
-.sidebar-tab.directory .directory-list .directory-item img {
+#sidebar.app .sidebar-tab.directory .directory-list .directory-item img {
   padding: 2px;
   border-radius: 8px;
 }
@@ -1418,26 +1341,22 @@ form .form-group-stacked {
   color: var(--highlight-foreground-color) !important;
 }
 
-.window-app.app.journal-sheet .window-content {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) {
   color: var(--background-color);
-  background-position: -43px -120px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  padding: 0px;
-  margin: 0px;
   font-family: var(--item-font);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
 }
-.window-app.app.journal-sheet .window-content h1 {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1 {
   font-family: var(--h2-font);
   border-bottom: 2px solid var(--color-underline-header);
 }
-.window-app.app.journal-sheet .window-content h2 {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2 {
   border-bottom: 2px solid var(--color-underline-header);
+}
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h3, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h4, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h5, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
+  color: var(--background-color);
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
@@ -1456,20 +1375,6 @@ form .form-group-stacked {
 .journal-sheet form .editor {
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
-}
-
-a.entity-link, a.inline-roll {
-  background: transparent;
-  color: var(--foreground-color);
-  padding: 1px 4px;
-  border: none;
-  border-radius: 2px;
-  white-space: unset;
-  word-break: break-all;
-}
-
-#world-config .window-content .editor {
-  background: #d8d8cc;
 }
 
 .sheet nav.sheet-tabs {
@@ -1995,14 +1900,6 @@ li.folder > .folder-header {
 
 button.dice-calculator--button {
   color: var(--foreground-color) !important;
-}
-
-#settings {
-  padding: 0 !important;
-}
-#settings button {
-  padding: 0 16px !important;
-  margin: 4px 0 !important;
 }
 
 .sidebar-tab .action-buttons button.import-dd {

@@ -121,9 +121,7 @@
       <div class="form-group">
         <label>{{localize "PB.ItemHullCurrentTier"}}:</label>
         <select name="system.attributes.hull.value" data-dtype="Number">
-          {{#select data.system.attributes.hull.value}} {{#each config.armorTiers as |tierObj tierNum|}}
-          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.armorTiers selected=data.system.attributes.hull.value labelAttr="key" localize=true}}
         </select>
       </div>
 
@@ -131,9 +129,7 @@
       <div class="form-group">
         <label>{{ localize "PB.ItemHullMaxTier" }}:</label>
         <select name="system.attributes.hull.max" data-dtype="Number">
-          {{#select data.system.attributes.hull.max}} {{#each config.armorTiers as |tierObj tierNum|}}
-          <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
-          {{/each}} {{/select}}
+          {{selectOptions config.armorTiers selected=data.system.attributes.hull.max labelAttr="key" localize=true}}
         </select>
       </div>
     </div>

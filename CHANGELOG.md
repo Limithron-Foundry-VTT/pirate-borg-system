@@ -1,3 +1,12 @@
+# v1.0.8-beta
+
+- Added support for Foundry VTT v13.
+  - This is a beta release, and there may be some issues.
+  - There will continue to be some warnings in the console about deprecated methods.
+  - Please report any issues you encounter.
+- Removed support for Foundry VTT v11.
+- Added more folder categorization for the compendium packs.
+
 # v1.0.7
 
 - Fixed buttons on chat cards (such as attack rolls) not working.
