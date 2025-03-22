@@ -1,15 +1,3 @@
-2024/08/31-19:39:06.677379 173a73000 Recovering log #59
-2024/08/31-19:39:06.677728 173a73000 Delete type=0 #59
-2024/08/31-19:39:06.677815 173a73000 Delete type=3 #58
-2024/08/31-19:39:06.678121 173aff000 Level-0 table #63: started
-2024/08/31-19:39:06.678259 173aff000 Level-0 table #63: 1342 bytes OK
-2024/08/31-19:39:06.678321 173aff000 Delete type=0 #61
-2024/08/31-19:39:06.678526 173aff000 Manual compaction at level-0 from '!actors!gdSstJD7IFRLWPIr' @ 72057594037927935 : 1 .. '!actors!gdSstJD7IFRLWPIr' @ 0 : 0; will stop at (end)
-2024/08/31-19:39:06.678541 173aff000 Manual compaction at level-1 from '!actors!gdSstJD7IFRLWPIr' @ 72057594037927935 : 1 .. '!actors!gdSstJD7IFRLWPIr' @ 0 : 0; will stop at '!actors!gdSstJD7IFRLWPIr' @ 4 : 1
-2024/08/31-19:39:06.678544 173aff000 Compacting 1@1 + 1@2 files
-2024/08/31-19:39:06.678676 173aff000 Generated table #64@1: 1 keys, 1342 bytes
-2024/08/31-19:39:06.678682 173aff000 Compacted 1@1 + 1@2 files => 1342 bytes
-2024/08/31-19:39:06.678744 173aff000 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/08/31-19:39:06.678773 173aff000 Delete type=2 #63
-2024/08/31-19:39:06.678883 173aff000 Delete type=2 #55
-2024/08/31-19:39:06.679009 173aff000 Manual compaction at level-1 from '!actors!gdSstJD7IFRLWPIr' @ 4 : 1 .. '!actors!gdSstJD7IFRLWPIr' @ 0 : 0; will stop at (end)
+2025/03/19-09:45:56.161825 16e7ab000 Recovering log #72
+2025/03/19-09:45:56.162271 16e7ab000 Delete type=3 #70
+2025/03/19-09:45:56.162379 16e7ab000 Delete type=0 #72
