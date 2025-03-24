@@ -1907,10 +1907,6 @@ button.dice-calculator--button {
   width: calc(100% - 16px);
 }
 
-#client-settings {
-  min-height: auto !important;
-  height: auto !important;
-}
 #client-settings #config-tabs div.tab[data-tab=modules] #searchField {
   border: none;
 }
