@@ -118,7 +118,7 @@ export const getResultText = (result) => {
     return result.type === "text" ? result.description : result.name;
   }
 
-  return result.text;
+  return result.text.replaceAll(' &amp; ', ' & ');
 }
 
 /**
