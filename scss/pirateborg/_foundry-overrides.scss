@@ -26,7 +26,7 @@ body {
   }
 }
 
-.pirateborg.sheet form button {
+.pirateborg.sheet form button:not(.tinymce *) {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
