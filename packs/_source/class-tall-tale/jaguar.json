@@ -3,7 +3,23 @@
   "name": "Jaguar",
   "type": "feature",
   "img": "systems/pirateborg/tokens/jaguar.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You're a deadly jungle cat.</p>\n<p>Strength: +2.</p>\n<p>Agility: +2.</p>\n<p>HP: d8+toughness.</p>\n<p>Bite/Claws: d8.</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "pirateborg.class-tall-tale;Jaguar - Bite/Claws",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!iDVD29wjXnI9oDBf"
 }

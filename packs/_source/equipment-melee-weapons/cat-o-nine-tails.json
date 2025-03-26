@@ -3,7 +3,23 @@
   "name": "Cat O' Nine Tails",
   "type": "weapon",
   "img": "systems/pirateborg/icons/equipment/melee-weapons/cat-o-nine-tails.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>10' reach</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -25,13 +41,6 @@
     "needsReloading": false,
     "reloadTime": 1,
     "loadingCount": 0
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!UcyBKljMZDh2c6IB"
 }

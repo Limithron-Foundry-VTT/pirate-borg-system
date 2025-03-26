@@ -3,19 +3,32 @@
   "name": "You collect something. You talk to your collection. They are your friends.",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
-  "data": {
-    "description": "<p>You collect something. You talk to your collection. They are your friends.</p>",
-    "featureType": "Idiosyncrasies",
-    "actionMacro": null,
-    "actionMacroLabel": null,
-    "maxQuantity": null
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>You collect something. You talk to your collection. They are your friends.</p>",
+    "featureType": "Idiosyncrasies",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!Y3eDh47M4Xrurd6D"
 }

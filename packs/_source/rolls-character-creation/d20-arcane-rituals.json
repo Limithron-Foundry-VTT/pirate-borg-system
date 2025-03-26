@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Call of the Sea",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "JIcvijvyiIIEFGyV",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "ckxkc5i2dv5ftdsl",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "JIcvijvyiIIEFGyV",
       "_key": "!tables.results!WxY6dDA8UGahiukE.ckxkc5i2dv5ftdsl"
     },
     {
       "text": "Curse of the Drowned",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "n2hI94U5o3CY0wI9",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "8vcdesnknood4h9g",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "n2hI94U5o3CY0wI9",
       "_key": "!tables.results!WxY6dDA8UGahiukE.8vcdesnknood4h9g"
     },
     {
       "text": "Dark Delusions",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "0YT9OwwBIzFUOv1D",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "26ws8ce1bry42i47",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "0YT9OwwBIzFUOv1D",
       "_key": "!tables.results!WxY6dDA8UGahiukE.26ws8ce1bry42i47"
     },
     {
       "text": "Divination",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "lgxbkDCqZ2bBQ8wo",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "6qs4xer92bf3wcxl",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "lgxbkDCqZ2bBQ8wo",
       "_key": "!tables.results!WxY6dDA8UGahiukE.6qs4xer92bf3wcxl"
     },
     {
       "text": "Eldritch Tentacles",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "pxGux1jivInKvMx9",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "ob849elkc41sivgp",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "pxGux1jivInKvMx9",
       "_key": "!tables.results!WxY6dDA8UGahiukE.ob849elkc41sivgp"
     },
     {
       "text": "Heart Hex",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "xhQBrTfC09FYje8q",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "1pho0mps4r614s67",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "xhQBrTfC09FYje8q",
       "_key": "!tables.results!WxY6dDA8UGahiukE.1pho0mps4r614s67"
     },
     {
       "text": "Thalassomancy",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "AwPCCxUcnSRqIRco",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "r1ioz2156orh58x8",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "AwPCCxUcnSRqIRco",
       "_key": "!tables.results!WxY6dDA8UGahiukE.r1ioz2156orh58x8"
     },
     {
       "text": "Light of a Thousand Stars",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "Qc8lbxQg03PVRkl0",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "cfjculfiht5qqrfx",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "Qc8lbxQg03PVRkl0",
       "_key": "!tables.results!WxY6dDA8UGahiukE.cfjculfiht5qqrfx"
     },
     {
       "text": "Mermaid's Kiss",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "8qy6kGcq6YfiiWYX",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "u2viws1ycos1vghh",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "8qy6kGcq6YfiiWYX",
       "_key": "!tables.results!WxY6dDA8UGahiukE.u2viws1ycos1vghh"
     },
     {
       "text": "Mind Manacles",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "XmNX5qADwgu5oDb8",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "rh1h4px2uojumtpn",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "XmNX5qADwgu5oDb8",
       "_key": "!tables.results!WxY6dDA8UGahiukE.rh1h4px2uojumtpn"
     },
     {
       "text": "Mists of Confusion",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "AjfhYyj0bpTUN1hI",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "d7zttus8w3cria8y",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "AjfhYyj0bpTUN1hI",
       "_key": "!tables.results!WxY6dDA8UGahiukE.d7zttus8w3cria8y"
     },
     {
       "text": "Obfuscate Time",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "kMuqoc7AI5xGWTdL",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "5tsbhivoo1878j2o",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "kMuqoc7AI5xGWTdL",
       "_key": "!tables.results!WxY6dDA8UGahiukE.5tsbhivoo1878j2o"
     },
     {
       "text": "Phantasmal Fauna",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "Hkp58x5UM1YPh8OV",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "nrcv8n4b9wmgvpra",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "Hkp58x5UM1YPh8OV",
       "_key": "!tables.results!WxY6dDA8UGahiukE.nrcv8n4b9wmgvpra"
     },
     {
       "text": "Release the Kraken",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "LjAGl888s3KWBKar",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "8m2jfad1z5qlob2d",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "LjAGl888s3KWBKar",
       "_key": "!tables.results!WxY6dDA8UGahiukE.8m2jfad1z5qlob2d"
     },
     {
       "text": "Reopen the Grave",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "Oo5wutwGkEKWXZfq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "zoyy5dezjrurcllc",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "Oo5wutwGkEKWXZfq",
       "_key": "!tables.results!WxY6dDA8UGahiukE.zoyy5dezjrurcllc"
     },
     {
       "text": "Return from the Locker",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "fORCeX7DPICYhKUF",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "e7dp5g406u0e5k8k",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "fORCeX7DPICYhKUF",
       "_key": "!tables.results!WxY6dDA8UGahiukE.e7dp5g406u0e5k8k"
     },
     {
       "text": "Spiritual Ward",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "zWSeDetkyDGR3eM8",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "r67c75m66ojkydwr",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "zWSeDetkyDGR3eM8",
       "_key": "!tables.results!WxY6dDA8UGahiukE.r67c75m66ojkydwr"
     },
     {
       "text": "Summon the Ferryman",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "emwlVE39waM3F8gq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "sqnj356sh4kymyfn",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "emwlVE39waM3F8gq",
       "_key": "!tables.results!WxY6dDA8UGahiukE.sqnj356sh4kymyfn"
     },
     {
       "text": "The Black Spot",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "Its92jEPpQG0UGjq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "tn5dnxacf21x8g8f",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "Its92jEPpQG0UGjq",
       "_key": "!tables.results!WxY6dDA8UGahiukE.tn5dnxacf21x8g8f"
     },
     {
       "text": "Weathercraft",
-      "type": 2,
-      "collection": "pirateborg.invokable-arcane-rituals",
-      "resultId": "p3mIODXVefl5j6C5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "weight": 1,
       "range": [
@@ -360,8 +320,8 @@
       "drawn": false,
       "_id": "bns74b5fy6qur9m1",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.invokable-arcane-rituals",
+      "documentId": "p3mIODXVefl5j6C5",
       "_key": "!tables.results!WxY6dDA8UGahiukE.bns74b5fy6qur9m1"
     }
   ],
@@ -373,6 +333,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!WxY6dDA8UGahiukE"
 }

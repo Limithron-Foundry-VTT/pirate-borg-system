@@ -3,7 +3,23 @@
   "name": "Sentient Animal",
   "type": "feature",
   "img": "systems/pirateborg/icons/classes/tall-tale/sentient-animal.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You are a magically intelligent animal (d6). Maybe you were human once. When you begin:</p>\n<p>&mdash; Roll 3d6 for each stat. You get -2 to all of your modifiers except as listed.</p>\n<p>&mdash; Reroll any backstory details that don't make sense.</p>\n<p>&mdash; Equipment you can't conceivably carry can be given away or left behind.</p>\n<p>&mdash; Devil's Luck: d4</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": "You are a magically intelligent animal. Maybe you were human once."
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!3cyYeSPQD1dj3AAC"
 }

@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "OzNfTaWOPRCAoOiY",
-      "type": 2,
+      "type": "pack",
       "text": "Shakespeare of Insults",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "collection": "pirateborg.class-swashbuckler",
-      "resultId": "R7LoinR3FpkCnwQK",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "R7LoinR3FpkCnwQK",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.OzNfTaWOPRCAoOiY"
     },
     {
       "_id": "7URFQ8DHrO86N95P",
-      "type": 2,
+      "type": "pack",
       "text": "Military Mastermind",
-      "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
       "range": [
         2,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "jriB3l8NfDCtxVxc",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "jriB3l8NfDCtxVxc",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.7URFQ8DHrO86N95P"
     },
     {
       "_id": "2Z7A4FnUdQuUzDol",
-      "type": 2,
+      "type": "pack",
       "text": "Sword Master",
-      "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
       "range": [
         3,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "fGzP477fNIDHs2id",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "fGzP477fNIDHs2id",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.2Z7A4FnUdQuUzDol"
     },
     {
       "_id": "XVKzByW47neQH5Q3",
-      "type": 2,
+      "type": "pack",
       "text": "Intimidating Presence",
-      "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
       "range": [
         4,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "Sfvhhxr6Qz6JkPHF",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "Sfvhhxr6Qz6JkPHF",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.XVKzByW47neQH5Q3"
     },
     {
       "_id": "PzsFAadOYZUmgQ8z",
-      "type": 2,
+      "type": "pack",
       "text": "Dazzling Acrobatics",
-      "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
       "range": [
         5,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "MX7IBXzkNpkY3an3",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "MX7IBXzkNpkY3an3",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.PzsFAadOYZUmgQ8z"
     },
     {
       "_id": "391DXoiiydAVrWWk",
-      "type": 2,
+      "type": "pack",
       "text": "Calculating Cutthroat",
-      "collection": "pirateborg.class-swashbuckler",
       "weight": 1,
       "range": [
         6,
@@ -107,9 +96,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "LDoVK8giitqlSfDt",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-swashbuckler",
+      "documentId": "LDoVK8giitqlSfDt",
       "_key": "!tables.results!K6rWD9zuTiyJUVw8.391DXoiiydAVrWWk"
     }
   ],
@@ -121,6 +109,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!K6rWD9zuTiyJUVw8"
 }

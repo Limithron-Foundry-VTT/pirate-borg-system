@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "aQHFBAjbnYdEEbvw",
-      "type": 2,
+      "type": "pack",
       "text": "Marlinspike or Belaying Pin",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
-      "collection": "pirateborg.rolls-character-creation",
-      "resultId": "PVGvOalsFs8BNfkw",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.rolls-character-creation",
+      "documentId": "PVGvOalsFs8BNfkw",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.aQHFBAjbnYdEEbvw"
     },
     {
       "_id": "pE74w55JyNgSAxhb",
-      "type": 2,
+      "type": "pack",
       "text": "Knife or Bayonet",
-      "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
       "range": [
         2,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
-      "resultId": "ZyerDHAWhG1buYEK",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.rolls-character-creation",
+      "documentId": "ZyerDHAWhG1buYEK",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.pE74w55JyNgSAxhb"
     },
     {
       "_id": "NHh9yzXlWy5TjFBN",
-      "type": 2,
+      "type": "pack",
       "text": "Smallsword or Machete",
-      "collection": "pirateborg.rolls-character-creation",
       "weight": 1,
       "range": [
         3,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
-      "resultId": "xi3UyD2W0uSLuaoP",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.rolls-character-creation",
+      "documentId": "xi3UyD2W0uSLuaoP",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.NHh9yzXlWy5TjFBN"
     },
     {
       "_id": "2zB3RZGALxajDNYV",
-      "type": 2,
+      "type": "pack",
       "text": "Cat O' Nine Tails",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         4,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/cat-o-nine-tails.png",
-      "resultId": "UcyBKljMZDh2c6IB",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "UcyBKljMZDh2c6IB",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.2zB3RZGALxajDNYV"
     },
     {
       "_id": "b5L5Cz7F2Gz8LFci",
-      "type": 2,
+      "type": "pack",
       "text": "Boarding axe",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         5,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/boarding-axe.png",
-      "resultId": "yYBHEzvh1fQwV9LV",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "yYBHEzvh1fQwV9LV",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.b5L5Cz7F2Gz8LFci"
     },
     {
       "_id": "gdigFjplgsiDfYh2",
-      "type": 2,
+      "type": "pack",
       "text": "Cutlass",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         6,
@@ -107,16 +96,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/cutlass.png",
-      "resultId": "YTJvNchjtXYP8kdG",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "YTJvNchjtXYP8kdG",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.gdigFjplgsiDfYh2"
     },
     {
       "_id": "5B4T0HYWGAv5HMyC",
-      "type": 2,
+      "type": "pack",
       "text": "Flintlock pistol",
-      "collection": "pirateborg.equipment-ranged-weapons",
       "weight": 1,
       "range": [
         7,
@@ -125,16 +112,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ranged-weapons/flintlock-pistol.png",
-      "resultId": "KVXOXcFxBvlL1KCp",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-ranged-weapons",
+      "documentId": "KVXOXcFxBvlL1KCp",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.5B4T0HYWGAv5HMyC"
     },
     {
       "_id": "rd21Rne2EvKaitpq",
-      "type": 2,
+      "type": "pack",
       "text": "Finely crafted rapier",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         8,
@@ -143,16 +128,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/finely-crafted-rapier.png",
-      "resultId": "Xj1gzA03E5n69ZPa",
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "Xj1gzA03E5n69ZPa",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.rd21Rne2EvKaitpq"
     },
     {
       "_id": "FdgEVLTvkQn2UVOx",
-      "type": 2,
+      "type": "pack",
       "text": "Boarding pike",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         9,
@@ -161,16 +144,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/boarding-pike.png",
-      "resultId": "hMbP2VDldPOgnlCd",
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "hMbP2VDldPOgnlCd",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.FdgEVLTvkQn2UVOx"
     },
     {
       "_id": "yGwepaUz7lz4tG6d",
-      "type": 2,
+      "type": "pack",
       "text": "Musket",
-      "collection": "pirateborg.equipment-ranged-weapons",
       "weight": 1,
       "range": [
         10,
@@ -179,16 +160,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ranged-weapons/musket.png",
-      "resultId": "J8egg1CcpZyOKBpw",
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-ranged-weapons",
+      "documentId": "J8egg1CcpZyOKBpw",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.yGwepaUz7lz4tG6d"
     },
     {
       "_id": "32GQrV8GsLrno0Ym",
-      "type": 2,
+      "type": "pack",
       "text": "Rounds of shot",
-      "collection": "pirateborg.equipment-ammo",
       "weight": 1,
       "range": [
         7,
@@ -197,16 +176,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
-      "resultId": "RommdiTBhBFNeDBg",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-ammo",
+      "documentId": "RommdiTBhBFNeDBg",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.32GQrV8GsLrno0Ym"
     },
     {
       "_id": "W1GhGRAXXQOSOw5V",
-      "type": 0,
+      "type": "text",
       "text": "quantity: 10",
-      "collection": null,
       "weight": 1,
       "range": [
         7,
@@ -215,16 +192,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "resultId": null,
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentId": null,
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.W1GhGRAXXQOSOw5V"
     },
     {
       "_id": "0eWtDRtxA8oBbusJ",
-      "type": 2,
+      "type": "pack",
       "text": "Rounds of shot",
-      "collection": "pirateborg.equipment-ammo",
       "weight": 1,
       "range": [
         10,
@@ -233,16 +207,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
-      "resultId": "RommdiTBhBFNeDBg",
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-ammo",
+      "documentId": "RommdiTBhBFNeDBg",
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.0eWtDRtxA8oBbusJ"
     },
     {
       "_id": "1NTIyqcBLbhKitEn",
-      "type": 0,
+      "type": "text",
       "text": "quantity: 10",
-      "collection": null,
       "weight": 1,
       "range": [
         10,
@@ -251,9 +223,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "resultId": null,
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentId": null,
       "_key": "!tables.results!lpHSSqvkhizFb3Gb.1NTIyqcBLbhKitEn"
     }
   ],
@@ -265,6 +235,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!lpHSSqvkhizFb3Gb"
 }

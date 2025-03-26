@@ -3,7 +3,23 @@
   "name": "Morion",
   "type": "hat",
   "img": "systems/pirateborg/icons/equipment/hats/conquistador-helmet.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>(conquistador helmet)</p>\n<p>-1 damage. You can choose to ignore all damage from one attack but the helmet breaks.</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -15,13 +31,6 @@
     "actionMacroLabel": "",
     "reduceDamage": true,
     "ruleText": "You can choose to ignore all damage from one attack but the helmet breaks"
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!BgYoavjKu6Uc02bW"
 }

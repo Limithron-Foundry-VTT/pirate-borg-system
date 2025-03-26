@@ -3,7 +3,23 @@
   "name": "Skeleton",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You are an undead skeleton reanimated by unknowable dark magic, but somehow possessing free will.</p>\n<p>If you are killed, reroll the damage dice that killed you. On a 3 or less, your bones reform and you return to life with 1 HP.</p>",
     "featureType": "Ailment (Haunted Soul)",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!NpzNqsyHT7pLi4AU"
 }

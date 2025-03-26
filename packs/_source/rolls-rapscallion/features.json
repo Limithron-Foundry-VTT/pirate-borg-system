@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "n8OEFP4POg41kBqO",
-      "type": 2,
+      "type": "pack",
       "text": "Back Stabber",
       "weight": 1,
       "range": [
@@ -22,7 +22,7 @@
     },
     {
       "_id": "6RbpztEsRizQGfZG",
-      "type": 2,
+      "type": "pack",
       "text": "Burglar",
       "weight": 1,
       "range": [
@@ -38,7 +38,7 @@
     },
     {
       "_id": "A7U2O8NtpD0AjplN",
-      "type": 2,
+      "type": "pack",
       "text": "Skylarker",
       "weight": 1,
       "range": [
@@ -54,7 +54,7 @@
     },
     {
       "_id": "aqdfSH6AmOMSbcCh",
-      "type": 2,
+      "type": "pack",
       "text": "Sneaky Bastard",
       "weight": 1,
       "range": [
@@ -70,7 +70,7 @@
     },
     {
       "_id": "6lDSlutPsbtvUk19",
-      "type": 2,
+      "type": "pack",
       "text": "Lucky Devil",
       "weight": 1,
       "range": [
@@ -86,7 +86,7 @@
     },
     {
       "_id": "Ewh2TOcwmir93dpe",
-      "type": 2,
+      "type": "pack",
       "text": "Grog Brewer",
       "weight": 1,
       "range": [
@@ -113,10 +113,11 @@
   "_stats": {
     "systemId": "pirateborg",
     "systemVersion": "v0.6.3",
-    "coreVersion": "10.291",
+    "coreVersion": "12.331",
     "createdTime": null,
     "modifiedTime": 1680575571210,
-    "lastModifiedBy": "pbbuilder0000000"
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!tables!9MLLyTBKzzXwk4UY"
 }

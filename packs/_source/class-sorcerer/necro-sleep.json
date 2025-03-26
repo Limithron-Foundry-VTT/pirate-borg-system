@@ -3,7 +3,23 @@
   "name": "Necro-Sleep",
   "type": "invokable",
   "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>A living creature appears to fall over dead, but when they awake they remember everything . Test SPIRIT DR12 to see if it falls \"dead\" asleep for:</p>\n<p><strong>I.</strong> d2 rounds <strong>II.</strong> d6 rounds <strong>III.</strong> d8 hours</p>",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -16,13 +32,6 @@
     "invokableType": "Sorceries",
     "isEquipment": false,
     "maxQuantity": 3
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!NxH3xmq3QkaKSO8S"
 }

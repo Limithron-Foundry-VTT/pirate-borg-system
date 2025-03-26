@@ -3,7 +3,23 @@
   "name": "Crocodile - Bite",
   "type": "weapon",
   "img": "systems/pirateborg/icons/classes/tall-tale/crocodile.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -21,14 +37,10 @@
     "usesAmmo": false,
     "useAmmoDamage": false,
     "weaponType": "melee",
-    "isGunpowderWeapon": false
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
   },
   "_key": "!items!UH3S40NRBY8Cczbj"
 }

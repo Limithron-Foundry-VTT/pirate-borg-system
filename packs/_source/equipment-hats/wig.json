@@ -3,7 +3,23 @@
   "name": "Wig",
   "type": "hat",
   "img": "systems/pirateborg/icons/equipment/hats/wig.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -15,13 +31,6 @@
     "actionMacroLabel": "",
     "reduceDamage": false,
     "ruleText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!sKk6MBZIpdCjq5UI"
 }

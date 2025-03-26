@@ -3,7 +3,23 @@
   "name": "Spanish Ladies",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Ship can't get lost today.</p>\n<p><em><strong>Chorus<br /></strong></em><em>We will rant and we'll roar like true British sailors<br /></em><em>We'll rant and we'll roar&nbsp;all on the salt seas<br /></em><em>Until we strike soundings in the channel of old England;<br /></em><em>From Ushant to Scilly is thirty-five leagues</em></p>\n<p><a href=\"https://youtu.be/VpDsJvaesa4\">Play Song</a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!M6rg2aULaFFomBSE"
 }

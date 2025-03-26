@@ -4,7 +4,7 @@
   "results": [
     {
       "_id": "Hc0EkPcFTukMvz2l",
-      "type": 0,
+      "type": "text",
       "text": "BACKFIRE. Take [[d2]] damage",
       "weight": 1,
       "range": [
@@ -14,13 +14,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 2,
+      "documentId": null,
       "_key": "!tables.results!aqr8t8t8Llk8Hkcs.Hc0EkPcFTukMvz2l"
     },
     {
       "_id": "HVbixUzwi558Fzrc",
-      "type": 0,
+      "type": "text",
       "text": "BROKEN. Weapon is broken.",
       "weight": 1,
       "range": [
@@ -30,14 +29,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 4,
+      "documentId": null,
       "_key": "!tables.results!aqr8t8t8Llk8Hkcs.HVbixUzwi558Fzrc"
     },
     {
       "_id": "06rWPI51HQ2XxjP3",
-      "type": 0,
-      "text": "BACKFIRE & BROKEN. Take [[d2]] damage and weapon is broken",
+      "type": "text",
+      "text": "BACKFIRE &amp; BROKEN. Take [[d2]] damage and weapon is broken",
       "weight": 1,
       "range": [
         5,
@@ -46,8 +44,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 5,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!aqr8t8t8Llk8Hkcs.06rWPI51HQ2XxjP3"
     }
   ],
@@ -61,5 +58,15 @@
   "ownership": {
     "default": 0
   },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "description": "",
   "_key": "!tables!aqr8t8t8Llk8Hkcs"
 }

@@ -5,7 +5,7 @@
   "results": [
     {
       "_id": "yLL2fBiT962c2Mf5",
-      "type": 0,
+      "type": "text",
       "text": "No effect",
       "weight": 1,
       "range": [
@@ -15,13 +15,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 2,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.yLL2fBiT962c2Mf5"
     },
     {
       "_id": "moM7cNc78pAi3eLj",
-      "type": 0,
+      "type": "text",
       "text": "Sinks in [[d2]] rounds",
       "weight": 1,
       "range": [
@@ -31,13 +30,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.moM7cNc78pAi3eLj"
     },
     {
       "_id": "sBczkbWaCTxLcLSa",
-      "type": 0,
+      "type": "text",
       "text": "Sinks next round.",
       "weight": 1,
       "range": [
@@ -47,13 +45,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.sBczkbWaCTxLcLSa"
     },
     {
       "_id": "BevHyu9q6K0n6ena",
-      "type": 0,
+      "type": "text",
       "text": "Sinks now.",
       "weight": 1,
       "range": [
@@ -63,13 +60,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.BevHyu9q6K0n6ena"
     },
     {
       "_id": "V0RZ3300hOD1ylRA",
-      "type": 0,
+      "type": "text",
       "text": "Minor explosion. All aboard test Agility DR12 or take d6 damage.",
       "weight": 1,
       "range": [
@@ -79,13 +75,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.V0RZ3300hOD1ylRA"
     },
     {
       "_id": "SHUyuYDEAPxr7vPF",
-      "type": 0,
+      "type": "text",
       "text": "Major Explosion. Ship sinks, all aboard take d8 damage.",
       "weight": 1,
       "range": [
@@ -95,13 +90,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.SHUyuYDEAPxr7vPF"
     },
     {
       "_id": "sZErsKubhpdhERXx",
-      "type": 0,
+      "type": "text",
       "text": "Magazine Explosion. Instant death to all aboard.",
       "weight": 1,
       "range": [
@@ -111,8 +105,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentId": null,
       "_key": "!tables.results!YP2AgCC8hPlMy3sV.sZErsKubhpdhERXx"
     }
   ],
@@ -125,5 +118,15 @@
   "ownership": {
     "default": 0
   },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "description": "",
   "_key": "!tables!YP2AgCC8hPlMy3sV"
 }

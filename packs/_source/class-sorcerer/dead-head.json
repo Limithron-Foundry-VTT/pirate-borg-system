@@ -3,7 +3,23 @@
   "name": "Dead Head",
   "type": "invokable",
   "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You summon a flying, ghostly skull. You may spend your action and test SPIRIT DR12 to have it deal damage to 1 target. It disapates after 1 minute or if it deals any damage. Fumble: it attacks you. It ignores armor and deals:</p>\n<p>I. 2d4 II. 2d6 <strong>III.</strong> 2d8</p>",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -16,13 +32,6 @@
     "invokableType": "Sorceries",
     "isEquipment": false,
     "maxQuantity": 3
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!LvGmWxMQ86PyuIAi"
 }

@@ -3,7 +3,23 @@
   "name": "Merfolk",
   "type": "feature",
   "img": "systems/pirateborg/tokens/merfolk.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>One of the children of Poseidon, your lower half is fish-like and you have gills. Both can be magically hidden as you masquerade as a human. Lower all DRs by 4 when underwater. You die if you go 1+toughness days without submerging in fresh seawater (minimum 1 day). Roll d6 to gain an additional class</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": "One of the children of Poseidon, your lower half is fish-like and you have gills. Both can be magically hidden as you masquerade as a human."
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!36B5BJPdwYbBQutL"
 }

@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "ErqdREE5VchOpRSc",
-      "type": 0,
+      "type": "text",
       "text": "Instant death",
       "weight": 1,
       "range": [
@@ -16,17 +16,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 1,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.ErqdREE5VchOpRSc"
     },
     {
       "_id": "MkOX7IYwf90eGV0u",
-      "type": 2,
+      "type": "pack",
       "text": "Broken or severed limb or Lost eye",
-      "collection": "pirateborg.rolls-gamemaster",
       "weight": 1,
       "range": [
         4,
@@ -35,14 +31,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-grey.svg",
-      "resultId": "akVJTxuCEoiyE1Sw",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.rolls-gamemaster",
+      "documentId": "akVJTxuCEoiyE1Sw",
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.MkOX7IYwf90eGV0u"
     },
     {
       "_id": "GEQf9yzxZDsOorq6",
-      "type": 0,
+      "type": "text",
       "text": "Hemorrhage : Death in [[d2]] hours unless treated. All tests are DR16 the first hour. DR18 the last hour.",
       "weight": 1,
       "range": [
@@ -52,15 +47,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 2,
-      "rangeH": 2,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.GEQf9yzxZDsOorq6"
     },
     {
       "_id": "vEklh4hklO5xrr2h",
-      "type": 0,
+      "type": "text",
       "text": "Brain injury : You awake in 1 hour with a -3 to Presence for [[d8]] days.",
       "weight": 1,
       "range": [
@@ -70,15 +62,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 3,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.vEklh4hklO5xrr2h"
     },
     {
       "_id": "yFI61BY7UNyufyPM",
-      "type": 0,
+      "type": "text",
       "text": "Can’t act for [[d4]] rounds then become active with [[d4]] HP.",
       "weight": 1,
       "range": [
@@ -88,17 +77,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 4,
-      "rangeH": 4,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.yFI61BY7UNyufyPM"
     },
     {
       "_id": "yUH3lN6VhHi7K9Ub",
-      "type": 0,
+      "type": "text",
       "text": "Fall unconscious for [[d4]] rounds, awaken with 1 HP and 0 Devil's Luck.",
-      "collection": null,
       "weight": 1,
       "range": [
         5,
@@ -107,16 +92,13 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "resultId": null,
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.yUH3lN6VhHi7K9Ub"
     },
     {
       "_id": "ZhBSroJTEg3hTbkB",
-      "type": 0,
+      "type": "text",
       "text": "Fall unconscious for [[d2]] rounds, awaken with [[d4]] HP and [[d2]] Devil's Luck.",
-      "collection": null,
       "weight": 1,
       "range": [
         6,
@@ -125,9 +107,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "resultId": null,
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!FNyBSVcq3NlVMzYn.ZhBSroJTEg3hTbkB"
     }
   ],
@@ -139,6 +119,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!FNyBSVcq3NlVMzYn"
 }

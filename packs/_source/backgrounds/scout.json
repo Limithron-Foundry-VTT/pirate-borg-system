@@ -3,18 +3,28 @@
   "name": "Scout",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d6 x 10s &amp; keen senses and a map</p>",
-    "startingGold": "2d6 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.backgrounds-items;keen senses\npirateborg.backgrounds-items;treasure map"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d6 x 10s &amp; keen senses and a map</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;keen senses\npirateborg.backgrounds-items;treasure map",
+    "startingBonusRolls": ""
   },
   "_key": "!items!OE2NkkhLy1dSPHs6"
 }
