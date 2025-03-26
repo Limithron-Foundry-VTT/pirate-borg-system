@@ -225,7 +225,7 @@
         {{> dynamic-list items=data.system.dynamic.cargos type="cargo" label="PB.ShipCargo" create=true emptyMessage="PB.EmptyCargo" maxQuantity=data.system.attributes.cargo.max currentQuantity=data.system.attributes.cargo.value }}
       {{/ifGt}}
 
-      {{#if (eq data.type 'vehicle')}}
+      {{#if (eqOneOf data.type 'vehicle' 'vehicle_npc')}}
         {{#*inline "mystic-chanties"}}
           {{#*inline "extra-header"}}
             <div class="stats-block">

@@ -32,6 +32,11 @@ export const configureHandlebar = () => {
     return args.every((expression) => args[0] === expression);
   });
 
+  Handlebars.registerHelper("eqOneOf", function () {
+    const args = Array.prototype.slice.call(arguments, 1, -1);
+    return args.includes(arguments[0]);
+  });
+
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */
