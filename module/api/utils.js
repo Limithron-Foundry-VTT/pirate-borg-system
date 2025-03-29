@@ -115,10 +115,11 @@ export const getResultCollection = (result) => {
  */
 export const getResultText = (result) => {
   if (game.release.generation >= 13) {
-    return result.type === "text" ? result.description : result.name;
+    const text = result.type === "text" ? result.description : result.name;
+    return text.replaceAll(" &amp; ", " & ");
   }
 
-  return result.text.replaceAll(' &amp; ', ' & ');
+  return result.text.replaceAll(" &amp; ", " & ");
 }
 
 /**
