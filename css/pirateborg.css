@@ -771,7 +771,7 @@ body {
   outline: none;
 }
 
-.pirateborg.sheet form button {
+.pirateborg.sheet form button:not(.tinymce *) {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -785,7 +785,7 @@ body {
   white-space: nowrap;
   width: auto;
 }
-.pirateborg.sheet form button:hover {
+.pirateborg.sheet form button:not(.tinymce *):hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
