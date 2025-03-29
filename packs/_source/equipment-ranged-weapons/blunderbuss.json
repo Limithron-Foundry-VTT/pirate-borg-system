@@ -3,7 +3,27 @@
   "name": "Blunderbuss",
   "type": "weapon",
   "img": "systems/pirateborg/icons/equipment/ranged-weapons/blunderbuss.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.bullet.02.orange"
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Reload 2, range 30', deals d10 under 10'.</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -25,17 +45,6 @@
     "needsReloading": true,
     "reloadTime": 2,
     "loadingCount": 0
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {
-    "pirateborg": {
-      "itemAnimation": "jb2a.bullet.02.orange"
-    }
-  },
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!1fDzZD9dFrXrcc1p"
 }

@@ -3,7 +3,27 @@
   "name": "Bayonet",
   "type": "weapon",
   "img": "systems/pirateborg/icons/equipment/melee-weapons/bayonet.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "pirateborg": {
+      "itemAnimation": "jb2a.dagger.melee.02.white"
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -25,17 +45,6 @@
     "needsReloading": false,
     "reloadTime": 1,
     "loadingCount": 0
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {
-    "pirateborg": {
-      "itemAnimation": "jb2a.dagger.melee.02.white"
-    }
-  },
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!9vdgFiyt2e0rdWcs"
 }

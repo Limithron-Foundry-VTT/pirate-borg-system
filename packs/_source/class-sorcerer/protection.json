@@ -3,7 +3,23 @@
   "name": "Protection",
   "type": "invokable",
   "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You summon a ghost or spirit to watch over the souls of you and your allies. Everyone who is protected gets -d2 protection for one hour as if wearing extra armor (does not affect penalties to Strength and Agility, not affected by Fumbles).</p>\n<p><strong>I.</strong> 1 soul <strong>II.</strong> 2 souls <strong>III.</strong> 3 souls</p>",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -16,13 +32,6 @@
     "invokableType": "Sorceries",
     "isEquipment": false,
     "maxQuantity": 3
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!hf9kmCtluAyFpb4f"
 }

@@ -3,7 +3,23 @@
   "name": "Holy Protection",
   "type": "invokable",
   "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Thou or thine ally gets -4 to DRs to defend for one attack. Use this at any time, including after a roll (does not taketh thy action)</p>",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -16,13 +32,6 @@
     "invokableType": "Prayers",
     "isEquipment": false,
     "maxQuantity": 1
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!BlLQRk8elb7XiUqG"
 }

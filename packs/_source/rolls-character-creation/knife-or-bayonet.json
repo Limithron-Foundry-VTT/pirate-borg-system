@@ -4,7 +4,7 @@
   "results": [
     {
       "_id": "khwQ6yfTFSE1Y0h4",
-      "type": 2,
+      "type": "pack",
       "text": "Knife",
       "weight": 1,
       "range": [
@@ -14,17 +14,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/knife.png",
-      "collection": "pirateborg.equipment-melee-weapons",
-      "resultId": "L83UgOYwaqNzXjuY",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "L83UgOYwaqNzXjuY",
       "_key": "!tables.results!ZyerDHAWhG1buYEK.khwQ6yfTFSE1Y0h4"
     },
     {
       "_id": "zK7CbqC8l0K1yfg0",
-      "type": 2,
+      "type": "pack",
       "text": "Bayonet",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         2,
@@ -33,9 +30,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/bayonet.png",
-      "resultId": "9vdgFiyt2e0rdWcs",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "9vdgFiyt2e0rdWcs",
       "_key": "!tables.results!ZyerDHAWhG1buYEK.zK7CbqC8l0K1yfg0"
     }
   ],
@@ -49,5 +45,15 @@
   "ownership": {
     "default": 0
   },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "description": "",
   "_key": "!tables!ZyerDHAWhG1buYEK"
 }

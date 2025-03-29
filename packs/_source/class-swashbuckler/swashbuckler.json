@@ -3,7 +3,23 @@
   "name": "Swashbuckler",
   "type": "class",
   "img": "systems/pirateborg/tokens/swashbuckler.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>A brash Fighter with Bravado &amp; Swagger</p>",
     "flavorText": "A brash Fighter with Bravado & Swagger",
     "luckDie": "1d2",
@@ -32,13 +48,6 @@
     "requireBaseClass": false,
     "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!4mK0XkMSWoCl0vfg"
 }

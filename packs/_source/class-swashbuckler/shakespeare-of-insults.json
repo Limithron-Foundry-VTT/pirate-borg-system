@@ -3,21 +3,32 @@
   "name": "Shakespeare of Insults",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
-    "description": "<p>Your tongue is as quick as your blade. Add +1 to all your damage rolls.</p>",
-    "featureType": "Class",
-    "maxQuantity": 1,
-    "quantity": 1,
-    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
-    "actionMacroLabel": "Use",
-    "startingBonusItems": ""
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>Your tongue is as quick as your blade. Add +1 to all your damage rolls.</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!R7LoinR3FpkCnwQK"
 }

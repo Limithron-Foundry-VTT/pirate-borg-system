@@ -3,7 +3,23 @@
   "name": "Zealot",
   "type": "class",
   "img": "systems/pirateborg/tokens/zealot.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>A clergy member, cultist, shaman, or believer.</p>\n<p>Thou may use ancient relics and arcane rituals whilst wearing medium armor (tier 2 or lower).</p>\n<p>&nbsp;</p>",
     "flavorText": "A clergy member, cultist, shaman, or believer.",
     "luckDie": "1d4",
@@ -32,13 +48,6 @@
     "requireBaseClass": false,
     "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!jKzDWPzHK170ZFAC"
 }

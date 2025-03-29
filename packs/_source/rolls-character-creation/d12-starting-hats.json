@@ -6,9 +6,8 @@
   "results": [
     {
       "_id": "cmXzmmJ6pZNxLK5Q",
-      "type": 2,
+      "type": "pack",
       "text": "Wig",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         5,
@@ -17,16 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/wig.png",
-      "resultId": "sKk6MBZIpdCjq5UI",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "sKk6MBZIpdCjq5UI",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.cmXzmmJ6pZNxLK5Q"
     },
     {
       "_id": "WYcTySYV2FHnLzh3",
-      "type": 2,
+      "type": "pack",
       "text": "Bandanna",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         6,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/bandanna.png",
-      "resultId": "KAuRP8a5VLFo0ze9",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "KAuRP8a5VLFo0ze9",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.WYcTySYV2FHnLzh3"
     },
     {
       "_id": "70rKH6mcPpxCJdws",
-      "type": 2,
+      "type": "pack",
       "text": "Cavalier",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         7,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/cavalier.png",
-      "resultId": "QUgXibCORTUeVEHI",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "QUgXibCORTUeVEHI",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.70rKH6mcPpxCJdws"
     },
     {
       "_id": "x4h068dGjcfztDi8",
-      "type": 2,
+      "type": "pack",
       "text": "Bicorne",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         8,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/bicorne.png",
-      "resultId": "OraNpvJhRBn9t2cS",
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "OraNpvJhRBn9t2cS",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.x4h068dGjcfztDi8"
     },
     {
       "_id": "NO8WXvkXed53LwCj",
-      "type": 2,
+      "type": "pack",
       "text": "Plain tricorne",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         9,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/plain-tricorne.png",
-      "resultId": "1jj2mk6uLb3glRXA",
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "1jj2mk6uLb3glRXA",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.NO8WXvkXed53LwCj"
     },
     {
       "_id": "p7ezEXVRUnFF6phG",
-      "type": 2,
+      "type": "pack",
       "text": "Fancy tricorne",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         10,
@@ -107,16 +96,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/fancy-tricorne.png",
-      "resultId": "Q0MKChZGQGR7s8ir",
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "Q0MKChZGQGR7s8ir",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.p7ezEXVRUnFF6phG"
     },
     {
       "_id": "ZFPN7gVVLosM4gri",
-      "type": 2,
+      "type": "pack",
       "text": "Metal lined hat",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         11,
@@ -125,16 +112,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/metal-lined-hat.png",
-      "resultId": "cljgtksYMJJYMvEs",
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "cljgtksYMJJYMvEs",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.ZFPN7gVVLosM4gri"
     },
     {
       "_id": "EcBZOgM4n82jrHmT",
-      "type": 2,
+      "type": "pack",
       "text": "Morion",
-      "collection": "pirateborg.equipment-hats",
       "weight": 1,
       "range": [
         12,
@@ -143,14 +128,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/hats/conquistador-helmet.png",
-      "resultId": "BgYoavjKu6Uc02bW",
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.equipment-hats",
+      "documentId": "BgYoavjKu6Uc02bW",
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.EcBZOgM4n82jrHmT"
     },
     {
       "_id": "7Yqsf42xCaOYUKIE",
-      "type": 0,
+      "type": "text",
       "text": "None",
       "weight": 1,
       "range": [
@@ -160,10 +144,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 4,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!sjglJ6EDdyqC1qh9.7Yqsf42xCaOYUKIE"
     }
   ],
@@ -175,6 +156,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!sjglJ6EDdyqC1qh9"
 }

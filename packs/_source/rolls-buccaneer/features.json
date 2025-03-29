@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "a4X4zhOs3LsujbNo",
-      "type": 2,
+      "type": "pack",
       "text": "Treasure Hunter",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "collection": "pirateborg.class-buccaneer",
-      "resultId": "lgzHS7vSvM7xgDOv",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "lgzHS7vSvM7xgDOv",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.a4X4zhOs3LsujbNo"
     },
     {
       "_id": "bq8jO8ofDszl0vOw",
-      "type": 2,
+      "type": "pack",
       "text": "Crack Shot",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         2,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "faput8RkeUiNkwzx",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "faput8RkeUiNkwzx",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.bq8jO8ofDszl0vOw"
     },
     {
       "_id": "tr5nGh1MBeviOBQ2",
-      "type": 2,
+      "type": "pack",
       "text": "Fix Bayonets!",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         3,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "a44UBgayTh0aBtcy",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "a44UBgayTh0aBtcy",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.tr5nGh1MBeviOBQ2"
     },
     {
       "_id": "Hl9jWTcMcqJnLevC",
-      "type": 2,
+      "type": "pack",
       "text": "Focused Aim",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         4,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "vKcCqgp5tTmwYaWd",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "vKcCqgp5tTmwYaWd",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.Hl9jWTcMcqJnLevC"
     },
     {
       "_id": "rcHPl4XiAZHOAhj4",
-      "type": 2,
+      "type": "pack",
       "text": "Buccan Cook",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         5,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "F8mnXcDUFOeAp141",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "F8mnXcDUFOeAp141",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.rcHPl4XiAZHOAhj4"
     },
     {
       "_id": "VvjiidguG2Z7unNb",
-      "type": 2,
+      "type": "pack",
       "text": "Survivalist",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         6,
@@ -107,16 +96,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "resultId": "aLnujMWeM7tsNsek",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "aLnujMWeM7tsNsek",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.VvjiidguG2Z7unNb"
     },
     {
       "_id": "4Qmt86lySOMhqCqc",
-      "type": 2,
+      "type": "pack",
       "text": "Bayonets",
-      "collection": "pirateborg.class-buccaneer",
       "weight": 1,
       "range": [
         3,
@@ -125,9 +112,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "resultId": "Lqyf5zc9Wx05Du1L",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-buccaneer",
+      "documentId": "Lqyf5zc9Wx05Du1L",
       "_key": "!tables.results!8ZsRJyafqD03XLRz.4Qmt86lySOMhqCqc"
     }
   ],
@@ -139,6 +125,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!8ZsRJyafqD03XLRz"
 }

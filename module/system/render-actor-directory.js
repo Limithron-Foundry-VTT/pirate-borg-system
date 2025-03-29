@@ -2,26 +2,27 @@ import { showCharacterGeneratorDialog } from "../dialog/character-generator-dial
 
 /**
  * @param {Application} app
- * @param {jQuery} html
+ * @param {HTMLElement|jQuery} html
  */
 export const renderActorDirectory = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
-    const section = document.createElement("header");
-    section.classList.add("character-generator");
-    section.classList.add("directory-header");
+    html = html instanceof HTMLElement ? html : html[0];
 
-    const dirHeader = html[0].querySelector(".directory-header");
-    dirHeader.parentNode.insertBefore(section, dirHeader);
-    section.insertAdjacentHTML(
-      "afterbegin",
-      `
-      <div class="header-actions action-buttons flexrow">
-        <button class="create-character-generator-button"><i class="fas fa-skull"></i>The Tavern</button>
-      </div>
-      `
-    );
-    section.querySelector(".create-character-generator-button").addEventListener("click", () => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.classList.add("create-character-generator-button");
+    button.innerHTML = '<i class="fas fa-skull"></i>The Tavern';
+    button.addEventListener("click", () => {
       showCharacterGeneratorDialog();
     });
+
+    let headerActions = html.querySelector(".header-actions");
+    // FIXME: Workaround for 336 bug. Remove when 337 released.
+    if ( !headerActions ) {
+      headerActions = document.createElement("div");
+      headerActions.className = "header-actions action-buttons flexrow";
+      html.querySelector(":scope > header").insertAdjacentElement("afterbegin", headerActions);
+    }
+    headerActions.prepend(button);
   }
 };

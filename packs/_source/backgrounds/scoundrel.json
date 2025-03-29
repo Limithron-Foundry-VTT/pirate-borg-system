@@ -3,18 +3,28 @@
   "name": "Scoundrel",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d8 x 10s &amp; a few enemies along the way</p>",
-    "startingGold": "2d8 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.backgrounds-items;few enemies along the way"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d8 x 10s &amp; a few enemies along the way</p>",
+    "startingGold": "2d8 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;few enemies along the way",
+    "startingBonusRolls": ""
   },
   "_key": "!items!kHiWeTXrQZ6yO4ez"
 }

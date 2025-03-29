@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Cross of the Paragon",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "8DBLdGGmQMr5H1B9",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "l5qm2sl8sp8tt1gi",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "8DBLdGGmQMr5H1B9",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.l5qm2sl8sp8tt1gi"
     },
     {
       "text": "Conch Shell from the Abyss",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "LmBxqKGa5K6Q5cw2",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "9ditklocxzumoczj",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "LmBxqKGa5K6Q5cw2",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.9ditklocxzumoczj"
     },
     {
       "text": "Map Inked in Ectoplasm",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "By3b67C1TaTpduqG",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "7hmi33v7nkveyk7r",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "By3b67C1TaTpduqG",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.7hmi33v7nkveyk7r"
     },
     {
       "text": "Will-o'-the-wisp Lantern",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "TlHY15qbfmh8n5Z8",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "wdva6ys4tkbfdzq1",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "TlHY15qbfmh8n5Z8",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.wdva6ys4tkbfdzq1"
     },
     {
       "text": "Pages from the Necronomicon",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "ANjiGZyU2nFdx9PO",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "rstl6vs6a5j1o4y1",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "ANjiGZyU2nFdx9PO",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.rstl6vs6a5j1o4y1"
     },
     {
       "text": "Rune Encrusted Flintlock Pistol",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "rsjKJDDmUwW3Ab8k",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "knzbkjp1mxpcl5sh",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "rsjKJDDmUwW3Ab8k",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.knzbkjp1mxpcl5sh"
     },
     {
       "text": "Jade Die",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "nLzAjJaU8DhwF13N",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "kx72iaanopo2yp6a",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "nLzAjJaU8DhwF13N",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.kx72iaanopo2yp6a"
     },
     {
       "text": "Undead Bird",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "pM1Vy3BDdi8qMbu3",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "cs8itj6ph0vcyb9y",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "pM1Vy3BDdi8qMbu3",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.cs8itj6ph0vcyb9y"
     },
     {
       "text": "Mermaid Scales",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "Tbbx5I51pu1QyGL1",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "rt8ca4kjb5t96lbp",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "Tbbx5I51pu1QyGL1",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.rt8ca4kjb5t96lbp"
     },
     {
       "text": "Charon's Obol",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "XvxgVhYWPr4g1nfe",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "walzepubwcre7bbn",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "XvxgVhYWPr4g1nfe",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.walzepubwcre7bbn"
     },
     {
       "text": "Cup of the Carpenter",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "UPJIy6ndkc3asTca",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "bkbdi70sxjnzgomq",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "UPJIy6ndkc3asTca",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.bkbdi70sxjnzgomq"
     },
     {
       "text": "Heart of the Sea",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "z0NrPZILh67xY5YE",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "lh7wa23vceam4b6x",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "z0NrPZILh67xY5YE",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.lh7wa23vceam4b6x"
     },
     {
       "text": "Necklace of Eyeballs",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "fIyHYKPjwOzuWRBC",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "w2azxaec52p1yrkk",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "fIyHYKPjwOzuWRBC",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.w2azxaec52p1yrkk"
     },
     {
       "text": "Crown of the Sunken Lord",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "uMFtG3p9fuaMJzKU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "o2ylwwqrjpgl07mi",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "uMFtG3p9fuaMJzKU",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.o2ylwwqrjpgl07mi"
     },
     {
       "text": "Crystalline Skull",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "ZAOlmwTxlX4xVLQp",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "khcoo55qx2fm0cew",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "ZAOlmwTxlX4xVLQp",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.khcoo55qx2fm0cew"
     },
     {
       "text": "Codex Tablet",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "lQbLf3Q7ydxMv5u2",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "kqkrdm3nx0rk3y8b",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "lQbLf3Q7ydxMv5u2",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.kqkrdm3nx0rk3y8b"
     },
     {
       "text": "Skeleton Key",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "5BysSMhBMUK8Wq2g",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "07t41co2fat683vo",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "5BysSMhBMUK8Wq2g",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.07t41co2fat683vo"
     },
     {
       "text": "Mummified Monkey Head",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "uI3Nj4gXZLzZhgOq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "gh8uf9tjxr8obkz1",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "uI3Nj4gXZLzZhgOq",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.gh8uf9tjxr8obkz1"
     },
     {
       "text": "Great Old One Figurine",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "PXgxd8lYBAsxUPnD",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "qt9nfuzvk4e1qz7v",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "PXgxd8lYBAsxUPnD",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.qt9nfuzvk4e1qz7v"
     },
     {
       "text": "Broken Compass",
-      "type": 2,
-      "collection": "pirateborg.invokable-ancient-relics",
-      "resultId": "agA5xCOdjSwBUUzn",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/relic.png",
       "weight": 1,
       "range": [
@@ -360,8 +320,8 @@
       "drawn": false,
       "_id": "obvi46t9ovnym041",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.invokable-ancient-relics",
+      "documentId": "agA5xCOdjSwBUUzn",
       "_key": "!tables.results!YXfRZ70cExWDvJq1.obvi46t9ovnym041"
     }
   ],
@@ -373,6 +333,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!YXfRZ70cExWDvJq1"
 }

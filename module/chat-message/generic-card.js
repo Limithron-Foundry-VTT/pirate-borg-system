@@ -19,15 +19,23 @@ export const showGenericCard = async ({ actor, target, title, description, outco
     await showDiceWithSound(rolls);
   }
 
+  const data = {
+    title,
+    description,
+    target: target?.actor.name,
+    outcomes,
+    buttons,
+    items,
+  };
+  let content;
+  if (game.release.generation >= 13) {
+    content = await foundry.applications.handlebars.renderTemplate(GENERIC_CARD_TEMPLATE, data);
+  } else {
+    content = await renderTemplate(GENERIC_CARD_TEMPLATE, data);
+  }
+
   const messageData = {
-    content: await renderTemplate(GENERIC_CARD_TEMPLATE, {
-      title,
-      description,
-      target: target?.actor.name,
-      outcomes,
-      buttons,
-      items,
-    }),
+    content: content,
     speaker: ChatMessage.getSpeaker({ actor }),
     ...(rolls.length ? { sound: diceSound() } : {}),
     flags: {

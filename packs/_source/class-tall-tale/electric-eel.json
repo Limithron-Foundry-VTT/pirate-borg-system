@@ -3,7 +3,23 @@
   "name": "Electric Eel",
   "type": "feature",
   "img": "systems/pirateborg/tokens/electric-eel.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>+1 to Agility. Electric skin: d6.</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "pirateborg.class-tall-tale;Electric Eel - Electric skin",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!GGf7XeEppvQ7j6BX"
 }

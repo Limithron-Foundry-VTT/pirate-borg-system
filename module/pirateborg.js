@@ -47,7 +47,10 @@ Hooks.once("ready", () => {
   showHelpDialogOnStartup();
   configureAutomation();
 
-  Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    createPirateBorgMacro(data, slot)
+    return false;
+  });
 
   ui.chat.scrollBottom();
 });

@@ -3,7 +3,23 @@
   "name": "Satchel",
   "type": "container",
   "img": "systems/pirateborg/icons/equipment/gear/sack.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Carry 8 normal-sized items.</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -14,13 +30,6 @@
     "actionMacro": "",
     "actionMacroLabel": "",
     "capacity": 8
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!mb6w8zkDL70YJ17C"
 }

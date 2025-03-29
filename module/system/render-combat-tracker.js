@@ -2,9 +2,10 @@ import { actorPartyInitiativeAction } from "../api/action/actor/actor-party-init
 
 /**
  * @param {CombatTracker} tracker
- * @param {JQuery.<HTMLElement>} html
+ * @param {HTMLElement|jQuery} html
  */
 export const renderCombatTracker = (tracker, html) => {
+  html = $(html);
   html
     .find("header")
     .find("nav")

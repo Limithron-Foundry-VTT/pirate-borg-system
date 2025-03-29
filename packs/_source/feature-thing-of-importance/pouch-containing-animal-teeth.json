@@ -3,7 +3,23 @@
   "name": "pouch containing animal teeth",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>a pouch containing animal teeth</p>",
     "featureType": "Thing of Importance",
     "maxQuantity": null,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!1YTQBnUg9CKTrzLz"
 }

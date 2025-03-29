@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "7FcmBaYQaHeidvoz",
-      "type": 2,
+      "type": "pack",
       "text": "Bucket",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/bucket.png",
-      "collection": "pirateborg.equipment-gear",
-      "resultId": "uUV4dGxC8W8GMVQO",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "uUV4dGxC8W8GMVQO",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.7FcmBaYQaHeidvoz"
     },
     {
       "_id": "67ZiCUzoJrCPWGiI",
-      "type": 2,
+      "type": "pack",
       "text": "Bandolier",
-      "collection": "pirateborg.equipment-gear",
       "weight": 1,
       "range": [
         2,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/belt-pouch.png",
-      "resultId": "QXNQEg9fH2FBZguz",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "QXNQEg9fH2FBZguz",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.67ZiCUzoJrCPWGiI"
     },
     {
       "_id": "kReyOHdMC6C7FHwk",
-      "type": 2,
+      "type": "pack",
       "text": "Satchel",
-      "collection": "pirateborg.equipment-gear",
       "weight": 1,
       "range": [
         3,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sack.png",
-      "resultId": "mb6w8zkDL70YJ17C",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "mb6w8zkDL70YJ17C",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.kReyOHdMC6C7FHwk"
     },
     {
       "_id": "GLdqtnBUZfzQAxFY",
-      "type": 2,
+      "type": "pack",
       "text": "Backpack",
-      "collection": "pirateborg.equipment-gear",
       "weight": 1,
       "range": [
         4,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/backpack.png",
-      "resultId": "qIUIdi1swbrMZPZq",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "qIUIdi1swbrMZPZq",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.GLdqtnBUZfzQAxFY"
     },
     {
       "_id": "TlV6DjMoRoK0n5My",
-      "type": 2,
+      "type": "pack",
       "text": "Dinghy",
-      "collection": "pirateborg.equipment-gear",
       "weight": 1,
       "range": [
         6,
@@ -89,18 +80,15 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sail.png",
-      "resultId": "v2JGvA3Rg2DS8paV",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "v2JGvA3Rg2DS8paV",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.TlV6DjMoRoK0n5My"
     },
     {
       "_id": "6yLTx82BDEmTnp2R",
-      "type": 2,
+      "type": "pack",
       "text": "Large sea chest",
       "img": "systems/pirateborg/icons/equipment/gear/large-sea-chest.png",
-      "collection": "pirateborg.equipment-gear",
-      "resultId": "AsFDi5YpVrkdTWjg",
       "weight": 1,
       "range": [
         5,
@@ -108,15 +96,14 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-gear",
+      "documentId": "AsFDi5YpVrkdTWjg",
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.6yLTx82BDEmTnp2R"
     },
     {
       "_id": "J9hUq7phnUIOPm3Z",
-      "type": 0,
+      "type": "text",
       "text": "description: A large sea chest or one of the above of your choice",
-      "collection": null,
       "weight": 1,
       "range": [
         5,
@@ -125,16 +112,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/large-sea-chest.png",
-      "resultId": null,
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentId": null,
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.J9hUq7phnUIOPm3Z"
     },
     {
       "_id": "biLVDM6XVjakMzLX",
-      "type": 0,
+      "type": "text",
       "text": "description: A dinghy or one of the above of your choice",
-      "collection": null,
       "weight": 1,
       "range": [
         6,
@@ -143,9 +127,7 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/gear/sail.png",
-      "resultId": null,
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!o4Y5vM2r8J2XGfjh.biLVDM6XVjakMzLX"
     }
   ],
@@ -157,6 +139,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!o4Y5vM2r8J2XGfjh"
 }

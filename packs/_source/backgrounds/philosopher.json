@@ -3,18 +3,28 @@
   "name": "Philosopher",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d6 x 10s &amp; a book and a puzzling disposition</p>",
-    "startingGold": "2d6 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.backgrounds-items;book and a puzzling disposition"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d6 x 10s &amp; a book and a puzzling disposition</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;book and a puzzling disposition",
+    "startingBonusRolls": ""
   },
   "_key": "!items!MH0xPlNwb7hja8Ha"
 }

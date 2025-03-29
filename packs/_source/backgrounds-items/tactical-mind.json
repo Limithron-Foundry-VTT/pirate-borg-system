@@ -3,7 +3,23 @@
   "name": "tactical mind",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/conqueror.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "featureType": "background",
     "maxQuantity": null,
@@ -18,13 +34,6 @@
     "equipped": false,
     "carried": true,
     "price": 0
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!Zgi7kuL9cw3ouBfO"
 }

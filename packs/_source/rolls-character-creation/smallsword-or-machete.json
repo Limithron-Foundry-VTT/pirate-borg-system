@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "g3Cmtl98lpnx8Gsx",
-      "type": 2,
+      "type": "pack",
       "text": "Smallsword",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/smallsword.png",
-      "collection": "pirateborg.equipment-melee-weapons",
-      "resultId": "PIGilnhOPMRmlx2l",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "PIGilnhOPMRmlx2l",
       "_key": "!tables.results!xi3UyD2W0uSLuaoP.g3Cmtl98lpnx8Gsx"
     },
     {
       "_id": "m0FezqfakUNgF4kr",
-      "type": 2,
+      "type": "pack",
       "text": "Machete",
-      "collection": "pirateborg.equipment-melee-weapons",
       "weight": 1,
       "range": [
         2,
@@ -35,9 +32,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/melee-weapons/machete.png",
-      "resultId": "4EvzYI2zDaLt18pV",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-melee-weapons",
+      "documentId": "4EvzYI2zDaLt18pV",
       "_key": "!tables.results!xi3UyD2W0uSLuaoP.m0FezqfakUNgF4kr"
     }
   ],
@@ -49,6 +45,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!xi3UyD2W0uSLuaoP"
 }

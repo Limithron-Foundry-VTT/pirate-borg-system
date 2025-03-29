@@ -3,19 +3,32 @@
   "name": "You blame others for every mistake.",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
-  "data": {
-    "description": "<p>You blame others for every mistake.</p>",
-    "featureType": "Idiosyncrasies",
-    "actionMacro": null,
-    "actionMacroLabel": null,
-    "maxQuantity": null
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>You blame others for every mistake.</p>",
+    "featureType": "Idiosyncrasies",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!Cc40IRkGVXTBfj6t"
 }

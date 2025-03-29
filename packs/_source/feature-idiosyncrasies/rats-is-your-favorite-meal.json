@@ -3,7 +3,23 @@
   "name": "Rats is your favorite meal.",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Rats is your favorite meal</p>",
     "featureType": "Idiosyncrasies",
     "maxQuantity": null,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!tf9kUjoaGg8UMDk9"
 }

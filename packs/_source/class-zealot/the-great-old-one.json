@@ -2,7 +2,24 @@
   "name": "The Great Old One",
   "type": "feature",
   "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "TtBV5LRwBcyZIscI",
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Whom dost thou serve? The Great Old One</p>",
     "featureType": "Whom dost thou serve?",
     "maxQuantity": 1,
@@ -12,14 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "_id": "TtBV5LRwBcyZIscI",
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!TtBV5LRwBcyZIscI"
 }

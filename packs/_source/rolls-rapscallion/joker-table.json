@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "iliE8QaHQEQy4cFP",
-      "type": 0,
+      "type": "text",
       "text": "The Devil comes for your soul. You are sucked into a fiery portal. This is the end of your story.",
       "weight": 1,
       "range": [
@@ -16,15 +16,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 1,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!t9LIlJZN0pexAvl9.iliE8QaHQEQy4cFP"
     },
     {
       "_id": "kOkaeilBIBhzOB1p",
-      "type": 0,
+      "type": "text",
       "text": "Lose all of your remaining luck points.",
       "weight": 1,
       "range": [
@@ -34,15 +31,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 2,
-      "rangeH": 9,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!t9LIlJZN0pexAvl9.kOkaeilBIBhzOB1p"
     },
     {
       "_id": "j8m9nipAOz2wsIBr",
-      "type": 0,
+      "type": "text",
       "text": "Regain 2 luck points.",
       "weight": 1,
       "range": [
@@ -52,15 +46,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 10,
-      "rangeH": 19,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!t9LIlJZN0pexAvl9.j8m9nipAOz2wsIBr"
     },
     {
       "_id": "CDxUzLhmFw20BTJJ",
-      "type": 0,
+      "type": "text",
       "text": "Gain 4 Luck points (to a max of 4)",
       "weight": 1,
       "range": [
@@ -70,10 +61,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 20,
-      "rangeH": 20,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!t9LIlJZN0pexAvl9.CDxUzLhmFw20BTJJ"
     }
   ],
@@ -85,6 +73,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!t9LIlJZN0pexAvl9"
 }

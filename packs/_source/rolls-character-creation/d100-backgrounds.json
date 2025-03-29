@@ -6,7 +6,7 @@
   "results": [
     {
       "text": "Sailor",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -22,7 +22,7 @@
     },
     {
       "text": "Actor",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -38,7 +38,7 @@
     },
     {
       "text": "Apothecary",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -54,7 +54,7 @@
     },
     {
       "text": "Artist",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -70,7 +70,7 @@
     },
     {
       "text": "Bandit",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -86,7 +86,7 @@
     },
     {
       "text": "Assassin",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -102,7 +102,7 @@
     },
     {
       "text": "Barkeep",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -118,7 +118,7 @@
     },
     {
       "text": "Blacksmith",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -134,7 +134,7 @@
     },
     {
       "text": "Bosun",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -150,7 +150,7 @@
     },
     {
       "text": "Business person",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -166,7 +166,7 @@
     },
     {
       "text": "Cabin boy/girl",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -182,7 +182,7 @@
     },
     {
       "text": "Captain",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -198,7 +198,7 @@
     },
     {
       "text": "Former captive",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -214,7 +214,7 @@
     },
     {
       "text": "Castaway",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -230,7 +230,7 @@
     },
     {
       "text": "Chef",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -246,7 +246,7 @@
     },
     {
       "text": "Cook",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -262,7 +262,7 @@
     },
     {
       "text": "Craftsman",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -278,7 +278,7 @@
     },
     {
       "text": "Criminal",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -294,7 +294,7 @@
     },
     {
       "text": "Cultist",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -310,7 +310,7 @@
     },
     {
       "text": "Deserter",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -326,7 +326,7 @@
     },
     {
       "text": "Doctor",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -342,7 +342,7 @@
     },
     {
       "text": "Explorer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -358,7 +358,7 @@
     },
     {
       "text": "Farmer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -374,7 +374,7 @@
     },
     {
       "text": "First mate",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -390,7 +390,7 @@
     },
     {
       "text": "Gambler",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -406,7 +406,7 @@
     },
     {
       "text": "Grave robber",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -422,7 +422,7 @@
     },
     {
       "text": "Guard",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -438,7 +438,7 @@
     },
     {
       "text": "Gunner",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -454,7 +454,7 @@
     },
     {
       "text": "Harlot",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -470,7 +470,7 @@
     },
     {
       "text": "Heretic",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -486,7 +486,7 @@
     },
     {
       "text": "Homemaker",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -502,7 +502,7 @@
     },
     {
       "text": "Hunter",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -518,7 +518,7 @@
     },
     {
       "text": "Former servant",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -534,7 +534,7 @@
     },
     {
       "text": "Innkeeper",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -550,7 +550,7 @@
     },
     {
       "text": "Landowner",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -566,7 +566,7 @@
     },
     {
       "text": "Loner",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -582,7 +582,7 @@
     },
     {
       "text": "Cartographer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -598,7 +598,7 @@
     },
     {
       "text": "Marine",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -614,7 +614,7 @@
     },
     {
       "text": "Medic",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -630,7 +630,7 @@
     },
     {
       "text": "Merchant",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -646,7 +646,7 @@
     },
     {
       "text": "Military",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -662,7 +662,7 @@
     },
     {
       "text": "Missionary",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -678,7 +678,7 @@
     },
     {
       "text": "Monk",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -694,7 +694,7 @@
     },
     {
       "text": "Musician",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -710,7 +710,7 @@
     },
     {
       "text": "Naval Deserter",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -726,7 +726,7 @@
     },
     {
       "text": "Navigator",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -742,7 +742,7 @@
     },
     {
       "text": "Noble",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -758,7 +758,7 @@
     },
     {
       "text": "Nobody",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -774,7 +774,7 @@
     },
     {
       "text": "Nurse",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -790,7 +790,7 @@
     },
     {
       "text": "Officer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -806,7 +806,7 @@
     },
     {
       "text": "Orphan",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -822,7 +822,7 @@
     },
     {
       "text": "Performer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -838,7 +838,7 @@
     },
     {
       "text": "Philosopher",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -854,7 +854,7 @@
     },
     {
       "text": "Pilot",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -870,7 +870,7 @@
     },
     {
       "text": "Pirate",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -886,7 +886,7 @@
     },
     {
       "text": "Politician",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -902,7 +902,7 @@
     },
     {
       "text": "Priest",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -918,7 +918,7 @@
     },
     {
       "text": "Privateer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -934,7 +934,7 @@
     },
     {
       "text": "Quartermaster",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -950,7 +950,7 @@
     },
     {
       "text": "Refugee",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -966,7 +966,7 @@
     },
     {
       "text": "Religious follower",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -982,7 +982,7 @@
     },
     {
       "text": "Revolutionary",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -998,7 +998,7 @@
     },
     {
       "text": "Rumored sorcerer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1014,7 +1014,7 @@
     },
     {
       "text": "Runaway",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1030,7 +1030,7 @@
     },
     {
       "text": "Sail maker",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1046,7 +1046,7 @@
     },
     {
       "text": "Scholar",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1062,7 +1062,7 @@
     },
     {
       "text": "Scoundrel",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1078,7 +1078,7 @@
     },
     {
       "text": "Scout",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1094,7 +1094,7 @@
     },
     {
       "text": "Shaman",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1110,7 +1110,7 @@
     },
     {
       "text": "Shipwright",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1126,7 +1126,7 @@
     },
     {
       "text": "Smuggler",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1142,7 +1142,7 @@
     },
     {
       "text": "Soldier",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1158,7 +1158,7 @@
     },
     {
       "text": "Spy",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1174,7 +1174,7 @@
     },
     {
       "text": "Student",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1190,7 +1190,7 @@
     },
     {
       "text": "Surgeon",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1206,7 +1206,7 @@
     },
     {
       "text": "Thief",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1222,7 +1222,7 @@
     },
     {
       "text": "Vagabond",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1238,7 +1238,7 @@
     },
     {
       "text": "Victim",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1254,7 +1254,7 @@
     },
     {
       "text": "Warrior",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1270,7 +1270,7 @@
     },
     {
       "text": "Whaler",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1286,7 +1286,7 @@
     },
     {
       "text": "Writer",
-      "type": 2,
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/background.png",
       "weight": 1,
       "range": [
@@ -1313,10 +1313,11 @@
   "_stats": {
     "systemId": "pirateborg",
     "systemVersion": "v0.6.3",
-    "coreVersion": "10.291",
+    "coreVersion": "12.331",
     "createdTime": null,
     "modifiedTime": 1680575407440,
-    "lastModifiedBy": "pbbuilder0000000"
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!tables!aYWfHqeuwzpGDSKb"
 }

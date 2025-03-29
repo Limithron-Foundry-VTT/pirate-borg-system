@@ -3,7 +3,23 @@
   "name": "Chain",
   "type": "weapon",
   "img": "systems/pirateborg/icons/equipment/melee-weapons/chain.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -19,14 +35,12 @@
     "handed": "1",
     "fumbleOn": 1,
     "usesAmmo": false,
-    "weaponType": "melee"
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
+    "useAmmoDamage": false,
+    "weaponType": "melee",
+    "isGunpowderWeapon": false,
+    "needsReloading": false,
+    "reloadTime": 1,
+    "loadingCount": 0
   },
   "_key": "!items!b10bOZ3Dfv8QXkHw"
 }

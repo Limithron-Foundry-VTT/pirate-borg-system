@@ -27,10 +27,11 @@
   "_stats": {
     "systemId": "pirateborg",
     "systemVersion": "v0.6.13",
-    "coreVersion": "10.303",
+    "coreVersion": "12.331",
     "createdTime": null,
     "modifiedTime": 1704604931963,
-    "lastModifiedBy": "pbbuilder0000000"
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!items!PXgxd8lYBAsxUPnD"
 }

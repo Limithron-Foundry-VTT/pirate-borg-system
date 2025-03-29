@@ -3,7 +3,23 @@
   "name": "Fish in the Sea",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Choose a direction. The wind blows that way for d4 hours</p>\n<p><em><strong>Chorus<br /></strong></em><em>And it's windy weather, boys, stormy weather, boys<br /></em><em>When the wind blows, we're all together, boys<br /></em><em>Blow ye winds westerly, blow ye winds, blow<br /></em><em>Jolly sou'wester, boys, steady she goes</em></p>\n<p><a href=\"https://youtu.be/VexQ0qfGwpQ\">Play Song</a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!3CRnf7GzD9B12qhv"
 }

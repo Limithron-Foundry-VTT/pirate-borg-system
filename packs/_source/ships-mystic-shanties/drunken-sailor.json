@@ -3,7 +3,23 @@
   "name": "Drunken Sailor",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>One ship's crew skill is -4 for d6 rounds</p>\n<p><em><strong>Chrous<br /></strong></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>Early in the morning!<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Early in the morning!</em></p>\n<p style=\"margin: 0in;\"><a href=\"https://youtu.be/oB7WtAlcIwM\"><span style=\"font-family: Calibri;\"><span style=\"font-size: 14.6667px;\">Play Song</span></span></a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!Hvwq3xmyx0ZYQ4p7"
 }

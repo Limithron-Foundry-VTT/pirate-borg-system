@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Concertina",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "V0dB0Fq4ZtAITHRu",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "w6dwien8eof3l8n7",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "V0dB0Fq4ZtAITHRu",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.w6dwien8eof3l8n7"
     },
     {
       "text": "Drum",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "XQ1VAfDxa5Wz0DMx",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "zm9t0utzep82xqln",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "XQ1VAfDxa5Wz0DMx",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.zm9t0utzep82xqln"
     },
     {
       "text": "Flute",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "ms9h28N1UBJCg2yb",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "87gkujuhvolsplmm",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "ms9h28N1UBJCg2yb",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.87gkujuhvolsplmm"
     },
     {
       "text": "Fiddle",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "LQGrUJMPdsvFvnts",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "1sq0ehuizxazt6dh",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "LQGrUJMPdsvFvnts",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.1sq0ehuizxazt6dh"
     },
     {
       "text": "Banjo",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "OJbhqszMWJBlqaXa",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "en9w1wo1cntmtu9m",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "OJbhqszMWJBlqaXa",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.en9w1wo1cntmtu9m"
     },
     {
       "text": "Horn",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "SMBMDAUjTYv89FBm",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "aqvip72qlak4k0mw",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "SMBMDAUjTYv89FBm",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.aqvip72qlak4k0mw"
     },
     {
       "text": "Hurdy-gurdy",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "23E2WIpYnGCEB2PC",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "pr7kp8ipspei7cok",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "23E2WIpYnGCEB2PC",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.pr7kp8ipspei7cok"
     },
     {
       "text": "Guitar",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "Mkp5VugSa2ayQd6w",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "zhhvwszxiedsw3f9",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "Mkp5VugSa2ayQd6w",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.zhhvwszxiedsw3f9"
     },
     {
       "text": "Mandolin",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "lrFhWVlsYOXIxVeY",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "hqm8h3l6lhvkbqvj",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "lrFhWVlsYOXIxVeY",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.hqm8h3l6lhvkbqvj"
     },
     {
       "text": "Voice of an angel",
-      "type": 2,
-      "collection": "pirateborg.equipment-instruments",
-      "resultId": "rkw5WvBSr8Hk7T9d",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
       "weight": 1,
       "range": [
@@ -180,8 +160,8 @@
       "drawn": false,
       "_id": "i5wtq8a7bv2tigzl",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-instruments",
+      "documentId": "rkw5WvBSr8Hk7T9d",
       "_key": "!tables.results!5LnpMiTEgxAqUtow.i5wtq8a7bv2tigzl"
     }
   ],
@@ -193,6 +173,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!5LnpMiTEgxAqUtow"
 }

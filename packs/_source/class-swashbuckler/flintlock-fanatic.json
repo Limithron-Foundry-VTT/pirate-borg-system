@@ -3,21 +3,32 @@
   "name": "Flintlock Fanatic",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
-    "description": "<p>You can attack with up to three pistols on your turn (if you have them). Reloading one pistol only takes you one round.</p>",
-    "featureType": "Class",
-    "maxQuantity": null,
-    "quantity": 1,
-    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
-    "actionMacroLabel": "Use",
-    "startingBonusItems": ""
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>You can attack with up to three pistols on your turn (if you have them). Reloading one pistol only takes you one round.</p>",
+    "featureType": "Class",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacroLabel": "Use",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!X9VS3CX8nkXPoDJI"
 }

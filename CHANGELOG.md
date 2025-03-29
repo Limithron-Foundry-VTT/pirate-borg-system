@@ -1,6 +1,18 @@
+# v1.0.8-v13
+
+- Added support for Foundry VTT v13.
+  - This is a beta release, and there may be some issues.
+  - There will continue to be some warnings in the console about deprecated methods.
+  - Please report any issues you encounter.
+- Removed support for Foundry VTT v11.
+- Added more folder categorization for the compendium packs.
+- Fixed Frigate missing the Mystic Shanties section on the vehicle sheet.
+- Fixed dragging and dropping an Item onto the Hotbar creating the wrong sort of macro.
+
 # v1.0.8
 
-- Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.
+- Release was removed from listing due to the following change being incorrect.
+  - ~~Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.~~
 
 # v1.0.7
 

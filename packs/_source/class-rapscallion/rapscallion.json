@@ -3,7 +3,23 @@
   "name": "Rapscallion",
   "type": "class",
   "img": "systems/pirateborg/tokens/rapscallion.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>A sneaky, cutthroat scallywag good at backstabbing, breaking &amp; entering, stealing, cheating, and escaping. Found in taverns, shadows, and shallow graves.</p>\n<p>You will need a deck of playing cards.</p>",
     "flavorText": "A sneaky, cutthroat scallywag good at backstabbing, breaking & entering, stealing, cheating, and escaping. Found in taverns, shadows, and shallow graves.\n\nYou will need a deck of playing cards.",
     "luckDie": "1d2",
@@ -32,13 +48,6 @@
     "requireBaseClass": false,
     "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!0fXnvduqtkSpdB7n"
 }

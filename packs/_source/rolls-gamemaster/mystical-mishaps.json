@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "WEUJpAs39APEraMN",
-      "type": 0,
+      "type": "text",
       "text": "All before you vanishes, and you are alone on a gray island. A figure robed in black can be seen on a boat in the distance. Welcome to purgatory.",
       "weight": 1,
       "range": [
@@ -16,15 +16,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 1,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.WEUJpAs39APEraMN"
     },
     {
       "_id": "OEtwfbGqqPUJ3ah2",
-      "type": 0,
+      "type": "text",
       "text": "Everyone within [[d20]] ft. vomits briny water and sea urchins ( and lose 4hp).",
       "weight": 1,
       "range": [
@@ -34,15 +31,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 2,
-      "rangeH": 2,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.OEtwfbGqqPUJ3ah2"
     },
     {
       "_id": "Embwdb2C5UI1jgni",
-      "type": 0,
+      "type": "text",
       "text": "A wraith appears, the ghost of an old captain. Roll reaction for it (pg. 30). It leaves after d6 rounds.",
       "weight": 1,
       "range": [
@@ -52,15 +46,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 3,
-      "rangeH": 3,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.Embwdb2C5UI1jgni"
     },
     {
       "_id": "ltqNG4HEqBJ6vTcs",
-      "type": 0,
+      "type": "text",
       "text": "You are possessed by an ancient, arcane spirit for [[d4]] rounds. Roll reaction (pg. 30) to see how it behaves to others.",
       "weight": 1,
       "range": [
@@ -70,15 +61,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 4,
-      "rangeH": 4,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.ltqNG4HEqBJ6vTcs"
     },
     {
       "_id": "qlrpZmN491qDkuHD",
-      "type": 0,
+      "type": "text",
       "text": "You go insane, as you become convinced that this world is a dream and that you must wake up from. Test SPIRIT DR12 every dawn to see if you come to your senses.",
       "weight": 1,
       "range": [
@@ -88,15 +76,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 5,
-      "rangeH": 5,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.qlrpZmN491qDkuHD"
     },
     {
       "_id": "pdJvItGENCC7eSwI",
-      "type": 0,
+      "type": "text",
       "text": "Nothing happens...until the Kraken appears in [[d6]] days.",
       "weight": 1,
       "range": [
@@ -106,15 +91,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 6,
-      "rangeH": 6,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.pdJvItGENCC7eSwI"
     },
     {
       "_id": "WVXH7CIFobeTn48o",
-      "type": 0,
+      "type": "text",
       "text": "Gravity behaves as if everything within 30' is underwater... for [[d8]] minutes",
       "weight": 1,
       "range": [
@@ -124,15 +106,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 7,
-      "rangeH": 7,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.WVXH7CIFobeTn48o"
     },
     {
       "_id": "byUbVqey0oK4uvQA",
-      "type": 0,
+      "type": "text",
       "text": "[[d12]] BIRDS! They swarm you and all around.",
       "weight": 1,
       "range": [
@@ -142,15 +121,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 8,
-      "rangeH": 8,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.byUbVqey0oK4uvQA"
     },
     {
       "_id": "WmISPRVf7a9yI7sl",
-      "type": 0,
+      "type": "text",
       "text": "All metal within 30ft become molten hot and glows red. The effect lasts for 1 minute. Any one touching metal after the first round is burnt for d2 damage.",
       "weight": 1,
       "range": [
@@ -160,15 +136,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 9,
-      "rangeH": 9,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.WmISPRVf7a9yI7sl"
     },
     {
       "_id": "JV1wJzhn9bkK1ifY",
-      "type": 0,
+      "type": "text",
       "text": "Your vision permanently fills with water and the world around you looks submerged and obfuscated. Presence Checks involving sight are +4 DR from now on. Underwater you see like fish.",
       "weight": 1,
       "range": [
@@ -178,15 +151,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 10,
-      "rangeH": 10,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.JV1wJzhn9bkK1ifY"
     },
     {
       "_id": "ffgYXJMbVfaUDRp5",
-      "type": 0,
+      "type": "text",
       "text": "The weather and time of day are immediately, completely different. You and everything within a 3 mile radius have traveled 4d12 hours into the future.",
       "weight": 1,
       "range": [
@@ -196,15 +166,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 11,
-      "rangeH": 11,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.ffgYXJMbVfaUDRp5"
     },
     {
       "_id": "2bdLylYb3OjR0z60",
-      "type": 0,
+      "type": "text",
       "text": "Clouds darken, winds pick up, the temperature drops [[d10 * 10]] degrees. A thunderstorm moves in.",
       "weight": 1,
       "range": [
@@ -214,15 +181,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 12,
-      "rangeH": 12,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.2bdLylYb3OjR0z60"
     },
     {
       "_id": "nIW3JQ8YJn1DSKEK",
-      "type": 0,
+      "type": "text",
       "text": "A massive earthquake shakes the ground. At sea, tidal waves swell.",
       "weight": 1,
       "range": [
@@ -232,15 +196,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 13,
-      "rangeH": 13,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.nIW3JQ8YJn1DSKEK"
     },
     {
       "_id": "8fHjK3nW244Gvz4v",
-      "type": 0,
+      "type": "text",
       "text": "You've simply forgotten how to cast the ritual. You no longer know it. Remove it from your sheet.",
       "weight": 1,
       "range": [
@@ -250,15 +211,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 14,
-      "rangeH": 14,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.8fHjK3nW244Gvz4v"
     },
     {
       "_id": "PEE3lInR7llSoII9",
-      "type": 0,
+      "type": "text",
       "text": "Eldritch voices whisper in your ears. Test SPIRIT DR12 or take d2 damage out of horror. If you pass, then next time you consider accessing the arcane you discover you know one random new ritual.",
       "weight": 1,
       "range": [
@@ -268,15 +226,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 15,
-      "rangeH": 15,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.PEE3lInR7llSoII9"
     },
     {
       "_id": "Sgy63bBEhst6ZlKU",
-      "type": 0,
+      "type": "text",
       "text": "The ritual succeeds, but in the worst way possible. GM decides: different target, goes off at the wrong time, you cast it on yourself, etc.",
       "weight": 1,
       "range": [
@@ -286,15 +241,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 16,
-      "rangeH": 16,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.Sgy63bBEhst6ZlKU"
     },
     {
       "_id": "08sh1EyLdmdPu06z",
-      "type": 0,
+      "type": "text",
       "text": "Your mind is lost at sea for what seems like [[3d10]] years, yet no time has passed. Others watch as you age 3d10 years in a matter of seconds.",
       "weight": 1,
       "range": [
@@ -304,15 +256,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 17,
-      "rangeH": 17,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.08sh1EyLdmdPu06z"
     },
     {
       "_id": "NjmuCwU085Vlfnor",
-      "type": 0,
+      "type": "text",
       "text": "Hundreds of tiny crabs swarm you. They are harmless, and provide an extra -2 armor. They leave after [[d6]] days, but return every full moon.",
       "weight": 1,
       "range": [
@@ -322,15 +271,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 18,
-      "rangeH": 18,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.NjmuCwU085Vlfnor"
     },
     {
       "_id": "gsE3CvYVcf7Caef0",
-      "type": 0,
+      "type": "text",
       "text": "Everyone you can see recovers 3d6 hp including your enemies...",
       "weight": 1,
       "range": [
@@ -340,15 +286,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 19,
-      "rangeH": 19,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.gsE3CvYVcf7Caef0"
     },
     {
       "_id": "DNoInrhjaAlX4545",
-      "type": 0,
+      "type": "text",
       "text": "Time stops. You experience a moment of absolute cosmic understanding and bliss. When you gain your composure, time resumes and you have learned a new ritual of your choice and your Spirit score is increased by +1.",
       "weight": 1,
       "range": [
@@ -358,15 +301,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 20,
-      "rangeH": 20,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.DNoInrhjaAlX4545"
     },
     {
       "_id": "6YmdL4eL6NcfTq7l",
-      "type": 0,
+      "type": "text",
       "text": "HP 2 Morale - No Armor Bite d2. They flee when half are defeated.",
       "weight": 1,
       "range": [
@@ -376,10 +316,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 8,
-      "rangeH": 8,
-      "collection": null,
-      "resultId": null,
+      "documentId": null,
       "_key": "!tables.results!TUUnMUeE28Jwgsqw.6YmdL4eL6NcfTq7l"
     }
   ],
@@ -391,6 +328,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!TUUnMUeE28Jwgsqw"
 }

@@ -12,5 +12,14 @@
   "ownership": {
     "default": 0
   },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
   "_key": "!macros!euVqlYfll65zKOew"
 }

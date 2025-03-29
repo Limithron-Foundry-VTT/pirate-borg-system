@@ -2,13 +2,11 @@
   "_id": "tJprMqZp0ECQpCzW",
   "name": "d20 Unfortunate Incidents & Conditions",
   "img": "icons/svg/d20-grey.svg",
-  "description": "Unfortunate Incidents & Conditions",
+  "description": "Unfortunate Incidents &amp; Conditions",
   "results": [
     {
       "text": "Your loved ones were burned alive. Revenge is imminent.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "rhd9Rs1v2rD90O6X",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "axlmkv7b9iwdktk0",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "rhd9Rs1v2rD90O6X",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.axlmkv7b9iwdktk0"
     },
     {
       "text": "You are a known pirate. You face the gallows if caught.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "Yu4Zs5KwQ3BeTgdH",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "s4smlzdyfx088udv",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "Yu4Zs5KwQ3BeTgdH",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.s4smlzdyfx088udv"
     },
     {
       "text": "You betrayed former crewmates. Now they hunt you",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "7aZ76s6mVAOaJX7i",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "kb0i0i1s3mvpttbw",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "7aZ76s6mVAOaJX7i",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.kb0i0i1s3mvpttbw"
     },
     {
       "text": "You were once marooned on an island for far too long. The voices must be real.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "8TeDkySSKBo21WLL",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "ia6yhniw7f0hpbr4",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "8TeDkySSKBo21WLL",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.ia6yhniw7f0hpbr4"
     },
     {
       "text": "You stole a ship. The owner wants your money or your head, but will settle for both.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "OaZqsLg3Vfz97SQq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "b9udsp6tqxcckff4",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "OaZqsLg3Vfz97SQq",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.b9udsp6tqxcckff4"
     },
     {
       "text": "You escaped captivity, and will never go back.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "qEK6CL1RJWfo2Key",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "1z53snfeieqm3v9i",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "qEK6CL1RJWfo2Key",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.1z53snfeieqm3v9i"
     },
     {
       "text": "A close relative has become your greatest enemy.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "MTW8SGXhzCsrnikH",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "eubyuetdiskwnxwx",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "MTW8SGXhzCsrnikH",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.eubyuetdiskwnxwx"
     },
     {
       "text": "The last three ships you crewed all sank.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "huKPXu4gV6NicO0Z",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "pj58s5p5kx4ed8jj",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "huKPXu4gV6NicO0Z",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.pj58s5p5kx4ed8jj"
     },
     {
       "text": "Your last crew was killed by undead. They let you live on purpose.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "r09jstSYhJ9ZAjvQ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "sgct7ebvd49axfaj",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "r09jstSYhJ9ZAjvQ",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.sgct7ebvd49axfaj"
     },
     {
       "text": "Political leaders hold your loved one(s) captive.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "rzRpKtApguVcHvBv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "8eq8nbkc6ndzr15z",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "rzRpKtApguVcHvBv",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.8eq8nbkc6ndzr15z"
     },
     {
       "text": "An undead spirit you don't like possesses you regularly.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "YTTzEBIsXVbJckEv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "x9ntadfpl78d5tpn",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "YTTzEBIsXVbJckEv",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.x9ntadfpl78d5tpn"
     },
     {
       "text": "You wronged an infamous pirate lord.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "vhQTzhjOBKUVGT4q",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "tw11qp60oii6b73m",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "vhQTzhjOBKUVGT4q",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.tw11qp60oii6b73m"
     },
     {
       "text": "You narrowly escaped a cannibalistic ending, but you didn't escape that smell.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "2Jh0Cgr23wpPBRlv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "75tumu9gh93p8kwu",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "2Jh0Cgr23wpPBRlv",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.75tumu9gh93p8kwu"
     },
     {
       "text": "You slaughtered them. Like animals.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "cU8xBx8PHA92JELB",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "mdqje58vwvrsm924",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "cU8xBx8PHA92JELB",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.mdqje58vwvrsm924"
     },
     {
       "text": "You are the mysterious lone survivor of a treasure expedition gone awry.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "q96IacEntIbhJYCZ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "rik4g28to7c4w9ra",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "q96IacEntIbhJYCZ",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.rik4g28to7c4w9ra"
     },
     {
       "text": "Failed mutineer or Successful mutineer.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "cxWwsiEZfe4aHXDy",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "9kfn75ylmg7a129s",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "cxWwsiEZfe4aHXDy",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.9kfn75ylmg7a129s"
     },
     {
       "text": "A silent ghost haunts you. It is always there, but only you can see it.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "dcmOcImwaH9iXmXz",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "zoawp8xi2uag3xog",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "dcmOcImwaH9iXmXz",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.zoawp8xi2uag3xog"
     },
     {
       "text": "You deserted the military, but you're not sure who knows so.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "nicPuvbfeHvsumpK",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "avk1wguu5jlqxmz8",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "nicPuvbfeHvsumpK",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.avk1wguu5jlqxmz8"
     },
     {
       "text": "You have no memory before a few days ago.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "jnLrDXhBoDntcUx6",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "an8bvuxo7zfphuv9",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "jnLrDXhBoDntcUx6",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.an8bvuxo7zfphuv9"
     },
     {
       "text": "You died once already, but Hell didn't want you.",
-      "type": 2,
-      "collection": "pirateborg.feature-unfortunate-incidents-conditions",
-      "resultId": "ZM5pFGpBQKJE9YeI",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/incident.png",
       "weight": 1,
       "range": [
@@ -360,8 +320,8 @@
       "drawn": false,
       "_id": "uh81o7r6vxpu1g7j",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.feature-unfortunate-incidents-conditions",
+      "documentId": "ZM5pFGpBQKJE9YeI",
       "_key": "!tables.results!tJprMqZp0ECQpCzW.uh81o7r6vxpu1g7j"
     }
   ],
@@ -373,6 +333,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!tJprMqZp0ECQpCzW"
 }

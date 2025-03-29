@@ -6,11 +6,9 @@
   "results": [
     {
       "_id": "T0NNLKWrj1edVZDQ",
-      "type": 2,
+      "type": "pack",
       "text": "Anglerfish",
       "img": "systems/pirateborg/icons/classes/tall-tale/angler-fish.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "lt6FGtfR0faT7qR4",
       "weight": 1,
       "range": [
         1,
@@ -18,17 +16,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "lt6FGtfR0faT7qR4",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.T0NNLKWrj1edVZDQ"
     },
     {
       "_id": "vMZDtDLoYgUw5aQJ",
-      "type": 2,
+      "type": "pack",
       "text": "Crab",
       "img": "systems/pirateborg/icons/classes/tall-tale/crab.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "WsNJPvaU4ZhZJ1MY",
       "weight": 1,
       "range": [
         2,
@@ -36,17 +32,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "WsNJPvaU4ZhZJ1MY",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.vMZDtDLoYgUw5aQJ"
     },
     {
       "_id": "I3OO29lcQui7lr3F",
-      "type": 2,
+      "type": "pack",
       "text": "Jellyfish",
       "img": "systems/pirateborg/icons/classes/tall-tale/jellyfish.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "tzRkbIPOTs3NZTho",
       "weight": 1,
       "range": [
         3,
@@ -54,17 +48,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "tzRkbIPOTs3NZTho",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.I3OO29lcQui7lr3F"
     },
     {
       "_id": "BbPVOocPCHeNmokD",
-      "type": 2,
+      "type": "pack",
       "text": "Octopus",
       "img": "systems/pirateborg/icons/classes/tall-tale/octopus.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "tK62n6rppvk6QxPk",
       "weight": 1,
       "range": [
         4,
@@ -72,17 +64,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "tK62n6rppvk6QxPk",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.BbPVOocPCHeNmokD"
     },
     {
       "_id": "tTvidlvHWJHuHc9x",
-      "type": 2,
+      "type": "pack",
       "text": "Sea Turtle",
       "img": "systems/pirateborg/icons/classes/tall-tale/sea-turtle.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "zmF3NfJi9qwNzNhT",
       "weight": 1,
       "range": [
         5,
@@ -90,17 +80,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "zmF3NfJi9qwNzNhT",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.tTvidlvHWJHuHc9x"
     },
     {
       "_id": "5SIscfajseEVRWP6",
-      "type": 2,
+      "type": "pack",
       "text": "Electric Eel",
       "img": "systems/pirateborg/icons/classes/tall-tale/electric-eel.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "GGf7XeEppvQ7j6BX",
       "weight": 1,
       "range": [
         6,
@@ -108,17 +96,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "GGf7XeEppvQ7j6BX",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.5SIscfajseEVRWP6"
     },
     {
       "_id": "asrUXFBC98fCnoZt",
-      "type": 2,
+      "type": "pack",
       "text": "Shark",
       "img": "systems/pirateborg/icons/classes/tall-tale/shark.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "eFihUJ3xVpEWIlhu",
       "weight": 1,
       "range": [
         7,
@@ -126,17 +112,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "eFihUJ3xVpEWIlhu",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.asrUXFBC98fCnoZt"
     },
     {
       "_id": "jTBI01yBRe1EMGso",
-      "type": 2,
+      "type": "pack",
       "text": "The Great Old One",
       "img": "systems/pirateborg/icons/classes/tall-tale/the-great-old-one.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "Q6As123ncIeUKQRI",
       "weight": 1,
       "range": [
         8,
@@ -144,8 +128,8 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "Q6As123ncIeUKQRI",
       "_key": "!tables.results!xtzyxuefd8z3xVNG.jTBI01yBRe1EMGso"
     }
   ],
@@ -157,6 +141,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!xtzyxuefd8z3xVNG"
 }

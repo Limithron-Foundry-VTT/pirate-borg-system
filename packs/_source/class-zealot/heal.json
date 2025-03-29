@@ -3,7 +3,23 @@
   "name": "Heal",
   "type": "invokable",
   "img": "systems/pirateborg/icons/classes/zealot/prayer.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Heal thyself or another for d8 HP.</p>\n<p>&nbsp;</p>",
     "containerSpace": 0,
     "carryWeight": 0,
@@ -16,13 +32,6 @@
     "invokableType": "Prayers",
     "isEquipment": false,
     "maxQuantity": 1
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!cELE1LyLeYDspSvX"
 }

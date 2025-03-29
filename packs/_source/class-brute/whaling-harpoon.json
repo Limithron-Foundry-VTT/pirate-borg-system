@@ -3,7 +3,23 @@
   "name": "Whaling Harpoon",
   "type": "weapon",
   "img": "systems/pirateborg/icons/misc/weapon.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p><strong>You begin with a trusted weapon. It will never break, but you drop it on a Fumble. It is DR -2 to attack. What is its name?</strong></p>\n<p>d8 damage, can be thrown by testing Agility DR10</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -25,13 +41,6 @@
     "needsReloading": false,
     "reloadTime": 1,
     "loadingCount": 0
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!tKz4LJkcrel0Vqaj"
 }

@@ -3,7 +3,23 @@
   "name": "Dead Horse",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>The ship recovers d10 HP and any misfired cannons are repaired.</p>\n<p><em><strong>Chorus<br /></strong></em><em>A poor old man<br /></em><em>Came riding by.<br /></em><em>And we say so,<br /></em><em>And we know so.<br /></em><em>O, a poor old man<br /></em><em>Came riding by,<br /></em><em>O, poor old man.</em></p>\n<p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt;\"><a href=\"https://youtu.be/9MRxHf3k69Y\"><span style=\"font-family: Alegreya; font-size: 16px;\">Play Song</span></a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!almpFrxdxUPaflde"
 }

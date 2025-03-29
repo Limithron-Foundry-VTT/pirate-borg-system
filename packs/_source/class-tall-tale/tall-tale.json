@@ -13,7 +13,7 @@
   "system": {
     "description": "<p>You are a Merfolk, an Aquatic Mutant or a Sentient Animal</p>",
     "flavorText": "You are a Merfolk, an Aquatic Mutant or a Sentient Animal",
-    "luckDie": "1d4",
+    "luckDie": "",
     "startingArmorTableFormula": "",
     "startingWeaponTableFormula": "",
     "startingHatTableFormula": "",
@@ -49,11 +49,12 @@
   },
   "_stats": {
     "systemId": "pirateborg",
-    "systemVersion": "v1.0.8",
-    "coreVersion": "11.315",
+    "systemVersion": "v1.0.8-v13",
+    "coreVersion": "12.331",
     "createdTime": null,
-    "modifiedTime": 1742330744017,
-    "lastModifiedBy": "pbbuilder0000000"
+    "modifiedTime": 1743027431040,
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!items!TDsJBLUG3b0P868Z"
 }

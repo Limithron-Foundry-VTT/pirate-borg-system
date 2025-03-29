@@ -3,18 +3,28 @@
   "name": "Grave robber",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d6 x 10s &amp; something from a corpse</p>",
-    "startingGold": "2d6 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.backgrounds-items;something from a corpse"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d6 x 10s &amp; something from a corpse</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;something from a corpse",
+    "startingBonusRolls": ""
   },
   "_key": "!items!GZk1gACNoX7aEhWf"
 }

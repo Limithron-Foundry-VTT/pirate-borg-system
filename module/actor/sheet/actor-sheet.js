@@ -6,6 +6,7 @@ import { getInfoFromDropData } from "../../api/utils.js";
 
 /**
  * @extends {ActorSheet}
+ * TODO Convert to foundry.appv1.sheets. once v13 is the minimum
  */
 export default class PBActorSheet extends ActorSheet {
   /**
@@ -88,7 +89,12 @@ export default class PBActorSheet extends ActorSheet {
       effectData["duration.rounds"] = 1;
     }
 
-    const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    let html;
+    if (game.release.generation >= 13) {
+      html = await foundry.applications.handlebars.renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    } else {
+      html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    }
     const dialog = new Dialog({
       title: game.i18n.localize("PB.EffectsQuick"),
       content: html,

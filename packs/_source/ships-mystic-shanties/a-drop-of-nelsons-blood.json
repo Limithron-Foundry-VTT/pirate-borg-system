@@ -3,7 +3,23 @@
   "name": "A Drop of Nelson's Blood",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Increase the ship's speed by 1\" for d8 hours</p>\n<p><em><strong>Chorus<br /></strong></em><em>Oh, a drop of Nelson&rsquo;s blood wouldn&rsquo;t do us any harm<br /></em><em>And a drop of Nelson&rsquo;s blood wouldn&rsquo;t do us any harm<br /></em><em>And a drop of Nelson&rsquo;s blood wouldn&rsquo;t do us any harm<br /></em><em>And we&rsquo;ll all hang on behind</em></p>\n<p><a href=\"https://youtu.be/lNY67vN1orI\">Play Song</a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!EqhO6liqxQIjj4fx"
 }

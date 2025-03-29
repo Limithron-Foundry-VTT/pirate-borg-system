@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Smokes constantly. Coughs even more.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "bNPVcyOgwVOllKWl",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "iuj4aoyadzdirtrl",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "bNPVcyOgwVOllKWl",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.iuj4aoyadzdirtrl"
     },
     {
       "text": "\"Functioning\" alcoholic. You're probably drunk right now.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "cpq7Qqbh207PDWbU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "iuqug25yealqclxy",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "cpq7Qqbh207PDWbU",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.iuqug25yealqclxy"
     },
     {
       "text": "You bet on everything possible.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "uDiWSEr77uBQY8uT",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "0bbn01d63rl9usuk",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "uDiWSEr77uBQY8uT",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.0bbn01d63rl9usuk"
     },
     {
       "text": "Constantly counting. Teeth, cannon balls... everything.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "XreLbxWXS15sZBuU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "7pdoube7ib6bfvlv",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "XreLbxWXS15sZBuU",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.7pdoube7ib6bfvlv"
     },
     {
       "text": "Rats is your favorite meal.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "tf9kUjoaGg8UMDk9",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "ppc74ndw0qrvgg6s",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "tf9kUjoaGg8UMDk9",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.ppc74ndw0qrvgg6s"
     },
     {
       "text": "You know every tall tale ever told. You make sure everyone else knows you know them.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "PFB2jpkX1UUPbxTa",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "wx6jpsslojqcq4ov",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "PFB2jpkX1UUPbxTa",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.wx6jpsslojqcq4ov"
     },
     {
       "text": "Afraid of prime numbers larger than 3. d20 rolls of 5, 7, 11, 13, and 17 fill you with superstitious terror.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "XOkfDcCMtpig6BPa",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "md0q3e7vcqs2jnz3",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "XOkfDcCMtpig6BPa",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.md0q3e7vcqs2jnz3"
     },
     {
       "text": "You become a murderous grump when hungry",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "XkxTR5ve2knOavS4",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "fuxkdo02xb4e8xg4",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "XkxTR5ve2knOavS4",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.fuxkdo02xb4e8xg4"
     },
     {
       "text": "Habitual procrastinator... if you even finish the task.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "HCFRgtwSxETe9goU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "dgcvno3oa3nd8idq",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "HCFRgtwSxETe9goU",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.dgcvno3oa3nd8idq"
     },
     {
       "text": "Voluntary insomniac. Sleep is for the dead.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "zh3pl8KkSNwDcJpQ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "89tphpvh7s7quach",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "zh3pl8KkSNwDcJpQ",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.89tphpvh7s7quach"
     },
     {
       "text": "You prefer to shoot first and never ask questions.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "0Gwh00yXQDMwddHW",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "aoj61lno4m5azuly",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "0Gwh00yXQDMwddHW",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.aoj61lno4m5azuly"
     },
     {
       "text": "Overly, annoyingly religious.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "Tic7pL1FTVJKDe4k",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "4st3fh256763q8dw",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "Tic7pL1FTVJKDe4k",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.4st3fh256763q8dw"
     },
     {
       "text": "You collect something. You talk to your collection. They are your friends.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "Y3eDh47M4Xrurd6D",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "2rn8ad842235xmho",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "Y3eDh47M4Xrurd6D",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.2rn8ad842235xmho"
     },
     {
       "text": "Always trying to trick your crew mates, just for fun.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "aIWpCsqL3Nl9Hn8y",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "9245dxuo4btuf71m",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "aIWpCsqL3Nl9Hn8y",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.9245dxuo4btuf71m"
     },
     {
       "text": "Why pay for anything when you can steal it?",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "VUVU9bdZQRXWPGQd",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "3e6ypozieypzib9s",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "VUVU9bdZQRXWPGQd",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.3e6ypozieypzib9s"
     },
     {
       "text": "Talk to yourself when alone, but you often think you are alone when you aren't.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "VfFb5I4WQlZ25wYb",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "36q1a74hrhqfe1qk",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "VfFb5I4WQlZ25wYb",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.36q1a74hrhqfe1qk"
     },
     {
       "text": "You secretly enjoy the taste of human flesh.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "k5jKYyJRG9wXfGdL",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "odh288avd6suuhom",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "k5jKYyJRG9wXfGdL",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.odh288avd6suuhom"
     },
     {
       "text": "You always say you \"know the right way\", but are prone to getting lost.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "n4sMcdcRMASIBg3i",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "3zxbh647b3b86e13",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "n4sMcdcRMASIBg3i",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.3zxbh647b3b86e13"
     },
     {
       "text": "You blame others for every mistake.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "Cc40IRkGVXTBfj6t",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "mly9vr1izj98yudn",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "Cc40IRkGVXTBfj6t",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.mly9vr1izj98yudn"
     },
     {
       "text": "Extremely obsessive with tasks and relationships.",
-      "type": 2,
-      "collection": "pirateborg.feature-idiosyncrasies",
-      "resultId": "TjuzCzueBM7PqApu",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
       "weight": 1,
       "range": [
@@ -360,8 +320,8 @@
       "drawn": false,
       "_id": "86w36hhen3h99u81",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.feature-idiosyncrasies",
+      "documentId": "TjuzCzueBM7PqApu",
       "_key": "!tables.results!A9ePz1tYpvnk6wDk.86w36hhen3h99u81"
     }
   ],
@@ -373,6 +333,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!A9ePz1tYpvnk6wDk"
 }

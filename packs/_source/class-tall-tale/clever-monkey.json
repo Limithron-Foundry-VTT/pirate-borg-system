@@ -3,7 +3,23 @@
   "name": "Clever Monkey",
   "type": "feature",
   "img": "systems/pirateborg/tokens/clever-monkey.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You're an excellent climber. Roll d10 for a starting weapon.</p>\n<p>Strength: -1.</p>\n<p>Agility: +2.</p>\n<p>Presence: +0</p>\n<p>HP: d6+toughness.</p>\n<p>Bite: d4.</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "pirateborg.class-tall-tale;Clever Monkey - Bite",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!yW11H9GNe9cMbgub"
 }

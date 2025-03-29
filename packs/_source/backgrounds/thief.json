@@ -3,18 +3,28 @@
   "name": "Thief",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>1d12 x 10s &amp; lockpicks</p>",
-    "startingGold": "1d12 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.equipment-gear;Lock picks"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>1d12 x 10s &amp; lockpicks</p>",
+    "startingGold": "1d12 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Lock picks",
+    "startingBonusRolls": ""
   },
   "_key": "!items!Y5s8wbGeNPA7nbSR"
 }

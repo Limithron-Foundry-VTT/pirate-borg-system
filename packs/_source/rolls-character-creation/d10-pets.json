@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Snake",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "67AoLwu1evs8aBeO",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/snake.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "nh04egy0hb0vy0sg",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "67AoLwu1evs8aBeO",
       "_key": "!tables.results!xmidqWr39OSvzIad.nh04egy0hb0vy0sg"
     },
     {
       "text": "Rat",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "GUtagFMIrE42FrGc",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/rat.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "4ud3z3yobdjjrkkn",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "GUtagFMIrE42FrGc",
       "_key": "!tables.results!xmidqWr39OSvzIad.4ud3z3yobdjjrkkn"
     },
     {
       "text": "Lizard",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "ADo01WjiofBtxra7",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/lizard.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "cs3jj2dr96fd2kdc",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "ADo01WjiofBtxra7",
       "_key": "!tables.results!xmidqWr39OSvzIad.cs3jj2dr96fd2kdc"
     },
     {
       "text": "Cat",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "X9R5ECSLIqV7QyOZ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/cat.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "x8jl7efv9f7wdbln",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "X9R5ECSLIqV7QyOZ",
       "_key": "!tables.results!xmidqWr39OSvzIad.x8jl7efv9f7wdbln"
     },
     {
       "text": "Hawk",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "skZGjLZo6iKoLUNW",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/hawk.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "2dyagk4wtmfyakxt",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "skZGjLZo6iKoLUNW",
       "_key": "!tables.results!xmidqWr39OSvzIad.2dyagk4wtmfyakxt"
     },
     {
       "text": "Dog",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "qKehKNpSuZRddDYJ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/dog.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "k0jxqmck4gp2mxrt",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "qKehKNpSuZRddDYJ",
       "_key": "!tables.results!xmidqWr39OSvzIad.k0jxqmck4gp2mxrt"
     },
     {
       "text": "Monkey",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "C7uvNw9eMWLglqtt",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/monkey.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "6xqt9p8brc9fwy42",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "C7uvNw9eMWLglqtt",
       "_key": "!tables.results!xmidqWr39OSvzIad.6xqt9p8brc9fwy42"
     },
     {
       "text": "Parrot",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "aQUU4fd0Gj7W318U",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/parrot.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "7lu5rom0sr52k4mj",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "aQUU4fd0Gj7W318U",
       "_key": "!tables.results!xmidqWr39OSvzIad.7lu5rom0sr52k4mj"
     },
     {
       "text": "Hermit crab",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "oEvsRegi51Eo18if",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/hermit-crab.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "g24k4qa6zdh7byxi",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "oEvsRegi51Eo18if",
       "_key": "!tables.results!xmidqWr39OSvzIad.g24k4qa6zdh7byxi"
     },
     {
       "text": "Fish in a jar",
-      "type": 2,
-      "collection": "pirateborg.equipment-pets",
-      "resultId": "548x2lnYoID0eWxb",
+      "type": "pack",
       "img": "systems/pirateborg/icons/equipment/pets/fish.png",
       "weight": 1,
       "range": [
@@ -180,8 +160,8 @@
       "drawn": false,
       "_id": "evrkdq5c536vasbc",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-pets",
+      "documentId": "548x2lnYoID0eWxb",
       "_key": "!tables.results!xmidqWr39OSvzIad.evrkdq5c536vasbc"
     }
   ],
@@ -193,6 +173,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!xmidqWr39OSvzIad"
 }

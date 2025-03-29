@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "4SrOrvpPFZDiqE9r",
-      "type": 2,
+      "type": "pack",
       "text": "The One True God",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "collection": "pirateborg.class-zealot",
-      "resultId": "FDsQZbGiy3zIFpiH",
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "FDsQZbGiy3zIFpiH",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.4SrOrvpPFZDiqE9r"
     },
     {
       "_id": "1qfZeH2csQxi8uKS",
-      "type": 2,
+      "type": "pack",
       "text": "The Church",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         7,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "uEFgubQ4BgWmCyGM",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "uEFgubQ4BgWmCyGM",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.1qfZeH2csQxi8uKS"
     },
     {
       "_id": "hMTJ6QFe13n8vKsG",
-      "type": 2,
+      "type": "pack",
       "text": "Mother Nature",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         2,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "mMQK3tTrH9hax9m3",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "mMQK3tTrH9hax9m3",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.hMTJ6QFe13n8vKsG"
     },
     {
       "_id": "QpbFVW2J1kydekcT",
-      "type": 2,
+      "type": "pack",
       "text": "The Great Old One",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         8,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "TtBV5LRwBcyZIscI",
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "TtBV5LRwBcyZIscI",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.QpbFVW2J1kydekcT"
     },
     {
       "_id": "rZb5hzIZE5GPr2k2",
-      "type": 2,
+      "type": "pack",
       "text": "The Ancient Gods",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         3,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "X0nKXtrHZIYa5hN7",
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "X0nKXtrHZIYa5hN7",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.rZb5hzIZE5GPr2k2"
     },
     {
       "_id": "P6a7iEXr7xaDklJB",
-      "type": 2,
+      "type": "pack",
       "text": "The Dark One",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         6,
@@ -107,16 +96,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "JkZH6v7RnvtfPfOX",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "JkZH6v7RnvtfPfOX",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.P6a7iEXr7xaDklJB"
     },
     {
       "_id": "H6axmybtXAILnv0N",
-      "type": 2,
+      "type": "pack",
       "text": "The Chaos",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         4,
@@ -125,16 +112,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "VWHXg6rOUNKJZPsV",
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "VWHXg6rOUNKJZPsV",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.H6axmybtXAILnv0N"
     },
     {
       "_id": "qrWxJkkoJlfHOyIh",
-      "type": 2,
+      "type": "pack",
       "text": "The Deep",
-      "collection": "pirateborg.class-zealot",
       "weight": 1,
       "range": [
         5,
@@ -143,9 +128,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/serve.png",
-      "resultId": "FGTdGp6FfBm1v4oy",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-zealot",
+      "documentId": "FGTdGp6FfBm1v4oy",
       "_key": "!tables.results!86JvffxV6VQOdWWZ.qrWxJkkoJlfHOyIh"
     }
   ],
@@ -157,6 +141,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!86JvffxV6VQOdWWZ"
 }

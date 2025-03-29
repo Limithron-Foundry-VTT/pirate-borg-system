@@ -3,18 +3,28 @@
   "name": "Captain",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d8 x 10s &amp; a spyglass</p>",
-    "startingGold": "2d8 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.equipment-gear;Spyglass"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d8 x 10s &amp; a spyglass</p>",
+    "startingGold": "2d8 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.equipment-gear;Spyglass",
+    "startingBonusRolls": ""
   },
   "_key": "!items!h9PzRykIetjGQC6e"
 }

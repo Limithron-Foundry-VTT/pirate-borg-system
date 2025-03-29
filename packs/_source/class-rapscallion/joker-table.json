@@ -3,7 +3,23 @@
   "name": "Joker Table",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>1. The Devil comes for your soul. You are sucked into a fiery portal. This is the end of your story.</p>\n<p>2-9. Lose all of your remaining luck points.</p>\n<p>10-19. Regain 2 luck points.</p>\n<p>20. Gain 4 Luck points (to a max of 4)</p>",
     "featureType": "Class",
     "maxQuantity": null,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!OkZdivv3kUbcZVGM"
 }

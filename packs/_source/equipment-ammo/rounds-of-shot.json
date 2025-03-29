@@ -3,7 +3,23 @@
   "name": "Rounds of shot",
   "type": "ammo",
   "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 0.05,
     "carryWeight": 0.05,
@@ -14,13 +30,6 @@
     "actionMacro": "",
     "actionMacroLabel": "",
     "damageDie": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!RommdiTBhBFNeDBg"
 }

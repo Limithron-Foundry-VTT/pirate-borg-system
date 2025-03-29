@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "oEWBHe48lqp8nmrl",
-      "type": 2,
+      "type": "pack",
       "text": "Clairvoyance",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "collection": "pirateborg.class-sorcerer",
-      "rangeL": 1,
-      "rangeH": 1,
-      "resultId": "C8XtCS4iUyTBPEIq",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "C8XtCS4iUyTBPEIq",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.oEWBHe48lqp8nmrl"
     },
     {
       "_id": "cZihZdPzKtTz7poc",
-      "type": 2,
+      "type": "pack",
       "text": "Spiritual Possession",
-      "collection": "pirateborg.class-sorcerer",
       "weight": 1,
       "range": [
         2,
@@ -35,14 +32,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "rangeL": 2,
-      "rangeH": 2,
-      "resultId": "Po7MIV5kAvS9YsNx",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "Po7MIV5kAvS9YsNx",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.cZihZdPzKtTz7poc"
     },
     {
       "_id": "xuiTdkVYYyImEQQf",
-      "type": 2,
+      "type": "pack",
       "text": "Protection",
       "weight": 1,
       "range": [
@@ -52,15 +48,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "rangeL": 3,
-      "rangeH": 3,
-      "collection": "pirateborg.class-sorcerer",
-      "resultId": "hf9kmCtluAyFpb4f",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "hf9kmCtluAyFpb4f",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.xuiTdkVYYyImEQQf"
     },
     {
       "_id": "XEOtBa6DYX7QlE0W",
-      "type": 2,
+      "type": "pack",
       "text": "Dead Head",
       "weight": 1,
       "range": [
@@ -70,15 +64,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "rangeL": 4,
-      "rangeH": 4,
-      "collection": "pirateborg.class-sorcerer",
-      "resultId": "LvGmWxMQ86PyuIAi",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "LvGmWxMQ86PyuIAi",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.XEOtBa6DYX7QlE0W"
     },
     {
       "_id": "H20sxyramMnymmiP",
-      "type": 2,
+      "type": "pack",
       "text": "Necro-Sleep",
       "weight": 1,
       "range": [
@@ -88,15 +80,13 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "rangeL": 5,
-      "rangeH": 5,
-      "collection": "pirateborg.class-sorcerer",
-      "resultId": "NxH3xmq3QkaKSO8S",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "NxH3xmq3QkaKSO8S",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.H20sxyramMnymmiP"
     },
     {
       "_id": "gG2P1yOtEeBHXgeG",
-      "type": 2,
+      "type": "pack",
       "text": "Raise the Dead",
       "weight": 1,
       "range": [
@@ -106,10 +96,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/classes/sorcerer/sorcery.png",
-      "rangeL": 6,
-      "rangeH": 6,
-      "collection": "pirateborg.class-sorcerer",
-      "resultId": "CJ6ANcWEXBGJAE7H",
+      "documentCollection": "pirateborg.class-sorcerer",
+      "documentId": "CJ6ANcWEXBGJAE7H",
       "_key": "!tables.results!av7cR7J5NJQ4KrSD.gG2P1yOtEeBHXgeG"
     }
   ],
@@ -121,6 +109,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!av7cR7J5NJQ4KrSD"
 }

@@ -41,7 +41,14 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
  * @param {String} table
  * @returns {Promise.<String>}
  */
-export const drawTableText = async (compendium, table) => (await drawTable(compendium, table)).results[0].getChatText();
+export const drawTableText = async (compendium, table) => {
+  const result = (await drawTable(compendium, table)).results[0];
+
+  if (game.release.generation >= 13) {
+    return result.description;
+  }
+  return result.getChatText();
+}
 
 /**
  * @param {String} compendium
@@ -118,7 +125,13 @@ export const findTableItems = async (results) => {
         items.push(item);
       }
     } else if (type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
-      const [property, value] = result.getChatText().split(": ");
+      let resultText;
+      if (game.release.generation >= 13) {
+        resultText = result.description;
+      } else {
+        resultText = result.getChatText();
+      }
+      const [property, value] = resultText.split(": ");
       const enrichHtml = TextEditor.enrichHTML(value, {
         options: { command: true },
         async: false,

@@ -3,19 +3,32 @@
   "name": "Cocky",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/flaw.png",
-  "data": {
-    "description": "",
-    "featureType": "Distinctive Flaws",
-    "actionMacro": null,
-    "actionMacroLabel": null,
-    "maxQuantity": null
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "",
+    "featureType": "Distinctive Flaws",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!xTcsHH9WEdJINFN3"
 }

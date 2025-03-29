@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "sKadWDomalBGcWK3",
-      "type": 2,
+      "type": "pack",
       "text": "Rags",
       "weight": 1,
       "range": [
@@ -16,17 +16,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/rags.png",
-      "collection": "pirateborg.equipment-clothing-and-armors",
-      "resultId": "MVBYDVxRPP2gbpou",
-      "rangeL": 1,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "MVBYDVxRPP2gbpou",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.sKadWDomalBGcWK3"
     },
     {
       "_id": "VaOZuhgq93UBBU1B",
-      "type": 2,
+      "type": "pack",
       "text": "Common clothes",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         3,
@@ -35,16 +32,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/common-clothes.png",
-      "resultId": "A9KiPk8tYsigSiVG",
-      "rangeL": 3,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "A9KiPk8tYsigSiVG",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.VaOZuhgq93UBBU1B"
     },
     {
       "_id": "jpIS5HUsI6QtM5rJ",
-      "type": 2,
+      "type": "pack",
       "text": "Old uniform",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         5,
@@ -53,16 +48,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/old-uniform.png",
-      "resultId": "7hLixvuL9S6mXREu",
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "7hLixvuL9S6mXREu",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.jpIS5HUsI6QtM5rJ"
     },
     {
       "_id": "KMVEKCgVYK56tht6",
-      "type": 2,
+      "type": "pack",
       "text": "Fancy clothes",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         6,
@@ -71,16 +64,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/fancy-clothes.png",
-      "resultId": "Fcic0PYcTXMMKFoS",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "Fcic0PYcTXMMKFoS",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.KMVEKCgVYK56tht6"
     },
     {
       "_id": "Ns2kpiWVvDZwixGY",
-      "type": 2,
+      "type": "pack",
       "text": "Leather armor",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         7,
@@ -89,16 +80,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/leather-armor.png",
-      "resultId": "zYIwlcmQ4aT2NW38",
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "zYIwlcmQ4aT2NW38",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.Ns2kpiWVvDZwixGY"
     },
     {
       "_id": "t9Z441FREoQL56pm",
-      "type": 2,
+      "type": "pack",
       "text": "Hide armor",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         8,
@@ -107,16 +96,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/hide-armor.png",
-      "resultId": "i4ra9kaYOoNcwXrk",
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "i4ra9kaYOoNcwXrk",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.t9Z441FREoQL56pm"
     },
     {
       "_id": "wamb8VzJyXHv4629",
-      "type": 2,
+      "type": "pack",
       "text": "Chain shirt",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         9,
@@ -125,16 +112,14 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/chain-shirt.png",
-      "resultId": "sZXgoub4yEXpBflf",
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "sZXgoub4yEXpBflf",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.wamb8VzJyXHv4629"
     },
     {
       "_id": "wzju4ifoONzmU3qo",
-      "type": 2,
+      "type": "pack",
       "text": "Conquistador plate",
-      "collection": "pirateborg.equipment-clothing-and-armors",
       "weight": 1,
       "range": [
         10,
@@ -143,9 +128,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
-      "resultId": "mqjlRCrxNRLAhQ4c",
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.equipment-clothing-and-armors",
+      "documentId": "mqjlRCrxNRLAhQ4c",
       "_key": "!tables.results!2yLUPRUQ3zrvb7Fd.wzju4ifoONzmU3qo"
     }
   ],
@@ -157,6 +141,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!2yLUPRUQ3zrvb7Fd"
 }

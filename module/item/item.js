@@ -4,7 +4,7 @@
 export class PBItem extends Item {
   /** @override */
   static async create(data, options = {}) {
-    mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, {
+    foundry.utils.mergeObject(data, CONFIG.PB.itemDefaultImage[data.type] || {}, {
       overwrite: false,
     });
     return super.create(data, options);

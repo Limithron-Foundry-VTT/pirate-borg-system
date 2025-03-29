@@ -3,7 +3,23 @@
   "name": "Weighted dice",
   "type": "misc",
   "img": "systems/pirateborg/icons/equipment/gear/weighted-dice.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -13,13 +29,6 @@
     "quantity": 1,
     "actionMacro": null,
     "actionMacroLabel": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!0dJCJC1IKzFITe73"
 }

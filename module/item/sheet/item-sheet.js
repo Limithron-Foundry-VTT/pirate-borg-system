@@ -4,6 +4,7 @@ import { configureEditor } from "../../system/configure-editor.js";
 
 /*
  * @extends {ItemSheet}
+ * TODO Convert to foundry.appv1.sheets. once v13 is the minimum
  */
 export class PBItemSheet extends ItemSheet {
   /** @override */
@@ -40,7 +41,13 @@ export class PBItemSheet extends ItemSheet {
         icon: this.item.img,
       };
 
-      const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html", effectData);
+      const template = "systems/pirateborg/templates/dialog/quick-effect.html";
+      let html;
+      if (game.release.generation >= 13) {
+        html = await foundry.applications.handlebars.renderTemplate(template, effectData);
+      } else {
+        html = await renderTemplate(template, effectData);
+      }
       const dialog = new Dialog({
         title: game.i18n.localize("PB.EffectsQuick"),
         content: html,
