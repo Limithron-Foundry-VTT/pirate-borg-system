@@ -3,19 +3,32 @@
   "name": "Always trying to trick your crew mates, just for fun.",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/idiosyncrasie.png",
-  "data": {
-    "description": "<p>Always trying to trick your crew mates, just for fun.</p>",
-    "featureType": "Idiosyncrasies",
-    "actionMacro": null,
-    "actionMacroLabel": null,
-    "maxQuantity": null
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>Always trying to trick your crew mates, just for fun.</p>",
+    "featureType": "Idiosyncrasies",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!aIWpCsqL3Nl9Hn8y"
 }

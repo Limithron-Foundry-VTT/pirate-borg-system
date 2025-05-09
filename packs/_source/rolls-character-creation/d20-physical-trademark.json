@@ -6,9 +6,7 @@
   "results": [
     {
       "text": "Missing an eye",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "15Fx73HoQ76MirAk",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "96v1zklfaqidi63w",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "15Fx73HoQ76MirAk",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.96v1zklfaqidi63w"
     },
     {
       "text": "Missing an ear",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "F3JO98XuGt3Ce8RP",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "b3kjju5yg6au7axx",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "F3JO98XuGt3Ce8RP",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.b3kjju5yg6au7axx"
     },
     {
       "text": "Matted, dreaded hair",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "opWND0HzQaG5Ygfe",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "xs08r3smkkqunztj",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "opWND0HzQaG5Ygfe",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.xs08r3smkkqunztj"
     },
     {
       "text": "Missing a leg: peg leg or crutch",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "zkhaHqcWvbORqmdU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "q3kapag9vlpqzed3",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "zkhaHqcWvbORqmdU",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.q3kapag9vlpqzed3"
     },
     {
       "text": "Missing a hand: hook or claw instead [d4 dmg]",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "vXf80GMPBHAeudoc",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "rzodau9smaj3wmy1",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "vXf80GMPBHAeudoc",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.rzodau9smaj3wmy1"
     },
     {
       "text": "Putrid, bilge stench",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "vuwAuaMaaws1KzEI",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "6a9uxspfp0apf5gl",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "vuwAuaMaaws1KzEI",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.6a9uxspfp0apf5gl"
     },
     {
       "text": "Many, many tattoos",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "qzQjeMC34Mu6bkBg",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "qh2jcwlrqd2o1deh",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "qzQjeMC34Mu6bkBg",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.qh2jcwlrqd2o1deh"
     },
     {
       "text": "Never blinks. Ever.",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "kfwGPqrU9UKGLcGK",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "dxk8b37rj4qa89ot",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "kfwGPqrU9UKGLcGK",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.dxk8b37rj4qa89ot"
     },
     {
       "text": "Rotten or broken teeth",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "oJOornosFf3GCcBo",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "rd4deg907464frvw",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "oJOornosFf3GCcBo",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.rd4deg907464frvw"
     },
     {
       "text": "Twitches constantly, especially trigger finger",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "g9QaodnStcXlh1el",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "6d15jahuff8j4ndu",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "g9QaodnStcXlh1el",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.6d15jahuff8j4ndu"
     },
     {
       "text": "A nigh incurable case of scurvy: permanently bleeding gums",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "lUW1TkwxQge1NrMu",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "dgohbxt40oijz5z7",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "lUW1TkwxQge1NrMu",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.dgohbxt40oijz5z7"
     },
     {
       "text": "Infested with bugs",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "cfaFGdAEZ3aD5ji5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "g206tbmlmcquqack",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "cfaFGdAEZ3aD5ji5",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.g206tbmlmcquqack"
     },
     {
       "text": "Gnarly facial scar",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "k8YgOB348fEPCml5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "03u15wm57j1hgd6y",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "k8YgOB348fEPCml5",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.03u15wm57j1hgd6y"
     },
     {
       "text": "Hideously ugly",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "f5b37OnprCuMqa5C",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "069nurk8af78qj52",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "f5b37OnprCuMqa5C",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.069nurk8af78qj52"
     },
     {
       "text": "Corpulent",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "B6sotdDjppok1cQp",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "40e2zik7tz2ay3xg",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "B6sotdDjppok1cQp",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.40e2zik7tz2ay3xg"
     },
     {
       "text": "Increasingly gangrenous",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "X2BSc55fsFd8w8kg",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "e8c1xo6ousto37yy",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "X2BSc55fsFd8w8kg",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.e8c1xo6ousto37yy"
     },
     {
       "text": "Contagious",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "7MSBS9ElYMiKtXcX",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "w8ainyyjvlaeyrny",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "7MSBS9ElYMiKtXcX",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.w8ainyyjvlaeyrny"
     },
     {
-      "text": "Gaunt & frail",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "eB6kNaOS4qE8Kyvs",
+      "text": "Gaunt &amp; frail",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "clikonpecggahu3z",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "eB6kNaOS4qE8Kyvs",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.clikonpecggahu3z"
     },
     {
       "text": "Cursed",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "Cm2jkb05Xy1IOUY4",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "j966jtifwlzffzeb",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "Cm2jkb05Xy1IOUY4",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.j966jtifwlzffzeb"
     },
     {
       "text": "So good looking people are jealous",
-      "type": 2,
-      "collection": "pirateborg.feature-physical-trademark",
-      "resultId": "XSTOcYE2uLNejb6l",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/ailment.png",
       "weight": 1,
       "range": [
@@ -360,8 +320,8 @@
       "drawn": false,
       "_id": "acxirptg7f4lb4ur",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.feature-physical-trademark",
+      "documentId": "XSTOcYE2uLNejb6l",
       "_key": "!tables.results!1QIUIZc6vcFJqsYz.acxirptg7f4lb4ur"
     }
   ],
@@ -373,6 +333,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!1QIUIZc6vcFJqsYz"
 }

@@ -3,7 +3,23 @@
   "name": "Landlubber",
   "type": "class",
   "img": "systems/pirateborg/tokens/landlubber.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "",
     "flavorText": "",
     "luckDie": "1d2",
@@ -30,14 +46,8 @@
     "extraResourceTestFormula": "",
     "extraResourceTestFormulaLabel": "",
     "requireBaseClass": false,
+    "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!Y7sb7dOQ8lXr4fYK"
 }

@@ -43,14 +43,6 @@ button.dice-calculator--button {
   color: var(--foreground-color) !important;
 }
 
-#settings {
-  padding: 0 !important;
-  button {
-    padding: 0 16px !important;
-    margin: 4px 0 !important;
-  }
-}
-
 // Fixes for universal import
 .sidebar-tab .action-buttons button.import-dd {
   margin: 8px !important;
@@ -73,8 +65,6 @@ button.dice-calculator--button {
     height: 16px;
     font-size: 10px;
   }
-  min-height: auto !important;
-  height: auto !important;
   &.window-app .window-content {
     padding: 8px !important;
   }

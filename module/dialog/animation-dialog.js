@@ -41,7 +41,16 @@ class AnimationDialog extends Application {
 
   getAnimations() {
     if (typeof Sequencer === "undefined") return [];
-    return Sequencer.Database.getEntry("jb2a")
+    const jb2a = Sequencer.Database.getEntry("jb2a");
+    if (!jb2a) {
+      ui.notifications.error(
+        game.i18n.localize("PB.AnimationMissingJB2A"),
+        { permanent: true },
+      );
+      return [];
+    }
+
+    return jb2a
       .filter((sequencerFile) => {
         const file = sequencerFile.getAllFiles().pop();
         return this.animationTypes.some((animationType) => file.includes(animationType));

@@ -7,7 +7,7 @@ import { getInfoFromDropData } from "../../api/utils.js";
 /**
  * @extends {ActorSheet}
  */
-export default class PBActorSheet extends ActorSheet {
+export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? ActorSheet) {
   /**
    * @override
    */
@@ -88,7 +88,12 @@ export default class PBActorSheet extends ActorSheet {
       effectData["duration.rounds"] = 1;
     }
 
-    const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    let html;
+    if (game.release.generation >= 13) {
+      html = await foundry.applications.handlebars.renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    } else {
+      html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+    }
     const dialog = new Dialog({
       title: game.i18n.localize("PB.EffectsQuick"),
       content: html,
@@ -112,6 +117,7 @@ export default class PBActorSheet extends ActorSheet {
           callback: () => this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
         },
       },
+      default: "create",
     });
     await dialog._render(true);
     dialog._element.find(".label").select();
@@ -387,7 +393,7 @@ export default class PBActorSheet extends ActorSheet {
     }
 
     formData.descriptionHTML = formData.data.system.description
-      ? await TextEditor.enrichHTML(formData.data.system.description, {
+      ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
           secrets: !!formData.owner,
           links: true,
           async: true,

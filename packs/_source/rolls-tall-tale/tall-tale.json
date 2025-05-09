@@ -6,11 +6,9 @@
   "results": [
     {
       "_id": "7rohXK22iPe0pmX4",
-      "type": 2,
+      "type": "pack",
       "text": "Merfolk",
       "img": "systems/pirateborg/icons/classes/tall-tale/merfolk.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "36B5BJPdwYbBQutL",
       "weight": 1,
       "range": [
         1,
@@ -18,17 +16,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "36B5BJPdwYbBQutL",
       "_key": "!tables.results!4ZffqELXxRNJXjNM.7rohXK22iPe0pmX4"
     },
     {
       "_id": "lWpnCmIwUnMMmNIq",
-      "type": 2,
+      "type": "pack",
       "text": "Aquatic Mutant",
       "img": "systems/pirateborg/icons/classes/tall-tale/aquatic-mutant.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "bI48oC7ecHauJXnZ",
       "weight": 1,
       "range": [
         3,
@@ -36,17 +32,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "bI48oC7ecHauJXnZ",
       "_key": "!tables.results!4ZffqELXxRNJXjNM.lWpnCmIwUnMMmNIq"
     },
     {
       "_id": "7pEiNp0ui3QXF3IF",
-      "type": 2,
+      "type": "pack",
       "text": "Sentient Animal",
       "img": "systems/pirateborg/icons/classes/tall-tale/sentient-animal.png",
-      "collection": "pirateborg.class-tall-tale",
-      "resultId": "3cyYeSPQD1dj3AAC",
       "weight": 1,
       "range": [
         5,
@@ -54,8 +48,8 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-tall-tale",
+      "documentId": "3cyYeSPQD1dj3AAC",
       "_key": "!tables.results!4ZffqELXxRNJXjNM.7pEiNp0ui3QXF3IF"
     }
   ],
@@ -67,6 +61,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!4ZffqELXxRNJXjNM"
 }

@@ -1,6 +1,27 @@
+# v1.1.0
+
+- Added support for Foundry VTT v13.
+  - There will continue to be some warnings in the console about deprecated methods due to maintaining support for earlier versions.
+  - Please report any issues you encounter.
+- Removed support for Foundry VTT v11.
+- Added visual distinction between Public, Private, Blind, and GM rolls.
+  - Thank you thought-after for the report.
+- Added more folder categorization for the compendium packs.
+- Added support for the built-in Foundry VTT Token Ruler.
+- Removed "drag-ruler" from the recommended modules list for v13 since it is now part of the core platform.
+- Fixed Frigate missing the Mystic Shanties section on the vehicle sheet.
+- Fixed dragging and dropping an Item onto the Hotbar creating the wrong sort of macro.
+- Fixed issue where you could not scroll the list of modules in the game settings.
+  - Thank you neilbenson for the report.
+- Removed "Easy Target" as a recommended module.
+  - It is no longer needed as the functionality is part of the core platform (by hovering over the target and pressing "T").
+- Added Polish support.
+  - Thank you rklos for the contribution.
+
 # v1.0.8
 
-- Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.
+- Release was removed from listing due to the following change being incorrect.
+  - ~~Fixed the "Tall Tale" class to have 1d4 Devil's Luck instead of the incorrect 1d2.~~
 
 # v1.0.7
 

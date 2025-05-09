@@ -3,18 +3,28 @@
   "name": "Guard",
   "type": "background",
   "img": "systems/pirateborg/icons/misc/background.png",
-  "data": {
-    "description": "<p>2d6 x 10s &amp; a keen eye for mischief</p>",
-    "startingGold": "2d6 * 10",
-    "quantity": 1,
-    "startingBonusItems": "pirateborg.backgrounds-items;keen eye for mischief"
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>2d6 x 10s &amp; a keen eye for mischief</p>",
+    "startingGold": "2d6 * 10",
+    "quantity": 1,
+    "startingBonusItems": "pirateborg.backgrounds-items;keen eye for mischief",
+    "startingBonusRolls": ""
   },
   "_key": "!items!x87ANONYHIkOclSY"
 }

@@ -3,7 +3,23 @@
   "name": "The Great Old One",
   "type": "feature",
   "img": "systems/pirateborg/tokens/the-great-old-one.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Learn one random Arcane Ritual.</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "pirateborg.rolls-character-creation;d20 Arcane rituals",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!Q6As123ncIeUKQRI"
 }

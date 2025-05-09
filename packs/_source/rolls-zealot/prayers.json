@@ -6,7 +6,7 @@
   "results": [
     {
       "_id": "jhl4ekRpIsP1GfaD",
-      "type": 2,
+      "type": "pack",
       "text": "Heal",
       "weight": 1,
       "range": [
@@ -22,7 +22,7 @@
     },
     {
       "_id": "gmTzU88XB0uRUHgt",
-      "type": 2,
+      "type": "pack",
       "text": "Curse",
       "weight": 1,
       "range": [
@@ -38,7 +38,7 @@
     },
     {
       "_id": "M9OzfGPo5h1lTpmb",
-      "type": 2,
+      "type": "pack",
       "text": "Death Ward",
       "weight": 1,
       "range": [
@@ -54,7 +54,7 @@
     },
     {
       "_id": "O38RVh3cPZ8HPxcU",
-      "type": 2,
+      "type": "pack",
       "text": "Control Weather",
       "weight": 1,
       "range": [
@@ -70,7 +70,7 @@
     },
     {
       "_id": "dTx7WgKjXzLoQlzd",
-      "type": 2,
+      "type": "pack",
       "text": "Blessed Guidance",
       "weight": 1,
       "range": [
@@ -86,7 +86,7 @@
     },
     {
       "_id": "6dFARNN6tKXWG86z",
-      "type": 2,
+      "type": "pack",
       "text": "Holy Protection",
       "weight": 1,
       "range": [
@@ -102,7 +102,7 @@
     },
     {
       "_id": "06GfxhL09c9D5Yk0",
-      "type": 2,
+      "type": "pack",
       "text": "Divine Light",
       "weight": 1,
       "range": [
@@ -118,7 +118,7 @@
     },
     {
       "_id": "kbjnoXF5mUytf7HC",
-      "type": 2,
+      "type": "pack",
       "text": "Silence",
       "weight": 1,
       "range": [
@@ -134,7 +134,7 @@
     },
     {
       "_id": "zsXxZ36hs2L4ymod",
-      "type": 2,
+      "type": "pack",
       "text": "Sanctuary",
       "weight": 1,
       "range": [
@@ -150,7 +150,7 @@
     },
     {
       "_id": "qPs0S5VCPXXI06Tw",
-      "type": 2,
+      "type": "pack",
       "text": "Commune",
       "weight": 1,
       "range": [
@@ -177,10 +177,11 @@
   "_stats": {
     "systemId": "pirateborg",
     "systemVersion": "v0.6.8",
-    "coreVersion": "10.303",
+    "coreVersion": "12.331",
     "createdTime": null,
     "modifiedTime": 1697583702533,
-    "lastModifiedBy": "pbbuilder0000000"
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!tables!JVQRKOI3JkO4pa5s"
 }

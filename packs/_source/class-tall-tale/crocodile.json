@@ -3,7 +3,23 @@
   "name": "Crocodile",
   "type": "feature",
   "img": "systems/pirateborg/tokens/crocodile.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You can hide &amp; swim well in water</p>\n<p>Strength: +3.</p>\n<p>Toughness: +1.</p>\n<p>HP: d10+toughness.</p>\n<p>Bite: d10.</p>",
     "featureType": "Class",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "pirateborg.class-tall-tale;Crocodile - Bite",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!a1dn6FUP6fy7N9r0"
 }

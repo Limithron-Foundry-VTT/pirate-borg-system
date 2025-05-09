@@ -18,6 +18,7 @@ import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
+import { registerTokenRuler } from "./token-rules.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
@@ -41,43 +42,97 @@ export const configureSystem = () => {
   CONFIG.Actor.documentClass = PBActor;
   CONFIG.Item.documentClass = PBItem;
 
-  Actors.unregisterSheet("core", ActorSheet);
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  } else {
+    Actors.unregisterSheet("core", ActorSheet);
+  }
 
-  Actors.registerSheet("pirateborg", PBActorSheetCharacter, {
-    types: ["character"],
-    makeDefault: true,
-    label: "PB.SheetClassCharacter",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.registerSheet("pirateborg", PBActorSheetCharacter, {
+      types: ["character"],
+      makeDefault: true,
+      label: "PB.SheetClassCharacter",
+    });
+  } else {
+    Actors.registerSheet("pirateborg", PBActorSheetCharacter, {
+      types: ["character"],
+      makeDefault: true,
+      label: "PB.SheetClassCharacter",
+    });
+  }
 
-  Actors.registerSheet("pirateborg", PBActorSheetContainer, {
-    types: ["container"],
-    makeDefault: true,
-    label: "PB.SheetClassContainer",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.registerSheet("pirateborg", PBActorSheetContainer, {
+      types: ["container"],
+      makeDefault: true,
+      label: "PB.SheetClassContainer",
+    });
+  } else {
+    Actors.registerSheet("pirateborg", PBActorSheetContainer, {
+      types: ["container"],
+      makeDefault: true,
+      label: "PB.SheetClassContainer",
+    });
+  }
 
-  Actors.registerSheet("pirateborg", PBActorSheetCreature, {
-    types: ["creature"],
-    makeDefault: true,
-    label: "PB.SheetClassCreature",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.registerSheet("pirateborg", PBActorSheetCreature, {
+      types: ["creature"],
+      makeDefault: true,
+      label: "PB.SheetClassCreature",
+    });
+  } else {
+    Actors.registerSheet("pirateborg", PBActorSheetCreature, {
+      types: ["creature"],
+      makeDefault: true,
+      label: "PB.SheetClassCreature",
+    });
+  }
 
-  Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
-    types: ["vehicle", "vehicle_npc"],
-    makeDefault: true,
-    label: "PB.SheetClassVehicle",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
+      types: ["vehicle", "vehicle_npc"],
+      makeDefault: true,
+      label: "PB.SheetClassVehicle",
+    });
+  } else {
+    Actors.registerSheet("pirateborg", PBActorSheetVehicle, {
+      types: ["vehicle", "vehicle_npc"],
+      makeDefault: true,
+      label: "PB.SheetClassVehicle",
+    });
+  }
 
-  Actors.registerSheet("pirateborg", PBActorSheetVehicleEdit, {
-    types: ["vehicle", "vehicle_npc"],
-    label: "PB.SheetClassVehicleEdit",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Actors.registerSheet("pirateborg", PBActorSheetVehicleEdit, {
+      types: ["vehicle", "vehicle_npc"],
+      label: "PB.SheetClassVehicleEdit",
+    });
+  } else {
+    Actors.registerSheet("pirateborg", PBActorSheetVehicleEdit, {
+      types: ["vehicle", "vehicle_npc"],
+      label: "PB.SheetClassVehicleEdit",
+    });
+  }
 
-  Items.unregisterSheet("core", ItemSheet);
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  } else {
+    Items.unregisterSheet("core", ItemSheet);
+  }
 
-  Items.registerSheet("pirateborg", PBItemSheet, {
-    makeDefault: true,
-    label: "PB.SheetItem",
-  });
+  if (game.release.generation >= 13) {
+    foundry.documents.collections.Items.registerSheet("pirateborg", PBItemSheet, {
+      makeDefault: true,
+      label: "PB.SheetItem",
+    });
+  } else {
+    Items.registerSheet("pirateborg", PBItemSheet, {
+      makeDefault: true,
+      label: "PB.SheetItem",
+    });
+  }
 
   CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Combat.initiative = {
@@ -97,4 +152,6 @@ export const configureSystem = () => {
     CONFIG.TinyMCE.content_css = [CONFIG.TinyMCE.content_css];
   }
   CONFIG.TinyMCE.content_css.push("systems/pirateborg/css/editor.css");
+
+  registerTokenRuler();
 };

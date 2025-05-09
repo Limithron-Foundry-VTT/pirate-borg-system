@@ -465,8 +465,15 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @private
    */
   async _onLuckLabel() {
+    const template = "systems/pirateborg/templates/chat/devil-luck-information-card.html";
+    let html;
+    if (game.release.generation >= 13) {
+      html = await foundry.applications.handlebars.renderTemplate(template);
+    } else {
+      html = await renderTemplate(template);
+    }
     await ChatMessage.create({
-      content: await renderTemplate("systems/pirateborg/templates/chat/devil-luck-information-card.html", {}),
+      content: html,
     });
   }
 }

@@ -3,19 +3,32 @@
   "name": "Voice of an angel",
   "type": "feature",
   "img": "systems/pirateborg/icons/equipment/gear/musical-instrument.png",
-  "data": {
-    "description": "",
-    "featureType": "Misc",
-    "actionMacro": null,
-    "actionMacroLabel": null,
-    "maxQuantity": null
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "",
+    "featureType": "Misc",
+    "maxQuantity": null,
+    "quantity": 1,
+    "actionMacro": null,
+    "actionMacroLabel": null,
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!rkw5WvBSr8Hk7T9d"
 }

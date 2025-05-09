@@ -3,7 +3,23 @@
   "name": "Lucky Devil",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>When you use the Devil&rsquo;s Luck, draw a playing card:</p>\n<p><em>9+: Regain 1 Luck. </em></p>\n<p><em>Joker: Roll on the Joker Table.</em></p>\n<p>If taken again: Lower the card number needed to regain luck by 1.</p>",
     "featureType": "Class",
     "maxQuantity": null,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!sYUKPmVVlxHlrNMC"
 }

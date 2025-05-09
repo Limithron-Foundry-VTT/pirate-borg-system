@@ -3,7 +3,23 @@
   "name": "Brute",
   "type": "class",
   "img": "systems/pirateborg/tokens/brute.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p><strong>A tough melee combatant prone to fits of RAGE.</strong></p>\n<p>When you're not bashing, smashing, slashing, or crashing, you're... well, that's all you really know how to do. You can&rsquo;t use Arcane Rituals, but your muscles are basically &ldquo;magic.</p>",
     "flavorText": "A tough melee combatant prone to fits of RAGE.\n\nWhen you're not bashing, smashing, slashing, or crashing, you're... well, that's all you really know how to do. You can’t use Arcane Rituals, but your muscles are basically “magic.",
     "luckDie": "1d2",
@@ -32,13 +48,6 @@
     "requireBaseClass": false,
     "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!TwOpgNTL5rZnblso"
 }

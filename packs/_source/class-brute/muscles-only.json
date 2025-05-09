@@ -2,15 +2,6 @@
   "name": "Muscles Only",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
-    "description": "<p>You can&rsquo;t use Relics or Arcane Rituals, but your muscles are basically &ldquo;magic\"</p>",
-    "featureType": "Class",
-    "maxQuantity": 1,
-    "quantity": 1,
-    "actionMacro": "",
-    "actionMacroLabel": "",
-    "startingBonusItems": ""
-  },
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -18,6 +9,26 @@
   "_id": "W0Ijb9nNGNsAVM1y",
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>You can&rsquo;t use Relics or Arcane Rituals, but your muscles are basically &ldquo;magic\"</p>",
+    "featureType": "Class",
+    "maxQuantity": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": "",
+    "startingBonusItems": "",
+    "startingBonusRolls": "",
+    "flavorText": ""
   },
   "_key": "!items!W0Ijb9nNGNsAVM1y"
 }

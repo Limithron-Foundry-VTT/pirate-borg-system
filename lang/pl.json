@@ -20,6 +20,7 @@
   "PB.AllowedCharacterGeneratorClassesEdit": "Edytuj dozwolone klasy",
   "PB.AllowedCharacterGeneratorClassesSelect": "Wybierz dozwolone klasy",
   "PB.Animation": "Animacja",
+  "PB.AnimationMissingJB2A": "Animacje wymagają włączenia modułu JB2A.",
   "PB.Armor": "Pancerz",
   "PB.ArmorCurrentTier": "Obecny Poziom",
   "PB.ArmorMaxTier": "Maks. Poziom",

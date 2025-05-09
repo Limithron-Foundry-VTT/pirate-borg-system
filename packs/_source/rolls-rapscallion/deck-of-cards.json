@@ -7,9 +7,7 @@
     {
       "_id": "ZDc4MTU2MzUyNjE2",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Six of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Hearts.png",
       "weight": 1,
@@ -18,16 +16,13 @@
         1
       ],
       "drawn": false,
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZDc4MTU2MzUyNjE2"
     },
     {
       "_id": "NjI2ZDYyNmZjZDMy",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Eight of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Hearts.png",
       "weight": 1,
@@ -36,16 +31,13 @@
         2
       ],
       "drawn": false,
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NjI2ZDYyNmZjZDMy"
     },
     {
       "_id": "ZjI5ZjNjYzQ2NGIx",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Seven of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Hearts.png",
       "weight": 1,
@@ -54,16 +46,13 @@
         3
       ],
       "drawn": false,
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZjI5ZjNjYzQ2NGIx"
     },
     {
       "_id": "ZDRjMGU4ODJlMDI5",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ace of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Hearts.png",
       "weight": 1,
@@ -72,16 +61,13 @@
         4
       ],
       "drawn": false,
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZDRjMGU4ODJlMDI5"
     },
     {
       "_id": "MjI5OGJiYmY3NzA0",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Five of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Spades.png",
       "weight": 1,
@@ -90,16 +76,13 @@
         5
       ],
       "drawn": false,
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MjI5OGJiYmY3NzA0"
     },
     {
       "_id": "Yzc0Yjk0ZmYzZjQ5",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Black Joker",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Black_Joker.png",
       "weight": 1,
@@ -108,16 +91,13 @@
         6
       ],
       "drawn": false,
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.Yzc0Yjk0ZmYzZjQ5"
     },
     {
       "_id": "MDFmMThkMWZlZmM5",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Six of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Clubs.png",
       "weight": 1,
@@ -126,16 +106,13 @@
         7
       ],
       "drawn": false,
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MDFmMThkMWZlZmM5"
     },
     {
       "_id": "MTc2YjMwY2I5MGI4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Seven of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Clubs.png",
       "weight": 1,
@@ -144,16 +121,13 @@
         8
       ],
       "drawn": false,
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MTc2YjMwY2I5MGI4"
     },
     {
       "_id": "ZjYzZjRiNTZjZTFl",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "King of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Hearts.png",
       "weight": 1,
@@ -162,16 +136,13 @@
         9
       ],
       "drawn": false,
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZjYzZjRiNTZjZTFl"
     },
     {
       "_id": "NjYwZGE4MDRmMmJj",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Five of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Diamonds.png",
       "weight": 1,
@@ -180,16 +151,13 @@
         10
       ],
       "drawn": false,
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NjYwZGE4MDRmMmJj"
     },
     {
       "_id": "OWRiYTJiMDFiMDcy",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Five of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Clubs.png",
       "weight": 1,
@@ -198,16 +166,13 @@
         11
       ],
       "drawn": false,
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OWRiYTJiMDFiMDcy"
     },
     {
       "_id": "NGI3NDA2MmFjMTJj",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "King of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Diamonds.png",
       "weight": 1,
@@ -216,16 +181,13 @@
         12
       ],
       "drawn": false,
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NGI3NDA2MmFjMTJj"
     },
     {
       "_id": "MjgzNGQ3OGEwNmFk",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Queen of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Spades.png",
       "weight": 1,
@@ -234,16 +196,13 @@
         13
       ],
       "drawn": false,
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MjgzNGQ3OGEwNmFk"
     },
     {
       "_id": "MDc3NGJkZmM2NTQ5",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ten of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Hearts.png",
       "weight": 1,
@@ -252,16 +211,13 @@
         14
       ],
       "drawn": false,
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MDc3NGJkZmM2NTQ5"
     },
     {
       "_id": "ZDBkOTIxM2I4Mjk0",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Jack of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Hearts.png",
       "weight": 1,
@@ -270,16 +226,13 @@
         15
       ],
       "drawn": false,
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZDBkOTIxM2I4Mjk0"
     },
     {
       "_id": "NTU2ZTI1ZmE5NmUw",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ten of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Spades.png",
       "weight": 1,
@@ -288,16 +241,13 @@
         16
       ],
       "drawn": false,
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NTU2ZTI1ZmE5NmUw"
     },
     {
       "_id": "Zjg4M2FkMWMyYzlk",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ten of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Diamonds.png",
       "weight": 1,
@@ -306,16 +256,13 @@
         17
       ],
       "drawn": false,
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.Zjg4M2FkMWMyYzlk"
     },
     {
       "_id": "MzZkOWI1ZmRkMWZl",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ten of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ten_of_Clubs.png",
       "weight": 1,
@@ -324,16 +271,13 @@
         18
       ],
       "drawn": false,
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MzZkOWI1ZmRkMWZl"
     },
     {
       "_id": "NjQxMjdmYWI0NTEy",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Six of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Diamonds.png",
       "weight": 1,
@@ -342,16 +286,13 @@
         19
       ],
       "drawn": false,
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NjQxMjdmYWI0NTEy"
     },
     {
       "_id": "ZTljZDQzY2ZjMTJj",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Queen of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Diamonds.png",
       "weight": 1,
@@ -360,16 +301,13 @@
         20
       ],
       "drawn": false,
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZTljZDQzY2ZjMTJj"
     },
     {
       "_id": "ZjkzN2E5ODMxOGYy",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Three of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Diamonds.png",
       "weight": 1,
@@ -378,16 +316,13 @@
         21
       ],
       "drawn": false,
-      "rangeL": 21,
-      "rangeH": 21,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZjkzN2E5ODMxOGYy"
     },
     {
       "_id": "NDQ5N2Q1MWFlMzIx",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Two of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Hearts.png",
       "weight": 1,
@@ -396,16 +331,13 @@
         22
       ],
       "drawn": false,
-      "rangeL": 22,
-      "rangeH": 22,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NDQ5N2Q1MWFlMzIx"
     },
     {
       "_id": "ZDBjZGRmYTQ3MThh",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ace of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Diamonds.png",
       "weight": 1,
@@ -414,16 +346,13 @@
         23
       ],
       "drawn": false,
-      "rangeL": 23,
-      "rangeH": 23,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZDBjZGRmYTQ3MThh"
     },
     {
       "_id": "ZWQwYWVlOTY4YzVm",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Seven of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Spades.png",
       "weight": 1,
@@ -432,16 +361,13 @@
         24
       ],
       "drawn": false,
-      "rangeL": 24,
-      "rangeH": 24,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZWQwYWVlOTY4YzVm"
     },
     {
       "_id": "OWU4ZDE1ZjVlOTIw",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Three of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Clubs.png",
       "weight": 1,
@@ -450,16 +376,13 @@
         25
       ],
       "drawn": false,
-      "rangeL": 25,
-      "rangeH": 25,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OWU4ZDE1ZjVlOTIw"
     },
     {
       "_id": "ZDUwOTMxZjg0NTNj",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Nine of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Hearts.png",
       "weight": 1,
@@ -468,16 +391,13 @@
         26
       ],
       "drawn": false,
-      "rangeL": 26,
-      "rangeH": 26,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZDUwOTMxZjg0NTNj"
     },
     {
       "_id": "MGUyMTIxOThhZWEz",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "King of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Clubs.png",
       "weight": 1,
@@ -486,16 +406,13 @@
         27
       ],
       "drawn": false,
-      "rangeL": 27,
-      "rangeH": 27,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MGUyMTIxOThhZWEz"
     },
     {
       "_id": "ZjZkNWNlNDk3NjQ2",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Four of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Spades.png",
       "weight": 1,
@@ -504,16 +421,13 @@
         28
       ],
       "drawn": false,
-      "rangeL": 28,
-      "rangeH": 28,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZjZkNWNlNDk3NjQ2"
     },
     {
       "_id": "ZThiNTRiZjZmM2Y3",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Seven of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Seven_of_Diamonds.png",
       "weight": 1,
@@ -522,16 +436,13 @@
         29
       ],
       "drawn": false,
-      "rangeL": 29,
-      "rangeH": 29,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZThiNTRiZjZmM2Y3"
     },
     {
       "_id": "OTJjMDg3ODMyODE4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Jack of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Clubs.png",
       "weight": 1,
@@ -540,16 +451,13 @@
         30
       ],
       "drawn": false,
-      "rangeL": 30,
-      "rangeH": 30,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OTJjMDg3ODMyODE4"
     },
     {
       "_id": "OTU4MzE2MGRkYTBh",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "King of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/King_of_Spades.png",
       "weight": 1,
@@ -558,16 +466,13 @@
         31
       ],
       "drawn": false,
-      "rangeL": 31,
-      "rangeH": 31,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OTU4MzE2MGRkYTBh"
     },
     {
       "_id": "MGFjMjg5YjljNGM0",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Jack of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Spades.png",
       "weight": 1,
@@ -576,16 +481,13 @@
         32
       ],
       "drawn": false,
-      "rangeL": 32,
-      "rangeH": 32,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MGFjMjg5YjljNGM0"
     },
     {
       "_id": "MDgwM2M4MTQyODcw",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Four of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Clubs.png",
       "weight": 1,
@@ -594,16 +496,13 @@
         33
       ],
       "drawn": false,
-      "rangeL": 33,
-      "rangeH": 33,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MDgwM2M4MTQyODcw"
     },
     {
       "_id": "MTBmNzI4NDZjNjlm",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Nine of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Spades.png",
       "weight": 1,
@@ -612,16 +511,13 @@
         34
       ],
       "drawn": false,
-      "rangeL": 34,
-      "rangeH": 34,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MTBmNzI4NDZjNjlm"
     },
     {
       "_id": "MDRlYThlYzdkYWU3",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Eight of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Diamonds.png",
       "weight": 1,
@@ -630,16 +526,13 @@
         35
       ],
       "drawn": false,
-      "rangeL": 35,
-      "rangeH": 35,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MDRlYThlYzdkYWU3"
     },
     {
       "_id": "MjVkNjY1NzM2ZDk4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Five of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Five_of_Hearts.png",
       "weight": 1,
@@ -648,16 +541,13 @@
         36
       ],
       "drawn": false,
-      "rangeL": 36,
-      "rangeH": 36,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MjVkNjY1NzM2ZDk4"
     },
     {
       "_id": "NTA4OTI4OTc2NTgz",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Queen of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Clubs.png",
       "weight": 1,
@@ -666,16 +556,13 @@
         37
       ],
       "drawn": false,
-      "rangeL": 37,
-      "rangeH": 37,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NTA4OTI4OTc2NTgz"
     },
     {
       "_id": "YjIyZjRlNWRlNTNh",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Three of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Spades.png",
       "weight": 1,
@@ -684,16 +571,13 @@
         38
       ],
       "drawn": false,
-      "rangeL": 38,
-      "rangeH": 38,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.YjIyZjRlNWRlNTNh"
     },
     {
       "_id": "MTRjY2ZjNGMzODRl",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Four of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Hearts.png",
       "weight": 1,
@@ -702,16 +586,13 @@
         39
       ],
       "drawn": false,
-      "rangeL": 39,
-      "rangeH": 39,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MTRjY2ZjNGMzODRl"
     },
     {
       "_id": "ZjBhMDM3NmQyZjAw",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Six of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Six_of_Spades.png",
       "weight": 1,
@@ -720,16 +601,13 @@
         40
       ],
       "drawn": false,
-      "rangeL": 40,
-      "rangeH": 40,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZjBhMDM3NmQyZjAw"
     },
     {
       "_id": "MmIxNTA4YjRlNzk4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Four of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Four_of_Diamonds.png",
       "weight": 1,
@@ -738,16 +616,13 @@
         41
       ],
       "drawn": false,
-      "rangeL": 41,
-      "rangeH": 41,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MmIxNTA4YjRlNzk4"
     },
     {
       "_id": "Mzg0OGNjNmRjY2Iw",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Two of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Clubs.png",
       "weight": 1,
@@ -756,16 +631,13 @@
         42
       ],
       "drawn": false,
-      "rangeL": 42,
-      "rangeH": 42,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.Mzg0OGNjNmRjY2Iw"
     },
     {
       "_id": "ZmUzOWM1Yzg3NjY5",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Eight of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Spades.png",
       "weight": 1,
@@ -774,16 +646,13 @@
         43
       ],
       "drawn": false,
-      "rangeL": 43,
-      "rangeH": 43,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.ZmUzOWM1Yzg3NjY5"
     },
     {
       "_id": "YzIzMTNlYzhkNWVm",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Three of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Three_of_Hearts.png",
       "weight": 1,
@@ -792,16 +661,13 @@
         44
       ],
       "drawn": false,
-      "rangeL": 44,
-      "rangeH": 44,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.YzIzMTNlYzhkNWVm"
     },
     {
       "_id": "OThkM2ViYTY5MzJk",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Nine of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Diamonds.png",
       "weight": 1,
@@ -810,16 +676,13 @@
         45
       ],
       "drawn": false,
-      "rangeL": 45,
-      "rangeH": 45,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OThkM2ViYTY5MzJk"
     },
     {
       "_id": "OGEzY2IyNGUxMTJh",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Jack of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Jack_of_Diamonds.png",
       "weight": 1,
@@ -828,16 +691,13 @@
         46
       ],
       "drawn": false,
-      "rangeL": 46,
-      "rangeH": 46,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OGEzY2IyNGUxMTJh"
     },
     {
       "_id": "OTdmMDc5MzBmYzM0",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Nine of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Nine_of_Clubs.png",
       "weight": 1,
@@ -846,16 +706,13 @@
         47
       ],
       "drawn": false,
-      "rangeL": 47,
-      "rangeH": 47,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OTdmMDc5MzBmYzM0"
     },
     {
       "_id": "OGQ2ZThkYmIxMjc4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ace of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Clubs.png",
       "weight": 1,
@@ -864,16 +721,13 @@
         48
       ],
       "drawn": false,
-      "rangeL": 48,
-      "rangeH": 48,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OGQ2ZThkYmIxMjc4"
     },
     {
       "_id": "Y2I1YTEyNTI3YmUy",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Two of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Spades.png",
       "weight": 1,
@@ -882,16 +736,13 @@
         49
       ],
       "drawn": false,
-      "rangeL": 49,
-      "rangeH": 49,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.Y2I1YTEyNTI3YmUy"
     },
     {
       "_id": "YTcxMGI4MDQ5Njgx",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Eight of Clubs",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Eight_of_Clubs.png",
       "weight": 1,
@@ -900,16 +751,13 @@
         50
       ],
       "drawn": false,
-      "rangeL": 50,
-      "rangeH": 50,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.YTcxMGI4MDQ5Njgx"
     },
     {
       "_id": "MGFmMGMzYzkxMzk3",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Queen of Hearts",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Queen_of_Hearts.png",
       "weight": 1,
@@ -918,16 +766,13 @@
         51
       ],
       "drawn": false,
-      "rangeL": 51,
-      "rangeH": 51,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.MGFmMGMzYzkxMzk3"
     },
     {
       "_id": "OTFiMWVjNDRhZWU1",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Ace of Spades",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Ace_of_Spades.png",
       "weight": 1,
@@ -936,16 +781,13 @@
         52
       ],
       "drawn": false,
-      "rangeL": 52,
-      "rangeH": 52,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.OTFiMWVjNDRhZWU1"
     },
     {
       "_id": "YTM2OWQxNDdlNzA4",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Red Joker",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Red_Joker.png",
       "weight": 1,
@@ -954,16 +796,13 @@
         53
       ],
       "drawn": false,
-      "rangeL": 53,
-      "rangeH": 53,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.YTM2OWQxNDdlNzA4"
     },
     {
       "_id": "NmEyZDc2ZmQ2N2Nk",
       "flags": {},
-      "type": 0,
-      "collection": null,
-      "resultId": null,
+      "type": "text",
       "text": "Two of Diamonds",
       "img": "/systems/pirateborg/icons/misc/deck-of-cards/Two_of_Diamonds.png",
       "weight": 1,
@@ -972,8 +811,7 @@
         54
       ],
       "drawn": false,
-      "rangeL": 54,
-      "rangeH": 54,
+      "documentId": null,
       "_key": "!tables.results!NmEyZDc2ZmQ2G2UI.NmEyZDc2ZmQ2N2Nk"
     }
   ],
@@ -985,6 +823,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!NmEyZDc2ZmQ2G2UI"
 }

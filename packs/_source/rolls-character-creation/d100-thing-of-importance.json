@@ -2,13 +2,11 @@
   "_id": "zdslrlczJyGmflFt",
   "name": "d100 Thing of Importance",
   "img": "icons/svg/d20-grey.svg",
-  "description": "Thing of Importance",
+  "description": "<p>Thing of Importance</p>",
   "results": [
     {
       "text": "animal pelt",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "HPUQNZXlwt6ih8il",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -18,15 +16,13 @@
       "drawn": false,
       "_id": "k8scsi74ymh0iepz",
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "HPUQNZXlwt6ih8il",
       "_key": "!tables.results!zdslrlczJyGmflFt.k8scsi74ymh0iepz"
     },
     {
       "text": "oyster pearl",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "8zFPOXKmsHfgaBtw",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -36,15 +32,13 @@
       "drawn": false,
       "_id": "66pnvk7srbtpzmzk",
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "8zFPOXKmsHfgaBtw",
       "_key": "!tables.results!zdslrlczJyGmflFt.66pnvk7srbtpzmzk"
     },
     {
       "text": "silver locket",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "as0HQUsUMNY6xoH6",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -54,15 +48,13 @@
       "drawn": false,
       "_id": "vr9ffeyy3csfgv5m",
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "as0HQUsUMNY6xoH6",
       "_key": "!tables.results!zdslrlczJyGmflFt.vr9ffeyy3csfgv5m"
     },
     {
       "text": "conch shell",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "4oVGAqVAUhTszWxq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -72,15 +64,13 @@
       "drawn": false,
       "_id": "t4i6vrps1hi5odtn",
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "4oVGAqVAUhTszWxq",
       "_key": "!tables.results!zdslrlczJyGmflFt.t4i6vrps1hi5odtn"
     },
     {
       "text": "pipe carved from wood",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "xGTb41G5klD4r3fQ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -90,15 +80,13 @@
       "drawn": false,
       "_id": "x8uy3bstzxmqhb9x",
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "xGTb41G5klD4r3fQ",
       "_key": "!tables.results!zdslrlczJyGmflFt.x8uy3bstzxmqhb9x"
     },
     {
       "text": "pipe carved from bone",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "c04NZbO8HzPWCNMZ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -108,15 +96,13 @@
       "drawn": false,
       "_id": "ogop3k7m7dn5euju",
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "c04NZbO8HzPWCNMZ",
       "_key": "!tables.results!zdslrlczJyGmflFt.ogop3k7m7dn5euju"
     },
     {
       "text": "small jade figurine",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "8ykUVXvECcKNXlmu",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -126,15 +112,13 @@
       "drawn": false,
       "_id": "i6lzve09ple72syk",
       "flags": {},
-      "rangeL": 7,
-      "rangeH": 7,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "8ykUVXvECcKNXlmu",
       "_key": "!tables.results!zdslrlczJyGmflFt.i6lzve09ple72syk"
     },
     {
       "text": "map of an unknown place",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Uh80M4rvPUnRUF17",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -144,15 +128,13 @@
       "drawn": false,
       "_id": "n73lphu0kwl6rlr0",
       "flags": {},
-      "rangeL": 10,
-      "rangeH": 10,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Uh80M4rvPUnRUF17",
       "_key": "!tables.results!zdslrlczJyGmflFt.n73lphu0kwl6rlr0"
     },
     {
       "text": "ancient gold coin",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "r3zHXqxvw2U2fQIj",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -162,15 +144,13 @@
       "drawn": false,
       "_id": "fye9l9m5ywbstweg",
       "flags": {},
-      "rangeL": 8,
-      "rangeH": 8,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "r3zHXqxvw2U2fQIj",
       "_key": "!tables.results!zdslrlczJyGmflFt.fye9l9m5ywbstweg"
     },
     {
       "text": "ruined piece of a treasure map",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "JXf90tQSBl5JMpj5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -180,15 +160,13 @@
       "drawn": false,
       "_id": "4t81t13gagpw0b9v",
       "flags": {},
-      "rangeL": 9,
-      "rangeH": 9,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "JXf90tQSBl5JMpj5",
       "_key": "!tables.results!zdslrlczJyGmflFt.4t81t13gagpw0b9v"
     },
     {
       "text": "shard of crystal",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "7I4qz0noQUbI3Apl",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -198,15 +176,13 @@
       "drawn": false,
       "_id": "9wid0ywagt76axkm",
       "flags": {},
-      "rangeL": 100,
-      "rangeH": 100,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "7I4qz0noQUbI3Apl",
       "_key": "!tables.results!zdslrlczJyGmflFt.9wid0ywagt76axkm"
     },
     {
       "text": "diary written by an ancestor",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "63KiyJFusc7LjQAR",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -216,15 +192,13 @@
       "drawn": false,
       "_id": "268y22mrqu4ytlqz",
       "flags": {},
-      "rangeL": 11,
-      "rangeH": 11,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "63KiyJFusc7LjQAR",
       "_key": "!tables.results!zdslrlczJyGmflFt.268y22mrqu4ytlqz"
     },
     {
       "text": "silver ring",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "xYC5q3yb8SXv49dN",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -234,15 +208,13 @@
       "drawn": false,
       "_id": "xq75g2tj2z7xjuoq",
       "flags": {},
-      "rangeL": 12,
-      "rangeH": 12,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "xYC5q3yb8SXv49dN",
       "_key": "!tables.results!zdslrlczJyGmflFt.xq75g2tj2z7xjuoq"
     },
     {
       "text": "ivory chess piece",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "NuIXC5OlWFpbPuVf",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -252,15 +224,13 @@
       "drawn": false,
       "_id": "yxp90g85egfexmor",
       "flags": {},
-      "rangeL": 13,
-      "rangeH": 13,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "NuIXC5OlWFpbPuVf",
       "_key": "!tables.results!zdslrlczJyGmflFt.yxp90g85egfexmor"
     },
     {
       "text": "sea creature carved from obsidian",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "lBpiW9Bn4mpnoZOr",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -270,15 +240,13 @@
       "drawn": false,
       "_id": "ox5xfsnbskna8ryy",
       "flags": {},
-      "rangeL": 14,
-      "rangeH": 14,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "lBpiW9Bn4mpnoZOr",
       "_key": "!tables.results!zdslrlczJyGmflFt.ox5xfsnbskna8ryy"
     },
     {
       "text": "spherical prism",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "qIC9vEvn3LyDI7LH",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -288,15 +256,13 @@
       "drawn": false,
       "_id": "zl3am0pxk1g2msnw",
       "flags": {},
-      "rangeL": 15,
-      "rangeH": 15,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "qIC9vEvn3LyDI7LH",
       "_key": "!tables.results!zdslrlczJyGmflFt.zl3am0pxk1g2msnw"
     },
     {
       "text": "jar containing a severed hand",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "3ku48V2LTx9F9Sd4",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -306,15 +272,13 @@
       "drawn": false,
       "_id": "dn632f3jks4mm5of",
       "flags": {},
-      "rangeL": 16,
-      "rangeH": 16,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "3ku48V2LTx9F9Sd4",
       "_key": "!tables.results!zdslrlczJyGmflFt.dn632f3jks4mm5of"
     },
     {
-      "text": "necklace of bones & feathers",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "wpCclbSyCTsgoz5M",
+      "text": "necklace of bones &amp; feathers",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -324,15 +288,13 @@
       "drawn": false,
       "_id": "vbvi9rwfk48yzl39",
       "flags": {},
-      "rangeL": 17,
-      "rangeH": 17,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "wpCclbSyCTsgoz5M",
       "_key": "!tables.results!zdslrlczJyGmflFt.vbvi9rwfk48yzl39"
     },
     {
       "text": "book of scripture",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "dCQiNYzGjI6Pwili",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -342,15 +304,13 @@
       "drawn": false,
       "_id": "zoj2el14vfsjmki4",
       "flags": {},
-      "rangeL": 18,
-      "rangeH": 18,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "dCQiNYzGjI6Pwili",
       "_key": "!tables.results!zdslrlczJyGmflFt.zoj2el14vfsjmki4"
     },
     {
       "text": "novel you loved as a child",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "V5704vFM621lDz6H",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -360,15 +320,13 @@
       "drawn": false,
       "_id": "j9xm543zkpk7k3bd",
       "flags": {},
-      "rangeL": 19,
-      "rangeH": 19,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "V5704vFM621lDz6H",
       "_key": "!tables.results!zdslrlczJyGmflFt.j9xm543zkpk7k3bd"
     },
     {
       "text": "bizarre silk handkerchief",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "kXTKqQ1nGCB5QKIN",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -378,15 +336,13 @@
       "drawn": false,
       "_id": "xj8xj7gqoere7qod",
       "flags": {},
-      "rangeL": 20,
-      "rangeH": 20,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "kXTKqQ1nGCB5QKIN",
       "_key": "!tables.results!zdslrlczJyGmflFt.xj8xj7gqoere7qod"
     },
     {
       "text": "pouch containing animal teeth",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "1YTQBnUg9CKTrzLz",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -396,15 +352,13 @@
       "drawn": false,
       "_id": "fvcccerqi2gckc5u",
       "flags": {},
-      "rangeL": 21,
-      "rangeH": 21,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "1YTQBnUg9CKTrzLz",
       "_key": "!tables.results!zdslrlczJyGmflFt.fvcccerqi2gckc5u"
     },
     {
       "text": "old fillet knife",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "4dEJYsAX3gVESxff",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -414,15 +368,13 @@
       "drawn": false,
       "_id": "22dkjs7tsya8y20n",
       "flags": {},
-      "rangeL": 22,
-      "rangeH": 22,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "4dEJYsAX3gVESxff",
       "_key": "!tables.results!zdslrlczJyGmflFt.22dkjs7tsya8y20n"
     },
     {
       "text": "fossil of an extinct fish",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "LBwL36cgojsI0GPk",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -432,15 +384,13 @@
       "drawn": false,
       "_id": "z87b4l905i1uls44",
       "flags": {},
-      "rangeL": 23,
-      "rangeH": 23,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "LBwL36cgojsI0GPk",
       "_key": "!tables.results!zdslrlczJyGmflFt.z87b4l905i1uls44"
     },
     {
       "text": "piece of colorful coral",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "ffCCmtBfY10EUYzj",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -450,15 +400,13 @@
       "drawn": false,
       "_id": "xx3yxq1cwpv2r2qj",
       "flags": {},
-      "rangeL": 24,
-      "rangeH": 24,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "ffCCmtBfY10EUYzj",
       "_key": "!tables.results!zdslrlczJyGmflFt.xx3yxq1cwpv2r2qj"
     },
     {
       "text": "small ship in a bottle",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "9RV4JwmrLvrX5T6O",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -468,15 +416,13 @@
       "drawn": false,
       "_id": "nfaps47h95iynjd2",
       "flags": {},
-      "rangeL": 25,
-      "rangeH": 25,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "9RV4JwmrLvrX5T6O",
       "_key": "!tables.results!zdslrlczJyGmflFt.nfaps47h95iynjd2"
     },
     {
       "text": "letter from a loved one",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "MfVWFawUAGEoPpH3",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -486,15 +432,13 @@
       "drawn": false,
       "_id": "eagu1xj6ehez7cw7",
       "flags": {},
-      "rangeL": 26,
-      "rangeH": 26,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "MfVWFawUAGEoPpH3",
       "_key": "!tables.results!zdslrlczJyGmflFt.eagu1xj6ehez7cw7"
     },
     {
       "text": "the journal of a dead explorer",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "oq4Ivmwlhk6crsEo",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -504,15 +448,13 @@
       "drawn": false,
       "_id": "7h5ccsl9ki83xhar",
       "flags": {},
-      "rangeL": 27,
-      "rangeH": 27,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "oq4Ivmwlhk6crsEo",
       "_key": "!tables.results!zdslrlczJyGmflFt.7h5ccsl9ki83xhar"
     },
     {
       "text": "stone embossed with a mermaid",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "VFWbqVy91UXI7sx6",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -522,15 +464,13 @@
       "drawn": false,
       "_id": "1zap1j8mukb5q29n",
       "flags": {},
-      "rangeL": 28,
-      "rangeH": 28,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "VFWbqVy91UXI7sx6",
       "_key": "!tables.results!zdslrlczJyGmflFt.1zap1j8mukb5q29n"
     },
     {
       "text": "vial of holy water from clergy in your hometown",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "hLvWePb91PxAFPPt",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -540,15 +480,13 @@
       "drawn": false,
       "_id": "8wscq34uxfjhr5rk",
       "flags": {},
-      "rangeL": 29,
-      "rangeH": 29,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "hLvWePb91PxAFPPt",
       "_key": "!tables.results!zdslrlczJyGmflFt.8wscq34uxfjhr5rk"
     },
     {
       "text": "the remains of a small squid in a jar",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "eh7K9Mq9cLsbGVY4",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -558,15 +496,13 @@
       "drawn": false,
       "_id": "ctyetusk5npd87am",
       "flags": {},
-      "rangeL": 30,
-      "rangeH": 30,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "eh7K9Mq9cLsbGVY4",
       "_key": "!tables.results!zdslrlczJyGmflFt.ctyetusk5npd87am"
     },
     {
       "text": "precious cooking salts in a tiny chest",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "khtasdWCvMt01Bj5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -576,15 +512,13 @@
       "drawn": false,
       "_id": "n6nlyse977qj9y99",
       "flags": {},
-      "rangeL": 31,
-      "rangeH": 31,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "khtasdWCvMt01Bj5",
       "_key": "!tables.results!zdslrlczJyGmflFt.n6nlyse977qj9y99"
     },
     {
       "text": "tankard made from a horn",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "mSlDfzL6vlhgNDFj",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -594,15 +528,13 @@
       "drawn": false,
       "_id": "7960kuinj513fpzr",
       "flags": {},
-      "rangeL": 32,
-      "rangeH": 32,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "mSlDfzL6vlhgNDFj",
       "_key": "!tables.results!zdslrlczJyGmflFt.7960kuinj513fpzr"
     },
     {
       "text": "jar of the finest tobacco",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "0j0fSljUPYPOCJLJ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -612,15 +544,13 @@
       "drawn": false,
       "_id": "v2zln1nmcr7gumen",
       "flags": {},
-      "rangeL": 33,
-      "rangeH": 33,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "0j0fSljUPYPOCJLJ",
       "_key": "!tables.results!zdslrlczJyGmflFt.v2zln1nmcr7gumen"
     },
     {
       "text": "golden letter opener",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "dik2cMV1ksu9sUuj",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -630,15 +560,13 @@
       "drawn": false,
       "_id": "oxdpcjhhybdsc4wr",
       "flags": {},
-      "rangeL": 34,
-      "rangeH": 34,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "dik2cMV1ksu9sUuj",
       "_key": "!tables.results!zdslrlczJyGmflFt.oxdpcjhhybdsc4wr"
     },
     {
       "text": "small, cast bronze owl figurine",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "rNbFmwTvqKepsWJ2",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -648,15 +576,13 @@
       "drawn": false,
       "_id": "ay0kzi0nr4o11f8l",
       "flags": {},
-      "rangeL": 35,
-      "rangeH": 35,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "rNbFmwTvqKepsWJ2",
       "_key": "!tables.results!zdslrlczJyGmflFt.ay0kzi0nr4o11f8l"
     },
     {
       "text": "collection of sea shells and rocks",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Q0N8yGArmqDA1BJj",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -666,15 +592,13 @@
       "drawn": false,
       "_id": "y5bioc1jsagx7j45",
       "flags": {},
-      "rangeL": 36,
-      "rangeH": 36,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Q0N8yGArmqDA1BJj",
       "_key": "!tables.results!zdslrlczJyGmflFt.y5bioc1jsagx7j45"
     },
     {
       "text": "necklace carved from jade",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "wpY4vk2fP2qcHy8m",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -684,15 +608,13 @@
       "drawn": false,
       "_id": "5l59nz8oakse9xa5",
       "flags": {},
-      "rangeL": 37,
-      "rangeH": 37,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "wpY4vk2fP2qcHy8m",
       "_key": "!tables.results!zdslrlczJyGmflFt.5l59nz8oakse9xa5"
     },
     {
       "text": "recently deceased relative's will, naming you as the sole heir",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "atqRkoRLXtntw6aL",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -702,15 +624,13 @@
       "drawn": false,
       "_id": "bwxd6x0ts3n446c8",
       "flags": {},
-      "rangeL": 38,
-      "rangeH": 38,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "atqRkoRLXtntw6aL",
       "_key": "!tables.results!zdslrlczJyGmflFt.bwxd6x0ts3n446c8"
     },
     {
       "text": "drawing of a loved one",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "cWRxymH0etN5WxFz",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -720,33 +640,13 @@
       "drawn": false,
       "_id": "4hspkkb6zkfaou2d",
       "flags": {},
-      "rangeL": 39,
-      "rangeH": 39,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "cWRxymH0etN5WxFz",
       "_key": "!tables.results!zdslrlczJyGmflFt.4hspkkb6zkfaou2d"
     },
     {
-      "text": "bag of “magical” white powder",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "QNGViptwjl1uRPyg",
-      "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
-      "weight": 1,
-      "range": [
-        40,
-        40
-      ],
-      "drawn": false,
-      "_id": "j9rta0ijwzw5uqw7",
-      "flags": {},
-      "rangeL": 40,
-      "rangeH": 40,
-      "_key": "!tables.results!zdslrlczJyGmflFt.j9rta0ijwzw5uqw7"
-    },
-    {
       "text": "old rusted key with a blue gem that glows in the moonlight",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "F6s43008cQ6HOjMv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -756,15 +656,13 @@
       "drawn": false,
       "_id": "1gk1ayppczlf3zyh",
       "flags": {},
-      "rangeL": 41,
-      "rangeH": 41,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "F6s43008cQ6HOjMv",
       "_key": "!tables.results!zdslrlczJyGmflFt.1gk1ayppczlf3zyh"
     },
     {
       "text": "compass that doesn't point north",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "zNU22xXkgnWgRRpo",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -774,15 +672,13 @@
       "drawn": false,
       "_id": "taj0z0t03xmmstou",
       "flags": {},
-      "rangeL": 42,
-      "rangeH": 42,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "zNU22xXkgnWgRRpo",
       "_key": "!tables.results!zdslrlczJyGmflFt.taj0z0t03xmmstou"
     },
     {
       "text": "clay jar you are using as an urn",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "29h1llXVmt6joFg2",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -792,15 +688,13 @@
       "drawn": false,
       "_id": "gg7jnkjrrv7p0z02",
       "flags": {},
-      "rangeL": 43,
-      "rangeH": 43,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "29h1llXVmt6joFg2",
       "_key": "!tables.results!zdslrlczJyGmflFt.gg7jnkjrrv7p0z02"
     },
     {
       "text": "definitive proof of an enemy's (or loved one's) crime",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "rbRSwWkGK4p6sCGG",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -810,15 +704,13 @@
       "drawn": false,
       "_id": "p92yx9xvl8s0ewqe",
       "flags": {},
-      "rangeL": 44,
-      "rangeH": 44,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "rbRSwWkGK4p6sCGG",
       "_key": "!tables.results!zdslrlczJyGmflFt.p92yx9xvl8s0ewqe"
     },
     {
       "text": "small golden bell",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "mGfmQsAG2KcRe6eq",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -828,15 +720,13 @@
       "drawn": false,
       "_id": "1o0thdr2xjx455ju",
       "flags": {},
-      "rangeL": 45,
-      "rangeH": 45,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "mGfmQsAG2KcRe6eq",
       "_key": "!tables.results!zdslrlczJyGmflFt.1o0thdr2xjx455ju"
     },
     {
       "text": "old bottle of red wine (Bordeaux, incredible vintage)",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "LmNXsPfUE9BmxSdD",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -846,15 +736,13 @@
       "drawn": false,
       "_id": "9ntc2p7w0y179g3n",
       "flags": {},
-      "rangeL": 46,
-      "rangeH": 46,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "LmNXsPfUE9BmxSdD",
       "_key": "!tables.results!zdslrlczJyGmflFt.9ntc2p7w0y179g3n"
     },
     {
       "text": "jar of dried jellyfish dust",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "WRa54qvCv0dfnWun",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -864,15 +752,13 @@
       "drawn": false,
       "_id": "47gxvf4cjxdhh0xq",
       "flags": {},
-      "rangeL": 47,
-      "rangeH": 47,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "WRa54qvCv0dfnWun",
       "_key": "!tables.results!zdslrlczJyGmflFt.47gxvf4cjxdhh0xq"
     },
     {
       "text": "multi-colored feather",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "zGYBlDU6I4PVtzRS",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -882,15 +768,13 @@
       "drawn": false,
       "_id": "bs3ncz2r5nhs3xxh",
       "flags": {},
-      "rangeL": 48,
-      "rangeH": 48,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "zGYBlDU6I4PVtzRS",
       "_key": "!tables.results!zdslrlczJyGmflFt.bs3ncz2r5nhs3xxh"
     },
     {
       "text": "necklace from a loved one",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "D85rrvrYylmUpoqU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -900,15 +784,13 @@
       "drawn": false,
       "_id": "1x8yujm4t19goeem",
       "flags": {},
-      "rangeL": 49,
-      "rangeH": 49,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "D85rrvrYylmUpoqU",
       "_key": "!tables.results!zdslrlczJyGmflFt.1x8yujm4t19goeem"
     },
     {
       "text": "ring that doesn't fit on your fingers",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "KWxqSLMbYBnWqOfo",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -918,15 +800,13 @@
       "drawn": false,
       "_id": "6e6848jbc5yczkd2",
       "flags": {},
-      "rangeL": 50,
-      "rangeH": 50,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "KWxqSLMbYBnWqOfo",
       "_key": "!tables.results!zdslrlczJyGmflFt.6e6848jbc5yczkd2"
     },
     {
       "text": "single diamond earring",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "85FS5ocyrPNxX67H",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -936,15 +816,13 @@
       "drawn": false,
       "_id": "6le7ojbhav42el8u",
       "flags": {},
-      "rangeL": 51,
-      "rangeH": 51,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "85FS5ocyrPNxX67H",
       "_key": "!tables.results!zdslrlczJyGmflFt.6le7ojbhav42el8u"
     },
     {
       "text": "finely made leather eye patch",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "4KgGCT1fCWKRePAU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -954,15 +832,13 @@
       "drawn": false,
       "_id": "qmov1pdkm6dvvic0",
       "flags": {},
-      "rangeL": 52,
-      "rangeH": 52,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "4KgGCT1fCWKRePAU",
       "_key": "!tables.results!zdslrlczJyGmflFt.qmov1pdkm6dvvic0"
     },
     {
       "text": "set of gardening tools",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "N8cZfGBZ438ngFbv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -972,15 +848,13 @@
       "drawn": false,
       "_id": "wp8iqrrnd9qcaqjf",
       "flags": {},
-      "rangeL": 53,
-      "rangeH": 53,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "N8cZfGBZ438ngFbv",
       "_key": "!tables.results!zdslrlczJyGmflFt.wp8iqrrnd9qcaqjf"
     },
     {
       "text": "dried flower",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "ugRQ84dsvn9Gc4ep",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -990,15 +864,13 @@
       "drawn": false,
       "_id": "gq9mwpu28o7p1cdd",
       "flags": {},
-      "rangeL": 54,
-      "rangeH": 54,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "ugRQ84dsvn9Gc4ep",
       "_key": "!tables.results!zdslrlczJyGmflFt.gq9mwpu28o7p1cdd"
     },
     {
       "text": "animal skull",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "bH15GCWpHg1iHG49",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1008,15 +880,13 @@
       "drawn": false,
       "_id": "aq0o2akxjmnmi9wd",
       "flags": {},
-      "rangeL": 55,
-      "rangeH": 55,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "bH15GCWpHg1iHG49",
       "_key": "!tables.results!zdslrlczJyGmflFt.aq0o2akxjmnmi9wd"
     },
     {
       "text": "human skull",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "jLh9WxDu7A6JH7rd",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1026,15 +896,13 @@
       "drawn": false,
       "_id": "kkfsthhvapnl0j26",
       "flags": {},
-      "rangeL": 56,
-      "rangeH": 56,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "jLh9WxDu7A6JH7rd",
       "_key": "!tables.results!zdslrlczJyGmflFt.kkfsthhvapnl0j26"
     },
     {
       "text": "gem that glows in seawater",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "V1LWSB5MEOr1bybh",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1044,15 +912,13 @@
       "drawn": false,
       "_id": "ceigydry9vlw9rof",
       "flags": {},
-      "rangeL": 57,
-      "rangeH": 57,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "V1LWSB5MEOr1bybh",
       "_key": "!tables.results!zdslrlczJyGmflFt.ceigydry9vlw9rof"
     },
     {
       "text": "dinosaur or monster bone or claw",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "0Jy2zxHHis8j9zLd",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1062,15 +928,13 @@
       "drawn": false,
       "_id": "4uzo43p4uqd7thyn",
       "flags": {},
-      "rangeL": 58,
-      "rangeH": 58,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "0Jy2zxHHis8j9zLd",
       "_key": "!tables.results!zdslrlczJyGmflFt.4uzo43p4uqd7thyn"
     },
     {
       "text": "jar of fireflies",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "NqaTcAfJqpcusQk5",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1080,15 +944,13 @@
       "drawn": false,
       "_id": "6682oi7tzllr8blx",
       "flags": {},
-      "rangeL": 59,
-      "rangeH": 59,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "NqaTcAfJqpcusQk5",
       "_key": "!tables.results!zdslrlczJyGmflFt.6682oi7tzllr8blx"
     },
     {
       "text": "leather-bound tome in a language you don't recognize",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "FoW2tWIcCMxl5w72",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1098,15 +960,13 @@
       "drawn": false,
       "_id": "uoevsg6m037txzcy",
       "flags": {},
-      "rangeL": 60,
-      "rangeH": 60,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "FoW2tWIcCMxl5w72",
       "_key": "!tables.results!zdslrlczJyGmflFt.uoevsg6m037txzcy"
     },
     {
       "text": "blueprints to a new type of ship",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "4nEy62eLrJp5zFYb",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1116,15 +976,13 @@
       "drawn": false,
       "_id": "6w7jl54208ozj89a",
       "flags": {},
-      "rangeL": 61,
-      "rangeH": 61,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "4nEy62eLrJp5zFYb",
       "_key": "!tables.results!zdslrlczJyGmflFt.6w7jl54208ozj89a"
     },
     {
       "text": "carved arrowhead",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "gze8kvTVAUTPT45Q",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1134,15 +992,13 @@
       "drawn": false,
       "_id": "dyzai1v4qev26ogo",
       "flags": {},
-      "rangeL": 62,
-      "rangeH": 62,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "gze8kvTVAUTPT45Q",
       "_key": "!tables.results!zdslrlczJyGmflFt.dyzai1v4qev26ogo"
     },
     {
       "text": "stone tablet inscribed with ancient pictographs or hieroglyphs",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "5XQbvtGWMR4W1MH3",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1152,15 +1008,13 @@
       "drawn": false,
       "_id": "ci1shoqdud92ykpf",
       "flags": {},
-      "rangeL": 63,
-      "rangeH": 63,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "5XQbvtGWMR4W1MH3",
       "_key": "!tables.results!zdslrlczJyGmflFt.ci1shoqdud92ykpf"
     },
     {
       "text": "perfect cube made of crystal",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Dy582xQ51vckikQL",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1170,16 +1024,14 @@
       "drawn": false,
       "_id": "i5cvsi71kr9e2gg3",
       "flags": {},
-      "rangeL": 64,
-      "rangeH": 64,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Dy582xQ51vckikQL",
       "_key": "!tables.results!zdslrlczJyGmflFt.i5cvsi71kr9e2gg3"
     },
     {
-      "text": "Tattoo",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "9zAOcmckhadkzb0J",
-      "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+      "text": "",
+      "type": "pack",
+      "img": null,
       "weight": 1,
       "range": [
         65,
@@ -1188,15 +1040,13 @@
       "drawn": false,
       "_id": "76mnev27d95zn1kz",
       "flags": {},
-      "rangeL": 65,
-      "rangeH": 65,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": null,
       "_key": "!tables.results!zdslrlczJyGmflFt.76mnev27d95zn1kz"
     },
     {
       "text": "bottle of perfumed oil",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "tYrQHDuCc0ECiYnK",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1206,15 +1056,13 @@
       "drawn": false,
       "_id": "6xojrlfjkdq5wi4e",
       "flags": {},
-      "rangeL": 66,
-      "rangeH": 66,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "tYrQHDuCc0ECiYnK",
       "_key": "!tables.results!zdslrlczJyGmflFt.6xojrlfjkdq5wi4e"
     },
     {
       "text": "broken set of manacles",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "iYiopsAkZcUq8aON",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1224,15 +1072,13 @@
       "drawn": false,
       "_id": "hlkwsw0qmjrmlspq",
       "flags": {},
-      "rangeL": 67,
-      "rangeH": 67,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "iYiopsAkZcUq8aON",
       "_key": "!tables.results!zdslrlczJyGmflFt.hlkwsw0qmjrmlspq"
     },
     {
       "text": "pistol with one shot meant for someone special",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "YQW3IjCAC8ggOJAJ",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1242,15 +1088,13 @@
       "drawn": false,
       "_id": "nzovz499piq4ey55",
       "flags": {},
-      "rangeL": 69,
-      "rangeH": 69,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "YQW3IjCAC8ggOJAJ",
       "_key": "!tables.results!zdslrlczJyGmflFt.nzovz499piq4ey55"
     },
     {
       "text": "flag of personal significance",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "6sQ2vORkQyLsVfQM",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1260,15 +1104,13 @@
       "drawn": false,
       "_id": "p3g1sqmh40d2u0e9",
       "flags": {},
-      "rangeL": 70,
-      "rangeH": 70,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "6sQ2vORkQyLsVfQM",
       "_key": "!tables.results!zdslrlczJyGmflFt.p3g1sqmh40d2u0e9"
     },
     {
       "text": "broken compass",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Ngri4cZPbLGcHf5v",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1278,15 +1120,13 @@
       "drawn": false,
       "_id": "vlxwtf5wq265an1q",
       "flags": {},
-      "rangeL": 68,
-      "rangeH": 68,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Ngri4cZPbLGcHf5v",
       "_key": "!tables.results!zdslrlczJyGmflFt.vlxwtf5wq265an1q"
     },
     {
       "text": "broken spyglass with a scroll or map hidden inside",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "S3DpBvwkgnSpwWe4",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1296,15 +1136,13 @@
       "drawn": false,
       "_id": "w183bzwde2krak0e",
       "flags": {},
-      "rangeL": 71,
-      "rangeH": 71,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "S3DpBvwkgnSpwWe4",
       "_key": "!tables.results!zdslrlczJyGmflFt.w183bzwde2krak0e"
     },
     {
       "text": "length of rope you made",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "TyLhDcclBfRiGqyi",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1314,15 +1152,13 @@
       "drawn": false,
       "_id": "bps4ygwu6fr9o9ca",
       "flags": {},
-      "rangeL": 72,
-      "rangeH": 72,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "TyLhDcclBfRiGqyi",
       "_key": "!tables.results!zdslrlczJyGmflFt.bps4ygwu6fr9o9ca"
     },
     {
       "text": "carved gaming pieces",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "2orhAflYA3MZIJFP",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1332,15 +1168,13 @@
       "drawn": false,
       "_id": "14qqvjb1isu0cowb",
       "flags": {},
-      "rangeL": 73,
-      "rangeH": 73,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "2orhAflYA3MZIJFP",
       "_key": "!tables.results!zdslrlczJyGmflFt.14qqvjb1isu0cowb"
     },
     {
       "text": "set of rune stones",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "aHx0wHN54V8ucWaX",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1350,15 +1184,13 @@
       "drawn": false,
       "_id": "zx0htrttj1plfab3",
       "flags": {},
-      "rangeL": 74,
-      "rangeH": 74,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "aHx0wHN54V8ucWaX",
       "_key": "!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3"
     },
     {
       "text": "twig from a very old tree",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "0YMofaTxxN8aOO7F",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1368,15 +1200,13 @@
       "drawn": false,
       "_id": "mxma6mdp209gezqq",
       "flags": {},
-      "rangeL": 75,
-      "rangeH": 75,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "0YMofaTxxN8aOO7F",
       "_key": "!tables.results!zdslrlczJyGmflFt.mxma6mdp209gezqq"
     },
     {
       "text": "noose taken from a corpse",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "jN395ATWP72q5A1v",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1386,15 +1216,13 @@
       "drawn": false,
       "_id": "jr4ejf5t01rhovjn",
       "flags": {},
-      "rangeL": 76,
-      "rangeH": 76,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "jN395ATWP72q5A1v",
       "_key": "!tables.results!zdslrlczJyGmflFt.jr4ejf5t01rhovjn"
     },
     {
       "text": "6' length of chain",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Cf6zj53VEHD27dcv",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1404,15 +1232,13 @@
       "drawn": false,
       "_id": "t4l1les6pgnci3ii",
       "flags": {},
-      "rangeL": 77,
-      "rangeH": 77,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Cf6zj53VEHD27dcv",
       "_key": "!tables.results!zdslrlczJyGmflFt.t4l1les6pgnci3ii"
     },
     {
       "text": "4d10 scars from lashes on your back",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Tp6rBzBIqeFVeTe1",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1422,15 +1248,13 @@
       "drawn": false,
       "_id": "hly6g19bl2bg2515",
       "flags": {},
-      "rangeL": 78,
-      "rangeH": 78,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Tp6rBzBIqeFVeTe1",
       "_key": "!tables.results!zdslrlczJyGmflFt.hly6g19bl2bg2515"
     },
     {
       "text": "long scar on your face",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "RkKW27xA6mFMQoxe",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1440,15 +1264,13 @@
       "drawn": false,
       "_id": "wo6d151m628lfsjy",
       "flags": {},
-      "rangeL": 79,
-      "rangeH": 79,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "RkKW27xA6mFMQoxe",
       "_key": "!tables.results!zdslrlczJyGmflFt.wo6d151m628lfsjy"
     },
     {
       "text": "two coconut shells",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "cn3cvgzJcJUn4joc",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1458,15 +1280,13 @@
       "drawn": false,
       "_id": "oiwbbvwly5z4nvsk",
       "flags": {},
-      "rangeL": 80,
-      "rangeH": 80,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "cn3cvgzJcJUn4joc",
       "_key": "!tables.results!zdslrlczJyGmflFt.oiwbbvwly5z4nvsk"
     },
     {
       "text": "dark robe, cape, or cloak",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "8icD0S2DCLEhq1TS",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1476,15 +1296,13 @@
       "drawn": false,
       "_id": "0okmmb2r0g3yenvc",
       "flags": {},
-      "rangeL": 81,
-      "rangeH": 81,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "8icD0S2DCLEhq1TS",
       "_key": "!tables.results!zdslrlczJyGmflFt.0okmmb2r0g3yenvc"
     },
     {
       "text": "cask of strong sassafras beer",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "ngC7hGnpTMd0jqlT",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1494,15 +1312,13 @@
       "drawn": false,
       "_id": "1smxogdkaij8s8ce",
       "flags": {},
-      "rangeL": 82,
-      "rangeH": 82,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "ngC7hGnpTMd0jqlT",
       "_key": "!tables.results!zdslrlczJyGmflFt.1smxogdkaij8s8ce"
     },
     {
       "text": "set of keys on a large key ring",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "UzLmDmDldgcwJr2X",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1512,15 +1328,13 @@
       "drawn": false,
       "_id": "9ygfnnl8e9liruha",
       "flags": {},
-      "rangeL": 83,
-      "rangeH": 83,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "UzLmDmDldgcwJr2X",
       "_key": "!tables.results!zdslrlczJyGmflFt.9ygfnnl8e9liruha"
     },
     {
       "text": "small keg of something valuable (rum, powder, ashes)",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "EeuUzBJ1uTfCFNRk",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1530,15 +1344,13 @@
       "drawn": false,
       "_id": "rs6iljh5x2lnho1p",
       "flags": {},
-      "rangeL": 84,
-      "rangeH": 84,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "EeuUzBJ1uTfCFNRk",
       "_key": "!tables.results!zdslrlczJyGmflFt.rs6iljh5x2lnho1p"
     },
     {
       "text": "magnifying lens (glass only)",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "ixkjYH4dBpg7IRsI",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1548,15 +1360,13 @@
       "drawn": false,
       "_id": "vrk1vep8h3dqzeg4",
       "flags": {},
-      "rangeL": 85,
-      "rangeH": 85,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "ixkjYH4dBpg7IRsI",
       "_key": "!tables.results!zdslrlczJyGmflFt.vrk1vep8h3dqzeg4"
     },
     {
       "text": "the cork from a bottle, from a special occasion",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "iDsIYHvHUQT9p45d",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1566,15 +1376,13 @@
       "drawn": false,
       "_id": "jdcqb5ym54kro4au",
       "flags": {},
-      "rangeL": 86,
-      "rangeH": 86,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "iDsIYHvHUQT9p45d",
       "_key": "!tables.results!zdslrlczJyGmflFt.jdcqb5ym54kro4au"
     },
     {
       "text": "cannonball",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "EjhBebnGlDy99ACI",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1584,15 +1392,13 @@
       "drawn": false,
       "_id": "cydvqqgqeu720r69",
       "flags": {},
-      "rangeL": 87,
-      "rangeH": 87,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "EjhBebnGlDy99ACI",
       "_key": "!tables.results!zdslrlczJyGmflFt.cydvqqgqeu720r69"
     },
     {
       "text": "deck of cards with 1d4 cards missing and 1d6 \"extra\" cards",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "TnQxy463HlX2uc2X",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1602,15 +1408,13 @@
       "drawn": false,
       "_id": "ymy3fcelm78t1qe0",
       "flags": {},
-      "rangeL": 88,
-      "rangeH": 88,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "TnQxy463HlX2uc2X",
       "_key": "!tables.results!zdslrlczJyGmflFt.ymy3fcelm78t1qe0"
     },
     {
       "text": "garment from someone special",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Khh0eEJE64oaoOta",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1620,15 +1424,13 @@
       "drawn": false,
       "_id": "ejh5nld32zqjyzad",
       "flags": {},
-      "rangeL": 89,
-      "rangeH": 89,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Khh0eEJE64oaoOta",
       "_key": "!tables.results!zdslrlczJyGmflFt.ejh5nld32zqjyzad"
     },
     {
       "text": "wanted poster, d4:1 legend, 2 loved one, 3 enemy, 4 stranger",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "HUzvnJUHicDi5KWz",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1638,15 +1440,13 @@
       "drawn": false,
       "_id": "dphxv7hbmztzpv3m",
       "flags": {},
-      "rangeL": 90,
-      "rangeH": 90,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "HUzvnJUHicDi5KWz",
       "_key": "!tables.results!zdslrlczJyGmflFt.dphxv7hbmztzpv3m"
     },
     {
       "text": "fancy wig",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "WT0K5keKfTPPSTtB",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1656,15 +1456,13 @@
       "drawn": false,
       "_id": "k5cd3nn5vvqvrqso",
       "flags": {},
-      "rangeL": 91,
-      "rangeH": 91,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "WT0K5keKfTPPSTtB",
       "_key": "!tables.results!zdslrlczJyGmflFt.k5cd3nn5vvqvrqso"
     },
     {
       "text": "letter of political importance",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "pYuMPRzbR0IfG6ol",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1674,15 +1472,13 @@
       "drawn": false,
       "_id": "nnt516oqyl8f5g2z",
       "flags": {},
-      "rangeL": 92,
-      "rangeH": 92,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "pYuMPRzbR0IfG6ol",
       "_key": "!tables.results!zdslrlczJyGmflFt.nnt516oqyl8f5g2z"
     },
     {
       "text": "tanned whale skin or a jar of blubber",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "VeJfJuFhW7eriz8Y",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1692,15 +1488,13 @@
       "drawn": false,
       "_id": "h3rtfrq718wrdsjb",
       "flags": {},
-      "rangeL": 93,
-      "rangeH": 93,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "VeJfJuFhW7eriz8Y",
       "_key": "!tables.results!zdslrlczJyGmflFt.h3rtfrq718wrdsjb"
     },
     {
       "text": "petrified egg",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "mlmYBE7SCXFs7zaf",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1710,15 +1504,13 @@
       "drawn": false,
       "_id": "83ioxfoy9cdpqq3h",
       "flags": {},
-      "rangeL": 94,
-      "rangeH": 94,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "mlmYBE7SCXFs7zaf",
       "_key": "!tables.results!zdslrlczJyGmflFt.83ioxfoy9cdpqq3h"
     },
     {
       "text": "monkey paw extending 1 finger",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "usaIFfeYsTk9ny4c",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1728,15 +1520,13 @@
       "drawn": false,
       "_id": "r4tf3p3yonmtg0h6",
       "flags": {},
-      "rangeL": 95,
-      "rangeH": 95,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "usaIFfeYsTk9ny4c",
       "_key": "!tables.results!zdslrlczJyGmflFt.r4tf3p3yonmtg0h6"
     },
     {
       "text": "memorized poem that sounds like a treasure map",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "qZGptrxaarSrcIa3",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1746,15 +1536,13 @@
       "drawn": false,
       "_id": "k3zolop4v2mmfgvg",
       "flags": {},
-      "rangeL": 96,
-      "rangeH": 96,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "qZGptrxaarSrcIa3",
       "_key": "!tables.results!zdslrlczJyGmflFt.k3zolop4v2mmfgvg"
     },
     {
       "text": "medallion that might be the top of a staff",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "A9qMgrMJnEXZSDrU",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1764,15 +1552,13 @@
       "drawn": false,
       "_id": "spmlglg82wfn38ac",
       "flags": {},
-      "rangeL": 97,
-      "rangeH": 97,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "A9qMgrMJnEXZSDrU",
       "_key": "!tables.results!zdslrlczJyGmflFt.spmlglg82wfn38ac"
     },
     {
       "text": "talisman shaped like a snake",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "Sqqg5E8UGFom4FOO",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1782,15 +1568,13 @@
       "drawn": false,
       "_id": "i4wczlmltgsfef7p",
       "flags": {},
-      "rangeL": 98,
-      "rangeH": 98,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "Sqqg5E8UGFom4FOO",
       "_key": "!tables.results!zdslrlczJyGmflFt.i4wczlmltgsfef7p"
     },
     {
       "text": "glass vial of dark blood",
-      "type": 2,
-      "collection": "pirateborg.feature-thing-of-importance",
-      "resultId": "6jOvGpkWkMUYRcbN",
+      "type": "pack",
       "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
       "weight": 1,
       "range": [
@@ -1800,9 +1584,25 @@
       "drawn": false,
       "_id": "rcibirofytlb7tjg",
       "flags": {},
-      "rangeL": 99,
-      "rangeH": 99,
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "documentId": "6jOvGpkWkMUYRcbN",
       "_key": "!tables.results!zdslrlczJyGmflFt.rcibirofytlb7tjg"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "pirateborg.feature-thing-of-importance",
+      "weight": 1,
+      "range": [
+        40,
+        40
+      ],
+      "drawn": false,
+      "text": "bag of \"magical\" white powder",
+      "documentId": "QNGViptwjl1uRPyg",
+      "img": "systems/pirateborg/icons/misc/thing-of-importance.png",
+      "_id": "PhzQABZefgeBsuEE",
+      "flags": {},
+      "_key": "!tables.results!zdslrlczJyGmflFt.PhzQABZefgeBsuEE"
     }
   ],
   "formula": "1d100",
@@ -1813,6 +1613,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": 1743027480108,
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
   },
   "_key": "!tables!zdslrlczJyGmflFt"
 }

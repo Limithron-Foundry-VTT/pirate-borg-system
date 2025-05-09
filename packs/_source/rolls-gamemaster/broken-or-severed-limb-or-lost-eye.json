@@ -4,7 +4,7 @@
   "results": [
     {
       "_id": "Gq6CFvw9WFTuwZWX",
-      "type": 0,
+      "type": "text",
       "text": "Broken or severed limb",
       "weight": 1,
       "range": [
@@ -14,13 +14,12 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 1,
-      "rangeH": 5,
+      "documentId": null,
       "_key": "!tables.results!akVJTxuCEoiyE1Sw.Gq6CFvw9WFTuwZWX"
     },
     {
       "_id": "SolwypgX2lVwvR4B",
-      "type": 0,
+      "type": "text",
       "text": "Lost eye",
       "weight": 1,
       "range": [
@@ -30,8 +29,7 @@
       "drawn": false,
       "flags": {},
       "img": "icons/svg/d20-black.svg",
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentId": null,
       "_key": "!tables.results!akVJTxuCEoiyE1Sw.SolwypgX2lVwvR4B"
     }
   ],
@@ -45,5 +43,15 @@
   "ownership": {
     "default": 0
   },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "description": "",
   "_key": "!tables!akVJTxuCEoiyE1Sw"
 }

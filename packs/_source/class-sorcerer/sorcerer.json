@@ -3,7 +3,23 @@
   "name": "Sorcerer",
   "type": "class",
   "img": "systems/pirateborg/tokens/sorcerer.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p><strong>An eldritch occultist, frail and enigmatic. They are conduits for meddlesome natural spirits and devious necromantic entities</strong></p>\n<p>Drawing your power from supernatural spirits &amp; ghosts, you are weak in body but strong with the old magic of the world. You can use ancient relics and arcane rituals when wearing medium armor, but never while near cold iron or while holding metal.</p>",
     "flavorText": "An eldritch occultist, frail and enigmatic. They are conduits for meddlesome natural spirits and devious necromantic entities\n\nDrawing your power from supernatural spirits & ghosts, you are weak in body but strong with the old magic of the world. You can use ancient relics and arcane rituals when wearing medium armor, but never while near cold iron or while holding metal.",
     "luckDie": "1d4",
@@ -32,13 +48,6 @@
     "requireBaseClass": false,
     "isBaseClass": false,
     "characterGeneratorMacro": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!ZW9z8EKxjIsiTMYt"
 }

@@ -5,7 +5,7 @@ import { configureEditor } from "../../system/configure-editor.js";
 /*
  * @extends {ItemSheet}
  */
-export class PBItemSheet extends ItemSheet {
+export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet) {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -40,7 +40,13 @@ export class PBItemSheet extends ItemSheet {
         icon: this.item.img,
       };
 
-      const html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html", effectData);
+      const template = "systems/pirateborg/templates/dialog/quick-effect.html";
+      let html;
+      if (game.release.generation >= 13) {
+        html = await foundry.applications.handlebars.renderTemplate(template, effectData);
+      } else {
+        html = await renderTemplate(template, effectData);
+      }
       const dialog = new Dialog({
         title: game.i18n.localize("PB.EffectsQuick"),
         content: html,
@@ -92,7 +98,7 @@ export class PBItemSheet extends ItemSheet {
   /** @override */
   _getHeaderButtons() {
     const buttons = super._getHeaderButtons();
-    if (this.item.isWeapon) {
+    if (this.item.isWeapon && typeof Sequencer !== "undefined") {
       return [this._getHeaderAnimationButton(), ...buttons];
     }
     return buttons;
@@ -117,7 +123,7 @@ export class PBItemSheet extends ItemSheet {
     }
 
     formData.descriptionHTML = formData.data.system.description
-      ? await TextEditor.enrichHTML(formData.data.system.description, {
+      ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
           secrets: !!formData.owner,
           links: true,
           async: true,

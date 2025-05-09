@@ -3,7 +3,23 @@
   "name": "Fifteen Men on a Dead Man's Chest",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>The ship gains d2 Devil's Luck that it can use like a PC.</p>\n<p><strong><em>Chorus</em><br /></strong><em>Fifteen men on</em> a <em>dead man's chest</em><br /><em>Yo ho ho and a bottle of rum!</em><br /><em>Dink and the devil had done for the rest</em><br /><em>Yo ho ho and a bottle of rum!</em></p>\n<p><a href=\"https://youtu.be/qrsifI9382k\">Play Song</a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
@@ -11,13 +27,6 @@
     "carryWeight": null,
     "containerSpace": null,
     "quantity": null
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!zECCg4TTGgZKkiu1"
 }

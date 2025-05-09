@@ -6,11 +6,9 @@
   "results": [
     {
       "_id": "OTx9dajYUJ14ZO1U",
-      "type": 2,
+      "type": "pack",
       "text": "Brass anchor",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "JAltE9OMjrWqbScg",
       "weight": 1,
       "range": [
         1,
@@ -18,17 +16,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "JAltE9OMjrWqbScg",
       "_key": "!tables.results!hEke3MaLuICwiPbB.OTx9dajYUJ14ZO1U"
     },
     {
       "_id": "iZPRL320nAVMICOK",
-      "type": 2,
+      "type": "pack",
       "text": "Whaling Harpoon",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "tKz4LJkcrel0Vqaj",
       "weight": 1,
       "range": [
         2,
@@ -36,17 +32,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "tKz4LJkcrel0Vqaj",
       "_key": "!tables.results!hEke3MaLuICwiPbB.iZPRL320nAVMICOK"
     },
     {
       "_id": "taHSFuRtbQzXiBOn",
-      "type": 2,
+      "type": "pack",
       "text": "Meat Cleaver",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "Js9wTTMz6L7F4WRj",
       "weight": 1,
       "range": [
         3,
@@ -54,17 +48,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "Js9wTTMz6L7F4WRj",
       "_key": "!tables.results!hEke3MaLuICwiPbB.taHSFuRtbQzXiBOn"
     },
     {
       "_id": "jOr3BMOCaBsscHF5",
-      "type": 2,
+      "type": "pack",
       "text": "Part of a Broken Mast",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "NErfYxFeOyPeccY5",
       "weight": 1,
       "range": [
         4,
@@ -72,17 +64,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "NErfYxFeOyPeccY5",
       "_key": "!tables.results!hEke3MaLuICwiPbB.jOr3BMOCaBsscHF5"
     },
     {
       "_id": "OuxOwLqqhaQiQPdK",
-      "type": 2,
+      "type": "pack",
       "text": "Runic machete",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "puM6lNl5KcjbLYIh",
       "weight": 1,
       "range": [
         5,
@@ -90,17 +80,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "puM6lNl5KcjbLYIh",
       "_key": "!tables.results!hEke3MaLuICwiPbB.OuxOwLqqhaQiQPdK"
     },
     {
       "_id": "3ldfXXTnsXoTKGm1",
-      "type": 2,
+      "type": "pack",
       "text": "Rotten Cargo Net",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "VkWVHzTozuYHHtS2",
       "weight": 1,
       "range": [
         6,
@@ -108,15 +96,14 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "VkWVHzTozuYHHtS2",
       "_key": "!tables.results!hEke3MaLuICwiPbB.3ldfXXTnsXoTKGm1"
     },
     {
       "_id": "woq9nQb697RqaMiL",
-      "type": 2,
+      "type": "pack",
       "text": "Whaling Harpoon (thrown)",
-      "collection": "pirateborg.class-brute",
       "weight": 1,
       "range": [
         2,
@@ -125,9 +112,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "resultId": "zzwqpvWfvSNjLeqD",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "zzwqpvWfvSNjLeqD",
       "_key": "!tables.results!hEke3MaLuICwiPbB.woq9nQb697RqaMiL"
     }
   ],
@@ -139,6 +125,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!hEke3MaLuICwiPbB"
 }

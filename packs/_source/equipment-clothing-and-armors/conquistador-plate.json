@@ -3,7 +3,23 @@
   "name": "Conquistador plate",
   "type": "armor",
   "img": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>DR +4 on AGILITY tests, defense is DR +2.</p>\n<p>You&rsquo;ll most likely sink and drown in water.</p>",
     "containerSpace": 1,
     "carryWeight": 1,
@@ -20,13 +36,6 @@
     },
     "currentTier": 1,
     "maxTier": 1
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!mqjlRCrxNRLAhQ4c"
 }

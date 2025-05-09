@@ -3,7 +3,23 @@
   "name": "Vampirism",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>You have been infected by a fiendish creature.</p>\n<p>You cannot be healed by resting or other normal means, but drinking fresh animal blood restores d2 HP and fresh human blood restores d6 HP. You can only recover HP from drinking blood once an hour.</p>\n<p>You are faster at night (move 40' a turn), but feel hungover in sunlight (-2 to Toughness )</p>",
     "featureType": "Ailment (Haunted Soul)",
     "maxQuantity": 1,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!OclojnYs2EJAieEh"
 }

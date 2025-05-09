@@ -2,10 +2,10 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v1.0.8",
+  "version": "v1.1.0",
   "compatibility": {
-    "minimum": "11",
-    "verified": "12"
+    "minimum": "12",
+    "verified": "13"
   },
   "authors": [
     {
@@ -425,63 +425,86 @@
     {
       "name": "Pirate Borg System",
       "sorting": "a",
-      "color": "#000000",
       "packs": [
-        "containers",
-        "equipment-melee-weapons",
-        "equipment-ranged-weapons",
-        "equipment-bombs",
-        "equipment-ammo",
-        "equipment-gear",
-        "equipment-pets",
-        "equipment-instruments",
-        "equipment-clothing-and-armors",
-        "equipment-hats",
-        "backgrounds",
-        "backgrounds-items",
         "macros-pirateborg",
-        "feature-distinctive-flaws",
-        "feature-physical-trademark",
-        "feature-idiosyncrasies",
-        "feature-unfortunate-incidents-conditions",
-        "feature-thing-of-importance",
         "invokable-ancient-relics",
         "invokable-arcane-rituals",
         "macros-ancient-relics",
         "macros-arcane-rituals",
-        "rolls-character-creation",
-        "rolls-gamemaster",
-        "ships-features",
-        "ships-cargo",
-        "rolls-ships",
-        "ships-mystic-shanties",
-        "ships",
-        "ships-npc",
-        "class-landlubber",
-        "class-brute",
-        "rolls-brute",
-        "macros-brute",
-        "class-rapscallion",
-        "rolls-rapscallion",
-        "macros-rapscallion",
-        "class-buccaneer",
-        "rolls-buccaneer",
-        "macros-buccaneer",
-        "class-swashbuckler",
-        "rolls-swashbuckler",
-        "macros-swashbuckler",
-        "class-zealot",
-        "rolls-zealot",
-        "macros-zealot",
-        "class-sorcerer",
-        "rolls-sorcerer",
-        "macros-sorcerer",
-        "class-tall-tale",
-        "rolls-tall-tale",
-        "macros-tall-tale",
-        "class-haunted-soul",
-        "rolls-haunted-soul",
-        "macros-haunted-soul"
+        "rolls-gamemaster"
+      ],
+      "folders": [
+        {
+          "name": "Characters",
+          "packs": [
+            "class-landlubber",
+            "class-brute",
+            "rolls-brute",
+            "macros-brute",
+            "class-rapscallion",
+            "rolls-rapscallion",
+            "macros-rapscallion",
+            "class-buccaneer",
+            "rolls-buccaneer",
+            "macros-buccaneer",
+            "class-swashbuckler",
+            "rolls-swashbuckler",
+            "macros-swashbuckler",
+            "class-zealot",
+            "rolls-zealot",
+            "macros-zealot",
+            "class-sorcerer",
+            "rolls-sorcerer",
+            "macros-sorcerer",
+            "class-tall-tale",
+            "rolls-tall-tale",
+            "macros-tall-tale",
+            "class-haunted-soul",
+            "rolls-haunted-soul",
+            "macros-haunted-soul",
+            "rolls-character-creation",
+            "backgrounds",
+            "backgrounds-items"
+          ],
+          "folders": [
+            {
+              "name": "Equipment",
+                "packs": [
+                  "containers",
+                  "equipment-melee-weapons",
+                  "equipment-ranged-weapons",
+                  "equipment-bombs",
+                  "equipment-ammo",
+                  "equipment-gear",
+                  "equipment-pets",
+                  "equipment-instruments",
+                  "equipment-clothing-and-armors",
+                  "equipment-hats"
+                ]
+            },
+            {
+              "name": "Features",
+                "packs": [
+                  "feature-distinctive-flaws",
+                  "feature-physical-trademark",
+                  "feature-idiosyncrasies",
+                  "feature-unfortunate-incidents-conditions",
+                  "feature-thing-of-importance"
+                ]
+            }
+          ]
+        },
+        {
+          "name": "Ships",
+          "packs": [
+            "ships-features",
+            "ships-cargo",
+            "rolls-ships",
+            "ships-mystic-shanties",
+            "ships",
+            "ships-npc"
+          ]
+        }
       ]
     }
   ],

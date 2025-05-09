@@ -53,7 +53,12 @@ export class OutcomeChatButton {
    */
   static async updateMessageCard(message, outcome, outcomes) {
     const messageContent = $(getMessageContent(message));
-    const content = await renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
+    let content;
+    if (game.release.generation >= 13) {
+      content = await foundry.applications.handlebars.renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
+    } else {
+      content = await renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
+    }
 
     messageContent.find(`[data-outcome='${outcome.id}']`).remove();
 

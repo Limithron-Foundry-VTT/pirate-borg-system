@@ -3,7 +3,23 @@
   "name": "Ostentatious Fencer",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Your melee Attack/Defense is -2 DR when wielding a rapier or cutlass. When dueling one-on-one, you deal +1 damage.</p>",
     "featureType": "Class",
     "maxQuantity": null,
@@ -13,13 +29,6 @@
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!lco7XqcFzkaMkw0W"
 }

@@ -6,11 +6,9 @@
   "results": [
     {
       "_id": "hoD0H8b3LllQYKw3",
-      "type": 2,
+      "type": "pack",
       "text": "Liar's Dice",
       "img": "systems/pirateborg/icons/misc/class-item.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "kHcRmAtOroMngfQi",
       "weight": 1,
       "range": [
         1,
@@ -18,17 +16,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 1,
-      "rangeH": 1,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "kHcRmAtOroMngfQi",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.hoD0H8b3LllQYKw3"
     },
     {
       "_id": "SrhNM2BRRc3CgkmB",
-      "type": 2,
+      "type": "pack",
       "text": "Boomstick (melee)",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "ILBVXEghnlGKOoRB",
       "weight": 1,
       "range": [
         2,
@@ -36,17 +32,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "ILBVXEghnlGKOoRB",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.SrhNM2BRRc3CgkmB"
     },
     {
       "_id": "vh2fILJjoxS8QsDj",
-      "type": 2,
+      "type": "pack",
       "text": "Boomstick (range)",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "j2IxvcDHsnGVVNNb",
       "weight": 1,
       "range": [
         2,
@@ -54,17 +48,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "j2IxvcDHsnGVVNNb",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.vh2fILJjoxS8QsDj"
     },
     {
       "_id": "58beuu6tH4iVTNfS",
-      "type": 2,
+      "type": "pack",
       "text": "Blood Frenzy",
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "FZXm37HkCs8KyETv",
       "weight": 1,
       "range": [
         3,
@@ -72,17 +64,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 3,
-      "rangeH": 3,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "FZXm37HkCs8KyETv",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.58beuu6tH4iVTNfS"
     },
     {
       "_id": "3AdLNAYyhu5qvHHG",
-      "type": 2,
+      "type": "pack",
       "text": "Tavern Boxer",
       "img": "systems/pirateborg/icons/misc/weapon.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "ECzX6kt6cDp5vlMm",
       "weight": 1,
       "range": [
         4,
@@ -90,17 +80,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 4,
-      "rangeH": 4,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "ECzX6kt6cDp5vlMm",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.3AdLNAYyhu5qvHHG"
     },
     {
       "_id": "C0EDFU99qd16efKO",
-      "type": 2,
+      "type": "pack",
       "text": "Thick Skinned",
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "KxOX04r930J39HiU",
       "weight": 1,
       "range": [
         5,
@@ -108,17 +96,15 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 5,
-      "rangeH": 5,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "KxOX04r930J39HiU",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.C0EDFU99qd16efKO"
     },
     {
       "_id": "0QL1KADeX5S4G429",
-      "type": 2,
+      "type": "pack",
       "text": "Grog Breath",
       "img": "systems/pirateborg/icons/misc/class-feature.png",
-      "collection": "pirateborg.class-brute",
-      "resultId": "uNsmrnbUAMn0Te26",
       "weight": 1,
       "range": [
         6,
@@ -126,15 +112,14 @@
       ],
       "drawn": false,
       "flags": {},
-      "rangeL": 6,
-      "rangeH": 6,
+      "documentCollection": "pirateborg.class-brute",
+      "documentId": "uNsmrnbUAMn0Te26",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.0QL1KADeX5S4G429"
     },
     {
       "_id": "aLrMSe5RhOi1xgKP",
-      "type": 2,
+      "type": "pack",
       "text": "Rounds of shot",
-      "collection": "pirateborg.equipment-ammo",
       "weight": 1,
       "range": [
         2,
@@ -143,9 +128,8 @@
       "drawn": false,
       "flags": {},
       "img": "systems/pirateborg/icons/equipment/ammo/shot.png",
-      "resultId": "RommdiTBhBFNeDBg",
-      "rangeL": 2,
-      "rangeH": 2,
+      "documentCollection": "pirateborg.equipment-ammo",
+      "documentId": "RommdiTBhBFNeDBg",
       "_key": "!tables.results!x9ipo0Ut9amT6dYB.aLrMSe5RhOi1xgKP"
     }
   ],
@@ -157,6 +141,15 @@
   "flags": {},
   "ownership": {
     "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
   },
   "_key": "!tables!x9ipo0Ut9amT6dYB"
 }

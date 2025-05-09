@@ -3,7 +3,23 @@
   "name": "Buccaneer",
   "type": "class",
   "img": "systems/pirateborg/tokens/bucaneer.png",
-  "data": {
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
     "description": "<p>Skilled trackers and survivalists. Expert sharpshooters, especially with muskets &amp; rifles: reloading black powder weapons takes you 1 round instead of 2.</p>",
     "flavorText": "Skilled trackers and survivalists. Expert sharpshooters, especially with muskets & rifles: reloading black powder weapons takes you 1 round instead of 2.",
     "luckDie": "1d2",
@@ -33,13 +49,6 @@
     "isBaseClass": false,
     "characterGeneratorMacro": "",
     "skipCharacterGenerator": ""
-  },
-  "effects": [],
-  "folder": null,
-  "sort": 0,
-  "flags": {},
-  "ownership": {
-    "default": 0
   },
   "_key": "!items!bddji3nIZctPA8tg"
 }
