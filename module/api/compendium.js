@@ -132,7 +132,7 @@ export const findTableItems = async (results) => {
         resultText = result.getChatText();
       }
       const [property, value] = resultText.split(": ");
-      const enrichHtml = TextEditor.enrichHTML(value, {
+      const enrichHtml = (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(value, {
         options: { command: true },
         async: false,
       });

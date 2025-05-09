@@ -311,7 +311,7 @@ form.editable .results {
   }
 }
 
-#chat, #chat-log {
+.chat-sidebar {
   .message-header {
     align-items: center;
     line-height: normal;
@@ -337,6 +337,55 @@ form.editable .results {
 
     .gm-only {
       display: none;
+    }
+
+    &.emote {
+      position: relative;
+      background: none;
+      border: 2px solid var(--color-emote-border);
+    }
+    &.emote::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--window-background);
+      filter: grayscale(25%);
+    }
+    &.emote > * {
+      position: relative;
+    }
+    &.whisper {
+      position: relative;
+      background: none;
+      border: 2px solid var(--color-whisper-border);
+    }
+    &.whisper::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--window-background);
+      filter: grayscale(50%);
+    }
+    &.whisper > * {
+      position: relative;
+    }
+    &.blind {
+      position: relative;
+      background: none;
+      border: 2px solid var(--color-blind-border);
+    }
+    &.blind::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--window-background);
+      filter: grayscale(100%);
+    }
+    &.blind > * {
+      position: relative;
     }
   }
 
@@ -532,27 +581,6 @@ form.editable .results {
       border: none;
     }
   }
-}
-
-form .form-group label {
-  font-family: var(--item-font);
-  font-size: 16px;
-  line-height: 26px;
-}
-
-form .form-group select {
-  color: var(--foreground-color);
-  border: 2px groove var(--light-border-color);
-  background: rgba(255, 255, 255, 0.2);
-
-  &:focus {
-    box-shadow: 0 0 10px var(--highlight-background-color);
-  }
-}
-
-form .form-group,
-form .form-group-stacked {
-  margin: 16px 0;
 }
 
 #hotbar {
@@ -806,10 +834,6 @@ div#sidebar {
     border-top: 2px groove var(--light-border-color);
     border-bottom: 2px groove var(--light-border-color);
   }
-}
-
-.sheet-footer button {
-  height: 28px;
 }
 
 hr {

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{pirate-borg-system/node_modules}" />
-    <file url="file://$PROJECT_DIR$/node_modules/@typhonjs-fvtt/eslint-config-foundry.js/0.8.0.js" libraries="{pirate-borg-system/node_modules}" />
-    <file url="PROJECT" libraries="{@types/jquery, Foundry common, latest-0.8.x.js, league-of-foundry-developers, scripts}" />
-    <includedPredefinedLibrary name="Node.js Core" />
-  </component>
-</project>

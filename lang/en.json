@@ -20,6 +20,7 @@
   "PB.AllowedCharacterGeneratorClassesEdit": "Edit allowed classes",
   "PB.AllowedCharacterGeneratorClassesSelect": "Select allowed classes",
   "PB.Animation": "Animation",
+  "PB.AnimationMissingJB2A": "Animations require the JB2A module to be enabled.",
   "PB.Armor": "Armor",
   "PB.ArmorCurrentTier": "Current Tier",
   "PB.ArmorMaxTier": "Max Tier",

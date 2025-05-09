@@ -6,9 +6,8 @@ import { getInfoFromDropData } from "../../api/utils.js";
 
 /**
  * @extends {ActorSheet}
- * TODO Convert to foundry.appv1.sheets. once v13 is the minimum
  */
-export default class PBActorSheet extends ActorSheet {
+export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? ActorSheet) {
   /**
    * @override
    */
@@ -118,6 +117,7 @@ export default class PBActorSheet extends ActorSheet {
           callback: () => this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
         },
       },
+      default: "create",
     });
     await dialog._render(true);
     dialog._element.find(".label").select();
@@ -393,7 +393,7 @@ export default class PBActorSheet extends ActorSheet {
     }
 
     formData.descriptionHTML = formData.data.system.description
-      ? await TextEditor.enrichHTML(formData.data.system.description, {
+      ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
           secrets: !!formData.owner,
           links: true,
           async: true,
