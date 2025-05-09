@@ -263,13 +263,9 @@ PB.recommendedModules = [
     package: "drag-ruler",
     url: "https://foundryvtt.com/packages/drag-ruler",
     description: "This module shows a ruler when you drag a token or measurement template to inform you how far you've dragged it from its start point.",
-  },
-  {
-    type: "must_have",
-    name: "Easy Target",
-    package: "easy-target",
-    url: "https://foundryvtt.com/packages/easy-target",
-    description: "Target tokens while on any layer with Alt+Click.",
+    compatibility: {
+      max: 12,
+    }
   },
   {
     type: "must_have",

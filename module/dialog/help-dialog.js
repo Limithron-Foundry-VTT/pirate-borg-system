@@ -46,7 +46,16 @@ export class HelpDialog extends FormApplication {
 
   getModulesData(type) {
     return CONFIG.PB.recommendedModules
-      .filter((module) => module.type === type)
+      .filter((module) => {
+        if (module.type !== type) return false;
+
+        // Check compatibility
+        if (module.compatibility?.max && game.release.generation > module.compatibility.max) {
+          return false;
+        }
+
+        return true;
+      })
       .map((module) => ({
         ...module,
         installed: !!game.modules.get(module.package),

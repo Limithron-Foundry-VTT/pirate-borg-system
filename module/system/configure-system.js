@@ -18,6 +18,7 @@ import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
+import { registerTokenRuler } from "./token-rules.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
@@ -151,4 +152,6 @@ export const configureSystem = () => {
     CONFIG.TinyMCE.content_css = [CONFIG.TinyMCE.content_css];
   }
   CONFIG.TinyMCE.content_css.push("systems/pirateborg/css/editor.css");
+
+  registerTokenRuler();
 };

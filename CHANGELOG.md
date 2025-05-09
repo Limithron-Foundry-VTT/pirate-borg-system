@@ -7,10 +7,14 @@
 - Added visual distinction between Public, Private, Blind, and GM rolls.
   - Thank you thought-after for the report.
 - Added more folder categorization for the compendium packs.
+- Added support for the built-in Foundry VTT Token Ruler.
+- Removed "drag-ruler" from the recommended modules list for v13 since it is now part of the core platform.
 - Fixed Frigate missing the Mystic Shanties section on the vehicle sheet.
 - Fixed dragging and dropping an Item onto the Hotbar creating the wrong sort of macro.
 - Fixed issue where you could not scroll the list of modules in the game settings.
   - Thank you neilbenson for the report.
+- Removed "Easy Target" as a recommended module.
+  - It is no longer needed as the functionality is part of the core platform (by hovering over the target and pressing "T").
 - Added Polish support.
   - Thank you rklos for the contribution.
 
