@@ -1,3 +1,8 @@
+# v1.1.1
+
+- Fixed the FilePicker dialog not showing the Forge tabs when using a French locale.
+  - Thank you GoldSbouby for the report [#50](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/issues/50).
+
 # v1.1.0
 
 - Added support for Foundry VTT v13.

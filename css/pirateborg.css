@@ -841,6 +841,37 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 
 /* Fixes Module Management dialog */
 /* Fixes hard-to-read dark text on various system Dialogs */
+.window-app.sheet .window-content form .tabs {
+  border: none;
+  padding: 0;
+  margin: 0;
+  flex: 0;
+}
+.window-app.sheet .window-content form .tabs .item {
+  text-align: center;
+  font-family: var(--h2-font);
+  font-size: 18px;
+  height: 36px;
+  line-height: 38px;
+  width: 100%;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--dark-border-color);
+  padding: 0 8px;
+  text-transform: none;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.window-app.sheet .window-content form .tabs .item.active {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--dark-border-color);
+  border-bottom: 0;
+}
+.window-app.sheet .window-content form .tabs .item.active:hover {
+  text-shadow: none;
+}
 .window-app .window-content {
   background: var(--window-background);
 }
@@ -865,37 +896,6 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 .window-app .window-content form .tab button label {
   font-size: 14px;
   font-weight: 400;
-}
-.window-app .window-content form .tabs {
-  border: none;
-  padding: 0;
-  margin: 0;
-  flex: 0;
-}
-.window-app .window-content form .tabs .item {
-  text-align: center;
-  font-family: var(--h2-font);
-  font-size: 18px;
-  height: 36px;
-  line-height: 38px;
-  width: 100%;
-  white-space: nowrap;
-  border: 1px solid transparent;
-  border-bottom: 1px solid var(--dark-border-color);
-  padding: 0 8px;
-  text-transform: none;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.window-app .window-content form .tabs .item.active {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid var(--dark-border-color);
-  border-bottom: 0;
-}
-.window-app .window-content form .tabs .item.active:hover {
-  text-shadow: none;
 }
 .window-app .window-content .form-group input[type=range] {
   background: none;
@@ -1129,7 +1129,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   height: 24px;
 }
 #client-settings nav.tabs {
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-14);
   border: none;
   padding: 0;
 }
@@ -1350,18 +1350,6 @@ div#sidebar.collapsed #sidebar-tabs > .item.active {
   color: var(--foreground-color);
   font-family: var(--compendium-font);
   font-size: 14px;
-}
-
-.tabs .item.active {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid var(--dark-border-color);
-  border-bottom: 0;
-  text-shadow: none;
-}
-.tabs .item:hover {
-  text-shadow: 0 0 16px var(--highlight-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
