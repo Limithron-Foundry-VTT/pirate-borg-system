@@ -133,6 +133,40 @@ form.editable .results {
 /* Fixes hard-to-read dark text on various system Dialogs */
 
 .window-app {
+  &.sheet .window-content form {
+    .tabs {
+      border: none;
+      padding: 0;
+      margin: 0;
+      flex: 0;
+      .item {
+        text-align: center;
+        font-family: var(--h2-font);
+        font-size: 18px;
+        height: 36px;
+        line-height: 38px;
+        width: 100%;
+        white-space: nowrap;
+        border: 1px solid transparent;
+        border-bottom: 1px solid var(--dark-border-color);
+        padding: 0 8px;
+        text-transform: none;
+        padding-left: 16px;
+        padding-right: 16px;
+        &.active {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid var(--dark-border-color);
+          border-bottom: 0;
+        }
+        &.active:hover {
+          text-shadow: none;
+        }
+      }
+    }
+
+  }
   .window-content {
     background: var(--window-background);
 
@@ -163,38 +197,6 @@ form.editable .results {
           label {
             font-size: 14px;
             font-weight: 400;
-          }
-        }
-      }
-
-      .tabs {
-        border: none;
-        padding: 0;
-        margin: 0;
-        flex: 0;
-        .item {
-          text-align: center;
-          font-family: var(--h2-font);
-          font-size: 18px;
-          height: 36px;
-          line-height: 38px;
-          width: 100%;
-          white-space: nowrap;
-          border: 1px solid transparent;
-          border-bottom: 1px solid var(--dark-border-color);
-          padding: 0 8px;
-          text-transform: none;
-          padding-left: 16px;
-          padding-right: 16px;
-          &.active {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid var(--dark-border-color);
-            border-bottom: 0;
-          }
-          &.active:hover {
-            text-shadow: none;
           }
         }
       }
@@ -480,7 +482,7 @@ form.editable .results {
     }
   }
   nav.tabs {
-    font-size: var(--font-size-16);
+    font-size: var(--font-size-14);
     border: none;
     padding: 0;
   }
@@ -757,21 +759,6 @@ div#sidebar {
   color: var(--foreground-color);
   font-family: var(--compendium-font);
   font-size: 14px;
-}
-
-.tabs .item {
-  &.active {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid var(--dark-border-color);
-    border-bottom: 0;
-    text-shadow: none;
-  }
-
-  &:hover {
-    text-shadow: 0 0 16px var(--highlight-background-color);
-  }
 }
 
 ::-webkit-scrollbar-thumb {

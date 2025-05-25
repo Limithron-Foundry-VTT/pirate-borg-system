@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v1.1.0",
+  "version": "v1.1.1",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -527,6 +527,19 @@
   "grid": {
     "distance": 5,
     "units": "ft"
+  },
+  "flags": {
+    "allowBugReporter": true,
+    "hotReload": {
+      "extensions": [
+        "css",
+        "hbs"
+      ],
+      "paths": [
+        "css",
+        "templates"
+      ]
+    }
   },
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,

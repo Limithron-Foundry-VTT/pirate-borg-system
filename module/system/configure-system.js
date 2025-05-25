@@ -18,7 +18,7 @@ import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
-import { registerTokenRuler } from "./token-rules.js";
+import { registerTokenRuler } from "./token-ruler.js";
 
 export const configureSystem = () => {
   game.pirateborg = {
