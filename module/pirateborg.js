@@ -47,10 +47,8 @@ Hooks.once("ready", () => {
   showHelpDialogOnStartup();
   configureAutomation();
 
-  Hooks.on("hotbarDrop", (bar, data, slot) => {
-    createPirateBorgMacro(data, slot)
-    return false;
-  });
+  // hotbarDrop hook cannot be async and still block the default macro creation workflow,
+  Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
 
   ui.chat.scrollBottom();
 });

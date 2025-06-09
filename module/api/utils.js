@@ -77,10 +77,10 @@ export const getMessageContent = (chatMessage) => chatMessage.content;
 
 /**
  * @param {Object} dropData
- * @return {Promise<{actor: Actor, item: Item}>}
+ * @return {{actor: Actor, item: Item}}
  */
-export const getInfoFromDropData = async (dropData) => {
-  const itemFromUuid = dropData.uuid ? await fromUuid(dropData.uuid) : null;
+export const getInfoFromDropData = (dropData) => {
+  const itemFromUuid = dropData.uuid ? fromUuidSync(dropData.uuid) : null;
   const actor = itemFromUuid
     ? itemFromUuid.actor
     : dropData.sceneId

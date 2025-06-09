@@ -1,3 +1,9 @@
+# v1.1.2
+
+- Fixed issue where you could only drag and drop Character Items onto the Hotbar.
+  - v1.1.0 incorrectly prevented any other form of drag and drop from working.
+  - Thank you thought-after for the report.
+
 # v1.1.1
 
 - Fixed the FilePicker dialog not showing the Forge tabs when using a French locale.
