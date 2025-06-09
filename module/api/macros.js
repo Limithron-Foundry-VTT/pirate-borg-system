@@ -9,40 +9,47 @@ import { getInfoFromDropData, getMacroCommand } from "./utils.js";
 /**
  * @param {Object} data
  * @param {Number} slot
- * @return {Promise.<void> | boolean}
+ * @return {boolean} - Returns whether Foundry VTT should continue with the default macro
+ * creation workflow (true means yes, false means no).
  */
-export const createPirateBorgMacro = async (data, slot) => {
-  const { item, actor } = await getInfoFromDropData(data);
+export const createPirateBorgMacro = (data, slot) => {
+  const { item, actor } = getInfoFromDropData(data);
 
   if (data.type !== "Item") {
-    return;
+    return true;
   }
 
   if (!actor) {
-    return ui.notifications.warn("You can only create macro buttons for owned Items");
+    ui.notifications.warn("You can only create macro buttons for owned Items");
+    return true;
   }
 
   const supportedItemTypes = ["armor", "hat", "weapon", "invokable", "feature", "misc"];
   if (!supportedItemTypes.includes(item.type)) {
-    return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(", ")}`);
+    ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(", ")}`);
+    return true;
   }
 
   if (["feature", "misc"].includes(item.type) && !item.actionMacro) {
-    return ui.notifications.warn("Macros only supported for features and items with a macro.");
+    ui.notifications.warn("Macros only supported for features and items with a macro.");
+    return true;
   }
 
   const command = `game.pirateborg.api.macros.rollItemMacro("${actor.id}", "${item.id}");`;
-  let macro = game.macros.find((m) => m.name === item.name && m.command === command);
+  const macro = game.macros.find((m) => m.name === item.name && m.command === command);
   if (!macro) {
-    macro = await Macro.create({
+    Macro.create({
       name: item.name,
       type: "script",
       img: item.img,
       command,
       flags: { "pirateborg.itemMacro": true },
+    }).then((m) => {
+      game.user.assignHotbarMacro(m, slot);
     });
+  } else {
+    game.user.assignHotbarMacro(macro, slot);
   }
-  game.user.assignHotbarMacro(macro, slot);
 
   // Prevent the default Foundry VTT macro creation workflow
   return false;
