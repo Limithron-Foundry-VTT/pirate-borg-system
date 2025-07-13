@@ -1,3 +1,10 @@
+# v1.1.3
+
+- Fixed "Thing of Importance" 65 (tattoo).
+  - Thank you r2DoesInc for the contribution [#56](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/56).
+- Added French translation.
+  - Thank you Glorim-0derg for the contribution [#54](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/54).
+
 # v1.1.2
 
 - Fixed issue where you could only drag and drop Character Items onto the Hotbar.

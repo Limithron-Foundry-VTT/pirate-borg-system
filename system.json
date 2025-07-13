@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v1.1.2",
+  "version": "v1.1.3",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -518,12 +518,15 @@
       "lang": "pl",
       "name": "Polski",
       "path": "lang/pl.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
     }
   ],
   "socket": true,
   "initiative": "1d6",
-  "gridDistance": 5,
-  "gridUnits": "ft",
   "grid": {
     "distance": 5,
     "units": "ft"
