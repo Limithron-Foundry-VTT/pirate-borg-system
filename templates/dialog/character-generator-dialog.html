@@ -10,17 +10,27 @@
   </div>
   
   <div class="section">
-
-    <ul>
-      {{#each this.classes}}
-        <li>
-          <label>
-            <input name="{{this.pack}}" type="checkbox" class="class-checkbox" {{#if this.checked }}checked{{/if}} />
-            <div class="class-name">{{this.name}} {{#if this.requireBaseClass }}*{{/if}}</div>
-          </label>
-        </li>
-      {{/each}}
-    </ul>
+    {{#each this.classGroups as |group|}}
+      <div class="module-group" data-module="{{group.moduleId}}">
+        <h3 class="module-header collapsible">
+          <i class="fas fa-chevron-down"></i>
+          <span>{{group.name}}</span>
+        </h3>
+        <div class="module-classes">
+          <ul>
+            {{#each group.classes as |cls|}}
+              <li>
+                <label>
+                  <input name="{{cls.pack}}" type="checkbox" class="class-checkbox" {{#if cls.checked }}checked{{/if}} />
+                  <div class="class-name">{{cls.name}} {{#if cls.requireBaseClass }}*{{/if}}</div>
+                </label>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    {{/each}}
+    
     <div><a class="toggle-none">{{localize "PB.CharacterGeneratorToggleNone"}}</a>&nbsp; / &nbsp;<a class="toggle-all">{{localize "PB.CharacterGeneratorToggleAll"}}</a></div>
     <p>{{localize "PB.CharacterGeneratorWarningBaseClass"}}</p>
   </div>

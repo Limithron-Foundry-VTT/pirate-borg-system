@@ -26,8 +26,36 @@ class CharacterGeneratorDialog extends Application {
   /** @override */
   async getData(options = {}) {
     return foundry.utils.mergeObject(super.getData(options), {
-      classes: await this.getClassData(),
+      classGroups: await this.getClassDataGrouped(),
       forActor: this.actor !== undefined && this.actor !== null,
+    });
+  }
+
+  async getClassDataGrouped() {
+    const classes = await this.getClassData();
+    const groups = {};
+
+    for (const cls of classes) {
+      // Extract module name from pack name (e.g., "pirateborg.class-buccaneer" -> "pirateborg")
+      const moduleName = cls.pack.split(".")[0];
+      const displayName = moduleName === "pirateborg" ? "Core" : game.modules.get(moduleName)?.title || moduleName;
+
+      if (!groups[displayName]) {
+        groups[displayName] = {
+          name: displayName,
+          moduleId: moduleName,
+          classes: [],
+        };
+      }
+
+      groups[displayName].classes.push(cls);
+    }
+
+    // Convert and sort: Core first, then alphabetically
+    return Object.values(groups).sort((a, b) => {
+      if (a.name === "Core") return -1;
+      if (b.name === "Core") return 1;
+      return a.name.localeCompare(b.name);
     });
   }
 
@@ -61,6 +89,7 @@ class CharacterGeneratorDialog extends Application {
     html.find(".toggle-none").on("click", this._onToggleNone.bind(this));
     html.find(".cancel-button").on("click", this._onCancel.bind(this));
     html.find(".character-generator-button").on("click", this._onCharacterGenerator.bind(this));
+    html.find(".module-header").on("click", this._onToggleModule.bind(this));
   }
 
   _onToggleAll(event) {
@@ -136,6 +165,17 @@ class CharacterGeneratorDialog extends Application {
       console.error(err);
       ui.notifications.error(`Error creating ${randomClass.name}. Check console for error log.`);
     }
+  }
+
+  _onToggleModule(event) {
+    event.preventDefault();
+    const header = $(event.currentTarget);
+    const moduleGroup = header.closest(".module-group");
+    const classesDiv = moduleGroup.find(".module-classes");
+    const icon = header.find("i");
+
+    classesDiv.slideToggle(200);
+    icon.toggleClass("fa-chevron-down fa-chevron-right");
   }
 }
 

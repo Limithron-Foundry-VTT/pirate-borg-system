@@ -1737,6 +1737,42 @@ li.folder > .folder-header {
   padding-top: 2px;
 }
 
+.character-generator-dialog .module-group {
+  margin-bottom: 1rem;
+}
+.character-generator-dialog .module-group:last-child {
+  margin-bottom: 0;
+}
+.character-generator-dialog .module-group .module-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+.character-generator-dialog .module-group .module-header:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.character-generator-dialog .module-group .module-header i {
+  font-size: 0.8rem;
+  transition: transform 0.2s;
+}
+.character-generator-dialog .module-group .module-header span {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.character-generator-dialog .module-group .module-classes {
+  padding-left: 1rem;
+}
+.character-generator-dialog .module-group .module-classes ul {
+  margin: 0;
+}
+
 .defense-dialog .form-group,
 .attack-dialog .form-group {
   display: flex;
