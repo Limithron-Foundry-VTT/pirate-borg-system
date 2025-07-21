@@ -14,7 +14,8 @@
     "pretty-check": "prettier --check .",
     "sass": "sass ./scss:./css",
     "validate": "npm-run-all pretty-check lint",
-    "watch": "sass --watch ./scss:./css"
+    "watch": "sass --watch ./scss:./css",
+    "pack": "npm run build:db && zip -r ./system.zip CHANGELOG.md LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/"
   },
   "repository": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "author": "maqloner",
