@@ -1,0 +1,17 @@
+{
+  "name": "Pirate Borg System Development",
+
+  // Use Node.js 20 LTS image
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  // Mounts
+  "mounts": [
+    // Persist npm cache
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.npm,target=/home/node/.npm,type=bind,consistency=cached"
+  ]
+}
