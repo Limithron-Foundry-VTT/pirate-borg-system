@@ -1,4 +1,4 @@
-import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection, getCharacterGeneratorGroupStates, setCharacterGeneratorGroupStates } from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
@@ -34,6 +34,7 @@ class CharacterGeneratorDialog extends Application {
   async getClassDataGrouped() {
     const classes = await this.getClassData();
     const groups = {};
+    const savedStates = getCharacterGeneratorGroupStates();
 
     for (const cls of classes) {
       // Extract module name from pack name (e.g., "pirateborg.class-buccaneer" -> "pirateborg")
@@ -52,11 +53,29 @@ class CharacterGeneratorDialog extends Application {
     }
 
     // Convert and sort: Core first, then alphabetically
-    return Object.values(groups).sort((a, b) => {
+    const sortedGroups = Object.values(groups).sort((a, b) => {
       if (a.name === "Core") return -1;
       if (b.name === "Core") return 1;
       return a.name.localeCompare(b.name);
     });
+
+    for (const group of sortedGroups) {
+      const hasCheckedClass = group.classes.some(cls => cls.checked);
+      
+      if (savedStates[group.name] !== undefined) {
+        group.isOpen = savedStates[group.name];
+      } else {
+        if (group.name === "Core") {
+          group.isOpen = true; // Core always starts open
+        } else if (hasCheckedClass) {
+          group.isOpen = true; // Groups with checked classes start open
+        } else {
+          group.isOpen = false; // Other groups start closed
+        }
+      }
+    }
+
+    return sortedGroups;
   }
 
   async getClassData() {
@@ -167,15 +186,21 @@ class CharacterGeneratorDialog extends Application {
     }
   }
 
-  _onToggleModule(event) {
+  async _onToggleModule(event) {
     event.preventDefault();
     const header = $(event.currentTarget);
     const moduleGroup = header.closest(".module-group");
     const classesDiv = moduleGroup.find(".module-classes");
     const icon = header.find("i");
+    const groupName = header.find("span").text();
 
     classesDiv.slideToggle(200);
     icon.toggleClass("fa-chevron-down fa-chevron-right");
+
+    const isOpen = icon.hasClass("fa-chevron-down");
+    const savedStates = getCharacterGeneratorGroupStates();
+    savedStates[groupName] = isOpen;
+    await setCharacterGeneratorGroupStates(savedStates);
   }
 }
 

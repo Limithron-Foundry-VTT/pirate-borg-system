@@ -13,10 +13,10 @@
     {{#each this.classGroups as |group|}}
       <div class="module-group" data-module="{{group.moduleId}}">
         <h3 class="module-header collapsible">
-          <i class="fas fa-chevron-down"></i>
+          <i class="fas {{#if group.isOpen}}fa-chevron-down{{else}}fa-chevron-right{{/if}}"></i>
           <span>{{group.name}}</span>
         </h3>
-        <div class="module-classes">
+        <div class="module-classes" {{#unless group.isOpen}}style="display: none;"{{/unless}}>
           <ul>
             {{#each group.classes as |cls|}}
               <li>

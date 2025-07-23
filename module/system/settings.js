@@ -124,6 +124,15 @@ export const registerSystemSettings = () => {
     scope: "client",
     config: false,
   });
+
+  /** The client Character Generator group open/closed states */
+  game.settings.register("pirateborg", "characterGeneratorGroupStates", {
+    name: "",
+    default: {},
+    type: Object,
+    scope: "client",
+    config: false,
+  });
 };
 
 /**
@@ -209,3 +218,15 @@ export const isAdvancedAnimationEnabled = () => game.settings.get("pirateborg", 
  * @returns {Boolean}
  */
 export const isEnforceTargetEnabled = () => game.settings.get("pirateborg", "enforceTarget");
+
+/**
+ * @returns {Object}
+ */
+export const getCharacterGeneratorGroupStates = () => game.settings.get("pirateborg", "characterGeneratorGroupStates");
+
+/**
+ * @param {Object} groupStates
+ */
+export const setCharacterGeneratorGroupStates = async (groupStates) => {
+  await game.settings.set("pirateborg", "characterGeneratorGroupStates", groupStates);
+};
