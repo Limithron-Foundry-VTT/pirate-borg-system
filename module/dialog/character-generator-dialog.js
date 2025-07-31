@@ -1,4 +1,4 @@
-import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection } from "../system/settings.js";
+import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection, getCharacterGeneratorGroupStates, setCharacterGeneratorGroupStates } from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
@@ -26,9 +26,56 @@ class CharacterGeneratorDialog extends Application {
   /** @override */
   async getData(options = {}) {
     return foundry.utils.mergeObject(super.getData(options), {
-      classes: await this.getClassData(),
+      classGroups: await this.getClassDataGrouped(),
       forActor: this.actor !== undefined && this.actor !== null,
     });
+  }
+
+  async getClassDataGrouped() {
+    const classes = await this.getClassData();
+    const groups = {};
+    const savedStates = getCharacterGeneratorGroupStates();
+
+    for (const cls of classes) {
+      // Extract module name from pack name (e.g., "pirateborg.class-buccaneer" -> "pirateborg")
+      const moduleName = cls.pack.split(".")[0];
+      const displayName = moduleName === "pirateborg" ? "Core" : game.modules.get(moduleName)?.title || moduleName;
+
+      if (!groups[displayName]) {
+        groups[displayName] = {
+          name: displayName,
+          moduleId: moduleName,
+          classes: [],
+        };
+      }
+
+      groups[displayName].classes.push(cls);
+    }
+
+    // Convert and sort: Core first, then alphabetically
+    const sortedGroups = Object.values(groups).sort((a, b) => {
+      if (a.name === "Core") return -1;
+      if (b.name === "Core") return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+    for (const group of sortedGroups) {
+      const hasCheckedClass = group.classes.some(cls => cls.checked);
+      
+      if (savedStates[group.name] !== undefined) {
+        group.isOpen = savedStates[group.name];
+      } else {
+        if (group.name === "Core") {
+          group.isOpen = true; // Core always starts open
+        } else if (hasCheckedClass) {
+          group.isOpen = true; // Groups with checked classes start open
+        } else {
+          group.isOpen = false; // Other groups start closed
+        }
+      }
+    }
+
+    return sortedGroups;
   }
 
   async getClassData() {
@@ -61,6 +108,7 @@ class CharacterGeneratorDialog extends Application {
     html.find(".toggle-none").on("click", this._onToggleNone.bind(this));
     html.find(".cancel-button").on("click", this._onCancel.bind(this));
     html.find(".character-generator-button").on("click", this._onCharacterGenerator.bind(this));
+    html.find(".module-header").on("click", this._onToggleModule.bind(this));
   }
 
   _onToggleAll(event) {
@@ -136,6 +184,23 @@ class CharacterGeneratorDialog extends Application {
       console.error(err);
       ui.notifications.error(`Error creating ${randomClass.name}. Check console for error log.`);
     }
+  }
+
+  async _onToggleModule(event) {
+    event.preventDefault();
+    const header = $(event.currentTarget);
+    const moduleGroup = header.closest(".module-group");
+    const classesDiv = moduleGroup.find(".module-classes");
+    const icon = header.find("i");
+    const groupName = header.find("span").text();
+
+    classesDiv.slideToggle(200);
+    icon.toggleClass("fa-chevron-down fa-chevron-right");
+
+    const isOpen = icon.hasClass("fa-chevron-down");
+    const savedStates = getCharacterGeneratorGroupStates();
+    savedStates[groupName] = isOpen;
+    await setCharacterGeneratorGroupStates(savedStates);
   }
 }
 
