@@ -446,7 +446,8 @@ export class PBActor extends Actor {
    * @return {Number}
    */
   get normalCarryingCapacity() {
-    return this.abilities.strength.value + 8;
+    const carryingModifier = this.attributes?.carryingModifier?.value ?? 8;
+    return this.abilities.strength.value + carryingModifier;
   }
 
   /**
