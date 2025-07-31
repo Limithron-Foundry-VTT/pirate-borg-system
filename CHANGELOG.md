@@ -1,3 +1,12 @@
+# v1.1.4
+
+- Added Carrying Capacity Effect Key.
+  - This allows an Active Effect to be applied to a character to adjust their carrying capacity.
+  - `system.attributes.carryingModifier.value`
+  - The default value is `8`. The character's strength value is _always_ added to this value.
+    - Thank you r2DoesInc for the contribution [#58](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/58).
+    - Thank you Alexia for the suggestion on Discord.
+
 # v1.1.3
 
 - Fixed "Thing of Importance" 65 (tattoo).

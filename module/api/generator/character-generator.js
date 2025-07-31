@@ -444,6 +444,9 @@ const characterToActorData = (characterData) => ({
         max: characterData.extraResourceUses,
         value: characterData.extraResourceUses,
       },
+      carryingModifier: {
+        value: characterData.carryingModifier ?? 8,
+      }
     },
     silver: characterData.silver,
     baseClass: characterData.baseClass || "",
