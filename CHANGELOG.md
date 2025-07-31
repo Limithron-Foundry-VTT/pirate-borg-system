@@ -6,6 +6,12 @@
   - The default value is `8`. The character's strength value is _always_ added to this value.
     - Thank you r2DoesInc for the contribution [#58](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/58).
     - Thank you Alexia for the suggestion on Discord.
+- Added Module organization to the tavern.
+  - Groups character classes by their module in the tavern (character generator) for easier identification.
+  - Thank you r2DoesInc for the contribution.
+  - See [#57](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/57) for examples.
+- Added basic [devcontainer](https://containers.dev/) support.
+  - Thank you r2DoesInc for the contribution.
 
 # v1.1.3
 
