@@ -1452,7 +1452,7 @@ h3 {
   background: url(/systems/pirateborg/ui/parchment-2.jpg);
 }
 
-#playlists .sound-control {
+#playlists .playlist.flexrow .sound-control {
   color: var(--button-background);
 }
 
