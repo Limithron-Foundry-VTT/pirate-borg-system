@@ -1,3 +1,8 @@
+# v1.1.5
+
+- Fixed CSS making playlist controls nearly invisible in v13.
+  - Thank you Ray for the report.
+
 # v1.1.4
 
 - Added Carrying Capacity Effect Key.
