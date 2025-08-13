@@ -14,7 +14,7 @@
   "PB.AbilityStrengthDescription": "Crush, lift, strike, grapple.",
   "PB.AbilityToughness": "Toughness",
   "PB.AbilityToughnessDescription": "Drink grog, hold breath, survive falling.",
-  "PB.ActionMacro": "Action Macro",
+  "PB.ActionMacro": "Action: Macro or RollTable",
   "PB.ActionMacroLabel": "Action Label",
   "PB.ActorBaseClassWarning": "Warning: this class doesn't require a base class",
   "PB.AllowedCharacterGeneratorClassesEdit": "Edit allowed classes",
