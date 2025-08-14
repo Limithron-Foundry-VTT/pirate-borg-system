@@ -42,20 +42,21 @@ export const characterUseItemAction = async (actor, item, outcome = null, chatMe
   }
 
   if (!target) {
-    ui.notifications?.warn?.(`Action target not found: ${actionValue}`);
+    ui.notifications?.warn?.(
+      `Action target "${actionValue}" not found for item "${item?.name}". ` +
+      `Check that the macro, roll table, or compendium reference is correct and available.`
+    );
     return;
   }
 
   // Execute Macro or draw RollTable
-  const documentName = /** @type {any} */ (target).documentName || /** @type {any} */ (target).entity; // compatibility
+  const documentName = /** @type {any} */ (target).documentName;
   if (documentName === "Macro") {
-    await executeMacro(target, { actor, item, outcome, chatMessage });
-    return;
+    return executeMacro(target, { actor, item, outcome, chatMessage });
   }
   if (documentName === "RollTable") {
-    await target.draw({ displayChat: true });
-    return;
+    return target.draw({ displayChat: true });
   }
 
-  ui.notifications?.warn?.(`Unsupported action target type: ${documentName}`);
+  ui.notifications?.warn?.(`Unsupported action target type "${documentName}" for item "${item?.name}". Supported types are "Macro" and "RollTable".`);
 };
