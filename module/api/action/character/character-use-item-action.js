@@ -50,7 +50,7 @@ export const characterUseItemAction = async (actor, item, outcome = null, chatMe
   }
 
   // Execute Macro or draw RollTable
-  const documentName = /** @type {any} */ (target).documentName;
+  const documentName = /** @type {string} */ target.documentName;
   if (documentName === "Macro") {
     return executeMacro(target, { actor, item, outcome, chatMessage });
   }
