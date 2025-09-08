@@ -1,3 +1,10 @@
+# v1.1.6
+
+- Added support for calling RollTables and Macros by UUID in invocable actions.
+  - Thank you r2DoesInc for the contribution [#61](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/61)
+- Fixed "Thing of Importance" 65 (tattoo) again...
+- Added information on how to create custom classes to the [How to Use This System](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/blob/main/how-to-use-this-system.md#custom-classes) document.
+
 # v1.1.5
 
 - Fixed CSS making playlist controls nearly invisible in v13.

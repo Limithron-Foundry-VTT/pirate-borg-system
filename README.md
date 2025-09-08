@@ -9,6 +9,7 @@ PIRATE BORG is an independent production by community contributors, and is not a
 ## Getting Started
 
 - Read [how to use this system](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/blob/main/how-to-use-this-system.md).
+- The above link also shows you how to create your own custom classes, including how to have them appear in The Tavern.
 
 ## Installation - Auto Installer (Recommended)
 

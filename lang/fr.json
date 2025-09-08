@@ -14,7 +14,7 @@
   "PB.AbilityStrengthDescription": "Écraser, soulever, frapper, immobiliser.",
   "PB.AbilityToughness": "Robustesse",
   "PB.AbilityToughnessDescription": "Boire du grog, retenir sa respiration, survivre à une chute.",
-  "PB.ActionMacro": "Macro d’action",
+  "PB.ActionMacro": "Action: Macro ou Table aléatoire",
   "PB.ActionMacroLabel": "Libellé de l’action",
   "PB.ActorBaseClassWarning": "Attention : cette classe n’exige pas de classe de base",
   "PB.AllowedCharacterGeneratorClassesEdit": "Modifier les classes autorisées",

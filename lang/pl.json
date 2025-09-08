@@ -14,7 +14,7 @@
   "PB.AbilityStrengthDescription": "Niszczenie, podnoszenie, uderzanie, zapasy.",
   "PB.AbilityToughness": "Wytrzymałość",
   "PB.AbilityToughnessDescription": "Picie grogu, wstrzymywanie oddechu, przetrwanie upadków.",
-  "PB.ActionMacro": "Makro Akcji",
+  "PB.ActionMacro": "Akcja: Makro lub Tabela losowa",
   "PB.ActionMacroLabel": "Etykieta Akcji",
   "PB.ActorBaseClassWarning": "Uwaga: ta klasa nie wymaga klasy bazowej",
   "PB.AllowedCharacterGeneratorClassesEdit": "Edytuj dozwolone klasy",
