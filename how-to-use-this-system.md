@@ -96,6 +96,13 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
   - Apply overcapacity Penalty: +2 STR/AGI DR when carrying more than STR+8 items.
   - Track ammo: Select and auto-decrement ammo for ranged weapons.
 
+## Custom Classes
+
+- You can create your own custom classes by creating a compendium named "Class - Your Class Name" (e.g., "Class - Fancy Pirate").
+- The compendium should contain a single item of type _class_ and any class-specific abilities or features.
+- The class item should have the appropriate fields filled out on the details tab, referring to the compendium and item name. See the existing class items for examples (e.g., Brute).
+- Your new class will then show up in the Tavern character generator.
+
 ## API
 
 - An API is exposed at `game.pirateborg.api` for developers and GMs to use.
