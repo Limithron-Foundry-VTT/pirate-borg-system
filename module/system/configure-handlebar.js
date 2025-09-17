@@ -37,6 +37,10 @@ export const configureHandlebar = () => {
     return args.includes(arguments[0]);
   });
 
+  Handlebars.registerHelper("add", function (a, b) {
+    return a + b;
+  });
+
   /**
    * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
    */

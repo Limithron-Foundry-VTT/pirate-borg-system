@@ -32,7 +32,10 @@
         <div class="stats-block">
           <span class="stat-label luck-label rollable">{{ localize "PB.Luck" }}</span>
           <input class="stat-input" name="system.attributes.luck.value" type="number" value="{{data.system.attributes.luck.value}}" data-dtype="Number" />
-          <span class="stat-rule luck-rule rollable">({{data.system.dynamic.luckDie}} {{ localize "PB.PerRest"}})</span>  
+          <span class="stat-rule luck-rule rollable">({{data.system.dynamic.luckDie}} {{ localize "PB.PerRest"}})</span>
+          {{#if data.system.attributes.luck.modifier}}
+            <span class="luck-modifier">{{#if (gt data.system.attributes.luck.modifier 0)}}+{{/if}}{{data.system.attributes.luck.modifier}} modifier</span>
+          {{/if}}
         </div>        
       </div>
 
@@ -340,7 +343,12 @@
       <div class="stats-bottom-row">
         <div class="stats-block">
           <label class="stat-label">{{ localize "PB.ItemCharacterSpeedMax" }}</label>
-          <input type="text" name="system.attributes.speed.max" value="{{data.system.attributes.speed.max}}" placeholder="6" data-dtype="Number" />
+          <input type="text" name="system.attributes.speed.max" value="{{#if data.system.attributes.combat.speedModifier}}{{effectiveSpeed}}{{else}}{{data.system.attributes.speed.max}}{{/if}}" placeholder="6" data-dtype="Number" />
+          {{#if data.system.attributes.combat.speedModifier}}
+            <span class="speed-formula">
+              ({{data.system.attributes.speed.max}}{{#if (gt data.system.attributes.combat.speedModifier 0)}}+{{/if}}{{data.system.attributes.combat.speedModifier}})
+            </span>
+          {{/if}}
         </div>
       </div>
     </div>

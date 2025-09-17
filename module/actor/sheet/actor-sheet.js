@@ -29,9 +29,58 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
   constructEffectLists(sheetData) {
     const effects = {};
 
-    effects.temporary = sheetData.actor.effects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition);
-    effects.disabled = sheetData.actor.effects.filter((i) => i.disabled && !i.isCondition);
-    effects.passive = sheetData.actor.effects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition);
+    // Helper function to add modifier display to effects
+    const addModifierDisplay = (effect) => {
+      const modifiers = [];
+      effect.changes.forEach(change => {
+        if (change.key.includes('combat.')) {
+          const modifier = change.key.replace('system.attributes.combat.', '');
+          const value = change.value;
+          let displayName = '';
+          
+          switch (modifier) {
+            case 'attackModifier': displayName = 'Attack'; break;
+            case 'defenseModifier': displayName = 'Defense'; break;
+            case 'initiativeModifier': displayName = 'Initiative'; break;
+            case 'damageModifier': displayName = 'Damage'; break;
+            case 'armorTierModifier': displayName = 'Armor Tier'; break;
+            case 'speedModifier': displayName = 'Speed'; break;
+            case 'luckDieModifier': displayName = 'Luck Die'; break;
+          }
+          
+          if (displayName && value != 0) {
+            modifiers.push(`${value > 0 ? '+' : ''}${value} ${displayName}`);
+          }
+        } else if (change.key.includes('abilities.') || change.key.includes('attributes.')) {
+          // Handle other attribute modifiers
+          const parts = change.key.split('.');
+          const attrName = parts[parts.length - 2] || parts[parts.length - 1];
+          const value = change.value;
+          
+          if (value != 0) {
+            let displayName = attrName.charAt(0).toUpperCase() + attrName.slice(1);
+            if (parts.includes('max')) displayName += ' Max';
+            else if (parts.includes('value')) displayName += ' Current';
+            
+            modifiers.push(`${value > 0 ? '+' : ''}${value} ${displayName}`);
+          }
+        }
+      });
+      
+      // Just add modifierDisplay to the existing effect without changing the structure
+      effect.modifierDisplay = modifiers.join(', ') || null;
+      return effect;
+    };
+
+    effects.temporary = sheetData.actor.effects
+      .filter((i) => i.isTemporary && !i.disabled && !i.isCondition)
+      .map(addModifierDisplay);
+    effects.disabled = sheetData.actor.effects
+      .filter((i) => i.disabled && !i.isCondition)
+      .map(addModifierDisplay);
+    effects.passive = sheetData.actor.effects
+      .filter((i) => !i.isTemporary && !i.disabled && !i.isCondition)
+      .map(addModifierDisplay);
 
     sheetData.effects = effects;
   }
@@ -129,17 +178,40 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   _onEffectEdit(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    this.object.effects.get(id).sheet.render(true);
+    const effect = this.object.effects.get(id);
+    
+    if (!effect) {
+      console.error(`Effect with ID ${id} not found for editing`);
+      ui.notifications.error(`Effect not found: ${id}`);
+      return;
+    }
+    
+    effect.sheet.render(true);
   }
 
   _onEffectDelete(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
+    const effect = this.object.effects.get(id);
+    
+    if (!effect) {
+      console.error(`Effect with ID ${id} not found for deletion`);
+      ui.notifications.error(`Effect not found: ${id}`);
+      return;
+    }
+    
     this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
   }
 
   _onEffectToggle(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
     const effect = this.object.effects.get(id);
+
+    if (!effect) {
+      console.error(`Effect with ID ${id} not found. Available effects:`, 
+        Array.from(this.object.effects.keys()));
+      ui.notifications.error(`Effect not found: ${id}`);
+      return;
+    }
 
     effect.update({ disabled: !effect.disabled });
   }
@@ -413,6 +485,13 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     });
 
     formData.data.localizedType = `TYPES.${formData.actor.documentName}.${formData.data.type}`;
+
+    // Calculate effective speed for display
+    if (formData.data.type === 'character') {
+      const baseSpeed = formData.data.system.attributes?.speed?.max || 6;
+      const speedModifier = formData.data.system.attributes?.combat?.speedModifier || 0;
+      formData.effectiveSpeed = baseSpeed + speedModifier;
+    }
 
     return formData;
   }

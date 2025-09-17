@@ -24,6 +24,15 @@ export class PBItem extends Item {
     }
   }
 
+  /** @override */
+  async _preDelete(options, user) {
+    // Remove any effects this item has applied to the actor
+    if (this.parent && this.equipped) {
+      await this._transferEffectsToActor(false);
+    }
+    return super._preDelete(options, user);
+  }
+
   /**
    * @param {PBActor} actor
    */
@@ -831,6 +840,7 @@ export class PBItem extends Item {
    */
   async equip() {
     await this.setEquipped(true);
+    await this._transferEffectsToActor(true);
   }
 
   /**
@@ -838,6 +848,67 @@ export class PBItem extends Item {
    */
   async unequip() {
     await this.setEquipped(false);
+    await this._transferEffectsToActor(false);
+  }
+
+  /**
+   * Transfer item effects to/from actor when equipped/unequipped
+   * @param {Boolean} equipped - true to add effects, false to remove them
+   * @return {Promise<void>}
+   * @private
+   */
+  async _transferEffectsToActor(equipped) {
+    if (!this.parent || !this.effects.size) return;
+
+    const actor = this.parent;
+    
+    if (equipped) {
+      // Check if effects are already applied to avoid duplicates
+      const existingEffects = actor.effects.filter(effect => 
+        effect.origin === this.uuid || 
+        effect.flags?.core?.sourceId === this.uuid
+      );
+      
+      if (existingEffects.length > 0) {
+        console.log(`Effects already applied for ${this.name}, skipping duplicate creation`);
+        return;
+      }
+      
+      // Add item effects to actor when equipped
+      const effectsToAdd = [];
+      for (const effect of this.effects) {
+        const effectData = effect.toObject();
+        effectData.origin = this.uuid; // Mark the source
+        effectData.flags = foundry.utils.mergeObject(effectData.flags || {}, {
+          core: { sourceId: this.uuid }
+        });
+        effectsToAdd.push(effectData);
+      }
+      
+      if (effectsToAdd.length) {
+        console.log(`Adding ${effectsToAdd.length} effects from ${this.name} to ${actor.name}`);
+        await actor.createEmbeddedDocuments("ActiveEffect", effectsToAdd);
+        
+        // Force actor to refresh derived data after adding effects
+        await actor.prepareData();
+        actor.render(false);
+      }
+    } else {
+      // Remove item effects from actor when unequipped
+      const effectsToRemove = actor.effects.filter(effect => 
+        effect.origin === this.uuid || 
+        effect.flags?.core?.sourceId === this.uuid
+      ).map(effect => effect.id);
+      
+      if (effectsToRemove.length) {
+        console.log(`Removing ${effectsToRemove.length} effects from ${this.name} on ${actor.name}`);
+        await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToRemove);
+        
+        // Force actor to refresh derived data after effect removal
+        await actor.prepareData();
+        actor.render(false);
+      }
+    }
   }
 
   /**
