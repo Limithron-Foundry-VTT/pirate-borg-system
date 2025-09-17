@@ -90,6 +90,10 @@ TEMP_DIR=$(mktemp -d)
 log "Created temporary directory: $TEMP_DIR"
 trap "log 'Cleaning up temporary directory...'; rm -rf $TEMP_DIR" EXIT
 
+# Update version with git info before copying
+log "Updating version with git information..."
+node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('system.json')); s.version=s.version.split('-')[0]+'-'+require('child_process').execSync('git branch --show-current',{encoding:'utf8'}).trim()+'-'+require('child_process').execSync('git rev-parse --short HEAD',{encoding:'utf8'}).trim(); fs.writeFileSync('system.json',JSON.stringify(s,null,2)+'\n'); console.log('Updated version:',s.version)"
+
 # Copy system files to temp directory (exclude dev files and temp files)
 log "Copying system files to temporary directory..."
 rsync -av --exclude='.git' --exclude='node_modules' --exclude='*.log' --exclude='.DS_Store' --exclude='install-system.sh' --exclude='gulpfile.js' --exclude='package*.json' --exclude='utils' --exclude='scss' ./ "$TEMP_DIR/"
