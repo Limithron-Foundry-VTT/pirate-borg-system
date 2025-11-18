@@ -305,7 +305,7 @@
   "PB.SheetClassVehicleEdit": "Pirate Borg Edit Vehicle Sheet",
   "PB.SheetItem": "Default Pirate Borg Item Sheet",
   "PB.ShipBoardingPartyMessage": "If touching another ship, the crew may board and attack. Switch to melee combat.",
-  "PB.ShipBroadsidesMessage": "<p>Attack with each of the ship's broadside attacks</p><p><i>A PC make only add their bonus to one attack, but this action maybe be chosen by more than one PC if the ship has multiple attacks.</i> </p><p><i>Target must be in the ship’s arc of fire. </i></p>",
+  "PB.ShipBroadsidesMessage": "<p>Attack with each of the ship's broadside attacks</p><p><i>A PC may only add their bonus to one attack, but this action may be chosen by more than one PC if the ship has multiple attacks.</i> </p><p><i>Target must be in the ship’s arc of fire. </i></p>",
   "PB.ShipCargo": "Cargo",
   "PB.ShipComeAboutMessage": "Rotate one extra hex face.",
   "PB.ShipCrew": "Crew",
