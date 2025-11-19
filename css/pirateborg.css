@@ -7,7 +7,7 @@
   --highlight-background-color: #d20608;
   --highlight-foreground-color: #ffffff;
   --warning-color: var(--highlight-background-color);
-  --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
+  --window-background: url(../ui/parchment-2.jpg) repeat;
   --window-header-color: #ffffff;
   --window-header-background-color: #000000;
   --sidebar-tab-background: #000000;
@@ -752,7 +752,7 @@
 }
 
 body {
-  background: url(/systems/pirateborg/ui/background.jpg);
+  background: url(../ui/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1449,7 +1449,7 @@ h3 {
 }
 
 .sheet.journal-entry .journal-entry-content {
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  background: url(../ui/parchment-2.jpg);
 }
 
 #playlists .playlist.flexrow .sound-control {
