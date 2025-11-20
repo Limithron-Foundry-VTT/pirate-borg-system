@@ -15,12 +15,12 @@ export const compendiumInfoFromString = (compendiumString) => compendiumString.s
 export const findCompendiumItem = async (compendiumName, itemName) => {
   const compendium = game.packs.get(compendiumName);
   if (compendium) {
-    const documents = await compendium.getDocuments();
-    const item = documents.find((i) => i.name === itemName);
+    await compendium.getIndex({ fields: ["name"] });
+    const item = compendium.index.find((i) => i.name === itemName);
     if (!item) {
       console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
     }
-    return item;
+    return compendium.getDocument(item._id);
   }
   console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
 };
@@ -169,9 +169,12 @@ export const findClassPacks = () => [...game.packs.keys()].filter((pack) => pack
  */
 export const classItemFromPack = async (compendiumName) => {
   const compendium = game.packs.get(compendiumName);
-  /** @type {Item[]} */
-  const documents = await compendium.getDocuments();
-  return documents.find((i) => i.type === "class");
+  await compendium.getIndex({fields: ["type"] });
+  const item = compendium.index.find((i) => i.type === "class");
+  if (!item) {
+    return null;
+  }
+  return compendium.getDocument(item._id);
 };
 
 /**
