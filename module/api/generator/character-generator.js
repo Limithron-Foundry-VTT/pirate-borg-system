@@ -446,6 +446,15 @@ const characterToActorData = (characterData) => ({
       },
       carryingModifier: {
         value: characterData.carryingModifier ?? 8,
+      },
+      combat: {
+        attackModifier: 0,
+        defenseModifier: 0,
+        initiativeModifier: 0,
+        damageModifier: 0,
+        armorTierModifier: 0,
+        speedModifier: 0,
+        luckDieModifier: 0
       }
     },
     silver: characterData.silver,

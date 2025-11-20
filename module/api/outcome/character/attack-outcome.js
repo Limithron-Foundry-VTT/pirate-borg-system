@@ -55,6 +55,13 @@ const getDamageFormula = ({ actor, outcome, weapon, ammo, targetToken } = {}) =>
   let damageFormula = weapon.useAmmoDamage ? ammo.damageDie : weapon.damageDie;
   damageFormula = outcome.isCriticalSuccess ? `(${weapon.damageDie}) * 2` : damageFormula;
   damageFormula = outcome.isCriticalSuccess && weapon.critExtraDamage ? `(${damageFormula}) + ${weapon.critExtraDamage}` : damageFormula;
+  
+  // Add damage modifier if present (ActiveEffects already modified the value)
+  const damageModifier = actor.attributes?.combat?.damageModifier || 0;
+  if (damageModifier !== 0) {
+    damageFormula = `(${damageFormula}) + ${damageModifier}`;
+  }
+  
   return actor.getScaledDamageFormula(targetToken?.actor, damageFormula);
 };
 
@@ -72,8 +79,8 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
     testOutcome({
       type: "attack",
       armorFormula,
-      formula: `d20+@abilities.${weapon.attackAbility}.value`,
-      formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilityKey[weapon.attackAbility])}`,
+      formula: `d20+@abilities.${weapon.attackAbility}.value${actor.attributes?.combat?.attackModifier ? '+@attributes.combat.attackModifier' : ''}`,
+      formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilityKey[weapon.attackAbility])}${actor.attributes?.combat?.attackModifier ? ` + Attack Modifier (${actor._getAttackEffectDetails()})` : ''}`,
       data: actor.getRollData(),
       dr,
       item: weapon?.id,

@@ -14,8 +14,13 @@
     }
   ],
   "license": "LICENSE.MB3PL",
-  "esmodules": ["module/pirateborg.js"],
-  "styles": ["css/editor.css", "css/pirateborg.css"],
+  "esmodules": [
+    "module/pirateborg.js"
+  ],
+  "styles": [
+    "css/editor.css",
+    "css/pirateborg.css"
+  ],
   "packs": [
     {
       "name": "containers",
@@ -87,7 +92,6 @@
       "path": "packs/equipment-hats",
       "type": "Item"
     },
-
     {
       "name": "backgrounds",
       "label": "Backgrounds",
@@ -95,7 +99,6 @@
       "path": "packs/backgrounds",
       "type": "Item"
     },
-
     {
       "name": "backgrounds-items",
       "label": "Backgrounds - Items",
@@ -103,7 +106,6 @@
       "path": "packs/backgrounds-items",
       "type": "Item"
     },
-
     {
       "name": "macros-pirateborg",
       "label": "Macros - Pirate Borg",
@@ -111,7 +113,6 @@
       "path": "packs/macros-pirateborg",
       "type": "Macro"
     },
-
     {
       "name": "feature-distinctive-flaws",
       "label": "Feature - Distinctive flaws",
@@ -147,7 +148,6 @@
       "path": "packs/feature-thing-of-importance",
       "type": "Item"
     },
-
     {
       "name": "invokable-ancient-relics",
       "label": "Ancient relics",
@@ -162,7 +162,6 @@
       "path": "packs/invokable-arcane-rituals",
       "type": "Item"
     },
-
     {
       "name": "macros-ancient-relics",
       "label": "Macros - Ancient relics",
@@ -170,7 +169,6 @@
       "path": "packs/macros-ancient-relics",
       "type": "Macro"
     },
-
     {
       "name": "macros-arcane-rituals",
       "label": "Macros - Arcane Rituals",
@@ -185,7 +183,6 @@
       "path": "packs/rolls-character-creation",
       "type": "RollTable"
     },
-
     {
       "name": "rolls-gamemaster",
       "label": "Rolls - Gamemaster",
@@ -193,7 +190,6 @@
       "path": "packs/rolls-gamemaster",
       "type": "RollTable"
     },
-
     {
       "name": "ships-features",
       "label": "Ships - Features",
@@ -236,7 +232,6 @@
       "path": "packs/ships-npc",
       "type": "Actor"
     },
-
     {
       "name": "class-landlubber",
       "label": "Class - Landlubber",
@@ -244,7 +239,6 @@
       "path": "packs/class-landlubber",
       "type": "Item"
     },
-
     {
       "name": "class-brute",
       "label": "Class - Brute",
@@ -266,7 +260,6 @@
       "path": "packs/macros-brute",
       "type": "Macro"
     },
-
     {
       "name": "class-rapscallion",
       "label": "Class - Rapscallion",
@@ -288,7 +281,6 @@
       "path": "packs/macros-rapscallion",
       "type": "Macro"
     },
-
     {
       "name": "class-buccaneer",
       "label": "Class - Buccaneer",
@@ -310,7 +302,6 @@
       "path": "packs/macros-buccaneer",
       "type": "Macro"
     },
-
     {
       "name": "class-swashbuckler",
       "label": "Class - Swashbuckler",
@@ -332,7 +323,6 @@
       "path": "packs/macros-swashbuckler",
       "type": "Macro"
     },
-
     {
       "name": "class-zealot",
       "label": "Class - Zealot",
@@ -354,7 +344,6 @@
       "path": "packs/macros-zealot",
       "type": "Macro"
     },
-
     {
       "name": "class-sorcerer",
       "label": "Class - Sorcerer",
@@ -376,7 +365,6 @@
       "path": "packs/macros-sorcerer",
       "type": "Macro"
     },
-
     {
       "name": "class-tall-tale",
       "label": "Class - Tall Tale",
@@ -398,7 +386,6 @@
       "path": "packs/macros-tall-tale",
       "type": "Macro"
     },
-
     {
       "name": "class-haunted-soul",
       "label": "Class - Haunted Soul",
@@ -469,28 +456,28 @@
           "folders": [
             {
               "name": "Equipment",
-                "packs": [
-                  "containers",
-                  "equipment-melee-weapons",
-                  "equipment-ranged-weapons",
-                  "equipment-bombs",
-                  "equipment-ammo",
-                  "equipment-gear",
-                  "equipment-pets",
-                  "equipment-instruments",
-                  "equipment-clothing-and-armors",
-                  "equipment-hats"
-                ]
+              "packs": [
+                "containers",
+                "equipment-melee-weapons",
+                "equipment-ranged-weapons",
+                "equipment-bombs",
+                "equipment-ammo",
+                "equipment-gear",
+                "equipment-pets",
+                "equipment-instruments",
+                "equipment-clothing-and-armors",
+                "equipment-hats"
+              ]
             },
             {
               "name": "Features",
-                "packs": [
-                  "feature-distinctive-flaws",
-                  "feature-physical-trademark",
-                  "feature-idiosyncrasies",
-                  "feature-unfortunate-incidents-conditions",
-                  "feature-thing-of-importance"
-                ]
+              "packs": [
+                "feature-distinctive-flaws",
+                "feature-physical-trademark",
+                "feature-idiosyncrasies",
+                "feature-unfortunate-incidents-conditions",
+                "feature-thing-of-importance"
+              ]
             }
           ]
         },
