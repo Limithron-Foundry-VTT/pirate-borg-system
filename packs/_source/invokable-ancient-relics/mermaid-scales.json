@@ -2,7 +2,7 @@
   "_id": "Tbbx5I51pu1QyGL1",
   "name": "Mermaid Scales",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-mermaid-scale.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

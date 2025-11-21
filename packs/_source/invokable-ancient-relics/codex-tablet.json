@@ -2,7 +2,7 @@
   "_id": "lQbLf3Q7ydxMv5u2",
   "name": "Codex Tablet",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-codex-tablet.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

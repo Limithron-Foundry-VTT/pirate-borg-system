@@ -2,7 +2,7 @@
   "_id": "agA5xCOdjSwBUUzn",
   "name": "Broken Compass",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-broken-compass.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

@@ -2,7 +2,7 @@
   "_id": "PXgxd8lYBAsxUPnD",
   "name": "Great Old One Figurine",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-great-old-one-figurine.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

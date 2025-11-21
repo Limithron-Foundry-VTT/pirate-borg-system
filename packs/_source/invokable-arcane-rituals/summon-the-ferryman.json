@@ -2,7 +2,7 @@
   "_id": "emwlVE39waM3F8gq",
   "name": "Summon the Ferryman",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
   "effects": [],
   "folder": null,
   "sort": 0,

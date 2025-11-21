@@ -2,7 +2,7 @@
   "_id": "5BysSMhBMUK8Wq2g",
   "name": "Skeleton Key",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-skeleton-key.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

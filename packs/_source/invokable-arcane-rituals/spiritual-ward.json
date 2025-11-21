@@ -2,7 +2,7 @@
   "_id": "zWSeDetkyDGR3eM8",
   "name": "Spiritual Ward",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/ritual-center.webp",
+  "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
   "effects": [],
   "folder": null,
   "sort": 0,

@@ -2,7 +2,7 @@
   "_id": "pM1Vy3BDdi8qMbu3",
   "name": "Undead Bird",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-undead-bird.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,
