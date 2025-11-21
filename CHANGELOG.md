@@ -2,7 +2,7 @@
 
 - Fixed some typos that would be visible when firing ship broadsides.
   - Thank you Stew-rt for the contribution.
-- Improve tavern generator speed.
+- Improved tavern generator speed.
   - Your inevitable replacement characters will roll up much faster now.
 - Rolling a new character via the tavern now correctly updates the token name and image.
   - Apparently no one noticed that "Pascual" hung around for just a little too long...
