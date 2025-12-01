@@ -394,15 +394,13 @@ export class PBActor extends Actor {
 
     if (!baseLuckDie || luckDieModifier === 0) return baseLuckDie;
 
-    // Extract die size from string like "d2" -> 2
-    const match = baseLuckDie.match(/d(\d+)/);
-    if (!match) return baseLuckDie;
+    // Use Foundry's Roll API to extract die faces
+    const roll = Roll.defaultImplementation.create(baseLuckDie);
+    const baseDieSize = roll?.terms?.[0]?.faces;
+    if (!baseDieSize) return baseLuckDie;
 
-    const baseDieSize = parseInt(match[1]);
     const newDieSize = Math.max(1, baseDieSize + luckDieModifier);
-    const result = `d${newDieSize}`;
-
-    return result;
+    return `d${newDieSize}`;
   }
 
   /**

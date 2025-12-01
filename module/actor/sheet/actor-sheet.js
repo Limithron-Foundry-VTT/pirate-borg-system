@@ -521,8 +521,8 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     // Calculate effective speed for display
     if (formData.data.type === "character") {
-      const baseSpeed = formData.data.system.attributes?.speed?.max || 6;
-      const speedModifier = formData.data.system.attributes?.combat?.speedModifier || 0;
+      const baseSpeed = formData.data.system.attributes?.speed?.max ?? 6;
+      const speedModifier = formData.data.system.attributes?.combat?.speedModifier ?? 0;
       formData.effectiveSpeed = baseSpeed + speedModifier;
     }
 
