@@ -3,7 +3,29 @@
   "name": "Lucky Parrot",
   "type": "feature",
   "img": "systems/pirateborg/tokens/lucky-parrot.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffLuckyParr1",
+      "name": "Lucky Parrot",
+      "icon": "systems/pirateborg/tokens/lucky-parrot.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 1
+        },
+        {
+          "key": "system.abilities.presence.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!sdTjTdmBYkJ4Ak97.pbEffLuckyParr1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

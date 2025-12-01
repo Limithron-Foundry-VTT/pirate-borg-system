@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.779582 16ef43000 Recovering log #121
-2025/09/08-14:16:55.779986 16ef43000 Delete type=3 #119
-2025/09/08-14:16:55.780025 16ef43000 Delete type=0 #121
-2025/09/08-14:28:52.030694 82091b000 Level-0 table #126: started
-2025/09/08-14:28:52.030710 82091b000 Level-0 table #126: 0 bytes OK
-2025/09/08-14:28:52.030887 82091b000 Delete type=0 #124
-2025/09/08-14:28:52.030947 82091b000 Manual compaction at level-0 from '!items!36B5BJPdwYbBQutL' @ 72057594037927935 : 1 .. '!items!zmF3NfJi9qwNzNhT' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.030968 82091b000 Manual compaction at level-1 from '!items!36B5BJPdwYbBQutL' @ 72057594037927935 : 1 .. '!items!zmF3NfJi9qwNzNhT' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:55.195867 7f28d93306c0 Recovering log #129
+2025/12/01-05:25:55.210131 7f28d93306c0 Delete type=0 #129
+2025/12/01-05:25:55.210154 7f28d93306c0 Delete type=3 #127
+2025/12/01-05:25:55.211594 7f28b2bff6c0 Level-0 table #135: started
+2025/12/01-05:25:55.216035 7f28b2bff6c0 Level-0 table #135: 9629 bytes OK
+2025/12/01-05:25:55.221914 7f28b2bff6c0 Delete type=0 #133
+2025/12/01-05:25:55.222002 7f28b2bff6c0 Manual compaction at level-0 from '!items!36B5BJPdwYbBQutL' @ 72057594037927935 : 1 .. '!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:55.222048 7f28b2bff6c0 Manual compaction at level-1 from '!items!36B5BJPdwYbBQutL' @ 72057594037927935 : 1 .. '!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1' @ 0 : 0; will stop at '!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1' @ 311 : 1
+2025/12/01-05:25:55.222060 7f28b2bff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:25:55.226271 7f28b2bff6c0 Generated table #136@1: 37 keys, 9629 bytes
+2025/12/01-05:25:55.226284 7f28b2bff6c0 Compacted 1@1 + 1@2 files => 9629 bytes
+2025/12/01-05:25:55.231908 7f28b2bff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:25:55.231953 7f28b2bff6c0 Delete type=2 #135
+2025/12/01-05:25:55.231990 7f28b2bff6c0 Delete type=2 #131
+2025/12/01-05:25:55.232041 7f28b2bff6c0 Manual compaction at level-1 from '!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1' @ 311 : 1 .. '!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1' @ 0 : 0; will stop at (end)

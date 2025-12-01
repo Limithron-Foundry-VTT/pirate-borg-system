@@ -63,9 +63,9 @@ export class PBActor extends Actor {
     this.dynamic.encumbered = this.isEncumbered;
 
     this.dynamic.useExtraResource = this.characterClass?.useExtraResource || this.characterBaseClass?.useExtraResource;
-    
+
     // Effects are handled by equip/unequip methods
-    
+
     this.dynamic.extraResourceNamePlural = this.characterClass?.extraResourceNamePlural || this.characterBaseClass?.extraResourceNamePlural;
     this.dynamic.extraResourceNameSingular = this.characterClass?.extraResourceNameSingular || this.characterBaseClass?.extraResourceNameSingular;
     this.dynamic.extraResourceFormula = this.characterClass?.extraResourceFormula || this.characterBaseClass?.extraResourceFormula;
@@ -74,7 +74,6 @@ export class PBActor extends Actor {
     this.dynamic.extraResourceTestFormulaLabel = this.characterClass?.extraResourceTestFormulaLabel || this.characterBaseClass?.extraResourceTestFormulaLabel;
 
     this.dynamic.luckDie = this.characterClass?.luckDie || this.characterBaseClass?.luckDie;
-    
   }
 
   /**
@@ -106,7 +105,7 @@ export class PBActor extends Actor {
     } else {
       this.dynamic.hasSmallArmsPenalties = false;
     }
-    
+
     // ActiveEffects automatically modify this.attributes values
   }
 
@@ -122,6 +121,16 @@ export class PBActor extends Actor {
           .map((item) => item.id)
       );
     }
+
+    // Auto-apply effects from features when added to character
+    if (collection === "items") {
+      for (const document of documents) {
+        if (document.type === CONFIG.PB.itemTypes.feature && document.effects?.size > 0) {
+          await document._transferEffectsToActor(true);
+        }
+      }
+    }
+
     await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
   }
 
@@ -382,17 +391,17 @@ export class PBActor extends Actor {
   get luckDie() {
     const baseLuckDie = this.dynamic.luckDie;
     const luckDieModifier = this.attributes?.combat?.luckDieModifier || 0;
-    
+
     if (!baseLuckDie || luckDieModifier === 0) return baseLuckDie;
-    
+
     // Extract die size from string like "d2" -> 2
     const match = baseLuckDie.match(/d(\d+)/);
     if (!match) return baseLuckDie;
-    
+
     const baseDieSize = parseInt(match[1]);
     const newDieSize = Math.max(1, baseDieSize + luckDieModifier);
     const result = `d${newDieSize}`;
-    
+
     return result;
   }
 
@@ -666,8 +675,6 @@ export class PBActor extends Actor {
     return item.unequip();
   }
 
-
-
   /**
    * @param {String} baseClass
    * @return {Promise<void>}
@@ -699,12 +706,12 @@ export class PBActor extends Actor {
       case CONFIG.PB.actorTypes.character: {
         const baseArmor = this.equippedArmor;
         if (!baseArmor) return "0";
-        
+
         // Calculate effective armor tier with modifiers
         const baseTier = baseArmor.tier.value;
         const armorTierModifier = this.attributes?.combat?.armorTierModifier || 0;
         const effectiveTier = Math.max(0, Math.min(3, baseTier + armorTierModifier));
-        
+
         return CONFIG.PB.armorTiers[effectiveTier].damageReductionDie;
       }
       case CONFIG.PB.actorTypes.vehicle_npc:
@@ -765,7 +772,6 @@ export class PBActor extends Actor {
     }
   }
 
-
   /**
    * Get active effects that modify combat attributes for display in chat
    * @returns {Object} Effect information for chat display
@@ -778,30 +784,30 @@ export class PBActor extends Actor {
       damage: [],
       armorTier: [],
       speed: [],
-      luckDie: []
+      luckDie: [],
     };
 
     // Find effects that are actively modifying combat attributes
-    this.effects.forEach(effect => {
+    this.effects.forEach((effect) => {
       if (effect.disabled) return;
-      
-      effect.changes.forEach(change => {
+
+      effect.changes.forEach((change) => {
         const sourceName = effect.label || effect.name || "Unknown";
         const value = change.value;
-        
-        if (change.key === 'system.attributes.combat.attackModifier' && value !== 0) {
+
+        if (change.key === "system.attributes.combat.attackModifier" && value !== 0) {
           effectInfo.attack.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.defenseModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.defenseModifier" && value !== 0) {
           effectInfo.defense.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.initiativeModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.initiativeModifier" && value !== 0) {
           effectInfo.initiative.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.damageModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.damageModifier" && value !== 0) {
           effectInfo.damage.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.armorTierModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.armorTierModifier" && value !== 0) {
           effectInfo.armorTier.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.speedModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.speedModifier" && value !== 0) {
           effectInfo.speed.push({ name: sourceName, value });
-        } else if (change.key === 'system.attributes.combat.luckDieModifier' && value !== 0) {
+        } else if (change.key === "system.attributes.combat.luckDieModifier" && value !== 0) {
           effectInfo.luckDie.push({ name: sourceName, value });
         }
       });
@@ -817,9 +823,9 @@ export class PBActor extends Actor {
    */
   _getDefenseEffectDetails() {
     const effects = this.getCombatEffectInfo().defense;
-    if (effects.length === 0) return '';
-    
-    return effects.map(effect => `${effect.value > 0 ? '+' : ''}${effect.value} from ${effect.name}`).join(', ');
+    if (effects.length === 0) return "";
+
+    return effects.map((effect) => `${effect.value > 0 ? "+" : ""}${effect.value} from ${effect.name}`).join(", ");
   }
 
   /**
@@ -829,9 +835,9 @@ export class PBActor extends Actor {
    */
   _getAttackEffectDetails() {
     const effects = this.getCombatEffectInfo().attack;
-    if (effects.length === 0) return '';
-    
-    return effects.map(effect => `${effect.value > 0 ? '+' : ''}${effect.value} from ${effect.name}`).join(', ');
+    if (effects.length === 0) return "";
+
+    return effects.map((effect) => `${effect.value > 0 ? "+" : ""}${effect.value} from ${effect.name}`).join(", ");
   }
 
   /**
@@ -841,8 +847,8 @@ export class PBActor extends Actor {
    */
   _getInitiativeEffectDetails() {
     const effects = this.getCombatEffectInfo().initiative;
-    if (effects.length === 0) return '';
-    
-    return effects.map(effect => `${effect.value > 0 ? '+' : ''}${effect.value} from ${effect.name}`).join(', ');
+    if (effects.length === 0) return "";
+
+    return effects.map((effect) => `${effect.value > 0 ? "+" : ""}${effect.value} from ${effect.name}`).join(", ");
   }
 }

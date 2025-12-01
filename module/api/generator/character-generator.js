@@ -61,8 +61,8 @@ export const updateActorWithCharacter = async (actor, characterData) => {
       name: data.name,
       texture: {
         src: data.img,
-      }
-    }
+      },
+    },
   };
 
   await actor.update(dataAndProto);
@@ -465,8 +465,8 @@ const characterToActorData = (characterData) => ({
         damageModifier: 0,
         armorTierModifier: 0,
         speedModifier: 0,
-        luckDieModifier: 0
-      }
+        luckDieModifier: 0,
+      },
     },
     silver: characterData.silver,
     baseClass: characterData.baseClass || "",

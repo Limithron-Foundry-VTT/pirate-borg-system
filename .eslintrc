@@ -19,7 +19,8 @@
     "Sequencer": "readonly",
     "Sequence": "readonly",
     "dragRuler": "readonly",
-    "AutoAnimations": "readonly"
+    "AutoAnimations": "readonly",
+    "fromUuidSync": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": "latest",

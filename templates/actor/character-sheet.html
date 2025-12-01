@@ -39,6 +39,15 @@
         </div>        
       </div>
 
+      {{!-- Grog Status --}}
+      <div class="header-stats-row grog-status-row">
+        <div class="stats-block grog-block">
+          <span class="stat-label grog-label">{{ localize "PB.GrogDrinks" }}</span>
+          <input class="stat-input grog-drinks-input" name="system.attributes.grog.drinks" type="number" value="{{data.system.attributes.grog.drinks}}" data-dtype="Number" min="0" />
+          <button type="button" class="button item-button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless data.system.dynamic.hasGrog}}disabled{{/unless}}>{{ localize "PB.GrogDrink" }}{{#if data.system.dynamic.grogItem}} ({{data.system.dynamic.grogItem.system.quantity}}){{/if}}</button>
+        </div>
+      </div>
+
       <div class="header-buttons-row">
         <button type="button" class="button item-button broken-button rollable" title="{{localize 'PB.Broken'}}">{{localize 'PB.Broken'}}</button>
         <button type="button" class="button item-button rest-button rollable" title="{{localize 'PB.Rest'}}">{{localize 'PB.Rest'}}</button>

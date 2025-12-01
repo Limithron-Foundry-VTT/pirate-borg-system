@@ -27,6 +27,7 @@
           <option value="system.attributes.combat.armorTierModifier">Armor Tier Modifier</option>
           <option value="system.attributes.combat.speedModifier">Speed Modifier</option>
           <option value="system.attributes.combat.luckDieModifier">Luck Die Modifier</option>
+          <option value="system.attributes.combat.drModifier">DR Modifier</option>
         </optgroup>
         <optgroup label="{{ localize 'PB.Attributes' }}">
           <option value="system.attributes.hp.max">{{localize "PB.HitPointsMax"}}</option>
@@ -64,5 +65,14 @@
         <input type="number" class="modifier" id="quick-effect-modifier" name="modifier" value="0">
       </div>
     </div>
+
+    {{#if isTemporary}}
+    <div>
+      <label for="quick-effect-duration">{{ localize "PB.EffectsDuration" }} ({{ localize "PB.Rounds" }})</label>
+      <div class="form-fields">
+        <input type="number" class="duration" id="quick-effect-duration" name="duration" value="1" min="1">
+      </div>
+    </div>
+    {{/if}}
   </div>
 </div>

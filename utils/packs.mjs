@@ -73,7 +73,7 @@ function cleanPackEntry(data, { clearSourceId = true, ownership = 0 } = {}) {
     data.ownership = { default: ownership };
   }
   if (data.ownership) data.ownership = { default: ownership };
-  if ( clearSourceId ) {
+  if (clearSourceId) {
     delete data._stats?.compendiumSource;
     delete data.flags?.core?.sourceId;
   }

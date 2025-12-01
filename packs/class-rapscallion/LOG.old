@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.749592 16f74f000 Recovering log #120
-2025/09/08-14:16:55.750082 16f74f000 Delete type=3 #118
-2025/09/08-14:16:55.750132 16f74f000 Delete type=0 #120
-2025/09/08-14:28:52.023438 82091b000 Level-0 table #125: started
-2025/09/08-14:28:52.023510 82091b000 Level-0 table #125: 0 bytes OK
-2025/09/08-14:28:52.023798 82091b000 Delete type=0 #123
-2025/09/08-14:28:52.024917 82091b000 Manual compaction at level-0 from '!items!0fXnvduqtkSpdB7n' @ 72057594037927935 : 1 .. '!items!vG4kUIlZdXqv1S7G' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.024943 82091b000 Manual compaction at level-1 from '!items!0fXnvduqtkSpdB7n' @ 72057594037927935 : 1 .. '!items!vG4kUIlZdXqv1S7G' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:54.995260 7f28d93306c0 Recovering log #128
+2025/12/01-05:25:55.009018 7f28d93306c0 Delete type=3 #126
+2025/12/01-05:25:55.009050 7f28d93306c0 Delete type=0 #128
+2025/12/01-05:25:55.010787 7f28b2bff6c0 Level-0 table #134: started
+2025/12/01-05:25:55.015685 7f28b2bff6c0 Level-0 table #134: 4052 bytes OK
+2025/12/01-05:25:55.022375 7f28b2bff6c0 Delete type=0 #132
+2025/12/01-05:25:55.022513 7f28b2bff6c0 Manual compaction at level-0 from '!items!0fXnvduqtkSpdB7n' @ 72057594037927935 : 1 .. '!items!vG4kUIlZdXqv1S7G' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:55.022580 7f28b2bff6c0 Manual compaction at level-1 from '!items!0fXnvduqtkSpdB7n' @ 72057594037927935 : 1 .. '!items!vG4kUIlZdXqv1S7G' @ 0 : 0; will stop at '!items!vG4kUIlZdXqv1S7G' @ 110 : 1
+2025/12/01-05:25:55.022591 7f28b2bff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:25:55.027307 7f28b2bff6c0 Generated table #135@1: 10 keys, 4052 bytes
+2025/12/01-05:25:55.027331 7f28b2bff6c0 Compacted 1@1 + 1@2 files => 4052 bytes
+2025/12/01-05:25:55.033712 7f28b2bff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:25:55.033807 7f28b2bff6c0 Delete type=2 #130
+2025/12/01-05:25:55.033850 7f28b2bff6c0 Delete type=2 #134
+2025/12/01-05:25:55.033929 7f28b2bff6c0 Manual compaction at level-1 from '!items!vG4kUIlZdXqv1S7G' @ 110 : 1 .. '!items!vG4kUIlZdXqv1S7G' @ 0 : 0; will stop at (end)

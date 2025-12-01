@@ -27,7 +27,7 @@
     {{#each effects.temporary as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}{{#if effect.modifierDisplay}} <span class="effect-modifier">({{effect.modifierDisplay}})</span>{{/if}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
       <div class="item-property effect-duration">
         {{#if effect.duration.remaining}}
@@ -62,7 +62,7 @@
     {{#each effects.passive as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}{{#if effect.modifierDisplay}} <span class="effect-modifier">({{effect.modifierDisplay}})</span>{{/if}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
       <div class="item-property">{{effect.sourceName}}</div>
       <div class="item-controls">
@@ -87,7 +87,7 @@
     {{#each effects.disabled as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}" style="opacity : 0.5">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}{{#if effect.modifierDisplay}} <span class="effect-modifier">({{effect.modifierDisplay}})</span>{{/if}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
       <div class="item-property">{{effect.sourceName}}</div>
       <div class="item-controls">

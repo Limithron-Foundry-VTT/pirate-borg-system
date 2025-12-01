@@ -7,9 +7,9 @@
 - Rolling a new character via the tavern now correctly updates the token name and image.
   - Apparently no one noticed that "Pascual" hung around for just a little too long...
 - Heading fonts should no longer be half cut off on Linux.
-    - A long-standing issue - a massive thanks to Stew-rt for the diagnosis assistance.
+  - A long-standing issue - a massive thanks to Stew-rt for the diagnosis assistance.
 - Improved support for Foundry VTT running on non-standard paths.
-    - Switched to relative image URLs to support games running within subfolder paths.
+  - Switched to relative image URLs to support games running within subfolder paths.
 
 # v1.1.6
 

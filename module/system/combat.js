@@ -21,7 +21,7 @@ export class PBCombat extends Combat {
    */
   async _onStartTurn(combatant) {
     await super._onStartTurn(combatant);
-    
+
     // Only GM should handle effect expiration to prevent duplicate processing
     if (game.user.isGM && isAutoExpireEffectsEnabled()) {
       await this._expireEffectsForCombatant(combatant);
@@ -48,10 +48,10 @@ export class PBCombat extends Combat {
     if (!actor) return;
 
     // Find all temporary effects that have expired
-    const expiredEffects = actor.effects.filter(effect => {
+    const expiredEffects = actor.effects.filter((effect) => {
       // Only check temporary effects with duration tracking
       if (!effect.isTemporary) return false;
-      
+
       // Check if the effect has duration remaining set and is expired
       const remaining = effect.duration.remaining;
       return remaining !== null && remaining !== undefined && remaining <= 0;
@@ -62,15 +62,15 @@ export class PBCombat extends Combat {
     // Delete expired effects and notify
     for (const effect of expiredEffects) {
       const effectName = effect.name || effect.label || game.i18n.localize("PB.EffectsUnnamed");
-      
+
       // Post chat notification about the expired effect
       await ChatMessage.create({
         content: game.i18n.format("PB.EffectExpired", {
           effect: effectName,
-          actor: actor.name
+          actor: actor.name,
         }),
         speaker: ChatMessage.getSpeaker({ actor }),
-        type: CONST.CHAT_MESSAGE_STYLES?.OTHER ?? CONST.CHAT_MESSAGE_TYPES?.OTHER ?? 0
+        type: CONST.CHAT_MESSAGE_STYLES?.OTHER ?? CONST.CHAT_MESSAGE_TYPES?.OTHER ?? 0,
       });
 
       // Delete the effect

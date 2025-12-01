@@ -14,13 +14,8 @@
     }
   ],
   "license": "LICENSE.MB3PL",
-  "esmodules": [
-    "module/pirateborg.js"
-  ],
-  "styles": [
-    "css/editor.css",
-    "css/pirateborg.css"
-  ],
+  "esmodules": ["module/pirateborg.js"],
+  "styles": ["css/editor.css", "css/pirateborg.css"],
   "packs": [
     {
       "name": "containers",
@@ -483,14 +478,7 @@
         },
         {
           "name": "Ships",
-          "packs": [
-            "ships-features",
-            "ships-cargo",
-            "rolls-ships",
-            "ships-mystic-shanties",
-            "ships",
-            "ships-npc"
-          ]
+          "packs": ["ships-features", "ships-cargo", "rolls-ships", "ships-mystic-shanties", "ships", "ships-npc"]
         }
       ]
     }
@@ -521,14 +509,8 @@
   "flags": {
     "allowBugReporter": true,
     "hotReload": {
-      "extensions": [
-        "css",
-        "hbs"
-      ],
-      "paths": [
-        "css",
-        "templates"
-      ]
+      "extensions": ["css", "hbs"],
+      "paths": ["css", "templates"]
     }
   },
   "primaryTokenAttribute": "attributes.hp",

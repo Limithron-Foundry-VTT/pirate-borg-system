@@ -27,8 +27,13 @@ export class PBItem extends Item {
   /** @override */
   async _preDelete(options, user) {
     // Remove any effects this item has applied to the actor
-    if (this.parent && this.equipped) {
-      await this._transferEffectsToActor(false);
+    // For equippable items, only remove if equipped
+    // For features, always remove effects since they auto-apply
+    if (this.parent) {
+      const shouldRemoveEffects = this.type === CONFIG.PB.itemTypes.feature || this.equipped;
+      if (shouldRemoveEffects) {
+        await this._transferEffectsToActor(false);
+      }
     }
     return super._preDelete(options, user);
   }
@@ -173,42 +178,42 @@ export class PBItem extends Item {
 
   /**
    * Gets the action macro identifier that will be executed when this item is used.
-   * 
+   *
    * The actionMacro system supports multiple reference formats for flexibility:
-   * 
+   *
    * **UUID References (Recommended):**
    * - `Macro.<id>` - References a world macro by its document ID
-   * - `RollTable.<id>` - References a world roll table by its document ID  
+   * - `RollTable.<id>` - References a world roll table by its document ID
    * - `Compendium.<pack>.<id>` - References a macro/table from a compendium pack
-   * 
+   *
    * **Compendium + Name Format:**
    * - `compendium;name` - References an item in a compendium by pack name and item name
-   * 
+   *
    * **Simple Name References:**
    * - Just the name of a world macro or roll table (fallback method)
-   * 
+   *
    * **Examples:**
    * ```
    * // UUID references (most reliable)
    * "Macro.abc123def456"
-   * "RollTable.xyz789uvw012" 
+   * "RollTable.xyz789uvw012"
    * "Compendium.my-pack.my-macro-id"
-   * 
+   *
    * // Legacy Style Compendium with name
    * "my-compendium-pack;Healing Potion Effect"
-   * 
+   *
    * // Simple name (searches world first)
    * "Roll Initiative"
    * "Random Encounter"
    * ```
-   * 
+   *
    * When the item is used via characterUseItemAction, the system will:
    * 1. Try to resolve as UUID first
    * 2. Try compendium;name format if semicolon present
    * 3. Fall back to searching world macros/tables by name
    * 4. Execute the found macro (with actor, item, outcome, chatMessage context)
    *    or draw from the roll table
-   * 
+   *
    * @returns {String} The macro/table reference string, or empty if no action defined
    */
   get actionMacro() {
@@ -861,49 +866,45 @@ export class PBItem extends Item {
     if (!this.parent || !this.effects.size) return;
 
     const actor = this.parent;
-    
+
     if (equipped) {
       // Check if effects are already applied to avoid duplicates
-      const existingEffects = actor.effects.filter(effect => 
-        effect.origin === this.uuid || 
-        effect.flags?.core?.sourceId === this.uuid
-      );
-      
+      const existingEffects = actor.effects.filter((effect) => effect.origin === this.uuid || effect.flags?.core?.sourceId === this.uuid);
+
       if (existingEffects.length > 0) {
         console.log(`Effects already applied for ${this.name}, skipping duplicate creation`);
         return;
       }
-      
+
       // Add item effects to actor when equipped
       const effectsToAdd = [];
       for (const effect of this.effects) {
         const effectData = effect.toObject();
         effectData.origin = this.uuid; // Mark the source
         effectData.flags = foundry.utils.mergeObject(effectData.flags || {}, {
-          core: { sourceId: this.uuid }
+          core: { sourceId: this.uuid },
         });
         effectsToAdd.push(effectData);
       }
-      
+
       if (effectsToAdd.length) {
         console.log(`Adding ${effectsToAdd.length} effects from ${this.name} to ${actor.name}`);
         await actor.createEmbeddedDocuments("ActiveEffect", effectsToAdd);
-        
+
         // Force actor to refresh derived data after adding effects
         await actor.prepareData();
         actor.render(false);
       }
     } else {
       // Remove item effects from actor when unequipped
-      const effectsToRemove = actor.effects.filter(effect => 
-        effect.origin === this.uuid || 
-        effect.flags?.core?.sourceId === this.uuid
-      ).map(effect => effect.id);
-      
+      const effectsToRemove = actor.effects
+        .filter((effect) => effect.origin === this.uuid || effect.flags?.core?.sourceId === this.uuid)
+        .map((effect) => effect.id);
+
       if (effectsToRemove.length) {
         console.log(`Removing ${effectsToRemove.length} effects from ${this.name} on ${actor.name}`);
         await actor.deleteEmbeddedDocuments("ActiveEffect", effectsToRemove);
-        
+
         // Force actor to refresh derived data after effect removal
         await actor.prepareData();
         actor.render(false);
