@@ -54,7 +54,18 @@ export const updateActorWithCharacter = async (actor, characterData) => {
     deleteAll: true,
     render: false,
   });
-  await actor.update(data);
+
+  const dataAndProto = {
+    ...data,
+    prototypeToken: {
+      name: data.name,
+      texture: {
+        src: data.img,
+      }
+    }
+  };
+
+  await actor.update(dataAndProto);
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
       img: actor.img,

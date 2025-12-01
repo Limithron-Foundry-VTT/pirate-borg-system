@@ -1,3 +1,16 @@
+# v1.1.7
+
+- Fixed some typos that would be visible when firing ship broadsides.
+  - Thank you Stew-rt for the contribution.
+- Improved tavern generator speed.
+  - Your inevitable replacement characters will roll up much faster now.
+- Rolling a new character via the tavern now correctly updates the token name and image.
+  - Apparently no one noticed that "Pascual" hung around for just a little too long...
+- Heading fonts should no longer be half cut off on Linux.
+    - A long-standing issue - a massive thanks to Stew-rt for the diagnosis assistance.
+- Improved support for Foundry VTT running on non-standard paths.
+    - Switched to relative image URLs to support games running within subfolder paths.
+
 # v1.1.6
 
 - Added support for calling RollTables and Macros by UUID in invocable actions.

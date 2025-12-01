@@ -741,6 +741,9 @@ export class PBActor extends Actor {
    * @returns {String}
    */
   getScaledDamageFormula(target, damageFormula) {
+    if (!damageFormula) {
+      damageFormula = "0";
+    }
     const scalingFactor = this.getScalingFactorBetween(target);
     return scalingFactor ? `(${damageFormula}) ${scalingFactor}` : damageFormula;
   }

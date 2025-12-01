@@ -2,7 +2,7 @@
   "_id": "nLzAjJaU8DhwF13N",
   "name": "Jade Die",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-jade-die.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

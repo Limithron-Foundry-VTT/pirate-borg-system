@@ -2,7 +2,7 @@
   "_id": "By3b67C1TaTpduqG",
   "name": "Map Inked in Ectoplasm",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-map-inked-in-ectoplasm.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

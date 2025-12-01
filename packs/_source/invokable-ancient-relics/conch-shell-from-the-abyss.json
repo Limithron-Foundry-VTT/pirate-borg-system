@@ -2,7 +2,7 @@
   "_id": "LmBxqKGa5K6Q5cw2",
   "name": "Conch Shell from the Abyss",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-Conch-shell-from-the-Abyss.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

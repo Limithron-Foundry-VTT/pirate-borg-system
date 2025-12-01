@@ -7,7 +7,7 @@
   --highlight-background-color: #d20608;
   --highlight-foreground-color: #ffffff;
   --warning-color: var(--highlight-background-color);
-  --window-background: url(/systems/pirateborg/ui/parchment-2.jpg) repeat;
+  --window-background: url(../ui/parchment-2.jpg) repeat;
   --window-header-color: #ffffff;
   --window-header-background-color: #000000;
   --sidebar-tab-background: #000000;
@@ -147,6 +147,7 @@
   font-size: 32px;
   border: none;
   height: 40px;
+  line-height: 40px;
 }
 .pirateborg.sheet .window-content .sheet-header .header-col2 .header-subtitle-row {
   display: flex;
@@ -752,7 +753,7 @@
 }
 
 body {
-  background: url(/systems/pirateborg/ui/background.jpg);
+  background: url(../ui/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1071,6 +1072,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   font-size: 24px;
   text-overflow: ellipsis;
   overflow: hidden;
+  line-height: 28px;
 }
 .chat-sidebar .chat-message .message-header .message-metadata {
   font-family: var(--chat-info-font);
@@ -1086,6 +1088,7 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
   font-size: 24px;
+  margin-top: 4px;
   margin-bottom: 24px;
   text-align: center;
   padding-top: 4px;
@@ -1449,7 +1452,7 @@ h3 {
 }
 
 .sheet.journal-entry .journal-entry-content {
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  background: url(../ui/parchment-2.jpg);
 }
 
 #playlists .playlist.flexrow .sound-control {

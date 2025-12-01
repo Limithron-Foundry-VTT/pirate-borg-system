@@ -2,7 +2,7 @@
   "_id": "TlHY15qbfmh8n5Z8",
   "name": "Will-o'-the-wisp Lantern",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-will-o-the-wisp-lantern.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

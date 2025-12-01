@@ -2,7 +2,7 @@
   "_id": "uMFtG3p9fuaMJzKU",
   "name": "Crown of the Sunken Lord",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-crown-of-the-sunken-lord.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

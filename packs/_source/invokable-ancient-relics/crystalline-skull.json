@@ -2,7 +2,7 @@
   "_id": "ZAOlmwTxlX4xVLQp",
   "name": "Crystalline Skull",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-crystaline-skull.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,

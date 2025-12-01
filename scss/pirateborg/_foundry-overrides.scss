@@ -1,5 +1,5 @@
 body {
-  background: url(/systems/pirateborg/ui/background.jpg);
+  background: url(../ui/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -415,6 +415,7 @@ form.editable .results {
       font-size: 24px;
       text-overflow: ellipsis;
       overflow: hidden;
+      line-height: 28px;
     }
 
     .message-metadata {
@@ -432,6 +433,7 @@ form.editable .results {
       color: var(--highlight-foreground-color);
       font-family: var(--h2-font);
       font-size: 24px;
+      margin-top: 4px;
       margin-bottom: 24px;
       text-align: center;
       padding-top: 4px;
@@ -875,7 +877,7 @@ h3 {
 }
 
 .sheet.journal-entry .journal-entry-content {
-  background: url(/systems/pirateborg/ui/parchment-2.jpg);
+  background: url(../ui/parchment-2.jpg);
 }
 
 #playlists .playlist.flexrow .sound-control {

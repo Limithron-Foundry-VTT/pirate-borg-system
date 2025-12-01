@@ -2,7 +2,7 @@
   "_id": "UPJIy6ndkc3asTca",
   "name": "Cup of the Carpenter",
   "type": "invokable",
-  "img": "/modules/pirate-borg-premium/Icons/Relics/artifact-cup-of-the-carpenter.webp",
+  "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [],
   "folder": null,
   "sort": 0,
