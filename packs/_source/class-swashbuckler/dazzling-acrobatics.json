@@ -3,7 +3,24 @@
   "name": "Dazzling Acrobatics",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffDazzlDef01",
+      "name": "Dazzling Acrobatics - Defense Bonus",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!MX7IBXzkNpkY3an3.pbEffDazzlDef01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

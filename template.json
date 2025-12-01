@@ -115,7 +115,12 @@
           "damageModifier": 0,
           "armorTierModifier": 0,
           "speedModifier": 0,
-          "luckDieModifier": 0
+          "luckDieModifier": 0,
+          "drModifier": 0
+        },
+        "grog": {
+          "drinks": 0,
+          "hoursRemaining": 0
         }
       }
     },

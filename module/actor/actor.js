@@ -122,6 +122,16 @@ export class PBActor extends Actor {
           .map((item) => item.id)
       );
     }
+    
+    // Auto-apply effects from features when added to character
+    if (collection === "items") {
+      for (const document of documents) {
+        if (document.type === CONFIG.PB.itemTypes.feature && document.effects?.size > 0) {
+          await document._transferEffectsToActor(true);
+        }
+      }
+    }
+    
     await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
   }
 

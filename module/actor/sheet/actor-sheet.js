@@ -46,6 +46,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
             case 'armorTierModifier': displayName = 'Armor Tier'; break;
             case 'speedModifier': displayName = 'Speed'; break;
             case 'luckDieModifier': displayName = 'Luck Die'; break;
+            case 'drModifier': displayName = 'DR'; break;
           }
           
           if (displayName && value != 0) {

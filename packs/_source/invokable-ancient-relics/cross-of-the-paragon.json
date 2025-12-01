@@ -3,12 +3,61 @@
   "name": "Cross of the Paragon",
   "type": "invokable",
   "img": "systems/pirateborg/icons/misc/relic.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffParagon001",
+      "name": "Cross of the Paragon - Attack Bonus",
+      "icon": "systems/pirateborg/icons/misc/relic.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.attackModifier",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "rounds": 1
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d6",
+          "targetType": "ally"
+        }
+      },
+      "_key": "!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon001"
+    },
+    {
+      "_id": "pbEffParagon002",
+      "name": "Cross of the Paragon - Damage Bonus",
+      "icon": "systems/pirateborg/icons/misc/relic.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.damageModifier",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "rounds": 1
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d6",
+          "targetType": "ally"
+        }
+      },
+      "_key": "!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>One ally gets +1 to attack and +1 to damage for d6 turns.</p>",
+    "description": "<p>One ally gets +1 to attack and +1 to damage for d6 turns.</p>\n<p><strong>Usage:</strong> Drag effects to target ally, then roll 1d6 and edit duration on the ally's Effects tab.</p>",
     "containerSpace": 1,
     "carryWeight": 1,
     "equipped": false,

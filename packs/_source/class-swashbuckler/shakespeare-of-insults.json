@@ -3,7 +3,24 @@
   "name": "Shakespeare of Insults",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffShakeDmg01",
+      "name": "Shakespeare of Insults - Damage Bonus",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.damageModifier",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!R7LoinR3FpkCnwQK.pbEffShakeDmg01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

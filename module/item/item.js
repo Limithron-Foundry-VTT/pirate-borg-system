@@ -27,8 +27,13 @@ export class PBItem extends Item {
   /** @override */
   async _preDelete(options, user) {
     // Remove any effects this item has applied to the actor
-    if (this.parent && this.equipped) {
-      await this._transferEffectsToActor(false);
+    // For equippable items, only remove if equipped
+    // For features, always remove effects since they auto-apply
+    if (this.parent) {
+      const shouldRemoveEffects = this.type === CONFIG.PB.itemTypes.feature || this.equipped;
+      if (shouldRemoveEffects) {
+        await this._transferEffectsToActor(false);
+      }
     }
     return super._preDelete(options, user);
   }

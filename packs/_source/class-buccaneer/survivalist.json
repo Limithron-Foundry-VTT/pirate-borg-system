@@ -3,7 +3,29 @@
   "name": "Survivalist",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffSurvival01",
+      "name": "Survivalist",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.abilities.toughness.value",
+          "mode": 2,
+          "value": 1
+        },
+        {
+          "key": "system.attributes.hp.max",
+          "mode": 2,
+          "value": 4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

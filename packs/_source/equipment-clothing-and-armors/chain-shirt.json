@@ -3,7 +3,24 @@
   "name": "Chain shirt",
   "type": "armor",
   "img": "systems/pirateborg/icons/equipment/armors/chain-shirt.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffChainAgil1",
+      "name": "Chain Shirt - Agility Penalty",
+      "icon": "systems/pirateborg/icons/equipment/armors/chain-shirt.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": -2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

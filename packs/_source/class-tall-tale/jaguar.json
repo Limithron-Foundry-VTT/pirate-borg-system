@@ -3,7 +3,40 @@
   "name": "Jaguar",
   "type": "feature",
   "img": "systems/pirateborg/tokens/jaguar.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffJaguarStr1",
+      "name": "Jaguar - Strength Bonus",
+      "icon": "systems/pirateborg/tokens/jaguar.png",
+      "changes": [
+        {
+          "key": "system.abilities.strength.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!iDVD29wjXnI9oDBf.pbEffJaguarStr1"
+    },
+    {
+      "_id": "pbEffJaguarAgi1",
+      "name": "Jaguar - Agility Bonus",
+      "icon": "systems/pirateborg/tokens/jaguar.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!iDVD29wjXnI9oDBf.pbEffJaguarAgi1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
