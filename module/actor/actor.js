@@ -180,9 +180,15 @@ export class PBActor extends Actor {
       return;
     }
 
+    // Find grog item for origin
+    const grogItem = this.items.find(
+      (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog"
+    );
+
     const effectData = {
       name: game.i18n.format("PB.GrogIntoxication", { drinks }),
       img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
+      origin: grogItem?.uuid || null,
       changes: [
         {
           key: "system.abilities.agility.value",
@@ -202,13 +208,7 @@ export class PBActor extends Actor {
       // Update existing effect
       await existingEffect.update(effectData);
     } else {
-      // Create new effect - find grog item for origin
-      const grogItem = this.items.find(
-        (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog"
-      );
-      if (grogItem) {
-        effectData.origin = grogItem.uuid;
-      }
+      // Create new effect
       await this.createEmbeddedDocuments("ActiveEffect", [effectData]);
     }
   }
