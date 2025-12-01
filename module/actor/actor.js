@@ -148,6 +148,71 @@ export class PBActor extends Actor {
     await super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
   }
 
+  /** @override */
+  async _onUpdate(changed, options, userId) {
+    await super._onUpdate(changed, options, userId);
+    
+    // Update grog intoxication effect when drinks value changes
+    if (this.type === CONFIG.PB.actorTypes.character && 
+        changed.system?.attributes?.grog?.drinks !== undefined) {
+      await this._updateGrogIntoxicationEffect(changed.system.attributes.grog.drinks);
+    }
+  }
+
+  /**
+   * Update or remove the Grog Intoxication effect based on drink count
+   * @param {Number} drinks - Number of drinks
+   * @private
+   */
+  async _updateGrogIntoxicationEffect(drinks) {
+    const GROG_INTOXICATION_FLAG = "grogIntoxication";
+    
+    // Find existing grog intoxication effect
+    const existingEffect = this.effects.find(
+      (e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG)
+    );
+
+    if (drinks <= 0) {
+      // Remove effect if no drinks
+      if (existingEffect) {
+        await existingEffect.delete();
+      }
+      return;
+    }
+
+    const effectData = {
+      name: game.i18n.format("PB.GrogIntoxication", { drinks }),
+      img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
+      changes: [
+        {
+          key: "system.abilities.agility.value",
+          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+          value: -drinks,
+        },
+      ],
+      flags: {
+        [CONFIG.PB.flagScope]: {
+          [GROG_INTOXICATION_FLAG]: true,
+          drinks,
+        },
+      },
+    };
+
+    if (existingEffect) {
+      // Update existing effect
+      await existingEffect.update(effectData);
+    } else {
+      // Create new effect - find grog item for origin
+      const grogItem = this.items.find(
+        (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog"
+      );
+      if (grogItem) {
+        effectData.origin = grogItem.uuid;
+      }
+      await this.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    }
+  }
+
   async addCondition(effect, flags = {}) {
     if (typeof effect === "string") {
       effect = foundry.utils.duplicate(CONFIG.statusEffects.concat(Object.values(game.pirateborg.config.systemEffects)).find((e) => e.id === effect));
