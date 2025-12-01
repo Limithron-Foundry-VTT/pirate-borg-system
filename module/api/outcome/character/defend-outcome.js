@@ -64,7 +64,7 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
       type: "defend",
       formula: `d20+@abilities.agility.value${actor.attributes?.combat?.defenseModifier ? "+@attributes.combat.defenseModifier" : ""}`,
       formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilityKey.agility)}${
-        actor.attributes?.combat?.defenseModifier ? ` + Defense Modifier (${actor._getDefenseEffectDetails()})` : ""
+        actor.attributes?.combat?.defenseModifier ? ` + ${game.i18n.localize("PB.DefenseBonus")} (${actor._getDefenseEffectDetails()})` : ""
       }`,
       data: actor.getRollData(),
       dr,

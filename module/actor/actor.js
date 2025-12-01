@@ -792,7 +792,7 @@ export class PBActor extends Actor {
       if (effect.disabled) return;
 
       effect.changes.forEach((change) => {
-        const sourceName = effect.label || effect.name || "Unknown";
+        const sourceName = effect.label || effect.name || `Unknown (${effect.id})`;
         const value = change.value;
 
         if (change.key === "system.attributes.combat.attackModifier" && value !== 0) {

@@ -40,28 +40,28 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
           switch (modifier) {
             case "attackModifier":
-              displayName = "Attack";
+              displayName = game.i18n.localize("PB.Attack");
               break;
             case "defenseModifier":
-              displayName = "Defense";
+              displayName = game.i18n.localize("PB.Defense");
               break;
             case "initiativeModifier":
-              displayName = "Initiative";
+              displayName = game.i18n.localize("PB.Initiative");
               break;
             case "damageModifier":
-              displayName = "Damage";
+              displayName = game.i18n.localize("PB.Damage");
               break;
             case "armorTierModifier":
-              displayName = "Armor Tier";
+              displayName = game.i18n.localize("PB.ArmorTier");
               break;
             case "speedModifier":
-              displayName = "Speed";
+              displayName = game.i18n.localize("PB.Speed");
               break;
             case "luckDieModifier":
-              displayName = "Luck Die";
+              displayName = game.i18n.localize("PB.LuckDie");
               break;
             case "drModifier":
-              displayName = "DR";
+              displayName = game.i18n.localize("PB.DR");
               break;
           }
 
@@ -216,7 +216,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     if (!effect) {
       console.error(`Effect with ID ${id} not found for editing`);
-      ui.notifications.error(`Effect not found: ${id}`);
+      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
       return;
     }
 
@@ -229,7 +229,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     if (!effect) {
       console.error(`Effect with ID ${id} not found for deletion`);
-      ui.notifications.error(`Effect not found: ${id}`);
+      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
       return;
     }
 
@@ -242,7 +242,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     if (!effect) {
       console.error(`Effect with ID ${id} not found. Available effects:`, Array.from(this.object.effects.keys()));
-      ui.notifications.error(`Effect not found: ${id}`);
+      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
       return;
     }
 

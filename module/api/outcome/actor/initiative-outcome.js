@@ -12,7 +12,7 @@ export const createInitiativeOutcome = async ({ actor }) =>
       title: game.i18n.localize("PB.Initiative"),
       formula: `d6+@abilities.agility.value${actor.attributes?.combat?.initiativeModifier ? "+@attributes.combat.initiativeModifier" : ""}`,
       formulaLabel: `${game.i18n.localize("PB.InitiativeFormula")}${
-        actor.attributes?.combat?.initiativeModifier ? ` + Initiative Modifier (${actor._getInitiativeEffectDetails()})` : ""
+        actor.attributes?.combat?.initiativeModifier ? ` + ${game.i18n.localize("PB.InitiativeBonus")} (${actor._getInitiativeEffectDetails()})` : ""
       }`,
       data: actor.getRollData(),
     })

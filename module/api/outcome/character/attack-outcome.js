@@ -81,7 +81,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       armorFormula,
       formula: `d20+@abilities.${weapon.attackAbility}.value${actor.attributes?.combat?.attackModifier ? "+@attributes.combat.attackModifier" : ""}`,
       formulaLabel: `d20 + ${game.i18n.localize(CONFIG.PB.abilityKey[weapon.attackAbility])}${
-        actor.attributes?.combat?.attackModifier ? ` + Attack Modifier (${actor._getAttackEffectDetails()})` : ""
+        actor.attributes?.combat?.attackModifier ? ` + ${game.i18n.localize("PB.AttackBonus")} (${actor._getAttackEffectDetails()})` : ""
       }`,
       data: actor.getRollData(),
       dr,

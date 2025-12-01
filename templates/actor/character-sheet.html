@@ -34,7 +34,7 @@
           <input class="stat-input" name="system.attributes.luck.value" type="number" value="{{data.system.attributes.luck.value}}" data-dtype="Number" />
           <span class="stat-rule luck-rule rollable">({{data.system.dynamic.luckDie}} {{ localize "PB.PerRest"}})</span>
           {{#if data.system.attributes.luck.modifier}}
-            <span class="luck-modifier">{{#if (gt data.system.attributes.luck.modifier 0)}}+{{/if}}{{data.system.attributes.luck.modifier}} modifier</span>
+            <span class="luck-modifier">{{#if (gt data.system.attributes.luck.modifier 0)}}+{{/if}}{{data.system.attributes.luck.modifier}} {{localize "PB.Modifier"}}</span>
           {{/if}}
         </div>        
       </div>
