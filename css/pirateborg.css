@@ -648,6 +648,9 @@
   margin: 0;
 }
 
+.pirateborg {
+  /* Effect duration styling */
+}
 .pirateborg .items-list .items-header {
   margin: 0;
   padding: 0;
@@ -738,6 +741,26 @@
 }
 .pirateborg .item-list .empty-container {
   text-align: center;
+}
+.pirateborg .effect-duration-header {
+  flex: 0 0 60px;
+  text-align: center;
+}
+.pirateborg .effect-duration {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--item-font);
+  font-size: 12pt;
+}
+.pirateborg .effect-duration i.fa-clock {
+  color: var(--highlight-background-color);
+}
+.pirateborg .effect-modifier {
+  font-size: 10pt;
+  color: var(--highlight-background-color);
 }
 
 .pirateborg.sheet.actor .creature {
@@ -1986,24 +2009,6 @@ button.dice-calculator--button {
 #module-management {
   min-height: auto !important;
   height: auto !important;
-}
-
-/* Combat Bonuses Styling */
-.pirateborg.sheet .window-content .combat-bonuses .stats-block .small-input {
-  width: 50px;
-  font-size: 16px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.pirateborg.sheet .window-content .combat-bonuses .item.flexrow {
-  justify-content: space-around;
-  gap: 15px;
-  padding: 8px 0;
-}
-
-.pirateborg.sheet .window-content .combat-bonuses .stats-block {
-  min-width: 120px;
 }
 
 /*# sourceMappingURL=pirateborg.css.map */

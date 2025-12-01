@@ -135,6 +135,11 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     };
     if (type === "temporary") {
       effectData["duration.rounds"] = 1;
+      // Set start round/turn if combat is active for proper duration tracking
+      if (game.combat?.started) {
+        effectData["duration.startRound"] = game.combat.round;
+        effectData["duration.startTurn"] = game.combat.turn;
+      }
     }
 
     let html;
