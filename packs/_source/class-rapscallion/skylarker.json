@@ -8,7 +8,7 @@
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>You&rsquo;re as nimble in the rigging as you are on the deck.</p>\n<p>If you attack after swinging, jumping, or making an acrobatic maneuver, test Agility DR10 to automatically hit and deal +2 damage.</p>\n<p>If taken again: increase extra damage by +1.</p>",
+    "description": "<p>You&rsquo;re as nimble in the rigging as you are on the deck.</p>\n<p>If you attack after swinging, jumping, or making an acrobatic maneuver, test Agility DR10 to automatically hit and deal +2 damage.</p>\n<p>If taken again: increase extra damage by +1.</p>\n<p><em><!-- TODO: EFFECT IMPLEMENTATION NEEDED - Conditional +2 damage after successful acrobatic test --></em></p>",
     "featureType": "Class",
     "maxQuantity": 0,
     "quantity": 1,

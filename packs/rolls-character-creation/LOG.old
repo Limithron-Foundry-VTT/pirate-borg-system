@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.718099 16e737000 Recovering log #122
-2025/09/08-14:16:55.718535 16e737000 Delete type=3 #120
-2025/09/08-14:16:55.718603 16e737000 Delete type=0 #122
-2025/09/08-14:28:52.016751 82091b000 Level-0 table #127: started
-2025/09/08-14:28:52.016919 82091b000 Level-0 table #127: 0 bytes OK
-2025/09/08-14:28:52.017126 82091b000 Delete type=0 #125
-2025/09/08-14:28:52.017831 82091b000 Manual compaction at level-0 from '!tables!1QIUIZc6vcFJqsYz' @ 72057594037927935 : 1 .. '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.017874 82091b000 Manual compaction at level-1 from '!tables!1QIUIZc6vcFJqsYz' @ 72057594037927935 : 1 .. '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 0 : 0; will stop at (end)
+2025/12/01-03:04:57.051192 7f3af165e6c0 Recovering log #135
+2025/12/01-03:04:57.068716 7f3af165e6c0 Delete type=0 #135
+2025/12/01-03:04:57.068736 7f3af165e6c0 Delete type=3 #133
+2025/12/01-03:04:57.079410 7f3acaffd6c0 Level-0 table #141: started
+2025/12/01-03:04:57.086783 7f3acaffd6c0 Level-0 table #141: 342369 bytes OK
+2025/12/01-03:04:57.093583 7f3acaffd6c0 Delete type=0 #139
+2025/12/01-03:04:57.093721 7f3acaffd6c0 Manual compaction at level-0 from '!tables!1QIUIZc6vcFJqsYz' @ 72057594037927935 : 1 .. '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 0 : 0; will stop at (end)
+2025/12/01-03:04:57.093759 7f3acaffd6c0 Manual compaction at level-1 from '!tables!1QIUIZc6vcFJqsYz' @ 72057594037927935 : 1 .. '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 0 : 0; will stop at '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 44921 : 1
+2025/12/01-03:04:57.093770 7f3acaffd6c0 Compacting 1@1 + 1@2 files
+2025/12/01-03:04:57.102664 7f3acaffd6c0 Generated table #142@1: 3955 keys, 342369 bytes
+2025/12/01-03:04:57.102673 7f3acaffd6c0 Compacted 1@1 + 1@2 files => 342369 bytes
+2025/12/01-03:04:57.109230 7f3acaffd6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-03:04:57.109270 7f3acaffd6c0 Delete type=2 #141
+2025/12/01-03:04:57.109322 7f3acaffd6c0 Delete type=2 #137
+2025/12/01-03:04:57.109378 7f3acaffd6c0 Manual compaction at level-1 from '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 44921 : 1 .. '!tables.results!zdslrlczJyGmflFt.zx0htrttj1plfab3' @ 0 : 0; will stop at (end)

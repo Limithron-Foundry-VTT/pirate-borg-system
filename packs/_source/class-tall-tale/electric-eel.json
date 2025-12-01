@@ -3,7 +3,24 @@
   "name": "Electric Eel",
   "type": "feature",
   "img": "systems/pirateborg/tokens/electric-eel.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffEelAgil001",
+      "name": "Electric Eel - Agility Bonus",
+      "icon": "systems/pirateborg/tokens/electric-eel.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!GGf7XeEppvQ7j6BX.pbEffEelAgil001"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

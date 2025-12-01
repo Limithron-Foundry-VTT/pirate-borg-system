@@ -3,7 +3,24 @@
   "name": "Foul Fowl",
   "type": "feature",
   "img": "systems/pirateborg/tokens/foul-fowl.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffFowlSpir01",
+      "name": "Foul Fowl - Spirit Bonus",
+      "icon": "systems/pirateborg/tokens/foul-fowl.png",
+      "changes": [
+        {
+          "key": "system.abilities.spirit.value",
+          "mode": 2,
+          "value": 3
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!4qW6PHlQ23EX4jBd.pbEffFowlSpir01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

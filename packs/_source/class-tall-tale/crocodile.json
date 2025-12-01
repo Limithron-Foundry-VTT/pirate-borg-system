@@ -3,7 +3,40 @@
   "name": "Crocodile",
   "type": "feature",
   "img": "systems/pirateborg/tokens/crocodile.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffCrocStr001",
+      "name": "Crocodile - Strength Bonus",
+      "icon": "systems/pirateborg/tokens/crocodile.png",
+      "changes": [
+        {
+          "key": "system.abilities.strength.value",
+          "mode": 2,
+          "value": 3
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!a1dn6FUP6fy7N9r0.pbEffCrocStr001"
+    },
+    {
+      "_id": "pbEffCrocToug01",
+      "name": "Crocodile - Toughness Bonus",
+      "icon": "systems/pirateborg/tokens/crocodile.png",
+      "changes": [
+        {
+          "key": "system.abilities.toughness.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!a1dn6FUP6fy7N9r0.pbEffCrocToug01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
