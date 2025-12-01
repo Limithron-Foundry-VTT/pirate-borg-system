@@ -131,7 +131,7 @@
   "PB.GrogDrinking": "Drinking Grog",
   "PB.GrogDrinks": "Drinks in the last hour",
   "PB.GrogNoGrog": "You have no grog to drink!",
-  "PB.GrogIntoxication": "Grog Intoxication ({drinks} drinks)",
+  "PB.GrogIntoxication": "Grog Intoxication x{drinks}",
   "PB.GrogToughnessTest": "Toughness Test",
   "PB.GrogVomiting": "Vomiting",
   "PB.GrogVomitingDuration": "Vomiting for {rounds} round(s)",
