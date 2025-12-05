@@ -44,7 +44,7 @@ export const characterUseItemAction = async (actor, item, outcome = null, chatMe
   if (!target) {
     ui.notifications?.warn?.(
       `Action target "${actionValue}" not found for item "${item?.name}". ` +
-      `Check that the macro, roll table, or compendium reference is correct and available.`
+        `Check that the macro, roll table, or compendium reference is correct and available.`
     );
     return;
   }

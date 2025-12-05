@@ -48,7 +48,7 @@ export const drawTableText = async (compendium, table) => {
     return result.description;
   }
   return result.getChatText();
-}
+};
 
 /**
  * @param {String} compendium
@@ -169,7 +169,7 @@ export const findClassPacks = () => [...game.packs.keys()].filter((pack) => pack
  */
 export const classItemFromPack = async (compendiumName) => {
   const compendium = game.packs.get(compendiumName);
-  await compendium.getIndex({fields: ["type"] });
+  await compendium.getIndex({ fields: ["type"] });
   const item = compendium.index.find((i) => i.type === "class");
   if (!item) {
     return null;

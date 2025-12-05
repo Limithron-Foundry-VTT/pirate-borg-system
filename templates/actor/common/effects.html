@@ -17,6 +17,7 @@
   <ol class="items-list flexcol">
     <li class="items-header flexrow">
       <span class="item-property item-name">{{localize "PB.EffectsTemporary"}}</span>
+      <span class="item-property effect-duration-header">{{localize "PB.EffectsDuration"}}</span>
       <span class="item-property">{{localize "PB.EffectsSource"}}</span>
       <div class="item-create-button">
         <a class="effect-create" title="{{localize 'PB.EffectsCreate'}}" data-type="temporary"><i class="fas fa-plus"></i></a>
@@ -26,8 +27,17 @@
     {{#each effects.temporary as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
+      <div class="item-property effect-duration">
+        {{#if effect.duration.remaining}}
+        <i class="fas fa-clock" title="{{localize 'PB.EffectsRoundsRemaining'}}"></i>
+        <span>{{effect.duration.remaining}}</span>
+        {{else if effect.duration.rounds}}
+        <i class="fas fa-clock" title="{{localize 'PB.EffectsDuration'}}"></i>
+        <span>{{effect.duration.rounds}}</span>
+        {{/if}}
+      </div>
       <div class="item-property">{{effect.sourceName}}</div>
       <div class="item-controls">
         <a class="item-control effect-toggle" title="{{localize 'PB.EffectsDisable'}}"><i class="far fa-check-circle"></i></a>
@@ -52,7 +62,7 @@
     {{#each effects.passive as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
       <div class="item-property">{{effect.sourceName}}</div>
       <div class="item-controls">
@@ -77,7 +87,7 @@
     {{#each effects.disabled as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}" style="opacity : 0.5">
       <img class="item-property item-image" src="{{effect.img}}"></img>
-      <div class="item-property item-name effect-edit">{{effect.name}}</div>
+      <div class="item-property item-name effect-edit" {{#if effect.modifierDisplay}}data-tooltip="{{effect.modifierDisplay}}"{{/if}}>{{effect.name}}{{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}</div>
 
       <div class="item-property">{{effect.sourceName}}</div>
       <div class="item-controls">

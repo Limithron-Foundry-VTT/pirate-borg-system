@@ -3,7 +3,24 @@
   "name": "Blow the Man Down",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffBlowMan001",
+      "name": "Blow the Man Down",
+      "icon": "systems/pirateborg/icons/misc/shanty.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!6GtPUU2uRHWitZNf.pbEffBlowMan001"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

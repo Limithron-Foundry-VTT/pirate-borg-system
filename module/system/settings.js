@@ -97,6 +97,16 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to automatically expire temporary effects when their duration ends */
+  game.settings.register("pirateborg", "autoExpireEffects", {
+    name: "PB.SettingsAutoExpireEffects",
+    hint: "PB.SettingsAutoExpireEffectsHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** The allowed classes menu */
   game.settings.registerMenu("pirateborg", "editAllowedCharacterGeneratorClassesMenu", {
     name: "PB.EditAllowedCharacterGeneratorClassesMenu",
@@ -230,3 +240,8 @@ export const getCharacterGeneratorGroupStates = () => game.settings.get("pirateb
 export const setCharacterGeneratorGroupStates = async (groupStates) => {
   await game.settings.set("pirateborg", "characterGeneratorGroupStates", groupStates);
 };
+
+/**
+ * @returns {Boolean}
+ */
+export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", "autoExpireEffects");

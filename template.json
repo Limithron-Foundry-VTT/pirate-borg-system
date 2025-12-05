@@ -87,9 +87,8 @@
           "value": 1
         },
         "luck": {
-          "min": 0,
-          "max": 0,
-          "value": 0
+          "value": 1,
+          "modifier": 0
         },
         "rituals": {
           "min": 0,
@@ -103,6 +102,21 @@
         },
         "carryingModifier": {
           "value": 8
+        },
+        "speed": {
+          "min": 0,
+          "max": 6,
+          "value": 6
+        },
+        "combat": {
+          "attackModifier": 0,
+          "defenseModifier": 0,
+          "initiativeModifier": 0,
+          "damageModifier": 0,
+          "armorTierModifier": 0,
+          "speedModifier": 0,
+          "luckDieModifier": 0,
+          "drModifier": 0
         }
       }
     },

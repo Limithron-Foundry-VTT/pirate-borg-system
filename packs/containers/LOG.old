@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.676161 16f74f000 Recovering log #120
-2025/09/08-14:16:55.676585 16f74f000 Delete type=3 #118
-2025/09/08-14:16:55.676625 16f74f000 Delete type=0 #120
-2025/09/08-14:28:52.007440 82091b000 Level-0 table #125: started
-2025/09/08-14:28:52.007539 82091b000 Level-0 table #125: 0 bytes OK
-2025/09/08-14:28:52.007922 82091b000 Delete type=0 #123
-2025/09/08-14:28:52.008821 82091b000 Manual compaction at level-0 from '!actors!BwfsGHWlrIqoJASI' @ 72057594037927935 : 1 .. '!actors!WX3lsGrzr8bYhO9d' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.008850 82091b000 Manual compaction at level-1 from '!actors!BwfsGHWlrIqoJASI' @ 72057594037927935 : 1 .. '!actors!WX3lsGrzr8bYhO9d' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:55.279185 7f28d93306c0 Recovering log #128
+2025/12/01-05:25:55.291677 7f28d93306c0 Delete type=3 #126
+2025/12/01-05:25:55.291700 7f28d93306c0 Delete type=0 #128
+2025/12/01-05:25:55.292903 7f28b2bff6c0 Level-0 table #134: started
+2025/12/01-05:25:55.297155 7f28b2bff6c0 Level-0 table #134: 1494 bytes OK
+2025/12/01-05:25:55.303308 7f28b2bff6c0 Delete type=0 #132
+2025/12/01-05:25:55.303380 7f28b2bff6c0 Manual compaction at level-0 from '!actors!BwfsGHWlrIqoJASI' @ 72057594037927935 : 1 .. '!actors!WX3lsGrzr8bYhO9d' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:55.303419 7f28b2bff6c0 Manual compaction at level-1 from '!actors!BwfsGHWlrIqoJASI' @ 72057594037927935 : 1 .. '!actors!WX3lsGrzr8bYhO9d' @ 0 : 0; will stop at '!actors!WX3lsGrzr8bYhO9d' @ 31 : 1
+2025/12/01-05:25:55.303423 7f28b2bff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:25:55.307608 7f28b2bff6c0 Generated table #135@1: 3 keys, 1494 bytes
+2025/12/01-05:25:55.307625 7f28b2bff6c0 Compacted 1@1 + 1@2 files => 1494 bytes
+2025/12/01-05:25:55.317029 7f28b2bff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:25:55.317101 7f28b2bff6c0 Delete type=2 #130
+2025/12/01-05:25:55.317143 7f28b2bff6c0 Delete type=2 #134
+2025/12/01-05:25:55.317210 7f28b2bff6c0 Manual compaction at level-1 from '!actors!WX3lsGrzr8bYhO9d' @ 31 : 1 .. '!actors!WX3lsGrzr8bYhO9d' @ 0 : 0; will stop at (end)

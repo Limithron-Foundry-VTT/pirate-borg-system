@@ -3,7 +3,29 @@
   "name": "Conquistador plate",
   "type": "armor",
   "img": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffConquista1",
+      "name": "Conquistador Plate",
+      "icon": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": -4
+        },
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!mqjlRCrxNRLAhQ4c.pbEffConquista1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

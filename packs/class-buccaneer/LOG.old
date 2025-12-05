@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.755891 16ff5b000 Recovering log #120
-2025/09/08-14:16:55.756286 16ff5b000 Delete type=3 #118
-2025/09/08-14:16:55.756327 16ff5b000 Delete type=0 #120
-2025/09/08-14:28:52.026311 82091b000 Level-0 table #125: started
-2025/09/08-14:28:52.026339 82091b000 Level-0 table #125: 0 bytes OK
-2025/09/08-14:28:52.026533 82091b000 Delete type=0 #123
-2025/09/08-14:28:52.026618 82091b000 Manual compaction at level-0 from '!items!2UrikGJeiCaJAUrH' @ 72057594037927935 : 1 .. '!items!vKcCqgp5tTmwYaWd' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.026658 82091b000 Manual compaction at level-1 from '!items!2UrikGJeiCaJAUrH' @ 72057594037927935 : 1 .. '!items!vKcCqgp5tTmwYaWd' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:54.864689 7f28d93306c0 Recovering log #128
+2025/12/01-05:25:54.878518 7f28d93306c0 Delete type=3 #126
+2025/12/01-05:25:54.878548 7f28d93306c0 Delete type=0 #128
+2025/12/01-05:25:54.880158 7f28b2bff6c0 Level-0 table #134: started
+2025/12/01-05:25:54.885005 7f28b2bff6c0 Level-0 table #134: 3818 bytes OK
+2025/12/01-05:25:54.891546 7f28b2bff6c0 Delete type=0 #132
+2025/12/01-05:25:54.891683 7f28b2bff6c0 Manual compaction at level-0 from '!items!2UrikGJeiCaJAUrH' @ 72057594037927935 : 1 .. '!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01' @ 0 : 0; will stop at (end)
+2025/12/01-05:25:54.891761 7f28b2bff6c0 Manual compaction at level-1 from '!items!2UrikGJeiCaJAUrH' @ 72057594037927935 : 1 .. '!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01' @ 0 : 0; will stop at '!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01' @ 110 : 1
+2025/12/01-05:25:54.891775 7f28b2bff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:25:54.896533 7f28b2bff6c0 Generated table #135@1: 11 keys, 3818 bytes
+2025/12/01-05:25:54.896567 7f28b2bff6c0 Compacted 1@1 + 1@2 files => 3818 bytes
+2025/12/01-05:25:54.902953 7f28b2bff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:25:54.903065 7f28b2bff6c0 Delete type=2 #130
+2025/12/01-05:25:54.903114 7f28b2bff6c0 Delete type=2 #134
+2025/12/01-05:25:54.903214 7f28b2bff6c0 Manual compaction at level-1 from '!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01' @ 110 : 1 .. '!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01' @ 0 : 0; will stop at (end)

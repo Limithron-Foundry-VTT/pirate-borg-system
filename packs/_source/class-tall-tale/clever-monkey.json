@@ -3,7 +3,29 @@
   "name": "Clever Monkey",
   "type": "feature",
   "img": "systems/pirateborg/tokens/clever-monkey.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffCleverMon1",
+      "name": "Clever Monkey",
+      "icon": "systems/pirateborg/tokens/clever-monkey.png",
+      "changes": [
+        {
+          "key": "system.abilities.strength.value",
+          "mode": 2,
+          "value": -1
+        },
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

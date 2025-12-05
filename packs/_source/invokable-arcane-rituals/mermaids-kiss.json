@@ -3,12 +3,109 @@
   "name": "Mermaid's Kiss",
   "type": "invokable",
   "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffMermaid001",
+      "name": "Mermaid's Kiss - Strength Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.abilities.strength.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 86400
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d4 days",
+          "targetType": "creature"
+        }
+      },
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid001"
+    },
+    {
+      "_id": "pbEffMermaid002",
+      "name": "Mermaid's Kiss - Agility Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 86400
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d4 days",
+          "targetType": "creature"
+        }
+      },
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid002"
+    },
+    {
+      "_id": "pbEffMermaid003",
+      "name": "Mermaid's Kiss - Toughness Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.abilities.toughness.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 86400
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d4 days",
+          "targetType": "creature"
+        }
+      },
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid003"
+    },
+    {
+      "_id": "pbEffMermaid004",
+      "name": "Mermaid's Kiss - Presence Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.abilities.presence.value",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 86400
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d4 days",
+          "targetType": "creature"
+        }
+      },
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid004"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>A creature gains +1 to strength, agility, toughness, &amp; presence for d4 days.</p>",
+    "description": "<p>A creature gains +1 to strength, agility, toughness, &amp; presence for d4 days.</p>\n<p><strong>Usage:</strong> Drag effects to target creature, then roll 1d4 and set duration in days (1 day = 86400 seconds) on the target's Effects tab.</p>",
     "containerSpace": 0,
     "carryWeight": 0,
     "equipped": false,

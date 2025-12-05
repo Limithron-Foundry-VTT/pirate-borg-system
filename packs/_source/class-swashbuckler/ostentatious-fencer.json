@@ -3,7 +3,34 @@
   "name": "Ostentatious Fencer",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffOstentati1",
+      "name": "Ostentatious Fencer",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.attackModifier",
+          "mode": 2,
+          "value": 2
+        },
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": 2
+        },
+        {
+          "key": "system.attributes.combat.damageModifier",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!lco7XqcFzkaMkw0W.pbEffOstentati1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
