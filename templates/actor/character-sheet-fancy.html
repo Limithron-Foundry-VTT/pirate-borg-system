@@ -1,0 +1,125 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <span class="spacer"></span>
+    <a class="item" data-tab="primary">{{ localize 'PB.CharacterSheetFancyPrimary' }}</a>
+    <a class="item" data-tab="secondary">{{ localize 'PB.CharacterSheetFancySecondary' }}</a>
+    <a class="item" data-tab="basic">{{ localize 'PB.CharacterSheetBasic' }}</a>
+    <span class="spacer"></span>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Primary Tab --}}
+    <div class="tab class-tab primary" data-group="primary" data-tab="primary">
+      <div class="container">
+        <div class="block title name">{{ localize 'PB.Name' }}</div>
+        <div class="block actor-name"><input class="actor-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'PB.Name' }}" spellcheck="false" /></div>
+
+        <div class="block class">
+          <span class="title">{{ localize 'PB.Class' }}</span>
+          <span class="item-edit rollable item-class">{{data.data.class.name}}</span>
+          {{#if data.data.baseClass }}
+          - <span class="item-edit rollable item-base-class">{{data.data.baseClass.name}}</span>
+          {{/if}}
+        </div>
+
+        <div class="block features">
+          <span class="title">{{ localize 'PB.Features' }}</span>
+          {{#if data.data.useExtraResource}}
+          <div class="powers-top-row">
+            <div class="stats-block">
+              <label class="stat-label uses-remaining-label">{{ data.data.extraResourceNamePlural }}</label>
+              <input class="stat-input" name="data.extraResourceUses.value" type="number" value="{{data.data.extraResourceUses.value}}" data-dtype="Number" />
+              <span class="stat-rule rollable extra-resources-per-day-text">{{ data.data.extraResourceFormulaLabel }}</span>
+            </div>
+          </div>
+          {{/if}} {{#each data.data.features as |item id|}}
+
+          <ol class="items-list inventory-list">
+            <li class="items-header flexrow">
+              <h3 class="item-name flexrow">{{item.type}}</h3>
+            </li>
+            <ol class="item-list">
+              {{#each item.items as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                <h4 class="item-name item-edit rollable">{{item.name}} {{#ifGt item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}</h4>
+                <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
+                <div class="item-controls">
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+              </li>
+              {{/each}}
+            </ol>
+          </ol>
+          {{/each}} {{#unless data.data.features.length}}
+          <ol class="items-list inventory-list">
+            <ol class="item-list weapon-list">
+              <li class="item flexrow empty-container">
+                <div class="rule-text you-have-no">{{localize 'PB.YouHaveNoFeatures'}}</div>
+              </li>
+            </ol>
+          </ol>
+          {{/unless}}
+        </div>
+
+        <div class="block relics-rituals-title"><span class="title">{{ localize 'PB.RelicsRituals' }}</span></div>
+
+        <div class="block relics-rituals">
+          <div class="stats">
+            <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemainingFancy"}}</label>
+            <span class="stat-rule rollable ritual-per-day-text">{{localize "PB.RitualPerdayFancy"}}</span>
+            <input class="stat-input" name="data.powerUses.value" type="number" value="{{data.data.powerUses.value}}" data-dtype="Number" />
+          </div>
+
+          {{#each data.data.invokables as |group|}}
+          <ol class="items-list inventory-list">
+            <li class="items-header flexrow">
+              <h3 class="item-name flexrow">{{ group.type }}</h3>
+              <div class="item-controls flexrow"></div>
+            </li>
+            <ol class="item-list">
+              {{#each group.items as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+                <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
+                <div class="item-controls">
+                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+              </li>
+              {{/each}}
+            </ol>
+          </ol>
+          {{/each}} {{#unless data.data.invokables.length}}
+            <div class="rule-text you-have-no">{{localize 'PB.YouHaveNoUsableItems'}}</div>
+          {{/unless}}
+        </div>
+
+        <div class="block relics-rituals-help">
+          <p><span class="relics">{{{ localize 'PB.CharacterSheetFancyRelics' spirit=(concat "<a class='spirit rollable' href='foo'>SPIRIT DR12</a>") destroyed=(concat "<span class='destroyed'>" (localize 'PB.CharacterSheetFancyRelicsDestroyed') "</span>") }}}</span></p>
+          <p><span class="rituals">{{{ localize 'PB.CharacterSheetFancyRituals' spirit=(concat "<a class='spirit rollable' href='foo'>SPIRIT DR12</a>") mishap=(concat "<span class='mishap'>" (localize 'PB.CharacterSheetFancyRitualMishap') "</span>") }}}</span></p>
+        </div>
+
+        <div class="block hit-points">
+          <span class="title hit-points-label">{{ localize 'PB.HitPoints' }}</span>
+          <input class="stat-input current" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number" />
+          <span class="title current-label">{{ localize 'PB.Current' }}</span>
+          <input class="stat-input max" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number" />
+          <span class="title max-label">{{ localize 'PB.Max' }}</span>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Secondary Tab --}}
+    <div class="tab class-tab secondary" data-group="primary" data-tab="secondary">
+      <div class="container">&nbsp;</div>
+    </div>
+
+    {{!-- Basic Sheet --}}
+    <div class="tab class-tab" data-group="primary" data-tab="basic">
+      {{> "systems/pirateborg/templates/actor/character-sheet.html"}}
+    </div>
+  </section>
+</form>
