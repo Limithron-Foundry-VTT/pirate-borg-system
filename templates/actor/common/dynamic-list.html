@@ -28,7 +28,7 @@
     <div class="item-controls">
       {{#> item-controls}}{{/item-controls}}
       {{#ifNe noDeleteButton true }}
-        <a class="item-control item-delete" title="Delete Item"> <i class="fas fa-trash"></i></a>
+        <a class="item-control item-delete" title="{{localize 'PB.ItemDelete'}}"> <i class="fas fa-trash"></i></a>
       {{/ifNe}}
     </div>
   {{/static-list-item}}
@@ -36,7 +36,7 @@
 
 {{#*inline "mysticShanty"}}
   {{#*inline "buttons"}}
-    <button type="button" class="item-button rollable action-shanties" title="PC Action">
+    <button type="button" class="item-button rollable action-shanties" title="{{localize 'PB.ShipPCAction'}}">
       {{localize "PB.ShipShantyButton"}}
     </button>
   {{/inline}}
