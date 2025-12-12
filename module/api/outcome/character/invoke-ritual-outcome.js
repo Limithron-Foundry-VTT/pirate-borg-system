@@ -56,8 +56,8 @@ export const createInvokeRitualOutcome = async ({ actor }) =>
       withButton({
         title: game.i18n.localize("PB.InvokableRitualFailureButton"),
         type: OUTCOME_BUTTON.MYSTICAL_MISHAP,
-      })
+      }),
     ),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL),
   )();

@@ -12,8 +12,8 @@ export const renderCombatTracker = (tracker, html) => {
     .last()
     .prepend(
       `<a class="combat-button combat-control" title="${game.i18n.localize(
-        "PB.RollPartyInitiative"
-      )}" data-control="rollParty"><i class="fas fa-dice-six"></i></a>`
+        "PB.RollPartyInitiative",
+      )}" data-control="rollParty"><i class="fas fa-dice-six"></i></a>`,
     );
   html.find("a[data-control=rollParty]").on("click", actorPartyInitiativeAction);
 };

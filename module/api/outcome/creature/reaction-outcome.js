@@ -11,5 +11,5 @@ export const createReactionOutcome = async () =>
     withAsyncProps({
       title: (outcome) => outcome.description,
       description: () => "",
-    })
+    }),
   )();

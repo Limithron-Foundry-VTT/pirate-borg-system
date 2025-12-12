@@ -78,8 +78,8 @@ export const createBroadsidesOutcome = async ({ actor, crew, dr = 12, armorFormu
       withButton({
         title: game.i18n.localize("PB.RollDamageButton"),
         type: OUTCOME_BUTTON.INFLICT_DAMAGE,
-      })
+      }),
     ),
     withTarget({ actor, targetToken }),
-    withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.BROADSIDES)
+    withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.BROADSIDES),
   )();

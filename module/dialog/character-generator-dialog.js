@@ -1,4 +1,10 @@
-import { isCharacterGeneratorClassAllowed, setLastCharacterGeneratorSelection, getLastCharacterGeneratorSelection, getCharacterGeneratorGroupStates, setCharacterGeneratorGroupStates } from "../system/settings.js";
+import {
+  isCharacterGeneratorClassAllowed,
+  setLastCharacterGeneratorSelection,
+  getLastCharacterGeneratorSelection,
+  getCharacterGeneratorGroupStates,
+  setCharacterGeneratorGroupStates,
+} from "../system/settings.js";
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
@@ -60,8 +66,8 @@ class CharacterGeneratorDialog extends Application {
     });
 
     for (const group of sortedGroups) {
-      const hasCheckedClass = group.classes.some(cls => cls.checked);
-      
+      const hasCheckedClass = group.classes.some((cls) => cls.checked);
+
       if (savedStates[group.name] !== undefined) {
         group.isOpen = savedStates[group.name];
       } else {

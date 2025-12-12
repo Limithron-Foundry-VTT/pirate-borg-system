@@ -179,7 +179,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     let data;
     try {
       data = JSON.parse(event?.dataTransfer?.getData("text/plain"));
-    } catch (err) {
+    } catch {
       return;
     }
 

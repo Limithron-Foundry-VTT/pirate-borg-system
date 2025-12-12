@@ -18,7 +18,7 @@ Hooks.once("init", async () => {
   Hooks.on("renderActorDirectory", renderActorDirectory);
   Hooks.on("renderCombatTracker", renderCombatTracker);
   Hooks.on("renderSettings", renderSettings);
-  if (foundry.utils.isNewerVersion(game.version, '13')) {
+  if (foundry.utils.isNewerVersion(game.version, "13")) {
     Hooks.on("renderChatMessageHTML", handleChatMessageButton);
     Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
     Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);

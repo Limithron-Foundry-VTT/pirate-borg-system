@@ -15,5 +15,5 @@ export const createRollHPOutcome = async ({ hp }) =>
     withAsyncProps({
       description: (outcome) => game.i18n.format("PB.GetBetterHP", { hp: outcome.roll.total }),
       newHp: (outcome) => outcome.roll.total + hp,
-    })
+    }),
   )();

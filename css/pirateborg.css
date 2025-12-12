@@ -39,7 +39,7 @@
   --color-border-light-primary: var(--light-border-color);
   --color-border-highlight: #ff0000;
   --color-shadow-highlight: #ff0000;
-  --color-underline-active: #44191A;
+  --color-underline-active: #44191a;
   --color-underline-header: #782e22;
 }
 
@@ -1377,7 +1377,13 @@ div#sidebar.collapsed #sidebar-tabs > .item.active {
 .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2 {
   border-bottom: 2px solid var(--color-underline-header);
 }
-.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h3, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h4, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h5, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h3,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h4,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h5,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
   color: var(--background-color);
 }
 

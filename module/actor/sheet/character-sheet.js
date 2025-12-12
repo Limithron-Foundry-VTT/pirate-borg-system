@@ -408,7 +408,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
         },
         default: "cancel",
       },
-      { classes: ["dialog", "custom-dialog"] }
+      { classes: ["dialog", "custom-dialog"] },
     );
     getingBetterConfirmDialog.render(true);
   }

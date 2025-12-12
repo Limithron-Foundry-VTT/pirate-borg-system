@@ -31,7 +31,7 @@ export const withProps =
   ({ ...props }) =>
   (outcome) => ({ ...outcome, ...props });
 
-export const withWhen = (cond, f) => async (outcome) => (await cond(outcome)) ? f(outcome) : outcome;
+export const withWhen = (cond, f) => async (outcome) => ((await cond(outcome)) ? f(outcome) : outcome);
 
 export const withAsyncProps = (props) => async (outcome) => {
   for (const [key, fn] of Object.entries(props)) {
@@ -75,7 +75,7 @@ export const withTest =
               return OUTCOME_TEST.FAILURE;
           }
         },
-      })
+      }),
     )(outcome);
 
 export const withDraw =

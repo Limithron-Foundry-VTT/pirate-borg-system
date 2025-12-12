@@ -43,10 +43,7 @@ class AnimationDialog extends Application {
     if (typeof Sequencer === "undefined") return [];
     const jb2a = Sequencer.Database.getEntry("jb2a");
     if (!jb2a) {
-      ui.notifications.error(
-        game.i18n.localize("PB.AnimationMissingJB2A"),
-        { permanent: true },
-      );
+      ui.notifications.error(game.i18n.localize("PB.AnimationMissingJB2A"), { permanent: true });
       return [];
     }
 

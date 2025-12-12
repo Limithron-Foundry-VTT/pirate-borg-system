@@ -265,7 +265,7 @@ PB.recommendedModules = [
     description: "This module shows a ruler when you drag a token or measurement template to inform you how far you've dragged it from its start point.",
     compatibility: {
       max: 12,
-    }
+    },
   },
   {
     type: "must_have",
