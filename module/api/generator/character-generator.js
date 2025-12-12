@@ -61,8 +61,8 @@ export const updateActorWithCharacter = async (actor, characterData) => {
       name: data.name,
       texture: {
         src: data.img,
-      }
-    }
+      },
+    },
   };
 
   await actor.update(dataAndProto);
@@ -281,7 +281,7 @@ const updateOrCreateActorItems = async (actor, items) => {
   } else {
     await actor.createEmbeddedDocuments(
       "Item",
-      items.map((item) => item.toObject(false))
+      items.map((item) => item.toObject(false)),
     );
   }
 };
@@ -300,7 +300,7 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
     const rollTable = compendiumRollTable.clone({ replacement: false });
 
     // draw until we found a valid item
-    // eslint-disable-next-line no-constant-condition
+
     while (true) {
       const draw = await rollTable.draw({ displayChat: false });
       items = await findTableItems(draw.results);
@@ -457,7 +457,7 @@ const characterToActorData = (characterData) => ({
       },
       carryingModifier: {
         value: characterData.carryingModifier ?? 8,
-      }
+      },
     },
     silver: characterData.silver,
     baseClass: characterData.baseClass || "",

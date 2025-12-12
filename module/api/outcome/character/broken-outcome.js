@@ -18,5 +18,5 @@ export const createBrokenOutcome = async ({ actor }) =>
     withAsyncProps({
       isDead: (outcome) => outcome.roll.total === 1,
     }),
-    withAutomations(ANIMATION_TYPE.BROKEN, ADVANCED_ANIMATION_TYPE.BROKEN)
+    withAutomations(ANIMATION_TYPE.BROKEN, ADVANCED_ANIMATION_TYPE.BROKEN),
   )();

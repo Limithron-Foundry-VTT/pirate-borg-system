@@ -256,7 +256,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
         originalItem.items.map((itemId) => {
           const item = originalActor.items.get(itemId);
           return item.toObject(false);
-        })
+        }),
       );
 
       await this._addItemsToItemContainer(newItems, item);
@@ -265,7 +265,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     if (item.type === CONFIG.PB.itemTypes.background) {
       const additionalItems = [].concat(
         (await findStartingBonusItems([item])).map((i) => i.toObject()),
-        (await findStartingBonusRollsItems([item])).map((i) => i.toObject())
+        (await findStartingBonusRollsItems([item])).map((i) => i.toObject()),
       );
       if (additionalItems.length > 0) {
         await this.actor.createEmbeddedDocuments("Item", additionalItems);

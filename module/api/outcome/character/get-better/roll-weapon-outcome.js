@@ -13,6 +13,6 @@ export const createRollWeaponOutcome = async () => {
     withAsyncProps({
       itemData: async () => item.toObject(false),
       description: () => game.i18n.format("PB.GetBetterLootWeapon", { link: item.link }),
-    })
+    }),
   )();
 };

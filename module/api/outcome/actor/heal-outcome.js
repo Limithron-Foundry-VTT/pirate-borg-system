@@ -17,5 +17,5 @@ export const createHealOutcome = async ({ actor, formula = "" }) =>
       heal: (outcome) => outcome.roll.total,
     }),
     withTarget({ actor }),
-    withAutomations(DAMAGE_TYPE.HEAL, ANIMATION_TYPE.HEAL, ADVANCED_ANIMATION_TYPE.HEAL)
+    withAutomations(DAMAGE_TYPE.HEAL, ANIMATION_TYPE.HEAL, ADVANCED_ANIMATION_TYPE.HEAL),
   )();

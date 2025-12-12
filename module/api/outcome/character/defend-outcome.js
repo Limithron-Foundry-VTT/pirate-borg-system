@@ -78,8 +78,8 @@ export const createDefendOutcome = async ({ actor, dr = 12, damageFormula = "", 
       withButton({
         title: game.i18n.localize("PB.RollDamageButton"),
         type: OUTCOME_BUTTON.TAKE_DAMAGE,
-      })
+      }),
     ),
     withTarget({ actor, targetToken }),
-    withAutomations(ANIMATION_TYPE.DEFEND, ADVANCED_ANIMATION_TYPE.DEFEND)
+    withAutomations(ANIMATION_TYPE.DEFEND, ADVANCED_ANIMATION_TYPE.DEFEND),
   )();

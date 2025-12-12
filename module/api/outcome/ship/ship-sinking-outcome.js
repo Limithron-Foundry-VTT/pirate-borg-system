@@ -20,5 +20,5 @@ export const createSinkingOutcome = async ({ actor }) =>
       isFatalExplosion: (outcome) => outcome.roll.total === 8,
     }),
     withTarget({ actor }),
-    withAutomations(ADVANCED_ANIMATION_TYPE.SINKING)
+    withAutomations(ADVANCED_ANIMATION_TYPE.SINKING),
   )();

@@ -16,5 +16,5 @@ export const createInfectionOutcome = async ({ actor }) =>
       title: (outcome) => `${game.i18n.localize("PB.Take")} ${outcome.totalDamage} ${game.i18n.localize("PB.Damage")} (${game.i18n.localize("PB.Infection")})`,
     }),
     withTarget({ actor }),
-    withAutomations(DAMAGE_TYPE.TAKE, ANIMATION_TYPE.TAKE_DAMAGE, ANIMATION_TYPE.INFECTED, ADVANCED_ANIMATION_TYPE.INFECTED)
+    withAutomations(DAMAGE_TYPE.TAKE, ANIMATION_TYPE.TAKE_DAMAGE, ANIMATION_TYPE.INFECTED, ADVANCED_ANIMATION_TYPE.INFECTED),
   )();

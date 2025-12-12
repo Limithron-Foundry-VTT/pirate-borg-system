@@ -7,7 +7,7 @@ import { emitScrollChatToBottom } from "./sockets.js";
  * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageButton = async (message, html) => {
-  if (foundry.utils.isNewerVersion(game.version, '13')) {
+  if (foundry.utils.isNewerVersion(game.version, "13")) {
     // For now, wrap the html back to a jQuery object, same as it was prior to v13.
     html = $(html);
   }
@@ -29,7 +29,7 @@ export const handleChatMessageButton = async (message, html) => {
  * @param {JQuery.<HTMLElement>} html
  */
 export const handleChatMessageGMOnly = async (message, html) => {
-  if (foundry.utils.isNewerVersion(game.version, '13')) {
+  if (foundry.utils.isNewerVersion(game.version, "13")) {
     // For now, wrap the html back to a jQuery object, same as it was prior to v13.
     html = $(html);
   }

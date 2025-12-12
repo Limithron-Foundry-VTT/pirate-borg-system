@@ -164,42 +164,42 @@ export class PBItem extends Item {
 
   /**
    * Gets the action macro identifier that will be executed when this item is used.
-   * 
+   *
    * The actionMacro system supports multiple reference formats for flexibility:
-   * 
+   *
    * **UUID References (Recommended):**
    * - `Macro.<id>` - References a world macro by its document ID
-   * - `RollTable.<id>` - References a world roll table by its document ID  
+   * - `RollTable.<id>` - References a world roll table by its document ID
    * - `Compendium.<pack>.<id>` - References a macro/table from a compendium pack
-   * 
+   *
    * **Compendium + Name Format:**
    * - `compendium;name` - References an item in a compendium by pack name and item name
-   * 
+   *
    * **Simple Name References:**
    * - Just the name of a world macro or roll table (fallback method)
-   * 
+   *
    * **Examples:**
    * ```
    * // UUID references (most reliable)
    * "Macro.abc123def456"
-   * "RollTable.xyz789uvw012" 
+   * "RollTable.xyz789uvw012"
    * "Compendium.my-pack.my-macro-id"
-   * 
+   *
    * // Legacy Style Compendium with name
    * "my-compendium-pack;Healing Potion Effect"
-   * 
+   *
    * // Simple name (searches world first)
    * "Roll Initiative"
    * "Random Encounter"
    * ```
-   * 
+   *
    * When the item is used via characterUseItemAction, the system will:
    * 1. Try to resolve as UUID first
    * 2. Try compendium;name format if semicolon present
    * 3. Fall back to searching world macros/tables by name
    * 4. Execute the found macro (with actor, item, outcome, chatMessage context)
    *    or draw from the roll table
-   * 
+   *
    * @returns {String} The macro/table reference string, or empty if no action defined
    */
   get actionMacro() {

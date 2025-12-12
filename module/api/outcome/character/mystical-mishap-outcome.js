@@ -19,5 +19,5 @@ export const createMysticalMishapOutcome = async ({ actor, roll, isFumble = fals
       isFumble,
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.MYSTICAL_MISHAP, ADVANCED_ANIMATION_TYPE.MYSTICAL_MISHAP)
+    withAutomations(ANIMATION_TYPE.MYSTICAL_MISHAP, ADVANCED_ANIMATION_TYPE.MYSTICAL_MISHAP),
   )();

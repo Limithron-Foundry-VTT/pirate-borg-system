@@ -90,7 +90,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       withButton({
         title: game.i18n.localize("PB.RollDamageButton"),
         type: OUTCOME_BUTTON.INFLICT_DAMAGE,
-      })
+      }),
     ),
-    withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.ITEM)
+    withAutomations(ANIMATION_TYPE.ATTACK, ADVANCED_ANIMATION_TYPE.ITEM),
   )();

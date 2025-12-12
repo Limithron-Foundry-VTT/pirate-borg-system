@@ -36,17 +36,17 @@ export const createInvokeExtraResourceOutcome = async ({ actor }) =>
         formula: actor.extraResourceTestFormula,
         formulaLabel: actor.extraResourceTestFormulaLabel,
         data: actor.getRollData(),
-      })
+      }),
     ),
     withWhen(
       () => !actor.extraResourceTestFormula,
       outcome({
         type: "invoke-extra-resource",
-      })
+      }),
     ),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.INVOKE_RITUAL),
   )();

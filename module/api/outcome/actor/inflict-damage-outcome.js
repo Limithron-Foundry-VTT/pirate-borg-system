@@ -23,5 +23,5 @@ export const createInflictDamageOutcome = async ({ actor, formula = "", damageRe
       title: (outcome) => `${game.i18n.localize("PB.Inflict")} ${outcome.totalDamage} ${game.i18n.localize("PB.Damage")}`,
     }),
     withTarget({ actor, targetToken }),
-    withAutomations(ANIMATION_TYPE.INFLICT_DAMAGE, ADVANCED_ANIMATION_TYPE.INFLICT_DAMAGE, DAMAGE_TYPE.INFLICT)
+    withAutomations(ANIMATION_TYPE.INFLICT_DAMAGE, ADVANCED_ANIMATION_TYPE.INFLICT_DAMAGE, DAMAGE_TYPE.INFLICT),
   )();

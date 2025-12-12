@@ -26,5 +26,5 @@ export const createShipApplyRepairOutcome = async ({ actor, formula = "" }) =>
       title: (outcome) => `${game.i18n.localize("PB.Heal")} ${outcome.heal} ${game.i18n.localize("PB.HP")}`,
     }),
     withTarget({ actor }),
-    withAutomations(DAMAGE_TYPE.HEAL, ANIMATION_TYPE.HEAL, ADVANCED_ANIMATION_TYPE.HEAL)
+    withAutomations(DAMAGE_TYPE.HEAL, ANIMATION_TYPE.HEAL, ADVANCED_ANIMATION_TYPE.HEAL),
   )();

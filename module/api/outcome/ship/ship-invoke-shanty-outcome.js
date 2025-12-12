@@ -39,5 +39,5 @@ export const createInvokeShantyOutcome = async ({ actor }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.SING_SHANTY)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.SING_SHANTY),
   )();

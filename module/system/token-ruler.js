@@ -9,9 +9,9 @@ export function registerTokenRuler() {
 
   class TokenRulerPB extends foundry.canvas.placeables.tokens.TokenRuler {
     static STYLES = {
-      stay: {color: 0x0000ff, alpha: 0.6},
-      move: {color: 0x00ff00},
-      exceed: {color: 0x990000},
+      stay: { color: 0x0000ff, alpha: 0.6 },
+      move: { color: 0x00ff00 },
+      exceed: { color: 0x990000 },
     };
 
     /** @override */

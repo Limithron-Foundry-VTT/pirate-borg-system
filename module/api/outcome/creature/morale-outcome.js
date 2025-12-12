@@ -32,11 +32,11 @@ export const createMoraleOutcome = async ({ actor }) =>
       (outcome) => !outcome.isStandingFirm,
       withAsyncProps({
         secondaryOutcome: rollOutcome({ formula: "1d6" }),
-      })
+      }),
     ),
     withAsyncProps({
       isFleeing: (outcome) => outcome.secondaryOutcome?.roll.total <= 3,
       isSurrendering: (outcome) => outcome.secondaryOutcome?.roll.total > 3,
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
-    })
+    }),
   )();
