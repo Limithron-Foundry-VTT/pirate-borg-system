@@ -3,7 +3,29 @@
   "name": "Bilge Rat",
   "type": "feature",
   "img": "systems/pirateborg/tokens/bilge-rat.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffBilgeRat01",
+      "name": "Bilge Rat",
+      "icon": "systems/pirateborg/tokens/bilge-rat.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 3
+        },
+        {
+          "key": "system.abilities.toughness.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!C8LdpjrOpMpyZB98.pbEffBilgeRat01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

@@ -3,7 +3,24 @@
   "name": "Blow the Man Down",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffBlowDef001",
+      "name": "Blow the Man Down - Defense Bonus",
+      "icon": "systems/pirateborg/icons/misc/shanty.png",
+      "changes": [
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!6GtPUU2uRHWitZNf.pbEffBlowDef001"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

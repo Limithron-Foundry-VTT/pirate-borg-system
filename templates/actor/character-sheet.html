@@ -32,14 +32,26 @@
         <div class="stats-block">
           <span class="stat-label luck-label rollable">{{ localize "PB.Luck" }}</span>
           <input class="stat-input" name="system.attributes.luck.value" type="number" value="{{data.system.attributes.luck.value}}" data-dtype="Number" />
-          <span class="stat-rule luck-rule rollable">({{data.system.dynamic.luckDie}} {{ localize "PB.PerRest"}})</span>  
+          <span class="stat-rule luck-rule rollable">({{data.system.dynamic.luckDie}} {{ localize "PB.PerRest"}})</span>
+          {{#if data.system.attributes.luck.modifier}}
+            <span class="luck-modifier">{{#if (gt data.system.attributes.luck.modifier 0)}}+{{/if}}{{data.system.attributes.luck.modifier}} modifier</span>
+          {{/if}}
         </div>        
+      </div>
+
+      {{!-- Grog Status --}}
+      <div class="header-stats-row">
+        <div class="stats-block">
+          <span class="stat-label">{{ localize "PB.GrogDrinks" }}</span>
+          <input class="stat-input" name="system.attributes.grog.drinks" type="number" value="{{data.system.attributes.grog.drinks}}" data-dtype="Number" min="0" />
+        </div>
       </div>
 
       <div class="header-buttons-row">
         <button type="button" class="button item-button broken-button rollable" title="{{localize 'PB.Broken'}}">{{localize 'PB.Broken'}}</button>
         <button type="button" class="button item-button rest-button rollable" title="{{localize 'PB.Rest'}}">{{localize 'PB.Rest'}}</button>
         <button type="button" class="button item-button get-better-button rollable" title="{{localize 'PB.GetBetter'}}">{{localize 'PB.GetBetter'}}</button>
+        <button type="button" class="button item-button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless data.system.dynamic.hasGrog}}disabled{{/unless}}>{{ localize "PB.GrogDrink" }}{{#if data.system.dynamic.grogItem}} ({{data.system.dynamic.grogItem.system.quantity}}){{/if}}</button>
       </div>
     </div>
 
@@ -340,7 +352,12 @@
       <div class="stats-bottom-row">
         <div class="stats-block">
           <label class="stat-label">{{ localize "PB.ItemCharacterSpeedMax" }}</label>
-          <input type="text" name="system.attributes.speed.max" value="{{data.system.attributes.speed.max}}" placeholder="6" data-dtype="Number" />
+          <input type="text" name="system.attributes.speed.max" value="{{#if data.system.attributes.combat.speedModifier}}{{effectiveSpeed}}{{else}}{{data.system.attributes.speed.max}}{{/if}}" placeholder="6" data-dtype="Number" />
+          {{#if data.system.attributes.combat.speedModifier}}
+            <span class="speed-formula">
+              ({{data.system.attributes.speed.max}}{{#if (gt data.system.attributes.combat.speedModifier 0)}}+{{/if}}{{data.system.attributes.combat.speedModifier}})
+            </span>
+          {{/if}}
         </div>
       </div>
     </div>

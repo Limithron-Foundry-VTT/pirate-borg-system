@@ -20,7 +20,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>+2 to damage rolls for each enemy you&rsquo;ve killed so far this battle. Resets/ends after 10 rounds (1 minute) of no death.</p>",
+    "description": "<p>+2 to damage rolls for each enemy you&rsquo;ve killed so far this battle. Resets/ends after 10 rounds (1 minute) of no death.</p>\n<p><em><!-- TODO: EFFECT IMPLEMENTATION NEEDED - Dynamic +2 damage per kill counter, requires kill tracking system --></em></p>",
     "featureType": "Class",
     "maxQuantity": 1,
     "quantity": 1,

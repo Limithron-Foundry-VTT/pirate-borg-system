@@ -3,12 +3,63 @@
   "name": "Light of a Thousand Stars",
   "type": "invokable",
   "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffLight00001",
+      "name": "Light of a Thousand Stars - Attack Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.attackModifier",
+          "mode": 2,
+          "value": 4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 3600
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "2d12 hours",
+          "targetType": "area",
+          "areaDescription": "30' radius from object"
+        }
+      },
+      "_key": "!items.effects!Qc8lbxQg03PVRkl0.pbEffLight00001"
+    },
+    {
+      "_id": "pbEffLight00002",
+      "name": "Light of a Thousand Stars - Defense Bonus",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": 4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "seconds": 3600
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "2d12 hours",
+          "targetType": "area",
+          "areaDescription": "30' radius from object"
+        }
+      },
+      "_key": "!items.effects!Qc8lbxQg03PVRkl0.pbEffLight00002"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>30' of light radiates from an object for 2d12 hours. It cannot be extinguished. All attacks are -4 DR to hit/+4 to defend</p>",
+    "description": "<p>30' of light radiates from an object for 2d12 hours. It cannot be extinguished. All attacks are -4 DR to hit/+4 to defend</p>\n<p><strong>Usage:</strong> Roll 2d12 for duration in hours. Apply effects to all characters within 30' of the light source. Set duration on each target's Effects tab (hours × 3600 = seconds).</p>",
     "containerSpace": 0,
     "carryWeight": 0,
     "equipped": false,

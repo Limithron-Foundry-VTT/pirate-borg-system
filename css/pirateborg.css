@@ -648,6 +648,9 @@
   margin: 0;
 }
 
+.pirateborg {
+  /* Effect duration styling */
+}
 .pirateborg .items-list .items-header {
   margin: 0;
   padding: 0;
@@ -738,6 +741,26 @@
 }
 .pirateborg .item-list .empty-container {
   text-align: center;
+}
+.pirateborg .effect-duration-header {
+  flex: 0 0 60px;
+  text-align: center;
+}
+.pirateborg .effect-duration {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--item-font);
+  font-size: 12pt;
+}
+.pirateborg .effect-duration i.fa-clock {
+  color: var(--highlight-background-color);
+}
+.pirateborg .effect-modifier {
+  font-size: 10pt;
+  color: var(--highlight-background-color);
 }
 
 .pirateborg.sheet.actor .creature {

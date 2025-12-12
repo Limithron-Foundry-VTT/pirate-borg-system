@@ -3,7 +3,32 @@
   "name": "Drunken Sailor",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffDrunkSkil1",
+      "name": "Drunken Sailor - Skill Penalty",
+      "icon": "systems/pirateborg/icons/misc/shanty.png",
+      "changes": [
+        {
+          "key": "system.abilities.skill.value",
+          "mode": 2,
+          "value": -4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "rounds": 1
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d6",
+          "targetType": "enemy ship"
+        }
+      },
+      "_key": "!items.effects!Hvwq3xmyx0ZYQ4p7.pbEffDrunkSkil1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
@@ -20,7 +45,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>One ship's crew skill is -4 for d6 rounds</p>\n<p><em><strong>Chrous<br /></strong></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>Early in the morning!<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Early in the morning!</em></p>\n<p style=\"margin: 0in;\"><a href=\"https://youtu.be/oB7WtAlcIwM\"><span style=\"font-family: Calibri;\"><span style=\"font-size: 14.6667px;\">Play Song</span></span></a></p>",
+    "description": "<p>One ship's crew skill is -4 for d6 rounds</p>\n<p><strong>Usage:</strong> Drag effect to target ship, then roll 1d6 and set duration (rounds) on the ship's Effects tab.</p>\n<p><em><strong>Chorus<br /></strong></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>What will we do with a drunken sailor?<br /></em><em>Early in the morning!<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Way hay and up she rises<br /></em><em>Early in the morning!</em></p>\n<p style=\"margin: 0in;\"><a href=\"https://youtu.be/oB7WtAlcIwM\"><span style=\"font-family: Calibri;\"><span style=\"font-size: 14.6667px;\">Play Song</span></span></a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
     "price": null,

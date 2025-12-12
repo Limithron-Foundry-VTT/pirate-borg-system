@@ -6,6 +6,7 @@ import { createStarvationOutcome } from "../../outcome/character/starvation-outc
 import { characterExtraResourcePerDayAction } from "./character-extra-resource-per-day-action.js";
 import { characterLuckPerDayAction } from "./character-luck-per-day-action.js";
 import { characterRitualsPerDayAction } from "./character-rituals-per-day-action.js";
+import { clearGrogEffects, decrementGrogHours } from "./character-drink-grog-action.js";
 
 const REST_LENGTH = {
   SHORT: "short",
@@ -51,6 +52,10 @@ const canRest = (foodAndDrink, infected) => ![REST_FOOD_AND_DRINK.STARVE, REST_F
  */
 const shortRest = async (actor, foodAndDrink, infected) => {
   const isResting = canRest(foodAndDrink, infected);
+  
+  // Decrement grog hours by 1 during short rest
+  await decrementGrogHours(actor, 1);
+  
   return showGenericCard({
     actor,
     title: game.i18n.localize("PB.Rest"),
@@ -91,6 +96,9 @@ const longRest = async (actor, foodAndDrink, infected) => {
   if (actor.luck.value === 0) {
     outcomes.push(await characterLuckPerDayAction(actor, { silent: true }));
   }
+
+  // Clear all grog effects during long rest
+  await clearGrogEffects(actor);
 
   return showGenericCard({
     actor,

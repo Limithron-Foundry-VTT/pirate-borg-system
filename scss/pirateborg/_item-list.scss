@@ -108,4 +108,29 @@
       text-align: center;
     }
   }
+
+  /* Effect duration styling */
+  .effect-duration-header {
+    flex: 0 0 60px;
+    text-align: center;
+  }
+
+  .effect-duration {
+    flex: 0 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--item-font);
+    font-size: 12pt;
+
+    i.fa-clock {
+      color: var(--highlight-background-color);
+    }
+  }
+
+  .effect-modifier {
+    font-size: 10pt;
+    color: var(--highlight-background-color);
+  }
 }
