@@ -15,7 +15,7 @@
     "sass": "sass ./scss:./css",
     "validate": "npm-run-all pretty-check lint",
     "watch": "sass --watch ./scss:./css",
-    "pack": "npm run build:db && node -e \"const fs=require('fs'); const s=JSON.parse(fs.readFileSync('system.json')); s.version=s.version.split('-')[0]+'-'+require('child_process').execSync('git branch --show-current',{encoding:'utf8'}).trim()+'-'+require('child_process').execSync('git rev-parse --short HEAD',{encoding:'utf8'}).trim(); fs.writeFileSync('system.json',JSON.stringify(s,null,2)+'\\n'); console.log('Updated version:',s.version)\" && zip -r ./system.zip CHANGELOG.md LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/"
+    "pack": "npm run build:db && zip -r ./system.zip CHANGELOG.md LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/"
   },
   "repository": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "author": "maqloner",

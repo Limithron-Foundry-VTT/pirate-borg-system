@@ -20,7 +20,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>Raise the ship's morale by 2. The crew cannot mutiny today.</p>\n<p><em><!-- TODO: Effect needs morale attribute support on ships --></em></p>\n<p><strong><em>Chorus<br /></em></strong><em>Well it's all for me grog, me jolly jolly grog,<br /></em><em>It's all for me beer and tobacco.<br /></em><em>For I spent all me tin on the lassies drinking gin,<br /></em><em>Far across the western ocean I must wander.</em></p>\n<p><a href=\"https://youtu.be/RvwFc0Izu2o\">Play Song</a></p>",
+    "description": "<p>Raise the ship's morale by 2. The crew cannot mutiny today.</p>\n<p><strong><em>Chorus<br /></em></strong><em>Well it's all for me grog, me jolly jolly grog,<br /></em><em>It's all for me beer and tobacco.<br /></em><em>For I spent all me tin on the lassies drinking gin,<br /></em><em>Far across the western ocean I must wander.</em></p>\n<p><a href=\"https://youtu.be/RvwFc0Izu2o\">Play Song</a></p>",
     "actionMacro": "",
     "actionMacroLabel": "",
     "price": null,
