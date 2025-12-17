@@ -2,4 +2,5 @@
 node_modules
 .idea
 .env
+system.zip
 REFERENCE/*
