@@ -26,72 +26,79 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     }
   }
 
+  /**
+   * Adds a display string for modifiers to the effect.
+   * @param {object} effect - The effect to modify.
+   * @returns {object} The modified effect.
+   */
+  static addModifierDisplay = (effect) => {
+    const modifiers = [];
+    effect.changes.forEach((change) => {
+      if (change.key.includes("combat.")) {
+        const modifier = change.key.replace("system.attributes.combat.", "");
+        const value = change.value;
+        let displayName = "";
+
+        switch (modifier) {
+          case "attackModifier":
+            displayName = game.i18n.localize("PB.Attack");
+            break;
+          case "defenseModifier":
+            displayName = game.i18n.localize("PB.Defense");
+            break;
+          case "initiativeModifier":
+            displayName = game.i18n.localize("PB.Initiative");
+            break;
+          case "damageModifier":
+            displayName = game.i18n.localize("PB.Damage");
+            break;
+          case "armorTierModifier":
+            displayName = game.i18n.localize("PB.ArmorTier");
+            break;
+          case "speedModifier":
+            displayName = game.i18n.localize("PB.Speed");
+            break;
+          case "luckDieModifier":
+            displayName = game.i18n.localize("PB.LuckDie");
+            break;
+          case "drModifier":
+            displayName = game.i18n.localize("PB.DR");
+            break;
+        }
+
+        if (displayName && value !== 0) {
+          modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
+        }
+      } else if (change.key.includes("abilities.") || change.key.includes("attributes.")) {
+        // Handle other attribute modifiers
+        const parts = change.key.split(".");
+        const attrName = parts[parts.length - 2] || parts[parts.length - 1];
+        const value = change.value;
+
+        if (value !== 0) {
+          let displayName = attrName.charAt(0).toUpperCase() + attrName.slice(1);
+          if (parts.includes("max")) displayName += " (Max)";
+
+          modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
+        }
+      }
+    });
+
+    // Just add modifierDisplay to the existing effect without changing the structure
+    effect.modifierDisplay = modifiers.join(", ") || null;
+    return effect;
+  };
+
   constructEffectLists(sheetData) {
     const effects = {};
+    const allEffects = [
+      ...sheetData.actor.effects,
+      ...sheetData.actor.items.filter((i) => i.effects.filter((e) => e.transfer).length).flatMap((i) => i.effects.filter((e) => e.transfer)),
+    ];
 
-    // Helper function to add modifier display to effects
-    const addModifierDisplay = (effect) => {
-      const modifiers = [];
-      effect.changes.forEach((change) => {
-        if (change.key.includes("combat.")) {
-          const modifier = change.key.replace("system.attributes.combat.", "");
-          const value = change.value;
-          let displayName = "";
-
-          switch (modifier) {
-            case "attackModifier":
-              displayName = game.i18n.localize("PB.Attack");
-              break;
-            case "defenseModifier":
-              displayName = game.i18n.localize("PB.Defense");
-              break;
-            case "initiativeModifier":
-              displayName = game.i18n.localize("PB.Initiative");
-              break;
-            case "damageModifier":
-              displayName = game.i18n.localize("PB.Damage");
-              break;
-            case "armorTierModifier":
-              displayName = game.i18n.localize("PB.ArmorTier");
-              break;
-            case "speedModifier":
-              displayName = game.i18n.localize("PB.Speed");
-              break;
-            case "luckDieModifier":
-              displayName = game.i18n.localize("PB.LuckDie");
-              break;
-            case "drModifier":
-              displayName = game.i18n.localize("PB.DR");
-              break;
-          }
-
-          if (displayName && value != 0) {
-            modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
-          }
-        } else if (change.key.includes("abilities.") || change.key.includes("attributes.")) {
-          // Handle other attribute modifiers
-          const parts = change.key.split(".");
-          const attrName = parts[parts.length - 2] || parts[parts.length - 1];
-          const value = change.value;
-
-          if (value != 0) {
-            let displayName = attrName.charAt(0).toUpperCase() + attrName.slice(1);
-            if (parts.includes("max")) displayName += " Max";
-            else if (parts.includes("value")) displayName += " Current";
-
-            modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
-          }
-        }
-      });
-
-      // Just add modifierDisplay to the existing effect without changing the structure
-      effect.modifierDisplay = modifiers.join(", ") || null;
-      return effect;
-    };
-
-    effects.temporary = sheetData.actor.effects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition).map(addModifierDisplay);
-    effects.disabled = sheetData.actor.effects.filter((i) => i.disabled && !i.isCondition).map(addModifierDisplay);
-    effects.passive = sheetData.actor.effects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition).map(addModifierDisplay);
+    effects.temporary = allEffects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.disabled = allEffects.filter((i) => i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.passive = allEffects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
 
     sheetData.effects = effects;
   }
@@ -212,12 +219,16 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   _onEffectEdit(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    const effect = this.object.effects.get(id);
+    let effect = this.object.effects.get(id);
 
     if (!effect) {
-      console.error(`Effect with ID ${id} not found for editing`);
-      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
-      return;
+      // Try to find the item with the effect
+      effect = this.object.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found for editing`);
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
     }
 
     effect.sheet.render(true);
@@ -225,25 +236,35 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   _onEffectDelete(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    const effect = this.object.effects.get(id);
+    let parent = this.object;
+    let effect = parent.effects.get(id);
 
     if (!effect) {
-      console.error(`Effect with ID ${id} not found for deletion`);
-      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
-      return;
+      // Try to find the item with the effect
+      effect = parent.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found for deletion`);
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
+      parent = effect.parent;
     }
 
-    this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
+    parent.deleteEmbeddedDocuments("ActiveEffect", [id]);
   }
 
   _onEffectToggle(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    const effect = this.object.effects.get(id);
+    let effect = this.object.effects.get(id);
 
     if (!effect) {
-      console.error(`Effect with ID ${id} not found. Available effects:`, Array.from(this.object.effects.keys()));
-      ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
-      return;
+      // Try to find the item with the effect
+      effect = this.object.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found. Available effects:`, Array.from(this.object.effects.keys()));
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
     }
 
     effect.update({ disabled: !effect.disabled });

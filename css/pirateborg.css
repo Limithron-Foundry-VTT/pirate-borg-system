@@ -681,6 +681,13 @@
   padding: 0;
   margin-bottom: 16px;
 }
+.pirateborg .items-list .item-create-button {
+  flex: 0 0 80px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+  padding: 0 8px 0 0;
+}
 .pirateborg .items-list:last-of-type {
   margin: 0;
 }
