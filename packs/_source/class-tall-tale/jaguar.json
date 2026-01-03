@@ -3,7 +3,29 @@
   "name": "Jaguar",
   "type": "feature",
   "img": "systems/pirateborg/tokens/jaguar.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffJaguar001",
+      "name": "Jaguar",
+      "icon": "systems/pirateborg/tokens/jaguar.png",
+      "changes": [
+        {
+          "key": "system.abilities.strength.value",
+          "mode": 2,
+          "value": 2
+        },
+        {
+          "key": "system.abilities.agility.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!iDVD29wjXnI9oDBf.pbEffJaguar001"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

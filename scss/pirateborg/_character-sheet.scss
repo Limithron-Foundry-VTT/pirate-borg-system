@@ -4,6 +4,28 @@
       min-width: 700px;
       min-height: 700px;
 
+      .sheet-header {
+        .grog-status-row {
+          .grog-block {
+            gap: 6px;
+          }
+
+          .grog-label {
+            font-size: 14px;
+          }
+
+          .grog-drinks-input {
+            width: 28px;
+          }
+
+          .drink-grog-button {
+            margin-left: 4px;
+            padding: 2px 8px;
+            font-size: 12px;
+          }
+        }
+      }
+
       .sheet-body {
         .powers-top-row {
           margin-bottom: 16px;

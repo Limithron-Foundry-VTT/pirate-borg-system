@@ -1,8 +1,15 @@
-2025/11/21-22:06:28.712546 1718d3000 Recovering log #146
-2025/11/21-22:06:28.712916 1718d3000 Delete type=3 #144
-2025/11/21-22:06:28.712952 1718d3000 Delete type=0 #146
-2025/11/21-22:06:42.216188 172283000 Level-0 table #152: started
-2025/11/21-22:06:42.216223 172283000 Level-0 table #152: 0 bytes OK
-2025/11/21-22:06:42.216394 172283000 Delete type=0 #150
-2025/11/21-22:06:42.216522 172283000 Manual compaction at level-0 from '!items!5BysSMhBMUK8Wq2g' @ 72057594037927935 : 1 .. '!items!z0NrPZILh67xY5YE' @ 0 : 0; will stop at (end)
-2025/11/21-22:06:42.216561 172283000 Manual compaction at level-1 from '!items!5BysSMhBMUK8Wq2g' @ 72057594037927935 : 1 .. '!items!z0NrPZILh67xY5YE' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:42.941984 7fc0b8fbc6c0 Recovering log #160
+2025/12/01-05:26:42.956940 7fc0b8fbc6c0 Delete type=3 #158
+2025/12/01-05:26:42.956972 7fc0b8fbc6c0 Delete type=0 #160
+2025/12/01-05:26:42.958852 7fc09bfff6c0 Level-0 table #166: started
+2025/12/01-05:26:42.969745 7fc09bfff6c0 Level-0 table #166: 5496 bytes OK
+2025/12/01-05:26:42.978105 7fc09bfff6c0 Delete type=0 #164
+2025/12/01-05:26:42.978236 7fc09bfff6c0 Manual compaction at level-0 from '!items!5BysSMhBMUK8Wq2g' @ 72057594037927935 : 1 .. '!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:42.978281 7fc09bfff6c0 Manual compaction at level-1 from '!items!5BysSMhBMUK8Wq2g' @ 72057594037927935 : 1 .. '!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002' @ 0 : 0; will stop at '!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002' @ 289 : 1
+2025/12/01-05:26:42.978284 7fc09bfff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:26:42.983602 7fc09bfff6c0 Generated table #167@1: 22 keys, 5496 bytes
+2025/12/01-05:26:42.983642 7fc09bfff6c0 Compacted 1@1 + 1@2 files => 5496 bytes
+2025/12/01-05:26:42.993322 7fc09bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:26:42.993462 7fc09bfff6c0 Delete type=2 #162
+2025/12/01-05:26:42.993532 7fc09bfff6c0 Delete type=2 #166
+2025/12/01-05:26:42.993632 7fc09bfff6c0 Manual compaction at level-1 from '!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002' @ 289 : 1 .. '!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002' @ 0 : 0; will stop at (end)

@@ -1,4 +1,5 @@
 import { getCombatantInitiative, getSystemFlag, getTokenDisposition, setSystemFlag } from "../api/utils.js";
+import { isAutoExpireEffectsEnabled } from "./settings.js";
 
 /**
  * @extends Combat
@@ -6,6 +7,76 @@ import { getCombatantInitiative, getSystemFlag, getTokenDisposition, setSystemFl
 export class PBCombat extends Combat {
   get partyInitiative() {
     return getSystemFlag(this, CONFIG.PB.flags.PARTY_INITIATIVE);
+  }
+
+  /* -------------------------------------------- */
+  /*  Turn Lifecycle Hooks                        */
+  /* -------------------------------------------- */
+
+  /**
+   * Called when a combatant's turn starts.
+   * Handles automatic expiration of temporary effects.
+   * @param {Combatant} combatant - The combatant whose turn is starting
+   * @inheritDoc
+   */
+  async _onStartTurn(combatant) {
+    await super._onStartTurn(combatant);
+
+    // Only GM should handle effect expiration to prevent duplicate processing
+    if (game.user.isGM && isAutoExpireEffectsEnabled()) {
+      await this._expireEffectsForCombatant(combatant);
+    }
+  }
+
+  /**
+   * Called when a combatant's turn ends.
+   * @param {Combatant} combatant - The combatant whose turn is ending
+   * @inheritDoc
+   */
+  async _onEndTurn(combatant) {
+    await super._onEndTurn(combatant);
+  }
+
+  /**
+   * Check and expire temporary effects for a combatant's actor.
+   * Effects expire when their duration.remaining reaches 0 or below.
+   * @param {Combatant} combatant - The combatant to check effects for
+   * @private
+   */
+  async _expireEffectsForCombatant(combatant) {
+    const actor = combatant.actor;
+    if (!actor) return;
+
+    // Find all temporary effects that have expired
+    const expiredEffects = actor.effects.filter((effect) => {
+      // Only check temporary effects with duration tracking
+      if (!effect.isTemporary) return false;
+
+      // Check if the effect has duration remaining set and is expired
+      const remaining = effect.duration.remaining;
+      return remaining !== null && remaining !== undefined && remaining <= 0;
+    });
+
+    if (expiredEffects.length === 0) return;
+
+    // Delete expired effects and notify
+    for (const effect of expiredEffects) {
+      const effectName = effect.name || effect.label || game.i18n.localize("PB.EffectsUnnamed");
+
+      // Post chat notification about the expired effect
+      await ChatMessage.create({
+        content: game.i18n.format("PB.EffectExpired", {
+          effect: effectName,
+          actor: actor.name,
+        }),
+        speaker: ChatMessage.getSpeaker({ actor }),
+        type: CONST.CHAT_MESSAGE_STYLES?.OTHER ?? CONST.CHAT_MESSAGE_TYPES?.OTHER ?? 0,
+      });
+
+      // Delete the effect
+      await effect.delete();
+      console.log(`Pirate Borg | Expired effect "${effectName}" on ${actor.name}`);
+    }
   }
 
   async updatePartyInitiative(rollTotal) {

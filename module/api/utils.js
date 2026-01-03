@@ -107,7 +107,7 @@ export const getResultCollection = (result) => {
   }
 
   return result.documentCollection;
-}
+};
 
 /**
  * @param {TableResult} result
@@ -120,7 +120,7 @@ export const getResultText = (result) => {
   }
 
   return result.text.replaceAll(" &amp; ", " & ");
-}
+};
 
 /**
  * @param {TableResult[]} results

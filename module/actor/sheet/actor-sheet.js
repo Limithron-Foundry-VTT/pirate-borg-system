@@ -26,12 +26,79 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     }
   }
 
+  /**
+   * Adds a display string for modifiers to the effect.
+   * @param {object} effect - The effect to modify.
+   * @returns {object} The modified effect.
+   */
+  static addModifierDisplay = (effect) => {
+    const modifiers = [];
+    effect.changes.forEach((change) => {
+      if (change.key.includes("combat.")) {
+        const modifier = change.key.replace("system.attributes.combat.", "");
+        const value = change.value;
+        let displayName = "";
+
+        switch (modifier) {
+          case "attackModifier":
+            displayName = game.i18n.localize("PB.Attack");
+            break;
+          case "defenseModifier":
+            displayName = game.i18n.localize("PB.Defense");
+            break;
+          case "initiativeModifier":
+            displayName = game.i18n.localize("PB.Initiative");
+            break;
+          case "damageModifier":
+            displayName = game.i18n.localize("PB.Damage");
+            break;
+          case "armorTierModifier":
+            displayName = game.i18n.localize("PB.ArmorTier");
+            break;
+          case "speedModifier":
+            displayName = game.i18n.localize("PB.Speed");
+            break;
+          case "luckDieModifier":
+            displayName = game.i18n.localize("PB.LuckDie");
+            break;
+          case "drModifier":
+            displayName = game.i18n.localize("PB.DR");
+            break;
+        }
+
+        if (displayName && value !== 0) {
+          modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
+        }
+      } else if (change.key.includes("abilities.") || change.key.includes("attributes.")) {
+        // Handle other attribute modifiers
+        const parts = change.key.split(".");
+        const attrName = parts[parts.length - 2] || parts[parts.length - 1];
+        const value = change.value;
+
+        if (value !== 0) {
+          let displayName = attrName.charAt(0).toUpperCase() + attrName.slice(1);
+          if (parts.includes("max")) displayName += " (Max)";
+
+          modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
+        }
+      }
+    });
+
+    // Just add modifierDisplay to the existing effect without changing the structure
+    effect.modifierDisplay = modifiers.join(", ") || null;
+    return effect;
+  };
+
   constructEffectLists(sheetData) {
     const effects = {};
+    const allEffects = [
+      ...sheetData.actor.effects,
+      ...sheetData.actor.items.filter((i) => i.effects.filter((e) => e.transfer).length).flatMap((i) => i.effects.filter((e) => e.transfer)),
+    ];
 
-    effects.temporary = sheetData.actor.effects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition);
-    effects.disabled = sheetData.actor.effects.filter((i) => i.disabled && !i.isCondition);
-    effects.passive = sheetData.actor.effects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition);
+    effects.temporary = allEffects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.disabled = allEffects.filter((i) => i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.passive = allEffects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
 
     sheetData.effects = effects;
   }
@@ -80,19 +147,19 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   async _onEffectCreate(ev) {
     const type = ev.currentTarget.attributes["data-type"].value;
+    const isTemporary = type === "temporary";
+    const defaultName = game.i18n.localize("PB.EffectsNew");
     const effectData = {
-      label: game.i18n.localize("PB.EffectsNew"),
+      name: defaultName,
       icon: "icons/svg/aura.svg",
     };
-    if (type === "temporary") {
-      effectData["duration.rounds"] = 1;
-    }
 
     let html;
+    const templateData = { isTemporary };
     if (game.release.generation >= 13) {
-      html = await foundry.applications.handlebars.renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+      html = await foundry.applications.handlebars.renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html", templateData);
     } else {
-      html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html");
+      html = await renderTemplate("systems/pirateborg/templates/dialog/quick-effect.html", templateData);
     }
     const dialog = new Dialog({
       title: game.i18n.localize("PB.EffectsQuick"),
@@ -101,20 +168,43 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
         create: {
           label: game.i18n.localize("PB.EffectsCreate"),
           callback: (html) => {
-            effectData.name = html.find(".label").val();
+            const labelValue = html.find(".label").val();
+            effectData.name = labelValue || defaultName;
             effectData.changes = [
               {
                 key: html.find(".key").val(),
                 mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-                value: parseInt(html.find(".modifier").val()),
+                value: parseInt(html.find(".modifier").val()) || 0,
               },
             ];
+
+            // Handle duration for temporary effects
+            if (isTemporary) {
+              const durationRounds = parseInt(html.find(".duration").val()) || 1;
+              effectData["duration.rounds"] = durationRounds;
+              // Set start round/turn if combat is active for proper duration tracking
+              if (game.combat?.started) {
+                effectData["duration.startRound"] = game.combat.round;
+                effectData["duration.startTurn"] = game.combat.turn;
+              }
+            }
+
             this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
           },
         },
         skip: {
           label: game.i18n.localize("PB.EffectsSkip"),
-          callback: () => this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
+          callback: () => {
+            // For skip, still set default duration for temporary effects
+            if (isTemporary) {
+              effectData["duration.rounds"] = 1;
+              if (game.combat?.started) {
+                effectData["duration.startRound"] = game.combat.round;
+                effectData["duration.startTurn"] = game.combat.turn;
+              }
+            }
+            this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true));
+          },
         },
       },
       default: "create",
@@ -129,17 +219,53 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   _onEffectEdit(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    this.object.effects.get(id).sheet.render(true);
+    let effect = this.object.effects.get(id);
+
+    if (!effect) {
+      // Try to find the item with the effect
+      effect = this.object.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found for editing`);
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
+    }
+
+    effect.sheet.render(true);
   }
 
   _onEffectDelete(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
+    let parent = this.object;
+    let effect = parent.effects.get(id);
+
+    if (!effect) {
+      // Try to find the item with the effect
+      effect = parent.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found for deletion`);
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
+      parent = effect.parent;
+    }
+
+    parent.deleteEmbeddedDocuments("ActiveEffect", [id]);
   }
 
   _onEffectToggle(ev) {
     const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-    const effect = this.object.effects.get(id);
+    let effect = this.object.effects.get(id);
+
+    if (!effect) {
+      // Try to find the item with the effect
+      effect = this.object.items.find((item) => item.effects.has(id))?.effects.get(id);
+      if (!effect) {
+        console.error(`Effect with ID ${id} not found. Available effects:`, Array.from(this.object.effects.keys()));
+        ui.notifications.error(`${game.i18n.localize("PB.EffectsNotFound")}: ${id}`);
+        return;
+      }
+    }
 
     effect.update({ disabled: !effect.disabled });
   }
@@ -413,6 +539,13 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     });
 
     formData.data.localizedType = `TYPES.${formData.actor.documentName}.${formData.data.type}`;
+
+    // Calculate effective speed for display
+    if (formData.data.type === "character") {
+      const baseSpeed = formData.data.system.attributes?.speed?.max ?? 6;
+      const speedModifier = formData.data.system.attributes?.combat?.speedModifier ?? 0;
+      formData.effectiveSpeed = baseSpeed + speedModifier;
+    }
 
     return formData;
   }

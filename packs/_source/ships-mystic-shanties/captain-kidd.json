@@ -3,7 +3,24 @@
   "name": "Captain Kidd",
   "type": "shanty",
   "img": "systems/pirateborg/icons/misc/shanty.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffCaptKidd01",
+      "name": "Captain Kidd",
+      "icon": "systems/pirateborg/icons/misc/shanty.png",
+      "changes": [
+        {
+          "key": "system.abilities.skill.value",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!5sGIaD4NrgbDmBhF.pbEffCaptKidd01"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},

@@ -66,8 +66,6 @@ body {
   &:hover {
     box-shadow: 0 0 10px var(--highlight-background-color);
   }
-
-
 }
 
 a:hover {
@@ -165,7 +163,6 @@ form.editable .results {
         }
       }
     }
-
   }
   .window-content {
     background: var(--window-background);
@@ -349,8 +346,10 @@ form.editable .results {
     &.emote::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--window-background);
       filter: grayscale(25%);
     }
@@ -365,8 +364,10 @@ form.editable .results {
     &.whisper::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--window-background);
       filter: grayscale(50%);
     }
@@ -381,8 +382,10 @@ form.editable .results {
     &.blind::before {
       content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: var(--window-background);
       filter: grayscale(100%);
     }
@@ -787,7 +790,13 @@ div#sidebar {
     border-bottom: 2px solid var(--color-underline-header);
   }
 
-  h1, h2, h3, h4, h5, h6, button {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button {
     color: var(--background-color);
   }
 }

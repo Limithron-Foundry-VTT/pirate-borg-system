@@ -3,12 +3,61 @@
   "name": "Curse of the Drowned",
   "type": "invokable",
   "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffCurse0001",
+      "name": "Curse of the Drowned - DR Penalty",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.drModifier",
+          "mode": 2,
+          "value": 4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "rounds": 1
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d6",
+          "targetType": "enemy"
+        }
+      },
+      "_key": "!items.effects!n2hI94U5o3CY0wI9.pbEffCurse0001"
+    },
+    {
+      "_id": "pbEffCurse0002",
+      "name": "Curse of the Drowned - Defense Penalty",
+      "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": -4
+        }
+      ],
+      "disabled": false,
+      "transfer": false,
+      "duration": {
+        "rounds": 1
+      },
+      "flags": {
+        "pirateborg": {
+          "durationFormula": "1d6",
+          "targetType": "enemy"
+        }
+      },
+      "_key": "!items.effects!n2hI94U5o3CY0wI9.pbEffCurse0002"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>For d6 rounds, a creature gets +4 to all DRs and is dr-4 to defend against</p>",
+    "description": "<p>For d6 rounds, a creature gets +4 to all DRs and is DR-4 to defend against.</p>\n<p><strong>Usage:</strong> Drag effects to target creature, then roll 1d6 and set the duration (rounds) on the target's Effects tab.</p>",
     "containerSpace": 0,
     "carryWeight": 0,
     "equipped": false,

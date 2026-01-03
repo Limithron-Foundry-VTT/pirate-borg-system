@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.769250 16f74f000 Recovering log #120
-2025/09/08-14:16:55.769755 16f74f000 Delete type=3 #118
-2025/09/08-14:16:55.769837 16f74f000 Delete type=0 #120
-2025/09/08-14:28:52.028234 82091b000 Level-0 table #125: started
-2025/09/08-14:28:52.028331 82091b000 Level-0 table #125: 0 bytes OK
-2025/09/08-14:28:52.028500 82091b000 Delete type=0 #123
-2025/09/08-14:28:52.029340 82091b000 Manual compaction at level-0 from '!tables!86JvffxV6VQOdWWZ' @ 72057594037927935 : 1 .. '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.029365 82091b000 Manual compaction at level-1 from '!tables!86JvffxV6VQOdWWZ' @ 72057594037927935 : 1 .. '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:43.957629 7fc0b97bd6c0 Recovering log #133
+2025/12/01-05:26:43.972584 7fc0b97bd6c0 Delete type=0 #133
+2025/12/01-05:26:43.972605 7fc0b97bd6c0 Delete type=3 #131
+2025/12/01-05:26:43.973581 7fc09bfff6c0 Level-0 table #139: started
+2025/12/01-05:26:43.978639 7fc09bfff6c0 Level-0 table #139: 2817 bytes OK
+2025/12/01-05:26:43.985687 7fc09bfff6c0 Delete type=0 #137
+2025/12/01-05:26:43.985752 7fc09bfff6c0 Manual compaction at level-0 from '!tables!86JvffxV6VQOdWWZ' @ 72057594037927935 : 1 .. '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:43.985792 7fc09bfff6c0 Manual compaction at level-1 from '!tables!86JvffxV6VQOdWWZ' @ 72057594037927935 : 1 .. '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 0 : 0; will stop at '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 230 : 1
+2025/12/01-05:26:43.985804 7fc09bfff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:26:43.990647 7fc09bfff6c0 Generated table #140@1: 20 keys, 2817 bytes
+2025/12/01-05:26:43.990662 7fc09bfff6c0 Compacted 1@1 + 1@2 files => 2817 bytes
+2025/12/01-05:26:43.997774 7fc09bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:26:43.997824 7fc09bfff6c0 Delete type=2 #135
+2025/12/01-05:26:43.997861 7fc09bfff6c0 Delete type=2 #139
+2025/12/01-05:26:43.997920 7fc09bfff6c0 Manual compaction at level-1 from '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 230 : 1 .. '!tables.results!JVQRKOI3JkO4pa5s.zsXxZ36hs2L4ymod' @ 0 : 0; will stop at (end)

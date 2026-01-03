@@ -39,7 +39,7 @@
   --color-border-light-primary: var(--light-border-color);
   --color-border-highlight: #ff0000;
   --color-shadow-highlight: #ff0000;
-  --color-underline-active: #44191A;
+  --color-underline-active: #44191a;
   --color-underline-header: #782e22;
 }
 
@@ -495,6 +495,20 @@
   min-width: 700px;
   min-height: 700px;
 }
+.pirateborg.sheet.actor.character .sheet-header .grog-status-row .grog-block {
+  gap: 6px;
+}
+.pirateborg.sheet.actor.character .sheet-header .grog-status-row .grog-label {
+  font-size: 14px;
+}
+.pirateborg.sheet.actor.character .sheet-header .grog-status-row .grog-drinks-input {
+  width: 28px;
+}
+.pirateborg.sheet.actor.character .sheet-header .grog-status-row .drink-grog-button {
+  margin-left: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-bottom: 16px;
   display: flex;
@@ -648,6 +662,9 @@
   margin: 0;
 }
 
+.pirateborg {
+  /* Effect duration styling */
+}
 .pirateborg .items-list .items-header {
   margin: 0;
   padding: 0;
@@ -663,6 +680,13 @@
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
+}
+.pirateborg .items-list .item-create-button {
+  flex: 0 0 80px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+  padding: 0 8px 0 0;
 }
 .pirateborg .items-list:last-of-type {
   margin: 0;
@@ -738,6 +762,36 @@
 }
 .pirateborg .item-list .empty-container {
   text-align: center;
+}
+.pirateborg .effect-duration-header {
+  flex: 0 0 60px;
+  text-align: center;
+}
+.pirateborg .effect-duration {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--item-font);
+  font-size: 12pt;
+}
+.pirateborg .effect-duration i.fa-clock {
+  color: var(--highlight-background-color);
+}
+.pirateborg .effect-modifier {
+  font-size: 10pt;
+  color: var(--highlight-background-color);
+}
+.pirateborg .effect-info {
+  font-size: 10pt;
+  color: var(--highlight-background-color);
+  margin-left: 4px;
+  cursor: help;
+  opacity: 0.7;
+}
+.pirateborg .effect-info:hover {
+  opacity: 1;
 }
 
 .pirateborg.sheet.actor .creature {
@@ -1377,7 +1431,13 @@ div#sidebar.collapsed #sidebar-tabs > .item.active {
 .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2 {
   border-bottom: 2px solid var(--color-underline-header);
 }
-.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h3, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h4, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h5, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6, .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h1,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h2,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h3,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h4,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h5,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6,
+.application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
   color: var(--background-color);
 }
 

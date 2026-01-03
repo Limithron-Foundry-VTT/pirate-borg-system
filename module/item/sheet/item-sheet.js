@@ -1,6 +1,7 @@
 import { PB } from "../../config.js";
 import { showAnimationDialog } from "../../dialog/animation-dialog.js";
 import { configureEditor } from "../../system/configure-editor.js";
+import PBActorSheet from "../../actor/sheet/actor-sheet.js";
 
 /*
  * @extends {ItemSheet}
@@ -32,12 +33,11 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     super.activateListeners(html);
 
     html.find(".effect-create").click(async () => {
-      if (this.item.isOwned) {
-        ui.notifications.error(game.i18n.localize("PB.EffectsItemOwned"));
-      }
       const effectData = {
+        name: "",
         label: this.item.name,
         icon: this.item.img,
+        origin: this.item.uuid,
       };
 
       const template = "systems/pirateborg/templates/dialog/quick-effect.html";
@@ -67,7 +67,10 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
           },
           skip: {
             label: game.i18n.localize("PB.EffectsSkip"),
-            callback: () => this.object.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true)),
+            callback: () => {
+              effectData.name = game.i18n.localize("PB.EffectsNew");
+              this.object.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true));
+            },
           },
         },
       });
@@ -129,6 +132,8 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
           async: true,
         })
       : "";
+
+    formData.item.effects?.map(PBActorSheet.addModifierDisplay);
 
     return formData;
   }

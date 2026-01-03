@@ -1,8 +1,15 @@
-2025/09/08-14:16:55.692718 16ef43000 Recovering log #120
-2025/09/08-14:16:55.693132 16ef43000 Delete type=3 #118
-2025/09/08-14:16:55.693179 16ef43000 Delete type=0 #120
-2025/09/08-14:28:52.010791 82091b000 Level-0 table #125: started
-2025/09/08-14:28:52.010825 82091b000 Level-0 table #125: 0 bytes OK
-2025/09/08-14:28:52.011179 82091b000 Delete type=0 #123
-2025/09/08-14:28:52.012349 82091b000 Manual compaction at level-0 from '!items!7hLixvuL9S6mXREu' @ 72057594037927935 : 1 .. '!items!zYIwlcmQ4aT2NW38' @ 0 : 0; will stop at (end)
-2025/09/08-14:28:52.012385 82091b000 Manual compaction at level-1 from '!items!7hLixvuL9S6mXREu' @ 72057594037927935 : 1 .. '!items!zYIwlcmQ4aT2NW38' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:42.389313 7fc0b8fbc6c0 Recovering log #133
+2025/12/01-05:26:42.403124 7fc0b8fbc6c0 Delete type=0 #133
+2025/12/01-05:26:42.403143 7fc0b8fbc6c0 Delete type=3 #131
+2025/12/01-05:26:42.404087 7fc09bfff6c0 Level-0 table #139: started
+2025/12/01-05:26:42.408794 7fc09bfff6c0 Level-0 table #139: 2163 bytes OK
+2025/12/01-05:26:42.414981 7fc09bfff6c0 Delete type=0 #137
+2025/12/01-05:26:42.415096 7fc09bfff6c0 Manual compaction at level-0 from '!items!7hLixvuL9S6mXREu' @ 72057594037927935 : 1 .. '!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1' @ 0 : 0; will stop at (end)
+2025/12/01-05:26:42.415154 7fc09bfff6c0 Manual compaction at level-1 from '!items!7hLixvuL9S6mXREu' @ 72057594037927935 : 1 .. '!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1' @ 0 : 0; will stop at '!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1' @ 92 : 1
+2025/12/01-05:26:42.415165 7fc09bfff6c0 Compacting 1@1 + 1@2 files
+2025/12/01-05:26:42.420221 7fc09bfff6c0 Generated table #140@1: 10 keys, 2163 bytes
+2025/12/01-05:26:42.420240 7fc09bfff6c0 Compacted 1@1 + 1@2 files => 2163 bytes
+2025/12/01-05:26:42.426852 7fc09bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/12/01-05:26:42.426943 7fc09bfff6c0 Delete type=2 #135
+2025/12/01-05:26:42.426993 7fc09bfff6c0 Delete type=2 #139
+2025/12/01-05:26:42.427063 7fc09bfff6c0 Manual compaction at level-1 from '!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1' @ 92 : 1 .. '!items.effects!sZXgoub4yEXpBflf.pbEffChainAgil1' @ 0 : 0; will stop at (end)
