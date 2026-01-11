@@ -1,3 +1,9 @@
+# v1.2.0
+
+- Greatly expanded the effects system capabilities, as well as making it easier to select the desired effect.
+  - Thank you r2DoesInc for the contribution [#64](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/64).
+- Added correct localisation for Item Deletion and Ship Actions.
+
 # v1.1.7
 
 - Fixed some typos that would be visible when firing ship broadsides.
