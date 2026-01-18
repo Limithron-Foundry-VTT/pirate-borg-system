@@ -7,28 +7,46 @@ import { createRollLootOutcome } from "../../outcome/character/get-better/roll-l
 import { outcome } from "../../outcome/outcome.js";
 
 /**
+ * @typedef GetBetterOptions
+ * @property {Boolean} [silent=false] - If true, no chat message will be created
+ * @property {Boolean} [skipAbilities=false] - If true, abilities will not be rolled
+ * @property {Boolean} [skipHP=false] - If true, HP will not be rolled
+ * @property {Boolean} [skipItems=false] - If true, items will not be rolled
+ * @property {Boolean} [skipLoot=false] - If true, loot will not be rolled
+ * @property {Boolean} [skipMacro=false] - If true, the getting better macro will not be invoked
+ */
+
+/**
  * @param {PBActor} actor
+ * @param {GetBetterOptions} options - Options to better control the gain experience flow
  * @returns {Promise<Object[]>}
  */
-export const characterGetBetterAction = async (actor) => {
-  const outcomes = [
-    await rollHP(actor),
-    await rollAbility(actor, CONFIG.PB.ability.strength),
-    await rollAbility(actor, CONFIG.PB.ability.agility),
-    await rollAbility(actor, CONFIG.PB.ability.presence),
-    await rollAbility(actor, CONFIG.PB.ability.toughness),
-    await rollAbility(actor, CONFIG.PB.ability.spirit),
-    ...((await rollGetBetterItems(actor)) ?? []),
-    await rollLoot(actor),
-  ];
+export const characterGetBetterAction = async (actor, options = {}) => {
+  const outcomes = [];
+  const { silent = false, skipAbilities = false, skipHP = false, skipItems = false, skipLoot = false, skipMacro = false } = options;
 
-  await showGenericCard({
-    actor,
-    title: game.i18n.localize("PB.GetBetter"),
-    outcomes,
-  });
+  if (!skipHP) outcomes.push(await rollHP(actor));
+  if (!skipAbilities) {
+    outcomes.push(
+      await rollAbility(actor, CONFIG.PB.ability.strength),
+      await rollAbility(actor, CONFIG.PB.ability.agility),
+      await rollAbility(actor, CONFIG.PB.ability.presence),
+      await rollAbility(actor, CONFIG.PB.ability.toughness),
+      await rollAbility(actor, CONFIG.PB.ability.spirit)
+    );
+  }
+  if (!skipItems) outcomes.push(...((await rollGetBetterItems(actor)) ?? []));
+  if (!skipLoot) outcomes.push(await rollLoot(actor));
 
-  await invokeGettingBetterMacro(actor);
+  if (!silent) {
+    await showGenericCard({
+      actor,
+      title: game.i18n.localize("PB.GetBetter"),
+      outcomes,
+    });
+  }
+
+  if (!skipMacro) await invokeGettingBetterMacro(actor);
 
   return outcomes;
 };

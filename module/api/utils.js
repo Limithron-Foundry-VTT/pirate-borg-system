@@ -92,7 +92,7 @@ export const getInfoFromDropData = (dropData) => {
 
 /**
  * @param {TableResult} result
- * @return {Number}
+ * @return {String}
  */
 export const getResultType = (result) => result.type;
 

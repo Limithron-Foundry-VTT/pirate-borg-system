@@ -91,14 +91,10 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
   constructEffectLists(sheetData) {
     const effects = {};
-    const allEffects = [
-      ...sheetData.actor.effects,
-      ...sheetData.actor.items.filter((i) => i.effects.filter((e) => e.transfer).length).flatMap((i) => i.effects.filter((e) => e.transfer)),
-    ];
 
-    effects.temporary = allEffects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
-    effects.disabled = allEffects.filter((i) => i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
-    effects.passive = allEffects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.temporary = sheetData.actor.effects.filter((i) => i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.disabled = sheetData.actor.effects.filter((i) => i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
+    effects.passive = sheetData.actor.effects.filter((i) => !i.isTemporary && !i.disabled && !i.isCondition).map(PBActorSheet.addModifierDisplay);
 
     sheetData.effects = effects;
   }

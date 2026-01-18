@@ -11,6 +11,7 @@ import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
 import { onDragRulerReady } from "./system/drag-ruler.js";
 import { configureAutomation } from "./system/configure-automation.js";
+import { registerFonts } from "./system/fonts.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -35,8 +36,14 @@ Hooks.once("init", async () => {
     img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
     img.className = "";
   });
+  Hooks.on("renderGamePause", (app, html) => {
+    html.classList.add("pirateborg");
+    const img = html.querySelector("img");
+    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
+  });
 
   registerSystemSettings();
+  registerFonts();
   configureHandlebar();
   configureSystem();
   registerSocketHandler();
