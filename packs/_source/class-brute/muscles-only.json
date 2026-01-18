@@ -20,7 +20,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>You can&rsquo;t use Relics or Arcane Rituals, but your muscles are basically &ldquo;magic\"</p>",
+    "description": "<p>You can&rsquo;t use Arcane Rituals, but your muscles are basically \"magic\"</p>",
     "featureType": "Class",
     "maxQuantity": 1,
     "quantity": 1,

@@ -17,7 +17,7 @@
         {
           "key": "system.attributes.hp.max",
           "mode": 2,
-          "value": 4
+          "value": 0
         }
       ],
       "disabled": false,
@@ -30,7 +30,7 @@
   "sort": 0,
   "flags": {},
   "system": {
-    "description": "<p>Your body has developed into a finely tuned machine for existing in the wild. Gain +1 Toughness . You cannot become infected, sick, or poisoned, and your maximum HP increases by d4.</p>\n<p>If taken again: gain +1 Toughness and HP increases another d4</p>",
+    "description": "<p>Your body has developed into a finely tuned machine for existing in the wild. Gain +1 Toughness . You cannot become infected, sick, or poisoned, and your maximum HP increases by d4.</p>\n<p>If taken again: gain +1 Toughness and HP increases another d4</p><p><em>Foundry VTT note: roll the [[/r d4]] manually and then edit the Active Effect.</em></p>",
     "featureType": "Class",
     "maxQuantity": 2,
     "quantity": 1,

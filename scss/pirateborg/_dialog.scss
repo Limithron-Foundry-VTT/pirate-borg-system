@@ -138,6 +138,36 @@
 }
 
 .character-generator-dialog {
+  height: 100%;
+
+  .custom-dialog-header,
+  .button-row {
+    flex: 0 0 auto;
+    margin-top: 0;
+  }
+
+  .section {
+    overflow: hidden;
+
+    .class-groups {
+      flex: 1 1 auto;
+      min-height: 120px;
+      overflow-y: auto;
+    }
+    &*:not(.class-groups, hr) {
+      flex: 0 0 auto;
+    }
+    .spacer {
+      flex: 4 4 auto;
+    }
+    .class-options {
+      margin-left: 13px;
+    }
+    hr {
+      margin: 0;
+    }
+  }
+
   .module-group {
     margin-bottom: 1rem;
 

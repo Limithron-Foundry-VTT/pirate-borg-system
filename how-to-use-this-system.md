@@ -130,3 +130,150 @@ The following are some examples provided by `Ashendar` on the Discord server.
   goto = goto.filter((g) => g.tokens.length > 0);
   return { goto: goto };
   ```
+
+### Gaining Experience API (since v1.2.1)
+
+The `game.pirateborg.api.actions.characterGetBetterAction()` method accepts optional parameters to customize the flow when gaining experience.
+
+**Function Signature**: `game.pirateborg.api.actions.characterGetBetterAction(actor, options)`
+
+**Options**:
+
+- `silent` (boolean, default: `false`) - If `true`, no chat message will be displayed.
+- `skipAbilities` (boolean, default: `false`) - If `true`, ability score changes will not be rolled.
+- `skipHP` (boolean, default: `false`) - If `true`, HP increase will not be rolled.
+- `skipItems` (boolean, default: `false`) - If `true`, "getting better" roll tables will not be rolled.
+- `skipLoot` (boolean, default: `false`) - If `true`, loot roll will not be performed.
+- `skipMacro` (boolean, default: `false`) - If `true`, class "getting better" macros will not be invoked.
+
+**Example**:
+
+```javascript
+// Custom progression: only roll HP, skip everything else
+await game.pirateborg.api.actions.characterGetBetterAction(actor, {
+  skipAbilities: true,
+  skipItems: true,
+  skipLoot: true,
+  skipMacro: true,
+});
+```
+
+## Hooks for Module Developers
+
+The Pirate Borg system provides several hooks that allow module developers to extend and customize character creation and progression.
+
+### Character Generation Hooks (since v1.2.1)
+
+#### `pirateborg.preCharacterGeneration`
+
+Fires at the start of character generation via The Tavern, before any character data is rolled.
+
+**Parameters:**
+
+- `actor` (PBActor|null) - The Actor being regenerated, or `null` when creating a new character
+- `options` (CharacterGenerationHookOptions) - Object containing:
+  - `html` (HTMLElement) - The dialog form element
+  - `formData` (object) - The form data submitted (see `foundry.applications.ux.FormDataExtended`)
+  - `method` (string) - Either `"create"` or `"regenerate"`
+- `selectedClasses` (string[]) - Array of selected class pack names (e.g., `["pirateborg.class-swashbuckler"]`). This is what is used by the generator to select a random class from the available options.
+
+**Synchronous Nature**: While Foundry VTT hooks may look asynchronous, they are not awaited. Therefore, any modifications to the `options` object must be done synchronously within the hook function.
+
+**Example:**
+
+```javascript
+Hooks.on("pirateborg.preCharacterGeneration", (actor, options) => {
+  console.log(`Selected classes:`, options.selectedClasses);
+
+  // Modify form data if needed
+  if (options.formData.customField) {
+    // Handle custom form data
+  }
+});
+```
+
+#### `pirateborg.characterGeneration`
+
+Fires after character generation via The Tavern completes, after all items have been added and stats rolled.
+
+**Parameters**:
+
+- `actor` (PBActor) - The Actor that was created or regenerated
+- `options` (CharacterGenerationHookOptions) - Same options object as _preCharacterGeneration_
+
+**Synchronous Nature**: While Foundry VTT hooks may look asynchronous, they are not awaited. Therefore, any modifications to the `options` object must be done synchronously within the hook function.
+
+**Example**:
+
+```javascript
+Hooks.on("pirateborg.characterGeneration", (actor, options) => {
+  // Check if character has a specific class
+  const hasCustomClass = actor.items.find((i) => i.type === "class" && i.name === "My Custom Class");
+
+  if (hasCustomClass) {
+    // Trigger custom class feature dialog
+    showCustomClassDialog(actor);
+  }
+});
+```
+
+#### `renderCharacterGeneratorDialog`
+
+Standard Foundry render hook fired when The Tavern dialog is rendered.
+
+**Parameters**:
+
+- `app` (CharacterGeneratorDialog) - The dialog application instance
+- `html` (jQuery|HTMLElement) - Rendered HTML (v1=jQuery, v2=HTMLElement)
+- `data` (object) - The template data
+
+**Example**:
+
+```javascript
+Hooks.on("renderCharacterGeneratorDialog", (app, html, data) => {
+  html = html instanceof HTMLElement ? html : html[0];
+
+  // Add custom controls to The Tavern dialog
+  const customControl = `
+    <div class="form-group">
+      <label>Do something amazing?</label>
+      <input type="checkbox" name="be-amazing" checked>
+    </div>
+  `;
+  html.querySelector(".spacer").insertAdjacentHTML("beforebegin", customControl);
+});
+```
+
+### Character Progression Hooks (since v1.2.1)
+
+#### `pirateborg.preCharacterGetBetter`
+
+Fires when the "Get Better" (gain experience/level up) action is triggered, before any rolls or updates are made.
+
+**Parameters**:
+
+- `actor` (PBActor) - The actor that is "getting better"
+
+**Synchronous Nature**: While Foundry VTT hooks may look asynchronous, they are not awaited. Therefore, any modifications to the `options` object must be done synchronously within the hook function.
+
+**Return Value**: Returning `false` prevents the default "Get Better" flow from executing. This allows modules to completely replace the level-up system. Remember to call the `game.pirateborg.api.actions.characterGetBetterAction` method if you want to roll any of the default behavior (see above).
+
+**Example**:
+
+```javascript
+Hooks.on("pirateborg.preCharacterGetBetter", (actor) => {
+  // Find custom class that requires special progression
+  const customClass = actor.items.find((i) => i.type === "class" && i.name === "My Custom Class Item");
+
+  if (customClass) {
+    // Show custom gain experience dialog
+    showCustomProgression(actor);
+
+    // Prevent default behavior
+    return false;
+  }
+
+  // Allow default behavior for standard classes
+  return true;
+});
+```

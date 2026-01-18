@@ -18,17 +18,28 @@
           "key": "system.attributes.combat.defenseModifier",
           "mode": 2,
           "value": 2
-        },
-        {
-          "key": "system.attributes.combat.damageModifier",
-          "mode": 2,
-          "value": 1
         }
       ],
       "disabled": false,
       "transfer": false,
       "flags": {},
       "_key": "!items.effects!lco7XqcFzkaMkw0W.pbEffOstentati1"
+    },
+    {
+      "_id": "pbEffOstentati2",
+      "name": "One-on-One Damage Bonus",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.damageModifier",
+          "mode": 2,
+          "value": 1
+        }
+      ],
+      "disabled": true,
+      "transfer": false,
+      "flags": {},
+      "_key": "!items.effects!lco7XqcFzkaMkw0W.pbEffOstentati2"
     }
   ],
   "folder": null,

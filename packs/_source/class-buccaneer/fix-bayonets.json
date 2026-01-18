@@ -22,7 +22,7 @@
   "system": {
     "description": "<p>You now have a bayonet (d4). You can attack with it on the same turn you reload.</p>\n<p>If taken again: d6 damage instead.</p>",
     "featureType": "Class",
-    "maxQuantity": 1,
+    "maxQuantity": 2,
     "quantity": 1,
     "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
     "actionMacroLabel": "Use",

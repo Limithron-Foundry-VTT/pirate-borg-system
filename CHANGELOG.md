@@ -1,3 +1,45 @@
+# v1.2.1
+
+- Minor visual improvements to The Tavern to help support longer lists of classes when multiple modules provide classes.
+- Added _hooks_ for:
+  - Actor (re)generation via The Tavern.
+    - Modules can listen to the `pirateborg.preCharacterGeneration` and `pirateborg.characterGeneration` hooks, receiving the actor which is being created or has just been created respectively, along with `CharacterGenerationHookOptions`.
+      - `CharacterGenerationHookOptions` includes:
+        - `html`: The HTML content of The Tavern dialog.
+        - `formData`: The form data submitted by the user to generate the character.
+        - `selectedClasses`: An array of the selected class compendium references.
+        - `method`: Indicates whether the character is being created as a "new" character (`create`) or as a "replacement" character (`regenerate`).
+    - Modules can also listen to the `renderCharacterGeneratorDialog` hook to modify the character generator dialog prior to display, receiving the standard "render" hook parameters.
+  - The "Get Better"/"Gain Experience" action to allow for module customization.
+    - Modules can listen to the `pirateborg.preCharacterGetBetter` hook, receiving the actor which is "getting better". Returning `false` from the hook will prevent the default behavior from occurring.
+- Added the ability to customize the "Gain Experience" flow via `GetBetterOptions`.
+  - The `game.pirateborg.api.actions.characterGetBetterAction()` method now accepts an optional `options` parameter which can be used to customize the behavior of the action. These options allow for custom class progressions, such as those found in "Down Among The Dead".
+  - `silent`: If `true`, the action will not display any chat messages. Default is `false`.
+  - `skipAbilities`: If `true`, the action will not roll ability score changes. Default is `false`.
+  - `skipHP`: If `true`, the action will not roll new hit points. Default is `false`.
+  - `skipItems`: If `true`, the action will not roll for new items, skipping the classes "getting better rolls". Default is `false`.
+  - `skipLoot`: If `true`, the action will not roll for new loot. Default is `false`.
+  - `skipMacro`: If `true`, the action will not invoke the classes "getting better" macro. Default is `false`.
+- Active Effects that are transferred from Items to Actors will no longer show an additional duplicate effect.
+  - This was a visual bug only, the effects themselves were being applied correctly.
+- The Pirate Borg logo once again shows when the game is paused in Foundry VTT v13.
+- The Brute class no longer incorrectly states that they are unable to use Relics - they can!
+  - Thank you jaguar on Discord for the report.
+- The Buccaneer class now allows you to select the "Fix Bayonets!" feature a maximum of two times.
+  - It was previously incorrectly set to once.
+- Fixed the "Survivalist" feature of the Buccaneer class always adding the maximum HP value. The item now tells you to roll the value manually.
+- Split the "Ostentatious Fencer" feature of the Swashbuckler class into two separate Active Effects.
+  - One-on-One Damage Bonus is disabled by default and can be toggled on when in a duel.
+- Added missing Polish translations.
+  - Thank you rklos for the contribution [#76](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/76).
+- Removed the "Drink Grog" button from the character sheet.
+  - Grog drinking functionality has not been completed yet and this button had accidentally been included as part of the effects system update in v1.2.0.
+  - Thank you r2DoesInc for the contribution [#77](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/pull/77).
+- Added the following fonts:
+  - Alegreya
+  - IM Fell English
+  - Leander
+
 # v1.2.0
 
 - Greatly expanded the effects system capabilities, as well as making it easier to select the desired effect.

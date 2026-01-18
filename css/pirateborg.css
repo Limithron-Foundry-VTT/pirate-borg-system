@@ -1800,6 +1800,34 @@ li.folder > .folder-header {
   padding-top: 2px;
 }
 
+.character-generator-dialog {
+  height: 100%;
+}
+.character-generator-dialog .custom-dialog-header,
+.character-generator-dialog .button-row {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+.character-generator-dialog .section {
+  overflow: hidden;
+}
+.character-generator-dialog .section .class-groups {
+  flex: 1 1 auto;
+  min-height: 120px;
+  overflow-y: auto;
+}
+.character-generator-dialog .section*:not(.class-groups, hr) {
+  flex: 0 0 auto;
+}
+.character-generator-dialog .section .spacer {
+  flex: 4 4 auto;
+}
+.character-generator-dialog .section .class-options {
+  margin-left: 13px;
+}
+.character-generator-dialog .section hr {
+  margin: 0;
+}
 .character-generator-dialog .module-group {
   margin-bottom: 1rem;
 }

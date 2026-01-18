@@ -403,7 +403,14 @@ export class PBActorSheetCharacter extends PBActorSheet {
           getbetter: {
             icon: '<i class="fas fa-check"></i>',
             label: game.i18n.localize("PB.GetBetter"),
-            callback: async () => characterGetBetterAction(this.actor),
+            callback: async () => {
+              // Allow modules to replace the get better flow
+              if (Hooks.call("pirateborg.preCharacterGetBetter", this.actor) === false) {
+                return;
+              }
+
+              return characterGetBetterAction(this.actor);
+            },
           },
         },
         default: "cancel",

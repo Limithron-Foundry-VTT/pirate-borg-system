@@ -119,7 +119,7 @@ export const findTableItems = async (results) => {
   let item = null;
   for (const result of results) {
     const type = getResultType(result);
-    if (type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
+    if (type === (game.release.generation >= 13 ? CONST.TABLE_RESULT_TYPES.DOCUMENT : CONST.TABLE_RESULT_TYPES.COMPENDIUM)) {
       item = await findCompendiumItem(getResultCollection(result), getResultText(result));
       if (item) {
         items.push(item);

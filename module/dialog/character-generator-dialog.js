@@ -73,10 +73,8 @@ class CharacterGeneratorDialog extends Application {
       } else {
         if (group.name === "Core") {
           group.isOpen = true; // Core always starts open
-        } else if (hasCheckedClass) {
-          group.isOpen = true; // Groups with checked classes start open
         } else {
-          group.isOpen = false; // Other groups start closed
+          group.isOpen = !!hasCheckedClass; // Groups with checked classes start open
         }
       }
     }
@@ -110,23 +108,36 @@ class CharacterGeneratorDialog extends Application {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
-    html.find(".toggle-all").on("click", this._onToggleAll.bind(this));
-    html.find(".toggle-none").on("click", this._onToggleNone.bind(this));
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-    html.find(".character-generator-button").on("click", this._onCharacterGenerator.bind(this));
-    html.find(".module-header").on("click", this._onToggleModule.bind(this));
+
+    html = html instanceof HTMLElement ? html : html[0];
+
+    html.querySelectorAll(".toggle-all").forEach((el) => el.addEventListener("click", this._onToggleAll.bind(this)));
+    html.querySelectorAll(".toggle-none").forEach((el) => el.addEventListener("click", this._onToggleNone.bind(this)));
+    html.querySelectorAll(".cancel-button").forEach((el) => el.addEventListener("click", this._onCancel.bind(this)));
+    html.querySelectorAll(".character-generator-button").forEach((el) => el.addEventListener("click", this._onCharacterGenerator.bind(this)));
+    html.querySelectorAll(".module-header").forEach((el) => el.addEventListener("click", this._onToggleModule.bind(this)));
   }
 
   _onToggleAll(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
-    $(form).find(".class-checkbox").prop("checked", true);
+
+    const form = event.currentTarget?.closest(".character-generator-dialog");
+    if (!form) return;
+
+    form.querySelectorAll(".class-checkbox").forEach((checkbox) => {
+      checkbox.checked = true;
+    });
   }
 
   _onToggleNone(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
-    $(form).find(".class-checkbox").prop("checked", false);
+
+    const form = event.currentTarget?.closest(".character-generator-dialog");
+    if (!form) return;
+
+    form.querySelectorAll(".class-checkbox").forEach((checkbox) => {
+      checkbox.checked = false;
+    });
   }
 
   async _onCancel(event) {
@@ -134,19 +145,55 @@ class CharacterGeneratorDialog extends Application {
     await this.close();
   }
 
+  /**
+   * Hook event fired at the start of character generation (via The Tavern).
+   *
+   * @function pirateborg.preCharacterGeneration
+   * @memberof hookEvents
+   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
+   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
+   */
+
+  /**
+   * Hook event fired at the start of character generation (via The Tavern).
+   *
+   * @function pirateborg.characterGeneration
+   * @memberof hookEvents
+   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
+   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
+   */
+
+  /**
+   * @typedef {object} CharacterGenerationHookOptions
+   * @property {HTMLElement} html - The dialog form element.
+   * @property {object} formData - The expanded form data from the dialog.
+   * @property {"create"|"regenerate"} method - Indicates whether the dialog is creating a new Actor or regenerating an existing one.
+   * @property {string[]} selectedClasses - The list of selected class pack names. This is what is used by the generator.
+   */
+
+  /**
+   * Handle character generation via The Tavern.
+   *
+   * @fires hookEvents#pirateborg.preCharacterGeneration
+   * @fires hookEvents#pirateborg.characterGeneration
+   * @param {MouseEvent} event
+   */
   async _onCharacterGenerator(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents(".character-generator-dialog")[0];
-    const selection = [];
 
-    $(form)
-      .find("input:checked")
-      .each(function () {
-        selection.push($(this).attr("name"));
-      });
+    const method = this.actor ? "regenerate" : "create";
+    const form = event.currentTarget?.closest("form");
+    if (!form) return;
+
+    const formData = new foundry.applications.ux.FormDataExtended(form).object;
+    const selection = Array.from(form.querySelectorAll(".class-groups input:checked")).map((checkbox) => checkbox.name);
+
+    const callOptions = { html: form, formData, method, selectedClasses: selection };
+    Hooks.call("pirateborg.preCharacterGeneration", this.actor, callOptions);
 
     if (selection.length === 0) {
       // nothing selected, so bail
+      ui.notifications.error(game.i18n.localize("PB.CharacterGeneratorErrorNoneSelected"));
       return;
     }
 
@@ -154,6 +201,7 @@ class CharacterGeneratorDialog extends Application {
     const isValid = selectedClasses.some((selectedClass) => !selectedClass.requireBaseClass);
     if (!isValid) {
       // require at least one normal class
+      ui.notifications.error(game.i18n.localize("PB.CharacterGeneratorErrorNoBaseClassSelected"));
       return;
     }
 
@@ -161,7 +209,12 @@ class CharacterGeneratorDialog extends Application {
     const randomClass = selectedClasses[Math.floor(Math.random() * selectedClasses.length)];
 
     await this.close();
-    ui.notifications.info(`${game.users.current.name} is creating ${randomClass.name}.`);
+    ui.notifications.info(
+      game.i18n.format("PB.CharacterGeneratorCreating", {
+        user: game.users.current.name,
+        className: randomClass.name,
+      })
+    );
 
     if (randomClass.characterGeneratorMacro) {
       const [compendium, macroName] = randomClass.characterGeneratorMacro.split(";");
@@ -183,12 +236,18 @@ class CharacterGeneratorDialog extends Application {
       if (this.actor) {
         await regenerateActor(this.actor, randomClass);
       } else {
-        const actor = await createCharacter(randomClass);
-        actor.sheet.render(true);
+        this.actor = await createCharacter(randomClass);
+        this.actor.sheet.render(true);
       }
+
+      Hooks.call("pirateborg.characterGeneration", this.actor, callOptions);
     } catch (err) {
       console.error(err);
-      ui.notifications.error(`Error creating ${randomClass.name}. Check console for error log.`);
+      ui.notifications.error(
+        game.i18n.format("PB.CharacterGeneratorErrorGeneric", {
+          className: randomClass.name,
+        })
+      );
     }
   }
 
