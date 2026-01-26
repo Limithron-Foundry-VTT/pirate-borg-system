@@ -1,4 +1,4 @@
-import { trackCarryingCapacity } from "../system/settings.js";
+import { trackCarryingCapacity, isGrogEnabled } from "../system/settings.js";
 import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
 
@@ -150,10 +150,9 @@ export class PBActor extends Actor {
   /** @override */
   async _onUpdate(changed, options, userId) {
     await super._onUpdate(changed, options, userId);
-    
+
     // Update grog intoxication effect when drinks value changes
-    if (this.type === CONFIG.PB.actorTypes.character && 
-        changed.system?.attributes?.grog?.drinks !== undefined) {
+    if (this.type === CONFIG.PB.actorTypes.character && isGrogEnabled() && changed.system?.attributes?.grog?.drinks !== undefined) {
       await this._updateGrogIntoxicationEffect(changed.system.attributes.grog.drinks);
     }
   }
@@ -165,11 +164,9 @@ export class PBActor extends Actor {
    */
   async _updateGrogIntoxicationEffect(drinks) {
     const GROG_INTOXICATION_FLAG = "grogIntoxication";
-    
+
     // Find existing grog intoxication effect
-    const existingEffect = this.effects.find(
-      (e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG)
-    );
+    const existingEffect = this.effects.find((e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG));
 
     if (drinks <= 0) {
       // Remove effect if no drinks
@@ -179,15 +176,13 @@ export class PBActor extends Actor {
       return;
     }
 
-    // Find grog item for origin
-    const grogItem = this.items.find(
-      (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog"
-    );
+    // Find drink item for origin
+    const drinkItem = this.items.find((item) => item.type === CONFIG.PB.itemTypes.drink);
 
     const effectData = {
       name: game.i18n.format("PB.GrogIntoxication", { drinks }),
       img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
-      origin: grogItem?.uuid || null,
+      origin: drinkItem?.uuid || null,
       changes: [
         {
           key: "system.abilities.agility.value",

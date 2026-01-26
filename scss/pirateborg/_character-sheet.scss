@@ -22,6 +22,10 @@
             margin-left: 4px;
             padding: 2px 8px;
             font-size: 12px;
+            text-align: center;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
 
             &[disabled] {
               opacity: 0.4;

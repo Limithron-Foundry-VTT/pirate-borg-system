@@ -1,5 +1,5 @@
 import PBActorSheet from "./actor-sheet.js";
-import { trackAmmo, trackCarryingCapacity } from "../../system/settings.js";
+import { trackAmmo, trackCarryingCapacity, isGrogEnabled } from "../../system/settings.js";
 import {
   actorPartyInitiativeAction,
   characterAttackAction,
@@ -107,6 +107,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     data.equipment = sheetData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => item.type !== CONFIG.PB.itemTypes.drink) // Drinks shown in separate section
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
       .filter((item) => !item.system.hasContainer)
       .sort(byName);
@@ -146,11 +147,11 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.trackCarryingCapacity = trackCarryingCapacity();
     data.trackAmmo = trackAmmo();
 
-    // Check for grog in inventory
-    data.grogItem = sheetData.data.items.find(
-      (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog" && item.system.quantity > 0
-    );
-    data.hasGrog = !!data.grogItem;
+    // Find all drink items in inventory
+    data.drinks = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.drink).sort(byName);
+    data.hasDrink = data.drinks.some((item) => item.system.quantity > 0);
+    data.drinkCount = data.drinks.reduce((sum, item) => sum + (item.system.quantity || 0), 0);
+    data.grogEnabled = isGrogEnabled();
 
     return data;
   }
