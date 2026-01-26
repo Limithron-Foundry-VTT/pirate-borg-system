@@ -5,6 +5,7 @@ import {
   characterAttackAction,
   characterBrokenAction,
   characterDefendAction,
+  characterDrinkGrogAction,
   characterExtraResourcePerDayAction,
   characterGetBetterAction,
   characterInvokeExtraResourceAction,
@@ -145,6 +146,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.trackCarryingCapacity = trackCarryingCapacity();
     data.trackAmmo = trackAmmo();
 
+    // Check for grog in inventory
+    data.grogItem = sheetData.data.items.find(
+      (item) => item.type === CONFIG.PB.itemTypes.misc && item.name.toLowerCase() === "grog" && item.system.quantity > 0
+    );
+    data.hasGrog = !!data.grogItem;
+
     return data;
   }
 
@@ -178,6 +185,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
       ".extra-resources-per-day-text": this._onExtraResourcePerDay,
       ".item-base-class": this._onBaseClassItem,
       ".item-class": this._onClassItem,
+      // Grog controls
+      ".drink-grog-button": this._onDrinkGrog,
     });
 
     this.bindSelectorsEvent("change", {
@@ -482,5 +491,19 @@ export class PBActorSheetCharacter extends PBActorSheet {
     await ChatMessage.create({
       content: html,
     });
+  }
+
+  // ============================================
+  // Grog Management Methods
+  // ============================================
+
+  /**
+   * Handle clicking the Drink button - triggers the drink grog action
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onDrinkGrog(event) {
+    event.preventDefault();
+    await characterDrinkGrogAction(this.actor);
   }
 }
