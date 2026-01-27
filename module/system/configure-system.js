@@ -139,6 +139,14 @@ export const configureSystem = () => {
     formula: "1d6 + @abilities.agility.value",
   };
 
+  // Configure status effects - replace Foundry defaults with Pirate Borg themed effects
+  CONFIG.statusEffects = [...Object.values(PB.systemEffects), ...Object.values(PB.coloredMarkers)];
+
+  // Set special status effect IDs for core functionality
+  CONFIG.specialStatusEffects.DEFEATED = "dead";
+  CONFIG.specialStatusEffects.INVISIBLE = "invisible";
+  CONFIG.specialStatusEffects.BLIND = "blind";
+
   for (const styleFormat of CONFIG.TinyMCE.style_formats) {
     if (styleFormat.title !== "Custom") continue;
     styleFormat.items.push({
