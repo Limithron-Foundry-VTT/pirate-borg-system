@@ -24,8 +24,8 @@
     "featureType": "Class",
     "maxQuantity": null,
     "quantity": 1,
-    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
-    "actionMacroLabel": "Use",
+    "actionMacro": "pirateborg.macros-pirateborg;Drink Grog",
+    "actionMacroLabel": "Drink",
     "startingBonusItems": "",
     "startingBonusRolls": "",
     "flavorText": ""
