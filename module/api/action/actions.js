@@ -12,6 +12,7 @@ export * from "./character/character-invoke-relic-action.js";
 export * from "./character/character-invoke-ritual-action.js";
 export * from "./character/character-luck-per-day-action.js";
 export * from "./character/character-reload-action.js";
+export * from "./character/character-drink-grog-action.js";
 export * from "./character/character-rest-action.js";
 export * from "./character/character-rituals-per-day-action.js";
 export * from "./character/character-roll-ability-action.js";
