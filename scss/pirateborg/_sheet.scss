@@ -188,13 +188,34 @@
         .sheet-body {
           overflow: hidden;
           font-family: var(--item-font);
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
 
           .tab {
             height: 100%;
             border-radius: 0;
+
+            // Only apply flex layout when tab is active
+            &.active {
+              display: flex;
+              flex-direction: column;
+              flex: 1;
+              overflow: hidden;
+            }
           }
           .tab:only-of-type {
             border-top: 2px groove var(--light-border-color);
+          }
+
+          // Ensure the description tab provides height for the editor
+          .tab[data-tab="description"] {
+            prose-mirror,
+            .pb-editor-wrapper {
+              flex: 1;
+              min-height: 0; // Important for nested flexbox overflow
+            }
           }
         }
 

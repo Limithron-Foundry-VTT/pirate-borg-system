@@ -1,0 +1,37 @@
+{{!--
+  Pirate Borg Editor Partial
+  
+  Renders ProseMirror for v13+ (with edit/view toggle) or TinyMCE for v12.
+  
+  Parameters:
+  - enrichedContent: The enriched HTML content to display
+  - sourceContent: The raw source content for editing (required for v13+)
+  - target: The data path to save to (e.g., "system.description")
+  - documentUuid: The UUID of the document being edited
+  - editable: Whether the content is editable
+  - owner: Whether the user owns the document
+  - editingDescription: Object with {target, value} when in edit mode
+--}}
+{{#isV13}}
+  {{#if editingDescription}}
+    {{!-- Edit Mode - show ProseMirror editor --}}
+    <prose-mirror name="{{editingDescription.target}}" value="{{editingDescription.value}}" 
+                  document-uuid="{{documentUuid}}" class="pb-editor"></prose-mirror>
+  {{else}}
+    {{!-- View Mode --}}
+    <div class="pb-editor-wrapper" data-target="{{target}}" data-source="{{sourceContent}}" data-uuid="{{documentUuid}}">
+      <div class="pb-editor-view">
+        {{#if editable}}
+        <div class="pb-editor-header">
+          <button type="button" class="pb-edit-button" data-action="editDescription" aria-label="Edit">
+            <i class="fas fa-pen"></i>
+          </button>
+        </div>
+        {{/if}}
+        <div class="editor-content">{{{enrichedContent}}}</div>
+      </div>
+    </div>
+  {{/if}}
+{{else}}
+  {{editor enrichedContent target=target button=true owner=owner editable=editable}}
+{{/isV13}}

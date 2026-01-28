@@ -32,6 +32,66 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
   activateListeners(html) {
     super.activateListeners(html);
 
+    // Handle ProseMirror editor toggle (v13+)
+    if (game.release.generation >= 13) {
+      // Edit button click - set editing state and re-render
+      html.find(".pb-edit-button").click((ev) => {
+        const wrapper = $(ev.currentTarget).closest(".pb-editor-wrapper");
+        const target = wrapper.data("target");
+        this._editingDescriptionTarget = target;
+        this.render();
+      });
+
+      // Handle prose-mirror editors
+      html.find("prose-mirror").each((i, editor) => {
+        // Use MutationObserver to inject cancel button when menu appears
+        const observer = new MutationObserver((mutations, obs) => {
+          const menu = editor.querySelector("menu");
+          if (menu && !menu.querySelector(".pb-cancel-button")) {
+            const cancelBtn = document.createElement("button");
+            cancelBtn.type = "button";
+            cancelBtn.className = "pb-cancel-button";
+            cancelBtn.title = "Cancel editing";
+            cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
+            cancelBtn.addEventListener("click", (ev) => {
+              ev.preventDefault();
+              ev.stopPropagation();
+              this._editingDescriptionTarget = null;
+              this.render();
+            });
+            menu.appendChild(cancelBtn);
+            obs.disconnect(); // Stop observing once button is added
+          }
+        });
+
+        observer.observe(editor, { childList: true, subtree: true });
+
+        // Also try immediately in case menu already exists
+        const menu = editor.querySelector("menu");
+        if (menu && !menu.querySelector(".pb-cancel-button")) {
+          const cancelBtn = document.createElement("button");
+          cancelBtn.type = "button";
+          cancelBtn.className = "pb-cancel-button";
+          cancelBtn.title = "Cancel editing";
+          cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
+          cancelBtn.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            this._editingDescriptionTarget = null;
+            this.render();
+          });
+          menu.appendChild(cancelBtn);
+          observer.disconnect();
+        }
+
+        // Handle save event
+        editor.addEventListener("save", () => {
+          this._editingDescriptionTarget = null;
+          this.submit();
+        });
+      });
+    }
+
     html.find(".effect-create").click(async () => {
       const effectData = {
         name: "",
@@ -123,6 +183,21 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     if (!this.item.system) {
       formData.data.system = formData.data.data;
       delete formData.data.data;
+    }
+
+    // Ensure editable flag is available for templates
+    formData.editable = this.isEditable;
+
+    // Editor data for v13+ ProseMirror
+    formData.descriptionSource = formData.data.system.description || "";
+    formData.documentUuid = this.item.uuid;
+
+    // Check if we're in editing mode
+    if (this._editingDescriptionTarget) {
+      formData.editingDescription = {
+        target: this._editingDescriptionTarget,
+        value: formData.data.system.description || ""
+      };
     }
 
     formData.descriptionHTML = formData.data.system.description

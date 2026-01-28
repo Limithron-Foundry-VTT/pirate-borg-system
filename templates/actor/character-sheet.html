@@ -121,7 +121,7 @@
   <section class="sheet-body">
     {{!-- History Tab --}}
     <div class="tab class-tab" data-group="primary" data-tab="history">
-      {{editor descriptionHTML target="system.description" button=true owner=owner editable=true}}
+      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
     </div>
 
     {{!-- Combat Tab --}}
