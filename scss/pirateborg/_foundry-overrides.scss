@@ -945,3 +945,29 @@ li.folder > .folder-header {
 #playlists-popout.sound-enhancement .playlist header.playlist-header {
   background: inherit;
 }
+
+/* Token HUD Status Effects Panel */
+#token-hud .status-effects {
+  display: grid !important;
+  grid-template-columns: repeat(8, 1fr) !important;
+  gap: 2px !important;
+  width: 280px !important;
+  max-width: none !important;
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+  padding: 4px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 4px;
+}
+
+#token-hud .status-effects .effect-control {
+  width: 32px !important;
+  height: 32px !important;
+  flex: none !important;
+}
+
+#token-hud .status-effects .effect-control img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
