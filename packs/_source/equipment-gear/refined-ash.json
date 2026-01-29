@@ -1,0 +1,34 @@
+{
+  "_id": "RefinedAsh000001",
+  "name": "Refined Ash",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/refined-ash.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>Refined remnants of destroyed undead.</p><p><em>Note: Roll table requires the \"Trapped in the Tropics\" module.</em></p>",
+    "containerSpace": 0.1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "_key": "!items!RefinedAsh000001"
+}

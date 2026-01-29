@@ -1,0 +1,34 @@
+{
+  "_id": "AshItem000000001",
+  "name": "Ash",
+  "type": "misc",
+  "img": "systems/pirateborg/icons/equipment/gear/ash.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>The remnants of destroyed undead.</p><p><em>Note: @UUID[Compendium.pirate-borg-premium.rolltables.RollTable.9m3fmkKYEnWREhxX]{Ash Experience Generator} table requires the \"Pirate Borg Premium\" module.</em></p>",
+    "containerSpace": 1,
+    "carryWeight": 1,
+    "equipped": false,
+    "carried": true,
+    "price": 0,
+    "quantity": 1,
+    "actionMacro": "pirateborg.macros-pirateborg;Use Ash",
+    "actionMacroLabel": "Use"
+  },
+  "_key": "!items!AshItem000000001"
+}
