@@ -265,13 +265,28 @@
 .pirateborg.sheet .window-content form .sheet-body {
   overflow: hidden;
   font-family: var(--item-font);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .pirateborg.sheet .window-content form .sheet-body .tab {
   height: 100%;
   border-radius: 0;
 }
+.pirateborg.sheet .window-content form .sheet-body .tab.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
 .pirateborg.sheet .window-content form .sheet-body .tab:only-of-type {
   border-top: 2px groove var(--light-border-color);
+}
+.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] prose-mirror,
+.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] .pb-editor-wrapper {
+  flex: 1;
+  min-height: 0;
 }
 .pirateborg.sheet .window-content form .sheet-tabs .spacer {
   border-bottom: 1px solid var(--dark-border-color);
