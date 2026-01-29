@@ -12,9 +12,14 @@ import { registerSocketHandler } from "./system/sockets.js";
 import { onDragRulerReady } from "./system/drag-ruler.js";
 import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
+import { initStairways, setupStairways, registerStairwayHooks, registerControlsHook } from "./stairway/main.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
+
+  // Initialize stairways system
+  initStairways();
+  registerControlsHook();
 
   Hooks.on("renderActorDirectory", renderActorDirectory);
   Hooks.on("renderCombatTracker", renderCombatTracker);
@@ -49,10 +54,18 @@ Hooks.once("init", async () => {
   registerSocketHandler();
 });
 
+Hooks.on("setup", () => {
+  // Setup stairways - hook modifyDocument for custom embedded document handling
+  setupStairways();
+});
+
 Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
   configureAutomation();
+
+  // Register stairways hooks
+  registerStairwayHooks();
 
   // hotbarDrop hook cannot be async and still block the default macro creation workflow,
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
