@@ -1,10 +1,11 @@
 import PBActorSheet from "./actor-sheet.js";
-import { trackAmmo, trackCarryingCapacity } from "../../system/settings.js";
+import { trackAmmo, trackCarryingCapacity, isGrogEnabled } from "../../system/settings.js";
 import {
   actorPartyInitiativeAction,
   characterAttackAction,
   characterBrokenAction,
   characterDefendAction,
+  characterDrinkGrogAction,
   characterExtraResourcePerDayAction,
   characterGetBetterAction,
   characterInvokeExtraResourceAction,
@@ -106,6 +107,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     data.equipment = sheetData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => item.type !== CONFIG.PB.itemTypes.drink) // Drinks shown in separate section
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
       .filter((item) => !item.system.hasContainer)
       .sort(byName);
@@ -145,6 +147,12 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.trackCarryingCapacity = trackCarryingCapacity();
     data.trackAmmo = trackAmmo();
 
+    // Find all drink items in inventory
+    data.drinks = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.drink).sort(byName);
+    data.hasDrink = data.drinks.some((item) => item.system.quantity > 0);
+    data.drinkCount = data.drinks.reduce((sum, item) => sum + (item.system.quantity || 0), 0);
+    data.grogEnabled = isGrogEnabled();
+
     return data;
   }
 
@@ -178,6 +186,8 @@ export class PBActorSheetCharacter extends PBActorSheet {
       ".extra-resources-per-day-text": this._onExtraResourcePerDay,
       ".item-base-class": this._onBaseClassItem,
       ".item-class": this._onClassItem,
+      // Grog controls
+      ".drink-grog-button": this._onDrinkGrog,
     });
 
     this.bindSelectorsEvent("change", {
@@ -482,5 +492,19 @@ export class PBActorSheetCharacter extends PBActorSheet {
     await ChatMessage.create({
       content: html,
     });
+  }
+
+  // ============================================
+  // Grog Management Methods
+  // ============================================
+
+  /**
+   * Handle clicking the Drink button - triggers the drink grog action
+   * @param {MouseEvent} event
+   * @private
+   */
+  async _onDrinkGrog(event) {
+    event.preventDefault();
+    await characterDrinkGrogAction(this.actor);
   }
 }

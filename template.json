@@ -117,6 +117,10 @@
           "speedModifier": 0,
           "luckDieModifier": 0,
           "drModifier": 0
+        },
+        "grog": {
+          "drinks": 0,
+          "hoursRemaining": 0
         }
       }
     },
@@ -160,7 +164,7 @@
     }
   },
   "Item": {
-    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "shanty"],
+    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "shanty", "drink"],
     "templates": {
       "equipment": {
         "description": "",
@@ -283,6 +287,9 @@
     "cargo": {
       "description": "",
       "value": 0
+    },
+    "drink": {
+      "templates": ["equipment"]
     }
   }
 }
