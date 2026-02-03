@@ -464,6 +464,8 @@
   "PB.TestRelic": "Test Relic",
   "PB.TestShanties": "Sing",
   "PB.Tier": "Tier",
+  "PB.TokenHUDShowStatusDetails": "Detailed Token HUD status effects",
+  "PB.TokenHUDShowStatusDetailsHint": "When enabled, the Token HUD will show the names of each status effect rather than just the icon and tooltip.",
   "PB.Type": "Type",
   "PB.Unchanged": "Unchanged",
   "PB.VehicleAttributes": "Vehicle Attributes",
