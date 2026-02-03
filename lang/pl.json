@@ -422,6 +422,8 @@
   "PB.TestRelic": "Testuj Relikwię",
   "PB.TestShanties": "Śpiewaj",
   "PB.Tier": "Poziom",
+  "PB.TokenHUDShowStatusDetails": "Szczegółowe efekty stanu HUD żetonu",
+  "PB.TokenHUDShowStatusDetailsHint": "Po włączeniu HUD żetonu będzie wyświetlał nazwy poszczególnych efektów stanu zamiast samej ikony i podpowiedzi.",
   "PB.Type": "Typ",
   "PB.Unchanged": "Bez zmian",
   "PB.VehicleAttributes": "Atrybuty Pojazdu",

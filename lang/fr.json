@@ -384,6 +384,8 @@
   "PB.TestRelic": "Jet de relique",
   "PB.TestShanties": "Chanter",
   "PB.Tier": "Palier",
+  "PB.TokenHUDShowStatusDetails": "Effets d’état détaillés du HUD du jeton",
+  "PB.TokenHUDShowStatusDetailsHint": "Lorsqu’elle est activée, le HUD du jeton affichera le nom de chaque effet d’état plutôt que seulement l’icône et l’infobulle.",
   "PB.Type": "Type",
   "PB.Unchanged": "Inchangé",
   "PB.ViewButton": "Voir",

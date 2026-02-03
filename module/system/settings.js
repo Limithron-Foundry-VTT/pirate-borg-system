@@ -153,6 +153,16 @@ export const registerSystemSettings = () => {
     scope: "client",
     config: false,
   });
+
+  /** Whether to show status effect names on the Token HUD */
+  game.settings.register("pirateborg", "tokenHUDShowStatusDetails", {
+    name: "PB.TokenHUDShowStatusDetails",
+    hint: "PB.TokenHUDShowStatusDetailsHint",
+    default: true,
+    type: Boolean,
+    scope: "client",
+    config: true,
+  });
 };
 
 /**
@@ -260,3 +270,7 @@ export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", 
  * @returns {Boolean}
  */
 export const isGrogEnabled = () => game.settings.get("pirateborg", "enableGrog");
+/**
+ * @returns {Boolean}
+ */
+export const isTokenHUDShowStatusDetailsEnabled = () => game.settings.get("pirateborg", "tokenHUDShowStatusDetails");
