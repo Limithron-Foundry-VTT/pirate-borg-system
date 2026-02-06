@@ -4,7 +4,7 @@ import { testOutcome, withAsyncProps, withTarget } from "../../outcome/outcome.j
 import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
 import { isGrogEnabled } from "../../../system/settings.js";
 
-const GROG_INTOXICATION_FLAG = "grogIntoxication";
+const GROG_INTOXICATION_FLAG = "intoxicated";
 const VOMITING_STATUS_ID = "vomiting";
 
 /**
@@ -51,9 +51,9 @@ const createVomitingDurationOutcome = async () =>
  * Apply or update the Grog Intoxication effect on the actor
  * @param {PBActor} actor
  * @param {Number} drinks - Number of drinks
- * @param {PBItem} drinkItem - The drink item that caused the intoxication
+ * @param {PBItem} grogItem - The grog item that caused the intoxication
  */
-const applyGrogIntoxicationEffect = async (actor, drinks, drinkItem) => {
+const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
   // Find ALL existing grog intoxication effects (handle duplicates)
   const existingEffects = actor.effects.filter((e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG));
 
@@ -68,7 +68,8 @@ const applyGrogIntoxicationEffect = async (actor, drinks, drinkItem) => {
 
   const effectData = {
     name: game.i18n.format("PB.GrogIntoxication", { drinks }),
-    img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
+    img: "systems/pirateborg/icons/status/beer-stein.svg",
+    statuses: [GROG_INTOXICATION_FLAG],
     changes: [
       {
         key: "system.abilities.agility.value",
@@ -84,9 +85,9 @@ const applyGrogIntoxicationEffect = async (actor, drinks, drinkItem) => {
     },
   };
 
-  // Only set origin if drinkItem is provided (preserve existing origin on updates)
-  if (drinkItem) {
-    effectData.origin = drinkItem.uuid;
+  // Only set origin if grogItem is provided (preserve existing origin on updates)
+  if (grogItem) {
+    effectData.origin = grogItem.uuid;
   }
 
   if (existingEffects.length > 0) {
@@ -109,9 +110,9 @@ const applyGrogIntoxicationEffect = async (actor, drinks, drinkItem) => {
  * Only one vomiting effect can exist at a time - new vomiting replaces existing
  * @param {PBActor} actor
  * @param {Number} rounds - Duration in rounds
- * @param {PBItem} drinkItem - The drink item that caused the vomiting
+ * @param {PBItem} grogItem - The grog item that caused the vomiting
  */
-const applyVomitingEffect = async (actor, rounds, drinkItem) => {
+const applyVomitingEffect = async (actor, rounds, grogItem) => {
   // Remove any existing vomiting effect first
   const existingVomiting = actor.effects.find((e) => e.statuses?.has(VOMITING_STATUS_ID) || e.getFlag(CONFIG.PB.flagScope, "isVomiting"));
   if (existingVomiting) {
@@ -120,8 +121,8 @@ const applyVomitingEffect = async (actor, rounds, drinkItem) => {
 
   const effectData = {
     name: game.i18n.localize("PB.GrogVomiting"),
-    img: "icons/svg/poison.svg",
-    origin: drinkItem?.uuid || null,
+    img: "systems/pirateborg/icons/status/seasick.svg",
+    origin: grogItem?.uuid || null,
     statuses: [VOMITING_STATUS_ID],
     duration: {
       rounds,
@@ -143,12 +144,12 @@ const applyVomitingEffect = async (actor, rounds, drinkItem) => {
 };
 
 /**
- * Find a drink item in actor's inventory
+ * Find a grog item in actor's inventory
  * @param {PBActor} actor
  * @returns {PBItem|null}
  */
-const findDrinkItem = (actor) => {
-  return actor.items.find((item) => item.type === CONFIG.PB.itemTypes.drink && item.system.quantity > 0);
+const findGrogItem = (actor) => {
+  return actor.items.find((item) => item.type === CONFIG.PB.itemTypes.grog && item.system.quantity > 0);
 };
 
 /**
@@ -162,9 +163,9 @@ export const characterDrinkGrogAction = async (actor) => {
     return;
   }
 
-  // Find a drink in inventory
-  const drinkItem = findDrinkItem(actor);
-  if (!drinkItem) {
+  // Find a grog item in inventory
+  const grogItem = findGrogItem(actor);
+  if (!grogItem) {
     ui.notifications.warn(game.i18n.localize("PB.GrogNoGrog"));
     return;
   }
@@ -185,9 +186,9 @@ export const characterDrinkGrogAction = async (actor) => {
   outcomes.push(testOutcomeResult);
 
   // Decrement drink quantity - get fresh value and ensure it doesn't go below 0
-  const currentQuantity = drinkItem.system.quantity ?? 1;
+  const currentQuantity = grogItem.system.quantity ?? 1;
   const newQuantity = Math.max(0, currentQuantity - 1);
-  await drinkItem.update({
+  await grogItem.update({
     "system.quantity": newQuantity,
   });
 
@@ -198,7 +199,7 @@ export const characterDrinkGrogAction = async (actor) => {
   });
 
   // Apply/update the intoxication effect (agility penalty)
-  await applyGrogIntoxicationEffect(actor, newDrinks, drinkItem);
+  await applyGrogIntoxicationEffect(actor, newDrinks, grogItem);
 
   if (testOutcomeResult.isSuccess || testOutcomeResult.isCriticalSuccess) {
     // Success: heal d4 HP
@@ -210,7 +211,7 @@ export const characterDrinkGrogAction = async (actor) => {
     outcomes.push(vomitOutcome);
 
     // Apply vomiting effect with drink item as source
-    await applyVomitingEffect(actor, vomitOutcome.rounds, drinkItem);
+    await applyVomitingEffect(actor, vomitOutcome.rounds, grogItem);
   }
 
   return showGenericCard({

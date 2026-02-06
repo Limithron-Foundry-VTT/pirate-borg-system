@@ -1,7 +1,7 @@
 {
   "_id": "GR0G1T3M00000001",
   "name": "Grog",
-  "type": "drink",
+  "type": "grog",
   "img": "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
   "effects": [],
   "folder": null,
@@ -32,4 +32,3 @@
   },
   "_key": "!items!GR0G1T3M00000001"
 }
-

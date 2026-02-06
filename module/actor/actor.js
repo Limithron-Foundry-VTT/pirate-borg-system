@@ -163,7 +163,7 @@ export class PBActor extends Actor {
    * @private
    */
   async _updateGrogIntoxicationEffect(drinks) {
-    const GROG_INTOXICATION_FLAG = "grogIntoxication";
+    const GROG_INTOXICATION_FLAG = "intoxicated";
 
     // Find existing grog intoxication effect
     const existingEffect = this.effects.find((e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG));
@@ -176,13 +176,14 @@ export class PBActor extends Actor {
       return;
     }
 
-    // Find drink item for origin
-    const drinkItem = this.items.find((item) => item.type === CONFIG.PB.itemTypes.drink);
+    // Find grog item for origin
+    const grogItem = this.items.find((item) => item.type === CONFIG.PB.itemTypes.grog);
 
     const effectData = {
       name: game.i18n.format("PB.GrogIntoxication", { drinks }),
-      img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
-      origin: drinkItem?.uuid || null,
+      img: "systems/pirateborg/icons/status/beer-stein.svg",
+      origin: grogItem?.uuid || null,
+      statuses: [GROG_INTOXICATION_FLAG],
       changes: [
         {
           key: "system.abilities.agility.value",

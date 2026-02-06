@@ -85,7 +85,7 @@ PB.itemTypes = {
   background: "background",
   class: "class",
   container: "container",
-  drink: "drink",
+  grog: "grog",
   feature: "feature",
   hat: "hat",
   invokable: "invokable",
@@ -101,7 +101,7 @@ PB.itemTypeKeys = {
   [PB.itemTypes.background]: "PB.ItemTypeBackground",
   [PB.itemTypes.class]: "PB.ItemTypeClass",
   [PB.itemTypes.container]: "PB.ItemTypeContainer",
-  [PB.itemTypes.drink]: "PB.ItemTypeDrink",
+  [PB.itemTypes.grog]: "PB.ItemTypeGrog",
   [PB.itemTypes.feature]: "PB.ItemTypeFeature",
   [PB.itemTypes.hat]: "PB.ItemTypeHat",
   [PB.itemTypes.invokable]: "PB.ItemTypeInvokable",
@@ -170,7 +170,7 @@ PB.itemDefaultImage = {
   [PB.itemTypes.container]: {
     img: "systems/pirateborg/icons/misc/container.png",
   },
-  [PB.itemTypes.drink]: {
+  [PB.itemTypes.grog]: {
     img: "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
   },
   [PB.itemTypes.feature]: {
@@ -200,7 +200,7 @@ PB.itemEquipmentTypes = [
   PB.itemTypes.ammo,
   PB.itemTypes.armor,
   PB.itemTypes.container,
-  PB.itemTypes.drink,
+  PB.itemTypes.grog,
   PB.itemTypes.misc,
   PB.itemTypes.invokable,
   PB.itemTypes.hat,
@@ -210,7 +210,7 @@ PB.itemEquipmentTypes = [
 PB.allowedContainerItemTypes = [
   PB.itemTypes.ammo,
   PB.itemTypes.armor,
-  PB.itemTypes.drink,
+  PB.itemTypes.grog,
   PB.itemTypes.misc,
   PB.itemTypes.invokable,
   PB.itemTypes.hat,
@@ -221,7 +221,7 @@ PB.equippableItemTypes = [PB.itemTypes.armor, PB.itemTypes.hat, PB.itemTypes.wea
 
 PB.droppableItemTypes = [PB.itemTypes.container];
 
-PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.drink, PB.itemTypes.misc, PB.itemTypes.feature];
+PB.plusMinusItemTypes = [PB.itemTypes.ammo, PB.itemTypes.grog, PB.itemTypes.misc, PB.itemTypes.feature];
 
 PB.weaponTypes = {
   melee: "PB.WeaponTypeMelee",
@@ -351,6 +351,11 @@ PB.systemEffects = {
     id: "intoxicated",
     name: "PB.StatusIntoxicated",
     img: "systems/pirateborg/icons/status/beer-stein.svg",
+  },
+  vomiting: {
+    id: "vomiting",
+    name: "PB.GrogVomiting",
+    img: "systems/pirateborg/icons/status/seasick.svg",
   },
   infected: {
     id: "infected",

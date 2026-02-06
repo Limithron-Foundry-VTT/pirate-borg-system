@@ -164,7 +164,7 @@
     }
   },
   "Item": {
-    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "shanty", "drink"],
+    "types": ["weapon", "misc", "ammo", "container", "armor", "hat", "invokable", "background", "feature", "class", "cargo", "shanty", "grog"],
     "templates": {
       "equipment": {
         "description": "",
@@ -288,7 +288,7 @@
       "description": "",
       "value": 0
     },
-    "drink": {
+    "grog": {
       "templates": ["equipment"]
     }
   }

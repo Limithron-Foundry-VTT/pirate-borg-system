@@ -107,7 +107,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
     data.equipment = sheetData.data.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => item.type !== CONFIG.PB.itemTypes.drink) // Drinks shown in separate section
+      .filter((item) => item.type !== CONFIG.PB.itemTypes.grog) // Grog shown in separate section
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
       .filter((item) => !item.system.hasContainer)
       .sort(byName);
@@ -147,10 +147,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.trackCarryingCapacity = trackCarryingCapacity();
     data.trackAmmo = trackAmmo();
 
-    // Find all drink items in inventory
-    data.drinks = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.drink).sort(byName);
-    data.hasDrink = data.drinks.some((item) => item.system.quantity > 0);
-    data.drinkCount = data.drinks.reduce((sum, item) => sum + (item.system.quantity || 0), 0);
+    // Find all grog items in inventory
+    data.grog = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.grog).sort(byName);
+    data.hasGrog = data.grog.some((item) => item.system.quantity > 0);
+    data.grogCount = data.grog.reduce((sum, item) => sum + (item.system.quantity || 0), 0);
     data.grogEnabled = isGrogEnabled();
 
     return data;

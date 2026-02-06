@@ -45,7 +45,7 @@
         <div class="stats-block grog-block">
           <span class="stat-label grog-label">{{ localize "PB.GrogDrinks" }}</span>
           <input class="stat-input grog-drinks-input" name="system.attributes.grog.drinks" type="number" value="{{data.system.attributes.grog.drinks}}" data-dtype="Number" min="0" />
-          <button type="button" class="button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless data.system.dynamic.hasDrink}}disabled{{/unless}}>{{ localize "PB.GrogDrink" }}{{#if data.system.dynamic.hasDrink}} ({{data.system.dynamic.drinkCount}}){{/if}}</button>
+          <button type="button" class="button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless data.system.dynamic.hasGrog}}disabled{{/unless}}>{{ localize "PB.GrogDrink" }}{{#if data.system.dynamic.hasGrog}} ({{data.system.dynamic.grogCount}}){{/if}}</button>
         </div>
       </div>
       {{/if}}
@@ -427,15 +427,15 @@
         {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
 
-      {{!-- Drinks Section --}}
+      {{!-- Grog Section --}}
       {{#if data.system.dynamic.grogEnabled}}
-      <ol class="items-list drinks-list">
+      <ol class="items-list grog-list">
         <li class="items-header flexrow">
-          <h4 class="item-name">{{ localize "PB.Drinks" }}</h4>
+          <h4 class="item-name">{{ localize "PB.Grog" }}</h4>
         </li>
         <ol class="item-list">
-          {{#each data.system.dynamic.drinks as |item id|}}
-          <li class="item flexrow item-type-drink" data-item-id="{{item._id}}">
+          {{#each data.system.dynamic.grog as |item id|}}
+          <li class="item flexrow item-type-grog" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}} ({{item.system.quantity}})</h4>
             <div class="item-controls">
@@ -452,7 +452,7 @@
           </li>
           {{else}}
           <li class="item flexrow empty-container">
-            <div class="rule-text">{{ localize "PB.NoDrinks" }}</div>
+            <div class="rule-text">{{ localize "PB.NoGrog" }}</div>
           </li>
           {{/each}}
         </ol>
