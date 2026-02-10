@@ -15,7 +15,15 @@
     "sass": "sass ./scss:./css",
     "validate": "npm-run-all pretty-check lint",
     "watch": "sass --watch ./scss:./css",
-    "pack": "npm run build:db && zip -r ./system.zip CHANGELOG.md LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/"
+    "pack": "npm run build:db && zip -r ./system.zip CHANGELOG.md LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/",
+    "worktree:new": "node ./utils/worktree.mjs new",
+    "worktree:switch": "node ./utils/worktree.mjs switch",
+    "worktree:list": "node ./utils/worktree.mjs list",
+    "worktree:remove": "node ./utils/worktree.mjs remove",
+    "worktree:pr": "node ./utils/worktree.mjs pr list",
+    "worktree:pr:list": "node ./utils/worktree.mjs pr list",
+    "worktree:pr:checkout": "node ./utils/worktree.mjs pr checkout",
+    "worktree:pr:view": "node ./utils/worktree.mjs pr view"
   },
   "repository": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "author": "maqloner",
@@ -23,6 +31,7 @@
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.3",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
+    "dotenv": "^17.2.4",
     "eslint": "^8.17.0",
     "eslint-plugin-i18n-json": "^3.1.0",
     "eslint-plugin-import": "^2.26.0",
