@@ -173,6 +173,7 @@ prose-mirror.pb-editor .ProseMirror {
   padding: 8px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  background: var(--window-background);
 }
 .ProseMirror:focus {
   outline: none;

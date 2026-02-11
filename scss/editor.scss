@@ -157,6 +157,7 @@ prose-mirror.pb-editor {
   padding: 8px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  background: var(--window-background);
 
   // Focus state
   &:focus {
