@@ -51,7 +51,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
             const cancelBtn = document.createElement("button");
             cancelBtn.type = "button";
             cancelBtn.className = "pb-cancel-button";
-            cancelBtn.title = "Cancel editing";
+            cancelBtn.title = game.i18n.localize("PB.Cancel");
             cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
             cancelBtn.addEventListener("click", (ev) => {
               ev.preventDefault();
@@ -72,7 +72,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
           const cancelBtn = document.createElement("button");
           cancelBtn.type = "button";
           cancelBtn.className = "pb-cancel-button";
-          cancelBtn.title = "Cancel editing";
+          cancelBtn.title = game.i18n.localize("PB.Cancel");
           cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
           cancelBtn.addEventListener("click", (ev) => {
             ev.preventDefault();
@@ -196,7 +196,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     if (this._editingDescriptionTarget) {
       formData.editingDescription = {
         target: this._editingDescriptionTarget,
-        value: formData.data.system.description || ""
+        value: formData.data.system.description || "",
       };
     }
 

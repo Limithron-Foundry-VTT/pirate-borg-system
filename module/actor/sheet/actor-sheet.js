@@ -142,7 +142,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
             const cancelBtn = document.createElement("button");
             cancelBtn.type = "button";
             cancelBtn.className = "pb-cancel-button";
-            cancelBtn.title = "Cancel editing";
+            cancelBtn.title = game.i18n.localize("PB.Cancel");
             cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
             cancelBtn.addEventListener("click", (ev) => {
               ev.preventDefault();
@@ -163,7 +163,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
           const cancelBtn = document.createElement("button");
           cancelBtn.type = "button";
           cancelBtn.className = "pb-cancel-button";
-          cancelBtn.title = "Cancel editing";
+          cancelBtn.title = game.i18n.localize("PB.Cancel");
           cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
           cancelBtn.addEventListener("click", (ev) => {
             ev.preventDefault();
@@ -574,7 +574,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
     if (this._editingDescriptionTarget) {
       formData.editingDescription = {
         target: this._editingDescriptionTarget,
-        value: this.actor.system?.description || ""
+        value: this.actor.system?.description || "",
       };
     }
 
