@@ -1,4 +1,9 @@
 export const configureHandlebar = () => {
+  // Version check helper for conditional rendering
+  Handlebars.registerHelper("isV13", function (options) {
+    return game.release.generation >= 13 ? options.fn(this) : options.inverse(this);
+  });
+
   Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {
     return arg1 == arg2 ? options.fn(this) : options.inverse(this);
   });
@@ -60,6 +65,7 @@ export const configureHandlebar = () => {
     "systems/pirateborg/templates/actor/common/effects.html",
     "systems/pirateborg/templates/actor/common/static-list-item.html",
     "systems/pirateborg/templates/item/tab/effects.html",
+    "systems/pirateborg/templates/common/editor.html",
   ];
   if (game.release.generation >= 13) {
     foundry.applications.handlebars.loadTemplates(templates);
