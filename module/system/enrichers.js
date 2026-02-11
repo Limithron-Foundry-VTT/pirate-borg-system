@@ -339,7 +339,7 @@ async function enrichCheck(match) {
   const parts = content.split(/\s+/);
 
   let ability = "";
-  let dc = null;
+  let dc = 12;
 
   for (const part of parts) {
     const lowerPart = part.toLowerCase();
