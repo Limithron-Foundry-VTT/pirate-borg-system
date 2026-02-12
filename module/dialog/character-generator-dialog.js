@@ -185,7 +185,7 @@ class CharacterGeneratorDialog extends Application {
     const form = event.currentTarget?.closest("form");
     if (!form) return;
 
-    const formData = new foundry.applications.ux.FormDataExtended(form).object;
+    const formData = game.release.generation >= 13 ? new foundry.applications.ux.FormDataExtended(form).object : new FormDataExtended(form).object;
     const selection = Array.from(form.querySelectorAll(".class-groups input:checked")).map((checkbox) => checkbox.name);
 
     const callOptions = { html: form, formData, method, selectedClasses: selection };
