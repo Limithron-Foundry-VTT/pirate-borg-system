@@ -421,10 +421,10 @@ async function listPullRequestsWithWorktrees() {
       const marker = hasWorktree ? "\x1b[32m[✓]\x1b[0m" : "\x1b[90m[ ]\x1b[0m";
       const author = pr.author ? `@${pr.author.login}` : "unknown";
 
-      const prNum = `#${pr.number}`.padEnd(6);
-      const title = pr.title.length > 40 ? pr.title.substring(0, 37) + "..." : pr.title;
-      const titlePadded = title.padEnd(43);
-      const authorPadded = author.padEnd(20);
+      const prNum = `#${pr.number}`.padEnd(5);
+      const title = pr.title.length > 50 ? pr.title.substring(0, 47) + "..." : pr.title;
+      const titlePadded = title.padEnd(52);
+      const authorPadded = author.padEnd(14);
 
       console.log(`  ${prNum} ${marker}  ${titlePadded} ${authorPadded} ${pr.headRefName}`);
     });
