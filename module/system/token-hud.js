@@ -23,6 +23,13 @@ export const alterTokenHUDStatusEffects = (tokenHUD) => {
     titleNode.className = "status-effect-title";
     titleNode.innerText = title;
 
+    // Forward clicks on the title to the effect control
+    wrapper.addEventListener("click", (event) => {
+      if (event.target !== statusEffect) {
+        statusEffect.click();
+      }
+    });
+
     statusEffect.replaceWith(wrapper);
     wrapper.appendChild(statusEffect);
     wrapper.appendChild(titleNode);
