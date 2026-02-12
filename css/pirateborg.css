@@ -1564,6 +1564,35 @@ li.folder > .folder-header {
   background: inherit;
 }
 
+/* Token HUD Status Effects Panel */
+#token-hud .status-effects {
+  --effect-columns: 7;
+  --effect-size: 32px;
+}
+#token-hud .status-effects.expanded-details {
+  grid-template-columns: repeat(4, max-content);
+}
+#token-hud .status-effect-container {
+  cursor: pointer;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#token-hud .status-effect-container .effect-control {
+  width: var(--effect-size);
+  height: var(--effect-size);
+}
+#token-hud .status-effect-container .status-effect-title {
+  padding-left: 4px;
+  margin-right: 6px;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+#token-hud .status-effect-container:hover .status-effect-title, #token-hud .status-effect-container:hover .effect-control {
+  opacity: 0.8;
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */

@@ -12,6 +12,7 @@ import { registerSocketHandler } from "./system/sockets.js";
 import { onDragRulerReady } from "./system/drag-ruler.js";
 import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
+import { alterTokenHUDStatusEffects } from "./system/token-hud.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -56,6 +57,10 @@ Hooks.once("ready", () => {
 
   // hotbarDrop hook cannot be async and still block the default macro creation workflow,
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
+
+  Hooks.on("renderTokenHUD", (app, html) => {
+    alterTokenHUDStatusEffects.call(app, html);
+  });
 
   ui.chat.scrollBottom();
 });
