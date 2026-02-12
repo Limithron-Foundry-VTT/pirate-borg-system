@@ -105,7 +105,10 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
   const results = [];
   for (const compendiumsItem of compendiumsItems) {
     const [compendium, table] = compendiumInfoFromString(compendiumsItem);
-    results.push(await findCompendiumItem(compendium, table));
+    const item = await findCompendiumItem(compendium, table);
+    if (item) {
+      results.push(item);
+    }
   }
   return results;
 };
