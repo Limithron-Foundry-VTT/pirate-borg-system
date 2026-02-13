@@ -1,3 +1,16 @@
+# v1.2.2
+
+- Significantly enhanced the "Status Effects" available on each token's HUD.
+  - Status Effects now list their name instead of just an icon. This can be disabled via the "Detailed Token HUD status effects" setting within Pirate Borg.
+  - Icons have been updated to better suit the Pirate Borg theme. Icons are from game-icons.net
+- Added Ash and Refined Ash as equipable Items, and added a Macro to consume the Ash.
+  - "Ash" consumption and automatic rolling of the experience generation _requires_ the "Pirate Borg Premium" module.
+  - "Refined Ash" requires the upcoming "Trapped in the Tropics" module and will currently do nothing.
+- Character generation now ignores empty class "Flavor Text" fields.
+  - This prevents unnecessary blank lines appearing in the generated character description.
+- Switched the order of the "Gain Experience" and "Cancel" buttons on the "Get Better" dialog to match Foundry VTT conventions.
+- Changed the default link color to blue to make them easier to read within journals etc.
+
 # v1.2.1
 
 - Minor visual improvements to The Tavern to help support longer lists of classes when multiple modules provide classes.
