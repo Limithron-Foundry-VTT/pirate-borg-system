@@ -1,3 +1,9 @@
+# v1.2.3
+
+- Rebuilt system database to include the Ash and Refined Ash items from v1.2.2.
+- Enhanced the build workflows to automatically update the system database so we don't miss any future changes.
+  - Also updated several other minor aspects of the system build process.
+
 # v1.2.2
 
 - Significantly enhanced the "Status Effects" available on each token's HUD.
