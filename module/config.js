@@ -242,6 +242,230 @@ PB.characterGenerator = {
   ],
 };
 
+/**
+ * Status effects configuration for Pirate Borg.
+ * Icons from game-icons.net by Lorc, Delapouite, and others (CC BY 3.0).
+ */
+PB.systemEffects = {
+  dead: {
+    id: "dead",
+    name: "PB.StatusDead",
+    img: "systems/pirateborg/icons/status/pirate-grave.svg",
+  },
+  unconscious: {
+    id: "unconscious",
+    name: "PB.StatusUnconscious",
+    img: "systems/pirateborg/icons/status/coma.svg",
+  },
+  sleep: {
+    id: "sleep",
+    name: "PB.StatusAsleep",
+    img: "systems/pirateborg/icons/status/sleep.svg",
+  },
+  stun: {
+    id: "stun",
+    name: "PB.StatusStunned",
+    img: "systems/pirateborg/icons/status/knocked-out-stars.svg",
+  },
+  prone: {
+    id: "prone",
+    name: "PB.StatusProne",
+    img: "systems/pirateborg/icons/status/kneeling.svg",
+  },
+  restrained: {
+    id: "restrained",
+    name: "PB.StatusRestrained",
+    img: "systems/pirateborg/icons/status/restrained.svg",
+  },
+  paralysis: {
+    id: "paralysis",
+    name: "PB.StatusParalyzed",
+    img: "systems/pirateborg/icons/status/paralyzed.svg",
+  },
+  blind: {
+    id: "blind",
+    name: "PB.StatusBlind",
+    img: "systems/pirateborg/icons/status/blindfold.svg",
+  },
+  deaf: {
+    id: "deaf",
+    name: "PB.StatusDeaf",
+    img: "systems/pirateborg/icons/status/deaf.svg",
+  },
+  silence: {
+    id: "silence",
+    name: "PB.StatusSilenced",
+    img: "systems/pirateborg/icons/status/silence.svg",
+  },
+  fear: {
+    id: "fear",
+    name: "PB.StatusFrightened",
+    img: "systems/pirateborg/icons/status/screaming.svg",
+  },
+  burning: {
+    id: "burning",
+    name: "PB.StatusBurning",
+    img: "systems/pirateborg/icons/status/flame.svg",
+  },
+  frozen: {
+    id: "frozen",
+    name: "PB.StatusFrozen",
+    img: "systems/pirateborg/icons/status/frozen-block.svg",
+  },
+  poison: {
+    id: "poison",
+    name: "PB.StatusPoisoned",
+    img: "systems/pirateborg/icons/status/poison.svg",
+  },
+  disease: {
+    id: "disease",
+    name: "PB.StatusDiseased",
+    img: "systems/pirateborg/icons/status/disease.svg",
+  },
+  invisible: {
+    id: "invisible",
+    name: "PB.StatusInvisible",
+    img: "systems/pirateborg/icons/status/invisible.svg",
+  },
+  target: {
+    id: "target",
+    name: "PB.StatusTargeted",
+    img: "systems/pirateborg/icons/status/crosshair.svg",
+  },
+  // Pirate Borg-specific effects
+  intoxicated: {
+    id: "intoxicated",
+    name: "PB.StatusIntoxicated",
+    img: "systems/pirateborg/icons/status/beer-stein.svg",
+  },
+  infected: {
+    id: "infected",
+    name: "PB.StatusInfected",
+    img: "systems/pirateborg/icons/status/infected.svg",
+  },
+  starving: {
+    id: "starving",
+    name: "PB.StatusStarving",
+    img: "systems/pirateborg/icons/status/starving.svg",
+  },
+  broken: {
+    id: "broken",
+    name: "PB.StatusBroken",
+    img: "systems/pirateborg/icons/status/broken-skull.svg",
+  },
+  encumbered: {
+    id: "encumbered",
+    name: "PB.StatusEncumbered",
+    img: "systems/pirateborg/icons/status/anchor.svg",
+  },
+  seasick: {
+    id: "seasick",
+    name: "PB.StatusSeasick",
+    img: "systems/pirateborg/icons/status/seasick.svg",
+  },
+  cursed: {
+    id: "cursed",
+    name: "PB.StatusCursed",
+    img: "systems/pirateborg/icons/status/cursed.svg",
+  },
+  blessed: {
+    id: "blessed",
+    name: "PB.StatusBlessed",
+    img: "systems/pirateborg/icons/status/prayer.svg",
+  },
+  slowed: {
+    id: "slowed",
+    name: "PB.StatusSlowed",
+    img: "systems/pirateborg/icons/status/slowed.svg",
+  },
+  drowning: {
+    id: "drowning",
+    name: "PB.StatusDrowning",
+    img: "systems/pirateborg/icons/status/drowning.svg",
+  },
+  swimming: {
+    id: "swimming",
+    name: "PB.StatusSwimming",
+    img: "systems/pirateborg/icons/status/swimming.svg",
+  },
+  rigging: {
+    id: "rigging",
+    name: "PB.StatusInRigging",
+    img: "systems/pirateborg/icons/status/rigging.svg",
+  },
+  treasure: {
+    id: "treasure",
+    name: "PB.StatusCarryingTreasure",
+    img: "systems/pirateborg/icons/status/treasure.svg",
+  },
+};
+
+/**
+ * Colored markers for arbitrary token marking.
+ */
+PB.coloredMarkers = {
+  markerRed: {
+    id: "markerRed",
+    name: "PB.MarkerRed",
+    img: "systems/pirateborg/icons/markers/red.svg",
+  },
+  markerOrange: {
+    id: "markerOrange",
+    name: "PB.MarkerOrange",
+    img: "systems/pirateborg/icons/markers/orange.svg",
+  },
+  markerYellow: {
+    id: "markerYellow",
+    name: "PB.MarkerYellow",
+    img: "systems/pirateborg/icons/markers/yellow.svg",
+  },
+  markerGreen: {
+    id: "markerGreen",
+    name: "PB.MarkerGreen",
+    img: "systems/pirateborg/icons/markers/green.svg",
+  },
+  markerBlue: {
+    id: "markerBlue",
+    name: "PB.MarkerBlue",
+    img: "systems/pirateborg/icons/markers/blue.svg",
+  },
+  markerPurple: {
+    id: "markerPurple",
+    name: "PB.MarkerPurple",
+    img: "systems/pirateborg/icons/markers/purple.svg",
+  },
+  markerCyan: {
+    id: "markerCyan",
+    name: "PB.MarkerCyan",
+    img: "systems/pirateborg/icons/markers/cyan.svg",
+  },
+  markerPink: {
+    id: "markerPink",
+    name: "PB.MarkerPink",
+    img: "systems/pirateborg/icons/markers/pink.svg",
+  },
+  markerBrown: {
+    id: "markerBrown",
+    name: "PB.MarkerBrown",
+    img: "systems/pirateborg/icons/markers/brown.svg",
+  },
+  markerWhite: {
+    id: "markerWhite",
+    name: "PB.MarkerWhite",
+    img: "systems/pirateborg/icons/markers/white.svg",
+  },
+  markerBlack: {
+    id: "markerBlack",
+    name: "PB.MarkerBlack",
+    img: "systems/pirateborg/icons/markers/black.svg",
+  },
+  markerGray: {
+    id: "markerGray",
+    name: "PB.MarkerGray",
+    img: "systems/pirateborg/icons/markers/gray.svg",
+  },
+};
+
 PB.recommendedModules = [
   {
     type: "highly_recommended",

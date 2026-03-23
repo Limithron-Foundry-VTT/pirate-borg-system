@@ -1,0 +1,25 @@
+{
+  "_id": "AshMacro0000001",
+  "name": "Use Ash",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "// Check if module is installed and active\nif (!game.modules.get('pirate-borg-premium')?.active) {\n  ui.notifications.warn('The Ash Experience Generator table requires the \"Pirate Borg Premium\" module.');\n  return;\n}\n\n// Get the table by UUID\nconst tableUuid = 'Compendium.pirate-borg-premium.rolltables.RollTable.9m3fmkKYEnWREhxX';\nconst table = await fromUuid(tableUuid);\n\nif (!table) {\n  ui.notifications.error('Could not find Ash Experience Generator table.');\n  return;\n}\n\n// Roll on the table (GM only - blind roll)\nawait table.draw({ \n  displayChat: true, \n  rollMode: CONST.DICE_ROLL_MODES.BLIND \n});\n\n// Remove the item from actor's inventory\nawait actor.deleteEmbeddedDocuments(\"Item\", [item.id]);",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "pirateborg",
+    "systemVersion": "v1.2.1",
+    "coreVersion": "12.331",
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
+  },
+  "_key": "!macros!AshMacro0000001"
+}

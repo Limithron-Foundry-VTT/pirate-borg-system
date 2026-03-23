@@ -28,7 +28,7 @@
   --item-font: "Alegreya";
   --compendium-font: "IM Fell English";
   --button-font: "Alegreya";
-  --color-text-hyperlink: var(--foreground-color);
+  --color-text-hyperlink: #0066cc;
   /* foundry core */
   --color-text-light-6: var(--foreground-color);
   --color-text-light-5: var(--foreground-color);
@@ -1577,6 +1577,35 @@ li.folder > .folder-header {
 #playlists.sound-enhancement .playlist header.playlist-header,
 #playlists-popout.sound-enhancement .playlist header.playlist-header {
   background: inherit;
+}
+
+/* Token HUD Status Effects Panel */
+#token-hud .status-effects {
+  --effect-columns: 7;
+  --effect-size: 32px;
+}
+#token-hud .status-effects.expanded-details {
+  grid-template-columns: repeat(4, max-content);
+}
+#token-hud .status-effect-container {
+  cursor: pointer;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#token-hud .status-effect-container .effect-control {
+  width: var(--effect-size);
+  height: var(--effect-size);
+}
+#token-hud .status-effect-container .status-effect-title {
+  padding-left: 4px;
+  margin-right: 6px;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+#token-hud .status-effect-container:hover .status-effect-title, #token-hud .status-effect-container:hover .effect-control {
+  opacity: 0.8;
 }
 
 /* ====================== */

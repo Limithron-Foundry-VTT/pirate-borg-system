@@ -349,7 +349,8 @@ export const generateDescription = (cls, items) => {
     ])
     .join("...");
 
-  return `<p>${cls.flavorText}</p><p>${description}</p>`;
+  const flavorText = cls.flavorText ? `<p>${cls.flavorText}</p>` : "";
+  return `${flavorText}<p>${description}</p>`;
 };
 
 /**

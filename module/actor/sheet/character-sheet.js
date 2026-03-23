@@ -397,9 +397,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
         title: game.i18n.localize("PB.GetBetter"),
         content: game.i18n.localize("PB.GetBetterConfirmMessage"),
         buttons: {
-          cancel: {
-            label: game.i18n.localize("PB.Cancel"),
-          },
           getbetter: {
             icon: '<i class="fas fa-check"></i>',
             label: game.i18n.localize("PB.GetBetter"),
@@ -411,6 +408,9 @@ export class PBActorSheetCharacter extends PBActorSheet {
 
               return characterGetBetterAction(this.actor);
             },
+          },
+          cancel: {
+            label: game.i18n.localize("PB.Cancel"),
           },
         },
         default: "cancel",
