@@ -42,76 +42,6 @@ const ABILITY_LABELS = {
   spirit: "PB.AbilitySpirit",
 };
 
-// =============================================================================
-// Condition/Reference Mappings
-// =============================================================================
-
-/**
- * Map of condition names to their descriptions
- */
-const CONDITIONS = {
-  dead: {
-    label: "PB.Dead",
-    description: "PB.DeadDescription",
-    icon: "fa-skull",
-  },
-  broken: {
-    label: "PB.Broken",
-    description: "PB.BrokenDescription",
-    icon: "fa-heart-broken",
-  },
-  poisoned: {
-    label: "PB.Poisoned",
-    description: "PB.PoisonedDescription",
-    icon: "fa-skull-crossbones",
-  },
-  drunk: {
-    label: "PB.Drunk",
-    description: "PB.DrunkDescription",
-    icon: "fa-wine-bottle",
-  },
-  infected: {
-    label: "PB.Infected",
-    description: "PB.InfectedDescription",
-    icon: "fa-biohazard",
-  },
-  bleeding: {
-    label: "PB.Bleeding",
-    description: "PB.BleedingDescription",
-    icon: "fa-droplet",
-  },
-  cursed: {
-    label: "PB.Cursed",
-    description: "PB.CursedDescription",
-    icon: "fa-ghost",
-  },
-  drowning: {
-    label: "PB.Drowning",
-    description: "PB.DrowningDescription",
-    icon: "fa-water",
-  },
-  burning: {
-    label: "PB.Burning",
-    description: "PB.BurningDescription",
-    icon: "fa-fire",
-  },
-  stunned: {
-    label: "PB.Stunned",
-    description: "PB.StunnedDescription",
-    icon: "fa-star",
-  },
-  blind: {
-    label: "PB.Blind",
-    description: "PB.BlindDescription",
-    icon: "fa-eye-slash",
-  },
-  invisible: {
-    label: "PB.Invisible",
-    description: "PB.InvisibleDescription",
-    icon: "fa-eye",
-  },
-};
-
 /**
  * Damage type icons
  */
@@ -170,7 +100,7 @@ export const registerEnrichers = () => {
 
   // Reference enricher: &Reference[term]
   CONFIG.TextEditor.enrichers.push({
-    pattern: /&amp;Reference\[([^\]]+)\]/gi,
+    pattern: /&Reference\[([^\]]+)\]/gi,
     enricher: enrichReference,
   });
 
@@ -459,7 +389,7 @@ async function enrichSave(match) {
 async function enrichReference(match) {
   const term = match[1].trim().toLowerCase();
 
-  const condition = CONDITIONS[term];
+  const condition = game.pirateborg.config.systemEffects[term];
 
   const span = document.createElement("span");
   span.classList.add("pb-reference-link");
@@ -470,7 +400,7 @@ async function enrichReference(match) {
     icon.classList.add("fas", condition.icon);
     span.appendChild(icon);
 
-    const label = document.createTextNode(` ${game.i18n.localize(condition.label)}`);
+    const label = document.createTextNode(` ${game.i18n.localize(condition.name)}`);
     span.appendChild(label);
 
     // Add tooltip with description
@@ -717,12 +647,12 @@ async function handleReferenceClick(element) {
   const condition = element.dataset.condition;
   if (!condition) return;
 
-  const conditionData = CONDITIONS[condition];
+  const conditionData = game.pirateborg.config.systemEffects[condition];
   if (!conditionData) return;
 
   // Could open a journal entry, apply the condition, or show more info
   // For now, just show a notification with the description
-  const label = game.i18n.localize(conditionData.label);
+  const label = game.i18n.localize(conditionData.name);
   const description = game.i18n.has(conditionData.description) ? game.i18n.localize(conditionData.description) : "";
 
   if (description) {
