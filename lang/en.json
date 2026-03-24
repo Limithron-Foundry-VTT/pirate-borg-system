@@ -513,6 +513,7 @@
   "PB.TokenHUDShowStatusDetailsHint": "When enabled, the Token HUD will show the names of each status effect rather than just the icon and tooltip.",
   "PB.Type": "Type",
   "PB.Unchanged": "Unchanged",
+  "PB.UnknownReference": "Unknown reference: {reference}",
   "PB.VehicleAttributes": "Vehicle Attributes",
   "PB.ViewButton": "View",
   "PB.Vs": "vs",

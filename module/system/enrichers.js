@@ -58,6 +58,14 @@ const DAMAGE_ICONS = {
   psychic: "fa-brain",
   default: "fa-burst",
 };
+function getConditionData(term) {
+  switch (term) {
+    case "poisoned":
+      return game.pirateborg.config.systemEffects.poison;
+    default:
+      return game.pirateborg.config.systemEffects[term];
+  }
+}
 
 // =============================================================================
 // Enricher Registration
@@ -389,16 +397,18 @@ async function enrichSave(match) {
 async function enrichReference(match) {
   const term = match[1].trim().toLowerCase();
 
-  const condition = game.pirateborg.config.systemEffects[term];
+  const condition = getConditionData(term);
 
   const span = document.createElement("span");
   span.classList.add("pb-reference-link");
   span.setAttribute("draggable", "false");
 
   if (condition) {
-    const icon = document.createElement("i");
-    icon.classList.add("fas", condition.icon);
-    span.appendChild(icon);
+    if (condition.icon) {
+      const icon = document.createElement("i");
+      icon.classList.add("fas", condition.icon);
+      span.appendChild(icon);
+    }
 
     const label = document.createTextNode(` ${game.i18n.localize(condition.name)}`);
     span.appendChild(label);
@@ -415,6 +425,7 @@ async function enrichReference(match) {
     // Unknown reference - just display the term
     span.textContent = term;
     span.classList.add("unknown-reference");
+    span.dataset.tooltip = game.i18n.format("PB.UnknownReference", { reference: term });
   }
 
   return span;
@@ -647,7 +658,7 @@ async function handleReferenceClick(element) {
   const condition = element.dataset.condition;
   if (!condition) return;
 
-  const conditionData = game.pirateborg.config.systemEffects[condition];
+  const conditionData = getConditionData(condition);
   if (!conditionData) return;
 
   // Could open a journal entry, apply the condition, or show more info

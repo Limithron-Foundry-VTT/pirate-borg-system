@@ -252,6 +252,7 @@ PB.systemEffects = {
     name: "PB.StatusDead",
     description: "PB.StatusDeadDescription",
     img: "systems/pirateborg/icons/status/pirate-grave.svg",
+    icon: "fa-skull",
   },
   unconscious: {
     id: "unconscious",
@@ -270,6 +271,7 @@ PB.systemEffects = {
     name: "PB.StatusStunned",
     description: "PB.StatusStunnedDescription",
     img: "systems/pirateborg/icons/status/knocked-out-stars.svg",
+    icon: "fa-star",
   },
   prone: {
     id: "prone",
@@ -294,6 +296,7 @@ PB.systemEffects = {
     name: "PB.StatusBlind",
     description: "PB.StatusBlindDescription",
     img: "systems/pirateborg/icons/status/blindfold.svg",
+    icon: "fa-eye-slash",
   },
   deaf: {
     id: "deaf",
@@ -318,6 +321,7 @@ PB.systemEffects = {
     name: "PB.StatusBurning",
     description: "PB.StatusBurningDescription",
     img: "systems/pirateborg/icons/status/flame.svg",
+    icon: "fa-fire",
   },
   frozen: {
     id: "frozen",
@@ -330,6 +334,7 @@ PB.systemEffects = {
     name: "PB.StatusPoisoned",
     description: "PB.StatusPoisonedDescription",
     img: "systems/pirateborg/icons/status/poison.svg",
+    icon: "fa-skull-crossbones",
   },
   disease: {
     id: "disease",
@@ -342,6 +347,7 @@ PB.systemEffects = {
     name: "PB.StatusInvisible",
     description: "PB.StatusInvisibleDescription",
     img: "systems/pirateborg/icons/status/invisible.svg",
+    icon: "fa-eye",
   },
   target: {
     id: "target",
@@ -353,7 +359,8 @@ PB.systemEffects = {
     id: "bleeding",
     name: "PB.StatusBleeding",
     description: "PB.StatusBleedingDescription",
-    img: "systems/pirateborg/icons/status/bleeding.svg",
+    img: "systems/pirateborg/icons/status/blood.svg",
+    icon: "fa-droplet",
   },
   // Pirate Borg-specific effects
   intoxicated: {
@@ -367,6 +374,7 @@ PB.systemEffects = {
     name: "PB.StatusInfected",
     description: "PB.StatusInfectedDescription",
     img: "systems/pirateborg/icons/status/infected.svg",
+    icon: "fa-biohazard",
   },
   starving: {
     id: "starving",
@@ -379,6 +387,7 @@ PB.systemEffects = {
     name: "PB.StatusBroken",
     description: "PB.StatusBrokenDescription",
     img: "systems/pirateborg/icons/status/broken-skull.svg",
+    icon: "fa-heart-broken",
   },
   encumbered: {
     id: "encumbered",
@@ -391,6 +400,7 @@ PB.systemEffects = {
     name: "PB.StatusDrunk",
     description: "PB.StatusDrunkDescription",
     img: "systems/pirateborg/icons/status/beer-stein.svg",
+    icon: "fa-wine-bottle",
   },
   seasick: {
     id: "seasick",
@@ -403,6 +413,7 @@ PB.systemEffects = {
     name: "PB.StatusCursed",
     description: "PB.StatusCursedDescription",
     img: "systems/pirateborg/icons/status/cursed.svg",
+    icon: "fa-ghost",
   },
   blessed: {
     id: "blessed",
@@ -421,6 +432,7 @@ PB.systemEffects = {
     name: "PB.StatusDrowning",
     description: "PB.StatusDrowningDescription",
     img: "systems/pirateborg/icons/status/drowning.svg",
+    icon: "fa-water",
   },
   swimming: {
     id: "swimming",
