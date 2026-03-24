@@ -42,22 +42,6 @@ const ABILITY_LABELS = {
   spirit: "PB.AbilitySpirit",
 };
 
-/**
- * Damage type icons
- */
-const DAMAGE_ICONS = {
-  slashing: "fa-axe",
-  piercing: "fa-crosshairs",
-  bludgeoning: "fa-hammer",
-  fire: "fa-fire",
-  cold: "fa-snowflake",
-  lightning: "fa-bolt",
-  poison: "fa-skull-crossbones",
-  necrotic: "fa-skull",
-  radiant: "fa-sun",
-  psychic: "fa-brain",
-  default: "fa-burst",
-};
 function getConditionData(term) {
   switch (term) {
     case "poisoned":
@@ -78,42 +62,28 @@ function getConditionData(term) {
 export const registerEnrichers = () => {
   // Roll enricher: [[/r formula]]
   CONFIG.TextEditor.enrichers.push({
+    id: "pb-roll",
     pattern: /\[\[\/r(?:oll)?\s+([^\]]+)\]\]/gi,
     enricher: enrichRoll,
   });
 
-  // Damage enricher: [[/damage formula type? average?]]
+  // Check enricher: [[/check ability dr?]]
   CONFIG.TextEditor.enrichers.push({
-    pattern: /\[\[\/damage\s+([^\]]+)\]\]/gi,
-    enricher: enrichDamage,
-  });
-
-  // Heal enricher: [[/heal formula]]
-  CONFIG.TextEditor.enrichers.push({
-    pattern: /\[\[\/heal\s+([^\]]+)\]\]/gi,
-    enricher: enrichHeal,
-  });
-
-  // Check enricher: [[/check ability dc?]]
-  CONFIG.TextEditor.enrichers.push({
+    id: "pb-check",
     pattern: /\[\[\/check\s+([^\]]+)\]\]/gi,
     enricher: enrichCheck,
   });
 
-  // Save enricher: [[/save ability dr?]]
-  CONFIG.TextEditor.enrichers.push({
-    pattern: /\[\[\/save\s+([^\]]+)\]\]/gi,
-    enricher: enrichSave,
-  });
-
   // Reference enricher: &Reference[term]
   CONFIG.TextEditor.enrichers.push({
+    id: "pb-reference",
     pattern: /&Reference\[([^\]]+)\]/gi,
     enricher: enrichReference,
   });
 
   // Lookup enricher: [[lookup @path]]
   CONFIG.TextEditor.enrichers.push({
+    id: "pb-lookup",
     pattern: /\[\[lookup\s+(@[^\]]+)\]\]/gi,
     enricher: enrichLookup,
   });
@@ -156,117 +126,9 @@ async function enrichRoll(match) {
 }
 
 /**
- * Enricher for damage rolls: [[/damage 2d6 fire average]]
- * Creates a clickable damage roll link with optional average display.
- *
- * @param {RegExpMatchArray} match - The regex match
- * @param {object} options - Enrichment options
- * @returns {HTMLElement} The enriched element
- */
-async function enrichDamage(match) {
-  const content = match[1].trim();
-  const parts = content.split(/\s+/);
-
-  // Parse formula and options
-  let formula = "";
-  let damageType = "";
-  let showAverage = false;
-
-  for (const part of parts) {
-    if (part.toLowerCase() === "average") {
-      showAverage = true;
-    } else if (DAMAGE_ICONS[part.toLowerCase()]) {
-      damageType = part.toLowerCase();
-    } else if (!formula) {
-      formula = part;
-    } else if (!damageType && !DAMAGE_ICONS[part.toLowerCase()]) {
-      // Might be part of the formula (e.g., "1d6 + 2")
-      formula += ` ${part}`;
-    }
-  }
-
-  const a = document.createElement("a");
-  a.classList.add("pb-damage-link", "inline-roll");
-  a.dataset.formula = formula;
-  a.dataset.damageType = damageType;
-  a.dataset.action = "damage";
-  a.setAttribute("draggable", "false");
-
-  // Calculate average if requested
-  if (showAverage) {
-    try {
-      const roll = new Roll(formula);
-      // Calculate average: for dice like 1d6, average is (min + max) / 2
-      let average = 0;
-      for (const term of roll.terms) {
-        if (term instanceof foundry.dice.terms.Die) {
-          average += ((term.faces + 1) / 2) * term.number;
-        } else if (typeof term.number === "number") {
-          average += term.number;
-        }
-      }
-      average = Math.floor(average);
-
-      const avgSpan = document.createElement("span");
-      avgSpan.classList.add("average-damage");
-      avgSpan.textContent = `${average} `;
-      a.appendChild(avgSpan);
-    } catch (e) {
-      // If average calculation fails, just show the formula
-    }
-  }
-
-  const icon = document.createElement("i");
-  icon.classList.add("fas", DAMAGE_ICONS[damageType] || DAMAGE_ICONS.default);
-  a.appendChild(icon);
-
-  const text = document.createTextNode(` ${formula}`);
-  a.appendChild(text);
-
-  if (damageType) {
-    const typeSpan = document.createElement("span");
-    typeSpan.classList.add("damage-type");
-    typeSpan.textContent = ` ${damageType}`;
-    a.appendChild(typeSpan);
-  }
-
-  a.dataset.tooltip = game.i18n.localize("PB.ClickToRollDamage");
-
-  return a;
-}
-
-/**
- * Enricher for heal rolls: [[/heal 2d4+2]]
- * Creates a clickable healing roll link.
- *
- * @param {RegExpMatchArray} match - The regex match
- * @param {object} options - Enrichment options
- * @returns {HTMLElement} The enriched element
- */
-async function enrichHeal(match) {
-  const formula = match[1].trim();
-
-  const a = document.createElement("a");
-  a.classList.add("pb-heal-link", "inline-roll");
-  a.dataset.formula = formula;
-  a.dataset.action = "heal";
-  a.setAttribute("draggable", "false");
-
-  const icon = document.createElement("i");
-  icon.classList.add("fas", "fa-heart");
-  a.appendChild(icon);
-
-  const text = document.createTextNode(` ${formula}`);
-  a.appendChild(text);
-
-  a.dataset.tooltip = game.i18n.localize("PB.ClickToRollHeal");
-
-  return a;
-}
-
-/**
  * Enricher for ability checks: [[/check agility 12]]
- * Creates a clickable ability check link with optional DC.
+ *   [[/check presence 14]]
+ * Creates a clickable ability check link with optional DR.
  *
  * @param {RegExpMatchArray} match - The regex match
  * @param {object} options - Enrichment options
@@ -277,68 +139,7 @@ async function enrichCheck(match) {
   const parts = content.split(/\s+/);
 
   let ability = "";
-  let dc = 12;
-
-  for (const part of parts) {
-    const lowerPart = part.toLowerCase();
-    if (ABILITY_MAP[lowerPart]) {
-      ability = ABILITY_MAP[lowerPart];
-    } else if (/^\d+$/.test(part)) {
-      dc = parseInt(part);
-    }
-  }
-
-  if (!ability) {
-    // Return original text if no valid ability found
-    const span = document.createElement("span");
-    span.textContent = match[0];
-    return span;
-  }
-
-  const a = document.createElement("a");
-  a.classList.add("pb-check-link", "inline-roll");
-  a.dataset.ability = ability;
-  a.dataset.action = "check";
-  if (dc !== null) {
-    a.dataset.dc = dc;
-  }
-  a.setAttribute("draggable", "false");
-
-  const icon = document.createElement("i");
-  icon.classList.add("fas", "fa-dice-d20");
-  a.appendChild(icon);
-
-  // Build display text
-  let displayText = "";
-  if (dc !== null) {
-    displayText = ` DR ${dc} `;
-  }
-  displayText += game.i18n.localize(ABILITY_LABELS[ability]);
-
-  const text = document.createTextNode(displayText);
-  a.appendChild(text);
-
-  a.dataset.tooltip = game.i18n.format("PB.ClickToRollCheck", {
-    ability: game.i18n.localize(ABILITY_LABELS[ability]),
-  });
-
-  return a;
-}
-
-/**
- * Enricher for saving throws: [[/save toughness 14]]
- * Creates a clickable saving throw link with optional DR.
- *
- * @param {RegExpMatchArray} match - The regex match
- * @param {object} options - Enrichment options
- * @returns {HTMLElement} The enriched element
- */
-async function enrichSave(match) {
-  const content = match[1].trim();
-  const parts = content.split(/\s+/);
-
-  let ability = "";
-  let dr = null;
+  let dr = 12;
 
   for (const part of parts) {
     const lowerPart = part.toLowerCase();
@@ -357,16 +158,16 @@ async function enrichSave(match) {
   }
 
   const a = document.createElement("a");
-  a.classList.add("pb-save-link", "inline-roll");
+  a.classList.add("pb-check-link", "inline-roll");
   a.dataset.ability = ability;
-  a.dataset.action = "save";
+  a.dataset.action = "check";
   if (dr !== null) {
     a.dataset.dr = dr;
   }
   a.setAttribute("draggable", "false");
 
   const icon = document.createElement("i");
-  icon.classList.add("fas", "fa-shield-halved");
+  icon.classList.add("fas", "fa-dice-d20");
   a.appendChild(icon);
 
   // Build display text
@@ -379,7 +180,7 @@ async function enrichSave(match) {
   const text = document.createTextNode(displayText);
   a.appendChild(text);
 
-  a.dataset.tooltip = game.i18n.format("PB.ClickToRollSave", {
+  a.dataset.tooltip = game.i18n.format("PB.ClickToRollCheck", {
     ability: game.i18n.localize(ABILITY_LABELS[ability]),
   });
 
@@ -488,17 +289,8 @@ export const registerEnricherClickHandlers = () => {
       case "roll":
         await handleRollClick(target);
         break;
-      case "damage":
-        await handleDamageClick(target);
-        break;
-      case "heal":
-        await handleHealClick(target);
-        break;
       case "check":
         await handleCheckClick(target);
-        break;
-      case "save":
-        await handleSaveClick(target);
         break;
       case "reference":
         await handleReferenceClick(target);
@@ -529,93 +321,9 @@ async function handleRollClick(element) {
 }
 
 /**
- * Handle click on a damage enricher
- */
-async function handleDamageClick(element) {
-  const formula = element.dataset.formula;
-  const damageType = element.dataset.damageType || "";
-  if (!formula) return;
-
-  try {
-    const roll = new Roll(formula);
-    await roll.evaluate();
-
-    let flavor = game.i18n.localize("PB.Damage");
-    if (damageType) {
-      flavor += ` (${damageType})`;
-    }
-
-    await roll.toMessage({
-      flavor,
-      speaker: ChatMessage.getSpeaker(),
-    });
-  } catch (e) {
-    ui.notifications.error(`Invalid damage formula: ${formula}`);
-  }
-}
-
-/**
- * Handle click on a heal enricher
- */
-async function handleHealClick(element) {
-  const formula = element.dataset.formula;
-  if (!formula) return;
-
-  try {
-    const roll = new Roll(formula);
-    await roll.evaluate();
-    await roll.toMessage({
-      flavor: game.i18n.localize("PB.Healing"),
-      speaker: ChatMessage.getSpeaker(),
-    });
-  } catch (e) {
-    ui.notifications.error(`Invalid heal formula: ${formula}`);
-  }
-}
-
-/**
  * Handle click on a check enricher
  */
 async function handleCheckClick(element) {
-  const ability = element.dataset.ability;
-  const dc = element.dataset.dc ? parseInt(element.dataset.dc) : null;
-  if (!ability) return;
-
-  // Get the selected actor or user's character
-  const actor = canvas.tokens.controlled[0]?.actor || game.user.character;
-
-  if (!actor) {
-    ui.notifications.warn(game.i18n.localize("PB.NoActorSelected"));
-    return;
-  }
-
-  // Get the ability value from the actor
-  const abilityValue = actor.system?.abilities?.[ability]?.value ?? 0;
-  const formula = `d20+${abilityValue}`;
-
-  try {
-    const roll = new Roll(formula);
-    await roll.evaluate();
-
-    let flavor = `${game.i18n.localize(ABILITY_LABELS[ability])} ${game.i18n.localize("PB.Check")}`;
-    if (dc !== null) {
-      const success = roll.total >= dc;
-      flavor += ` (DR ${dc}) - ${success ? game.i18n.localize("PB.Success") : game.i18n.localize("PB.Failure")}`;
-    }
-
-    await roll.toMessage({
-      flavor,
-      speaker: ChatMessage.getSpeaker({ actor }),
-    });
-  } catch (e) {
-    ui.notifications.error(`Failed to roll check: ${e.message}`);
-  }
-}
-
-/**
- * Handle click on a save enricher
- */
-async function handleSaveClick(element) {
   const ability = element.dataset.ability;
   const dr = element.dataset.dr ? parseInt(element.dataset.dr) : null;
   if (!ability) return;
@@ -636,7 +344,7 @@ async function handleSaveClick(element) {
     const roll = new Roll(formula);
     await roll.evaluate();
 
-    let flavor = `${game.i18n.localize(ABILITY_LABELS[ability])} ${game.i18n.localize("PB.Save")}`;
+    let flavor = `${game.i18n.localize(ABILITY_LABELS[ability])} ${game.i18n.localize("PB.Check")}`;
     if (dr !== null) {
       const success = roll.total >= dr;
       flavor += ` (DR ${dr}) - ${success ? game.i18n.localize("PB.Success") : game.i18n.localize("PB.Failure")}`;
@@ -647,7 +355,7 @@ async function handleSaveClick(element) {
       speaker: ChatMessage.getSpeaker({ actor }),
     });
   } catch (e) {
-    ui.notifications.error(`Failed to roll save: ${e.message}`);
+    ui.notifications.error(`Failed to roll check: ${e.message}`);
   }
 }
 
