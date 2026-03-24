@@ -287,7 +287,13 @@ a.inline-roll {
   cursor: pointer;
   color: var(--foreground-color);
 }
+a.inline-roll > i {
+  color: var(--foreground-color);
+}
 a.inline-roll:hover {
+  color: var(--highlight-background-color);
+}
+a.inline-roll:hover > i {
   color: var(--highlight-background-color);
 }
 
@@ -391,6 +397,14 @@ a.inline-roll:hover {
 .pb-reference-link:hover {
   background: rgba(128, 0, 128, 0.2);
   box-shadow: 0 0 6px rgba(128, 0, 128, 0.3);
+}
+.pb-reference-link.unknown-reference {
+  border-style: dashed;
+}
+.pb-reference-link.unknown-reference::before {
+  content: "?";
+  margin-right: 4px;
+  font-weight: bold;
 }
 .pb-reference-link .reference-tooltip {
   position: absolute;

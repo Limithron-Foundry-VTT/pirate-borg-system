@@ -307,8 +307,16 @@ a.inline-roll {
   cursor: pointer;
   color: var(--foreground-color);
 
+  > i {
+    color: var(--foreground-color);
+  }
+
   &:hover {
     color: var(--highlight-background-color);
+
+    > i {
+      color: var(--highlight-background-color);
+    }
   }
 }
 
@@ -426,6 +434,16 @@ a.inline-roll {
   &:hover {
     background: rgba(128, 0, 128, 0.2);
     box-shadow: 0 0 6px rgba(128, 0, 128, 0.3);
+  }
+
+  &.unknown-reference {
+    &::before {
+      content: "?";
+      margin-right: 4px;
+      font-weight: bold;
+    }
+
+    border-style: dashed;
   }
 
   // Tooltip styling
