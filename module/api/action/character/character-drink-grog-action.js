@@ -4,9 +4,6 @@ import { testOutcome, withAsyncProps, withTarget } from "../../outcome/outcome.j
 import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
 import { isGrogEnabled } from "../../../system/settings.js";
 
-const GROG_INTOXICATION_FLAG = "intoxicated";
-const VOMITING_STATUS_ID = "vomiting";
-
 /**
  * Create a Toughness test outcome for drinking grog
  * @param {PBActor} actor
@@ -55,7 +52,7 @@ const createVomitingDurationOutcome = async () =>
  */
 const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
   // Find ALL existing grog intoxication effects (handle duplicates)
-  const existingEffects = actor.effects.filter((e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG));
+  const existingEffects = actor.effects.filter((e) => e.getFlag(CONFIG.PB.flagScope, game.pirateborg.config.systemEffects.intoxicated.id));
 
   if (drinks <= 0) {
     // Remove all grog effects if no drinks
@@ -68,8 +65,8 @@ const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
 
   const effectData = {
     name: game.i18n.format("PB.GrogIntoxication", { drinks }),
-    img: "systems/pirateborg/icons/status/beer-stein.svg",
-    statuses: [GROG_INTOXICATION_FLAG],
+    img: game.pirateborg.config.systemEffects.intoxicated.img,
+    statuses: [game.pirateborg.config.systemEffects.intoxicated.id],
     changes: [
       {
         key: "system.abilities.agility.value",
@@ -79,7 +76,7 @@ const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
     ],
     flags: {
       [CONFIG.PB.flagScope]: {
-        [GROG_INTOXICATION_FLAG]: true,
+        [game.pirateborg.config.systemEffects.intoxicated.id]: true,
         drinks,
       },
     },
@@ -114,16 +111,18 @@ const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
  */
 const applyVomitingEffect = async (actor, rounds, grogItem) => {
   // Remove any existing vomiting effect first
-  const existingVomiting = actor.effects.find((e) => e.statuses?.has(VOMITING_STATUS_ID) || e.getFlag(CONFIG.PB.flagScope, "isVomiting"));
+  const existingVomiting = actor.effects.find(
+    (e) => e.statuses?.has(game.pirateborg.config.systemEffects.vomiting.id) || e.getFlag(CONFIG.PB.flagScope, "isVomiting")
+  );
   if (existingVomiting) {
     await existingVomiting.delete();
   }
 
   const effectData = {
-    name: game.i18n.localize("PB.GrogVomiting"),
-    img: "systems/pirateborg/icons/status/seasick.svg",
+    name: game.i18n.localize(game.pirateborg.config.systemEffects.vomiting.name),
+    img: game.pirateborg.config.systemEffects.vomiting.img,
     origin: grogItem?.uuid || null,
-    statuses: [VOMITING_STATUS_ID],
+    statuses: [game.pirateborg.config.systemEffects.vomiting.id],
     duration: {
       rounds,
     },
@@ -228,13 +227,13 @@ export const characterDrinkGrogAction = async (actor) => {
  */
 export const clearGrogEffects = async (actor) => {
   // Remove grog intoxication effect
-  const intoxicationEffect = actor.effects.find((e) => e.getFlag(CONFIG.PB.flagScope, GROG_INTOXICATION_FLAG));
+  const intoxicationEffect = actor.effects.find((e) => e.getFlag(CONFIG.PB.flagScope, game.pirateborg.config.systemEffects.intoxicated.id));
   if (intoxicationEffect) {
     await intoxicationEffect.delete();
   }
 
   // Remove vomiting effect
-  const vomitingEffect = actor.effects.find((e) => e.statuses?.has(VOMITING_STATUS_ID));
+  const vomitingEffect = actor.effects.find((e) => e.statuses?.has(game.pirateborg.config.systemEffects.vomiting.id));
   if (vomitingEffect) {
     await vomitingEffect.delete();
   }
