@@ -507,6 +507,7 @@
   "TYPES.Item.class": "Class",
   "TYPES.Item.container": "Container",
   "TYPES.Item.feature": "Feature",
+  "TYPES.Item.grog": "Grog",
   "TYPES.Item.hat": "Hat",
   "TYPES.Item.invokable": "Invokable",
   "TYPES.Item.misc": "Misc",
