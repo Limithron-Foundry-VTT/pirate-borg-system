@@ -107,6 +107,16 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to enable grog drinking mechanics */
+  game.settings.register("pirateborg", "enableGrog", {
+    name: "PB.SettingsEnableGrog",
+    hint: "PB.SettingsEnableGrogHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** The allowed classes menu */
   game.settings.registerMenu("pirateborg", "editAllowedCharacterGeneratorClassesMenu", {
     name: "PB.EditAllowedCharacterGeneratorClassesMenu",
@@ -256,6 +266,10 @@ export const setCharacterGeneratorGroupStates = async (groupStates) => {
  */
 export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", "autoExpireEffects");
 
+/**
+ * @returns {Boolean}
+ */
+export const isGrogEnabled = () => game.settings.get("pirateborg", "enableGrog");
 /**
  * @returns {Boolean}
  */

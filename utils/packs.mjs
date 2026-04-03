@@ -260,7 +260,7 @@ async function extractPacks(packName, entryName) {
 function slugify(name) {
   return name
     .toLowerCase()
-    .replace("'", "")
+    .replaceAll("'", "")
     .replace(/[^a-z0-9]+/gi, " ")
     .trim()
     .replace(/\s+|-{2,}/g, "-");

@@ -39,6 +39,17 @@
         </div>        
       </div>
 
+      {{#if data.system.dynamic.grogEnabled}}
+      {{!-- Grog Status with inline Drink button --}}
+      <div class="header-stats-row grog-status-row">
+        <div class="stats-block grog-block">
+          <span class="stat-label grog-label">{{ localize "PB.GrogDrinks" }}</span>
+          <input class="stat-input grog-drinks-input" name="system.attributes.grog.drinks" type="number" value="{{data.system.attributes.grog.drinks}}" data-dtype="Number" min="0" />
+          <button type="button" class="button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless data.system.dynamic.hasGrog}}disabled{{/unless}}>{{ localize "PB.GrogDrink" }}{{#if data.system.dynamic.hasGrog}} ({{data.system.dynamic.grogCount}}){{/if}}</button>
+        </div>
+      </div>
+      {{/if}}
+
       <div class="header-buttons-row">
         <button type="button" class="button item-button broken-button rollable" title="{{localize 'PB.Broken'}}">{{localize 'PB.Broken'}}</button>
         <button type="button" class="button item-button rest-button rollable" title="{{localize 'PB.Rest'}}">{{localize 'PB.Rest'}}</button>
@@ -415,6 +426,38 @@
       <ol class="items-list equipment-list">
         {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
+
+      {{!-- Grog Section --}}
+      {{#if data.system.dynamic.grogEnabled}}
+      <ol class="items-list grog-list">
+        <li class="items-header flexrow">
+          <h4 class="item-name">{{ localize "PB.Grog" }}</h4>
+        </li>
+        <ol class="item-list">
+          {{#each data.system.dynamic.grog as |item id|}}
+          <li class="item flexrow item-type-grog" data-item-id="{{item._id}}">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+            <h4 class="item-name item-edit rollable">{{item.name}} ({{item.system.quantity}})</h4>
+            <div class="item-controls">
+              <a class="item-control item-qty-plus" title="Add Quantity">
+                <i class="fas fa-plus"></i>
+              </a>
+              <a class="item-control item-qty-minus" title="Subtract Quantity">
+                <i class="fas fa-minus"></i>
+              </a>
+              <a class="item-control item-delete" title="{{localize 'PB.ItemDelete'}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </li>
+          {{else}}
+          <li class="item flexrow empty-container">
+            <div class="rule-text">{{ localize "PB.NoGrog" }}</div>
+          </li>
+          {{/each}}
+        </ol>
+      </ol>
+      {{/if}}
     </div>
 
     {{!-- Effects Tab --}}
