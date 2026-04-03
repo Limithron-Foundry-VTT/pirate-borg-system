@@ -12,6 +12,14 @@ gulp.task("pirate-sass", function () {
     .pipe(gulp.dest("./css"));
 });
 
+gulp.task("editor-sass", function () {
+  return gulp
+    .src("scss/editor.scss")
+    .pipe(gsass({ outputStyle: "expanded" }).on("error", gsass.logError))
+    .pipe(prefix({ cascade: false }))
+    .pipe(gulp.dest("./css"));
+});
+
 gulp.task("skin-sass", function () {
   return gulp
     .src("scss/skins/**/*.scss")
@@ -20,12 +28,13 @@ gulp.task("skin-sass", function () {
     .pipe(gulp.dest("./css/skins"));
 });
 
-gulp.task("sass", gulp.parallel("pirate-sass", "skin-sass"));
+gulp.task("sass", gulp.parallel("pirate-sass", "editor-sass", "skin-sass"));
 
 gulp.task(
   "watch",
-  gulp.parallel(["pirate-sass", "skin-sass"], () => {
-    gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["mork-sass"]));
+  gulp.parallel(["pirate-sass", "editor-sass", "skin-sass"], () => {
+    gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["pirate-sass"]));
+    gulp.watch("scss/editor.scss", gulp.series(["editor-sass"]));
     gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
   })
 );
