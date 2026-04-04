@@ -1,0 +1,69 @@
+name: Foundry package publish
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Foundry VTT
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate secret
+        env:
+          PACKAGE_RELEASE_TOKEN: ${{ secrets.PACKAGE_RELEASE_TOKEN }}
+        run: |
+          if [ -z "$PACKAGE_RELEASE_TOKEN" ]; then
+            echo "::error::PACKAGE_RELEASE_TOKEN secret is not set. Add it in repo Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
+      - name: Publish release to Foundry VTT
+        env:
+          PACKAGE_RELEASE_TOKEN: ${{ secrets.PACKAGE_RELEASE_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+        run: |
+          set -euo pipefail
+          RAW_VER=$(jq -r '.version' system.json)
+          VERSION="${RAW_VER#v}"
+          PACKAGE_ID=$(jq -r '.id' system.json)
+          MANIFEST=$(jq -r '.manifest' system.json)
+          NOTES="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/v${VERSION}"
+          COMPAT=$(jq -c '.compatibility' system.json)
+
+          BODY=$(jq -n \
+            --arg id "$PACKAGE_ID" \
+            --arg ver "$VERSION" \
+            --arg man "$MANIFEST" \
+            --arg notes "$NOTES" \
+            --argjson compat "$COMPAT" \
+            '{id: $id, "dry-run": false, release: {version: $ver, manifest: $man, notes: $notes, compatibility: $compat}}')
+
+          echo "Publishing package **$PACKAGE_ID** at version **$VERSION**" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- manifest: \`$MANIFEST\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- release notes link: \`$NOTES\`" >> "$GITHUB_STEP_SUMMARY"
+
+          HTTP_CODE=$(curl -sS -o /tmp/foundry_response.txt -w "%{http_code}" \
+            -X POST "https://api.foundryvtt.com/_api/packages/release_version/" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: ${PACKAGE_RELEASE_TOKEN}" \
+            -d "$BODY")
+
+          echo "HTTP status: $HTTP_CODE" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/foundry_response.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            echo "::error::Foundry API returned $HTTP_CODE"
+            cat /tmp/foundry_response.txt
+            exit 1
+          fi
