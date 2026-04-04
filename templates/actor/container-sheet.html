@@ -23,7 +23,10 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="sheet-content flexrow">
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    </div>
 
       {{!-- Main Content --}}
       <div class="main-content flexcol">

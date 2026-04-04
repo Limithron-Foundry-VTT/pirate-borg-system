@@ -1,3 +1,21 @@
+# [1.3.0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.2.3...v1.3.0) (2026-04-04)
+
+
+### Bug Fixes
+
+* Correct image path for Refined Ash item ([7895fbc](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/7895fbc2ce3c95b6092d839bac215571caba5921))
+* slugify all quotes ([257bd4f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/257bd4fe4609f87316b164ddd825088610d40e83))
+* use system effects data for conditions ([e9c87a9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/e9c87a9e23a1c10a5eef4352dde6443fb5ae54fa))
+
+
+### Features
+
+* Add grog drinking automation with optional toggle ([ab6df8d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/ab6df8da747caa7d32d98f62a6e80f6456a1209f))
+* localise cancel editing label ([daeefeb](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/daeefeb350c47ac4e0719bcae82bcca834727675))
+* optional status effect names in the HUD ([2fb92ce](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2fb92ceb840640e6f21cb6cd86d976b80fcc8c44))
+* overhaul status effect icons with Pirate Borg themed effects ([28adfc9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/28adfc97e0853835346ce2e76698ce874962497b))
+* tinyMCE migration to prosemirror ([9700af0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/9700af006636cca347ef9da59e3ba7e3f72bebac))
+
 # v1.2.3
 
 - Rebuilt system database to include the Ash and Refined Ash items from v1.2.2.
