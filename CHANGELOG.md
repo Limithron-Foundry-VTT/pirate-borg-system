@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.3.0...v1.3.1) (2026-04-04)
+
+
+### Bug Fixes
+
+* **versioning:** streamline version handling in system.json and update zip creation logic ([efbbc4d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/efbbc4de5f985ead9c07ec6a1c798f3d0539b3b8))
+* **versioning:** update version format in system.json to include 'v' ([88cd750](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/88cd75026a4d3871a687213e3d6c11c6c788bcb1))
+
 # [1.3.0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.2.3...v1.3.0) (2026-04-04)
 
 
