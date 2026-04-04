@@ -107,6 +107,16 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to enable grog drinking mechanics */
+  game.settings.register("pirateborg", "enableGrog", {
+    name: "PB.SettingsEnableGrog",
+    hint: "PB.SettingsEnableGrogHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** The allowed classes menu */
   game.settings.registerMenu("pirateborg", "editAllowedCharacterGeneratorClassesMenu", {
     name: "PB.EditAllowedCharacterGeneratorClassesMenu",
@@ -142,6 +152,16 @@ export const registerSystemSettings = () => {
     type: Object,
     scope: "client",
     config: false,
+  });
+
+  /** Whether to show status effect names on the Token HUD */
+  game.settings.register("pirateborg", "tokenHUDShowStatusDetails", {
+    name: "PB.TokenHUDShowStatusDetails",
+    hint: "PB.TokenHUDShowStatusDetailsHint",
+    default: true,
+    type: Boolean,
+    scope: "client",
+    config: true,
   });
 };
 
@@ -245,3 +265,12 @@ export const setCharacterGeneratorGroupStates = async (groupStates) => {
  * @returns {Boolean}
  */
 export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", "autoExpireEffects");
+
+/**
+ * @returns {Boolean}
+ */
+export const isGrogEnabled = () => game.settings.get("pirateborg", "enableGrog");
+/**
+ * @returns {Boolean}
+ */
+export const isTokenHUDShowStatusDetailsEnabled = () => game.settings.get("pirateborg", "tokenHUDShowStatusDetails");

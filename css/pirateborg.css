@@ -28,7 +28,7 @@
   --item-font: "Alegreya";
   --compendium-font: "IM Fell English";
   --button-font: "Alegreya";
-  --color-text-hyperlink: var(--foreground-color);
+  --color-text-hyperlink: #0066cc;
   /* foundry core */
   --color-text-light-6: var(--foreground-color);
   --color-text-light-5: var(--foreground-color);
@@ -265,13 +265,28 @@
 .pirateborg.sheet .window-content form .sheet-body {
   overflow: hidden;
   font-family: var(--item-font);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .pirateborg.sheet .window-content form .sheet-body .tab {
   height: 100%;
   border-radius: 0;
 }
+.pirateborg.sheet .window-content form .sheet-body .tab.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
 .pirateborg.sheet .window-content form .sheet-body .tab:only-of-type {
   border-top: 2px groove var(--light-border-color);
+}
+.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] prose-mirror,
+.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] .pb-editor-wrapper {
+  flex: 1;
+  min-height: 0;
 }
 .pirateborg.sheet .window-content form .sheet-tabs .spacer {
   border-bottom: 1px solid var(--dark-border-color);
@@ -508,6 +523,15 @@
   margin-left: 4px;
   padding: 2px 8px;
   font-size: 12px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.pirateborg.sheet.actor.character .sheet-header .grog-status-row .drink-grog-button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 .pirateborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-bottom: 16px;
@@ -1562,6 +1586,47 @@ li.folder > .folder-header {
 #playlists.sound-enhancement .playlist header.playlist-header,
 #playlists-popout.sound-enhancement .playlist header.playlist-header {
   background: inherit;
+}
+
+/* Token HUD Status Effects Panel */
+#token-hud .status-effects {
+  --effect-columns: 7;
+  --effect-size: 32px;
+}
+#token-hud .status-effects.expanded-details {
+  width: unset;
+  grid-template-columns: repeat(4, 130px);
+  line-height: var(--effect-size);
+}
+#token-hud .status-effect-container {
+  cursor: pointer;
+  position: relative;
+  padding: 1px;
+}
+#token-hud .status-effect-container .status-effect-control {
+  width: 100%;
+  height: var(--effect-size);
+  margin: 0;
+  margin-top: -1px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 0;
+  opacity: 0.5;
+  padding-right: calc(100% - var(--effect-size));
+}
+#token-hud .status-effect-container .status-effect-title {
+  vertical-align: top;
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(100% - var(--effect-size));
+  display: inline-block;
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: var(--effect-size);
+  opacity: 0.6;
 }
 
 /* ====================== */

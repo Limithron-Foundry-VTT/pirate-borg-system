@@ -1,3 +1,48 @@
+## [1.3.1](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.3.0...v1.3.1) (2026-04-04)
+
+
+### Bug Fixes
+
+* **versioning:** streamline version handling in system.json and update zip creation logic ([efbbc4d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/efbbc4de5f985ead9c07ec6a1c798f3d0539b3b8))
+* **versioning:** update version format in system.json to include 'v' ([88cd750](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/88cd75026a4d3871a687213e3d6c11c6c788bcb1))
+
+# [1.3.0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.2.3...v1.3.0) (2026-04-04)
+
+
+### Bug Fixes
+
+* Correct image path for Refined Ash item ([7895fbc](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/7895fbc2ce3c95b6092d839bac215571caba5921))
+* slugify all quotes ([257bd4f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/257bd4fe4609f87316b164ddd825088610d40e83))
+* use system effects data for conditions ([e9c87a9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/e9c87a9e23a1c10a5eef4352dde6443fb5ae54fa))
+
+
+### Features
+
+* Add grog drinking automation with optional toggle ([ab6df8d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/ab6df8da747caa7d32d98f62a6e80f6456a1209f))
+* localise cancel editing label ([daeefeb](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/daeefeb350c47ac4e0719bcae82bcca834727675))
+* optional status effect names in the HUD ([2fb92ce](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2fb92ceb840640e6f21cb6cd86d976b80fcc8c44))
+* overhaul status effect icons with Pirate Borg themed effects ([28adfc9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/28adfc97e0853835346ce2e76698ce874962497b))
+* tinyMCE migration to prosemirror ([9700af0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/9700af006636cca347ef9da59e3ba7e3f72bebac))
+
+# v1.2.3
+
+- Rebuilt system database to include the Ash and Refined Ash items from v1.2.2.
+- Enhanced the build workflows to automatically update the system database so we don't miss any future changes.
+  - Also updated several other minor aspects of the system build process.
+
+# v1.2.2
+
+- Significantly enhanced the "Status Effects" available on each token's HUD.
+  - Status Effects now list their name instead of just an icon. This can be disabled via the "Detailed Token HUD status effects" setting within Pirate Borg.
+  - Icons have been updated to better suit the Pirate Borg theme. Icons are from game-icons.net
+- Added Ash and Refined Ash as equipable Items, and added a Macro to consume the Ash.
+  - "Ash" consumption and automatic rolling of the experience generation _requires_ the "Pirate Borg Premium" module.
+  - "Refined Ash" requires the upcoming "Trapped in the Tropics" module and will currently do nothing.
+- Character generation now ignores empty class "Flavor Text" fields.
+  - This prevents unnecessary blank lines appearing in the generated character description.
+- Switched the order of the "Gain Experience" and "Cancel" buttons on the "Get Better" dialog to match Foundry VTT conventions.
+- Changed the default link color to blue to make them easier to read within journals etc.
+
 # v1.2.1
 
 - Minor visual improvements to The Tavern to help support longer lists of classes when multiple modules provide classes.

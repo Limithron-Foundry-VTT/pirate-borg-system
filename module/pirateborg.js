@@ -13,6 +13,8 @@ import { onDragRulerReady } from "./system/drag-ruler.js";
 import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
 import { initStairways, setupStairways, registerStairwayHooks, registerControlsHook } from "./stairway/main.js";
+import { registerEnrichers, registerEnricherClickHandlers } from "./system/enrichers.js";
+import { alterTokenHUDStatusEffects } from "./system/token-hud.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -52,6 +54,7 @@ Hooks.once("init", async () => {
   configureHandlebar();
   configureSystem();
   registerSocketHandler();
+  registerEnrichers();
 });
 
 Hooks.on("setup", () => {
@@ -63,12 +66,17 @@ Hooks.once("ready", () => {
   migrate();
   showHelpDialogOnStartup();
   configureAutomation();
+  registerEnricherClickHandlers();
 
   // Register stairways hooks
   registerStairwayHooks();
 
   // hotbarDrop hook cannot be async and still block the default macro creation workflow,
   Hooks.on("hotbarDrop", (bar, data, slot) => createPirateBorgMacro(data, slot));
+
+  Hooks.on("renderTokenHUD", (app, html) => {
+    alterTokenHUDStatusEffects.call(app, html);
+  });
 
   ui.chat.scrollBottom();
 });

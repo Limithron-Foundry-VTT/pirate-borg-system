@@ -139,19 +139,29 @@ export const configureSystem = () => {
     formula: "1d6 + @abilities.agility.value",
   };
 
-  for (const styleFormat of CONFIG.TinyMCE.style_formats) {
-    if (styleFormat.title !== "Custom") continue;
-    styleFormat.items.push({
-      inline: "span",
-      classes: "pb-highlight",
-      title: "Highlight Text",
-      wrapper: true,
-    });
+  // Configure status effects - replace Foundry defaults with Pirate Borg themed effects
+  CONFIG.statusEffects = [...Object.values(PB.systemEffects), ...Object.values(PB.coloredMarkers)];
+
+  // Set special status effect IDs for core functionality
+  CONFIG.specialStatusEffects.DEFEATED = "dead";
+  CONFIG.specialStatusEffects.INVISIBLE = "invisible";
+  CONFIG.specialStatusEffects.BLIND = "blind";
+
+  if (CONFIG.TinyMCE) {
+    for (const styleFormat of CONFIG.TinyMCE.style_formats) {
+      if (styleFormat.title !== "Custom") continue;
+      styleFormat.items.push({
+        inline: "span",
+        classes: "pb-highlight",
+        title: "Highlight Text",
+        wrapper: true,
+      });
+    }
+    if (!(CONFIG.TinyMCE.content_css instanceof Array)) {
+      CONFIG.TinyMCE.content_css = [CONFIG.TinyMCE.content_css];
+    }
+    CONFIG.TinyMCE.content_css.push("systems/pirateborg/css/editor.css");
   }
-  if (!(CONFIG.TinyMCE.content_css instanceof Array)) {
-    CONFIG.TinyMCE.content_css = [CONFIG.TinyMCE.content_css];
-  }
-  CONFIG.TinyMCE.content_css.push("systems/pirateborg/css/editor.css");
 
   registerTokenRuler();
 };

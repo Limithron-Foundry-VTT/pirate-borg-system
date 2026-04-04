@@ -1,0 +1,34 @@
+{
+  "_id": "GR0G1T3M00000001",
+  "name": "Grog",
+  "type": "grog",
+  "img": "systems/pirateborg/icons/classes/rapscallion/beer-stein.png",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "pirateborg",
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": "pbbuilder0000000",
+    "duplicateSource": null
+  },
+  "system": {
+    "description": "<p>A serving of potent grog. Test Toughness DR8 + [Number of drinks in the last hour] to heal d4 HP. Fail and you vomit for d2 rounds.</p><p>Agility is -1 for each drink (lasts one hour per drink).</p>",
+    "containerSpace": 1,
+    "carryWeight": 0,
+    "equipped": false,
+    "carried": true,
+    "price": 1,
+    "quantity": 1,
+    "actionMacro": "",
+    "actionMacroLabel": ""
+  },
+  "_key": "!items!GR0G1T3M00000001"
+}
