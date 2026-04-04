@@ -126,6 +126,7 @@
     },
     "container": {
       "description": "",
+      "silver": 0,
       "capacity": {
         "max": 0,
         "value": 0
