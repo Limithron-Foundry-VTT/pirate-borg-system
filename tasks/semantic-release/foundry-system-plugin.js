@@ -8,6 +8,16 @@ const readFile = promisify(fs.readFile);
 
 const SYSTEM_JSON_PATH = path.join(process.cwd(), "system.json");
 
+/** Strip optional leading "v" from semantic-release's version string. */
+function semverCore(version) {
+  return String(version).replace(/^v/i, "");
+}
+
+/** Foundry manifest convention: version includes a "v" prefix (e.g. "v1.3.0"). */
+function toManifestVersion(version) {
+  return `v${semverCore(version)}`;
+}
+
 /** Paths included in system.zip (same as npm run pack). */
 const ZIP_ENTRIES = [
   "CHANGELOG.md",
@@ -38,21 +48,21 @@ async function prepare(pluginConfig, context) {
   const systemContent = await readFile(SYSTEM_JSON_PATH, "utf8");
   const systemJson = JSON.parse(systemContent);
 
-  systemJson.version = version;
-  systemJson.manifest = `${githubUrl}/${repositoryPath}/releases/download/v${version}/system.json`;
-  systemJson.download = `${githubUrl}/${repositoryPath}/releases/download/v${version}/system.zip`;
+  const core = semverCore(version);
+  const manifestVersion = toManifestVersion(version);
+  systemJson.version = manifestVersion;
+  systemJson.manifest = `${githubUrl}/${repositoryPath}/releases/download/v${core}/system.json`;
+  systemJson.download = `${githubUrl}/${repositoryPath}/releases/download/v${core}/system.zip`;
 
   await writeFile(SYSTEM_JSON_PATH, JSON.stringify(systemJson, null, 2) + "\n");
-  logger.log(`Updated system.json to version ${version}`);
+  logger.log(`Updated system.json to version ${manifestVersion}`);
   logger.log(`manifest: ${systemJson.manifest}`);
   logger.log(`download: ${systemJson.download}`);
 
-  await createSystemZip(systemJson, version, logger);
+  await createSystemZip(systemJson, logger);
 }
 
-function createSystemZip(systemJson, version, logger) {
-  const jsonForZip = systemJson.version === version ? systemJson : { ...systemJson, version };
-
+function createSystemZip(systemJson, logger) {
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(path.join(process.cwd(), "system.zip"));
     const archive = archiver("zip", { zlib: { level: 9 } });
@@ -75,7 +85,7 @@ function createSystemZip(systemJson, version, logger) {
       if (stat.isDirectory()) {
         archive.directory(full, entry);
       } else if (entry === "system.json") {
-        archive.append(JSON.stringify(jsonForZip, null, 2) + "\n", { name: "system.json" });
+        archive.append(JSON.stringify(systemJson, null, 2) + "\n", { name: "system.json" });
       } else {
         archive.file(full, { name: entry });
       }
