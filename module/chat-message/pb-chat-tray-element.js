@@ -43,12 +43,13 @@ export class PBChatTrayElement extends HTMLElement {
     if (!this._initialized) {
       this._initialized = true;
       this._renderContent();
-      this._wireHeader();
     }
+    this._wireHeader();
     this._attachVisibilityObserver();
   }
 
   disconnectedCallback() {
+    this._unwireHeader();
     this._detachVisibilityObserver();
   }
 
@@ -65,11 +66,21 @@ export class PBChatTrayElement extends HTMLElement {
   _wireHeader() {
     const header = this.querySelector(".pb-chat-tray-header");
     if (!header) return;
+    if (this._headerEl === header && this._onHeaderClick) return;
+    this._unwireHeader();
     this._onHeaderClick = (event) => {
-      if (event.target.closest("button, a, input, select, textarea, label")) return;
+      const target = event.target instanceof Element ? event.target : null;
+      if (target?.closest("button, a, input, select, textarea, label")) return;
       this.open = !this.open;
     };
     header.addEventListener("click", this._onHeaderClick);
+    this._headerEl = header;
+  }
+
+  _unwireHeader() {
+    this._headerEl?.removeEventListener("click", this._onHeaderClick);
+    this._headerEl = null;
+    this._onHeaderClick = null;
   }
 
   _attachVisibilityObserver() {
