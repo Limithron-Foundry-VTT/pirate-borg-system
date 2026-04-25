@@ -29,6 +29,21 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     });
   }
 
+  /** @override */
+  async _onRevealSecret(event) {
+    if (super._onRevealSecret(event)) return true;
+
+    const secretBlock = event?.target?.closest?.("secret-block") ?? event?.target;
+    const target = secretBlock?.closest?.("[data-target]")?.dataset?.target;
+    if (!target || typeof secretBlock?.toggleRevealed !== "function") return false;
+
+    const document = this.document ?? this.item;
+    const content = foundry.utils.getProperty(document, target);
+    const modified = secretBlock.toggleRevealed(content ?? "");
+    await document.update({ [target]: modified });
+    return true;
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 

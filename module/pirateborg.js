@@ -32,17 +32,19 @@ Hooks.once("init", async () => {
   }
   Hooks.on("dragRuler.ready", onDragRulerReady);
 
-  Hooks.on("renderPause", (app, [html]) => {
-    html.classList.add("pirateborg");
-    const img = html.querySelector("img");
-    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
-    img.className = "";
-  });
-  Hooks.on("renderGamePause", (app, html) => {
-    html.classList.add("pirateborg");
-    const img = html.querySelector("img");
-    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
-  });
+  const applyPauseStyling = (html) => {
+    const root = Array.isArray(html) ? html[0] : html?.jquery ? html.get(0) : html;
+    if (!root || typeof root.querySelector !== "function") return;
+    root.classList?.add("pirateborg");
+    const img = root.querySelector("img");
+    if (img) {
+      img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
+      img.className = "";
+    }
+  };
+
+  Hooks.on("renderPause", (app, html) => applyPauseStyling(html));
+  Hooks.on("renderGamePause", (app, html) => applyPauseStyling(html));
 
   registerSystemSettings();
   registerFonts();

@@ -452,38 +452,62 @@ a.inline-roll:hover > i {
 }
 
 .editor-content ul,
-.editor-content ol {
+.editor-content ol,
+.chat-message .message-content ul,
+.chat-message .message-content ol,
+.chat-message .message-content .prosemirror-content ul,
+.chat-message .message-content .prosemirror-content ol {
   margin: 8px 0;
   padding-left: 24px;
 }
 .editor-content ul li,
-.editor-content ol li {
+.editor-content ol li,
+.chat-message .message-content ul li,
+.chat-message .message-content ol li,
+.chat-message .message-content .prosemirror-content ul li,
+.chat-message .message-content .prosemirror-content ol li {
   margin-bottom: 4px;
 }
-.editor-content ul {
+.editor-content ul,
+.chat-message .message-content ul,
+.chat-message .message-content .prosemirror-content ul {
   list-style-type: disc;
 }
-.editor-content ul ul {
+.editor-content ul ul,
+.chat-message .message-content ul ul,
+.chat-message .message-content .prosemirror-content ul ul {
   list-style-type: circle;
 }
-.editor-content ul ul ul {
+.editor-content ul ul ul,
+.chat-message .message-content ul ul ul,
+.chat-message .message-content .prosemirror-content ul ul ul {
   list-style-type: square;
 }
-.editor-content ol {
+.editor-content ol,
+.chat-message .message-content ol,
+.chat-message .message-content .prosemirror-content ol {
   list-style-type: decimal;
 }
-.editor-content hr {
+.editor-content hr,
+.chat-message .message-content hr,
+.chat-message .message-content .prosemirror-content hr {
   margin: 16px 0;
   border: none;
   border-top: 2px solid var(--dark-border-color);
 }
-.editor-content p {
+.editor-content p,
+.chat-message .message-content p,
+.chat-message .message-content .prosemirror-content p {
   margin: 8px 0;
 }
-.editor-content p:first-child {
+.editor-content p:first-child,
+.chat-message .message-content p:first-child,
+.chat-message .message-content .prosemirror-content p:first-child {
   margin-top: 0;
 }
-.editor-content p:last-child {
+.editor-content p:last-child,
+.chat-message .message-content p:last-child,
+.chat-message .message-content .prosemirror-content p:last-child {
   margin-bottom: 0;
 }
 .editor-content h1,
@@ -491,7 +515,19 @@ a.inline-roll:hover > i {
 .editor-content h3,
 .editor-content h4,
 .editor-content h5,
-.editor-content h6 {
+.editor-content h6,
+.chat-message .message-content h1,
+.chat-message .message-content h2,
+.chat-message .message-content h3,
+.chat-message .message-content h4,
+.chat-message .message-content h5,
+.chat-message .message-content h6,
+.chat-message .message-content .prosemirror-content h1,
+.chat-message .message-content .prosemirror-content h2,
+.chat-message .message-content .prosemirror-content h3,
+.chat-message .message-content .prosemirror-content h4,
+.chat-message .message-content .prosemirror-content h5,
+.chat-message .message-content .prosemirror-content h6 {
   font-family: var(--h2-font);
   margin: 16px 0 8px 0;
   color: var(--foreground-color);
@@ -501,42 +537,84 @@ a.inline-roll:hover > i {
 .editor-content h3:first-child,
 .editor-content h4:first-child,
 .editor-content h5:first-child,
-.editor-content h6:first-child {
+.editor-content h6:first-child,
+.chat-message .message-content h1:first-child,
+.chat-message .message-content h2:first-child,
+.chat-message .message-content h3:first-child,
+.chat-message .message-content h4:first-child,
+.chat-message .message-content h5:first-child,
+.chat-message .message-content h6:first-child,
+.chat-message .message-content .prosemirror-content h1:first-child,
+.chat-message .message-content .prosemirror-content h2:first-child,
+.chat-message .message-content .prosemirror-content h3:first-child,
+.chat-message .message-content .prosemirror-content h4:first-child,
+.chat-message .message-content .prosemirror-content h5:first-child,
+.chat-message .message-content .prosemirror-content h6:first-child {
   margin-top: 0;
 }
-.editor-content h1 {
+.editor-content h1,
+.chat-message .message-content h1,
+.chat-message .message-content .prosemirror-content h1 {
   font-size: 24px;
 }
-.editor-content h2 {
+.editor-content h2,
+.chat-message .message-content h2,
+.chat-message .message-content .prosemirror-content h2 {
   font-size: 20px;
 }
-.editor-content h3 {
+.editor-content h3,
+.chat-message .message-content h3,
+.chat-message .message-content .prosemirror-content h3 {
   font-size: 18px;
 }
-.editor-content h4 {
+.editor-content h4,
+.chat-message .message-content h4,
+.chat-message .message-content .prosemirror-content h4 {
   font-size: 16px;
 }
-.editor-content h5 {
+.editor-content h5,
+.chat-message .message-content h5,
+.chat-message .message-content .prosemirror-content h5 {
   font-size: 14px;
 }
-.editor-content h6 {
+.editor-content h6,
+.chat-message .message-content h6,
+.chat-message .message-content .prosemirror-content h6 {
   font-size: 12px;
 }
 .editor-content strong,
-.editor-content b {
+.editor-content b,
+.chat-message .message-content strong,
+.chat-message .message-content b,
+.chat-message .message-content .prosemirror-content strong,
+.chat-message .message-content .prosemirror-content b {
   font-weight: bold;
 }
 .editor-content em,
-.editor-content i {
+.editor-content i,
+.chat-message .message-content em,
+.chat-message .message-content i,
+.chat-message .message-content .prosemirror-content em,
+.chat-message .message-content .prosemirror-content i {
   font-style: italic;
 }
 .editor-content s,
 .editor-content del,
-.editor-content strike {
+.editor-content strike,
+.chat-message .message-content s,
+.chat-message .message-content del,
+.chat-message .message-content strike,
+.chat-message .message-content .prosemirror-content s,
+.chat-message .message-content .prosemirror-content del,
+.chat-message .message-content .prosemirror-content strike {
   text-decoration: line-through;
 }
 .editor-content u,
-.editor-content ins {
+.editor-content ins,
+.chat-message .message-content u,
+.chat-message .message-content ins,
+.chat-message .message-content .prosemirror-content u,
+.chat-message .message-content .prosemirror-content ins {
   text-decoration: underline;
 }
 
