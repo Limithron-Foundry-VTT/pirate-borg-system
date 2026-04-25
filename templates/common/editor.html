@@ -15,7 +15,7 @@
 {{#isV13}}
   {{#if editingDescription}}
     {{!-- Edit Mode - show ProseMirror editor --}}
-    <prose-mirror name="{{editingDescription.target}}" value="{{editingDescription.value}}" 
+    <prose-mirror name="{{editingDescription.target}}" data-target="{{editingDescription.target}}" value="{{editingDescription.value}}" 
                   document-uuid="{{documentUuid}}" class="pb-editor"></prose-mirror>
   {{else}}
     {{!-- View Mode --}}

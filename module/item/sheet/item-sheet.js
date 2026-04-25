@@ -35,7 +35,10 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     if (super._onRevealSecret(event)) return true;
 
     const secretBlock = event?.target?.closest?.("secret-block") ?? event?.target;
-    const target = secretBlock?.closest?.("[data-target]")?.dataset?.target;
+    const target =
+      secretBlock?.closest?.("[data-target]")?.dataset?.target ??
+      secretBlock?.closest?.("prose-mirror")?.dataset?.target ??
+      secretBlock?.closest?.("prose-mirror")?.getAttribute?.("name");
     if (!target || typeof secretBlock?.toggleRevealed !== "function") return false;
 
     const document = this.document ?? this.item;
