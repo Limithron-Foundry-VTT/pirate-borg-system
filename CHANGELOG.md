@@ -9,6 +9,9 @@
 - Migrated the Grog item sheet from the legacy `{{editor}}` helper to the v14 ProseMirror-aware editor partial.
 - Hardened the `renderPause` / `renderGamePause` hook handlers to accept HTMLElement, jQuery, and array-style arguments across Foundry v12, v13, and v14.
 - Bumped `system.json` `compatibility.verified` to `14` to reflect tested compatibility.
+- Aligned description enrichment with Foundry v14 conventions by passing `relativeTo` and `rollData` to `enrichHTML`. Inline rolls in descriptions now resolve `@attribute` references against the document, the `lookup` enricher resolves dynamic data, and relative UUID links resolve correctly.
+- Added `PBChatMessage` and `PBChatLog` subclasses that preserve the open/closed state of registered chat tray elements across `message.update(...)` re-renders. This is the foundation for richer interactive chat cards (mishap chains, loot distribution, damage application).
+- Wrapped each outcome row in the new `<outcome-tray>` element. Outcomes can now be collapsed/expanded individually, and the collapsed state survives reroll/apply chains.
 
 # [v1.3.1](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/tag/v1.3.1) (2026-04-04)
 

@@ -136,8 +136,7 @@ export const findTableItems = async (results) => {
       }
       const [property, value] = resultText.split(": ");
       const enrichHtml = (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(value, {
-        options: { command: true },
-        async: false,
+        rollData: {},
       });
       if (property === "description") {
         item.getData().description = enrichHtml;
