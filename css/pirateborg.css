@@ -278,7 +278,6 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: hidden;
 }
 .pirateborg.sheet .window-content form .sheet-body .tab:only-of-type {
   border-top: 2px groove var(--light-border-color);
