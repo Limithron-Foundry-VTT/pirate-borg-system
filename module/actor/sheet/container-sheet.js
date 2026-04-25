@@ -35,17 +35,28 @@ export class PBActorSheetContainer extends PBActorSheet {
     const formData = await super.getData(options);
 
     const items = formData.data.items.filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type)).sort((a, b) => a.name.localeCompare(b.name));
+    const toNumber = (value, fallback = 0) => {
+      const parsed = Number.parseFloat(value);
+      return Number.isFinite(parsed) ? parsed : fallback;
+    };
 
     const totalItems = items.length;
-    const totalValue = items.reduce((sum, item) => {
-      return sum + (item.system.price || 0) * (item.system.quantity || 1);
+    const contentCount = items.reduce((sum, item) => {
+      const quantity = Math.max(0, toNumber(item.system.quantity, 1));
+      return sum + quantity;
+    }, 0);
+    const itemValueTotal = items.reduce((sum, item) => {
+      const quantity = Math.max(0, toNumber(item.system.quantity, 1));
+      const price = toNumber(item.system.price, 0);
+      return sum + price * quantity;
     }, 0);
 
-    const silver = formData.data.system.silver || 0;
+    const silver = Math.max(0, toNumber(formData.data.system.silver, 0));
+    const totalValue = itemValueTotal + silver;
 
     const playerData = [];
     const defaultPermission = this.actor.ownership.default || 0;
-    if (game.user.isGM) {
+    if (this.actor.isOwner) {
       for (const player of game.users.players) {
         if (player.character) {
           const permission = LootSheetHelper.getLootPermissionForPlayer(this.actor, player);
@@ -64,6 +75,7 @@ export class PBActorSheetContainer extends PBActorSheet {
     formData.loot = {
       items,
       totalItems,
+      contentCount,
       totalValue,
       silver,
       isGM: game.user.isGM,
@@ -83,17 +95,7 @@ export class PBActorSheetContainer extends PBActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    if (!this.options.editable) return;
-
     this._updateResponsiveLayout(html);
-
-    if (game.user.isGM) {
-      html.find(".permission-all-toggle").click(this._onCycleDefaultPermission.bind(this));
-      html.find(".permission-proficiency:not(.permission-all-toggle)").click(this._onCyclePermission.bind(this));
-    }
-
-    html.find(".item-edit").click(this._onItemEdit.bind(this));
-    html.find(".item-delete").click(this._onItemDelete.bind(this));
 
     if (!this.actor.isOwner) {
       html.find(".item-loot").click((ev) => this._onLootItem(ev, false));
@@ -102,6 +104,17 @@ export class PBActorSheetContainer extends PBActorSheet {
       html.find(".split-currency").click(this._onSplitCurrency.bind(this));
       html.find(".loot-all").click(this._onLootAll.bind(this));
     }
+
+    if (!this.options.editable) return;
+
+    if (this.actor.isOwner) {
+      html.find(".permission-all-toggle").click(this._onCycleDefaultPermission.bind(this));
+      html.find(".permission-proficiency:not(.permission-all-toggle)").click(this._onCyclePermission.bind(this));
+    }
+
+    html.find(".item-edit").click(this._onItemEdit.bind(this));
+    html.find(".item-delete").click(this._onItemDelete.bind(this));
+    html.find(".item-quantity-input").change(this._onItemQuantityChange.bind(this));
   }
 
   /** @override */
@@ -235,6 +248,32 @@ export class PBActorSheetContainer extends PBActorSheet {
     if (confirmed) {
       await this.actor.deleteEmbeddedDocuments("Item", [itemId]);
     }
+  }
+
+  /**
+   * @param {Event} event
+   * @private
+   */
+  async _onItemQuantityChange(event) {
+    event.preventDefault();
+    const input = event.currentTarget;
+    const itemId = input.dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    const parsedValue = Number.parseInt(input.value, 10);
+    if (Number.isNaN(parsedValue)) {
+      input.value = item.system.quantity || 1;
+      return;
+    }
+
+    const quantity = Math.max(0, parsedValue);
+    if (quantity === 0) {
+      await this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+      return;
+    }
+
+    await item.update({ "system.quantity": quantity });
   }
 
   /**

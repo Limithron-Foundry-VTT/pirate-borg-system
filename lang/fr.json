@@ -218,6 +218,7 @@
   "PB.ItemValue": "Valeur",
   "PB.ItemWeaponType": "Type d’arme",
   "PB.Label": "Étiquette",
+  "PB.LootTotalValue": "Valeur totale",
   "PB.Luck": "Devil's Luck",
   "PB.LuckHelpText": "Dégâts max, relance, -d6 dégâts, DR -4, pas de critique/échec critique",
   "PB.Lucks": "Devil's Lucks",

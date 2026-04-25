@@ -197,13 +197,12 @@
               margin: 0;
               font-size: 16px;
               color: var(--foreground-color);
+              display: flex;
+              align-items: center;
+              gap: 6px;
 
-              &::before {
-                content: "\f06d";
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                margin-right: 6px;
-                color: #2d5a27;
+              i {
+                color: var(--highlight-background-color);
               }
             }
 
@@ -371,22 +370,22 @@
           }
         }
 
-        // Sidebar (GM Only)
-        .sidebar {
-          flex: 0 0 180px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          overflow-y: auto;
+        // Permissions tab
+        .permissions-tab {
+          flex: 1;
+          overflow: hidden;
 
-          section {
-            flex: 0 0 auto;
+          .permissions-section {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
             background: rgba(255, 255, 255, 0.3);
             border: 2px groove var(--light-border-color, #f6dec2);
             padding: 10px;
           }
 
-          h3 {
+          .permissions-section h3 {
             margin: 0 0 8px 0;
             padding-bottom: 5px;
             border-bottom: 1px solid var(--dark-border-color, #a29280);
@@ -400,57 +399,41 @@
               color: var(--highlight-background-color);
             }
           }
+        }
 
-          .form-group {
-            margin-bottom: 6px;
-
-            label {
-              display: block;
-              font-size: 12px;
-              color: var(--foreground-color);
-              margin-bottom: 2px;
-            }
-
-            input,
-            select {
-              width: 100%;
-              font-size: 12px;
-              color: var(--foreground-color);
-              background: rgba(255, 255, 255, 0.5);
-              border: 1px solid var(--dark-border-color, #a29280);
-              padding: 4px 6px;
-              border-radius: 0;
-
-              &:hover,
-              &:focus {
-                box-shadow: 0 0 5px var(--highlight-background-color);
-              }
-            }
-          }
-
-          .description-editor {
-            max-height: 200px;
-            overflow-y: auto;
-          }
+        .permissions-tab.active {
+          display: flex;
         }
 
         // Permissions
-        .permissions-section {
-          max-height: 250px;
-          overflow-y: auto;
+        .permissions-tab .permissions-section {
+          flex: 1 1 auto;
+          min-height: 0;
+          display: flex;
+          flex-direction: column;
         }
 
-        .permissions-list {
+        .permissions-tab .permissions-list {
           list-style: none;
           margin: 0;
           padding: 0;
+          flex: 1 1 auto;
+          min-height: 0;
+          overflow-y: auto;
 
           .permission {
             display: flex;
             padding: 4px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             align-items: center;
-            gap: 6px;
+            flex-wrap: nowrap;
+            gap: 4px;
+            justify-content: flex-start;
+
+            // Override Foundry's .flexrow child flex behavior on list rows.
+            > * {
+              flex: 0 0 auto !important;
+            }
 
             &:last-child {
               border-bottom: none;
@@ -473,9 +456,9 @@
           }
         }
 
-        .permission-proficiency {
+        .permissions-tab .permission-proficiency {
           cursor: pointer;
-          padding: 2px 4px;
+          padding: 1px 2px;
           transition: text-shadow 0.2s;
 
           &:hover {
@@ -483,18 +466,21 @@
           }
         }
 
-        .permission-all-label {
+        .permissions-tab .permission-all-label {
           font-weight: bold;
           font-size: 12px !important;
         }
 
-        .permission-name {
+        .permissions-tab .permission-name {
+          flex: 1 1 auto !important;
+          min-width: 0;
           font-size: 11px;
           color: var(--foreground-color);
           line-height: 1.3;
+          margin-left: 2px;
         }
 
-        .no-players {
+        .permissions-tab .no-players {
           color: var(--foreground-color);
           font-style: italic;
           font-size: 11px;
@@ -585,33 +571,14 @@
           }
         }
 
-        // Responsive: compact sidebar
+        // Responsive: compact permissions tab
         &.compact,
         .loot-sheet.compact {
-          .sidebar {
-            flex: 0 0 150px;
-            min-width: 130px;
-
-            h3 {
-              font-size: 12px;
-            }
-
-            .form-group label {
-              font-size: 11px;
-            }
-
-            .form-group input,
-            .form-group select {
-              font-size: 11px;
-              padding: 3px 4px;
-            }
-
-            .permissions-section {
-              max-height: 180px;
-            }
+          .permissions-tab .permissions-section h3 {
+            font-size: 12px;
           }
 
-          .permission-name {
+          .permissions-tab .permission-name {
             font-size: 10px;
             word-break: break-word;
           }
@@ -619,20 +586,8 @@
 
         // Stacked layout for very narrow windows
         @container (max-width: 500px) {
-          .sheet-content {
-            flex-direction: column;
-          }
-
-          .sidebar {
-            flex: 0 0 auto;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 8px;
-
-            section {
-              flex: 1 1 150px;
-              min-width: 150px;
-            }
+          .permissions-tab .permissions-section {
+            padding: 8px;
           }
         }
       }
