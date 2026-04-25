@@ -106,6 +106,8 @@ export const withButton =
       data: {
         type,
         id: foundry.utils.randomID(),
+        outcomeId: outcome.id,
+        // Legacy fallback for existing cards/handlers during migration.
         outcome: outcome.id,
       },
     },

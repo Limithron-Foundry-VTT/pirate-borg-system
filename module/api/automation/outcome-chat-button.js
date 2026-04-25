@@ -36,9 +36,17 @@ export class OutcomeChatButton {
     }
 
     const outcomes = getSystemFlag(message, CONFIG.PB.flags.OUTCOMES) ?? [];
-    const outcome = outcomes.find((outcome) => outcome.id === htmlButton.dataset.outcome);
-    const button = OutcomeChatButton.buttons.find((button) => outcome.button?.data.type === button.type);
+    const outcomeId = htmlButton.dataset.outcomeId ?? htmlButton.dataset.outcome;
+    if (!outcomeId) return;
+
+    const outcome = outcomes.find((entry) => entry.id === outcomeId);
+    if (!outcome?.button?.data?.type) return;
+
+    const button = OutcomeChatButton.buttons.find((entry) => outcome.button?.data.type === entry.type);
+    if (!button?.execute) return;
+
     const actionOutcomes = await button.execute(outcome);
+    if (!Array.isArray(actionOutcomes)) return;
 
     await OutcomeChatButton.updateMessageCard(message, outcome, actionOutcomes);
 
@@ -60,6 +68,9 @@ export class OutcomeChatButton {
       content = await renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
     }
 
+    // Remove the entire outcome tray row by canonical identity attribute.
+    messageContent.find(`[data-outcome-id='${outcome.id}']`).closest("outcome-tray").remove();
+    // Legacy fallback: old cards may only have data-outcome on the button.
     messageContent.find(`[data-outcome='${outcome.id}']`).remove();
 
     await message.update({

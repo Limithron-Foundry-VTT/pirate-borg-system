@@ -26,18 +26,6 @@ export const handleChatMessageButton = async (message, html) => {
 
 /**
  * @param {ChatMessage} message
- * @param {JQuery.<HTMLElement>} html
- */
-export const handleChatMessageGMOnly = async (message, html) => {
-  if (foundry.utils.isNewerVersion(game.version, "13")) {
-    // For now, wrap the html back to a jQuery object, same as it was prior to v13.
-    html = $(html);
-  }
-  html.find(".gm-only").removeClass("gm-only");
-};
-
-/**
- * @param {ChatMessage} message
  */
 export const handleChatMessageAutomation = async (message) => {
   if (!game.user.isGM) {

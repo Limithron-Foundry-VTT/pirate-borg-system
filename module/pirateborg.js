@@ -3,7 +3,7 @@ import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
-import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
+import { handleChatMessageAutomation, handleChatMessageButton } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
@@ -14,6 +14,7 @@ import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
 import { registerEnrichers, registerEnricherClickHandlers } from "./system/enrichers.js";
 import { alterTokenHUDStatusEffects } from "./system/token-hud.js";
+import { registerChatRenderers } from "./chat-message/renderers/register-chat-renderers.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -23,13 +24,12 @@ Hooks.once("init", async () => {
   Hooks.on("renderSettings", renderSettings);
   if (foundry.utils.isNewerVersion(game.version, "13")) {
     Hooks.on("renderChatMessageHTML", handleChatMessageButton);
-    Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
     Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);
   } else {
     Hooks.on("renderChatMessage", handleChatMessageButton);
-    Hooks.on("renderChatMessage", handleChatMessageGMOnly);
     Hooks.on("renderChatMessage", handleChatMessageAutomation);
   }
+  registerChatRenderers();
   Hooks.on("dragRuler.ready", onDragRulerReady);
 
   const applyPauseStyling = (html) => {

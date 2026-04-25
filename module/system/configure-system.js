@@ -18,6 +18,10 @@ import * as outcomes from "../api/outcome/outcome.js";
 import { PBActorSheetVehicleEdit } from "../actor/sheet/vehicle-edit-sheet.js";
 import { PBActorSheetVehicle } from "../actor/sheet/vehicle-sheet.js";
 import { showGenericCard } from "../chat-message/generic-card.js";
+import { PBChatMessage } from "../chat-message/pb-chat-message.js";
+import { PBChatLog } from "../chat-message/pb-chat-log.js";
+import { CHAT_DOMAIN_REGISTRY, getTrayTagNames } from "../chat-message/renderers/chat-domain-registry.js";
+import "../chat-message/outcome-tray.js";
 import { registerTokenRuler } from "./token-ruler.js";
 
 export const configureSystem = () => {
@@ -37,10 +41,17 @@ export const configureSystem = () => {
       outcomes,
       macros,
     },
+    chatDomains: CHAT_DOMAIN_REGISTRY,
+    chatTrayTypes: getTrayTagNames(),
   };
 
   CONFIG.Actor.documentClass = PBActor;
   CONFIG.Item.documentClass = PBItem;
+  CONFIG.ChatMessage.documentClass = PBChatMessage;
+
+  if (game.release.generation >= 13 && foundry.applications?.sidebar?.tabs?.ChatLog) {
+    CONFIG.ui.chat = PBChatLog;
+  }
 
   if (game.release.generation >= 13) {
     foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
