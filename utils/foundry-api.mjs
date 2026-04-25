@@ -81,16 +81,28 @@ export function loadEnv() {
 export function getConfig() {
   loadEnv();
 
+  const foundryHttpHost = process.env.FOUNDRY_HTTP_HOST || process.env.FOUNDRY14_HOST || "localhost";
+  const foundryApiPort = process.env.FOUNDRY_API_PORT || "30000";
+  const defaultApiEndpoint = `http://${foundryHttpHost}:${foundryApiPort}/api/status`;
+  const foundryRemoteSsh = process.env.FOUNDRY_REMOTE_SSH || process.env.FOUNDRY_HOST || "";
+  const foundryRemoteDataDir = process.env.FOUNDRY_REMOTE_DATA_DIR || process.env.FOUNDRY_DATA_DIR || "";
+
   const config = {
     systemName: process.env.SYSTEM_NAME || "pirateborg",
-    foundryApiEndpoint: process.env.FOUNDRY_API_STATUS_ENDPOINT || "http://localhost:30000/api/status",
+    foundryApiEndpoint: process.env.FOUNDRY_API_STATUS_ENDPOINT || defaultApiEndpoint,
     worktreeBaseDir: process.env.WORKTREE_BASE_DIR || "../",
     foundryInstallPath: process.env.FOUNDRY_INSTALL_PATH || "versions/local-data/13/Data/systems/pirateborg",
+    foundryHttpHost,
+    foundryApiPort,
+    foundryRemoteSsh,
+    foundryRemoteDataDir,
+    foundryBackupRoot: process.env.FOUNDRY_BACKUP_ROOT || ".foundry-backups",
   };
 
   config.worktreeBaseDirAbs = resolveAbsolutePath(config.worktreeBaseDir);
 
   config.foundryInstallPathAbs = resolveAbsolutePath(config.foundryInstallPath);
+  config.foundryBackupRootAbs = resolveAbsolutePath(config.foundryBackupRoot);
 
   return config;
 }
