@@ -15,7 +15,11 @@ export const getOtherChatMessageStyle = () => CONST.CHAT_MESSAGE_STYLES?.OTHER ?
 export const createChatMessageWithVisibility = async (messageData, { rollMode = game.settings.get("core", "rollMode"), applyRollMode = true } = {}) => {
   const payload = { ...messageData };
   if (applyRollMode) {
-    ChatMessage.applyRollMode(payload, rollMode);
+    if (typeof ChatMessage.applyMode === "function") {
+      ChatMessage.applyMode(payload, rollMode);
+    } else {
+      ChatMessage.applyRollMode(payload, rollMode);
+    }
   }
   return ChatMessage.create(payload);
 };
