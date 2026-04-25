@@ -39,6 +39,9 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
  */
 export const drawTable = async (compendiumName, tableName, options = {}) => {
   const table = await findCompendiumItem(compendiumName, tableName);
+  if (!table) {
+    throw new Error(`drawTable: Could not resolve roll table "${tableName}" from compendium "${compendiumName}"`);
+  }
   return table.draw({ displayChat: false, ...options });
 };
 
@@ -48,7 +51,10 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
  * @returns {Promise.<String>}
  */
 export const drawTableText = async (compendium, table) => {
-  const result = (await drawTable(compendium, table)).results[0];
+  const result = (await drawTable(compendium, table)).results?.[0];
+  if (!result) {
+    return "";
+  }
 
   if (game.release.generation >= 13) {
     return result.description;
@@ -88,6 +94,9 @@ export const drawTableItems = async (compendium, table, amount) => {
  */
 export const rollTable = async (compendium, table, formula) => {
   const rollTable = await findCompendiumItem(compendium, table);
+  if (!rollTable) {
+    throw new Error(`rollTable: Could not resolve roll table "${table}" from compendium "${compendium}"`);
+  }
   return rollTable.roll({ roll: new Roll(formula) });
 };
 
@@ -127,6 +136,8 @@ export const findTableItems = async (results) => {
   const items = [];
   let item = null;
   const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+  const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
+  const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
   const isCompendiumResult = (type) => {
     const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
     const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
@@ -145,13 +156,14 @@ export const findTableItems = async (results) => {
       }
 
       if (!item) {
-        item = await findCompendiumItem(getResultCollection(result), resultData.text ?? getResultText(result));
+        const fallbackName = resultData.name ?? resultData.text ?? resultData.description ?? getResultText(result);
+        item = await findCompendiumItem(getResultCollection(result), fallbackName);
       }
 
       if (item) {
         items.push(item);
       }
-    } else if (type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
+    } else if (isTextResult(type) && item) {
       const resultText = getResultText(result);
       const [property, value] = resultText.split(": ");
       if (!property || value === undefined) continue;

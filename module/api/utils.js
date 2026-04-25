@@ -94,7 +94,11 @@ export const getInfoFromDropData = (dropData) => {
  * @param {TableResult} result
  * @return {String}
  */
-export const getResultType = (result) => result.type;
+export const getResultType = (result) => {
+  const data = result?.toObject?.() ?? {};
+  const source = result?._source ?? {};
+  return data.type ?? source.type ?? result?.type;
+};
 
 /**
  * @param {TableResult} result
@@ -102,7 +106,14 @@ export const getResultType = (result) => result.type;
  */
 export const getResultCollection = (result) => {
   if (game.release.generation >= 13) {
-    const parsedUuid = foundry.utils.parseUuid(result.documentUuid);
+    const data = result?.toObject?.() ?? {};
+    const source = result?._source ?? {};
+    const documentUuid = data.documentUuid ?? source.documentUuid ?? result?.documentUuid;
+    const documentCollection = data.documentCollection ?? source.documentCollection ?? result?.documentCollection;
+    if (!documentUuid) {
+      return documentCollection ?? "";
+    }
+    const parsedUuid = foundry.utils.parseUuid(documentUuid);
     return parsedUuid?.collection?.metadata?.id ?? parsedUuid.type ?? "";
   }
 
