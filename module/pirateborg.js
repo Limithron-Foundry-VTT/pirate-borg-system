@@ -3,7 +3,7 @@ import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
-import { handleChatMessageAutomation, handleChatMessageButton } from "./system/render-chat-message.js";
+import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
@@ -24,9 +24,11 @@ Hooks.once("init", async () => {
   Hooks.on("renderSettings", renderSettings);
   if (foundry.utils.isNewerVersion(game.version, "13")) {
     Hooks.on("renderChatMessageHTML", handleChatMessageButton);
+    Hooks.on("renderChatMessageHTML", handleChatMessageGMOnly);
     Hooks.on("renderChatMessageHTML", handleChatMessageAutomation);
   } else {
     Hooks.on("renderChatMessage", handleChatMessageButton);
+    Hooks.on("renderChatMessage", handleChatMessageGMOnly);
     Hooks.on("renderChatMessage", handleChatMessageAutomation);
   }
   registerChatRenderers();
