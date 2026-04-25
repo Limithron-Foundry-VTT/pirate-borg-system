@@ -15,14 +15,20 @@ export const compendiumInfoFromString = (compendiumString) => compendiumString.s
 export const findCompendiumItem = async (compendiumName, itemName) => {
   const compendium = game.packs.get(compendiumName);
   if (compendium) {
+    if (!itemName) {
+      console.warn(`findCompendiumItem: Missing item name for compendium (${compendiumName})`);
+      return null;
+    }
     await compendium.getIndex({ fields: ["name"] });
     const item = compendium.index.find((i) => i.name === itemName);
     if (!item) {
       console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
+      return null;
     }
     return compendium.getDocument(item._id);
   }
   console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
+  return null;
 };
 
 /**
@@ -120,22 +126,37 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 export const findTableItems = async (results) => {
   const items = [];
   let item = null;
+  const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+  const isCompendiumResult = (type) => {
+    const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
+    const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
+    return type === compendiumType || type === documentType || type === "pack" || type === "document";
+  };
+
   for (const result of results) {
+    const resultData = result?.toObject?.() ?? result ?? {};
     const type = getResultType(result);
-    if (type === (game.release.generation >= 13 ? CONST.TABLE_RESULT_TYPES.DOCUMENT : CONST.TABLE_RESULT_TYPES.COMPENDIUM)) {
-      item = await findCompendiumItem(getResultCollection(result), getResultText(result));
+    if (isCompendiumResult(type)) {
+      item = null;
+      if (resultData.documentUuid) {
+        item = await fromUuid(resultData.documentUuid);
+      } else if (resultData.documentCollection && resultData.documentId) {
+        item = await game.packs.get(resultData.documentCollection)?.getDocument(resultData.documentId);
+      }
+
+      if (!item) {
+        item = await findCompendiumItem(getResultCollection(result), resultData.text ?? getResultText(result));
+      }
+
       if (item) {
         items.push(item);
       }
     } else if (type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
-      let resultText;
-      if (game.release.generation >= 13) {
-        resultText = result.description;
-      } else {
-        resultText = result.getChatText();
-      }
+      const resultText = getResultText(result);
       const [property, value] = resultText.split(": ");
-      const enrichHtml = (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(value, {
+      if (!property || value === undefined) continue;
+
+      const enrichHtml = await textEditor.enrichHTML(value, {
         rollData: {},
       });
       if (property === "description") {

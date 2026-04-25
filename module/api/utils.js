@@ -114,12 +114,28 @@ export const getResultCollection = (result) => {
  * @return {String}
  */
 export const getResultText = (result) => {
-  if (game.release.generation >= 13) {
-    const text = result.type === "text" ? result.description : result.name;
-    return text.replaceAll(" &amp; ", " & ");
+  const data = result?.toObject?.() ?? {};
+  const source = result?._source ?? {};
+  const resultType = data.type ?? source.type ?? result?.type;
+  const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
+  const isText = resultType === "text" || (textType !== undefined && resultType === textType);
+
+  // Prefer raw stored fields first to avoid chat-decorated placeholders.
+  if (isText) {
+    const text = data.description ?? source.description ?? data.text ?? source.text ?? data.name ?? source.name ?? "";
+    if (text) return String(text).replaceAll(" &amp; ", " & ");
+  } else {
+    const text = data.name ?? source.name ?? data.description ?? source.description ?? data.text ?? source.text ?? "";
+    if (text) return String(text).replaceAll(" &amp; ", " & ");
   }
 
-  return result.text.replaceAll(" &amp; ", " & ");
+  // Final fallback for legacy generations only (v12 and earlier).
+  if (game.release.generation < 13) {
+    const legacyText = result?.text ?? result?.data?.text ?? "";
+    return String(legacyText).replaceAll(" &amp; ", " & ");
+  }
+
+  return "";
 };
 
 /**
@@ -127,7 +143,11 @@ export const getResultText = (result) => {
  * @param {String} [separator=", "]
  * @return {String}
  */
-export const getResultsAsText = (results, separator = ", ") => results.map((r) => r.getChatText()).join(separator);
+export const getResultsAsText = (results, separator = ", ") =>
+  results
+    .map((r) => getResultText(r))
+    .filter(Boolean)
+    .join(separator);
 
 /**
  * @param {Macro} macro
