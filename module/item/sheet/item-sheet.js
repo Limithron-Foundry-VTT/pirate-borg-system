@@ -1,6 +1,7 @@
 import { PB } from "../../config.js";
 import { showAnimationDialog } from "../../dialog/animation-dialog.js";
 import { configureEditor } from "../../system/configure-editor.js";
+import { bindProseMirrorDescriptionEditor, getCachedEditorDraft } from "../../system/prosemirror-editor-state.js";
 import PBActorSheet from "../../actor/sheet/actor-sheet.js";
 
 /*
@@ -49,62 +50,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
 
     // Handle ProseMirror editor toggle (v13+)
     if (game.release.generation >= 13) {
-      // Edit button click - set editing state and re-render
-      html.find(".pb-edit-button").click((ev) => {
-        const wrapper = $(ev.currentTarget).closest(".pb-editor-wrapper");
-        const target = wrapper.data("target");
-        this._editingDescriptionTarget = target;
-        this.render();
-      });
-
-      // Handle prose-mirror editors
-      html.find("prose-mirror").each((i, editor) => {
-        // Use MutationObserver to inject cancel button when menu appears
-        const observer = new MutationObserver((mutations, obs) => {
-          const menu = editor.querySelector("menu");
-          if (menu && !menu.querySelector(".pb-cancel-button")) {
-            const cancelBtn = document.createElement("button");
-            cancelBtn.type = "button";
-            cancelBtn.className = "pb-cancel-button";
-            cancelBtn.title = game.i18n.localize("PB.Cancel");
-            cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
-            cancelBtn.addEventListener("click", (ev) => {
-              ev.preventDefault();
-              ev.stopPropagation();
-              this._editingDescriptionTarget = null;
-              this.render();
-            });
-            menu.appendChild(cancelBtn);
-            obs.disconnect(); // Stop observing once button is added
-          }
-        });
-
-        observer.observe(editor, { childList: true, subtree: true });
-
-        // Also try immediately in case menu already exists
-        const menu = editor.querySelector("menu");
-        if (menu && !menu.querySelector(".pb-cancel-button")) {
-          const cancelBtn = document.createElement("button");
-          cancelBtn.type = "button";
-          cancelBtn.className = "pb-cancel-button";
-          cancelBtn.title = game.i18n.localize("PB.Cancel");
-          cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
-          cancelBtn.addEventListener("click", (ev) => {
-            ev.preventDefault();
-            ev.stopPropagation();
-            this._editingDescriptionTarget = null;
-            this.render();
-          });
-          menu.appendChild(cancelBtn);
-          observer.disconnect();
-        }
-
-        // Handle save event
-        editor.addEventListener("save", () => {
-          this._editingDescriptionTarget = null;
-          this.submit();
-        });
-      });
+      bindProseMirrorDescriptionEditor(this, html);
     }
 
     html.find(".effect-create").click(async () => {
@@ -209,17 +155,18 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
 
     // Check if we're in editing mode
     if (this._editingDescriptionTarget) {
+      const draft = getCachedEditorDraft(this, this._editingDescriptionTarget, formData.data.system.description || "");
       formData.editingDescription = {
         target: this._editingDescriptionTarget,
-        value: formData.data.system.description || "",
+        value: draft,
       };
     }
 
     formData.descriptionHTML = formData.data.system.description
       ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
-          secrets: !!formData.owner,
-          links: true,
-          async: true,
+          secrets: this.item.isOwner,
+          relativeTo: this.item,
+          rollData: this.item.getRollData?.() ?? {},
         })
       : "";
 

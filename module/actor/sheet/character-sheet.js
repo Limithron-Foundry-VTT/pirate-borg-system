@@ -24,6 +24,7 @@ import {
 import { showCharacterGeneratorDialog } from "../../dialog/character-generator-dialog.js";
 import { showActorBaseClassDialog } from "../../dialog/actor-base-class-dialog.js";
 import { characterUseItemAction } from "../../api/action/character/character-use-item-action.js";
+import { createChatMessageWithVisibility, getOtherChatMessageStyle } from "../../chat-message/chat-message-visibility.js";
 
 /**
  * @extends {ActorSheet}
@@ -489,8 +490,10 @@ export class PBActorSheetCharacter extends PBActorSheet {
     } else {
       html = await renderTemplate(template);
     }
-    await ChatMessage.create({
+    await createChatMessageWithVisibility({
       content: html,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      type: getOtherChatMessageStyle(),
     });
   }
 
