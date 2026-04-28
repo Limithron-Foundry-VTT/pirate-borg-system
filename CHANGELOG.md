@@ -1,3 +1,26 @@
+# [1.4.0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.3.1...v1.4.0) (2026-04-28)
+
+
+### Bug Fixes
+
+* **chat-sheets:** normalize chat visibility and preserve ProseMirror drafts ([2dd1572](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2dd157286c6258076bb01ff05f7155090f1b8952))
+* **chat-style:** add tray and crit-fumble presentation rules ([dcbdc56](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/dcbdc5612ff214125396c9f9bc414264614d0ebc))
+* **chat-tray:** enhance header wiring and unwiring for improved event handling ([2395ad0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2395ad0e2f7c2df5ddf970fc8269b73b76a0f14e))
+* **chat:** centralize post-render pipeline and harden outcome identity ([fcd320f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/fcd320fa924aa35e9e4a11963879ac7c8f7d6e36))
+* **chat:** restore gm-only cleanup on legacy render paths ([401dfab](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/401dfab31d42825ed4430f3e742c42aa2cbdc0cd))
+* **chat:** use applyMode for roll visibility on v14 ([d8239f8](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/d8239f833c7c50854a034bc95c5312836b09e6d5))
+* **compendium:** guard missing tables and normalize result metadata ([9b15359](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/9b153598812edab4c19d095d2c313b832ac5252b))
+* **container-sheet:** finalize permissions tab and total value ([2800b7d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2800b7da3fb981d9c2025917c3982c6372f8445f))
+* **editor:** persist secret reveal state in ProseMirror edit mode ([f7b52e9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/f7b52e9f8e5b649611ce9cbef7cb115a99fdad9b))
+* **sheet:** allow sheets to scroll ([2800d88](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2800d883b7c27b9c1c46a6a489b1cc9edf335a66))
+* **tables:** harden result parsing for mishaps and get-better rolls ([3a0ae60](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/3a0ae60e2274463444108908ee122e7fa3845559))
+* **v14:** align compendium enrichHTML options and document migration updates ([66f42e9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/66f42e98b39a5e903fba5e99bc9f45d922f96680))
+
+
+### Features
+
+* **containers:** enchance containers to be more player friendly ([f2f5f9f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/f2f5f9f2dbdb1e2479828a6c91a506261d34e048))
+
 # Unreleased
 
 ### Bug Fixes
