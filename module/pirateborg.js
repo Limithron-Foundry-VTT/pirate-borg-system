@@ -5,7 +5,7 @@ import { configureSystem } from "./system/configure-system.js";
 import { renderCombatTracker } from "./system/render-combat-tracker.js";
 import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
-import { registerSystemSettings } from "./system/settings.js";
+import { registerSystemSettings, isCreateLootFromDropEnabled } from "./system/settings.js";
 import { showHelpDialogOnStartup } from "./dialog/help-dialog.js";
 import { renderSettings } from "./system/render-settings.js";
 import { registerSocketHandler } from "./system/sockets.js";
@@ -14,6 +14,7 @@ import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
 import { registerEnrichers, registerEnricherClickHandlers } from "./system/enrichers.js";
 import { alterTokenHUDStatusEffects } from "./system/token-hud.js";
+import { handleCanvasDropLoot } from "./system/canvas-drop-loot.js";
 import { registerChatRenderers } from "./chat-message/renderers/register-chat-renderers.js";
 
 Hooks.once("init", async () => {
@@ -67,6 +68,12 @@ Hooks.once("ready", () => {
 
   Hooks.on("renderTokenHUD", (app, html) => {
     alterTokenHUDStatusEffects.call(app, html);
+  });
+
+  Hooks.on("dropCanvasData", (canvas, data) => {
+    if (data.type !== "Item") return;
+    if (!isCreateLootFromDropEnabled()) return;
+    return handleCanvasDropLoot(canvas, data);
   });
 
   ui.chat.scrollBottom();

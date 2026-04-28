@@ -3,6 +3,593 @@
     &.actor {
       &.container {
         min-width: 500px;
+
+        .loot-sheet {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        // Sheet Header
+        .sheet-header {
+          padding: 12px 16px;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 16px;
+          flex: 0 0 auto;
+          border-bottom: 2px groove var(--light-border-color, #f6dec2);
+
+          .header-left {
+            flex: 0 0 80px;
+            line-height: 0;
+          }
+
+          .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            border: none;
+            object-fit: contain;
+          }
+
+          .header-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+          }
+
+          .charname {
+            margin: 0;
+            border: none;
+
+            input {
+              font-family: var(--h1-font);
+              font-size: 28px;
+              color: var(--foreground-color);
+              background: transparent;
+              border: none;
+              height: 36px;
+              line-height: 36px;
+              width: 100%;
+              padding: 0;
+
+              &:hover,
+              &:focus {
+                box-shadow: 0 0 5px var(--highlight-background-color);
+              }
+            }
+          }
+
+          .sheet-summary {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+            font-size: 14px;
+            flex-wrap: wrap;
+
+            .summary-item {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: var(--foreground-color);
+              white-space: nowrap;
+
+              i {
+                color: var(--highlight-background-color);
+              }
+            }
+          }
+        }
+
+        // Sheet Body
+        .sheet-body {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          padding: 12px 16px;
+        }
+
+        .sheet-content {
+          flex: 1;
+          display: flex;
+          gap: 12px;
+          overflow: hidden;
+          container-type: inline-size;
+        }
+
+        .main-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          overflow: hidden;
+        }
+
+        // Currency Section
+        .currency-section {
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 12px;
+          background: rgba(255, 255, 255, 0.3);
+          border: 2px groove var(--light-border-color, #f6dec2);
+
+          .currency-input,
+          .currency-display {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          .currency-input label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            i {
+              color: var(--highlight-background-color);
+            }
+          }
+
+          .currency-display i {
+            color: var(--highlight-background-color);
+          }
+
+          .currency-input input {
+            width: 70px;
+            font-size: 14px;
+            color: var(--foreground-color);
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--dark-border-color, #a29280);
+            padding: 4px 6px;
+            text-align: center;
+            border-radius: 0;
+
+            &:hover,
+            &:focus {
+              box-shadow: 0 0 5px var(--highlight-background-color);
+            }
+          }
+
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--button-background, #000);
+            border: none;
+            color: var(--button-color, #fff);
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1;
+
+            &:hover {
+              box-shadow: 0 0 5px var(--highlight-background-color);
+            }
+          }
+        }
+
+        // Inventory Section
+        .inventory-section {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.2);
+          border: 2px groove var(--light-border-color, #f6dec2);
+          min-height: 150px;
+
+          .inventory-header {
+            flex: 0 0 auto;
+            display: flex;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--dark-border-color, #a29280);
+            align-items: center;
+            justify-content: space-between;
+
+            h3 {
+              margin: 0;
+              font-size: 16px;
+              color: var(--foreground-color);
+              display: flex;
+              align-items: center;
+              gap: 6px;
+
+              i {
+                color: var(--highlight-background-color);
+              }
+            }
+
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 6px;
+              background: var(--button-background, #000);
+              border: none;
+              color: var(--button-color, #fff);
+              padding: 5px 10px;
+              cursor: pointer;
+              font-size: 12px;
+              line-height: 1;
+
+              &:hover {
+                box-shadow: 0 0 5px var(--highlight-background-color);
+              }
+            }
+          }
+
+          .items-list {
+            flex: 1;
+            overflow-y: auto;
+          }
+
+          .items-header {
+            display: flex;
+            background: rgba(0, 0, 0, 0.08);
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 13px;
+            color: var(--foreground-color);
+            border-bottom: 1px solid var(--dark-border-color, #a29280);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+
+            .item-name {
+              flex: 2;
+            }
+
+            .item-quantity {
+              flex: 0 0 55px;
+              text-align: center;
+            }
+
+            .item-value {
+              flex: 0 0 70px;
+              text-align: right;
+            }
+
+            .item-controls {
+              flex: 0 0 70px;
+              text-align: center;
+            }
+          }
+
+          .item-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .item {
+              display: flex;
+              padding: 6px 12px;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              align-items: center;
+
+              &:hover {
+                background: rgba(255, 255, 255, 0.3);
+              }
+
+              &.empty {
+                color: var(--foreground-color);
+                font-style: italic;
+                opacity: 0.6;
+                justify-content: center;
+                padding: 16px;
+              }
+
+              .item-name {
+                flex: 2;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+
+                .item-image {
+                  width: 28px;
+                  height: 28px;
+                  border: 1px solid var(--dark-border-color, #a29280);
+                  border-radius: 3px;
+                  object-fit: cover;
+                }
+
+                .item-name-text {
+                  flex: 1;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  font-size: 14px;
+                }
+              }
+
+              .item-quantity {
+                flex: 0 0 55px;
+                text-align: center;
+
+                input {
+                  width: 45px;
+                  font-size: 13px;
+                  color: var(--foreground-color);
+                  background: rgba(255, 255, 255, 0.5);
+                  border: 1px solid var(--dark-border-color, #a29280);
+                  padding: 2px 4px;
+                  text-align: center;
+                  border-radius: 0;
+
+                  &:hover,
+                  &:focus {
+                    box-shadow: 0 0 5px var(--highlight-background-color);
+                  }
+                }
+              }
+
+              .item-value {
+                flex: 0 0 70px;
+                text-align: right;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 4px;
+                font-size: 14px;
+
+                i {
+                  color: var(--highlight-background-color);
+                  font-size: 12px;
+                }
+              }
+
+              .item-controls {
+                flex: 0 0 70px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                gap: 4px;
+
+                .item-control {
+                  color: var(--foreground-color);
+                  cursor: pointer;
+                  padding: 3px 5px;
+                  transition: text-shadow 0.2s;
+
+                  &:hover {
+                    text-shadow: 0 0 8px var(--highlight-background-color);
+                  }
+
+                  &.item-delete:hover {
+                    color: var(--highlight-background-color);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // Permissions tab
+        .permissions-tab {
+          flex: 1;
+          overflow: hidden;
+
+          .permissions-section {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px groove var(--light-border-color, #f6dec2);
+            padding: 10px;
+          }
+
+          .permissions-section h3 {
+            margin: 0 0 8px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--dark-border-color, #a29280);
+            font-size: 14px;
+            color: var(--foreground-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            i {
+              color: var(--highlight-background-color);
+            }
+          }
+        }
+
+        .permissions-tab.active {
+          display: flex;
+        }
+
+        // Permissions
+        .permissions-tab .permissions-section {
+          flex: 1 1 auto;
+          min-height: 0;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .permissions-tab .permissions-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          flex: 1 1 auto;
+          min-height: 0;
+          overflow-y: auto;
+
+          .permission {
+            display: flex;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 4px;
+            justify-content: flex-start;
+
+            // Override Foundry's .flexrow child flex behavior on list rows.
+            > * {
+              flex: 0 0 auto !important;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+
+          .permission-all {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 6px 4px;
+            margin: 0 -4px;
+            border-radius: 3px;
+          }
+
+          .permission-divider {
+            height: 1px;
+            background: var(--dark-border-color, #a29280);
+            margin: 6px 0;
+            padding: 0;
+            list-style: none;
+          }
+        }
+
+        .permissions-tab .permission-proficiency {
+          cursor: pointer;
+          padding: 1px 2px;
+          transition: text-shadow 0.2s;
+
+          &:hover {
+            text-shadow: 0 0 8px var(--highlight-background-color);
+          }
+        }
+
+        .permissions-tab .permission-all-label {
+          font-weight: bold;
+          font-size: 12px !important;
+        }
+
+        .permissions-tab .permission-name {
+          flex: 1 1 auto !important;
+          min-width: 0;
+          font-size: 11px;
+          color: var(--foreground-color);
+          line-height: 1.3;
+          margin-left: 2px;
+        }
+
+        .permissions-tab .no-players {
+          color: var(--foreground-color);
+          font-style: italic;
+          font-size: 11px;
+          opacity: 0.6;
+        }
+
+        // Scrollbar
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: var(--dark-border-color, #a29280);
+          border-radius: 3px;
+
+          &:hover {
+            background: var(--foreground-color);
+          }
+        }
+
+        // Responsive: narrow
+        &.narrow,
+        .loot-sheet.narrow {
+          .sheet-header {
+            padding: 8px 12px;
+            gap: 10px;
+
+            .header-left {
+              flex: 0 0 50px;
+            }
+
+            .profile-img {
+              width: 50px;
+              height: 50px;
+            }
+
+            .charname input {
+              font-size: 20px;
+              height: 28px;
+              line-height: 28px;
+            }
+
+            .sheet-summary {
+              font-size: 12px;
+              gap: 6px 12px;
+            }
+          }
+
+          .sheet-body {
+            padding: 8px 10px;
+          }
+
+          .items-header {
+            padding: 4px 8px;
+            font-size: 11px;
+          }
+
+          .item-list .item {
+            padding: 4px 8px;
+
+            .item-image {
+              width: 24px;
+              height: 24px;
+            }
+
+            .item-name-text {
+              font-size: 12px;
+            }
+          }
+
+          .items-header .item-quantity,
+          .item .item-quantity {
+            flex: 0 0 40px;
+          }
+
+          .items-header .item-value,
+          .item .item-value {
+            flex: 0 0 45px;
+          }
+
+          .items-header .item-controls,
+          .item .item-controls {
+            flex: 0 0 45px;
+          }
+        }
+
+        // Responsive: compact permissions tab
+        &.compact,
+        .loot-sheet.compact {
+          .permissions-tab .permissions-section h3 {
+            font-size: 12px;
+          }
+
+          .permissions-tab .permission-name {
+            font-size: 10px;
+            word-break: break-word;
+          }
+        }
+
+        // Stacked layout for very narrow windows
+        @container (max-width: 500px) {
+          .permissions-tab .permissions-section {
+            padding: 8px;
+          }
+        }
       }
     }
   }

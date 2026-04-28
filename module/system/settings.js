@@ -154,6 +154,46 @@ export const registerSystemSettings = () => {
     config: false,
   });
 
+  /** Whether to show chat messages when items are looted */
+  game.settings.register("pirateborg", "lootChatMessages", {
+    name: "PB.SettingsLootChatMessages",
+    hint: "PB.SettingsLootChatMessagesHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether players can loot silver from containers */
+  game.settings.register("pirateborg", "lootCurrency", {
+    name: "PB.SettingsLootCurrency",
+    hint: "PB.SettingsLootCurrencyHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to show the Loot All button on container sheets */
+  game.settings.register("pirateborg", "lootAll", {
+    name: "PB.SettingsLootAll",
+    hint: "PB.SettingsLootAllHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether dropping items on the canvas creates a loot container */
+  game.settings.register("pirateborg", "createLootFromDrop", {
+    name: "PB.SettingsCreateLootFromDrop",
+    hint: "PB.SettingsCreateLootFromDropHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** Whether to show status effect names on the Token HUD */
   game.settings.register("pirateborg", "tokenHUDShowStatusDetails", {
     name: "PB.TokenHUDShowStatusDetails",
@@ -270,7 +310,28 @@ export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", 
  * @returns {Boolean}
  */
 export const isGrogEnabled = () => game.settings.get("pirateborg", "enableGrog");
+
 /**
  * @returns {Boolean}
  */
 export const isTokenHUDShowStatusDetailsEnabled = () => game.settings.get("pirateborg", "tokenHUDShowStatusDetails");
+
+/**
+ * @returns {Boolean}
+ */
+export const isLootChatMessagesEnabled = () => game.settings.get("pirateborg", "lootChatMessages");
+
+/**
+ * @returns {Boolean}
+ */
+export const isLootCurrencyEnabled = () => game.settings.get("pirateborg", "lootCurrency");
+
+/**
+ * @returns {Boolean}
+ */
+export const isLootAllEnabled = () => game.settings.get("pirateborg", "lootAll");
+
+/**
+ * @returns {Boolean}
+ */
+export const isCreateLootFromDropEnabled = () => game.settings.get("pirateborg", "createLootFromDrop");

@@ -829,6 +829,503 @@
 .pirateborg.sheet.actor.container {
   min-width: 500px;
 }
+.pirateborg.sheet.actor.container .loot-sheet {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.pirateborg.sheet.actor.container .sheet-header {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 0 0 auto;
+  border-bottom: 2px groove var(--light-border-color, #f6dec2);
+}
+.pirateborg.sheet.actor.container .sheet-header .header-left {
+  flex: 0 0 80px;
+  line-height: 0;
+}
+.pirateborg.sheet.actor.container .sheet-header .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  border: none;
+  object-fit: contain;
+}
+.pirateborg.sheet.actor.container .sheet-header .header-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pirateborg.sheet.actor.container .sheet-header .charname {
+  margin: 0;
+  border: none;
+}
+.pirateborg.sheet.actor.container .sheet-header .charname input {
+  font-family: var(--h1-font);
+  font-size: 28px;
+  color: var(--foreground-color);
+  background: transparent;
+  border: none;
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  padding: 0;
+}
+.pirateborg.sheet.actor.container .sheet-header .charname input:hover, .pirateborg.sheet.actor.container .sheet-header .charname input:focus {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .sheet-header .sheet-summary {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+.pirateborg.sheet.actor.container .sheet-header .sheet-summary .summary-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--foreground-color);
+  white-space: nowrap;
+}
+.pirateborg.sheet.actor.container .sheet-header .sheet-summary .summary-item i {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .sheet-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 12px 16px;
+}
+.pirateborg.sheet.actor.container .sheet-content {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.pirateborg.sheet.actor.container .main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+.pirateborg.sheet.actor.container .currency-section {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px groove var(--light-border-color, #f6dec2);
+}
+.pirateborg.sheet.actor.container .currency-section .currency-input,
+.pirateborg.sheet.actor.container .currency-section .currency-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.pirateborg.sheet.actor.container .currency-section .currency-input label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pirateborg.sheet.actor.container .currency-section .currency-input label i {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .currency-section .currency-display i {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .currency-section .currency-input input {
+  width: 70px;
+  font-size: 14px;
+  color: var(--foreground-color);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--dark-border-color, #a29280);
+  padding: 4px 6px;
+  text-align: center;
+  border-radius: 0;
+}
+.pirateborg.sheet.actor.container .currency-section .currency-input input:hover, .pirateborg.sheet.actor.container .currency-section .currency-input input:focus {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .currency-section button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--button-background, #000);
+  border: none;
+  color: var(--button-color, #fff);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+.pirateborg.sheet.actor.container .currency-section button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .inventory-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px groove var(--light-border-color, #f6dec2);
+  min-height: 150px;
+}
+.pirateborg.sheet.actor.container .inventory-section .inventory-header {
+  flex: 0 0 auto;
+  display: flex;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--dark-border-color, #a29280);
+  align-items: center;
+  justify-content: space-between;
+}
+.pirateborg.sheet.actor.container .inventory-section .inventory-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--foreground-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pirateborg.sheet.actor.container .inventory-section .inventory-header h3 i {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .inventory-section .inventory-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--button-background, #000);
+  border: none;
+  color: var(--button-color, #fff);
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+.pirateborg.sheet.actor.container .inventory-section .inventory-header button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .inventory-section .items-list {
+  flex: 1;
+  overflow-y: auto;
+}
+.pirateborg.sheet.actor.container .inventory-section .items-header {
+  display: flex;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--foreground-color);
+  border-bottom: 1px solid var(--dark-border-color, #a29280);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.pirateborg.sheet.actor.container .inventory-section .items-header .item-name {
+  flex: 2;
+}
+.pirateborg.sheet.actor.container .inventory-section .items-header .item-quantity {
+  flex: 0 0 55px;
+  text-align: center;
+}
+.pirateborg.sheet.actor.container .inventory-section .items-header .item-value {
+  flex: 0 0 70px;
+  text-align: right;
+}
+.pirateborg.sheet.actor.container .inventory-section .items-header .item-controls {
+  flex: 0 0 70px;
+  text-align: center;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item {
+  display: flex;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item.empty {
+  color: var(--foreground-color);
+  font-style: italic;
+  opacity: 0.6;
+  justify-content: center;
+  padding: 16px;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-name {
+  flex: 2;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-name .item-image {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--dark-border-color, #a29280);
+  border-radius: 3px;
+  object-fit: cover;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-name .item-name-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-quantity {
+  flex: 0 0 55px;
+  text-align: center;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-quantity input {
+  width: 45px;
+  font-size: 13px;
+  color: var(--foreground-color);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--dark-border-color, #a29280);
+  padding: 2px 4px;
+  text-align: center;
+  border-radius: 0;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-quantity input:hover, .pirateborg.sheet.actor.container .inventory-section .item-list .item .item-quantity input:focus {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-value {
+  flex: 0 0 70px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 14px;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-value i {
+  color: var(--highlight-background-color);
+  font-size: 12px;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-controls {
+  flex: 0 0 70px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-controls .item-control {
+  color: var(--foreground-color);
+  cursor: pointer;
+  padding: 3px 5px;
+  transition: text-shadow 0.2s;
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-controls .item-control:hover {
+  text-shadow: 0 0 8px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .inventory-section .item-list .item .item-controls .item-control.item-delete:hover {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .permissions-tab {
+  flex: 1;
+  overflow: hidden;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-section {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px groove var(--light-border-color, #f6dec2);
+  padding: 10px;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-section h3 {
+  margin: 0 0 8px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--dark-border-color, #a29280);
+  font-size: 14px;
+  color: var(--foreground-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-section h3 i {
+  color: var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .permissions-tab.active {
+  display: flex;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-section {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list .permission {
+  display: flex;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+  justify-content: flex-start;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list .permission > * {
+  flex: 0 0 auto !important;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list .permission:last-child {
+  border-bottom: none;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list .permission-all {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 6px 4px;
+  margin: 0 -4px;
+  border-radius: 3px;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permissions-list .permission-divider {
+  height: 1px;
+  background: var(--dark-border-color, #a29280);
+  margin: 6px 0;
+  padding: 0;
+  list-style: none;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permission-proficiency {
+  cursor: pointer;
+  padding: 1px 2px;
+  transition: text-shadow 0.2s;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permission-proficiency:hover {
+  text-shadow: 0 0 8px var(--highlight-background-color);
+}
+.pirateborg.sheet.actor.container .permissions-tab .permission-all-label {
+  font-weight: bold;
+  font-size: 12px !important;
+}
+.pirateborg.sheet.actor.container .permissions-tab .permission-name {
+  flex: 1 1 auto !important;
+  min-width: 0;
+  font-size: 11px;
+  color: var(--foreground-color);
+  line-height: 1.3;
+  margin-left: 2px;
+}
+.pirateborg.sheet.actor.container .permissions-tab .no-players {
+  color: var(--foreground-color);
+  font-style: italic;
+  font-size: 11px;
+  opacity: 0.6;
+}
+.pirateborg.sheet.actor.container ::-webkit-scrollbar {
+  width: 6px;
+}
+.pirateborg.sheet.actor.container ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+.pirateborg.sheet.actor.container ::-webkit-scrollbar-thumb {
+  background: var(--dark-border-color, #a29280);
+  border-radius: 3px;
+}
+.pirateborg.sheet.actor.container ::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-color);
+}
+.pirateborg.sheet.actor.container.narrow .sheet-header,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-header {
+  padding: 8px 12px;
+  gap: 10px;
+}
+.pirateborg.sheet.actor.container.narrow .sheet-header .header-left,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-header .header-left {
+  flex: 0 0 50px;
+}
+.pirateborg.sheet.actor.container.narrow .sheet-header .profile-img,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-header .profile-img {
+  width: 50px;
+  height: 50px;
+}
+.pirateborg.sheet.actor.container.narrow .sheet-header .charname input,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-header .charname input {
+  font-size: 20px;
+  height: 28px;
+  line-height: 28px;
+}
+.pirateborg.sheet.actor.container.narrow .sheet-header .sheet-summary,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-header .sheet-summary {
+  font-size: 12px;
+  gap: 6px 12px;
+}
+.pirateborg.sheet.actor.container.narrow .sheet-body,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .sheet-body {
+  padding: 8px 10px;
+}
+.pirateborg.sheet.actor.container.narrow .items-header,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .items-header {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+.pirateborg.sheet.actor.container.narrow .item-list .item,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item-list .item {
+  padding: 4px 8px;
+}
+.pirateborg.sheet.actor.container.narrow .item-list .item .item-image,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item-list .item .item-image {
+  width: 24px;
+  height: 24px;
+}
+.pirateborg.sheet.actor.container.narrow .item-list .item .item-name-text,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item-list .item .item-name-text {
+  font-size: 12px;
+}
+.pirateborg.sheet.actor.container.narrow .items-header .item-quantity,
+.pirateborg.sheet.actor.container.narrow .item .item-quantity,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .items-header .item-quantity,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item .item-quantity {
+  flex: 0 0 40px;
+}
+.pirateborg.sheet.actor.container.narrow .items-header .item-value,
+.pirateborg.sheet.actor.container.narrow .item .item-value,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .items-header .item-value,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item .item-value {
+  flex: 0 0 45px;
+}
+.pirateborg.sheet.actor.container.narrow .items-header .item-controls,
+.pirateborg.sheet.actor.container.narrow .item .item-controls,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .items-header .item-controls,
+.pirateborg.sheet.actor.container .loot-sheet.narrow .item .item-controls {
+  flex: 0 0 45px;
+}
+.pirateborg.sheet.actor.container.compact .permissions-tab .permissions-section h3,
+.pirateborg.sheet.actor.container .loot-sheet.compact .permissions-tab .permissions-section h3 {
+  font-size: 12px;
+}
+.pirateborg.sheet.actor.container.compact .permissions-tab .permission-name,
+.pirateborg.sheet.actor.container .loot-sheet.compact .permissions-tab .permission-name {
+  font-size: 10px;
+  word-break: break-word;
+}
+@container (max-width: 500px) {
+  .pirateborg.sheet.actor.container .permissions-tab .permissions-section {
+    padding: 8px;
+  }
+}
 
 body {
   background: url(../ui/background.jpg);
