@@ -1,0 +1,39 @@
+.chat-sidebar {
+  // Pirate Borg chat tray elements (PBChatTrayElement subclasses).
+  // Collapsing hides the body while keeping the header clickable.
+  outcome-tray {
+    display: block;
+
+    > .outcome > .pb-chat-tray-header {
+      cursor: pointer;
+      user-select: none;
+
+      &::after {
+        content: " \25BC"; // down chevron when open
+        font-size: 0.75em;
+        opacity: 0.6;
+        margin-left: 6px;
+      }
+    }
+
+    &:not([open]) > .outcome > .pb-chat-tray-header::after {
+      content: " \25B6"; // right chevron when collapsed
+    }
+
+    &:not([open]) > .outcome > :not(.pb-chat-tray-header) {
+      display: none !important;
+    }
+  }
+
+  .roll-result.pb-roll-critical-success {
+    color: #2b8a3e;
+    text-shadow: 0 0 8px rgba(43, 138, 62, 0.35);
+    font-weight: 700;
+  }
+
+  .roll-result.pb-roll-fumble {
+    color: #8b0000;
+    text-shadow: 0 0 8px rgba(139, 0, 0, 0.3);
+    font-weight: 700;
+  }
+}

@@ -14,6 +14,7 @@ import { configureAutomation } from "./system/configure-automation.js";
 import { registerFonts } from "./system/fonts.js";
 import { registerEnrichers, registerEnricherClickHandlers } from "./system/enrichers.js";
 import { alterTokenHUDStatusEffects } from "./system/token-hud.js";
+import { registerChatRenderers } from "./chat-message/renderers/register-chat-renderers.js";
 
 Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
@@ -30,19 +31,22 @@ Hooks.once("init", async () => {
     Hooks.on("renderChatMessage", handleChatMessageGMOnly);
     Hooks.on("renderChatMessage", handleChatMessageAutomation);
   }
+  registerChatRenderers();
   Hooks.on("dragRuler.ready", onDragRulerReady);
 
-  Hooks.on("renderPause", (app, [html]) => {
-    html.classList.add("pirateborg");
-    const img = html.querySelector("img");
-    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
-    img.className = "";
-  });
-  Hooks.on("renderGamePause", (app, html) => {
-    html.classList.add("pirateborg");
-    const img = html.querySelector("img");
-    img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
-  });
+  const applyPauseStyling = (html) => {
+    const root = Array.isArray(html) ? html[0] : html?.jquery ? html.get(0) : html;
+    if (!root || typeof root.querySelector !== "function") return;
+    root.classList?.add("pirateborg");
+    const img = root.querySelector("img");
+    if (img) {
+      img.src = "systems/pirateborg/ui/limithron-distressed-flag.webp";
+      img.className = "";
+    }
+  };
+
+  Hooks.on("renderPause", (app, html) => applyPauseStyling(html));
+  Hooks.on("renderGamePause", (app, html) => applyPauseStyling(html));
 
   registerSystemSettings();
   registerFonts();

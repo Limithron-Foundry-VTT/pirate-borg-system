@@ -1,4 +1,5 @@
 import { getCombatantInitiative, getSystemFlag, getTokenDisposition, setSystemFlag } from "../api/utils.js";
+import { createChatMessageWithVisibility, getOtherChatMessageStyle } from "../chat-message/chat-message-visibility.js";
 import { isAutoExpireEffectsEnabled } from "./settings.js";
 
 /**
@@ -64,13 +65,13 @@ export class PBCombat extends Combat {
       const effectName = effect.name || effect.label || game.i18n.localize("PB.EffectsUnnamed");
 
       // Post chat notification about the expired effect
-      await ChatMessage.create({
+      await createChatMessageWithVisibility({
         content: game.i18n.format("PB.EffectExpired", {
           effect: effectName,
           actor: actor.name,
         }),
         speaker: ChatMessage.getSpeaker({ actor }),
-        type: CONST.CHAT_MESSAGE_STYLES?.OTHER ?? CONST.CHAT_MESSAGE_TYPES?.OTHER ?? 0,
+        type: getOtherChatMessageStyle(),
       });
 
       // Delete the effect
