@@ -80,13 +80,27 @@ export const withTest =
 
 export const withDraw =
   ({ draw }) =>
-  async (outcome) => ({
-    ...outcome,
-    formula: draw.roll.formula,
-    formulaLabel: draw.roll.formula,
-    roll: draw.roll,
-    description: draw.results.map((r) => getResultText(r)).join(", "),
-  });
+  async (outcome) => {
+    const resolvedResults = draw.results.map((result) => getResultText(result)).filter((text) => text?.trim?.());
+    const fallbackResults = draw.results
+      .map((result) => {
+        const data = result?.toObject?.() ?? {};
+        const source = result?._source ?? {};
+        return data.description ?? source.description ?? data.text ?? source.text ?? data.name ?? source.name ?? "";
+      })
+      .filter((text) => text?.trim?.());
+    const rawDescription = (resolvedResults.length ? resolvedResults : fallbackResults).join("<br>");
+    const normalizedDescription = rawDescription.replace(/\[\[\s*([^\]/][^\]]*)\s*\]\]/g, "[[/r $1]]");
+    const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+    const description = await textEditor.enrichHTML(normalizedDescription, { rollData: {} });
+    return {
+      ...outcome,
+      formula: draw.roll.formula,
+      formulaLabel: draw.roll.formula,
+      roll: draw.roll,
+      description,
+    };
+  };
 
 export const withTarget =
   ({ actor, targetToken } = {}) =>
@@ -106,6 +120,8 @@ export const withButton =
       data: {
         type,
         id: foundry.utils.randomID(),
+        outcomeId: outcome.id,
+        // Legacy fallback for existing cards/handlers during migration.
         outcome: outcome.id,
       },
     },

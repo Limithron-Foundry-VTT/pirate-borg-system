@@ -1,22 +1,37 @@
+# Unreleased
+
+### Bug Fixes
+
+- Restored secret-block reveal persistence in actor and item description views on Foundry v14 by adding sheet-level reveal handling for `data-target` editor fields.
+- Applied rich-text styling rules to chat message content so ProseMirror formatting (headings, emphasis, lists, blockquotes, and code styles) renders correctly in the chat log.
+- Documented v14 chat behavior expectations: chat content still follows Foundry core sanitization rules, so unsupported tags/unsafe markup are stripped by core.
+- Migrated the vehicle (view) sheet description to the v14 enriched editor partial so inline rolls, custom enrichers, and secret blocks render consistently with other sheets.
+- Migrated the Grog item sheet from the legacy `{{editor}}` helper to the v14 ProseMirror-aware editor partial.
+- Hardened the `renderPause` / `renderGamePause` hook handlers to accept HTMLElement, jQuery, and array-style arguments across Foundry v12, v13, and v14.
+- Bumped `system.json` `compatibility.verified` to `14` to reflect tested compatibility.
+- Aligned description enrichment with Foundry v14 conventions by passing `relativeTo` and `rollData` to `enrichHTML`. Inline rolls in descriptions now resolve `@attribute` references against the document, the `lookup` enricher resolves dynamic data, and relative UUID links resolve correctly.
+- Added `PBChatMessage` and `PBChatLog` subclasses that preserve the open/closed state of registered chat tray elements across `message.update(...)` re-renders. This is the foundation for richer interactive chat cards (mishap chains, loot distribution, damage application).
+- Wrapped each outcome row in the new `<outcome-tray>` element. Outcomes can now be collapsed/expanded individually, and the collapsed state survives reroll/apply chains.
+
 # [v1.3.1](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/tag/v1.3.1) (2026-04-04)
 
 This a pre-release version specifically for testing compatibility with v14 of Foundry VTT.
 
 ### Features
 
-* Added compatibility with v14 of Foundry VTT:
-  * Migrated tinyMCE to prosemirror ([9700af0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/9700af006636cca347ef9da59e3ba7e3f72bebac))
-* Added grog drinking automation with optional toggle ([ab6df8d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/ab6df8da747caa7d32d98f62a6e80f6456a1209f))
-* Added optional status effect names in the token HUD ([2fb92ce](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2fb92ceb840640e6f21cb6cd86d976b80fcc8c44))
-* Overhauled status effect icons with Pirate Borg themed effects ([28adfc9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/28adfc97e0853835346ce2e76698ce874962497b))
+- Added compatibility with v14 of Foundry VTT:
+  - Migrated tinyMCE to prosemirror ([9700af0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/9700af006636cca347ef9da59e3ba7e3f72bebac))
+- Added grog drinking automation with optional toggle ([ab6df8d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/ab6df8da747caa7d32d98f62a6e80f6456a1209f))
+- Added optional status effect names in the token HUD ([2fb92ce](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/2fb92ceb840640e6f21cb6cd86d976b80fcc8c44))
+- Overhauled status effect icons with Pirate Borg themed effects ([28adfc9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/28adfc97e0853835346ce2e76698ce874962497b))
 
 ### Bug Fixes
 
-* Corrected the broken image path for Refined Ash item ([7895fbc](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/7895fbc2ce3c95b6092d839bac215571caba5921))
-* Pirate Borg conditions use system effects data (enhances consistency) ([e9c87a9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/e9c87a9e23a1c10a5eef4352dde6443fb5ae54fa))
-* Enhanced the developer tooling:
-  * Database pack management now correclty handles multiple quotes in pack names ([257bd4f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/257bd4fe4609f87316b164ddd825088610d40e83))
-  * Improved the automated release process to better handle Pirate Borg's versioning within Foundry VTT ([efbbc4d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/efbbc4de5f985ead9c07ec6a1c798f3d0539b3b8)) and  ([88cd750](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/88cd75026a4d3871a687213e3d6c11c6c788bcb1))
+- Corrected the broken image path for Refined Ash item ([7895fbc](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/7895fbc2ce3c95b6092d839bac215571caba5921))
+- Pirate Borg conditions use system effects data (enhances consistency) ([e9c87a9](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/e9c87a9e23a1c10a5eef4352dde6443fb5ae54fa))
+- Enhanced the developer tooling:
+  - Database pack management now correclty handles multiple quotes in pack names ([257bd4f](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/257bd4fe4609f87316b164ddd825088610d40e83))
+  - Improved the automated release process to better handle Pirate Borg's versioning within Foundry VTT ([efbbc4d](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/efbbc4de5f985ead9c07ec6a1c798f3d0539b3b8)) and ([88cd750](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/88cd75026a4d3871a687213e3d6c11c6c788bcb1))
 
 # v1.2.3
 

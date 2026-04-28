@@ -74,7 +74,7 @@
   <section class="sheet-body">
     <div class="tab combat-tab">      
       <div class="description">
-        {{{data.system.description}}}
+        {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=false owner=owner editingDescription=editingDescription}}
       </div>      
 
       {{#if special}}

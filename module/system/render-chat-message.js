@@ -25,12 +25,16 @@ export const handleChatMessageButton = async (message, html) => {
 };
 
 /**
+ * Strip the gm-only marker class from rendered content when visible to the
+ * current user. Kept as a direct Foundry render hook fallback for generations
+ * where custom pirateborg.renderChatMessage emission may not run.
+ *
  * @param {ChatMessage} message
- * @param {JQuery.<HTMLElement>} html
+ * @param {JQuery.<HTMLElement>|HTMLElement} html
  */
 export const handleChatMessageGMOnly = async (message, html) => {
+  if (!html) return;
   if (foundry.utils.isNewerVersion(game.version, "13")) {
-    // For now, wrap the html back to a jQuery object, same as it was prior to v13.
     html = $(html);
   }
   html.find(".gm-only").removeClass("gm-only");

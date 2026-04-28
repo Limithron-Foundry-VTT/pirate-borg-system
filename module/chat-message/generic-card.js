@@ -1,4 +1,5 @@
 import { diceSound, showDiceWithSound } from "../api/dice.js";
+import { createChatMessageWithVisibility } from "./chat-message-visibility.js";
 
 const GENERIC_CARD_TEMPLATE = "systems/pirateborg/templates/chat/generic-card.html";
 
@@ -44,6 +45,5 @@ export const showGenericCard = async ({ actor, target, title, description, outco
       },
     },
   };
-  ChatMessage.applyRollMode(messageData, game.settings.get("core", "rollMode"));
-  return ChatMessage.create(messageData);
+  return createChatMessageWithVisibility(messageData);
 };

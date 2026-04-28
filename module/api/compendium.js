@@ -15,14 +15,20 @@ export const compendiumInfoFromString = (compendiumString) => compendiumString.s
 export const findCompendiumItem = async (compendiumName, itemName) => {
   const compendium = game.packs.get(compendiumName);
   if (compendium) {
+    if (!itemName) {
+      console.warn(`findCompendiumItem: Missing item name for compendium (${compendiumName})`);
+      return null;
+    }
     await compendium.getIndex({ fields: ["name"] });
     const item = compendium.index.find((i) => i.name === itemName);
     if (!item) {
       console.warn(`findCompendiumItem: Could not find item (${itemName}) in compendium (${compendiumName})`);
+      return null;
     }
     return compendium.getDocument(item._id);
   }
   console.warn(`findCompendiumItem: Could not find compendium (${compendiumName})`);
+  return null;
 };
 
 /**
@@ -33,6 +39,9 @@ export const findCompendiumItem = async (compendiumName, itemName) => {
  */
 export const drawTable = async (compendiumName, tableName, options = {}) => {
   const table = await findCompendiumItem(compendiumName, tableName);
+  if (!table) {
+    throw new Error(`drawTable: Could not resolve roll table "${tableName}" from compendium "${compendiumName}"`);
+  }
   return table.draw({ displayChat: false, ...options });
 };
 
@@ -42,7 +51,10 @@ export const drawTable = async (compendiumName, tableName, options = {}) => {
  * @returns {Promise.<String>}
  */
 export const drawTableText = async (compendium, table) => {
-  const result = (await drawTable(compendium, table)).results[0];
+  const result = (await drawTable(compendium, table)).results?.[0];
+  if (!result) {
+    return "";
+  }
 
   if (game.release.generation >= 13) {
     return result.description;
@@ -82,6 +94,9 @@ export const drawTableItems = async (compendium, table, amount) => {
  */
 export const rollTable = async (compendium, table, formula) => {
   const rollTable = await findCompendiumItem(compendium, table);
+  if (!rollTable) {
+    throw new Error(`rollTable: Could not resolve roll table "${table}" from compendium "${compendium}"`);
+  }
   return rollTable.roll({ roll: new Roll(formula) });
 };
 
@@ -120,24 +135,41 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 export const findTableItems = async (results) => {
   const items = [];
   let item = null;
+  const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+  const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
+  const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
+  const isCompendiumResult = (type) => {
+    const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
+    const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
+    return type === compendiumType || type === documentType || type === "pack" || type === "document";
+  };
+
   for (const result of results) {
+    const resultData = result?.toObject?.() ?? result ?? {};
     const type = getResultType(result);
-    if (type === (game.release.generation >= 13 ? CONST.TABLE_RESULT_TYPES.DOCUMENT : CONST.TABLE_RESULT_TYPES.COMPENDIUM)) {
-      item = await findCompendiumItem(getResultCollection(result), getResultText(result));
+    if (isCompendiumResult(type)) {
+      item = null;
+      if (resultData.documentUuid) {
+        item = await fromUuid(resultData.documentUuid);
+      } else if (resultData.documentCollection && resultData.documentId) {
+        item = await game.packs.get(resultData.documentCollection)?.getDocument(resultData.documentId);
+      }
+
+      if (!item) {
+        const fallbackName = resultData.name ?? resultData.text ?? resultData.description ?? getResultText(result);
+        item = await findCompendiumItem(getResultCollection(result), fallbackName);
+      }
+
       if (item) {
         items.push(item);
       }
-    } else if (type === CONST.TABLE_RESULT_TYPES.TEXT && item) {
-      let resultText;
-      if (game.release.generation >= 13) {
-        resultText = result.description;
-      } else {
-        resultText = result.getChatText();
-      }
+    } else if (isTextResult(type) && item) {
+      const resultText = getResultText(result);
       const [property, value] = resultText.split(": ");
-      const enrichHtml = (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(value, {
-        options: { command: true },
-        async: false,
+      if (!property || value === undefined) continue;
+
+      const enrichHtml = await textEditor.enrichHTML(value, {
+        rollData: {},
       });
       if (property === "description") {
         item.getData().description = enrichHtml;

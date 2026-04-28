@@ -3,6 +3,7 @@ import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
 import { getInfoFromDropData } from "../../api/utils.js";
+import { bindProseMirrorDescriptionEditor, getCachedEditorDraft } from "../../system/prosemirror-editor-state.js";
 
 /**
  * @extends {ActorSheet}
@@ -14,6 +15,24 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
   activateEditor(name, options = {}, initialContent = "") {
     configureEditor(options);
     super.activateEditor(name, options, initialContent);
+  }
+
+  /** @override */
+  async _onRevealSecret(event) {
+    if (super._onRevealSecret(event)) return true;
+
+    const secretBlock = event?.target?.closest?.("secret-block") ?? event?.target;
+    const target =
+      secretBlock?.closest?.("[data-target]")?.dataset?.target ??
+      secretBlock?.closest?.("prose-mirror")?.dataset?.target ??
+      secretBlock?.closest?.("prose-mirror")?.getAttribute?.("name");
+    if (!target || typeof secretBlock?.toggleRevealed !== "function") return false;
+
+    const document = this.document ?? this.actor;
+    const content = foundry.utils.getProperty(document, target);
+    const modified = secretBlock.toggleRevealed(content ?? "");
+    await document.update({ [target]: modified });
+    return true;
   }
 
   /**
@@ -125,62 +144,7 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     // Handle ProseMirror editor toggle (v13+)
     if (game.release.generation >= 13) {
-      // Edit button click - set editing state and re-render
-      html.find(".pb-edit-button").click((ev) => {
-        const wrapper = $(ev.currentTarget).closest(".pb-editor-wrapper");
-        const target = wrapper.data("target");
-        this._editingDescriptionTarget = target;
-        this.render();
-      });
-
-      // Handle prose-mirror editors
-      html.find("prose-mirror").each((i, editor) => {
-        // Use MutationObserver to inject cancel button when menu appears
-        const observer = new MutationObserver((mutations, obs) => {
-          const menu = editor.querySelector("menu");
-          if (menu && !menu.querySelector(".pb-cancel-button")) {
-            const cancelBtn = document.createElement("button");
-            cancelBtn.type = "button";
-            cancelBtn.className = "pb-cancel-button";
-            cancelBtn.title = game.i18n.localize("PB.Cancel");
-            cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
-            cancelBtn.addEventListener("click", (ev) => {
-              ev.preventDefault();
-              ev.stopPropagation();
-              this._editingDescriptionTarget = null;
-              this.render();
-            });
-            menu.appendChild(cancelBtn);
-            obs.disconnect(); // Stop observing once button is added
-          }
-        });
-
-        observer.observe(editor, { childList: true, subtree: true });
-
-        // Also try immediately in case menu already exists
-        const menu = editor.querySelector("menu");
-        if (menu && !menu.querySelector(".pb-cancel-button")) {
-          const cancelBtn = document.createElement("button");
-          cancelBtn.type = "button";
-          cancelBtn.className = "pb-cancel-button";
-          cancelBtn.title = game.i18n.localize("PB.Cancel");
-          cancelBtn.innerHTML = '<i class="fas fa-times"></i>';
-          cancelBtn.addEventListener("click", (ev) => {
-            ev.preventDefault();
-            ev.stopPropagation();
-            this._editingDescriptionTarget = null;
-            this.render();
-          });
-          menu.appendChild(cancelBtn);
-          observer.disconnect();
-        }
-
-        // Handle save event
-        editor.addEventListener("save", () => {
-          this._editingDescriptionTarget = null;
-          this.submit();
-        });
-      });
+      bindProseMirrorDescriptionEditor(this, html);
     }
 
     if (!this.options.editable) return;
@@ -572,9 +536,10 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     // Check if we're in editing mode
     if (this._editingDescriptionTarget) {
+      const draft = getCachedEditorDraft(this, this._editingDescriptionTarget, this.actor.system?.description || "");
       formData.editingDescription = {
         target: this._editingDescriptionTarget,
-        value: this.actor.system?.description || "",
+        value: draft,
       };
     }
 
@@ -591,9 +556,9 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
 
     formData.descriptionHTML = formData.data.system.description
       ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
-          secrets: !!formData.owner,
-          links: true,
-          async: true,
+          secrets: this.actor.isOwner,
+          relativeTo: this.actor,
+          rollData: this.actor.getRollData?.() ?? {},
         })
       : "";
 
