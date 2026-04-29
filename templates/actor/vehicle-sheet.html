@@ -70,9 +70,17 @@
     </div>
   </header>
 
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <span class="spacer"></span>
+    <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
+    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
+    <span class="spacer"></span>
+  </nav>
+
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="tab combat-tab">      
+    <div class="tab combat-tab" data-group="primary" data-tab="combat">
       <div class="description">
         {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=false owner=owner editingDescription=editingDescription}}
       </div>      
@@ -245,6 +253,10 @@
       </ol>
       
     </div>
-    
+
+    {{!-- Effects Tab --}}
+    <div class="tab" data-group="primary" data-tab="effects">
+      {{> systems/pirateborg/templates/actor/common/effects.html}}
+    </div>
   </section>
 </form>
