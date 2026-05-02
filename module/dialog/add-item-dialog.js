@@ -1,33 +1,29 @@
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
+
 const ADD_ITEM_TEMPLATE = "systems/pirateborg/templates/dialog/add-item-dialog.html";
 
-class AddItemDialog extends Application {
+class AddItemDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor({ callback } = {}) {
     super();
     this.callback = callback;
   }
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      template: ADD_ITEM_TEMPLATE,
-      title: game.i18n.localize("PB.CreateNewItem"),
-      width: 420,
-      height: "auto",
-    });
+  static DEFAULT_OPTIONS = {
+    window: { title: "PB.CreateNewItem" },
+    position: { width: 420, height: "auto" },
+  };
+
+  static PARTS = {
+    main: { template: ADD_ITEM_TEMPLATE },
+  };
+
+  async _prepareContext() {
+    return { config: CONFIG.pirateborg };
   }
 
-  /** @override */
-  async getData(options) {
-    const data = super.getData(options);
-    data.config = CONFIG.pirateborg;
-    return data;
-  }
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-    html.find(".ok-button").on("click", this._onSubmit.bind(this));
+  _onRender() {
+    this.element.querySelector(".cancel-button")?.addEventListener("click", this._onCancel.bind(this));
+    this.element.querySelector(".ok-button")?.addEventListener("click", this._onSubmit.bind(this));
   }
 
   async _onCancel(event) {
@@ -37,17 +33,10 @@ class AddItemDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    const name = this.element.find("[name=itemname]").val();
-    const type = this.element.find("[name=itemtype]").val();
-
-    if (!name || !type) {
-      return;
-    }
-
-    this.callback({
-      name,
-      type,
-    });
+    const name = this.element.querySelector("[name=itemname]")?.value;
+    const type = this.element.querySelector("[name=itemtype]")?.value;
+    if (!name || !type) return;
+    this.callback({ name, type });
     await this.close();
   }
 }
@@ -57,8 +46,5 @@ class AddItemDialog extends Application {
  */
 export const showAddItemDialog = (data = {}) =>
   new Promise((resolve) => {
-    new AddItemDialog({
-      ...data,
-      callback: resolve,
-    }).render(true);
+    new AddItemDialog({ ...data, callback: resolve }).render({ force: true });
   });

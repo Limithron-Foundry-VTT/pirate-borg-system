@@ -1,75 +1,63 @@
 import { classItemFromPack, findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed } from "../system/settings.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
-class ActorBaseClassDialog extends Application {
+class ActorBaseClassDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
   }
 
-  /** @override */
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    options.id = "actor-base-class-dialog";
-    options.classes = ["pirateborg"];
-    options.title = game.i18n.localize("PB.BaseClass");
-    options.template = "systems/pirateborg/templates/dialog/actor-base-class-dialog.html";
-    options.width = 420;
-    options.height = "auto";
-    return options;
-  }
+  static DEFAULT_OPTIONS = {
+    id: "actor-base-class-dialog",
+    window: { title: "PB.BaseClass" },
+    position: { width: 420, height: "auto" },
+  };
 
-  /** @override */
-  async getData(options = {}) {
-    return foundry.utils.mergeObject(super.getData(options), {
+  static PARTS = {
+    main: { template: "systems/pirateborg/templates/dialog/actor-base-class-dialog.html" },
+  };
+
+  async _prepareContext() {
+    return {
       classes: await this.getClassData(),
       requireBaseClass: this.actor.characterClass.getData().requireBaseClass,
-    });
+    };
   }
 
   async getClassData() {
     return (await this.getClasses(findClassPacks()))
-      .filter((clazz) => !clazz.getData().requireBaseClass)
-      .filter((clazz) => isCharacterGeneratorClassAllowed(clazz.name))
-      .map((clazz) => ({
-        name: clazz.name,
-        baseClass: `${clazz.pack};${clazz.name}`,
-        selected: `${clazz.pack};${clazz.name}` === this.actor.getData().baseClass ? "selected" : "",
+      .filter((c) => !c.getData().requireBaseClass)
+      .filter((c) => isCharacterGeneratorClassAllowed(c.name))
+      .map((c) => ({
+        name: c.name,
+        baseClass: `${c.pack};${c.name}`,
+        selected: `${c.pack};${c.name}` === this.actor.getData().baseClass ? "selected" : "",
       }))
       .sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
   async getClasses(classPacks) {
-    const classses = [];
+    const classes = [];
     for (const classPack of classPacks) {
-      const clazz = await classItemFromPack(classPack);
-      if (clazz) {
-        classses.push(clazz);
-      }
+      const classItem = await classItemFromPack(classPack);
+      if (classItem) classes.push(classItem);
     }
-    return classses;
+    return classes;
   }
 
-  /**
-   * @override
-   * @param {JQuery.<HTMLElement>} html
-   */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-    html.find(".ok-button").on("click", this._onOk.bind(this));
-  }
-
-  async _onCancel(event) {
-    event.preventDefault();
-    await this.close();
+  _onRender() {
+    this.element.querySelector(".cancel-button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
+    this.element.querySelector(".ok-button")?.addEventListener("click", this._onOk.bind(this));
   }
 
   async _onOk(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents("form")[0];
-    const baseClass = $(form).find("#baseClass");
-    await this.actor.setBaseClass(baseClass.val());
+    const baseClass = this.element.querySelector("#baseClass")?.value;
+    await this.actor.setBaseClass(baseClass);
     await this.close();
   }
 }
@@ -78,6 +66,5 @@ class ActorBaseClassDialog extends Application {
  * @param {PBActor} actor
  */
 export const showActorBaseClassDialog = (actor) => {
-  const actorBaseClassDialog = new ActorBaseClassDialog(actor);
-  actorBaseClassDialog.render(true);
+  new ActorBaseClassDialog(actor).render({ force: true });
 };
