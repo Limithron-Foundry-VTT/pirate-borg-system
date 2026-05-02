@@ -1417,13 +1417,33 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 
 /* Fixes Module Management dialog */
 /* Fixes hard-to-read dark text on various system Dialogs */
-.window-app.sheet .window-content form .tabs {
+.window-app.sheet .window-content form nav.tabs,
+.application.pirateborg.sheet .window-content form nav.tabs {
+  gap: 0;
+}
+.window-app.sheet .window-content form h1,
+.window-app.sheet .window-content form h2,
+.window-app.sheet .window-content form h3,
+.window-app.sheet .window-content form h4,
+.window-app.sheet .window-content form h5,
+.window-app.sheet .window-content form h6,
+.application.pirateborg.sheet .window-content form h1,
+.application.pirateborg.sheet .window-content form h2,
+.application.pirateborg.sheet .window-content form h3,
+.application.pirateborg.sheet .window-content form h4,
+.application.pirateborg.sheet .window-content form h5,
+.application.pirateborg.sheet .window-content form h6 {
+  color: var(--background-color);
+}
+.window-app.sheet .window-content form .tabs,
+.application.pirateborg.sheet .window-content form .tabs {
   border: none;
   padding: 0;
   margin: 0;
   flex: 0;
 }
-.window-app.sheet .window-content form .tabs .item {
+.window-app.sheet .window-content form .tabs .item,
+.application.pirateborg.sheet .window-content form .tabs .item {
   text-align: center;
   font-family: var(--h2-font);
   font-size: 18px;
@@ -1437,21 +1457,26 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   text-transform: none;
   padding-left: 16px;
   padding-right: 16px;
+  color: var(--color-dark-1);
 }
-.window-app.sheet .window-content form .tabs .item.active {
+.window-app.sheet .window-content form .tabs .item.active,
+.application.pirateborg.sheet .window-content form .tabs .item.active {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid var(--dark-border-color);
   border-bottom: 0;
 }
-.window-app.sheet .window-content form .tabs .item.active:hover {
+.window-app.sheet .window-content form .tabs .item.active:hover,
+.application.pirateborg.sheet .window-content form .tabs .item.active:hover {
   text-shadow: none;
 }
-.window-app .window-content {
+.window-app .window-content,
+.application.pirateborg .window-content {
   background: var(--window-background);
 }
-.window-app .window-content form .tab {
+.window-app .window-content form .tab,
+.application.pirateborg .window-content form .tab {
   margin-bottom: 16px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -1461,41 +1486,54 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   padding: 16px;
   overflow-y: auto;
 }
-.window-app .window-content form .tab .tabs .item {
+.window-app .window-content form .tab .tabs .item,
+.application.pirateborg .window-content form .tab .tabs .item {
   font-size: 16px;
   font-weight: 400;
 }
-.window-app .window-content form .tab .tab {
+.window-app .window-content form .tab .tab,
+.application.pirateborg .window-content form .tab .tab {
   margin-bottom: 0;
   padding: 8px;
 }
-.window-app .window-content form .tab button label {
+.window-app .window-content form .tab button label,
+.application.pirateborg .window-content form .tab button label {
   font-size: 14px;
   font-weight: 400;
 }
-.window-app .window-content .form-group input[type=range] {
+.window-app .window-content .form-group input[type=range],
+.application.pirateborg .window-content .form-group input[type=range] {
   background: none;
   border: none;
 }
-.window-app .window-content .form-group input[type=range]:hover, .window-app .window-content .form-group input[type=range]:focus {
+.window-app .window-content .form-group input[type=range]:hover, .window-app .window-content .form-group input[type=range]:focus,
+.application.pirateborg .window-content .form-group input[type=range]:hover,
+.application.pirateborg .window-content .form-group input[type=range]:focus {
   box-shadow: none;
 }
-.window-app .window-content .form-group input[type=range] + .range-value {
+.window-app .window-content .form-group input[type=range] + .range-value,
+.application.pirateborg .window-content .form-group input[type=range] + .range-value {
   background: rgba(255, 255, 255, 0.2);
   border: none;
 }
-.window-app .window-content .form-group input {
+.window-app .window-content .form-group input,
+.application.pirateborg .window-content .form-group input {
   color: var(--foreground-color);
   border: 2px groove var(--light-border-color);
   background: rgba(255, 255, 255, 0.2);
 }
-.window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
+.window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus,
+.application.pirateborg .window-content .form-group input:hover,
+.application.pirateborg .window-content .form-group input:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-.window-app .window-content .form-group input.readonly {
+.window-app .window-content .form-group input.readonly,
+.application.pirateborg .window-content .form-group input.readonly {
   color: gray;
 }
-.window-app .window-content .form-group input:hover.readonly, .window-app .window-content .form-group input:focus.readonly {
+.window-app .window-content .form-group input:hover.readonly, .window-app .window-content .form-group input:focus.readonly,
+.application.pirateborg .window-content .form-group input:hover.readonly,
+.application.pirateborg .window-content .form-group input:focus.readonly {
   box-shadow: none;
   cursor: default;
 }
@@ -1960,6 +1998,16 @@ div#sidebar.collapsed #sidebar-tabs > .item.active {
 .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) h6,
 .application.journal-sheet .window-content .journal-entry-page > :not(.prosemirror) button {
   color: var(--background-color);
+}
+
+a.content-link,
+a.inline-roll {
+  color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
+}
+a.content-link > i,
+a.inline-roll > i {
+  color: var(--foreground-color);
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
@@ -2544,6 +2592,7 @@ li.folder > .folder-header {
 #help-dialog .sheet-header img {
   height: 100%;
   border: none;
+  flex: 0;
 }
 #help-dialog .sheet-body {
   font-family: var(--item-font);

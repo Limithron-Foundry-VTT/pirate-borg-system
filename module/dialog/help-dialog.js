@@ -1,36 +1,40 @@
 import { getSystemHelpDialogVersion, setSystemHelpDialogVersion } from "../system/settings.js";
 import { getModuleDependencies, getSystemVersion } from "../api/utils.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
-export class HelpDialog extends FormApplication {
-  constructor(options = {}) {
-    super(options);
-  }
+export class HelpDialog extends HandlebarsApplicationMixin(ApplicationV2) {
+  static DEFAULT_OPTIONS = {
+    id: "help-dialog",
+    classes: ["pirateborg", "sheet"],
+    window: { title: "PB.PirateBorg" },
+    position: { width: 600, height: 690 },
+    actions: {
+      enablePremium: HelpDialog.#onEnablePremium,
+    },
+  };
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "help-dialog",
-      classes: ["pirateborg", "sheet"],
+  static PARTS = {
+    main: {
       template: "systems/pirateborg/templates/dialog/help-dialog.html",
-      title: game.i18n.localize("PB.PirateBorg"),
-      width: 600,
-      height: 690,
-      scrollY: [".tab"],
-      tabs: [
-        {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "about",
-        },
-      ],
-    });
-  }
+      scrollable: [".tab"],
+    },
+  };
 
-  /** @override */
-  getData(options) {
-    const data = super.getData(options);
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: "about", group: "sheet", label: "PB.About" },
+        { id: "help", group: "sheet", label: "PB.Help" },
+        { id: "modules", group: "sheet", label: "PB.Modules" },
+      ],
+      initial: "about",
+      labelAttr: "label",
+    },
+  };
+
+  async _prepareContext() {
     return {
-      ...data,
+      tabs: this._prepareTabs("sheet"),
       pbModuleInstalled: !!game.modules.get(CONFIG.PB.premiumModuleName),
       pbModuleEnabled: !!game.modules.get(CONFIG.PB.premiumModuleName)?.active,
       pbModuleName: CONFIG.PB.premiumModuleName,
@@ -48,12 +52,7 @@ export class HelpDialog extends FormApplication {
     return CONFIG.PB.recommendedModules
       .filter((module) => {
         if (module.type !== type) return false;
-
-        // Check compatibility
-        if (module.compatibility?.max && game.release.generation > module.compatibility.max) {
-          return false;
-        }
-
+        if (module.compatibility?.max && game.release.generation > module.compatibility.max) return false;
         return true;
       })
       .map((module) => ({
@@ -68,20 +67,14 @@ export class HelpDialog extends FormApplication {
       }));
   }
 
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find("#help-dialog-enable-premium").on("click", this._enablePremiumModule.bind(this));
-  }
-
-  _enablePremiumModule() {
-    new ModuleManagement().render(true);
+  static #onEnablePremium() {
+    new ModuleManagement().render({ force: true });
   }
 }
 
 export const showHelpDialogOnStartup = () => {
   const latestVersion = getSystemHelpDialogVersion();
   const currentVersion = getSystemVersion();
-
   if (latestVersion === null || foundry.utils.isNewerVersion(currentVersion, latestVersion)) {
     setSystemHelpDialogVersion(currentVersion);
     showHelpDialog();
@@ -89,6 +82,5 @@ export const showHelpDialogOnStartup = () => {
 };
 
 export const showHelpDialog = () => {
-  const helpDialog = new HelpDialog();
-  helpDialog.render(true);
+  new HelpDialog().render({ force: true });
 };
