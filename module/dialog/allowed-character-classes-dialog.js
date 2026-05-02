@@ -5,7 +5,7 @@ const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 export class AllowedCharacterClassesDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
     id: "allowed-character-generator-classes-dialog",
-    classes: ["form"],
+    classes: ["form", "pirateborg"],
     window: { title: "PB.AllowedCharacterGeneratorClassesEdit" },
     position: { width: 420 },
     tag: "form",
