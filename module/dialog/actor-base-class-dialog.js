@@ -10,6 +10,7 @@ class ActorBaseClassDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static DEFAULT_OPTIONS = {
     id: "actor-base-class-dialog",
+    classes: ["pirateborg"],
     window: { title: "PB.BaseClass" },
     position: { width: 420, height: "auto" },
   };
