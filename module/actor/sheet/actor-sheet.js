@@ -81,6 +81,7 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     this._buildEffectLists(context);
 
     context.actor = this.actor;
+    context.data = { ...this.actor.toObject(false), localizedType: context.localizedType };
     context.items = [...this.actor.items].map((item) => {
       const obj = item.toObject(false);
       if (item.type === CONFIG.PB.itemTypes.container) {

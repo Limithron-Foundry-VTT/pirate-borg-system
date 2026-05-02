@@ -2,40 +2,42 @@ import PBActorSheet from "./actor-sheet.js";
 import { LootSheetHelper, QuantityDialog } from "../loot-helper.js";
 import { emitLootItems, emitLootCurrency, emitDistributeCurrency } from "../../system/sockets.js";
 import { isLootCurrencyEnabled, isLootAllEnabled } from "../../system/settings.js";
-import { confirmDialog } from "../../api/utils.js";
 
-/**
- * @extends {PBActorSheet}
- */
 export class PBActorSheetContainer extends PBActorSheet {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["pirateborg", "sheet", "actor", "container"],
+  static DEFAULT_OPTIONS = {
+    classes: ["pirateborg", "sheet", "actor", "container"],
+    position: { width: 600, height: 700 },
+    resizable: true,
+    form: {
+      handler: PBActorSheetContainer.#onSubmitForm,
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+  };
+
+  static PARTS = {
+    main: {
       template: "systems/pirateborg/templates/actor/container-sheet.html",
-      width: 600,
-      height: 700,
-      resizable: true,
-      minimizable: true,
+      scrollable: [".tab"],
+    },
+  };
+
+  static TABS = {
+    sheet: {
       tabs: [
-        {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "inventory",
-        },
+        { id: "inventory", group: "sheet", label: "PB.LootInventory" },
+        { id: "permissions", group: "sheet", label: "PB.LootPermissions" },
+        { id: "description", group: "sheet", label: "PB.TabDescription" },
       ],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
-    });
-  }
+      initial: "inventory",
+      labelAttr: "label",
+    },
+  };
 
-  /**
-   * @override
-   * @returns {ActorSheet.Data}
-   */
-  async getData(options) {
-    const formData = await super.getData(options);
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
 
-    const items = formData.data.items.filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type)).sort((a, b) => a.name.localeCompare(b.name));
+    const items = context.items.filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type)).sort((a, b) => a.name.localeCompare(b.name));
     const toNumber = (value, fallback = 0) => {
       const parsed = Number.parseFloat(value);
       return Number.isFinite(parsed) ? parsed : fallback;
@@ -52,7 +54,7 @@ export class PBActorSheetContainer extends PBActorSheet {
       return sum + price * quantity;
     }, 0);
 
-    const silver = Math.max(0, toNumber(formData.data.system.silver, 0));
+    const silver = Math.max(0, toNumber(this.actor.system.silver, 0));
     const totalValue = itemValueTotal + silver;
 
     const playerData = [];
@@ -73,7 +75,7 @@ export class PBActorSheetContainer extends PBActorSheet {
       }
     }
 
-    formData.loot = {
+    context.loot = {
       items,
       totalItems,
       contentCount,
@@ -89,67 +91,53 @@ export class PBActorSheetContainer extends PBActorSheet {
       lootAll: isLootAllEnabled(),
     };
 
-    return formData;
+    return context;
   }
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    this._updateResponsiveLayout(html);
+  _onRender() {
+    super._onRender();
+    this._updateResponsiveLayout();
 
     if (!this.actor.isOwner) {
-      html.find(".item-loot").click((ev) => this._onLootItem(ev, false));
-      html.find(".item-loot-all").click((ev) => this._onLootItem(ev, true));
-      html.find(".loot-currency").click(this._onLootCurrency.bind(this));
-      html.find(".split-currency").click(this._onSplitCurrency.bind(this));
-      html.find(".loot-all").click(this._onLootAll.bind(this));
+      this.element.querySelectorAll(".item-loot").forEach((el) => el.addEventListener("click", (ev) => this._onLootItem(ev, false)));
+      this.element.querySelectorAll(".item-loot-all").forEach((el) => el.addEventListener("click", (ev) => this._onLootItem(ev, true)));
+      this.element.querySelector(".loot-currency")?.addEventListener("click", this._onLootCurrency.bind(this));
+      this.element.querySelector(".split-currency")?.addEventListener("click", this._onSplitCurrency.bind(this));
+      this.element.querySelector(".loot-all")?.addEventListener("click", this._onLootAll.bind(this));
     }
 
-    if (!this.options.editable) return;
+    if (!this.isEditable) return;
 
     if (this.actor.isOwner) {
-      html.find(".permission-all-toggle").click(this._onCycleDefaultPermission.bind(this));
-      html.find(".permission-proficiency:not(.permission-all-toggle)").click(this._onCyclePermission.bind(this));
+      this.element.querySelectorAll(".permission-all-toggle").forEach((el) => el.addEventListener("click", this._onCycleDefaultPermission.bind(this)));
+      this.element
+        .querySelectorAll(".permission-proficiency:not(.permission-all-toggle)")
+        .forEach((el) => el.addEventListener("click", this._onCyclePermission.bind(this)));
     }
 
-    html.find(".item-edit").click(this._onItemEdit.bind(this));
-    html.find(".item-delete").click(this._onItemDelete.bind(this));
-    html.find(".item-quantity-input").change(this._onItemQuantityChange.bind(this));
+    this.element.querySelectorAll(".item-edit").forEach((el) => el.addEventListener("click", this._onItemEdit.bind(this)));
+    this.element.querySelectorAll(".item-delete").forEach((el) => el.addEventListener("click", this._onItemDelete.bind(this)));
+    this.element.querySelectorAll(".item-quantity-input").forEach((el) => el.addEventListener("change", this._onItemQuantityChange.bind(this)));
   }
 
-  /** @override */
-  setPosition(options = {}) {
-    const position = super.setPosition(options);
-    if (this.element && this.element.length) {
-      this._updateResponsiveLayout(this.element.find("form"));
-    }
-    return position;
+  setPosition(position = {}) {
+    const result = super.setPosition(position);
+    this._updateResponsiveLayout();
+    return result;
   }
 
-  /**
-   * @param {jQuery} html
-   * @private
-   */
-  _updateResponsiveLayout(html) {
+  _updateResponsiveLayout() {
     const sheetWidth = this.position.width || 600;
-    if (sheetWidth < 500) {
-      html.addClass("narrow");
-    } else {
-      html.removeClass("narrow");
-    }
-    if (sheetWidth < 550) {
-      html.addClass("compact");
-    } else {
-      html.removeClass("compact");
-    }
+    const form = this.element?.querySelector("form");
+    if (!form) return;
+    form.classList.toggle("narrow", sheetWidth < 500);
+    form.classList.toggle("compact", sheetWidth < 550);
   }
 
-  /**
-   * @param {number} level
-   * @returns {string}
-   * @private
-   */
+  static async #onSubmitForm(event, form, formData) {
+    await this.actor.update(formData.object);
+  }
+
   static _getPermissionIcon(level) {
     const icons = {
       0: '<i class="far fa-circle"></i>',
@@ -159,11 +147,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     return icons[level] || icons[0];
   }
 
-  /**
-   * @param {number} level
-   * @returns {string}
-   * @private
-   */
   static _getPermissionDescription(level) {
     const descriptions = {
       0: game.i18n.localize("PB.LootPermissionNone"),
@@ -173,11 +156,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     return descriptions[level] || descriptions[0];
   }
 
-  /**
-   * @param {number} level
-   * @returns {string}
-   * @private
-   */
   static _getDefaultPermissionDescription(level) {
     const descriptions = {
       0: game.i18n.localize("PB.LootDefaultPermissionNone"),
@@ -186,13 +164,9 @@ export class PBActorSheetContainer extends PBActorSheet {
     return descriptions[level] || descriptions[0];
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onCyclePermission(event) {
     event.preventDefault();
-    const playerId = $(event.currentTarget).closest(".permission").data("player-id");
+    const playerId = event.currentTarget.closest(".permission")?.dataset.playerId;
     const currentPermission = LootSheetHelper.getLootPermissionForPlayer(this.actor, game.users.get(playerId));
 
     const levels = [0, 2, 3];
@@ -204,10 +178,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     await this.actor.update({ ownership: currentPermissions });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onCycleDefaultPermission(event) {
     event.preventDefault();
     const currentDefault = this.actor.ownership.default || 0;
@@ -221,28 +191,20 @@ export class PBActorSheetContainer extends PBActorSheet {
     await this.actor.update({ ownership: currentPermissions });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   _onItemEdit(event) {
     event.preventDefault();
     const item = this.getItem(event);
-    if (item) item.sheet.render(true);
+    if (item) item.sheet.render({ force: true });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onItemDelete(event) {
     event.preventDefault();
     const itemId = this.getItemId(event);
     const item = this.actor.items.get(itemId);
     if (!item) return;
 
-    const confirmed = await confirmDialog({
-      title: game.i18n.localize("PB.ItemDelete"),
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n.localize("PB.ItemDelete") },
       content: `<p>${game.i18n.format("PB.LootDeleteConfirm", { name: item.name })}</p>`,
     });
 
@@ -251,10 +213,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {Event} event
-   * @private
-   */
   async _onItemQuantityChange(event) {
     event.preventDefault();
     const input = event.currentTarget;
@@ -277,11 +235,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     await item.update({ "system.quantity": quantity });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @param {boolean} all
-   * @private
-   */
   _onLootItem(event, all = false) {
     event.preventDefault();
 
@@ -296,7 +249,7 @@ export class PBActorSheetContainer extends PBActorSheet {
       return;
     }
 
-    const itemId = $(event.currentTarget).closest(".item").data("item-id");
+    const itemId = event.currentTarget.closest(".item")?.dataset.itemId;
     const item = this.actor.items.get(itemId);
     if (!item) return;
 
@@ -310,15 +263,11 @@ export class PBActorSheetContainer extends PBActorSheet {
           quantity = Math.min(quantity, maxQuantity);
           this._emitLootRequest(itemId, quantity, targetGm);
         },
-        { acceptLabel: game.i18n.localize("PB.LootLoot") },
-      ).render(true);
+        { acceptLabel: game.i18n.localize("PB.LootLoot") }
+      ).render({ force: true });
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   _onLootCurrency(event) {
     event.preventDefault();
 
@@ -340,10 +289,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   _onSplitCurrency(event) {
     event.preventDefault();
 
@@ -362,10 +307,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onLootAll(event) {
     event.preventDefault();
 
@@ -374,8 +315,8 @@ export class PBActorSheetContainer extends PBActorSheet {
       return;
     }
 
-    const confirmed = await confirmDialog({
-      title: game.i18n.localize("PB.LootLootAll"),
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n.localize("PB.LootLootAll") },
       content: `<p>${game.i18n.localize("PB.LootLootAllConfirm")}</p>`,
     });
     if (!confirmed) return;
@@ -411,10 +352,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     }
   }
 
-  /**
-   * @returns {User|null}
-   * @private
-   */
   _findActiveGM() {
     for (const user of game.users) {
       if (user.isGM && user.active) {
@@ -424,12 +361,6 @@ export class PBActorSheetContainer extends PBActorSheet {
     return null;
   }
 
-  /**
-   * @param {string} itemId
-   * @param {number} quantity
-   * @param {User} targetGm
-   * @private
-   */
   _emitLootRequest(itemId, quantity, targetGm) {
     emitLootItems({
       looterId: game.user.character.id,

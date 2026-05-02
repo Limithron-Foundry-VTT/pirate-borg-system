@@ -26,7 +26,7 @@
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
     <a class="item" data-tab="inventory">{{ localize "PB.LootInventory" }}</a>
     {{#if loot.isOwner}}
@@ -38,7 +38,7 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="tab inventory-tab" data-group="primary" data-tab="inventory">
+    <div class="tab inventory-tab" data-group="sheet" data-tab="inventory">
       <div class="sheet-content flexrow">
         {{!-- Main Content --}}
         <div class="main-content flexcol">
@@ -148,7 +148,7 @@
 
     {{!-- Permissions Tab --}}
     {{#if loot.isOwner}}
-    <div class="tab permissions-tab" data-group="primary" data-tab="permissions">
+    <div class="tab permissions-tab" data-group="sheet" data-tab="permissions">
       <section class="permissions-section">
         <h3><i class="fas fa-lock"></i> {{ localize "PB.LootPermissions" }}</h3>
         <ul class="permissions-list">
@@ -172,8 +172,12 @@
     {{/if}}
 
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab" data-group="sheet" data-tab="description">
+      {{#if editable}}
+        <prose-mirror name="system.description" collaborate="false"></prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
   </section>
 </form>

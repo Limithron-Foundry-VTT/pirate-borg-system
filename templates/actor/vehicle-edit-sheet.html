@@ -9,13 +9,13 @@
         <input class="actor-name container-name" name="name" type="text" value="{{data.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
       <div class="header-subtitle-row">
-        <div class="actor-type">{{localize data.localizedType}}</div>
+        <div class="actor-type">{{localize localizedType}}</div>
       </div>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{ localize "PB.TabDescription" }}</a>
     <a class="item" data-tab="items">{{ localize "PB.TabEquipment" }}</a>
@@ -26,17 +26,21 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="tab" data-group="primary" data-tab="description">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab" data-group="sheet" data-tab="description">
+      {{#if editable}}
+        <prose-mirror name="system.description" collaborate="false"></prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
 
-    <div class="tab equipment-tab" data-group="primary" data-tab="items">
+    <div class="tab equipment-tab" data-group="sheet" data-tab="items">
       <ol class="items-list equipment-list">
         {{> "systems/pirateborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
     </div>
 
-    <div class="tab" data-group="primary" data-tab="data">
+    <div class="tab" data-group="sheet" data-tab="data">
       <div class="form-group">
         <label>{{localize "PB.ItemSpecial"}}:</label>
         <textarea name="system.special" rows="8">{{data.system.special}}</textarea>
@@ -135,7 +139,7 @@
     </div>
 
     {{! Effects }}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>

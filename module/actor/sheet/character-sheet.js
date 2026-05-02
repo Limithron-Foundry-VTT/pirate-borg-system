@@ -12,7 +12,6 @@ import {
   characterInvokeRelicAction,
   characterInvokeRitualAction,
   characterLuckPerDayAction,
-  characterShowDevilLuckAction,
   characterReloadAction,
   characterRestAction,
   characterRitualsPerDayAction,
@@ -21,57 +20,66 @@ import {
   characterRollSpiritAction,
   characterRollStrengthAction,
   characterRollToughnessAction,
+  characterShowDevilLuckAction,
 } from "../../api/action/actions.js";
 import { showCharacterGeneratorDialog } from "../../dialog/character-generator-dialog.js";
 import { showActorBaseClassDialog } from "../../dialog/actor-base-class-dialog.js";
 import { characterUseItemAction } from "../../api/action/character/character-use-item-action.js";
 
-/**
- * @extends {ActorSheet}
- */
 export class PBActorSheetCharacter extends PBActorSheet {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["pirateborg", "sheet", "actor", "character"],
-      template: "systems/pirateborg/templates/actor/character-sheet.html",
-      width: 600,
-      height: 700,
-      scrollY: [".tab"],
-      tabs: [
+  static DEFAULT_OPTIONS = {
+    classes: ["pirateborg", "sheet", "actor", "character"],
+    position: { width: 600, height: 700 },
+    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
+    form: {
+      handler: PBActorSheetCharacter.#onSubmitForm,
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+    window: {
+      controls: [
         {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "combat",
+          action: "baseClass",
+          icon: "fas fa-cog",
+          label: "PB.BaseClass",
+        },
+        {
+          action: "regenerateCharacter",
+          icon: "fas fa-skull",
+          label: "PB.RegenerateCharacter",
         },
       ],
-      dragDrop: [{ dragSelector: ".item-list .item, .defend-button", dropSelector: null }],
-    });
-  }
+    },
+    actions: {
+      baseClass: PBActorSheetCharacter.#onBaseClass,
+      regenerateCharacter: PBActorSheetCharacter.#onRegenerateCharacter,
+    },
+  };
 
-  /** @override */
-  _getHeaderButtons() {
-    return [
-      {
-        class: `actor-base-class-dialog-button-${this.actor.id}`,
-        label: game.i18n.localize("PB.BaseClass"),
-        icon: "fas fa-cog",
-        onclick: this._onBaseClass.bind(this),
-      },
-      {
-        class: `regenerate-character-button-${this.actor.id}`,
-        label: game.i18n.localize("PB.RegenerateCharacter"),
-        icon: "fas fa-skull",
-        onclick: this._onRegenerateCharacter.bind(this),
-      },
-      ...super._getHeaderButtons(),
-    ];
-  }
+  static PARTS = {
+    main: {
+      template: "systems/pirateborg/templates/actor/character-sheet.html",
+      scrollable: [".tab"],
+    },
+  };
 
-  /** @override */
-  _onDragStart(event) {
-    const li = event.currentTarget;
-    if (li.classList.contains("defend-button")) {
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: "combat", group: "sheet", label: "PB.TabCombat" },
+        { id: "powers", group: "sheet", label: "PB.Powers" },
+        { id: "equipment", group: "sheet", label: "PB.TabEquipment" },
+        { id: "features", group: "sheet", label: "PB.TabFeatures" },
+        { id: "history", group: "sheet", label: "PB.TabHistory" },
+        { id: "effects", group: "sheet", label: "PB.TabEffects" },
+      ],
+      initial: "combat",
+      labelAttr: "label",
+    },
+  };
+
+  async _onDragStart(event) {
+    if (event.currentTarget.classList.contains("defend-button")) {
       const dragData = {
         type: "Action",
         action: "defend",
@@ -82,29 +90,21 @@ export class PBActorSheetCharacter extends PBActorSheet {
       event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
       return;
     }
-    super._onDragStart(event);
+    return super._onDragStart(event);
   }
 
-  /** @override */
-  async getData(options) {
-    const formData = await super.getData(options);
-    formData.data.system.dynamic = {
-      ...(formData.data.system.dynamic ?? {}),
-      ...(await this._prepareItems(formData)),
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const preparedItems = await this._prepareItems(context);
+    context.data.system.dynamic = {
+      ...(context.data.system.dynamic ?? {}),
+      ...preparedItems,
     };
-
-    console.log(formData);
-
-    return formData;
+    context.effectiveSpeed = (this.actor.system.attributes.speed.max || 0) + (this.actor.system.attributes.combat.speedModifier || 0);
+    return context;
   }
 
-  /**
-   * Organize and classify Items for Character sheets.
-   *
-   * @param {Object} sheetData The sheet data to prepare.
-   * @return {Promise}
-   */
-  async _prepareItems(sheetData) {
+  async _prepareItems(context) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const byType = (a, b) => (a.type.toLowerCase() > b.type.toLowerCase() ? 1 : b.type.toLowerCase() > a.type.toLowerCase() ? -1 : 0);
     const groupByType = (items, item) => {
@@ -123,18 +123,18 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.class = this.actor.characterClass?.toObject(false);
     data.baseClass = this.actor.characterBaseClass?.toObject(false);
 
-    data.equipment = sheetData.data.items
+    data.equipment = context.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => item.type !== CONFIG.PB.itemTypes.grog) // Grog shown in separate section
+      .filter((item) => item.type !== CONFIG.PB.itemTypes.grog)
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
       .filter((item) => !item.system.hasContainer)
       .sort(byName);
 
-    data.equippedArmor = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.system.equipped);
+    data.equippedArmor = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.armor).find((item) => item.system.equipped);
 
-    data.equippedHat = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.system.equipped);
+    data.equippedHat = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.hat).find((item) => item.system.equipped);
 
-    data.equippedWeapons = sheetData.data.items
+    data.equippedWeapons = context.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.weapon)
       .filter((item) => item.system.equipped)
       .sort(byName);
@@ -145,18 +145,18 @@ export class PBActorSheetCharacter extends PBActorSheet {
       }
     }
 
-    data.ammo = sheetData.data.items
+    data.ammo = context.items
       .filter((item) => item.type === CONFIG.PB.itemTypes.ammo)
       .sort(byName)
       .map((i) => ({ ...i, fullName: `${i.name} (${i.system.quantity})` }));
 
-    data.features = sheetData.data.items
+    data.features = context.items
       .filter((item) => [CONFIG.PB.itemTypes.feature, CONFIG.PB.itemTypes.background, CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => !["Arcane Ritual", "Ancient Relic"].includes(item.system.invokableType))
       .reduce(groupByType, [])
       .sort(byType);
 
-    data.invokables = sheetData.data.items
+    data.invokables = context.items
       .filter((item) => [CONFIG.PB.itemTypes.invokable].includes(item.type))
       .filter((item) => ["Arcane Ritual", "Ancient Relic"].includes(item.system.invokableType))
       .reduce(groupByType, [])
@@ -165,8 +165,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     data.trackCarryingCapacity = trackCarryingCapacity();
     data.trackAmmo = trackAmmo();
 
-    // Find all grog items in inventory
-    data.grog = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.grog).sort(byName);
+    data.grog = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.grog).sort(byName);
     data.hasGrog = data.grog.some((item) => item.system.quantity > 0);
     data.grogCount = data.grog.reduce((sum, item) => sum + (item.system.quantity || 0), 0);
     data.grogEnabled = isGrogEnabled();
@@ -174,120 +173,94 @@ export class PBActorSheetCharacter extends PBActorSheet {
     return data;
   }
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
+  _onRender() {
+    super._onRender();
+    if (!this.isEditable) return;
 
-    if (!this.options.editable) return;
-
-    this.bindSelectorsEvent("click", {
-      ".item-toggle-equipped": this._onToggleEquippedItem,
-      ".item-toggle-carried": this._onToggleCarriedItem,
-      ".ability-label.rollable.strength": this._onStrengthRoll,
-      ".ability-label.rollable.agility": this._onAgilityRoll,
-      ".ability-label.rollable.presence": this._onPresenceRoll,
-      ".ability-label.rollable.toughness": this._onToughnessRoll,
-      ".ability-label.rollable.spirit": this._onSpiritRoll,
-      ".party-initiative-button": this._onPartyInitiativeRoll,
-      ".attack-button": this._onAttackRoll,
-      ".reload-button": this._onReload,
-      ".defend-button": this._onDefendRoll,
-      ".tier-radio": this._onArmorTierRadio,
-      ".broken-button": this._onBroken,
-      ".rest-button": this._onRest,
-      ".luck-rule": this._onLuckRoll,
-      ".luck-label": this._onLuckLabel,
-      ".get-better-button": this._onGetBetter,
-      ".action-macro-button": this._onActionMacroRoll,
-      ".action-invokable": this._onActionInvokable,
-      ".ritual-per-day-text": this._onRitualPerDay,
-      ".extra-resources-per-day-text": this._onExtraResourcePerDay,
-      ".item-base-class": this._onBaseClassItem,
-      ".item-class": this._onClassItem,
-      // Grog controls
-      ".drink-grog-button": this._onDrinkGrog,
-    });
-
-    this.bindSelectorsEvent("change", {
-      "select.ammo-select": this._onAmmoSelect,
+    [
+      [".item-toggle-equipped", "click", this._onToggleEquippedItem],
+      [".item-toggle-carried", "click", this._onToggleCarriedItem],
+      [".ability-label.rollable.strength", "click", this._onStrengthRoll],
+      [".ability-label.rollable.agility", "click", this._onAgilityRoll],
+      [".ability-label.rollable.presence", "click", this._onPresenceRoll],
+      [".ability-label.rollable.toughness", "click", this._onToughnessRoll],
+      [".ability-label.rollable.spirit", "click", this._onSpiritRoll],
+      [".party-initiative-button", "click", this._onPartyInitiativeRoll],
+      [".attack-button", "click", this._onAttackRoll],
+      [".reload-button", "click", this._onReload],
+      [".defend-button", "click", this._onDefendRoll],
+      [".tier-radio", "click", this._onArmorTierRadio],
+      [".broken-button", "click", this._onBroken],
+      [".rest-button", "click", this._onRest],
+      [".luck-rule", "click", this._onLuckRoll],
+      [".luck-label", "click", this._onLuckLabel],
+      [".get-better-button", "click", this._onGetBetter],
+      [".action-macro-button", "click", this._onActionMacroRoll],
+      [".action-invokable", "click", this._onActionInvokable],
+      [".ritual-per-day-text", "click", this._onRitualPerDay],
+      [".extra-resources-per-day-text", "click", this._onExtraResourcePerDay],
+      [".item-base-class", "click", this._onBaseClassItem],
+      [".item-class", "click", this._onClassItem],
+      [".drink-grog-button", "click", this._onDrinkGrog],
+      ["select.ammo-select", "change", this._onAmmoSelect],
+    ].forEach(([selector, event, handler]) => {
+      this.element.querySelectorAll(selector).forEach((el) => el.addEventListener(event, handler.bind(this)));
     });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
+  static async #onSubmitForm(event, form, formData) {
+    await this.actor.update(formData.object);
+  }
+
+  static #onBaseClass() {
+    showActorBaseClassDialog(this.actor);
+  }
+
+  static #onRegenerateCharacter() {
+    showCharacterGeneratorDialog(this.actor);
+  }
+
   async _onBaseClassItem(event) {
     event.preventDefault();
-    this.actor.characterBaseClass.sheet.render(true);
+    this.actor.characterBaseClass.sheet.render({ force: true });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onClassItem(event) {
     event.preventDefault();
-    this.actor.characterClass.sheet.render(true);
+    this.actor.characterClass.sheet.render({ force: true });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onPartyInitiativeRoll(event) {
     event.preventDefault();
     await actorPartyInitiativeAction();
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onAttackRoll(event) {
     event.preventDefault();
     const item = this.getItem(event);
     await characterAttackAction(this.actor, item);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onArmorTierRadio(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
     const item = this.getItem(event);
-    await item.setTier({ value: parseInt(input[0].value, 10) });
+    await item.setTier({ value: parseInt(event.currentTarget.value, 10) });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onDefendRoll(event) {
     event.preventDefault();
     await characterDefendAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onReload(event) {
     event.preventDefault();
     const item = this.getItem(event);
     await characterReloadAction(this.actor, item);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onToggleEquippedItem(event) {
     event.preventDefault();
     const item = this.getItem(event);
-
     if (item.equipped) {
       await this.actor.unequipItem(item);
     } else {
@@ -295,10 +268,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onToggleCarriedItem(event) {
     event.preventDefault();
     const item = this.getItem(event);
@@ -309,167 +278,88 @@ export class PBActorSheetCharacter extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onAmmoSelect(event) {
     event.preventDefault();
-    const select = $(event.currentTarget);
     const weapon = this.getItem(event);
     if (weapon) {
-      await weapon.setAmmoId(select.val());
+      await weapon.setAmmoId(event.currentTarget.value);
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onStrengthRoll(event) {
     event.preventDefault();
     await characterRollStrengthAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onAgilityRoll(event) {
     event.preventDefault();
     await characterRollAgilityAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onPresenceRoll(event) {
     event.preventDefault();
     await characterRollPresenceAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onToughnessRoll(event) {
     event.preventDefault();
     await characterRollToughnessAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onSpiritRoll(event) {
     event.preventDefault();
     await characterRollSpiritAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onLuckRoll(event) {
     event.preventDefault();
     await characterLuckPerDayAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
-  _onRegenerateCharacter(event) {
-    event.preventDefault();
-    showCharacterGeneratorDialog(this.actor);
-
-    //new CharacterGeneratorDialog(this.actor).render(true);
-  }
-
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
-  _onBaseClass(event) {
-    event.preventDefault();
-    showActorBaseClassDialog(this.actor);
-  }
-
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onBroken(event) {
     event.preventDefault();
     await characterBrokenAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRest(event) {
     event.preventDefault();
     await characterRestAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
-  _onGetBetter(event) {
+  async _onGetBetter(event) {
     event.preventDefault();
-    const getingBetterConfirmDialog = new Dialog(
-      {
-        title: game.i18n.localize("PB.GetBetter"),
-        content: game.i18n.localize("PB.GetBetterConfirmMessage"),
-        buttons: {
-          getbetter: {
-            icon: '<i class="fas fa-check"></i>',
-            label: game.i18n.localize("PB.GetBetter"),
-            callback: async () => {
-              // Allow modules to replace the get better flow
-              if (Hooks.call("pirateborg.preCharacterGetBetter", this.actor) === false) {
-                return;
-              }
-
-              return characterGetBetterAction(this.actor);
-            },
-          },
-          cancel: {
-            label: game.i18n.localize("PB.Cancel"),
+    await foundry.applications.api.DialogV2.wait({
+      window: { title: game.i18n.localize("PB.GetBetter") },
+      content: `<p>${game.i18n.localize("PB.GetBetterConfirmMessage")}</p>`,
+      buttons: [
+        {
+          action: "getbetter",
+          label: game.i18n.localize("PB.GetBetter"),
+          icon: "fas fa-check",
+          callback: async () => {
+            if (Hooks.call("pirateborg.preCharacterGetBetter", this.actor) === false) return;
+            await characterGetBetterAction(this.actor);
           },
         },
-        default: "cancel",
-      },
-      { classes: ["dialog", "custom-dialog"] },
-    );
-    getingBetterConfirmDialog.render(true);
+        {
+          action: "cancel",
+          label: game.i18n.localize("PB.Cancel"),
+          default: true,
+        },
+      ],
+    });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRitualPerDay(event) {
     event.preventDefault();
     await characterRitualsPerDayAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onExtraResourcePerDay(event) {
     event.preventDefault();
     await characterExtraResourcePerDayAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onActionInvokable(event) {
     event.preventDefault();
     const item = this.getItem(event);
@@ -486,32 +376,16 @@ export class PBActorSheetCharacter extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onActionMacroRoll(event) {
     event.preventDefault();
     const item = this.getItem(event);
     await characterUseItemAction(this.actor, item);
   }
 
-  /**
-   * @private
-   */
   async _onLuckLabel() {
     await characterShowDevilLuckAction(this.actor);
   }
 
-  // ============================================
-  // Grog Management Methods
-  // ============================================
-
-  /**
-   * Handle clicking the Drink button - triggers the drink grog action
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onDrinkGrog(event) {
     event.preventDefault();
     await characterDrinkGrogAction(this.actor);

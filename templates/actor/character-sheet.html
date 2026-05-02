@@ -117,7 +117,7 @@
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
     <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
     <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>
@@ -131,12 +131,16 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- History Tab --}}
-    <div class="tab class-tab" data-group="primary" data-tab="history">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab class-tab" data-group="sheet" data-tab="history">
+      {{#if editable}}
+        <prose-mirror name="system.description" collaborate="false"></prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
 
     {{!-- Combat Tab --}}
-    <div class="tab combat-tab" data-group="primary" data-tab="combat">
+    <div class="tab combat-tab" data-group="sheet" data-tab="combat">
       {{!-- Initiative buttons --}}
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
@@ -305,14 +309,14 @@
       <div class="underarmor-row">
         <div class="incoming-attack">
           <div>
-            <button type="button" class="item-button rollable defend-button button" title="{{localize 'PB.Defend'}}" draggable="true" data-action="defend">{{localize "PB.Defend"}}</button>
+            <button type="button" class="item-button rollable defend-button button draggable" title="{{localize 'PB.Defend'}}" draggable="true" data-action="defend">{{localize "PB.Defend"}}</button>
           </div>
         </div>
       </div>
     </div>
 
     {{!-- Features Tab --}}
-    <div class="tab specials-tab" data-group="primary" data-tab="features">
+    <div class="tab specials-tab" data-group="sheet" data-tab="features">
       {{#if data.system.dynamic.useExtraResource}}
       <div class="powers-top-row">
         <div class="stats-block">
@@ -365,7 +369,7 @@
     </div>
 
     {{!-- Powers Tab --}}
-    <div class="tab powers-tab" data-group="primary" data-tab="powers">
+    <div class="tab powers-tab" data-group="sheet" data-tab="powers">
       <div class="powers-top-row">
         <div class="stats-block">
           <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
@@ -405,7 +409,7 @@
     </div>
 
     {{!-- Equipment Tab --}}
-    <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
+    <div class="tab equipment-tab" data-group="sheet" data-tab="equipment">
       <div class="equipment-top-row">
         <div class="stats-block">
           <span class="stat-label silver-label">{{ localize "PB.Silver" }}</span>
@@ -466,7 +470,7 @@
     </div>
 
     {{!-- Effects Tab --}}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>

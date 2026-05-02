@@ -28,7 +28,7 @@
   </header>
 
   {{! Sheet Tab Navigation }}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
     <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
     <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
@@ -39,12 +39,16 @@
   {{! Sheet Body }}
   <section class="sheet-body">
     {{! Description Tab }}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab" data-group="sheet" data-tab="description">
+      {{#if editable}}
+        <prose-mirror name="system.description" collaborate="false"></prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
 
     {{! Details Tab }}
-    <div class="tab" data-group="primary" data-tab="details">
+    <div class="tab" data-group="sheet" data-tab="details">
       {{! Morale }}
       <div class="form-group">
         <label>{{localize "PB.Morale"}}:</label>
@@ -88,7 +92,7 @@
     </div>
 
     {{! Effects }}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>

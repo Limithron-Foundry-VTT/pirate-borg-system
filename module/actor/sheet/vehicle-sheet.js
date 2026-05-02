@@ -19,84 +19,70 @@ import {
 import PBActorSheet from "./actor-sheet.js";
 import { PBActorSheetVehicleEdit } from "./vehicle-edit-sheet.js";
 
-/**
- * @extends {ActorSheet}
- */
 export class PBActorSheetVehicle extends PBActorSheet {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["pirateborg", "sheet", "actor", "vehicle", "character"],
-      template: "systems/pirateborg/templates/actor/vehicle-sheet.html",
-      width: 540,
-      height: 650,
-      scrollY: [".tab"],
-      tabs: [
+  static DEFAULT_OPTIONS = {
+    classes: ["pirateborg", "sheet", "actor", "vehicle", "character"],
+    position: { width: 540, height: 650 },
+    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
+    form: {
+      handler: PBActorSheetVehicle.#onSubmitForm,
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+    window: {
+      controls: [
         {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "combat",
+          action: "editSheet",
+          icon: "fas fa-edit",
+          label: "PB.EditButton",
         },
       ],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
-    });
-  }
+    },
+    actions: {
+      editSheet: PBActorSheetVehicle.#onEditSheet,
+    },
+  };
 
-  /** @override */
-  _getHeaderButtons() {
-    return [this._getHeaderEditButton(), ...super._getHeaderButtons()];
-  }
+  static PARTS = {
+    main: {
+      template: "systems/pirateborg/templates/actor/vehicle-sheet.html",
+      scrollable: [".sheet-body"],
+    },
+  };
 
-  _getHeaderEditButton() {
-    return {
-      class: `vehicle-edit-dialog-button-${this.actor.id}`,
-      label: game.i18n.localize("PB.EditButton"),
-      icon: "fas fa-edit",
-      onclick: this._onEditSheet.bind(this),
-    };
-  }
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: "combat", group: "sheet", label: "PB.TabCombat" },
+        { id: "effects", group: "sheet", label: "PB.TabEffects" },
+      ],
+      initial: "combat",
+    },
+  };
 
-  /**
-   * @private
-   */
-  async _onEditSheet() {
-    await this.close();
-    const sheet = new PBActorSheetVehicleEdit(this.actor);
-    sheet.render(true);
-  }
-
-  /** @override */
-  async getData(options) {
-    const formData = await super.getData(options);
-    formData.data.system.dynamic = {
-      ...(formData.data.system.dynamic ?? {}),
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const preparedItems = await this._prepareItems(context);
+    context.data.system.dynamic = {
+      ...(context.data.system.dynamic ?? {}),
       hasCrew: !!this.actor.crews.length,
-      ...(await this._prepareItems(formData)),
+      ...preparedItems,
     };
-
-    console.log(formData);
-
-    return formData;
+    return context;
   }
 
-  /**
-   * @param {Object} sheetData
-   * @private
-   */
-  async _prepareItems(sheetData) {
+  async _prepareItems(context) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     const data = {};
 
-    data.cargos = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo).sort(byName);
-
-    data.features = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.feature).sort(byName);
-
-    data.mysticShanties = sheetData.data.items.filter((item) => item.type === CONFIG.PB.itemTypes.shanty).sort(byName);
+    data.cargos = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.cargo).sort(byName);
+    data.features = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.feature).sort(byName);
+    data.mysticShanties = context.items.filter((item) => item.type === CONFIG.PB.itemTypes.shanty).sort(byName);
 
     data.crews = [];
-    for (const actorId of sheetData.data.system.crews || []) {
+    for (const actorId of this.actor.system.crews || []) {
       const actor = game.actors.get(actorId);
-      const actorData = actor ? (await actor.sheet.getData()).data : null;
+      const actorData = actor ? actor.toObject(false) : null;
       if (actorData) {
         actorData.system.isCaptain = this.actor.captain === actorId;
       }
@@ -105,11 +91,11 @@ export class PBActorSheetVehicle extends PBActorSheet {
           _id: actorId,
           name: "<Deleted Character>",
           type: "character",
-        },
+        }
       );
     }
 
-    data.equipment = sheetData.data.items
+    data.equipment = context.items
       .filter((item) => CONFIG.PB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !(item.type === CONFIG.PB.itemTypes.invokable && !item.system.isEquipment))
       .filter((item) => !item.system.hasContainer)
@@ -118,39 +104,44 @@ export class PBActorSheetVehicle extends PBActorSheet {
     return data;
   }
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
+  _onRender() {
+    super._onRender();
+    if (!this.isEditable) return;
 
-    if (!this.options.editable) return;
-
-    this.bindSelectorsEvent("click", {
-      ".ability-label.rollable.skill": this._onSkillRoll,
-      ".ability-label.rollable.agility": this._onAgilityRoll,
-      ".tier-radio": this._onArmorTierRadio,
-      ".initiative-button": this._onInitiativeRoll,
-      ".sinking-button": this._onSinking,
-      ".action-shanties": this._onActionShanties,
-      ".item-create-cargo-button": this._onCreateCargo,
-      ".item-remove-crew": this._onRemoveCrew,
-      ".item-crew-captain": this._onSetCaptain,
-      ".mystic-shanties-roll-button": this._onRollMysticShanties,
-      ".item-type-character .item-edit": this._onCrewClick,
-      ".item-type-creature .item-edit": this._onCrewClick,
-
-      ".rotate-left": this._onRotateLeft,
-      ".rotate-right": this._onRotateRight,
-      ".action-pc-action": this._onPCAction,
-      ".action-crew-action": this._onCrewAction,
+    [
+      [".ability-label.rollable.skill", "click", this._onSkillRoll],
+      [".ability-label.rollable.agility", "click", this._onAgilityRoll],
+      [".tier-radio", "click", this._onArmorTierRadio],
+      [".initiative-button", "click", this._onInitiativeRoll],
+      [".sinking-button", "click", this._onSinking],
+      [".action-shanties", "click", this._onActionShanties],
+      [".item-create-cargo-button", "click", this._onCreateCargo],
+      [".item-remove-crew", "click", this._onRemoveCrew],
+      [".item-crew-captain", "click", this._onSetCaptain],
+      [".mystic-shanties-roll-button", "click", this._onRollMysticShanties],
+      [".item-type-character .item-edit", "click", this._onCrewClick],
+      [".item-type-creature .item-edit", "click", this._onCrewClick],
+      [".rotate-left", "click", this._onRotateLeft],
+      [".rotate-right", "click", this._onRotateRight],
+      [".action-pc-action", "click", this._onPCAction],
+      [".action-crew-action", "click", this._onCrewAction],
+    ].forEach(([selector, event, handler]) => {
+      this.element.querySelectorAll(selector).forEach((el) => el.addEventListener(event, handler.bind(this)));
     });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
+  static async #onSubmitForm(event, form, formData) {
+    await this.actor.update(formData.object);
+  }
+
+  static async #onEditSheet() {
+    await this.close();
+    const sheet = new PBActorSheetVehicleEdit(this.actor);
+    sheet.render({ force: true });
+  }
+
   _getCrewAction(event) {
-    return $(event.currentTarget).data("action");
+    return event.currentTarget.dataset.action;
   }
 
   async _crewAction(action, isPCAction = false) {
@@ -185,91 +176,51 @@ export class PBActorSheetVehicle extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onPCAction(event) {
     const action = this._getCrewAction(event);
     await this._crewAction(action, true);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onCrewAction(event) {
     const action = this._getCrewAction(event);
     await this._crewAction(action);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRotateLeft(event) {
     event.preventDefault();
     await shipRotateAction(this.actor, -60);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRotateRight(event) {
     event.preventDefault();
     await shipRotateAction(this.actor, 60);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   _onCrewClick(event) {
     event.preventDefault();
-    game.actors.get(this.getItemId(event)).sheet.render(true);
+    game.actors.get(this.getItemId(event)).sheet.render({ force: true });
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onSkillRoll(event) {
     event.preventDefault();
     await shipRollSkillAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onAgilityRoll(event) {
     event.preventDefault();
     await shipRollAgilityAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onInitiativeRoll(event) {
     event.preventDefault();
     await actorInitiativeAction(this.actor);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRemoveCrew(event) {
     event.preventDefault();
     await this.actor.removeCrew(this.getItemId(event));
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onSetCaptain(event) {
     event.preventDefault();
     const captainId = this.getItemId(event);
@@ -280,37 +231,22 @@ export class PBActorSheetVehicle extends PBActorSheet {
     }
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onArmorTierRadio(event) {
     event.preventDefault();
-    await this.actor.updateData("attributes.hull.value", parseInt($(event.currentTarget)[0].value));
+    await this.actor.updateData("attributes.hull.value", parseInt(event.currentTarget.value, 10));
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onActionShanties(event) {
     event.preventDefault();
     const item = this.getItem(event);
     await shipInvokeShantyAction(this.actor, item);
   }
 
-  /**
-   * @param {MouseEvent} event
-   * @private
-   */
   async _onRollMysticShanties(event) {
     event.preventDefault();
     await shipShantiesPerDayAction(this.actor);
   }
 
-  /**
-   * @private
-   */
   async _onCreateCargo() {
     const itemData = {
       name: game.i18n.localize("PB.ShipCargo"),
@@ -320,18 +256,10 @@ export class PBActorSheetVehicle extends PBActorSheet {
     await this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
-  /**
-   * @private
-   */
   async _onSinking() {
     await shipSinkAction(this.actor);
   }
 
-  /**
-   * @param {DragEvent} event
-   * @param {ActorSheet.DropData.Actor} actorData
-   * @private
-   */
   async _onDropActor(event, actorData) {
     const actorFromUuid = actorData.uuid ? await fromUuid(actorData.uuid) : null;
     const actor = actorFromUuid ? actorFromUuid : game.actors.get(actorData.id);

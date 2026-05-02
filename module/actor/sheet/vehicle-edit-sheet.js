@@ -1,72 +1,74 @@
 import PBActorSheet from "./actor-sheet.js";
 import { PBActorSheetVehicle } from "./vehicle-sheet.js";
 
-/**
- * @extends {ActorSheet}
- */
 export class PBActorSheetVehicleEdit extends PBActorSheet {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["pirateborg", "sheet", "actor", "vehicle-edit"],
-      template: "systems/pirateborg/templates/actor/vehicle-edit-sheet.html",
-      width: 500,
-      height: 650,
-      scrollY: [".tab"],
-      tabs: [
+  static DEFAULT_OPTIONS = {
+    classes: ["pirateborg", "sheet", "actor", "vehicle-edit"],
+    position: { width: 500, height: 650 },
+    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
+    form: {
+      handler: PBActorSheetVehicleEdit.#onSubmitForm,
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+    window: {
+      controls: [
         {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "description",
+          action: "standardSheet",
+          icon: "fas fa-eye",
+          label: "PB.ViewButton",
         },
       ],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
-    });
+    },
+    actions: {
+      standardSheet: PBActorSheetVehicleEdit.#onStandardSheet,
+    },
+  };
+
+  static PARTS = {
+    main: {
+      template: "systems/pirateborg/templates/actor/vehicle-edit-sheet.html",
+      scrollable: [".tab"],
+    },
+  };
+
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: "description", group: "sheet", label: "PB.TabDescription" },
+        { id: "items", group: "sheet", label: "PB.TabEquipment" },
+        { id: "data", group: "sheet", label: "PB.TabDetails" },
+        { id: "effects", group: "sheet", label: "PB.TabEffects" },
+      ],
+      initial: "description",
+      labelAttr: "label",
+    },
+  };
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const preparedItems = await this._prepareItems(context);
+    context.data.system.dynamic = {
+      ...(context.data.system.dynamic ?? {}),
+      ...preparedItems,
+    };
+    return context;
   }
 
-  _getHeaderButtons() {
-    return [
-      {
-        class: `vehicle-dialog-button-${this.actor.id}`,
-        label: game.i18n.localize("PB.ViewButton"),
-        icon: "fas fa-eye",
-        onclick: this._onStandardSheet.bind(this),
-      },
-      ...super._getHeaderButtons(),
-    ];
+  async _prepareItems(context) {
+    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+    return {
+      equipment: context.items.filter((item) => !item.system.hasContainer).sort(byName),
+    };
   }
 
-  async _onStandardSheet() {
+  static async #onSubmitForm(event, form, formData) {
+    await this.actor.update(formData.object);
+  }
+
+  static async #onStandardSheet() {
     await this.close();
     const sheet = new PBActorSheetVehicle(this.actor);
-    sheet.render(true);
-  }
-
-  /** @override */
-  async getData(options) {
-    const formData = await super.getData(options);
-
-    formData.data.system.dynamic = {
-      ...(formData.data.system.dynamic ?? {}),
-      ...(await this._prepareItems(formData)),
-    };
-
-    console.log(formData);
-    return formData;
-  }
-
-  /**
-   *
-   * @param {ActorSheet.Data} formData
-   *
-   * @return {Object}
-   */
-  async _prepareItems(formData) {
-    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-    const data = {};
-
-    data.equipment = formData.data.items.filter((item) => !item.system.hasContainer).sort(byName);
-
-    return data;
+    sheet.render({ force: true });
   }
 }
