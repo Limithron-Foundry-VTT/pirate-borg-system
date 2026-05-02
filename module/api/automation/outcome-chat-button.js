@@ -63,12 +63,7 @@ export class OutcomeChatButton {
    */
   static async updateMessageCard(message, outcome, outcomes) {
     const messageContent = $(getMessageContent(message));
-    let content;
-    if (game.release.generation >= 13) {
-      content = await foundry.applications.handlebars.renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
-    } else {
-      content = await renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
-    }
+    const content = await foundry.applications.handlebars.renderTemplate(OutcomeChatButton.TEMPLATE, { outcomes });
 
     // Remove the entire outcome tray row by canonical identity attribute.
     messageContent.find(`[data-outcome-id='${outcome.id}']`).closest("outcome-tray").remove();

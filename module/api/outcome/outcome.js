@@ -91,7 +91,7 @@ export const withDraw =
       .filter((text) => text?.trim?.());
     const rawDescription = (resolvedResults.length ? resolvedResults : fallbackResults).join("<br>");
     const normalizedDescription = rawDescription.replace(/\[\[\s*([^\]/][^\]]*)\s*\]\]/g, "[[/r $1]]");
-    const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+    const textEditor = foundry.applications.ux.TextEditor.implementation;
     const description = await textEditor.enrichHTML(normalizedDescription, { rollData: {} });
     return {
       ...outcome,

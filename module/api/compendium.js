@@ -56,10 +56,7 @@ export const drawTableText = async (compendium, table) => {
     return "";
   }
 
-  if (game.release.generation >= 13) {
-    return result.description;
-  }
-  return result.getChatText();
+  return result.description;
 };
 
 /**
@@ -135,7 +132,7 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 export const findTableItems = async (results) => {
   const items = [];
   let item = null;
-  const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+  const textEditor = foundry.applications.ux.TextEditor.implementation;
   const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
   const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
   const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;

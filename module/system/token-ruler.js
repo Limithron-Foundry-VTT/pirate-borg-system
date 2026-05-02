@@ -1,12 +1,4 @@
-/**
- * Wrapper to register Token Ruler for Foundry v13 in a way that does not break v12 support.
- *
- * TODO:
- * - Refactor after v12 support is removed
- */
 export function registerTokenRuler() {
-  if (!(game.release.generation >= 13)) return;
-
   class TokenRulerPB extends foundry.canvas.placeables.tokens.TokenRuler {
     static STYLES = {
       stay: { color: 0x0000ff, alpha: 0.6 },

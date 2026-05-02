@@ -1,5 +1,5 @@
 import PBActorSheet from "./actor-sheet.js";
-import { LootSheetHelper, QuantityDialog } from "../loot-helper.js";
+import { LootSheetHelper } from "../loot-helper.js";
 import { emitLootItems, emitLootCurrency, emitDistributeCurrency } from "../../system/sockets.js";
 import { isLootCurrencyEnabled, isLootAllEnabled } from "../../system/settings.js";
 
@@ -235,7 +235,7 @@ export class PBActorSheetContainer extends PBActorSheet {
     await item.update({ "system.quantity": quantity });
   }
 
-  _onLootItem(event, all = false) {
+  async _onLootItem(event, all = false) {
     event.preventDefault();
 
     if (!game.user.character) {
@@ -258,13 +258,23 @@ export class PBActorSheetContainer extends PBActorSheet {
     if (all || maxQuantity === 1) {
       this._emitLootRequest(itemId, maxQuantity, targetGm);
     } else {
-      new QuantityDialog(
-        (quantity) => {
-          quantity = Math.min(quantity, maxQuantity);
-          this._emitLootRequest(itemId, quantity, targetGm);
+      const quantity = await foundry.applications.api.DialogV2.prompt({
+        window: { title: game.i18n.localize("PB.LootQuantityTitle") },
+        content: `
+          <div class="form-group">
+            <label>${game.i18n.localize("PB.Quantity")}:</label>
+            <input type="number" min="1" max="${maxQuantity}" name="quantity" value="1" autofocus>
+          </div>
+        `,
+        ok: {
+          label: game.i18n.localize("PB.LootLoot"),
+          callback: (event, button) => {
+            const val = parseInt(button.form.elements.quantity.value, 10);
+            return isNaN(val) || val < 1 ? null : Math.min(val, maxQuantity);
+          },
         },
-        { acceptLabel: game.i18n.localize("PB.LootLoot") }
-      ).render({ force: true });
+      });
+      if (quantity) this._emitLootRequest(itemId, quantity, targetGm);
     }
   }
 
