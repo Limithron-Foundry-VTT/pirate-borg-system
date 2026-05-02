@@ -16,14 +16,14 @@
         <img src="{{target.img}}" data-edit="img" title="{{target.name}}" /> {{target.name}}
         {{else}}
           {{localize "PB.TargetInvalid"}}
-        {{/if}}         
+        {{/if}}
       </div>
     </div>
-  {{/if}}  
+  {{/if}}
 
   {{#if enableCrewSelection}}
     <div class="form-group">
-      <label>{{localize "PB.ShipCrew"}}:</label>
+      <label for="crewActor">{{localize "PB.ShipCrew"}}:</label>
       <br />
       <select id="crewActor" name="crewActor">
         {{#each crews as |crew|}}
@@ -35,11 +35,11 @@
 
   {{#if enableDrSelection}}
     <div class="form-group">
-      <label>{{localize "PB.DR"}}:</label>
+      <label for="dr">{{localize "PB.DR"}}:</label>
       <input id="dr" type="text" name="dr" value="{{selectedDR}}" placeholder="12" data-dtype="Number" />
     </div>
     <div class="form-group form-group-radio-selector">
-      <label></label>
+      <label>&nbsp;</label>
       <ul class="radio-group-radio dr">
         <li>
           <label>
@@ -77,17 +77,17 @@
 
   {{#if enableArmorSelection}}
     <div class="form-group">
-      <label>{{localize "PB.TargetArmor"}}:</label>
+      <label for="targetArmor">{{localize "PB.TargetArmor"}}:</label>
       <div class="form-fields">
         <input id="targetArmor" type="text" name="targetArmor" value="{{selectedArmor}}" placeholder="0" data-dtype="String" />
         {{#if shouldIgnoreArmor}}
-          <div class="form-warning-icon" title="{{localize "PB.ShouldIgnoreArmor"}}"><i class="fas fa-exclamation-circle"></i></div>
+          <div class="form-warning-icon" data-tooltip="{{localize "PB.ShouldIgnoreArmor"}}"><i class="fas fa-exclamation-circle"></i></div>
         {{/if}}
       </div>
     </div>
 
     <div class="form-group form-group-radio-selector">
-      <label></label>
+      <label>&nbsp;</label>
       <ul class="radio-group-radio armor-tier">
         <li>
           <label>
@@ -130,11 +130,11 @@
 
   {{#if enableMovementSelection}}
     <div class="form-group">
-      <label>{{localize "PB.Movement"}}:</label>
+      <label for="movement">{{localize "PB.Movement"}}:</label>
       <input id="movement" type="text" name="movement" value="0" placeholder="0" data-dtype="Number" />
     </div>
     <div class="form-group form-group-radio-selector">
-      <label></label>
+      <label>&nbsp;</label>
       <ul class="radio-group-radio movement">
         <li>
           <label>
@@ -171,7 +171,7 @@
             <input class="radio-input" type="radio" name="movement.value" value="5" />
             <span class="radio-label">5</span>
           </label>
-        </li>               
+        </li>
       </ul>
     </div>
   {{/if}}

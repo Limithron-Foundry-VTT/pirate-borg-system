@@ -1,10 +1,11 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
 const DEFEND_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/defend-dialog.html";
 
-class DefendDialog extends Application {
+class DefendDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor({ actor, callback } = {}) {
     super();
     this.actor = actor;
@@ -14,32 +15,27 @@ class DefendDialog extends Application {
     this.enforceTargetSelection = isEnforceTargetEnabled() && this.actor.isInCombat;
     this.isTargetSelectionValid = isTargetSelectionValid();
     this.hasTargets = hasTargets();
-    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     this.targetToken = findTargettedToken();
-    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
     this.ignoreArmor = this._shouldIgnoreArmor();
+    this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
   }
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["defend-dialog"],
-      template: DEFEND_DIALOG_TEMPLATE,
-      title: game.i18n.localize("PB.Defend"),
-      width: 460,
-      height: "auto",
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ["defend-dialog", "standard-form"],
+    window: { title: "PB.Defend" },
+    position: { width: 460, height: "auto" },
+  };
 
-  /** @override */
-  async getData(options) {
-    const data = super.getData(options);
+  static PARTS = {
+    main: { template: DEFEND_DIALOG_TEMPLATE },
+  };
+
+  async _prepareContext() {
     const defendDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR)) ?? 12;
     const defendArmor = this.ignoreArmor ? 0 : await this._getDefendArmor();
     const incomingAttack = await this._getIncomingAttack();
 
     return {
-      ...data,
       config: CONFIG.pirateborg,
       incomingAttack,
       defendDR,
@@ -53,14 +49,35 @@ class DefendDialog extends Application {
     };
   }
 
+  _onRender() {
+    this.element.querySelector(".ok-button")?.addEventListener("click", this._onSubmit.bind(this));
+    this.element.querySelector(".cancel-button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
+
+    this.element
+      .querySelectorAll(".defense-base-dr .radio-input")
+      .forEach((el) => el.addEventListener("change", this._onDefenseDrRadioInputChanged.bind(this)));
+    const defendDrEl = this.element.querySelector("#defendDr");
+    defendDrEl?.addEventListener("change", this._onDefenseDrInputChanged.bind(this));
+    if (defendDrEl) defendDrEl.dispatchEvent(new Event("change"));
+
+    this.element
+      .querySelectorAll(".incoming-attack .radio-input")
+      .forEach((el) => el.addEventListener("change", this._onIncomingAttackRadioInputChanged.bind(this)));
+    this.element.querySelector("#incomingAttack")?.addEventListener("change", this._onIncomingAttackInputChanged.bind(this));
+
+    this.element.querySelector("#defendArmor")?.addEventListener("change", this._onDefendArmorInputChanged.bind(this));
+    this.element.querySelector("#ignoreArmor")?.addEventListener("change", this._onIgnoreArmorChanged.bind(this));
+  }
+
   async _getDefendArmor() {
     return (await getSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR)) ?? this.actor.equippedArmor?.damageReductionDie ?? 0;
   }
 
   async _getIncomingAttack() {
-    if (this.targetToken) {
-      return this.targetToken.actor.getActorAttackFormula();
-    }
+    if (this.targetToken) return this.targetToken.actor.getActorAttackFormula();
     return (await getSystemFlag(this.actor, CONFIG.PB.flags.INCOMING_ATTACK)) ?? "1d4";
   }
 
@@ -69,10 +86,7 @@ class DefendDialog extends Application {
   }
 
   _shouldShowTarget() {
-    if (this.enforceTargetSelection) {
-      return true;
-    }
-    return this.hasTargets;
+    return this.enforceTargetSelection || this.hasTargets;
   }
 
   _shouldIgnoreArmor() {
@@ -88,10 +102,7 @@ class DefendDialog extends Application {
   }
 
   _getModifiers() {
-    const modifiers = {
-      total: 0,
-      warning: [],
-    };
+    const modifiers = { total: 0, warning: [] };
     const armor = this.actor.equippedArmor;
     if (armor) {
       const { defenseModifier } = CONFIG.PB.armorTiers[armor.tier.max];
@@ -107,82 +118,60 @@ class DefendDialog extends Application {
     return modifiers;
   }
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".ok-button").on("click", this._onSubmit.bind(this));
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-
-    html.find(".defense-base-dr .radio-input").on("change", this._onDefenseDrRadioInputChanged.bind(this));
-    html.find("#defendDr").on("change", this._onDefenseDrInputChanged.bind(this));
-    html.find("#defendDr").trigger("change");
-
-    html.find(".incoming-attack .radio-input").on("change", this._onIncomingAttackRadioInputChanged.bind(this));
-    html.find("#incomingAttack").on("change", this._onIncomingAttackInputChanged.bind(this));
-
-    html.find("#defendArmor").on("change", this._onDefendArmorRadioInputChanged.bind(this));
-    html.find("#ignoreArmor").on("change", this._onIgnoreArmorChanged.bind(this));
-  }
-
-  async _onIgnoreArmorChanged(event) {
-    const form = $(event.currentTarget).parents("form")[0];
-    const input = $(event.currentTarget);
-    this.ignoreArmor = input.prop("checked");
-    $(form)
-      .find("#defendArmor")
-      .val(this.ignoreArmor ? 0 : await this._getDefendArmor());
-  }
-
   _onDefenseDrRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#defendDr").val(input.val());
-    this.element.find("#defendDr").trigger("change");
+    const defendDrEl = this.element.querySelector("#defendDr");
+    if (defendDrEl) {
+      defendDrEl.value = event.currentTarget.value;
+      defendDrEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onDefenseDrInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR, input.val());
-    const modifiedDr = parseInt(input.val(), 10) + this.modifiers.total;
-    this.element.find("#defenseModifiedDr").val(modifiedDr);
-    $(".defense-base-dr .radio-input").val([input.val()]);
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_DR, value);
+    const modifiedDr = parseInt(value, 10) + this.modifiers.total;
+    const modifiedDrEl = this.element.querySelector("#defenseModifiedDr");
+    if (modifiedDrEl) modifiedDrEl.value = modifiedDr;
+    this.element.querySelectorAll(".defense-base-dr .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
   _onIncomingAttackRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#incomingAttack").val(input.val());
-    this.element.find("#incomingAttack").trigger("change");
+    const incomingAttackEl = this.element.querySelector("#incomingAttack");
+    if (incomingAttackEl) {
+      incomingAttackEl.value = event.currentTarget.value;
+      incomingAttackEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onIncomingAttackInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.INCOMING_ATTACK, input.val());
-    $(".incoming-attack .radio-input").val([input.val()]);
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.INCOMING_ATTACK, value);
+    this.element.querySelectorAll(".incoming-attack .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
-  async _onDefendArmorRadioInputChanged(event) {
+  async _onDefendArmorInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR, input.val());
-    this.element.find("#defendArmor").val(input.val());
+    await setSystemFlag(this.actor, CONFIG.PB.flags.DEFEND_ARMOR, event.currentTarget.value);
   }
 
-  async _onCancel(event) {
-    event.preventDefault();
-    await this.close();
+  async _onIgnoreArmorChanged(event) {
+    this.ignoreArmor = event.currentTarget.checked;
+    const defendArmorEl = this.element.querySelector("#defendArmor");
+    if (defendArmorEl) defendArmorEl.value = this.ignoreArmor ? 0 : await this._getDefendArmor();
   }
 
   _validate({ incomingAttack, defendDR, defendArmor } = {}) {
     return !!(incomingAttack && defendDR && defendArmor && (this.enforceTargetSelection ? this.isTargetSelectionValid : true));
   }
 
-  /**
-   * @override
-   * @param [options]
-   */
   async close(options) {
     unregisterTargetAutomationHook(this._ontargetChangedHook);
     await super.close(options);
@@ -190,14 +179,12 @@ class DefendDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents("form")[0];
-    const incomingAttack = $(form).find("#incomingAttack").val();
-    const defendDR = $(form).find("#defenseModifiedDr").val();
-    const defendArmor = $(form).find("#defendArmor").val();
+    const form = event.currentTarget.closest("form");
+    const incomingAttack = form.querySelector("#incomingAttack")?.value;
+    const defendDR = form.querySelector("#defenseModifiedDr")?.value;
+    const defendArmor = form.querySelector("#defendArmor")?.value;
 
-    if (!this._validate({ incomingAttack, defendDR, defendArmor })) {
-      return;
-    }
+    if (!this._validate({ incomingAttack, defendDR, defendArmor })) return;
 
     this.callback({
       incomingAttack,
@@ -216,8 +203,5 @@ class DefendDialog extends Application {
  */
 export const showDefendDialog = (data = {}) =>
   new Promise((resolve) => {
-    new DefendDialog({
-      ...data,
-      callback: resolve,
-    }).render(true);
+    new DefendDialog({ ...data, callback: resolve }).render({ force: true });
   });
