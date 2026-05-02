@@ -1,36 +1,37 @@
 import { findClassPacks } from "../api/compendium.js";
 import { isCharacterGeneratorClassAllowed, setAllowedCharacterGeneratorClasses } from "../system/settings.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
-export class AllowedCharacterClassesDialog extends FormApplication {
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "allowed-character-generator-classes-dialog",
-      title: game.i18n.localize("PB.AllowedCharacterGeneratorClassesEdit"),
+export class AllowedCharacterClassesDialog extends HandlebarsApplicationMixin(ApplicationV2) {
+  static DEFAULT_OPTIONS = {
+    id: "allowed-character-generator-classes-dialog",
+    classes: ["form"],
+    window: { title: "PB.AllowedCharacterGeneratorClassesEdit" },
+    position: { width: 420 },
+    tag: "form",
+    form: {
+      handler: AllowedCharacterClassesDialog.#onSubmitForm,
+      closeOnSubmit: true,
+    },
+    actions: {
+      toggleAll: AllowedCharacterClassesDialog.#onToggleAll,
+      toggleNone: AllowedCharacterClassesDialog.#onToggleNone,
+      cancel: AllowedCharacterClassesDialog.#onCancel,
+    },
+  };
+
+  static PARTS = {
+    main: {
       template: "systems/pirateborg/templates/dialog/allowed-character-generator-classes-dialog.html",
-      classes: ["form", "pirateborg"],
-      popOut: true,
-      width: 420,
-    });
-  }
+    },
+  };
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".toggle-all").on("click", (event) => this._onToggleAll(event));
-    html.find(".toggle-none").on("click", (event) => this._onToggleNone(event));
-    html.find(".cancel-button").on("click", (event) => this._onCancel(event));
-    html.find(".ok-button").on("click", (event) => this._onOk(event));
-  }
-
-  getData(options = {}) {
-    return foundry.utils.mergeObject(super.getData(options), {
-      classes: this._getAllowedClasses(),
-    });
+  async _prepareContext() {
+    return { classes: this._getAllowedClasses() };
   }
 
   _getAllowedClasses() {
-    const classPacks = findClassPacks();
-    return classPacks
+    return findClassPacks()
       .map((classPack) => ({
         name: classPack,
         label: classPack.split("class-")[1].replace(/-/g, " "),
@@ -39,39 +40,28 @@ export class AllowedCharacterClassesDialog extends FormApplication {
       .sort((a, b) => (a.label > b.label ? 1 : -1));
   }
 
-  _onToggleAll(event) {
-    event.preventDefault();
-    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
-    $(form).find(".class-checkbox").prop("checked", true);
+  static #onToggleAll() {
+    this.element.querySelectorAll(".class-checkbox").forEach((el) => (el.checked = true));
   }
 
-  _onToggleNone(event) {
-    event.preventDefault();
-    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
-    $(form).find(".class-checkbox").prop("checked", false);
+  static #onToggleNone() {
+    this.element.querySelectorAll(".class-checkbox").forEach((el) => (el.checked = false));
   }
 
-  async _onCancel(event) {
-    event.preventDefault();
+  static async #onCancel() {
     await this.close();
   }
 
-  _onOk(event) {
-    const form = $(event.currentTarget).parents(".allowed-character-generator-classes-dialog")[0];
-    const selected = [];
-    $(form)
-      .find("input:checked")
-      .each(function () {
-        selected.push($(this).attr("name"));
-      });
+  static async #onSubmitForm(event, form, formData) {
+    const selected = Object.entries(formData.object)
+      .filter(([, v]) => v)
+      .map(([k]) => k);
 
     if (selected.length === 0) {
-      event.preventDefault();
+      ui.notifications.warn(game.i18n.localize("PB.AllowedCharacterGeneratorClassesNoneSelected"));
+      return;
     }
-  }
 
-  /** @override */
-  async _updateObject(event, formData) {
-    await setAllowedCharacterGeneratorClasses(formData);
+    await setAllowedCharacterGeneratorClasses(formData.object);
   }
 }

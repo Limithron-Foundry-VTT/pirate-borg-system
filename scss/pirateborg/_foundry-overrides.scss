@@ -130,8 +130,20 @@ form.editable .results {
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 
-.window-app {
+.window-app,
+.application.pirateborg {
   &.sheet .window-content form {
+    nav.tabs {
+      gap: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--background-color);
+    }
     .tabs {
       border: none;
       padding: 0;
@@ -151,6 +163,7 @@ form.editable .results {
         text-transform: none;
         padding-left: 16px;
         padding-right: 16px;
+        color: var(--color-dark-1);
         &.active {
           border-top-left-radius: 8px;
           border-top-right-radius: 8px;
@@ -798,6 +811,15 @@ div#sidebar {
   h6,
   button {
     color: var(--background-color);
+  }
+}
+
+a.content-link,
+a.inline-roll {
+  color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
+  > i {
+    color: var(--foreground-color);
   }
 }
 

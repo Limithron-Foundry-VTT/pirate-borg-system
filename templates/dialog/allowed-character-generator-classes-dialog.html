@@ -1,9 +1,9 @@
-<form id="allowed-character-generator-classes-form" class="custom-dialog allowed-character-generator-classes-dialog">
-  
+<section id="allowed-character-generator-classes-form" class="custom-dialog allowed-character-generator-classes-dialog">
+
   <div class="custom-dialog-header">
     <div class="subtitle">{{localize "PB.AllowedCharacterGeneratorClassesSelect"}}</div>
   </div>
-  
+
   <div class="section">
     <ul>
       {{#each classes as |class|}}
@@ -15,10 +15,15 @@
       </li>
       {{/each}}
     </ul>
-    <div><a class="toggle-none">{{localize "PB.CharacterGeneratorToggleNone"}}</a>&nbsp; / &nbsp;<a class="toggle-all">{{localize "PB.CharacterGeneratorToggleAll"}}</a></div>
+    <p>&nbsp;</p>
+    <div>
+      <a data-action="toggleNone">{{localize "PB.CharacterGeneratorToggleNone"}}</a>
+      &nbsp; / &nbsp;
+      <a data-action="toggleAll">{{localize "PB.CharacterGeneratorToggleAll"}}</a>
+    </div>
   </div>
   <div class="button-row">
-    <button type="submit" class="button cancel-button" name="cancel" value="1">{{localize "PB.Cancel"}}</button>
-    <button type="submit" class="button ok-button" name="ok" value="1">{{localize "PB.Ok"}}</button>
+    <button type="button" class="button cancel-button" data-action="cancel">{{localize "PB.Cancel"}}</button>
+    <button type="submit" class="button ok-button">{{localize "PB.Ok"}}</button>
   </div>
-</form>
+</section>
