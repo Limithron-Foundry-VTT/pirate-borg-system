@@ -8,17 +8,17 @@
         <img src="{{target.img}}" data-edit="img" title="{{target.name}}" /> {{target.name}}
         {{else}}
           {{localize "PB.TargetInvalid"}}
-        {{/if}}         
+        {{/if}}
       </div>
     </div>
-  {{/if}}    
+  {{/if}}
 
   <div class="form-group">
-    <label>{{localize "PB.Attack"}} {{localize "PB.DR"}}:</label>
+    <label for="attackDr">{{localize "PB.Attack"}} {{localize "PB.DR"}}:</label>
     <input id="attackDr" type="text" name="attackdr" value="{{attackDR}}" placeholder="12" data-dtype="Number" />
   </div>
   <div class="form-group form-group-radio-selector">
-    <label></label>
+    <label>&nbsp;</label>
     <ul class="radio-group-radio attack-dr">
       <li>
         <label>
@@ -54,17 +54,17 @@
   </div>
 
   <div class="form-group">
-    <label>{{localize "PB.TargetArmor"}}:</label>
+    <label for="targetArmor">{{localize "PB.TargetArmor"}}:</label>
     <div class="form-fields">
       <input id="targetArmor" type="text" name="targetarmor" value="{{targetArmor}}" placeholder="0" data-dtype="String" />
       {{#if shouldIgnoreArmor}}
-        <div class="form-warning-icon" title="{{localize "PB.ShouldIgnoreArmor"}}"><i class="fas fa-exclamation-circle"></i></div>
+        <div class="form-warning-icon" data-tooltip="{{localize "PB.ShouldIgnoreArmor"}}"><i class="fas fa-exclamation-circle"></i></div>
       {{/if}}
     </div>
   </div>
 
   <div class="form-group form-group-radio-selector">
-    <label></label>
+    <label>&nbsp;</label>
     <ul class="radio-group-radio armor-tier">
       <li>
         <label>

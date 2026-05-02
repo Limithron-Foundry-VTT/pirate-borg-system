@@ -1,10 +1,11 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
 const SHIP_CREW_ACTION_TEMPLATE = "systems/pirateborg/templates/dialog/ship-crew-action-dialog.html";
 
-class CrewActionDialog extends Application {
+class CrewActionDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor({
     actor,
     title,
@@ -42,26 +43,22 @@ class CrewActionDialog extends Application {
     this.callback = callback;
   }
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["crew-action-dialog"],
-      template: SHIP_CREW_ACTION_TEMPLATE,
-      title: game.i18n.localize("PB.ShipCrewAction"),
-      width: 420,
-      height: "auto",
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ["crew-action-dialog", "standard-form"],
+    window: { title: "PB.ShipCrewAction" },
+    position: { width: 420, height: "auto" },
+  };
 
-  /** @override */
-  async getData(options) {
-    const data = super.getData(options);
+  static PARTS = {
+    main: { template: SHIP_CREW_ACTION_TEMPLATE },
+  };
+
+  async _prepareContext() {
     const selectedCrewId = await getSystemFlag(this.actor, CONFIG.PB.flags.SELECTED_CREW);
     const selectedDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? "12";
     const selectedArmor = this.shouldIgnoreArmor ? "0" : await this._getTargetArmor();
 
     return {
-      ...data,
       config: CONFIG.pirateborg,
       buttonLabel: this.buttonLabel,
       crews: this.actor.crews.map((actorId) => game.actors.get(actorId).toObject()),
@@ -83,18 +80,30 @@ class CrewActionDialog extends Application {
     };
   }
 
+  _onRender() {
+    this.element.querySelector(".ok-button")?.addEventListener("click", this._onSubmit.bind(this));
+    this.element.querySelector(".cancel-button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
+
+    this.element.querySelectorAll(".dr .radio-input").forEach((el) => el.addEventListener("change", this._onDrRadioInputChanged.bind(this)));
+    this.element.querySelector("#dr")?.addEventListener("change", this._onDrInputChanged.bind(this));
+
+    this.element.querySelectorAll(".armor-tier .radio-input").forEach((el) => el.addEventListener("change", this._onArmorRadioInputChanged.bind(this)));
+    this.element.querySelector("#targetArmor")?.addEventListener("change", this._onArmorInputChanged.bind(this));
+
+    this.element.querySelectorAll(".movement .radio-input").forEach((el) => el.addEventListener("change", this._onMovementRadioInputChanged.bind(this)));
+    this.element.querySelector("#movement")?.addEventListener("change", this._onMovementInputChanged.bind(this));
+  }
+
   _hasTargetWarning() {
     return this.enforceTargetSelection && !this.isTargetSelectionValid;
   }
 
   _shouldShowTarget() {
-    if (!this.enableTargetSelection) {
-      return false;
-    }
-    if (this.enforceTargetSelection) {
-      return true;
-    }
-    return this.hasTargets;
+    if (!this.enableTargetSelection) return false;
+    return this.enforceTargetSelection || this.hasTargets;
   }
 
   _onTargetChanged() {
@@ -110,86 +119,69 @@ class CrewActionDialog extends Application {
   }
 
   async _getTargetArmor() {
-    if (this.targetToken) {
-      return this.targetToken.actor.getActorArmorFormula();
-    }
+    if (this.targetToken) return this.targetToken.actor.getActorArmorFormula();
     return (await getSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR)) ?? "0";
-  }
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".ok-button").on("click", this._onSubmit.bind(this));
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-
-    html.find(".dr .radio-input").on("change", this._onDrRadioInputChanged.bind(this));
-    html.find("#dr").on("change", this._onDrInputChanged.bind(this));
-
-    html.find(".armor-tier .radio-input").on("change", this._onArmorRadioInputChanged.bind(this));
-    html.find("#targetArmor").on("change", this._onArmorInputChanged.bind(this));
-
-    html.find(".movement .radio-input").on("change", this._onMovementRadioInputChanged.bind(this));
-    html.find("#movement").on("change", this._onMovementInputChanged.bind(this));
   }
 
   _onDrRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#dr").val(input.val());
-    this.element.find("#dr").trigger("change");
+    const drEl = this.element.querySelector("#dr");
+    if (drEl) {
+      drEl.value = event.currentTarget.value;
+      drEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onDrInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, input.val());
-    $(".dr .radio-input").val([input.val()]);
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, value);
+    this.element.querySelectorAll(".dr .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
-  async _onArmorRadioInputChanged(event) {
+  _onArmorRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#targetArmor").val(input.val());
-    this.element.find("#targetArmor").trigger("change");
+    const targetArmorEl = this.element.querySelector("#targetArmor");
+    if (targetArmorEl) {
+      targetArmorEl.value = event.currentTarget.value;
+      targetArmorEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onArmorInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, input.val());
-    $(".armor-tier .radio-input").val([input.val()]);
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, value);
+    this.element.querySelectorAll(".armor-tier .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
   _onMovementRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#movement").val(input.val());
-    this.element.find("#movement").trigger("change");
+    const movementEl = this.element.querySelector("#movement");
+    if (movementEl) {
+      movementEl.value = event.currentTarget.value;
+      movementEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onMovementInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    $(".movement .radio-input").val([input.val()]);
-  }
-
-  async _onCancel(event) {
-    event.preventDefault();
-    await this.close();
+    this.element.querySelectorAll(".movement .radio-input").forEach((el) => {
+      el.checked = el.value === event.currentTarget.value;
+    });
   }
 
   _validate({ selectedDR, selectedArmor, selectedMovement }) {
     if ((this.enableDrSelection && !selectedDR) || (this.enableArmorSelection && !selectedArmor) || (this.enableMovementSelection && !selectedMovement)) {
       return false;
     }
-
     return !(this.enableTargetSelection && this.enforceTargetSelection && !this.isTargetSelectionValid);
   }
 
-  /**
-   * @override
-   * @param [options]
-   */
   async close(options) {
     if (this.enableTargetSelection) {
       unregisterTargetAutomationHook(this._ontargetChangedHook);
@@ -199,15 +191,13 @@ class CrewActionDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents("form")[0];
-    const selectedCrewId = $(form).find("#crewActor").val();
-    const selectedDR = $(form).find("#dr").val();
-    const selectedArmor = $(form).find("#targetArmor").val();
-    const selectedMovement = $(form).find("#movement").val();
+    const form = event.currentTarget.closest("form");
+    const selectedCrewId = form.querySelector("#crewActor")?.value;
+    const selectedDR = form.querySelector("#dr")?.value;
+    const selectedArmor = form.querySelector("#targetArmor")?.value;
+    const selectedMovement = form.querySelector("#movement")?.value;
 
-    if (!this._validate({ selectedDR, selectedArmor, selectedMovement })) {
-      return;
-    }
+    if (!this._validate({ selectedDR, selectedArmor, selectedMovement })) return;
 
     this.callback({
       selectedActor: game.actors.get(selectedCrewId),
@@ -236,8 +226,5 @@ class CrewActionDialog extends Application {
  */
 export const showCrewActionDialog = (data = {}) =>
   new Promise((resolve) => {
-    new CrewActionDialog({
-      ...data,
-      callback: resolve,
-    }).render(true);
+    new CrewActionDialog({ ...data, callback: resolve }).render({ force: true });
   });

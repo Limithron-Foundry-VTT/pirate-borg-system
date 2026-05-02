@@ -7,22 +7,22 @@
         <img src="{{target.img}}" data-edit="img" title="{{target.name}}" /> {{target.name}}
         {{else}}
           {{localize "PB.TargetInvalid"}}
-        {{/if}}         
+        {{/if}}
       </div>
     </div>
-  {{/if}}  
+  {{/if}}
   <div class="form-group">
-    <label>{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
+    <label for="defendDr">{{localize "PB.Defend"}} {{localize "PB.DR"}}:</label>
     <div class="form-fields">
       <input id="defendDr" type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
-      <input id="defenseModifiedDr" title="{{localize 'PB.Modified'}} {{localize 'PB.DR'}}" type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
+      <input id="defenseModifiedDr" data-tooltip="{{localize 'PB.Modified'}} {{localize 'PB.DR'}}" type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
       {{#if drModifiers}}
-        <div class="form-warning-icon" title="{{#each drModifiers}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><i class="fas fa-exclamation-circle"></i></div>
-      {{/if}}    
+        <div class="form-warning-icon" data-tooltip="{{#each drModifiers}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}"><i class="fas fa-exclamation-circle"></i></div>
+      {{/if}}
     </div>
   </div>
   <div class="form-group form-group-radio-selector">
-    <label></label>
+    <label>&nbsp;</label>
     <ul class="radio-group-radio defense-base-dr">
       <li>
         <label>
@@ -57,11 +57,11 @@
     </ul>
   </div>
   <div class="form-group">
-    <label>{{localize "PB.IncomingAttack"}}:</label>
+    <label for="incomingAttack">{{localize "PB.IncomingAttack"}}:</label>
     <input id="incomingAttack" type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />
   </div>
   <div class="form-group form-group-radio-selector">
-    <label></label>
+    <label>&nbsp;</label>
     <ul class="radio-group-radio incoming-attack">
       <li>
         <label>
@@ -109,12 +109,12 @@
   </div>
 
   <div class="form-group">
-    <label>{{localize "PB.Armor"}}:</label>
+    <label for="defendArmor">{{localize "PB.Armor"}}:</label>
     <input id="defendArmor" type="text" name="defendarmor" value="{{defendArmor}}" placeholder="0" data-dtype="String" />
   </div>
 
   <div class="form-group">
-    <label>{{localize "PB.IgnoreArmor"}}:</label>
+    <label for="ignoreArmor">{{localize "PB.IgnoreArmor"}}:</label>
     <input id="ignoreArmor" type="checkbox" name="ignoreArmor" value="true" data-dtype="Boolean" {{#if ignoreArmor}}checked{{/if}} />
   </div>
 
