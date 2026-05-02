@@ -8,8 +8,11 @@ import {
 import { createCharacter, regenerateActor } from "../api/generator/character-generator.js";
 import { classItemFromPack, findClassPacks, findCompendiumItem } from "../api/compendium.js";
 import { executeCharacterCreationMacro } from "../api/macros.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
-class CharacterGeneratorDialog extends Application {
+const CHARACTER_GENERATOR_TEMPLATE = "systems/pirateborg/templates/dialog/character-generator-dialog.html";
+
+class CharacterGeneratorDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
@@ -17,24 +20,22 @@ class CharacterGeneratorDialog extends Application {
     this.lastCharacterGeneratorSelection = getLastCharacterGeneratorSelection();
   }
 
-  /** @override */
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    options.id = "character-generator-dialog";
-    options.classes = ["pirateborg"];
-    options.title = game.i18n.localize("PB.CharacterGenerator");
-    options.template = "systems/pirateborg/templates/dialog/character-generator-dialog.html";
-    options.width = 420;
-    options.height = "auto";
-    return options;
-  }
+  static DEFAULT_OPTIONS = {
+    id: "character-generator-dialog",
+    classes: ["pirateborg"],
+    window: { title: "PB.CharacterGenerator" },
+    position: { width: 420, height: "auto" },
+  };
 
-  /** @override */
-  async getData(options = {}) {
-    return foundry.utils.mergeObject(super.getData(options), {
+  static PARTS = {
+    main: { template: CHARACTER_GENERATOR_TEMPLATE },
+  };
+
+  async _prepareContext() {
+    return {
       classGroups: await this.getClassDataGrouped(),
       forActor: this.actor !== undefined && this.actor !== null,
-    });
+    };
   }
 
   async getClassDataGrouped() {
@@ -43,7 +44,6 @@ class CharacterGeneratorDialog extends Application {
     const savedStates = getCharacterGeneratorGroupStates();
 
     for (const cls of classes) {
-      // Extract module name from pack name (e.g., "pirateborg.class-buccaneer" -> "pirateborg")
       const moduleName = cls.pack.split(".")[0];
       const displayName = moduleName === "pirateborg" ? "Core" : game.modules.get(moduleName)?.title || moduleName;
 
@@ -54,11 +54,9 @@ class CharacterGeneratorDialog extends Application {
           classes: [],
         };
       }
-
       groups[displayName].classes.push(cls);
     }
 
-    // Convert and sort: Core first, then alphabetically
     const sortedGroups = Object.values(groups).sort((a, b) => {
       if (a.name === "Core") return -1;
       if (b.name === "Core") return 1;
@@ -67,15 +65,10 @@ class CharacterGeneratorDialog extends Application {
 
     for (const group of sortedGroups) {
       const hasCheckedClass = group.classes.some((cls) => cls.checked);
-
       if (savedStates[group.name] !== undefined) {
         group.isOpen = savedStates[group.name];
       } else {
-        if (group.name === "Core") {
-          group.isOpen = true; // Core always starts open
-        } else {
-          group.isOpen = !!hasCheckedClass; // Groups with checked classes start open
-        }
+        group.isOpen = group.name === "Core" ? true : !!hasCheckedClass;
       }
     }
 
@@ -98,85 +91,35 @@ class CharacterGeneratorDialog extends Application {
     const classes = [];
     for (const classPack of classPacks) {
       const cls = await classItemFromPack(classPack);
-      if (cls) {
-        classes.push(cls);
-      }
+      if (cls) classes.push(cls);
     }
     return classes;
   }
 
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    html = html instanceof HTMLElement ? html : html[0];
-
-    html.querySelectorAll(".toggle-all").forEach((el) => el.addEventListener("click", this._onToggleAll.bind(this)));
-    html.querySelectorAll(".toggle-none").forEach((el) => el.addEventListener("click", this._onToggleNone.bind(this)));
-    html.querySelectorAll(".cancel-button").forEach((el) => el.addEventListener("click", this._onCancel.bind(this)));
-    html.querySelectorAll(".character-generator-button").forEach((el) => el.addEventListener("click", this._onCharacterGenerator.bind(this)));
-    html.querySelectorAll(".module-header").forEach((el) => el.addEventListener("click", this._onToggleModule.bind(this)));
+  _onRender() {
+    this.element.querySelectorAll(".toggle-all").forEach((el) => el.addEventListener("click", this._onToggleAll.bind(this)));
+    this.element.querySelectorAll(".toggle-none").forEach((el) => el.addEventListener("click", this._onToggleNone.bind(this)));
+    this.element.querySelector(".cancel-button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
+    this.element.querySelector(".character-generator-button")?.addEventListener("click", this._onCharacterGenerator.bind(this));
+    this.element.querySelectorAll(".module-header").forEach((el) => el.addEventListener("click", this._onToggleModule.bind(this)));
   }
 
   _onToggleAll(event) {
     event.preventDefault();
-
-    const form = event.currentTarget?.closest(".character-generator-dialog");
-    if (!form) return;
-
-    form.querySelectorAll(".class-checkbox").forEach((checkbox) => {
-      checkbox.checked = true;
-    });
+    this.element.querySelectorAll(".class-checkbox").forEach((el) => (el.checked = true));
   }
 
   _onToggleNone(event) {
     event.preventDefault();
-
-    const form = event.currentTarget?.closest(".character-generator-dialog");
-    if (!form) return;
-
-    form.querySelectorAll(".class-checkbox").forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-  }
-
-  async _onCancel(event) {
-    event.preventDefault();
-    await this.close();
+    this.element.querySelectorAll(".class-checkbox").forEach((el) => (el.checked = false));
   }
 
   /**
-   * Hook event fired at the start of character generation (via The Tavern).
-   *
-   * @function pirateborg.preCharacterGeneration
-   * @memberof hookEvents
-   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
-   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
-   */
-
-  /**
-   * Hook event fired at the start of character generation (via The Tavern).
-   *
-   * @function pirateborg.characterGeneration
-   * @memberof hookEvents
-   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
-   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
-   */
-
-  /**
-   * @typedef {object} CharacterGenerationHookOptions
-   * @property {HTMLElement} html - The dialog form element.
-   * @property {object} formData - The expanded form data from the dialog.
-   * @property {"create"|"regenerate"} method - Indicates whether the dialog is creating a new Actor or regenerating an existing one.
-   * @property {string[]} selectedClasses - The list of selected class pack names. This is what is used by the generator.
-   */
-
-  /**
-   * Handle character generation via The Tavern.
-   *
-   * @fires hookEvents#pirateborg.preCharacterGeneration
-   * @fires hookEvents#pirateborg.characterGeneration
-   * @param {MouseEvent} event
+   * @fires pirateborg.preCharacterGeneration
+   * @fires pirateborg.characterGeneration
    */
   async _onCharacterGenerator(event) {
     event.preventDefault();
@@ -185,14 +128,13 @@ class CharacterGeneratorDialog extends Application {
     const form = event.currentTarget?.closest("form");
     if (!form) return;
 
-    const formData = game.release.generation >= 13 ? new foundry.applications.ux.FormDataExtended(form).object : new FormDataExtended(form).object;
+    const formData = new foundry.applications.ux.FormDataExtended(form).object;
     const selection = Array.from(form.querySelectorAll(".class-groups input:checked")).map((checkbox) => checkbox.name);
 
     const callOptions = { html: form, formData, method, selectedClasses: selection };
     Hooks.call("pirateborg.preCharacterGeneration", this.actor, callOptions);
 
     if (selection.length === 0) {
-      // nothing selected, so bail
       ui.notifications.error(game.i18n.localize("PB.CharacterGeneratorErrorNoneSelected"));
       return;
     }
@@ -200,7 +142,6 @@ class CharacterGeneratorDialog extends Application {
     const selectedClasses = await this.getClasses(selection);
     const isValid = selectedClasses.some((selectedClass) => !selectedClass.requireBaseClass);
     if (!isValid) {
-      // require at least one normal class
       ui.notifications.error(game.i18n.localize("PB.CharacterGeneratorErrorNoBaseClassSelected"));
       return;
     }
@@ -225,9 +166,7 @@ class CharacterGeneratorDialog extends Application {
           selectedClasses,
           actor: this.actor,
         });
-        if (this.actor) {
-          this.actor.sheet.render(true);
-        }
+        if (this.actor) this.actor.sheet.render({ force: true });
       }
       return;
     }
@@ -237,32 +176,33 @@ class CharacterGeneratorDialog extends Application {
         await regenerateActor(this.actor, randomClass);
       } else {
         this.actor = await createCharacter(randomClass);
-        this.actor.sheet.render(true);
+        this.actor.sheet.render({ force: true });
       }
-
       Hooks.call("pirateborg.characterGeneration", this.actor, callOptions);
     } catch (err) {
       console.error(err);
-      ui.notifications.error(
-        game.i18n.format("PB.CharacterGeneratorErrorGeneric", {
-          className: randomClass.name,
-        })
-      );
+      ui.notifications.error(game.i18n.format("PB.CharacterGeneratorErrorGeneric", { className: randomClass.name }));
     }
   }
 
   async _onToggleModule(event) {
     event.preventDefault();
-    const header = $(event.currentTarget);
-    const moduleGroup = header.closest(".module-group");
-    const classesDiv = moduleGroup.find(".module-classes");
-    const icon = header.find("i");
-    const groupName = header.find("span").text();
+    const moduleGroup = event.currentTarget.closest(".module-group");
+    const classesDiv = moduleGroup?.querySelector(".module-classes");
+    const icon = event.currentTarget.querySelector("i");
+    const groupName = event.currentTarget.dataset.group;
 
-    classesDiv.slideToggle(200);
-    icon.toggleClass("fa-chevron-down fa-chevron-right");
+    if (classesDiv) {
+      const isHidden = classesDiv.style.display === "none";
+      classesDiv.style.display = isHidden ? "" : "none";
+    }
 
-    const isOpen = icon.hasClass("fa-chevron-down");
+    if (icon) {
+      icon.classList.toggle("fa-chevron-down");
+      icon.classList.toggle("fa-chevron-right");
+    }
+
+    const isOpen = icon?.classList.contains("fa-chevron-down") ?? false;
     const savedStates = getCharacterGeneratorGroupStates();
     savedStates[groupName] = isOpen;
     await setCharacterGeneratorGroupStates(savedStates);
@@ -273,6 +213,5 @@ class CharacterGeneratorDialog extends Application {
  * @param {PBActor} [actor]
  */
 export const showCharacterGeneratorDialog = (actor) => {
-  const characterGeneratorDialog = new CharacterGeneratorDialog(actor);
-  characterGeneratorDialog.render(true);
+  new CharacterGeneratorDialog(actor).render({ force: true });
 };
