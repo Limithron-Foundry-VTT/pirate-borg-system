@@ -2,6 +2,11 @@ name: Foundry package publish
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (validates without publishing)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -36,6 +41,7 @@ jobs:
           MANIFEST=$(jq -r '.manifest' system.json)
           NOTES="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/v${VERSION}"
           COMPAT=$(jq -c '.compatibility' system.json)
+          DRY_RUN=${{ inputs.dry_run }}
 
           BODY=$(jq -n \
             --arg id "$PACKAGE_ID" \
@@ -43,9 +49,10 @@ jobs:
             --arg man "$MANIFEST" \
             --arg notes "$NOTES" \
             --argjson compat "$COMPAT" \
-            '{id: $id, "dry-run": false, release: {version: $ver, manifest: $man, notes: $notes, compatibility: $compat}}')
+            --argjson dry "$DRY_RUN" \
+            '{id: $id, "dry-run": $dry, release: {version: $ver, manifest: $man, notes: $notes, compatibility: $compat}}')
 
-          echo "Publishing package **$PACKAGE_ID** at version **$VERSION**" >> "$GITHUB_STEP_SUMMARY"
+          echo "Publishing package **$PACKAGE_ID** at version **$VERSION** (dry-run: $DRY_RUN)" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- manifest: \`$MANIFEST\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- release notes link: \`$NOTES\`" >> "$GITHUB_STEP_SUMMARY"
