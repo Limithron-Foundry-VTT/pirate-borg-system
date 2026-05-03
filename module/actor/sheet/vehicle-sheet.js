@@ -31,6 +31,13 @@ export class PBActorSheetVehicle extends PBActorSheet {
       width: 540,
       height: 650,
       scrollY: [".tab"],
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "combat",
+        },
+      ],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
