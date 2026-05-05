@@ -118,8 +118,37 @@ class CharacterGeneratorDialog extends HandlebarsApplicationMixin(ApplicationV2)
   }
 
   /**
-   * @fires pirateborg.preCharacterGeneration
-   * @fires pirateborg.characterGeneration
+   * Hook event fired at the start of character generation (via The Tavern).
+   *
+   * @function pirateborg.preCharacterGeneration
+   * @memberof hookEvents
+   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
+   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
+   */
+
+  /**
+   * Hook event fired at the start of character generation (via The Tavern).
+   *
+   * @function pirateborg.characterGeneration
+   * @memberof hookEvents
+   * @param {PBActor|null} actor - The Actor being regenerated, or `null` when creating a new Actor.
+   * @param {CharacterGenerationHookOptions} callOptions - Options for this generation request.
+   */
+
+  /**
+   * @typedef {object} CharacterGenerationHookOptions
+   * @property {HTMLElement} html - The dialog form element.
+   * @property {object} formData - The expanded form data from the dialog.
+   * @property {"create"|"regenerate"} method - Indicates whether the dialog is creating a new Actor or regenerating an existing one.
+   * @property {string[]} selectedClasses - The list of selected class pack names. This is what is used by the generator.
+   */
+
+  /**
+   * Handle character generation via The Tavern.
+   *
+   * @fires hookEvents#pirateborg.preCharacterGeneration
+   * @fires hookEvents#pirateborg.characterGeneration
+   * @param {MouseEvent} event
    */
   async _onCharacterGenerator(event) {
     event.preventDefault();
