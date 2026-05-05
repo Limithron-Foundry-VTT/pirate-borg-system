@@ -1,10 +1,11 @@
 import { findTargettedToken, hasTargets, isTargetSelectionValid, registerTargetAutomationHook, unregisterTargetAutomationHook } from "../api/targeting.js";
 import { isEnforceTargetEnabled } from "../system/settings.js";
 import { getSystemFlag, setSystemFlag } from "../api/utils.js";
+const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
 const ATTACK_DIALOG_TEMPLATE = "systems/pirateborg/templates/dialog/attack-dialog.html";
 
-class AttackDialog extends Application {
+class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor({ actor, weapon, callback } = {}) {
     super();
     this.actor = actor;
@@ -19,25 +20,21 @@ class AttackDialog extends Application {
     this._ontargetChangedHook = registerTargetAutomationHook(this._onTargetChanged.bind(this));
   }
 
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["attack-dialog"],
-      template: ATTACK_DIALOG_TEMPLATE,
-      title: game.i18n.localize("PB.Attack"),
-      width: 460,
-      height: "auto",
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ["attack-dialog", "standard-form"],
+    window: { title: "PB.Attack" },
+    position: { width: 460, height: "auto" },
+  };
 
-  /** @override */
-  async getData(options) {
-    const data = super.getData(options);
+  static PARTS = {
+    main: { template: ATTACK_DIALOG_TEMPLATE },
+  };
+
+  async _prepareContext() {
     const attackDR = (await getSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR)) ?? 12;
     const targetArmor = this.shouldIgnoreArmor ? "0" : await this._getTargetArmor();
 
     return {
-      ...data,
       config: CONFIG.pirateborg,
       attackDR,
       targetArmor,
@@ -49,24 +46,31 @@ class AttackDialog extends Application {
     };
   }
 
+  _onRender() {
+    this.element.querySelector(".ok-button")?.addEventListener("click", this._onSubmit.bind(this));
+    this.element.querySelector(".cancel-button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.close();
+    });
+
+    this.element.querySelectorAll(".attack-dr .radio-input").forEach((el) => el.addEventListener("change", this._onAttackDrRadioInputChanged.bind(this)));
+    this.element.querySelector("#attackDr")?.addEventListener("change", this._onAttackDrInputChanged.bind(this));
+
+    this.element.querySelectorAll(".armor-tier .radio-input").forEach((el) => el.addEventListener("change", this._onArmorTierRadioInputChanged.bind(this)));
+    this.element.querySelector("#targetArmor")?.addEventListener("change", this._onTargetArmorInputChanged.bind(this));
+  }
+
   _hasTargetWarning() {
     return !!(this.enforceTargetSelection && !this.isTargetSelectionValid);
   }
 
   _shouldShowTarget() {
-    if (this.enforceTargetSelection) {
-      return true;
-    }
-    return this.hasTargets;
+    return this.enforceTargetSelection || this.hasTargets;
   }
 
   _shouldIgnoreArmor() {
-    if (this.targetToken?.actor.isAnyVehicle) {
-      return false;
-    }
-    if (this.weapon.isGunpowderWeapon) {
-      return true;
-    }
+    if (this.targetToken?.actor.isAnyVehicle) return false;
+    if (this.weapon.isGunpowderWeapon) return true;
   }
 
   _onTargetChanged() {
@@ -78,66 +82,50 @@ class AttackDialog extends Application {
   }
 
   async _getTargetArmor() {
-    if (this.targetToken) {
-      return this.targetToken.actor.getActorArmorFormula();
-    }
+    if (this.targetToken) return this.targetToken.actor.getActorArmorFormula();
     return (await getSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR)) ?? 0;
-  }
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find(".ok-button").on("click", this._onSubmit.bind(this));
-    html.find(".cancel-button").on("click", this._onCancel.bind(this));
-
-    html.find(".attack-dr .radio-input").on("change", this._onAttackDrRadioInputChanged.bind(this));
-    html.find("#attackDr").on("change", this._onAttackDrInputChanged.bind(this));
-
-    html.find(".armor-tier .radio-input").on("change", this._onArmorTierRadioInputChanged.bind(this));
-    html.find("#targetArmor").on("change", this._onTargetArmorInputChanged.bind(this));
   }
 
   _onArmorTierRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#targetArmor").val(input.val());
-    this.element.find("#targetArmor").trigger("change");
+    const targetArmorEl = this.element.querySelector("#targetArmor");
+    if (targetArmorEl) {
+      targetArmorEl.value = event.currentTarget.value;
+      targetArmorEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onTargetArmorInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, input.val());
-    $(".armor-tier .radio-input").val([input.val()]);
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.TARGET_ARMOR, value);
+    this.element.querySelectorAll(".armor-tier .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
   _onAttackDrRadioInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    this.element.find("#attackDr").val(input.val());
-    this.element.find("#attackDr").trigger("change");
+    const attackDrEl = this.element.querySelector("#attackDr");
+    if (attackDrEl) {
+      attackDrEl.value = event.currentTarget.value;
+      attackDrEl.dispatchEvent(new Event("change"));
+    }
   }
 
   async _onAttackDrInputChanged(event) {
     event.preventDefault();
-    const input = $(event.currentTarget);
-    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, input.val());
-    $(".attack-dr .radio-input").val([input.val()]);
-  }
-
-  async _onCancel(event) {
-    event.preventDefault();
-    await this.close();
+    const value = event.currentTarget.value;
+    await setSystemFlag(this.actor, CONFIG.PB.flags.ATTACK_DR, value);
+    this.element.querySelectorAll(".attack-dr .radio-input").forEach((el) => {
+      el.checked = el.value === value;
+    });
   }
 
   _validate({ targetArmor, attackDR }) {
     return !!(targetArmor && attackDR && (this.enforceTargetSelection ? this.isTargetSelectionValid : true));
   }
 
-  /**
-   * @override
-   * @param [options]
-   */
   async close(options) {
     unregisterTargetAutomationHook(this._ontargetChangedHook);
     await super.close(options);
@@ -145,13 +133,11 @@ class AttackDialog extends Application {
 
   async _onSubmit(event) {
     event.preventDefault();
-    const form = $(event.currentTarget).parents("form")[0];
-    const targetArmor = $(form).find("#targetArmor").val();
-    const attackDR = $(form).find("#attackDr").val();
+    const form = event.currentTarget.closest("form");
+    const targetArmor = form.querySelector("#targetArmor")?.value;
+    const attackDR = form.querySelector("#attackDr")?.value;
 
-    if (!this._validate({ targetArmor, attackDR })) {
-      return;
-    }
+    if (!this._validate({ targetArmor, attackDR })) return;
 
     this.callback({
       targetArmor,
@@ -169,8 +155,5 @@ class AttackDialog extends Application {
  */
 export const showAttackDialog = (data = {}) =>
   new Promise((resolve) => {
-    new AttackDialog({
-      ...data,
-      callback: resolve,
-    }).render(true);
+    new AttackDialog({ ...data, callback: resolve }).render({ force: true });
   });
