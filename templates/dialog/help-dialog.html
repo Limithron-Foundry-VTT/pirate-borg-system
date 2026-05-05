@@ -1,21 +1,20 @@
-<form id="help-dialog" class="flexcol" xmlns="http://www.w3.org/1999/html">
+<form class="flexcol">
   <header class="sheet-header flexrow">
-    <img src="systems/pirateborg/ui/pirate-borg.png" />
+    <img src="systems/pirateborg/ui/pirate-borg.png" alt="Pirate Borg logo" />
   </header>
 
-  {{! Sheet Tab Navigation }}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="about">About</a>
-    <a class="item" data-tab="help">Help</a>
+    <a class="item {{tabs.about.cssClass}}" data-action="tab" data-group="sheet" data-tab="about">About</a>
+    <a class="item {{tabs.help.cssClass}}" data-action="tab" data-group="sheet" data-tab="help">Help</a>
     {{#if isGM}}
-      <a class="item" data-tab="modules">Recommended Modules</a>
+      <a class="item {{tabs.modules.cssClass}}" data-action="tab" data-group="sheet" data-tab="modules">Recommended Modules</a>
     {{/if}}
     <span class="spacer"></span>
   </nav>
 
   <section class="sheet-body">
-    <div class="tab" data-group="primary" data-tab="about">
+    <div class="tab {{tabs.about.cssClass}}" data-group="sheet" data-tab="about">
       <div class="section">
         <p>
           A scurvy ridden, rules light, art heavy RPG based on Mörk Borg. Inspired by history, fantasy, horror, and rum. Your cutlass & flintlock won't save you
@@ -40,7 +39,7 @@
         {{else}}
         <p>The module "{{pbModuleName}}" is available to your world, but not yet enabled.</p>
         <div class="buttons-row">
-          <a id="help-dialog-enable-premium">Enable Premium Module</a>
+          <button type="button" data-action="enablePremium">Enable Premium Module</button>
         </div>
         {{/unless}}
       </div>
@@ -55,7 +54,7 @@
       </div>
     </div>
 
-    <div class="tab" data-group="primary" data-tab="help">
+    <div class="tab {{tabs.help.cssClass}}" data-group="sheet" data-tab="help">
       <div class="section">
         <p>
           This is an implementation of the PIRATE BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all
@@ -69,7 +68,7 @@
       <div class="section">
         <h4>Release Notes - {{version}}</h4>
         <div class="buttons-row">
-          <a href="https://github.com/Limithron-Foundry-VTT/pirate-borg-system/blob/main/CHANGELOG.md">Release Notes</a>
+          <a href="https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases">Release Notes</a>
         </div>
       </div>
 
@@ -94,7 +93,7 @@
       {{/each}}
     {{/inline}}
 
-    <div class="tab" data-group="primary" data-tab="modules">
+    <div class="tab {{tabs.modules.cssClass}}" data-group="sheet" data-tab="modules">
       <div class="section modules">
         <h4>Highly Recommended</h4>
         {{#> module modules=modules.highlyRecommended }}{{/module}}
