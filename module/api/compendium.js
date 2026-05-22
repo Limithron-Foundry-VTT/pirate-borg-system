@@ -137,26 +137,30 @@ export const findTableItems = async (results) => {
   let item = null;
   const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
   const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
+  const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
   const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
-  const isCompendiumResult = (type) => {
-    const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
-    const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
-    return type === compendiumType || type === documentType || type === "pack" || type === "document";
-  };
+  const isCompendiumResult = (type) => type === "pack" || type === "document" || (documentType !== undefined && type === documentType);
 
   for (const result of results) {
-    const resultData = result?.toObject?.() ?? result ?? {};
+    // Read from `_source` to avoid the deprecated `documentCollection`/`documentId`
+    // getters on V13/V14 (removed in V15), which crash when `documentUuid` is null.
+    const source = result?._source ?? {};
+    const data = result?.toObject?.() ?? {};
     const type = getResultType(result);
     if (isCompendiumResult(type)) {
       item = null;
-      if (resultData.documentUuid) {
-        item = await fromUuid(resultData.documentUuid);
-      } else if (resultData.documentCollection && resultData.documentId) {
-        item = await game.packs.get(resultData.documentCollection)?.getDocument(resultData.documentId);
+      const documentUuid = source.documentUuid ?? data.documentUuid;
+      const documentCollection = source.documentCollection ?? data.documentCollection;
+      const documentId = source.documentId ?? data.documentId;
+
+      if (documentUuid) {
+        item = await fromUuid(documentUuid);
+      } else if (documentCollection && documentId) {
+        item = await game.packs.get(documentCollection)?.getDocument(documentId);
       }
 
       if (!item) {
-        const fallbackName = resultData.name ?? resultData.text ?? resultData.description ?? getResultText(result);
+        const fallbackName = source.name ?? data.name ?? source.text ?? data.text ?? source.description ?? data.description ?? getResultText(result);
         item = await findCompendiumItem(getResultCollection(result), fallbackName);
       }
 
