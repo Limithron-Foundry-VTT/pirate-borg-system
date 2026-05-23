@@ -40,7 +40,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
-    "@foundryvtt/foundryvtt-cli": "^1.0.3",
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.2",
