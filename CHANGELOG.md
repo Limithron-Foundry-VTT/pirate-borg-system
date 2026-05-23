@@ -1,15 +1,13 @@
 # [1.5.0](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/compare/v1.4.0...v1.5.0) (2026-05-23)
 
-
 ### Bug Fixes
 
-* **chat:** translate legacy rollMode values ([b67219c](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/b67219cfeb3cebef652fc05f4da1c02997f9f2cf))
-
+- **chat:** translate legacy rollMode values ([b67219c](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/b67219cfeb3cebef652fc05f4da1c02997f9f2cf))
 
 ### Features
 
-* **vehicle-sheet:** add tab navigation for combat and effects ([6828e33](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/6828e33d0e0fe5c42524a5954fe0d28f28f14e56))
-* **vehicle-sheet:** implement vehicle sheet styling and layout ([8fa7e4b](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/8fa7e4bec37d98a6c4faa06628480914be189989))
+- **vehicle-sheet:** add tab navigation for combat and effects ([6828e33](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/6828e33d0e0fe5c42524a5954fe0d28f28f14e56))
+- **vehicle-sheet:** implement vehicle sheet styling and layout ([8fa7e4b](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/commit/8fa7e4bec37d98a6c4faa06628480914be189989))
 
 # The changelog has moved.
 
