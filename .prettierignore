@@ -1,6 +1,7 @@
 css/
 packs/_source/
 node_modules
+REFERENCE/
 *.min.css
 *.min.js
 *.html
