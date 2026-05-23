@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: build(deps)
+      prefix-development: build(deps-dev)
+    groups:
+      semantic-release:
+        patterns:
+          - "@semantic-release/*"
+          - "semantic-release"
+          - "conventional-changelog-*"
+      lint-format:
+        patterns:
+          - "eslint*"
+          - "prettier"
+          - "@typhonjs-fvtt/eslint-config-foundry.js"
+      commit-tooling:
+        patterns:
+          - "@commitlint/*"
+          - "husky"
+          - "lint-staged"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
