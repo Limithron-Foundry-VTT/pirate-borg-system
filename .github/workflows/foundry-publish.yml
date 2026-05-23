@@ -17,7 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Validate system.json shape
+        run: |
+          set -euo pipefail
+          jq -e 'has("id") and has("version") and has("manifest") and has("download") and has("compatibility")' system.json > /dev/null \
+            || { echo "::error::system.json is missing one of: id, version, manifest, download, compatibility"; exit 1; }
+          echo "system.json shape OK"
 
       - name: Validate secret
         env:
@@ -63,6 +70,11 @@ jobs:
             -H "Authorization: ${PACKAGE_RELEASE_TOKEN}" \
             -d "$BODY")
 
+          echo "=== Foundry API response (HTTP $HTTP_CODE) ==="
+          cat /tmp/foundry_response.txt
+          echo
+          echo "=== end response ==="
+
           echo "HTTP status: $HTTP_CODE" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
@@ -72,5 +84,12 @@ jobs:
           if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
             echo "::error::Foundry API returned $HTTP_CODE"
             cat /tmp/foundry_response.txt
+            exit 1
+          fi
+
+          STATUS=$(jq -r '.status // "unknown"' /tmp/foundry_response.txt)
+          if [ "$STATUS" != "success" ]; then
+            echo "::error::Foundry API returned HTTP $HTTP_CODE but body status was '$STATUS'"
+            jq '.' /tmp/foundry_response.txt || cat /tmp/foundry_response.txt
             exit 1
           fi
