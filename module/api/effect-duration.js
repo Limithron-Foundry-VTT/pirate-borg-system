@@ -1,38 +1,13 @@
 /**
- * Compatibility helpers for ActiveEffect.duration.
- *
- * Foundry VTT v14 ("Active Effects V2") replaced the legacy ActiveEffect.duration
- * schema. v12/v13 expect `{ rounds | seconds | turns, ... }`; v14 expects
- * `{ value, units, expiry }` with `value: number | null` and `units` being one of
- * "years"|"months"|"days"|"hours"|"minutes"|"seconds"|"rounds"|"turns". To support
- * the full v12+ range declared in system.json, this module writes BOTH shapes so
- * v12/v13 see their legacy keys and v14 sees a valid `value`/`units` pair.
+ * ActiveEffect.duration helpers that emit both the legacy (v12/v13) and v14+
+ * (Active Effects V2) shapes so the same object validates across all versions
+ * declared in system.json.
  */
 
-const V14_THRESHOLD = "13.999";
+const isV14OrNewer = () => (game?.release?.generation ?? 0) >= 14;
 
 /**
- * @returns {boolean} true when the running Foundry version is v14 or newer.
- */
-const isV14OrNewer = () => {
-  try {
-    return foundry.utils.isNewerVersion(game.version, V14_THRESHOLD);
-  } catch (_err) {
-    return false;
-  }
-};
-
-/**
- * Build an `ActiveEffect.duration` object that is valid on Foundry v12, v13, and
- * v14+. The first legacy unit found among `rounds`, `turns`, `seconds` (in that
- * order) is mirrored into the v14 `value`/`units` pair when running on v14+.
- *
- * @param {Object} [input]
- * @param {Number} [input.rounds]
- * @param {Number} [input.turns]
- * @param {Number} [input.seconds]
- * @param {Number} [input.startRound]
- * @param {Number} [input.startTurn]
+ * @param {{ rounds?: Number, turns?: Number, seconds?: Number, startRound?: Number, startTurn?: Number }} [input]
  * @returns {Object}
  */
 export const buildEffectDuration = ({ rounds, turns, seconds, startRound, startTurn } = {}) => {
@@ -70,51 +45,47 @@ export const buildEffectDuration = ({ rounds, turns, seconds, startRound, startT
 };
 
 /**
- * Normalize an existing duration object (typically copied from a compendium item)
- * so it is valid on the running Foundry version. When running on v14+, this
- * ensures the duration carries the `value`/`units` pair derived from whichever
- * legacy key (`rounds`/`turns`/`seconds`) is present. Legacy keys are preserved
- * so the same object continues to validate on v12/v13.
+ * Upgrade a duration object so `value`/`units` are present on v14+ without
+ * dropping legacy keys. Missing/empty durations default to indefinite.
  *
  * @param {Object} [duration]
- * @returns {Object|undefined} the same object reference, mutated, or undefined if no input.
+ * @returns {Object}
  */
 export const normalizeEffectDuration = (duration) => {
-  if (!duration || typeof duration !== "object") return duration;
-  if (!isV14OrNewer()) return duration;
+  const target = duration && typeof duration === "object" ? duration : {};
+  if (!isV14OrNewer()) return target;
 
-  if (typeof duration.value === "number" && typeof duration.units === "string") {
-    return duration;
+  if (typeof target.value === "number" || target.value === null) {
+    if (typeof target.units !== "string") target.units = "seconds";
+    return target;
   }
 
-  if (typeof duration.rounds === "number") {
-    duration.value = duration.rounds;
-    duration.units = "rounds";
-  } else if (typeof duration.turns === "number") {
-    duration.value = duration.turns;
-    duration.units = "turns";
-  } else if (typeof duration.seconds === "number") {
-    duration.value = duration.seconds;
-    duration.units = "seconds";
+  if (typeof target.rounds === "number") {
+    target.value = target.rounds;
+    target.units = "rounds";
+  } else if (typeof target.turns === "number") {
+    target.value = target.turns;
+    target.units = "turns";
+  } else if (typeof target.seconds === "number") {
+    target.value = target.seconds;
+    target.units = "seconds";
+  } else {
+    target.value = null;
+    target.units = "seconds";
   }
 
-  return duration;
+  return target;
 };
 
 /**
- * Walk the `effects` array of an item-like data object and normalize each
- * embedded effect's `duration` for the current Foundry version. Safe to call on
- * objects without effects.
- *
  * @param {Object} [itemData]
- * @returns {Object|undefined} the same object reference, mutated.
+ * @returns {Object|undefined}
  */
 export const normalizeItemEffectDurations = (itemData) => {
   if (!itemData || !Array.isArray(itemData.effects)) return itemData;
   for (const effect of itemData.effects) {
-    if (effect && effect.duration) {
-      normalizeEffectDuration(effect.duration);
-    }
+    if (!effect) continue;
+    effect.duration = normalizeEffectDuration(effect.duration);
   }
   return itemData;
 };

@@ -86,12 +86,14 @@ export const updateActorWithCharacter = async (actor, characterData) => {
  * @returns {Promise.<PBActor>}
  */
 export const invokeStartingMacro = async (actor) => {
-  const cls = actor.characterClass;
-  await executeCompendiumMacro(cls.getData().startingMacro, {
-    actor,
-    item: cls,
-  });
-  const baseClass = actor.characterBaseClass;
+  const cls = actor?.characterClass;
+  if (cls) {
+    await executeCompendiumMacro(cls.getData().startingMacro, {
+      actor,
+      item: cls,
+    });
+  }
+  const baseClass = actor?.characterBaseClass;
   if (baseClass) {
     await executeCompendiumMacro(baseClass.getData().startingMacro, {
       actor,
