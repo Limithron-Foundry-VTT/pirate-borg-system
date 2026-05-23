@@ -138,8 +138,12 @@ export const findTableItems = async (results) => {
   const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
   const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
   const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
+  const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
   const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
-  const isCompendiumResult = (type) => type === "pack" || type === "document" || (documentType !== undefined && type === documentType);
+  const isCompendiumResult = (type) => 
+    type === "pack" || type === "document" ||
+    (documentType !== undefined && type === documentType) ||
+    (compendiumType !== undefined && type === compendiumType);
 
   for (const result of results) {
     // Read from `_source` to avoid the deprecated `documentCollection`/`documentId`
