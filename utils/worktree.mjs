@@ -1,7 +1,7 @@
-import { execSync } from "child_process";
-import fs from "fs";
+import { execSync } from "node:child_process";
+import fs from "node:fs";
 import logger from "fancy-log";
-import path from "path";
+import path from "node:path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { createRelativeSymlink, getConfig, getSymlinkTarget, promptConfirm, promptContinueIfActive, validateSystemDirectory } from "./foundry-api.mjs";

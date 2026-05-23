@@ -1,7 +1,7 @@
-import fs from "fs";
+import fs from "node:fs";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import logger from "fancy-log";
-import path from "path";
+import path from "node:path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { compilePack, extractPack } from "@foundryvtt/foundryvtt-cli";
