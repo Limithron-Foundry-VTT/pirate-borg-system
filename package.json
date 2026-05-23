@@ -16,6 +16,8 @@
     "validate": "npm-run-all pretty-check lint:check",
     "release:dry": "npx semantic-release --dry-run",
     "watch": "sass --watch ./scss:./css",
+    "foundry:reference": "node ./utils/foundry-reference.mjs status",
+    "foundry:reference:link": "node ./utils/foundry-reference.mjs link",
     "foundry:remote:backup": "node ./utils/foundry-remote.mjs backup",
     "foundry:remote:install-dev": "node ./utils/foundry-remote.mjs install-dev",
     "foundry:remote:restore": "node ./utils/foundry-remote.mjs restore",
