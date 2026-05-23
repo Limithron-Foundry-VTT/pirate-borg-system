@@ -1,7 +1,7 @@
-import { spawnSync } from "child_process";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { getConfig, promptContinueIfActive, resolveAbsolutePath } from "./foundry-api.mjs";

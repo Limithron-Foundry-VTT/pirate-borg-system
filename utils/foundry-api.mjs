@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
-import fs from "fs";
-import http from "http";
-import https from "https";
-import path from "path";
-import { createInterface } from "readline";
+import fs from "node:fs";
+import http from "node:http";
+import https from "node:https";
+import path from "node:path";
+import { createInterface } from "node:readline";
 
 /**
  * Expand ${VAR} syntax in a value
