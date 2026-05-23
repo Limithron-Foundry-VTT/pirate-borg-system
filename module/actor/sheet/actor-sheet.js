@@ -3,6 +3,7 @@ import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
 import { getInfoFromDropData } from "../../api/utils.js";
+import { buildEffectDuration } from "../../api/effect-duration.js";
 import { bindProseMirrorDescriptionEditor, getCachedEditorDraft } from "../../system/prosemirror-editor-state.js";
 
 /**
@@ -198,15 +199,14 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
               },
             ];
 
-            // Handle duration for temporary effects
             if (isTemporary) {
               const durationRounds = parseInt(html.find(".duration").val()) || 1;
-              effectData["duration.rounds"] = durationRounds;
-              // Set start round/turn if combat is active for proper duration tracking
-              if (game.combat?.started) {
-                effectData["duration.startRound"] = game.combat.round;
-                effectData["duration.startTurn"] = game.combat.turn;
-              }
+              const combatStarted = game.combat?.started;
+              effectData.duration = buildEffectDuration({
+                rounds: durationRounds,
+                startRound: combatStarted ? game.combat.round : undefined,
+                startTurn: combatStarted ? game.combat.turn : undefined,
+              });
             }
 
             this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
@@ -215,13 +215,13 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
         skip: {
           label: game.i18n.localize("PB.EffectsSkip"),
           callback: () => {
-            // For skip, still set default duration for temporary effects
             if (isTemporary) {
-              effectData["duration.rounds"] = 1;
-              if (game.combat?.started) {
-                effectData["duration.startRound"] = game.combat.round;
-                effectData["duration.startTurn"] = game.combat.turn;
-              }
+              const combatStarted = game.combat?.started;
+              effectData.duration = buildEffectDuration({
+                rounds: 1,
+                startRound: combatStarted ? game.combat.round : undefined,
+                startTurn: combatStarted ? game.combat.turn : undefined,
+              });
             }
             this.actor.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true));
           },

@@ -18,7 +18,9 @@
       "disabled": false,
       "transfer": false,
       "duration": {
-        "rounds": 1
+        "rounds": 1,
+        "value": 1,
+        "units": "rounds"
       },
       "flags": {
         "pirateborg": {
@@ -42,7 +44,9 @@
       "disabled": false,
       "transfer": false,
       "duration": {
-        "rounds": 1
+        "rounds": 1,
+        "value": 1,
+        "units": "rounds"
       },
       "flags": {
         "pirateborg": {

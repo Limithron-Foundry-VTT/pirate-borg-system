@@ -3,6 +3,7 @@ import { asyncPipe, evaluateFormula } from "../../utils.js";
 import { testOutcome, withAsyncProps, withTarget } from "../../outcome/outcome.js";
 import { createHealOutcome } from "../../outcome/actor/heal-outcome.js";
 import { isGrogEnabled } from "../../../system/settings.js";
+import { buildEffectDuration } from "../../effect-duration.js";
 
 /**
  * Create a Toughness test outcome for drinking grog
@@ -118,26 +119,23 @@ const applyVomitingEffect = async (actor, rounds, grogItem) => {
     await existingVomiting.delete();
   }
 
+  const combatStarted = game.combat?.started;
   const effectData = {
     name: game.i18n.localize(game.pirateborg.config.systemEffects.vomiting.name),
     img: game.pirateborg.config.systemEffects.vomiting.img,
     origin: grogItem?.uuid || null,
     statuses: [game.pirateborg.config.systemEffects.vomiting.id],
-    duration: {
+    duration: buildEffectDuration({
       rounds,
-    },
+      startRound: combatStarted ? game.combat.round : undefined,
+      startTurn: combatStarted ? game.combat.turn : undefined,
+    }),
     flags: {
       [CONFIG.PB.flagScope]: {
         isVomiting: true,
       },
     },
   };
-
-  // Set start round/turn if combat is active
-  if (game.combat?.started) {
-    effectData.duration.startRound = game.combat.round;
-    effectData.duration.startTurn = game.combat.turn;
-  }
 
   await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
 };
