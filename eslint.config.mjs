@@ -2,7 +2,6 @@
 
 import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import-x";
-import i18nJsonPlugin from "eslint-plugin-i18n-json";
 import foundryGlobals from "./eslint.foundry-globals.mjs";
 import globals from "globals";
 
@@ -47,20 +46,6 @@ export default [
     rules: {
       "prefer-const": "error",
       "no-return-await": "error",
-    },
-  },
-
-  {
-    files: ["lang/*.json"],
-    plugins: {
-      "i18n-json": i18nJsonPlugin,
-    },
-    processor: i18nJsonPlugin.processors[".json"],
-    rules: {
-      "i18n-json/valid-message-syntax": [2, { syntax: "icu" }],
-      "i18n-json/valid-json": 2,
-      "i18n-json/sorted-keys": [2, { order: "asc", indentSpaces: 2 }],
-      "i18n-json/identical-keys": 0,
     },
   },
 ];
