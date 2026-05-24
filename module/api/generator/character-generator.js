@@ -11,6 +11,7 @@ import {
 } from "../compendium.js";
 import { PB } from "../../config.js";
 import { evaluateFormula } from "../utils.js";
+import { normalizeItemEffectDurations } from "../effect-duration.js";
 
 /**
  * @param {PBItem} cls
@@ -85,12 +86,14 @@ export const updateActorWithCharacter = async (actor, characterData) => {
  * @returns {Promise.<PBActor>}
  */
 export const invokeStartingMacro = async (actor) => {
-  const cls = actor.characterClass;
-  await executeCompendiumMacro(cls.getData().startingMacro, {
-    actor,
-    item: cls,
-  });
-  const baseClass = actor.characterBaseClass;
+  const cls = actor?.characterClass;
+  if (cls) {
+    await executeCompendiumMacro(cls.getData().startingMacro, {
+      actor,
+      item: cls,
+    });
+  }
+  const baseClass = actor?.characterBaseClass;
   if (baseClass) {
     await executeCompendiumMacro(baseClass.getData().startingMacro, {
       actor,
@@ -477,7 +480,9 @@ const characterToActorData = (characterData) => ({
     if ([CONFIG.PB.itemTypes.weapon, CONFIG.PB.itemTypes.armor, CONFIG.PB.itemTypes.hat].includes(i.type)) {
       i.getData().equipped = true;
     }
-    return { ...i.toObject(false), _id: null };
+    const itemData = { ...i.toObject(false), _id: null };
+    normalizeItemEffectDurations(itemData);
+    return itemData;
   }),
   token: {
     img: characterData.actorImg,

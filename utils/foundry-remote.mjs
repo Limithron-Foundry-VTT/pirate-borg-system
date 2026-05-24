@@ -140,7 +140,7 @@ async function runInstallDev(dryRun) {
     destination: buildRemoteDestination(config.foundryRemoteSsh, remoteSystemPath),
     dryRun,
     deleteMode: true,
-    excludes: [".git/", ".github/", ".cursor/", ".idea/", ".vscode/", "node_modules/", ".env", "system.zip", ".foundry-backups/"],
+    excludes: [".git/", ".github/", ".cursor/", ".idea/", ".vscode/", "node_modules/", ".env", "system.zip", ".foundry-backups/", ".worktrees/"],
   });
 
   console.log(`\x1b[32m✓\x1b[0m Dev install ${dryRun ? "preview complete" : "complete"}.`);

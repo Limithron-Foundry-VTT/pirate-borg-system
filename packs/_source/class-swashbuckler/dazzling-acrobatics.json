@@ -17,6 +17,10 @@
       ],
       "disabled": false,
       "transfer": false,
+      "duration": {
+        "value": null,
+        "units": "seconds"
+      },
       "flags": {},
       "_key": "!items.effects!MX7IBXzkNpkY3an3.pbEffDazzling01"
     }

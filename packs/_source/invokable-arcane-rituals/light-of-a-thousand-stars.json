@@ -18,7 +18,9 @@
       "disabled": false,
       "transfer": false,
       "duration": {
-        "seconds": 3600
+        "seconds": 3600,
+        "value": 3600,
+        "units": "seconds"
       },
       "flags": {
         "pirateborg": {
@@ -43,7 +45,9 @@
       "disabled": false,
       "transfer": false,
       "duration": {
-        "seconds": 3600
+        "seconds": 3600,
+        "value": 3600,
+        "units": "seconds"
       },
       "flags": {
         "pirateborg": {
