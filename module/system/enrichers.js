@@ -256,7 +256,7 @@ async function enrichLookup(match, options) {
       // Remove the leading @ and resolve the path
       const cleanPath = path.startsWith("@") ? path.slice(1) : path;
       value = foundry.utils.getProperty(rollData, cleanPath) ?? path;
-    } catch (e) {
+    } catch {
       // If resolution fails, display the original path
       value = path;
     }
@@ -315,7 +315,7 @@ async function handleRollClick(element) {
       flavor: game.i18n.localize("PB.Roll"),
       speaker: ChatMessage.getSpeaker(),
     });
-  } catch (e) {
+  } catch {
     ui.notifications.error(`Invalid roll formula: ${formula}`);
   }
 }
