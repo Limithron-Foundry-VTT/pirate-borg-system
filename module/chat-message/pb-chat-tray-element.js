@@ -99,7 +99,7 @@ export class PBChatTrayElement extends HTMLElement {
       {
         root: document.querySelector("#chat-log"),
         threshold: 0.01,
-      }
+      },
     );
     this._visibilityObserver.observe(this);
   }
@@ -116,6 +116,6 @@ export class PBChatTrayElement extends HTMLElement {
    */
   get message() {
     const messageId = this.closest("[data-message-id]")?.dataset?.messageId;
-    return messageId ? game.messages?.get(messageId) ?? null : null;
+    return messageId ? (game.messages?.get(messageId) ?? null) : null;
   }
 }

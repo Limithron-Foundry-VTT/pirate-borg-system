@@ -309,7 +309,7 @@ export class PBActorSheetContainer extends PBActorSheet {
           quantity = Math.min(quantity, maxQuantity);
           this._emitLootRequest(itemId, quantity, targetGm);
         },
-        { acceptLabel: game.i18n.localize("PB.LootLoot") }
+        { acceptLabel: game.i18n.localize("PB.LootLoot") },
       ).render(true);
     }
   }

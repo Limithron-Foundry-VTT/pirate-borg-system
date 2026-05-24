@@ -13,6 +13,6 @@ export const createRollRitualOutcome = async () => {
     withAsyncProps({
       itemData: async () => item.toObject(false),
       description: () => game.i18n.format("PB.GetBetterLootRitual", { link: item.link }),
-    })
+    }),
   )();
 };

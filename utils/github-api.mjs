@@ -23,7 +23,7 @@ export function validateGithubToken() {
           "  1. Authenticate gh CLI: gh auth login\n" +
           "  2. Get a token from: https://github.com/settings/tokens\n" +
           "     Required scopes: repo (for private repos) or public_repo (for public only)\n" +
-          "     Add it to your .env file: GITHUB_TOKEN=ghp_your_token_here"
+          "     Add it to your .env file: GITHUB_TOKEN=ghp_your_token_here",
       );
     }
   }

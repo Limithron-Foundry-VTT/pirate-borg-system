@@ -25,7 +25,7 @@ const getDefaultMessageMode = () => {
 export const createChatMessageWithVisibility = async (messageData, { rollMode, applyRollMode = true } = {}) => {
   const payload = { ...messageData };
   if (applyRollMode) {
-    const mode = rollMode ? LEGACY_TO_MODE[rollMode] ?? rollMode : getDefaultMessageMode();
+    const mode = rollMode ? (LEGACY_TO_MODE[rollMode] ?? rollMode) : getDefaultMessageMode();
     if (typeof ChatMessage.applyMode === "function") {
       ChatMessage.applyMode(payload, mode);
     } else {

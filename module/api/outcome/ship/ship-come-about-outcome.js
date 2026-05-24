@@ -42,5 +42,5 @@ export const createComeAboutOutcome = async ({ actor, crew, dr = 12 }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.COME_ABOUT)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.COME_ABOUT),
   )();

@@ -32,7 +32,7 @@ export const characterGetBetterAction = async (actor, options = {}) => {
       await rollAbility(actor, CONFIG.PB.ability.agility),
       await rollAbility(actor, CONFIG.PB.ability.presence),
       await rollAbility(actor, CONFIG.PB.ability.toughness),
-      await rollAbility(actor, CONFIG.PB.ability.spirit)
+      await rollAbility(actor, CONFIG.PB.ability.spirit),
     );
   }
   if (!skipItems) outcomes.push(...((await rollGetBetterItems(actor)) ?? []));
@@ -70,13 +70,13 @@ const rollAbility = async (actor, ability) => {
   // Calculate the ability modifier based on active effects
   let abilityModifier = 0;
   const abilityEffects = actor.effects.filter(
-    (effect) => !effect.disabled && !effect.isSuppressed && effect.changes.some((change) => change.key === `system.abilities.${ability}.value`)
+    (effect) => !effect.disabled && !effect.isSuppressed && effect.changes.some((change) => change.key === `system.abilities.${ability}.value`),
   );
   if (abilityEffects.length) {
     // Currently only "ADD" style effects are supported (CONST.ACTIVE_EFFECT_MODES.ADD)
     abilityModifier = abilityEffects.reduce(
       (total, effect) => total + parseInt(effect.changes.find((change) => change.key === `system.abilities.${ability}.value`).value),
-      abilityModifier
+      abilityModifier,
     );
   }
 

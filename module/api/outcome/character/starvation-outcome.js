@@ -19,5 +19,5 @@ export const createStarvationOutcome = async ({ actor }) =>
       title: (outcome) => `${game.i18n.localize("PB.Take")} ${outcome.totalDamage} ${game.i18n.localize("PB.Damage")} (${game.i18n.localize("PB.Starvation")})`,
     }),
     withTarget({ actor }),
-    withAutomations(DAMAGE_TYPE.TAKE, ANIMATION_TYPE.TAKE_DAMAGE, ANIMATION_TYPE.STARVATION, ADVANCED_ANIMATION_TYPE.STARVATION)
+    withAutomations(DAMAGE_TYPE.TAKE, ANIMATION_TYPE.TAKE_DAMAGE, ANIMATION_TYPE.STARVATION, ADVANCED_ANIMATION_TYPE.STARVATION),
   )();
