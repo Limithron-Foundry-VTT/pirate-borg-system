@@ -1,6 +1,0 @@
-node_modules/
-tasks/
-REFERENCE/
-commitlint.config.js
-lint-staged.config.js
-.releaserc.js

@@ -303,7 +303,6 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
     const rollTable = compendiumRollTable.clone({ replacement: false });
 
     // draw until we found a valid item
-    // eslint-disable-next-line no-constant-condition
     while (true) {
       const draw = await rollTable.draw({ displayChat: false });
       items = await findTableItems(draw.results);

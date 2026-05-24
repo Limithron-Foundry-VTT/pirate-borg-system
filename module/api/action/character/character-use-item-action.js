@@ -22,7 +22,7 @@ export const characterUseItemAction = async (actor, item, outcome = null, chatMe
   if (actionValue.startsWith("Macro.") || actionValue.startsWith("RollTable.") || actionValue.startsWith("Compendium.")) {
     try {
       target = await fromUuid(actionValue);
-    } catch (e) {
+    } catch {
       // ignore and fall through to other strategies
     }
   }

@@ -1,6 +1,4 @@
-// ESLint flat config. Replaces .eslintrc and .eslintignore.
-// On ESLint 8.x: enabled by setting ESLINT_USE_FLAT_CONFIG=true (handled by the npm scripts).
-// On ESLint 9+: default config format — env var is no longer needed.
+// ESLint flat config.
 
 import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
