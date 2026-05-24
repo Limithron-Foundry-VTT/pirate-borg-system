@@ -42,5 +42,5 @@ export const createFullSailOutcome = async ({ actor, crew, dr = 12 }) =>
       title: (outcome) => game.i18n.localize(getTitle(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.FULL_SAIL)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.FULL_SAIL),
   )();

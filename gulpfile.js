@@ -36,5 +36,5 @@ gulp.task(
     gulp.watch("scss/pirateborg/**/*.scss", gulp.series(["pirate-sass"]));
     gulp.watch("scss/editor.scss", gulp.series(["editor-sass"]));
     gulp.watch("scss/skins/**/*.scss", gulp.series(["skin-sass"]));
-  })
+  }),
 );

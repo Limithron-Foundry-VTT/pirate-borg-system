@@ -22,7 +22,7 @@ const createDrinkGrogTestOutcome = async ({ actor, dr }) =>
     withAsyncProps({
       title: () => game.i18n.localize("PB.GrogToughnessTest"),
     }),
-    withTarget({ actor })
+    withTarget({ actor }),
   )();
 
 /**
@@ -41,7 +41,7 @@ const createVomitingDurationOutcome = async () =>
     withAsyncProps({
       title: (outcome) => game.i18n.format("PB.GrogVomitingDuration", { rounds: outcome.roll.total }),
       rounds: (outcome) => outcome.roll.total,
-    })
+    }),
   )();
 
 /**
@@ -112,7 +112,7 @@ const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
 const applyVomitingEffect = async (actor, rounds, grogItem) => {
   // Remove any existing vomiting effect first
   const existingVomiting = actor.effects.find(
-    (e) => e.statuses?.has(game.pirateborg.config.systemEffects.vomiting.id) || e.getFlag(CONFIG.PB.flagScope, "isVomiting")
+    (e) => e.statuses?.has(game.pirateborg.config.systemEffects.vomiting.id) || e.getFlag(CONFIG.PB.flagScope, "isVomiting"),
   );
   if (existingVomiting) {
     await existingVomiting.delete();

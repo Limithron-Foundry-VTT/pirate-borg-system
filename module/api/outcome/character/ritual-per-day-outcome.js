@@ -18,5 +18,5 @@ export const createRitualPerDayOutcome = async ({ actor }) =>
         game.i18n.format("PB.RitualPerDayFormula", {
           score: actor.abilities.spirit.value,
         }),
-    })
+    }),
   )();

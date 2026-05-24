@@ -84,8 +84,8 @@ export const getInfoFromDropData = (dropData) => {
   const actor = itemFromUuid
     ? itemFromUuid.actor
     : dropData.sceneId
-    ? game.scenes.get(dropData.sceneId).tokens.get(dropData.tokenId).actor
-    : game.actors.get(dropData.actorId);
+      ? game.scenes.get(dropData.sceneId).tokens.get(dropData.tokenId).actor
+      : game.actors.get(dropData.actorId);
   const item = actor ? (itemFromUuid ? itemFromUuid : actor.items.get(dropData.data._id)) : null;
   return { actor, item };
 };

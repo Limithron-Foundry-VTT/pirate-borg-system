@@ -105,7 +105,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
           _id: actorId,
           name: "<Deleted Character>",
           type: "character",
-        }
+        },
       );
     }
 

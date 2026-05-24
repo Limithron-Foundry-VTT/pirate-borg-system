@@ -25,7 +25,7 @@ export const migrate = async () => {
 const migrateWorld = async () => {
   ui.notifications.info(
     `Applying PIRATE BORG System Migration for version ${getSystemVersion()}. Please be patient and do not close your game or shut down your server.`,
-    { permanent: true }
+    { permanent: true },
   );
   await migrateActors();
 

@@ -15,5 +15,5 @@ export const createInitiativeOutcome = async ({ actor }) =>
         actor.attributes?.combat?.initiativeModifier ? ` + ${game.i18n.localize("PB.InitiativeBonus")} (${actor._getInitiativeEffectDetails()})` : ""
       }`,
       data: actor.getRollData(),
-    })
+    }),
   )();

@@ -213,7 +213,7 @@ class CharacterGeneratorDialog extends Application {
       game.i18n.format("PB.CharacterGeneratorCreating", {
         user: game.users.current.name,
         className: randomClass.name,
-      })
+      }),
     );
 
     if (randomClass.characterGeneratorMacro) {
@@ -246,7 +246,7 @@ class CharacterGeneratorDialog extends Application {
       ui.notifications.error(
         game.i18n.format("PB.CharacterGeneratorErrorGeneric", {
           className: randomClass.name,
-        })
+        }),
       );
     }
   }

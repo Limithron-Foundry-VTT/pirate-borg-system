@@ -54,5 +54,5 @@ export const createTestRelicOutcome = async ({ actor }) =>
       description: (outcome) => game.i18n.localize(getDescription(outcome)),
     }),
     withTarget({ actor }),
-    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.TEST_RELIC)
+    withAutomations(ANIMATION_TYPE.SIMPLE, ADVANCED_ANIMATION_TYPE.TEST_RELIC),
   )();

@@ -831,9 +831,6 @@ form.vehicle-sheet-form .sheet-tabs .spacer {
   height: 36px;
 }
 
-.pirateborg {
-  /* Effect duration styling */
-}
 .pirateborg .items-list .items-header {
   margin: 0;
   padding: 0;
@@ -931,6 +928,9 @@ form.vehicle-sheet-form .sheet-tabs .spacer {
 }
 .pirateborg .item-list .empty-container {
   text-align: center;
+}
+.pirateborg {
+  /* Effect duration styling */
 }
 .pirateborg .effect-duration-header {
   flex: 0 0 60px;

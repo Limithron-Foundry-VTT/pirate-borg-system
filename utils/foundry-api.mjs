@@ -213,7 +213,7 @@ export async function promptContinueIfActive(apiEndpoint) {
     console.log("\x1b[33m⚠\x1b[0m  Could not check Foundry status: " + err.message);
     const shouldContinue = await promptConfirm(
       "Continue without status check? Switching while Foundry VTT is running a world will cause corruption or data loss within LevelDB files.",
-      false
+      false,
     );
     if (!shouldContinue) {
       console.log("\x1b[31m✗\x1b[0m Operation cancelled by user");
