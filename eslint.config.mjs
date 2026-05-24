@@ -3,7 +3,7 @@
 import js from "@eslint/js";
 import importPlugin from "eslint-plugin-import";
 import i18nJsonPlugin from "eslint-plugin-i18n-json";
-import foundryGlobals from "@typhonjs-fvtt/eslint-config-foundry.js/0.8.0.js";
+import foundryGlobals from "./eslint.foundry-globals.mjs";
 import globals from "globals";
 
 export default [
@@ -34,7 +34,7 @@ export default [
         ...globals.browser,
         ...globals.node,
         ...globals.jquery,
-        ...foundryGlobals.globals,
+        ...foundryGlobals,
         PIXI: "readonly",
         PoolTerm: "readonly",
         Sequencer: "readonly",
