@@ -1,7 +1,7 @@
 // ESLint flat config.
 
 import js from "@eslint/js";
-import importPlugin from "eslint-plugin-import";
+import importPlugin from "eslint-plugin-import-x";
 import i18nJsonPlugin from "eslint-plugin-i18n-json";
 import foundryGlobals from "./eslint.foundry-globals.mjs";
 import globals from "globals";
