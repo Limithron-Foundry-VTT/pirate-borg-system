@@ -13,6 +13,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import prettier from "prettier";
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -126,7 +127,10 @@ const header = `// Foundry VTT global identifiers used by ESLint.
 export default `;
 
 const output = path.join(REPO_ROOT, "eslint.foundry-globals.mjs");
-writeFileSync(output, header + JSON.stringify(globalsObject, null, 2) + ";\n");
+const raw = header + JSON.stringify(globalsObject, null, 2) + ";\n";
+const prettierConfig = await prettier.resolveConfig(output);
+const formatted = await prettier.format(raw, { ...prettierConfig, parser: "babel" });
+writeFileSync(output, formatted);
 
 console.log(`Wrote ${output}`);
 console.log(`  ${sorted.length} unique globals`);
