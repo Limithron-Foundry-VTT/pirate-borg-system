@@ -60,6 +60,6 @@
     "prettier": "^3.8.3",
     "sass": "^1.100.0",
     "semantic-release": "^25.0.2",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   }
 }
