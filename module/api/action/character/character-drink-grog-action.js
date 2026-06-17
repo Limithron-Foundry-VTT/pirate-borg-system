@@ -46,63 +46,6 @@ const createVomitingDurationOutcome = async () =>
   )();
 
 /**
- * Apply or update the Grog Intoxication effect on the actor
- * @param {PBActor} actor
- * @param {Number} drinks - Number of drinks
- * @param {PBItem} grogItem - The grog item that caused the intoxication
- */
-const applyGrogIntoxicationEffect = async (actor, drinks, grogItem) => {
-  // Find ALL existing grog intoxication effects (handle duplicates)
-  const existingEffects = actor.effects.filter((e) => e.getFlag(CONFIG.PB.flagScope, game.pirateborg.config.systemEffects.intoxicated.id));
-
-  if (drinks <= 0) {
-    // Remove all grog effects if no drinks
-    if (existingEffects.length > 0) {
-      const idsToDelete = existingEffects.map((e) => e.id);
-      await actor.deleteEmbeddedDocuments("ActiveEffect", idsToDelete);
-    }
-    return;
-  }
-
-  const effectData = {
-    name: game.i18n.format("PB.GrogIntoxication", { drinks }),
-    img: game.pirateborg.config.systemEffects.intoxicated.img,
-    statuses: [game.pirateborg.config.systemEffects.intoxicated.id],
-    changes: [
-      {
-        key: "system.abilities.agility.value",
-        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-        value: -drinks,
-      },
-    ],
-    flags: {
-      [CONFIG.PB.flagScope]: {
-        [game.pirateborg.config.systemEffects.intoxicated.id]: true,
-        drinks,
-      },
-    },
-  };
-
-  // Only set origin if grogItem is provided (preserve existing origin on updates)
-  if (grogItem) {
-    effectData.origin = grogItem.uuid;
-  }
-
-  if (existingEffects.length > 0) {
-    // Delete any duplicate effects (keep only the first one to update)
-    if (existingEffects.length > 1) {
-      const duplicateIds = existingEffects.slice(1).map((e) => e.id);
-      await actor.deleteEmbeddedDocuments("ActiveEffect", duplicateIds);
-    }
-    // Update the first existing effect
-    await existingEffects[0].update(effectData);
-  } else {
-    // Create new effect
-    await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
-  }
-};
-
-/**
  * Apply the Vomiting effect on the actor
  * Vomiting is a status indicator for d2 rounds (no specific mechanical effect defined in rules)
  * Only one vomiting effect can exist at a time - new vomiting replaces existing
@@ -195,9 +138,6 @@ export const characterDrinkGrogAction = async (actor) => {
     "system.attributes.grog.hoursRemaining": newDrinks,
   });
 
-  // Apply/update the intoxication effect (agility penalty)
-  await applyGrogIntoxicationEffect(actor, newDrinks, grogItem);
-
   if (testOutcomeResult.isSuccess || testOutcomeResult.isCriticalSuccess) {
     // Success: heal d4 HP
     const healOutcome = await createHealOutcome({ actor, formula: "d4" });
@@ -262,7 +202,4 @@ export const decrementGrogHours = async (actor, hours = 1) => {
     "system.attributes.grog.drinks": newDrinks,
     "system.attributes.grog.hoursRemaining": newDrinks,
   });
-
-  // Update intoxication effect
-  await applyGrogIntoxicationEffect(actor, newDrinks);
 };
