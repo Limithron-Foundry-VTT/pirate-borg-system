@@ -202,3 +202,14 @@ export const getModuleDependencies = (module) => module?.relationships?.requires
 export const getActorDefaults = (type) => {
   return CONFIG.PB.actorDefaults[type] ?? {};
 };
+
+export const confirmDialog = ({ title, content }) => {
+  if (game.release.generation >= 13) {
+    return foundry.applications.api.DialogV2.confirm({
+      window: { title },
+      content,
+      rejectClose: false,
+    });
+  }
+  return Dialog.confirm({ title, content });
+};

@@ -2,6 +2,7 @@ import PBActorSheet from "./actor-sheet.js";
 import { LootSheetHelper, QuantityDialog } from "../loot-helper.js";
 import { emitLootItems, emitLootCurrency, emitDistributeCurrency } from "../../system/sockets.js";
 import { isLootCurrencyEnabled, isLootAllEnabled } from "../../system/settings.js";
+import { confirmDialog } from "../../api/utils.js";
 
 /**
  * @extends {PBActorSheet}
@@ -240,7 +241,7 @@ export class PBActorSheetContainer extends PBActorSheet {
     const item = this.actor.items.get(itemId);
     if (!item) return;
 
-    const confirmed = await Dialog.confirm({
+    const confirmed = await confirmDialog({
       title: game.i18n.localize("PB.ItemDelete"),
       content: `<p>${game.i18n.format("PB.LootDeleteConfirm", { name: item.name })}</p>`,
     });
@@ -373,7 +374,7 @@ export class PBActorSheetContainer extends PBActorSheet {
       return;
     }
 
-    const confirmed = await Dialog.confirm({
+    const confirmed = await confirmDialog({
       title: game.i18n.localize("PB.LootLootAll"),
       content: `<p>${game.i18n.localize("PB.LootLootAllConfirm")}</p>`,
     });

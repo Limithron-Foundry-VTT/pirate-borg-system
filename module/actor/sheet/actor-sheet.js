@@ -2,7 +2,7 @@ import { configureEditor } from "../../system/configure-editor.js";
 import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
-import { getInfoFromDropData } from "../../api/utils.js";
+import { getInfoFromDropData, confirmDialog } from "../../api/utils.js";
 import { buildEffectDuration } from "../../api/effect-duration.js";
 import { bindProseMirrorDescriptionEditor, getCachedEditorDraft } from "../../system/prosemirror-editor-state.js";
 
@@ -339,10 +339,9 @@ export default class PBActorSheet extends (foundry.appv1?.sheets?.ActorSheet ?? 
    * @returns {Promise.<Boolean>}
    */
   async _confirmItemDelete() {
-    return Dialog.confirm({
+    return confirmDialog({
       title: game.i18n.localize("PB.ItemDelete"),
       content: `<p>${game.i18n.localize("PB.ItemDeleteMessage")}</p>`,
-      defaultYes: false,
     });
   }
 
