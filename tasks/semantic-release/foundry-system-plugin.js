@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const archiver = require("archiver");
+const { ZipArchive } = require("archiver");
 const { promisify } = require("util");
 
 const writeFile = promisify(fs.writeFile);
@@ -65,7 +65,7 @@ async function prepare(pluginConfig, context) {
 function createSystemZip(systemJson, logger) {
   return new Promise((resolve, reject) => {
     const output = fs.createWriteStream(path.join(process.cwd(), "system.zip"));
-    const archive = archiver("zip", { zlib: { level: 9 } });
+    const archive = new ZipArchive({ zlib: { level: 9 } });
 
     output.on("close", () => {
       logger.log(`Created system.zip (${archive.pointer()} bytes)`);
