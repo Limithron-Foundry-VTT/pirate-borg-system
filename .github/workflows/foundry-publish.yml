@@ -42,11 +42,10 @@ jobs:
           GITHUB_SERVER_URL: ${{ github.server_url }}
         run: |
           set -euo pipefail
-          RAW_VER=$(jq -r '.version' system.json)
-          VERSION="${RAW_VER#v}"
+          VERSION=$(jq -r '.version' system.json)
           PACKAGE_ID=$(jq -r '.id' system.json)
           MANIFEST=$(jq -r '.manifest' system.json)
-          NOTES="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/v${VERSION}"
+          NOTES="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${VERSION}"
           COMPAT=$(jq -c '.compatibility' system.json)
           DRY_RUN=${{ inputs.dry_run }}
 
@@ -65,7 +64,7 @@ jobs:
           echo "- release notes link: \`$NOTES\`" >> "$GITHUB_STEP_SUMMARY"
 
           HTTP_CODE=$(curl -sS -o /tmp/foundry_response.txt -w "%{http_code}" \
-            -X POST "https://api.foundryvtt.com/_api/packages/release_version/" \
+            -X POST "https://foundryvtt.com/_api/packages/release_version/" \
             -H "Content-Type: application/json" \
             -H "Authorization: ${PACKAGE_RELEASE_TOKEN}" \
             -d "$BODY")
