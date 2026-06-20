@@ -140,8 +140,9 @@ export const findTableItems = async (results) => {
   const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
   const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
   const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
-  const isCompendiumResult = (type) => 
-    type === "pack" || type === "document" ||
+  const isCompendiumResult = (type) =>
+    type === "pack" ||
+    type === "document" ||
     (documentType !== undefined && type === documentType) ||
     (compendiumType !== undefined && type === compendiumType);
 
