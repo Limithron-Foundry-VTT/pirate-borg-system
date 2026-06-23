@@ -4,408 +4,679 @@
   "description": "Foundry VTT system for PIRATE BORG.",
   "version": "v1.6.0",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "13",
     "verified": "14"
   },
   "authors": [
     {
       "name": "Limithron",
-      "url": "https://www.limithron.com/"
+      "url": "https://www.limithron.com/",
+      "flags": {}
     }
   ],
   "license": "LICENSE.MB3PL",
-  "esmodules": [
-    "module/pirateborg.js"
-  ],
-  "styles": [
-    "css/editor.css",
-    "css/pirateborg.css"
-  ],
+  "esmodules": ["module/pirateborg.js"],
+  "styles": ["css/editor.css", "css/pirateborg.css"],
   "packs": [
     {
       "name": "containers",
       "label": "Containers",
       "system": "pirateborg",
       "path": "packs/containers",
-      "type": "Actor"
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-melee-weapons",
       "label": "Equipment - Melee weapons",
       "system": "pirateborg",
       "path": "packs/equipment-melee-weapons",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-ranged-weapons",
       "label": "Equipment - Ranged weapons",
       "system": "pirateborg",
       "path": "packs/equipment-ranged-weapons",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-bombs",
       "label": "Equipment - Bombs",
       "system": "pirateborg",
       "path": "packs/equipment-bombs",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-ammo",
       "label": "Equipment - Ammo",
       "system": "pirateborg",
       "path": "packs/equipment-ammo",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-gear",
       "label": "Equipment - Gear",
       "system": "pirateborg",
       "path": "packs/equipment-gear",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-pets",
       "label": "Equipment - Pets",
       "system": "pirateborg",
       "path": "packs/equipment-pets",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-instruments",
       "label": "Equipment - Instruments",
       "system": "pirateborg",
       "path": "packs/equipment-instruments",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-clothing-and-armors",
       "label": "Equipment - Clothing and armors",
       "system": "pirateborg",
       "path": "packs/equipment-clothing-and-armors",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "equipment-hats",
       "label": "Equipment - Hats",
       "system": "pirateborg",
       "path": "packs/equipment-hats",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "backgrounds",
       "label": "Backgrounds",
       "system": "pirateborg",
       "path": "packs/backgrounds",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "backgrounds-items",
       "label": "Backgrounds - Items",
       "system": "pirateborg",
       "path": "packs/backgrounds-items",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-pirateborg",
       "label": "Macros - Pirate Borg",
       "system": "pirateborg",
       "path": "packs/macros-pirateborg",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "feature-distinctive-flaws",
       "label": "Feature - Distinctive flaws",
       "system": "pirateborg",
       "path": "packs/feature-distinctive-flaws",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "feature-physical-trademark",
       "label": "Feature - Physical trademark",
       "system": "pirateborg",
       "path": "packs/feature-physical-trademark",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "feature-idiosyncrasies",
       "label": "Feature - Idiosyncrasies",
       "system": "pirateborg",
       "path": "packs/feature-idiosyncrasies",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "feature-unfortunate-incidents-conditions",
       "label": "Feature - Unfortunate incidents & conditions",
       "system": "pirateborg",
       "path": "packs/feature-unfortunate-incidents-conditions",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "feature-thing-of-importance",
       "label": "Feature - Thing of importance",
       "system": "pirateborg",
       "path": "packs/feature-thing-of-importance",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "invokable-ancient-relics",
       "label": "Ancient relics",
       "system": "pirateborg",
       "path": "packs/invokable-ancient-relics",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "invokable-arcane-rituals",
       "label": "Arcane Rituals",
       "system": "pirateborg",
       "path": "packs/invokable-arcane-rituals",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-ancient-relics",
       "label": "Macros - Ancient relics",
       "system": "pirateborg",
       "path": "packs/macros-ancient-relics",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-arcane-rituals",
       "label": "Macros - Arcane Rituals",
       "system": "pirateborg",
       "path": "packs/macros-arcane-rituals",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-character-creation",
       "label": "Rolls - Character creation",
       "system": "pirateborg",
       "path": "packs/rolls-character-creation",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-gamemaster",
       "label": "Rolls - Gamemaster",
       "system": "pirateborg",
       "path": "packs/rolls-gamemaster",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "ships-features",
       "label": "Ships - Features",
       "system": "pirateborg",
       "path": "packs/ships-features",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "ships-cargo",
       "label": "Ships - Cargo",
       "system": "pirateborg",
       "path": "packs/ships-cargo",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-ships",
       "label": "Rolls - Ships",
       "system": "pirateborg",
       "path": "packs/rolls-ships",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "ships-mystic-shanties",
       "label": "Ships - Mystic Shanties",
       "system": "pirateborg",
       "path": "packs/ships-mystic-shanties",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "ships",
       "label": "Ships",
       "system": "pirateborg",
       "path": "packs/ships",
-      "type": "Actor"
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "ships-npc",
       "label": "Ships NPC",
       "system": "pirateborg",
       "path": "packs/ships-npc",
-      "type": "Actor"
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-landlubber",
       "label": "Class - Landlubber",
       "system": "pirateborg",
       "path": "packs/class-landlubber",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-brute",
       "label": "Class - Brute",
       "system": "pirateborg",
       "path": "packs/class-brute",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-brute",
       "label": "Rolls - Brute",
       "system": "pirateborg",
       "path": "packs/rolls-brute",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-brute",
       "label": "Macros - Brute",
       "system": "pirateborg",
       "path": "packs/macros-brute",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-rapscallion",
       "label": "Class - Rapscallion",
       "system": "pirateborg",
       "path": "packs/class-rapscallion",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-rapscallion",
       "label": "Rolls - Rapscallion",
       "system": "pirateborg",
       "path": "packs/rolls-rapscallion",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-rapscallion",
       "label": "Macros - Rapscallion",
       "system": "pirateborg",
       "path": "packs/macros-rapscallion",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-buccaneer",
       "label": "Class - Buccaneer",
       "system": "pirateborg",
       "path": "packs/class-buccaneer",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-buccaneer",
       "label": "Rolls - Buccaneer",
       "system": "pirateborg",
       "path": "packs/rolls-buccaneer",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-buccaneer",
       "label": "Macros - Buccaneer",
       "system": "pirateborg",
       "path": "packs/macros-buccaneer",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-swashbuckler",
       "label": "Class - Swashbuckler",
       "system": "pirateborg",
       "path": "packs/class-swashbuckler",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-swashbuckler",
       "label": "Rolls - Swashbuckler",
       "system": "pirateborg",
       "path": "packs/rolls-swashbuckler",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-swashbuckler",
       "label": "Macros - Swashbuckler",
       "system": "pirateborg",
       "path": "packs/macros-swashbuckler",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-zealot",
       "label": "Class - Zealot",
       "system": "pirateborg",
       "path": "packs/class-zealot",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-zealot",
       "label": "Rolls - Zealot",
       "system": "pirateborg",
       "path": "packs/rolls-zealot",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-zealot",
       "label": "Macros - Zealot",
       "system": "pirateborg",
       "path": "packs/macros-zealot",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-sorcerer",
       "label": "Class - Sorcerer",
       "system": "pirateborg",
       "path": "packs/class-sorcerer",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-sorcerer",
       "label": "Rolls - Sorcerer",
       "system": "pirateborg",
       "path": "packs/rolls-sorcerer",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-sorcerer",
       "label": "Macros - Sorcerer",
       "system": "pirateborg",
       "path": "packs/macros-sorcerer",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-tall-tale",
       "label": "Class - Tall Tale",
       "system": "pirateborg",
       "path": "packs/class-tall-tale",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-tall-tale",
       "label": "Rolls - Tall Tale",
       "system": "pirateborg",
       "path": "packs/rolls-tall-tale",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-tall-tale",
       "label": "Macros - Tall Tale",
       "system": "pirateborg",
       "path": "packs/macros-tall-tale",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "class-haunted-soul",
       "label": "Class - Haunted Soul",
       "system": "pirateborg",
       "path": "packs/class-haunted-soul",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "rolls-haunted-soul",
       "label": "Rolls - Haunted Soul",
       "system": "pirateborg",
       "path": "packs/rolls-haunted-soul",
-      "type": "RollTable"
+      "type": "RollTable",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "macros-haunted-soul",
       "label": "Macros - Haunted Soul",
       "system": "pirateborg",
       "path": "packs/macros-haunted-soul",
-      "type": "Macro"
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
   "packFolders": [
@@ -467,7 +738,9 @@
                 "equipment-instruments",
                 "equipment-clothing-and-armors",
                 "equipment-hats"
-              ]
+              ],
+              "color": null,
+              "folders": []
             },
             {
               "name": "Features",
@@ -477,39 +750,41 @@
                 "feature-idiosyncrasies",
                 "feature-unfortunate-incidents-conditions",
                 "feature-thing-of-importance"
-              ]
+              ],
+              "color": null,
+              "folders": []
             }
-          ]
+          ],
+          "color": null
         },
         {
           "name": "Ships",
-          "packs": [
-            "ships-features",
-            "ships-cargo",
-            "rolls-ships",
-            "ships-mystic-shanties",
-            "ships",
-            "ships-npc"
-          ]
+          "packs": ["ships-features", "ships-cargo", "rolls-ships", "ships-mystic-shanties", "ships", "ships-npc"],
+          "color": null,
+          "folders": []
         }
-      ]
+      ],
+      "color": null
     }
   ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     },
     {
       "lang": "pl",
       "name": "Polski",
-      "path": "lang/pl.json"
+      "path": "lang/pl.json",
+      "flags": {}
     },
     {
       "lang": "fr",
       "name": "Français",
-      "path": "lang/fr.json"
+      "path": "lang/fr.json",
+      "flags": {}
     }
   ],
   "socket": true,
@@ -521,18 +796,11 @@
   "flags": {
     "allowBugReporter": true,
     "hotReload": {
-      "extensions": [
-        "css",
-        "hbs"
-      ],
-      "paths": [
-        "css",
-        "templates"
-      ]
+      "extensions": ["css", "hbs"],
+      "paths": ["css", "templates"]
     }
   },
   "primaryTokenAttribute": "attributes.hp",
-  "secondaryTokenAttribute": null,
   "background": "systems/pirateborg/ui/pirate-borg.png",
   "url": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
   "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v1.6.0/system.json",
