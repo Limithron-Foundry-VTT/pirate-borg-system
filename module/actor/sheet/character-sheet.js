@@ -12,6 +12,7 @@ import {
   characterInvokeRelicAction,
   characterInvokeRitualAction,
   characterLuckPerDayAction,
+  characterShowDevilLuckAction,
   characterReloadAction,
   characterRestAction,
   characterRitualsPerDayAction,
@@ -24,7 +25,6 @@ import {
 import { showCharacterGeneratorDialog } from "../../dialog/character-generator-dialog.js";
 import { showActorBaseClassDialog } from "../../dialog/actor-base-class-dialog.js";
 import { characterUseItemAction } from "../../api/action/character/character-use-item-action.js";
-import { createChatMessageWithVisibility, getOtherChatMessageStyle } from "../../chat-message/chat-message-visibility.js";
 
 /**
  * @extends {ActorSheet}
@@ -483,18 +483,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
    * @private
    */
   async _onLuckLabel() {
-    const template = "systems/pirateborg/templates/chat/devil-luck-information-card.html";
-    let html;
-    if (game.release.generation >= 13) {
-      html = await foundry.applications.handlebars.renderTemplate(template);
-    } else {
-      html = await renderTemplate(template);
-    }
-    await createChatMessageWithVisibility({
-      content: html,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      style: getOtherChatMessageStyle(),
-    });
+    await characterShowDevilLuckAction(this.actor);
   }
 
   // ============================================
