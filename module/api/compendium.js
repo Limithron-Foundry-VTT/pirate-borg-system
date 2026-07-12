@@ -267,7 +267,3 @@ export const drawRitual = async (options = {}) => drawTable("pirateborg.rolls-ch
  * @returns {Promise.<RollTableDraw>}
  */
 export const drawWeapon = async (options = {}) => drawTable("pirateborg.rolls-character-creation", "d10 Starting weapons", options);
-
-export const drawDeckOfCards = async (options = {}) => drawTable("pirateborg.rolls-rapscallion", "Deck of Cards", options);
-
-export const drawJokerTable = async (options = {}) => drawTable("pirateborg.rolls-rapscallion", "Joker Table", options);
