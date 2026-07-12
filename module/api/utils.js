@@ -106,15 +106,13 @@ export const getResultType = (result) => {
  */
 export const getResultCollection = (result) => {
   if (game.release.generation >= 13) {
-    const data = result?.toObject?.() ?? {};
     const source = result?._source ?? {};
-    const documentUuid = data.documentUuid ?? source.documentUuid ?? result?.documentUuid;
-    const documentCollection = data.documentCollection ?? source.documentCollection ?? result?.documentCollection;
-    if (!documentUuid) {
-      return documentCollection ?? "";
+    const documentUuid = source.documentUuid;
+    if (documentUuid) {
+      const parsedUuid = foundry.utils.parseUuid(documentUuid);
+      return parsedUuid?.collection?.metadata?.id ?? parsedUuid?.type ?? "";
     }
-    const parsedUuid = foundry.utils.parseUuid(documentUuid);
-    return parsedUuid?.collection?.metadata?.id ?? parsedUuid.type ?? "";
+    return source.documentCollection ?? "";
   }
 
   return result.documentCollection;

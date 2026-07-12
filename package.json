@@ -11,6 +11,7 @@
     "lint:check": "eslint ./module",
     "lint:globals:refresh": "node ./utils/generate-foundry-globals.mjs",
     "prepare": "husky",
+    "precommit": "lint-staged",
     "pretty": "prettier --write .",
     "pretty-check": "prettier --check .",
     "sass": "sass ./scss:./css",
