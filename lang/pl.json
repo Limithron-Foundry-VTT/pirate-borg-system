@@ -245,6 +245,8 @@
   "PB.LootTotalValue": "Łączna wartość",
   "PB.ConsumeLuckButton": "Użyj Piekielnego Farta",
   "PB.JokerTable": "Tabela Jokera",
+  "PB.ApplyJokerTableButton": "Zastosuj",
+  "PB.JokerTableApplied": "Zastosowano wynik Tabeli Jokera",
   "PB.Luck": "Piekielny Fart",
   "PB.LuckConsumed": "Użyto Piekielnego Farta",
   "PB.LuckyDevilRegain": "Odzyskano 1 Piekielny Fart.",

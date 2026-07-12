@@ -24,7 +24,7 @@
     "featureType": "Class",
     "maxQuantity": null,
     "quantity": 1,
-    "actionMacro": "pirateborg.macros-pirateborg;Generic Item",
+    "actionMacro": "pirateborg.macros-rapscallion;Show Devil's Luck",
     "actionMacroLabel": "Use",
     "startingBonusItems": "",
     "startingBonusRolls": "",

@@ -13,6 +13,7 @@ export * from "./character/character-invoke-ritual-action.js";
 export * from "./character/character-luck-per-day-action.js";
 export * from "./character/character-consume-luck-action.js";
 export * from "./character/character-show-devil-luck-action.js";
+export * from "./character/character-show-joker-table-action.js";
 export * from "./character/character-reload-action.js";
 export * from "./character/character-drink-grog-action.js";
 export * from "./character/character-rest-action.js";

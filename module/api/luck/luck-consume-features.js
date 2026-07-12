@@ -2,8 +2,6 @@ import { drawDeckOfCards, drawJokerTable } from "../compendium.js";
 import { asyncPipe, getResultText } from "../utils.js";
 import { drawOutcome, withTarget } from "../outcome/outcome.js";
 
-const LUCKY_DEVIL_ID = "sYUKPmVVlxHlrNMC";
-
 const FACE_RANKS = {
   ace: 14,
   king: 13,
@@ -19,6 +17,9 @@ const FACE_RANKS = {
   three: 3,
   two: 2,
 };
+
+const LUCKY_DEVIL_ACTION_MACRO = "pirateborg.macros-rapscallion;Show Devil's Luck";
+const JOKER_TABLE_ACTION_MACRO = "pirateborg.macros-rapscallion;Joker Table";
 
 const handlers = [];
 
@@ -48,19 +49,17 @@ export const parsePlayingCardRank = (text) => {
   return FACE_RANKS[rank] ?? null;
 };
 
-const isLuckyDevilItem = (item) => {
-  if (item.name === "Lucky Devil" || item.id === LUCKY_DEVIL_ID || item._id === LUCKY_DEVIL_ID) {
-    return true;
-  }
-  const sourceId = item._stats?.compendiumSource ?? item.flags?.core?.sourceId ?? "";
-  return String(sourceId).includes(LUCKY_DEVIL_ID);
-};
-
-const applyJokerTableLuck = async (actor, total) => {
+export const applyJokerTableLuck = async (actor, total) => {
   if (total >= 2 && total <= 9) await actor.updateLuck({ value: 0 });
   else if (total >= 10 && total <= 19) await actor.updateLuck({ value: (actor.luck?.value || 0) + 2 });
   else if (total === 20) await actor.updateLuck({ value: Math.min(4, (actor.luck?.value || 0) + 4) });
 };
+
+const itemActionMacro = (item) => String(item.actionMacro ?? item.system?.actionMacro ?? "").trim();
+
+export const isLuckyDevilItem = (item) => itemActionMacro(item) === LUCKY_DEVIL_ACTION_MACRO;
+
+export const isJokerTableItem = (item) => itemActionMacro(item) === JOKER_TABLE_ACTION_MACRO;
 
 export const executeLuckyDevil = async ({ actor, item }) => {
   const draw = await drawDeckOfCards();

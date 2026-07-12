@@ -221,6 +221,8 @@
   "PB.LootTotalValue": "Valeur totale",
   "PB.ConsumeLuckButton": "Utiliser Devil's Luck",
   "PB.JokerTable": "Table du Joker",
+  "PB.ApplyJokerTableButton": "Appliquer",
+  "PB.JokerTableApplied": "Résultat de la Table du Joker appliqué",
   "PB.Luck": "Devil's Luck",
   "PB.LuckConsumed": "Devil's Luck utiliséé",
   "PB.LuckyDevilRegain": "1 Devil's Luck récupéré.",
