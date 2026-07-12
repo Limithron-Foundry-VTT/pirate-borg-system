@@ -1,3 +1,5 @@
+import { normalizeItemEffectDurations } from "../api/effect-duration.js";
+
 /**
  * @extends {Item}
  */
@@ -8,6 +10,12 @@ export class PBItem extends Item {
       overwrite: false,
     });
     return super.create(data, options);
+  }
+
+  /** @override */
+  static async createDocuments(data, context = {}) {
+    for (const d of data) normalizeItemEffectDurations(d);
+    return super.createDocuments(data, context);
   }
 
   /** @override */

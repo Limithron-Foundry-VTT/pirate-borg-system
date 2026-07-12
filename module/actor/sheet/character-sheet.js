@@ -493,7 +493,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
     await createChatMessageWithVisibility({
       content: html,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      type: getOtherChatMessageStyle(),
+      style: getOtherChatMessageStyle(),
     });
   }
 
