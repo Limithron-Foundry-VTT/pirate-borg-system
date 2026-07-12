@@ -6,6 +6,11 @@
 
 const isV14OrNewer = () => (game?.release?.generation ?? 0) >= 14;
 
+const toInteger = (n) => {
+  if (typeof n !== "number" || !Number.isFinite(n)) return null;
+  return Math.trunc(n);
+};
+
 /**
  * @param {{ rounds?: Number, turns?: Number, seconds?: Number, startRound?: Number, startTurn?: Number }} [input]
  * @returns {Object}
@@ -16,16 +21,16 @@ export const buildEffectDuration = ({ rounds, turns, seconds, startRound, startT
   let units = null;
 
   if (rounds !== undefined && rounds !== null) {
-    duration.rounds = rounds;
-    value = rounds;
+    duration.rounds = toInteger(rounds) ?? rounds;
+    value = toInteger(rounds);
     units = "rounds";
   } else if (turns !== undefined && turns !== null) {
-    duration.turns = turns;
-    value = turns;
+    duration.turns = toInteger(turns) ?? turns;
+    value = toInteger(turns);
     units = "turns";
   } else if (seconds !== undefined && seconds !== null) {
-    duration.seconds = seconds;
-    value = seconds;
+    duration.seconds = toInteger(seconds) ?? seconds;
+    value = toInteger(seconds);
     units = "seconds";
   }
 
@@ -46,7 +51,7 @@ export const buildEffectDuration = ({ rounds, turns, seconds, startRound, startT
 
 /**
  * Upgrade a duration object so `value`/`units` are present on v14+ without
- * dropping legacy keys. Missing/empty durations default to indefinite.
+ * dropping legacy keys. Missing/empty/null durations stay indefinite (omit `value`).
  *
  * @param {Object} [duration]
  * @returns {Object}
@@ -55,23 +60,28 @@ export const normalizeEffectDuration = (duration) => {
   const target = duration && typeof duration === "object" ? duration : {};
   if (!isV14OrNewer()) return target;
 
-  if (typeof target.value === "number" || target.value === null) {
-    if (typeof target.units !== "string") target.units = "seconds";
-    return target;
+  let value = null;
+  let units = typeof target.units === "string" ? target.units : null;
+
+  if (typeof target.value === "number") {
+    value = toInteger(target.value);
+  } else if (typeof target.rounds === "number") {
+    value = toInteger(target.rounds);
+    units = "rounds";
+  } else if (typeof target.turns === "number") {
+    value = toInteger(target.turns);
+    units = "turns";
+  } else if (typeof target.seconds === "number") {
+    value = toInteger(target.seconds);
+    units = "seconds";
   }
 
-  if (typeof target.rounds === "number") {
-    target.value = target.rounds;
-    target.units = "rounds";
-  } else if (typeof target.turns === "number") {
-    target.value = target.turns;
-    target.units = "turns";
-  } else if (typeof target.seconds === "number") {
-    target.value = target.seconds;
-    target.units = "seconds";
+  if (value !== null) {
+    target.value = value;
+    target.units = units || "seconds";
   } else {
-    target.value = null;
-    target.units = "seconds";
+    delete target.value;
+    if (typeof target.units !== "string") target.units = "seconds";
   }
 
   return target;
@@ -88,4 +98,22 @@ export const normalizeItemEffectDurations = (itemData) => {
     effect.duration = normalizeEffectDuration(effect.duration);
   }
   return itemData;
+};
+
+/**
+ * @param {Object} [documentData]
+ * @returns {Object|undefined}
+ */
+export const normalizeDocumentEffectDurations = (documentData) => {
+  if (!documentData || typeof documentData !== "object") return documentData;
+  if (Array.isArray(documentData.effects)) {
+    for (const effect of documentData.effects) {
+      if (!effect) continue;
+      effect.duration = normalizeEffectDuration(effect.duration);
+    }
+  }
+  if (Array.isArray(documentData.items)) {
+    for (const item of documentData.items) normalizeItemEffectDurations(item);
+  }
+  return documentData;
 };

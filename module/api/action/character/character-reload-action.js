@@ -33,8 +33,7 @@ export const characterReloadAction = async (actor, item) => {
     }
   }
 
-  let loadingCount = item.loadingCount || 0;
-  loadingCount = Math.max(--loadingCount, 0);
+  const loadingCount = Math.max((item.loadingCount || 0) - 1, 0);
 
   await item.setLoadingCount(loadingCount);
 

@@ -6,6 +6,7 @@ import { PBCombat } from "./combat.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
+import { PBActiveEffect } from "../active-effect/active-effect.js";
 import * as characterGenerator from "../api/generator/character-generator.js";
 import * as macros from "../api/macros.js";
 import * as utils from "../api/utils.js";
@@ -47,6 +48,7 @@ export const configureSystem = () => {
 
   CONFIG.Actor.documentClass = PBActor;
   CONFIG.Item.documentClass = PBItem;
+  CONFIG.ActiveEffect.documentClass = PBActiveEffect;
   CONFIG.ChatMessage.documentClass = PBChatMessage;
 
   if (game.release.generation >= 13 && foundry.applications?.sidebar?.tabs?.ChatLog) {
