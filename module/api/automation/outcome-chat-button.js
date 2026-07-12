@@ -7,6 +7,8 @@ export const OUTCOME_BUTTON = {
   REPAIR_CREW_ACTION: "button-repair-crew-action",
   TAKE_DAMAGE: "button-take-damage",
   INFLICT_DAMAGE: "button-inflict-damage",
+  CONSUME_LUCK: "button-consume-luck",
+  APPLY_JOKER_TABLE: "button-apply-joker-table",
 };
 
 export class OutcomeChatButton {

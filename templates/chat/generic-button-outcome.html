@@ -21,10 +21,10 @@
           {{#if outcome.description}}
             <div class="card-outcome-description">{{{outcome.description}}}</div>
           {{/if}}        
-          {{#if button}}
+          {{#if outcome.button}}
             <div class="item-buttons">
-              <button type="button" class="button item-button rollable" data-outcome-id="{{outcome.id}}" {{#each button.data}} data-{{@key}}="{{this}}"{{/each}} title="{{title}}">
-                {{button.title}}
+              <button type="button" class="button item-button rollable" data-outcome-id="{{outcome.id}}" {{#each outcome.button.data}} data-{{@key}}="{{this}}"{{/each}} title="{{outcome.button.title}}">
+                {{outcome.button.title}}
               </button>
             </div>
           {{/if}}              

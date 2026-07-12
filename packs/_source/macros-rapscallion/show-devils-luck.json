@@ -1,11 +1,11 @@
 {
-  "_id": "SBz9xP1KHDAh4Fxr",
-  "name": "Joker Table",
+  "_id": "ShwDvlLckMacro01",
+  "name": "Show Devil's Luck",
   "type": "script",
   "author": "pdXclp2r5tiEF79G",
   "img": "icons/svg/dice-target.svg",
   "scope": "global",
-  "command": "await game.pirateborg.api.actions.characterShowJokerTableAction(actor);",
+  "command": "await game.pirateborg.api.actions.characterShowDevilLuckAction(actor);",
   "folder": null,
   "sort": 0,
   "flags": {},
@@ -21,5 +21,5 @@
     "lastModifiedBy": null,
     "duplicateSource": null
   },
-  "_key": "!macros!SBz9xP1KHDAh4Fxr"
+  "_key": "!macros!ShwDvlLckMacro01"
 }
