@@ -438,6 +438,11 @@
           <li class="item flexrow item-type-grog" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}} ({{item.system.quantity}})</h4>
+            <div class="item-buttons">
+              <button type="button" class="item-button drink-grog-button rollable" title="{{ localize 'PB.GrogDrinkButton' }}" {{#unless item.system.quantity}}disabled{{/unless}}>
+                {{ localize "PB.GrogDrink" }}
+              </button>
+            </div>
             <div class="item-controls">
               <a class="item-control item-qty-plus" title="Add Quantity">
                 <i class="fas fa-plus"></i>
