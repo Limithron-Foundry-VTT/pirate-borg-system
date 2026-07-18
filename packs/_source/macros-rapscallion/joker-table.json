@@ -5,7 +5,7 @@
   "author": "pdXclp2r5tiEF79G",
   "img": "icons/svg/dice-target.svg",
   "scope": "global",
-  "command": "game.pirateborg.api.compendium.drawTable('pirateborg.rolls-rapscallion', 'Joker Table',{displayChat: true});",
+  "command": "await game.pirateborg.api.actions.characterShowJokerTableAction(actor);",
   "folder": null,
   "sort": 0,
   "flags": {},

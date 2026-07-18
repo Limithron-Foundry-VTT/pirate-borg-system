@@ -71,7 +71,7 @@ export class PBCombat extends Combat {
           actor: actor.name,
         }),
         speaker: ChatMessage.getSpeaker({ actor }),
-        type: getOtherChatMessageStyle(),
+        style: getOtherChatMessageStyle(),
       });
 
       // Delete the effect

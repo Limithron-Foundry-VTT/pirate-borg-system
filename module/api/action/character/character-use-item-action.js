@@ -1,5 +1,8 @@
 import { compendiumInfoFromString, findCompendiumItem } from "../../compendium.js";
 import { executeMacro } from "../../macros.js";
+import { isJokerTableItem, isLuckyDevilItem } from "../../luck/luck-consume-features.js";
+import { characterShowDevilLuckAction } from "./character-show-devil-luck-action.js";
+import { characterShowJokerTableAction } from "./character-show-joker-table-action.js";
 
 /**
  * @param {PBActor} actor
@@ -9,6 +12,13 @@ import { executeMacro } from "../../macros.js";
  * @returns {Promise.<Object>}
  */
 export const characterUseItemAction = async (actor, item, outcome = null, chatMessage = null) => {
+  if (isLuckyDevilItem(item)) {
+    return characterShowDevilLuckAction(actor);
+  }
+  if (isJokerTableItem(item)) {
+    return characterShowJokerTableAction(actor);
+  }
+
   if (!item.actionMacro) {
     return;
   }
