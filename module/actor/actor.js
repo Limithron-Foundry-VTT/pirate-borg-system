@@ -1,6 +1,7 @@
 import { trackCarryingCapacity, isGrogEnabled } from "../system/settings.js";
 import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
+import { normalizeDocumentEffectDurations } from "../api/effect-duration.js";
 
 /**
  * @extends {Actor}
@@ -10,6 +11,12 @@ export class PBActor extends Actor {
   static async create(data, options = {}) {
     foundry.utils.mergeObject(data, getActorDefaults(data.type), { overwrite: false });
     return super.create(data, options);
+  }
+
+  /** @override */
+  static async createDocuments(data, context = {}) {
+    for (const d of data) normalizeDocumentEffectDurations(d);
+    return super.createDocuments(data, context);
   }
 
   /** @override */

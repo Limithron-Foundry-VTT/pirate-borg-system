@@ -1,0 +1,25 @@
+{
+  "_id": "ShwDvlLckMacro01",
+  "name": "Show Devil's Luck",
+  "type": "script",
+  "author": "pdXclp2r5tiEF79G",
+  "img": "icons/svg/dice-target.svg",
+  "scope": "global",
+  "command": "await game.pirateborg.api.actions.characterShowDevilLuckAction(actor);",
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "duplicateSource": null
+  },
+  "_key": "!macros!ShwDvlLckMacro01"
+}

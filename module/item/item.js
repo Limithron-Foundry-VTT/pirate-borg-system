@@ -1,3 +1,5 @@
+import { normalizeItemEffectDurations } from "../api/effect-duration.js";
+
 /**
  * @extends {Item}
  */
@@ -8,6 +10,50 @@ export class PBItem extends Item {
       overwrite: false,
     });
     return super.create(data, options);
+  }
+
+  /** @override */
+  static async createDocuments(data, context = {}) {
+    for (const d of data) normalizeItemEffectDurations(d);
+
+    const parent = context.parent;
+    if (!parent || parent.documentName !== "Actor") {
+      return super.createDocuments(data, context);
+    }
+
+    const grogType = CONFIG.PB.itemTypes.grog;
+    const existingGrog = parent.items.find((item) => item.type === grogType);
+    const toCreate = [];
+    let stackedQty = 0;
+
+    for (const d of data) {
+      if (d.type !== grogType) {
+        toCreate.push(d);
+        continue;
+      }
+      const qty = Number(d.system?.quantity);
+      stackedQty += Number.isFinite(qty) ? qty : 1;
+    }
+
+    if (stackedQty > 0) {
+      if (existingGrog) {
+        await existingGrog.update({
+          "system.quantity": (Number(existingGrog.system.quantity) || 0) + stackedQty,
+        });
+      } else {
+        const firstGrog = data.find((d) => d.type === grogType);
+        const stacked = foundry.utils.deepClone(firstGrog);
+        stacked.system = stacked.system || {};
+        stacked.system.quantity = stackedQty;
+        toCreate.push(stacked);
+      }
+    }
+
+    const created = await super.createDocuments(toCreate, context);
+    if (existingGrog && stackedQty > 0) {
+      return created.concat([existingGrog]);
+    }
+    return created;
   }
 
   /** @override */

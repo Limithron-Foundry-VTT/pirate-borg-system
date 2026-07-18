@@ -95,8 +95,8 @@ export const withDraw =
     const description = await textEditor.enrichHTML(normalizedDescription, { rollData: {} });
     return {
       ...outcome,
-      formula: draw.roll.formula,
-      formulaLabel: draw.roll.formula,
+      formula: draw.roll?.formula ?? "",
+      formulaLabel: draw.roll?.formula ?? "",
       roll: draw.roll,
       description,
     };
