@@ -43,7 +43,7 @@
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
-    "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "@foundryvtt/foundryvtt-cli": "^3.0.4",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.9",
