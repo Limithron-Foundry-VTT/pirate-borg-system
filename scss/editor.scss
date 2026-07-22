@@ -508,8 +508,8 @@ a.inline-roll {
 .chat-message .message-content,
 .chat-message .message-content .prosemirror-content {
   // Ensure proper list styling
-  ul,
-  ol {
+  ul:not(.dice-rolls),
+  ol:not(.dice-rolls) {
     margin: 8px 0;
     padding-left: 24px;
 
@@ -518,19 +518,19 @@ a.inline-roll {
     }
   }
 
-  ul {
+  ul:not(.dice-rolls) {
     list-style-type: disc;
 
-    ul {
+    ul:not(.dice-rolls) {
       list-style-type: circle;
 
-      ul {
+      ul:not(.dice-rolls) {
         list-style-type: square;
       }
     }
   }
 
-  ol {
+  ol:not(.dice-rolls) {
     list-style-type: decimal;
   }
 

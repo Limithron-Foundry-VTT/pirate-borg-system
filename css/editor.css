@@ -451,41 +451,41 @@ a.inline-roll:hover > i {
   padding: 8px;
 }
 
-.editor-content ul,
-.editor-content ol,
-.chat-message .message-content ul,
-.chat-message .message-content ol,
-.chat-message .message-content .prosemirror-content ul,
-.chat-message .message-content .prosemirror-content ol {
+.editor-content ul:not(.dice-rolls),
+.editor-content ol:not(.dice-rolls),
+.chat-message .message-content ul:not(.dice-rolls),
+.chat-message .message-content ol:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ul:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ol:not(.dice-rolls) {
   margin: 8px 0;
   padding-left: 24px;
 }
-.editor-content ul li,
-.editor-content ol li,
-.chat-message .message-content ul li,
-.chat-message .message-content ol li,
-.chat-message .message-content .prosemirror-content ul li,
-.chat-message .message-content .prosemirror-content ol li {
+.editor-content ul:not(.dice-rolls) li,
+.editor-content ol:not(.dice-rolls) li,
+.chat-message .message-content ul:not(.dice-rolls) li,
+.chat-message .message-content ol:not(.dice-rolls) li,
+.chat-message .message-content .prosemirror-content ul:not(.dice-rolls) li,
+.chat-message .message-content .prosemirror-content ol:not(.dice-rolls) li {
   margin-bottom: 4px;
 }
-.editor-content ul,
-.chat-message .message-content ul,
-.chat-message .message-content .prosemirror-content ul {
+.editor-content ul:not(.dice-rolls),
+.chat-message .message-content ul:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ul:not(.dice-rolls) {
   list-style-type: disc;
 }
-.editor-content ul ul,
-.chat-message .message-content ul ul,
-.chat-message .message-content .prosemirror-content ul ul {
+.editor-content ul:not(.dice-rolls) ul:not(.dice-rolls),
+.chat-message .message-content ul:not(.dice-rolls) ul:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ul:not(.dice-rolls) ul:not(.dice-rolls) {
   list-style-type: circle;
 }
-.editor-content ul ul ul,
-.chat-message .message-content ul ul ul,
-.chat-message .message-content .prosemirror-content ul ul ul {
+.editor-content ul:not(.dice-rolls) ul:not(.dice-rolls) ul:not(.dice-rolls),
+.chat-message .message-content ul:not(.dice-rolls) ul:not(.dice-rolls) ul:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ul:not(.dice-rolls) ul:not(.dice-rolls) ul:not(.dice-rolls) {
   list-style-type: square;
 }
-.editor-content ol,
-.chat-message .message-content ol,
-.chat-message .message-content .prosemirror-content ol {
+.editor-content ol:not(.dice-rolls),
+.chat-message .message-content ol:not(.dice-rolls),
+.chat-message .message-content .prosemirror-content ol:not(.dice-rolls) {
   list-style-type: decimal;
 }
 .editor-content hr,
