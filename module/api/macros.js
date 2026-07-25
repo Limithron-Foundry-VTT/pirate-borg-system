@@ -13,6 +13,35 @@ import { getInfoFromDropData, getMacroCommand } from "./utils.js";
  * creation workflow (true means yes, false means no).
  */
 export const createPirateBorgMacro = (data, slot) => {
+  if (data.type === "Action" && data.action === "defend") {
+    const sceneId = data.sceneId ?? "";
+    const tokenId = data.tokenId ?? "";
+    const actor = sceneId && tokenId ? game.scenes.get(sceneId)?.tokens?.get(tokenId)?.actor : game.actors.get(data.actorId);
+
+    if (!actor) {
+      ui.notifications.warn("You can only create macro buttons for owned Actors");
+      return true;
+    }
+
+    const command = `game.pirateborg.api.macros.rollDefendMacro("${actor.id}", "${tokenId}", "${sceneId}");`;
+    const name = game.i18n.localize("PB.Defend");
+    const macro = game.macros.find((m) => m.name === name && m.command === command);
+    if (!macro) {
+      Macro.create({
+        name,
+        type: "script",
+        img: "systems/pirateborg/icons/misc/armor.png",
+        command,
+        flags: { "pirateborg.defendMacro": true },
+      }).then((m) => {
+        game.user.assignHotbarMacro(m, slot);
+      });
+    } else {
+      game.user.assignHotbarMacro(macro, slot);
+    }
+    return false;
+  }
+
   const { item, actor } = getInfoFromDropData(data);
 
   if (data.type !== "Item") {
@@ -82,6 +111,28 @@ export const rollItemMacro = async (actorId, itemId) => {
     case item.isFeature || item.isMisc:
       return characterUseItemAction(actor, item);
   }
+};
+
+/**
+ * @param {string} actorId
+ * @param {string} [tokenId]
+ * @param {string} [sceneId]
+ * @return {Promise.<void>}
+ */
+export const rollDefendMacro = async (actorId, tokenId = null, sceneId = null) => {
+  let actor = null;
+  if (sceneId && tokenId) {
+    actor = game.scenes.get(sceneId)?.tokens?.get(tokenId)?.actor;
+  }
+  if (!actor) {
+    actor = game.actors.get(actorId);
+  }
+
+  if (!actor) {
+    return ui.notifications.warn("Could not find the actor for this macro.");
+  }
+
+  return characterDefendAction(actor);
 };
 
 /**

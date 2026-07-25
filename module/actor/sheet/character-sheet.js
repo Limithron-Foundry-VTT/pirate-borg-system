@@ -45,7 +45,7 @@ export class PBActorSheetCharacter extends PBActorSheet {
           initial: "combat",
         },
       ],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
+      dragDrop: [{ dragSelector: ".item-list .item, .defend-button", dropSelector: null }],
     });
   }
 
@@ -66,6 +66,23 @@ export class PBActorSheetCharacter extends PBActorSheet {
       },
       ...super._getHeaderButtons(),
     ];
+  }
+
+  /** @override */
+  _onDragStart(event) {
+    const li = event.currentTarget;
+    if (li.classList.contains("defend-button")) {
+      const dragData = {
+        type: "Action",
+        action: "defend",
+        actorId: this.actor.id,
+        sceneId: this.token?.parent?.id ?? null,
+        tokenId: this.token?.id ?? null,
+      };
+      event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+      return;
+    }
+    super._onDragStart(event);
   }
 
   /** @override */
