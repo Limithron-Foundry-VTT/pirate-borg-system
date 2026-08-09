@@ -20,7 +20,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>Thou may use relic and arcane rituals while wearing medium armor (-d4 or lower).&nbsp;</p>",
+    "description": "<p>Thou may use relic and arcane rituals while wearing medium armor (-d4 or lower), but never while near cold iron or while holding metal.&nbsp;</p>",
     "featureType": "Class",
     "maxQuantity": 1,
     "quantity": 1,
