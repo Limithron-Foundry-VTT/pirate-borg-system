@@ -26,7 +26,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "",
+    "description": "Can travel at full speed when <i>Close to the Wind</i>.",
     "special": "",
     "abilities": {
       "agility": {

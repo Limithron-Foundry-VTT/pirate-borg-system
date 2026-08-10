@@ -26,7 +26,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "",
+    "description": "<p>Use passengers stats for skill. Not affected by wind</p>",
     "special": "",
     "abilities": {
       "agility": {
