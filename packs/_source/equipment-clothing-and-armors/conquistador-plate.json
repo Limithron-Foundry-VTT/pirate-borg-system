@@ -17,11 +17,11 @@
         {
           "key": "system.attributes.combat.defenseModifier",
           "mode": 2,
-          "value": 2
+          "value": 4
         }
       ],
       "disabled": false,
-      "transfer": false,
+      "transfer": true,
       "duration": {
         "value": null,
         "units": "seconds"

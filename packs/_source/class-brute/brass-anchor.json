@@ -3,7 +3,28 @@
   "name": "Brass anchor",
   "type": "weapon",
   "img": "systems/pirateborg/icons/misc/weapon.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "pbEffBrassAnch1",
+      "name": "Brass Anchor",
+      "icon": "systems/pirateborg/icons/misc/weapon.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.attackModifier",
+          "mode": 2,
+          "value": 2
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "duration": {
+        "value": null,
+        "units": "seconds"
+      },
+      "flags": {},
+      "_key": "!items.effects!JAltE9OMjrWqbScg.pbEffBrassAnch1"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
