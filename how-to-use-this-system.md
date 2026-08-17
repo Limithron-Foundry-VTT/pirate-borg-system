@@ -23,6 +23,7 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
   - Every character sheet has a "The Tavern" button with a little skull icon in the top of the sheet. This will throwaway all items and stats from the current character, and replace it with a randomly-generated character. **Warning**: this cannot be undone.
 - Either trigger will show a dialog window, allowing you to choose which classes to include as possible random Characters.
 - The Tavern will attempt to include any Item compendium with a name that begins "Class - ". E.g., "Class - Swashbuckler".
+- A class item can skip or replace the default background, container, cheap/fancy gear, and personality tables via Roll Base Tables and Base Tables on the class sheet. Armor, hat, and weapon tables still skip when their formula is empty.
 
 ## Inventory
 

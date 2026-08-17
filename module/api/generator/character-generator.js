@@ -189,11 +189,17 @@ export const rollWeapon = async (formula) => {
 };
 
 /**
+ * @param {PBItem} [cls]
  * @returns {Promise.<Array.<PBItem>>}
  */
-export const rollBaseTables = async () => {
+export const rollBaseTables = async (cls) => {
+  if (cls && cls.rollBaseTables === false) {
+    return [];
+  }
+  const override = typeof cls?.startingBaseTables === "string" ? cls.startingBaseTables.split("\n").filter((item) => item) : [];
+  const tables = override.length ? override : PB.characterGenerator.baseTables;
   let items = [];
-  for (const compendiumTable of PB.characterGenerator.baseTables) {
+  for (const compendiumTable of tables) {
     const [compendium, table, quantity = 1] = compendiumInfoFromString(compendiumTable);
     items = items.concat(await drawTableItems(compendium, table, quantity));
   }
@@ -340,19 +346,21 @@ const drawGettingBetterRollTable = async (actor, compendiumTable) => {
  */
 export const generateDescription = (cls, items) => {
   const thingOfImportance = items.find((item) => item.featureType === "Thing of Importance");
-  const description = items
+  const parts = items
     .filter((item) => item.type === CONFIG.PB.itemTypes.feature || item.type === CONFIG.PB.itemTypes.background)
     .filter((item) => item.featureType !== "Thing of Importance")
-    .map((item) => item.name)
-    .concat([
+    .map((item) => item.name);
+  if (thingOfImportance) {
+    parts.push(
       game.i18n.format("PB.YouOwn", {
         item: thingOfImportance.name,
       }),
-    ])
-    .join("...");
+    );
+  }
+  const description = parts.join("...");
 
   const flavorText = cls.flavorText ? `<p>${cls.flavorText}</p>` : "";
-  return `${flavorText}<p>${description}</p>`;
+  return description ? `${flavorText}<p>${description}</p>` : flavorText;
 };
 
 /**
@@ -368,13 +376,13 @@ export const rollCharacterForClass = async (cls) => {
   const abilities = await rollAbilities(cls);
   const luck = await rollLuck(cls.luckDie);
   const hitPoints = await rollHitPoints(cls.startingHitPoints, abilities.toughness);
-  const baseTables = await rollBaseTables();
+  const baseTables = await rollBaseTables(cls);
 
   const background = baseTables.find((item) => item.type === CONFIG.PB.itemTypes.background);
   const features = baseTables.filter((item) => item.type === CONFIG.PB.itemTypes.feature);
   const hasRelic = baseTables.some((item) => item.invokableType === "Ancient Relic");
 
-  const silver = await rollSilver(background);
+  const silver = background ? await rollSilver(background) : 0;
 
   const armor = cls.startingArmorTableFormula ? await rollArmor(!hasRelic ? cls.startingArmorTableFormula : "1d6") : [];
   const hat = cls.startingHatTableFormula ? await rollHat(cls.startingHatTableFormula) : [];
@@ -384,15 +392,15 @@ export const rollCharacterForClass = async (cls) => {
   const startingItems = await findItemsFromCompendiumString(cls.startingItems);
 
   // Both of the rolls should loop until nothing is returning to have a kind of recursive configuration
-  const startingBonusItems = await findStartingBonusItems([...(features || []), ...(startingItems || []), ...(startingRollItems || []), background]);
+  const startingBonusItems = await findStartingBonusItems(
+    [...(features || []), ...(startingItems || []), ...(startingRollItems || []), ...(background ? [background] : [])].filter(Boolean),
+  );
 
-  const startingBonusRollItems = await findStartingBonusRollsItems([
-    ...(features || []),
-    ...(startingItems || []),
-    ...(startingRollItems || []),
-    ...(startingBonusItems || []),
-    background,
-  ]);
+  const startingBonusRollItems = await findStartingBonusRollsItems(
+    [...(features || []), ...(startingItems || []), ...(startingRollItems || []), ...(startingBonusItems || []), ...(background ? [background] : [])].filter(
+      Boolean,
+    ),
+  );
 
   const description = generateDescription(cls, baseTables);
 

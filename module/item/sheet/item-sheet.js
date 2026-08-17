@@ -175,6 +175,10 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
 
     formData.item.effects?.map(PBActorSheet.addModifierDisplay);
 
+    if (formData.data.system.rollBaseTables !== false) {
+      formData.data.system.rollBaseTables = true;
+    }
+
     return formData;
   }
 
