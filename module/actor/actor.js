@@ -129,15 +129,6 @@ export class PBActor extends Actor {
       );
     }
 
-    // Auto-apply effects from features when added to character
-    if (collection === "items") {
-      for (const document of documents) {
-        if (document.type === CONFIG.PB.itemTypes.feature && document.effects?.size > 0) {
-          await document._transferEffectsToActor(true);
-        }
-      }
-    }
-
     await super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
   }
 
@@ -853,9 +844,8 @@ export class PBActor extends Actor {
       luckDie: [],
     };
 
-    // Find effects that are actively modifying combat attributes
-    this.effects.forEach((effect) => {
-      if (effect.disabled) return;
+    for (const effect of this.allApplicableEffects()) {
+      if (effect.disabled || effect.isSuppressed) continue;
 
       effect.changes.forEach((change) => {
         const sourceName = effect.label || effect.name || `Unknown (${effect.id})`;
@@ -877,7 +867,7 @@ export class PBActor extends Actor {
           effectInfo.luckDie.push({ name: sourceName, value });
         }
       });
-    });
+    }
 
     return effectInfo;
   }

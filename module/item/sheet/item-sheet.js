@@ -62,6 +62,7 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
         label: this.item.name,
         icon: this.item.img,
         origin: this.item.uuid,
+        transfer: true,
       };
 
       const template = "systems/pirateborg/templates/dialog/quick-effect.html";

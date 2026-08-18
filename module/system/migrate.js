@@ -10,16 +10,121 @@ export const migrate = async () => {
   const currentVersion = getSystemMigrationVersion();
 
   const NEEDS_MIGRATION_VERSION = "v0.4.2";
+  const EFFECT_CLONE_MIGRATION_VERSION = "v1.8.2";
   const needsMigration = currentVersion === null || foundry.utils.isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  const needsEffectCloneMigration = !currentVersion || foundry.utils.isNewerVersion(EFFECT_CLONE_MIGRATION_VERSION, currentVersion);
 
   console.log(`Current version: ${currentVersion}`);
 
-  if (!needsMigration) {
+  if (!needsMigration && !needsEffectCloneMigration) {
     console.log(`Version doesn't need migration.`);
     return;
   }
   console.log(`Migrating!`);
-  await migrateWorld();
+  if (needsMigration) {
+    await migrateWorld();
+  }
+  if (needsEffectCloneMigration) {
+    await migrateEmbeddedItemEffectClones();
+    await migrateOwnedItemEffectTransfer();
+    await setSystemMigrationVersion(EFFECT_CLONE_MIGRATION_VERSION);
+  }
+};
+
+const isEmbeddedItemEffectClone = (actor, effect) => {
+  const refs = [effect.origin, effect.flags?.core?.sourceId].filter(Boolean);
+  for (const ref of refs) {
+    if (actor.items.some((item) => item.uuid === ref)) return true;
+    const resolveUuid = globalThis.fromUuidSync ?? foundry.utils.fromUuidSync;
+    const doc = typeof resolveUuid === "function" ? resolveUuid(ref) : null;
+    if (doc?.documentName === "Item" && doc.parent === actor) return true;
+  }
+  return false;
+};
+
+const deleteActorItemEffectClones = async (actor) => {
+  const ids = actor.effects.filter((effect) => isEmbeddedItemEffectClone(actor, effect)).map((effect) => effect.id);
+  if (!ids.length) return;
+  await actor.deleteEmbeddedDocuments("ActiveEffect", ids);
+};
+
+const migrateEmbeddedItemEffectClones = async () => {
+  ui.notifications.info(`Applying PIRATE BORG item effect clone cleanup.`, { permanent: true });
+
+  for (const actor of game.actors.contents) {
+    try {
+      await deleteActorItemEffectClones(actor);
+    } catch (err) {
+      err.message = `Failed item effect clone cleanup for Actor ${actor.name}: ${err.message}`;
+      console.error(err);
+    }
+  }
+
+  for (const scene of game.scenes.contents) {
+    for (const token of scene.tokens.contents) {
+      const actor = token.actor;
+      if (!actor || token.actorLink) continue;
+      try {
+        await deleteActorItemEffectClones(actor);
+      } catch (err) {
+        err.message = `Failed item effect clone cleanup for Token ${token.name}: ${err.message}`;
+        console.error(err);
+      }
+    }
+  }
+
+  ui.notifications.info(`PIRATE BORG item effect clone cleanup completed.`, { permanent: true });
+};
+
+const shouldEnableItemEffectTransfer = (item) => item.type === CONFIG.PB.itemTypes.feature || CONFIG.PB.equippableItemTypes.includes(item.type);
+
+const enableItemEffectTransfer = async (item) => {
+  if (!shouldEnableItemEffectTransfer(item)) return;
+  const updates = [];
+  for (const effect of item.effects) {
+    if (effect.transfer) continue;
+    updates.push({ _id: effect.id, transfer: true });
+  }
+  if (updates.length) {
+    await item.updateEmbeddedDocuments("ActiveEffect", updates);
+  }
+};
+
+const migrateOwnedItemEffectTransfer = async () => {
+  for (const item of game.items.contents) {
+    try {
+      await enableItemEffectTransfer(item);
+    } catch (err) {
+      err.message = `Failed effect transfer migration for Item ${item.name}: ${err.message}`;
+      console.error(err);
+    }
+  }
+
+  for (const actor of game.actors.contents) {
+    for (const item of actor.items) {
+      try {
+        await enableItemEffectTransfer(item);
+      } catch (err) {
+        err.message = `Failed effect transfer migration for Item ${item.name} on Actor ${actor.name}: ${err.message}`;
+        console.error(err);
+      }
+    }
+  }
+
+  for (const scene of game.scenes.contents) {
+    for (const token of scene.tokens.contents) {
+      const actor = token.actor;
+      if (!actor || token.actorLink) continue;
+      for (const item of actor.items) {
+        try {
+          await enableItemEffectTransfer(item);
+        } catch (err) {
+          err.message = `Failed effect transfer migration for Item ${item.name} on Token ${token.name}: ${err.message}`;
+          console.error(err);
+        }
+      }
+    }
+  }
 };
 
 const migrateWorld = async () => {

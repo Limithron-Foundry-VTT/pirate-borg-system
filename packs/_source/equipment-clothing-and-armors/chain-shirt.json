@@ -13,10 +13,15 @@
           "key": "system.abilities.agility.value",
           "mode": 2,
           "value": -2
+        },
+        {
+          "key": "system.attributes.combat.defenseModifier",
+          "mode": 2,
+          "value": 2
         }
       ],
       "disabled": false,
-      "transfer": false,
+      "transfer": true,
       "duration": {
         "value": null,
         "units": "seconds"
