@@ -490,6 +490,20 @@ export class PBItem extends Item {
   }
 
   /**
+   * @returns {Boolean}
+   */
+  get rollBaseTables() {
+    return this.getData().rollBaseTables !== false;
+  }
+
+  /**
+   * @returns {String}
+   */
+  get startingBaseTables() {
+    return this.getData().startingBaseTables;
+  }
+
+  /**
    * @returns {String}
    */
   get startingAbilityScoreFormula() {

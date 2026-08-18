@@ -491,6 +491,8 @@
   "PB.StartingItems": "Starting Items",
   "PB.StartingMacro": "Starting Macro",
   "PB.StartingRolls": "Starting Rolls",
+  "PB.RollBaseTables": "Roll Base Tables",
+  "PB.StartingBaseTables": "Base Tables",
   "PB.Starvation": "Starvation",
   "PB.StatusAsleep": "Asleep",
   "PB.StatusAsleepDescription": "The character is asleep and cannot act until awoken.",
