@@ -40,7 +40,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
+    "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
@@ -56,7 +56,7 @@
     "fancy-log": "^2.0.0",
     "globals": "^17.12.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.3.0",
+    "lint-staged": "^17.5.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.9.8",
     "sass": "^1.103.1",
