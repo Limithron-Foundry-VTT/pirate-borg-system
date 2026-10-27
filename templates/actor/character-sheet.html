@@ -170,7 +170,7 @@
         </li>
         <ol class="item-list weapon-list">
           {{#each data.system.dynamic.equippedWeapons as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <div class="weapon-name-col">
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
@@ -233,7 +233,7 @@
         </li>
         <ol class="item-list armor-list">
           {{#if data.system.dynamic.equippedArmor}}
-          <li class="item flexrow" data-item-id="{{data.system.dynamic.equippedArmor._id}}">
+          <li class="item draggable flexrow" data-item-id="{{data.system.dynamic.equippedArmor._id}}">
             <img src="{{data.system.dynamic.equippedArmor.img}}" title="{{data.dynamic.equippedArmor.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{data.system.dynamic.equippedArmor.name}}</h4>
             <div class="item-armor-tier">
@@ -280,7 +280,7 @@
           </li>
           {{/if}} 
           {{#if data.system.dynamic.equippedHat}}
-          <li class="item flexrow" data-item-id="{{data.system.dynamic.equippedHat._id}}">
+          <li class="item draggable flexrow" data-item-id="{{data.system.dynamic.equippedHat._id}}">
             <img src="{{data.system.dynamic.equippedHat.img}}" title="{{data.system.dynamic.equippedHat.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{data.system.dynamic.equippedHat.name}}</h4>
             <div class="item-hat-rule">
@@ -333,7 +333,7 @@
           </li>
           <ol class="item-list">
             {{#each item.items as |item id|}}
-            <li class="item flexrow" data-item-id="{{item._id}}">
+            <li class="item draggable flexrow" data-item-id="{{item._id}}">
               <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
               <h4 class="item-name item-edit rollable">{{item.name}} {{#ifGt item.system.quantity 1}} ({{item.system.quantity}}) {{/ifGt}}</h4>
               <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
@@ -386,7 +386,7 @@
         </li>
         <ol class="item-list">
           {{#each group.items as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}}</h4>
             <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
@@ -439,7 +439,7 @@
         </li>
         <ol class="item-list">
           {{#each data.system.dynamic.grog as |item id|}}
-          <li class="item flexrow item-type-grog" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow item-type-grog" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}} ({{item.system.quantity}})</h4>
             <div class="item-buttons">

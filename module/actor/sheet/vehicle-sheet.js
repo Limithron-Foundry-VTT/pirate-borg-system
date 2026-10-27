@@ -23,7 +23,6 @@ export class PBActorSheetVehicle extends PBActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["pirateborg", "sheet", "actor", "vehicle", "character"],
     position: { width: 540, height: 650 },
-    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     form: {
       handler: PBActorSheetVehicle.#onSubmitForm,
       submitOnChange: true,
@@ -91,7 +90,7 @@ export class PBActorSheetVehicle extends PBActorSheet {
           _id: actorId,
           name: "<Deleted Character>",
           type: "character",
-        }
+        },
       );
     }
 

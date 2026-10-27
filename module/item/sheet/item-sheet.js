@@ -12,11 +12,6 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["pirateborg", "sheet", "item"],
     position: { width: 500, height: 500 },
-    dragDrop: [
-      { dropSelector: 'textarea[name="system.startingBonusItems"]' },
-      { dropSelector: 'textarea[name="system.startingBonusRolls"]' },
-      { dropSelector: 'input[name="system.startingMacro"]' },
-    ],
     form: {
       handler: PBItemSheet.#onSubmitForm,
       submitOnChange: true,
@@ -175,6 +170,17 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static #onEffectDelete(event, target) {
     const id = target.closest(".item")?.dataset.effectId;
     if (id) this.item.deleteEmbeddedDocuments("ActiveEffect", [id]);
+  }
+
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    // v13 ItemSheetV2 has no DragDrop so add it in manually.
+    if (!("_dragDrop" in this)) {
+      new foundry.applications.ux.DragDrop.implementation({
+        permissions: { drop: () => this.isEditable },
+        callbacks: { drop: this._onDrop.bind(this) },
+      }).bind(this.element);
+    }
   }
 
   async _onDrop(event) {

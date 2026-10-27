@@ -30,7 +30,6 @@ export class PBActorSheetCharacter extends PBActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["pirateborg", "sheet", "actor", "character"],
     position: { width: 600, height: 700 },
-    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     form: {
       handler: PBActorSheetCharacter.#onSubmitForm,
       submitOnChange: true,

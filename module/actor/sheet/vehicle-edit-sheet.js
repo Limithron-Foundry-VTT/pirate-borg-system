@@ -5,7 +5,6 @@ export class PBActorSheetVehicleEdit extends PBActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["pirateborg", "sheet", "actor", "vehicle-edit"],
     position: { width: 500, height: 650 },
-    dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     form: {
       handler: PBActorSheetVehicleEdit.#onSubmitForm,
       submitOnChange: true,
