@@ -1,4 +1,4 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
+<div class="{{cssClass}} flexcol">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <div class="header-col1">
@@ -119,28 +119,28 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
-    <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>
-    <a class="item" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>
-    <a class="item" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
-    <a class="item" data-tab="history">{{ localize 'PB.TabHistory' }}</a>
-    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
+    <a class="item {{tabs.combat.cssClass}}" data-action="tab" data-group="sheet" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
+    <a class="item {{tabs.powers.cssClass}}" data-action="tab" data-group="sheet" data-tab="powers">{{ localize 'PB.Powers' }}</a>
+    <a class="item {{tabs.equipment.cssClass}}" data-action="tab" data-group="sheet" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>
+    <a class="item {{tabs.features.cssClass}}" data-action="tab" data-group="sheet" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
+    <a class="item {{tabs.history.cssClass}}" data-action="tab" data-group="sheet" data-tab="history">{{ localize 'PB.TabHistory' }}</a>
+    <a class="item {{tabs.effects.cssClass}}" data-action="tab" data-group="sheet" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
     <span class="spacer"></span>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- History Tab --}}
-    <div class="tab class-tab" data-group="sheet" data-tab="history">
+    <div class="tab class-tab {{tabs.history.cssClass}}" data-group="sheet" data-tab="history">
       {{#if editable}}
-        <prose-mirror name="system.description" collaborate="false"></prose-mirror>
+        <prose-mirror name="system.description" value="{{data.system.description}}"></prose-mirror>
       {{else}}
         <div class="editor-content">{{{descriptionHTML}}}</div>
       {{/if}}
     </div>
 
     {{!-- Combat Tab --}}
-    <div class="tab combat-tab" data-group="sheet" data-tab="combat">
+    <div class="tab combat-tab {{tabs.combat.cssClass}}" data-group="sheet" data-tab="combat">
       {{!-- Initiative buttons --}}
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
@@ -316,7 +316,7 @@
     </div>
 
     {{!-- Features Tab --}}
-    <div class="tab specials-tab" data-group="sheet" data-tab="features">
+    <div class="tab specials-tab {{tabs.features.cssClass}}" data-group="sheet" data-tab="features">
       {{#if data.system.dynamic.useExtraResource}}
       <div class="powers-top-row">
         <div class="stats-block">
@@ -369,7 +369,7 @@
     </div>
 
     {{!-- Powers Tab --}}
-    <div class="tab powers-tab" data-group="sheet" data-tab="powers">
+    <div class="tab powers-tab {{tabs.powers.cssClass}}" data-group="sheet" data-tab="powers">
       <div class="powers-top-row">
         <div class="stats-block">
           <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
@@ -409,7 +409,7 @@
     </div>
 
     {{!-- Equipment Tab --}}
-    <div class="tab equipment-tab" data-group="sheet" data-tab="equipment">
+    <div class="tab equipment-tab {{tabs.equipment.cssClass}}" data-group="sheet" data-tab="equipment">
       <div class="equipment-top-row">
         <div class="stats-block">
           <span class="stat-label silver-label">{{ localize "PB.Silver" }}</span>
@@ -470,8 +470,8 @@
     </div>
 
     {{!-- Effects Tab --}}
-    <div class="tab" data-group="sheet" data-tab="effects">
+    <div class="tab {{tabs.effects.cssClass}}" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>
-</form>
+</div>

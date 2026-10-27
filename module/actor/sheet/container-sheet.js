@@ -128,10 +128,10 @@ export class PBActorSheetContainer extends PBActorSheet {
 
   _updateResponsiveLayout() {
     const sheetWidth = this.position.width || 600;
-    const form = this.element?.querySelector("form");
-    if (!form) return;
-    form.classList.toggle("narrow", sheetWidth < 500);
-    form.classList.toggle("compact", sheetWidth < 550);
+    const sheet = this.element?.querySelector(".loot-sheet");
+    if (!sheet) return;
+    sheet.classList.toggle("narrow", sheetWidth < 500);
+    sheet.classList.toggle("compact", sheetWidth < 550);
   }
 
   static async #onSubmitForm(event, form, formData) {
