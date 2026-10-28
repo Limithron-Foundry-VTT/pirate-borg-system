@@ -106,7 +106,8 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     return event.target.closest(".item")?.dataset.itemId;
   }
 
-  _onRender() {
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     if (!this.isEditable) return;
 
     this.element.querySelectorAll(".item-create").forEach((el) => el.addEventListener("click", this._onItemCreate.bind(this)));
@@ -283,8 +284,9 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
   }
 
   async _onDropItem(event, itemData) {
-    const item = ((await super._onDropItem(event, itemData)) || []).pop();
-    if (!item) return;
+    if (itemData.parent?.uuid === this.actor.uuid) return super._onDropItem(event, itemData);
+    const item = await super._onDropItem(event, itemData);
+    if (!item) return null;
 
     const { item: originalItem, actor: originalActor } = await getInfoFromDropData(itemData);
     const target = this.getItem(event);
@@ -311,6 +313,7 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
 
     if (originalItem) await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
     if (target) await this._handleDropOnItemContainer(item, target);
+    return item;
   }
 
   async _onSortItem(event, itemData) {

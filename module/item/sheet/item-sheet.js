@@ -213,5 +213,6 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (data.type === "RollTable") droppedValue += `;1`;
     content += droppedValue;
     event.target.value += content;
+    event.target.dispatchEvent(new Event("change", { bubbles: true }));
   }
 }

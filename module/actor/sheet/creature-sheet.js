@@ -31,8 +31,8 @@ export class PBActorSheetCreature extends PBActorSheet {
     },
   };
 
-  _onRender() {
-    super._onRender();
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     if (!this.isEditable) return;
 
     this.element.querySelectorAll(".morale").forEach((el) => el.addEventListener("click", this._onMoraleRoll.bind(this)));

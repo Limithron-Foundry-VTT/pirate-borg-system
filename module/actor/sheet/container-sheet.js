@@ -94,8 +94,8 @@ export class PBActorSheetContainer extends PBActorSheet {
     return context;
   }
 
-  _onRender() {
-    super._onRender();
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     this._updateResponsiveLayout();
 
     if (!this.actor.isOwner) {

@@ -103,8 +103,8 @@ export class PBActorSheetVehicle extends PBActorSheet {
     return data;
   }
 
-  _onRender() {
-    super._onRender();
+  async _onRender(context, options) {
+    await super._onRender(context, options);
     if (!this.isEditable) return;
 
     [
