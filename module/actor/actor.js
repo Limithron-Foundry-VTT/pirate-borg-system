@@ -1,7 +1,7 @@
 import { trackCarryingCapacity, isGrogEnabled } from "../system/settings.js";
 import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
-import { normalizeDocumentEffectDurations } from "../api/effect-duration.js";
+import { buildAddChange, normalizeDocumentEffectDurations } from "../api/effect-duration.js";
 
 /**
  * @extends {Actor}
@@ -182,13 +182,7 @@ export class PBActor extends Actor {
       img: "systems/pirateborg/icons/status/beer-stein.svg",
       origin: grogItem?.uuid || null,
       statuses: [GROG_INTOXICATION_FLAG],
-      changes: [
-        {
-          key: "system.abilities.agility.value",
-          mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-          value: -drinks,
-        },
-      ],
+      changes: [buildAddChange("system.abilities.agility.value", -drinks)],
       flags: {
         [CONFIG.PB.flagScope]: {
           [GROG_INTOXICATION_FLAG]: true,

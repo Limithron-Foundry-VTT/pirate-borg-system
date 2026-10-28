@@ -2,7 +2,7 @@ import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
 import { getInfoFromDropData } from "../../api/utils.js";
-import { buildEffectDuration } from "../../api/effect-duration.js";
+import { buildAddChange, buildEffectDuration } from "../../api/effect-duration.js";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -56,8 +56,16 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     return effect;
   };
 
+  static addDurationDisplay = (effect) => {
+    const duration = effect.duration;
+    // v14 reports Infinity remaining outside combat; v14 deprecates duration.rounds in favour of value.
+    effect.durationRemaining = Number.isFinite(duration.remaining) && duration.remaining > 0 ? duration.remaining : null;
+    effect.durationTotal = "value" in duration ? duration.value : duration.rounds;
+    return effect;
+  };
+
   _buildEffectLists(context) {
-    const effects = [...this.actor.allApplicableEffects()];
+    const effects = [...this.actor.allApplicableEffects()].map(PBActorSheet.addDurationDisplay);
     context.effects = {
       temporary: effects.filter((i) => i.isTemporary && !i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
       disabled: effects.filter((i) => i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
@@ -142,13 +150,7 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
           default: true,
           callback: (event, button) => {
             effectData.name = button.form.elements.label.value || defaultName;
-            effectData.changes = [
-              {
-                key: button.form.elements.key.value,
-                mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-                value: parseInt(button.form.elements.modifier.value) || 0,
-              },
-            ];
+            effectData.changes = [buildAddChange(button.form.elements.key.value, parseInt(button.form.elements.modifier.value) || 0)];
             if (isTemporary) {
               const combatStarted = game.combat?.started;
               effectData.duration = buildEffectDuration({

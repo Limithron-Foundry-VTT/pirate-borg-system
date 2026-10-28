@@ -12,6 +12,14 @@ const toInteger = (n) => {
 };
 
 /**
+ * An ADD-type ActiveEffect change in the v13 (numeric mode) or v14+ (string type) shape.
+ * @param {String} key
+ * @param {*} value
+ * @returns {Object}
+ */
+export const buildAddChange = (key, value) => (isV14OrNewer() ? { key, type: "add", value } : { key, mode: CONST.ACTIVE_EFFECT_MODES.ADD, value });
+
+/**
  * @param {{ rounds?: Number, turns?: Number, seconds?: Number, startRound?: Number, startTurn?: Number }} [input]
  * @returns {Object}
  */

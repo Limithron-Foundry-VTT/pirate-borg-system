@@ -33,12 +33,12 @@
       </div>
 
       <div class="item-property effect-duration">
-        {{#if effect.duration.remaining}}
+        {{#if effect.durationRemaining}}
         <i class="fas fa-clock" data-tooltip="{{localize 'PB.EffectsRoundsRemaining'}}"></i>
-        <span>{{effect.duration.remaining}}</span>
-        {{else if effect.duration.rounds}}
+        <span>{{effect.durationRemaining}}</span>
+        {{else if effect.durationTotal}}
         <i class="fas fa-clock" data-tooltip="{{localize 'PB.EffectsDuration'}}"></i>
-        <span>{{effect.duration.rounds}}</span>
+        <span>{{effect.durationTotal}}</span>
         {{/if}}
       </div>
       <div class="item-property item-source">{{effect.sourceName}}</div>

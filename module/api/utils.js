@@ -108,7 +108,7 @@ export const getResultCollection = (result) => {
     const parsedUuid = foundry.utils.parseUuid(documentUuid);
     return parsedUuid?.collection?.metadata?.id ?? parsedUuid?.type ?? "";
   }
-  return source.documentCollection ?? "";
+  return "";
 };
 
 /**
