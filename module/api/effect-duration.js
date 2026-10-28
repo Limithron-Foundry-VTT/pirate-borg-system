@@ -68,19 +68,21 @@ export const normalizeEffectDuration = (duration) => {
   const target = duration && typeof duration === "object" ? duration : {};
   if (!isV14OrNewer()) return target;
 
+  // v14 shims legacy keys as non-enumerable getters that log deprecations
+  const legacy = (key) => (Object.prototype.propertyIsEnumerable.call(target, key) ? target[key] : undefined);
   let value = null;
   let units = typeof target.units === "string" ? target.units : null;
 
   if (typeof target.value === "number") {
     value = toInteger(target.value);
-  } else if (typeof target.rounds === "number") {
-    value = toInteger(target.rounds);
+  } else if (typeof legacy("rounds") === "number") {
+    value = toInteger(legacy("rounds"));
     units = "rounds";
-  } else if (typeof target.turns === "number") {
-    value = toInteger(target.turns);
+  } else if (typeof legacy("turns") === "number") {
+    value = toInteger(legacy("turns"));
     units = "turns";
-  } else if (typeof target.seconds === "number") {
-    value = toInteger(target.seconds);
+  } else if (typeof legacy("seconds") === "number") {
+    value = toInteger(legacy("seconds"));
     units = "seconds";
   }
 
