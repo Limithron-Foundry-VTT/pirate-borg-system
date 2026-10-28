@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/clever-monkey.png",
   "effects": [
     {
-      "_id": "pbEffCleverMon1",
+      "_id": "bV1jLKHkVReSoYEY",
       "name": "Clever Monkey",
       "icon": "systems/pirateborg/tokens/clever-monkey.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!yW11H9GNe9cMbgub.pbEffCleverMon1"
+      "_key": "!items.effects!yW11H9GNe9cMbgub.bV1jLKHkVReSoYEY"
     }
   ],
   "folder": null,

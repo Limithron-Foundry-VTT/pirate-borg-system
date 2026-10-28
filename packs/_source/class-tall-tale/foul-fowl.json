@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/foul-fowl.png",
   "effects": [
     {
-      "_id": "pbEffFoulFowl01",
+      "_id": "m7SP5mYSr1jP0W2v",
       "name": "Foul Fowl",
       "icon": "systems/pirateborg/tokens/foul-fowl.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!4qW6PHlQ23EX4jBd.pbEffFoulFowl01"
+      "_key": "!items.effects!4qW6PHlQ23EX4jBd.m7SP5mYSr1jP0W2v"
     }
   ],
   "folder": null,

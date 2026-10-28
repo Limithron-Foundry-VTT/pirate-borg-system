@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/crocodile.png",
   "effects": [
     {
-      "_id": "pbEffCrocodile1",
+      "_id": "qkoOEl3cbQbgMa3g",
       "name": "Crocodile",
       "icon": "systems/pirateborg/tokens/crocodile.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!a1dn6FUP6fy7N9r0.pbEffCrocodile1"
+      "_key": "!items.effects!a1dn6FUP6fy7N9r0.qkoOEl3cbQbgMa3g"
     }
   ],
   "folder": null,

@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
   "effects": [
     {
-      "_id": "pbEffConquista1",
+      "_id": "kyc33G6DMqJIw8Ew",
       "name": "Conquistador Plate",
       "icon": "systems/pirateborg/icons/equipment/armors/conquistador-armor.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!mqjlRCrxNRLAhQ4c.pbEffConquista1"
+      "_key": "!items.effects!mqjlRCrxNRLAhQ4c.kyc33G6DMqJIw8Ew"
     }
   ],
   "folder": null,

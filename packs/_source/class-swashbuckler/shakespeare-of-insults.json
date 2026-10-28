@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/class-feature.png",
   "effects": [
     {
-      "_id": "pbEffShakespr01",
+      "_id": "wx2JYE9YsKL7QsOH",
       "name": "Shakespeare of Insults",
       "icon": "systems/pirateborg/icons/misc/class-feature.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!R7LoinR3FpkCnwQK.pbEffShakespr01"
+      "_key": "!items.effects!R7LoinR3FpkCnwQK.wx2JYE9YsKL7QsOH"
     }
   ],
   "folder": null,

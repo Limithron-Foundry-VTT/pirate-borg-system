@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/bilge-rat.png",
   "effects": [
     {
-      "_id": "pbEffBilgeRat01",
+      "_id": "ygb8IAnUscWTdl7v",
       "name": "Bilge Rat",
       "icon": "systems/pirateborg/tokens/bilge-rat.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!C8LdpjrOpMpyZB98.pbEffBilgeRat01"
+      "_key": "!items.effects!C8LdpjrOpMpyZB98.ygb8IAnUscWTdl7v"
     }
   ],
   "folder": null,

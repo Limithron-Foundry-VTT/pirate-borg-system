@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/shanty.png",
   "effects": [
     {
-      "_id": "pbEffBlowMan001",
+      "_id": "EY92iQI5jEXowCAY",
       "name": "Blow the Man Down",
       "icon": "systems/pirateborg/icons/misc/shanty.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!6GtPUU2uRHWitZNf.pbEffBlowMan001"
+      "_key": "!items.effects!6GtPUU2uRHWitZNf.EY92iQI5jEXowCAY"
     }
   ],
   "folder": null,

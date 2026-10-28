@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/shanty.png",
   "effects": [
     {
-      "_id": "pbEffDrunkSkil1",
+      "_id": "a77ZkoEbenK2gdD4",
       "name": "Drunken Sailor - Skill Penalty",
       "icon": "systems/pirateborg/icons/misc/shanty.png",
       "changes": [
@@ -28,7 +28,7 @@
           "targetType": "enemy ship"
         }
       },
-      "_key": "!items.effects!Hvwq3xmyx0ZYQ4p7.pbEffDrunkSkil1"
+      "_key": "!items.effects!Hvwq3xmyx0ZYQ4p7.a77ZkoEbenK2gdD4"
     }
   ],
   "folder": null,

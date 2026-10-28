@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
   "effects": [
     {
-      "_id": "pbEffLight00001",
+      "_id": "Nv6GeLNYqGMKF2fN",
       "name": "Light of a Thousand Stars - Attack Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -29,10 +29,10 @@
           "areaDescription": "30' radius from object"
         }
       },
-      "_key": "!items.effects!Qc8lbxQg03PVRkl0.pbEffLight00001"
+      "_key": "!items.effects!Qc8lbxQg03PVRkl0.Nv6GeLNYqGMKF2fN"
     },
     {
-      "_id": "pbEffLight00002",
+      "_id": "ZVQ9c3utnEWoATGv",
       "name": "Light of a Thousand Stars - Defense Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -56,7 +56,7 @@
           "areaDescription": "30' radius from object"
         }
       },
-      "_key": "!items.effects!Qc8lbxQg03PVRkl0.pbEffLight00002"
+      "_key": "!items.effects!Qc8lbxQg03PVRkl0.ZVQ9c3utnEWoATGv"
     }
   ],
   "folder": null,

@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/weapon.png",
   "effects": [
     {
-      "_id": "pbEffBrassAnch1",
+      "_id": "v3Ao4FuQFhh2kWjJ",
       "name": "Brass Anchor",
       "icon": "systems/pirateborg/icons/misc/weapon.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!JAltE9OMjrWqbScg.pbEffBrassAnch1"
+      "_key": "!items.effects!JAltE9OMjrWqbScg.v3Ao4FuQFhh2kWjJ"
     }
   ],
   "folder": null,

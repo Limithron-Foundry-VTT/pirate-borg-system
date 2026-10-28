@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/class-feature.png",
   "effects": [
     {
-      "_id": "pbEffOstentati1",
+      "_id": "2St1ww9WeOgQHDN7",
       "name": "Ostentatious Fencer",
       "icon": "systems/pirateborg/icons/misc/class-feature.png",
       "changes": [
@@ -27,10 +27,10 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!lco7XqcFzkaMkw0W.pbEffOstentati1"
+      "_key": "!items.effects!lco7XqcFzkaMkw0W.2St1ww9WeOgQHDN7"
     },
     {
-      "_id": "pbEffOstentati2",
+      "_id": "wqxStiHwaHmzKcj5",
       "name": "One-on-One Damage Bonus",
       "icon": "systems/pirateborg/icons/misc/class-feature.png",
       "changes": [
@@ -47,7 +47,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!lco7XqcFzkaMkw0W.pbEffOstentati2"
+      "_key": "!items.effects!lco7XqcFzkaMkw0W.wqxStiHwaHmzKcj5"
     }
   ],
   "folder": null,

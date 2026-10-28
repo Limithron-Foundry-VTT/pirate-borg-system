@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/class-feature.png",
   "effects": [
     {
-      "_id": "pbEffSurvival01",
+      "_id": "lIsnE1Q3ifC8FQKX",
       "name": "Survivalist",
       "icon": "systems/pirateborg/icons/misc/class-feature.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!aLnujMWeM7tsNsek.pbEffSurvival01"
+      "_key": "!items.effects!aLnujMWeM7tsNsek.lIsnE1Q3ifC8FQKX"
     }
   ],
   "folder": null,
