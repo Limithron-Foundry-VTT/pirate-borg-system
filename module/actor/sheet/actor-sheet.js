@@ -106,6 +106,12 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     return context;
   }
 
+  _onSubmitForm(formConfig, event) {
+    // Check if the document exists before ProseMirror tries to save a deleted document.
+    if (!this.document.collection?.has(this.document.id)) return;
+    return super._onSubmitForm(formConfig, event);
+  }
+
   getItem(event) {
     return this.actor.items.get(this.getItemId(event));
   }

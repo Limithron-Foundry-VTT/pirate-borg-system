@@ -49,7 +49,7 @@
           class="ability-input"
           type="text"
           name="system.abilities.skill.value"
-          value="{{numberFormat data.system.abilities.skill.value decimals=0 sign=true}}"
+          value="{{#unless (eq data.system.abilities.skill.value null)}}{{numberFormat data.system.abilities.skill.value decimals=0 sign=true}}{{/unless}}"
           data-dtype="Number"
           size="3"
         />

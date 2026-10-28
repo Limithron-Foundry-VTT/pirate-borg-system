@@ -167,6 +167,12 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (id) this.item.deleteEmbeddedDocuments("ActiveEffect", [id]);
   }
 
+  _onSubmitForm(formConfig, event) {
+    // Check if the document exists before ProseMirror tries to save a deleted document.
+    if (!this.document.collection?.has(this.document.id)) return;
+    return super._onSubmitForm(formConfig, event);
+  }
+
   async _onRender(context, options) {
     await super._onRender(context, options);
     // v13 ItemSheetV2 has no DragDrop so add it in manually.
