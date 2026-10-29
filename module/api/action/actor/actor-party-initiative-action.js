@@ -1,4 +1,5 @@
 import { showGenericCard } from "../../../chat-message/generic-card.js";
+import { emitPartyInitiative } from "../../../system/sockets.js";
 import { createPartyInitiativeOutcome } from "../../outcome/actor/party-initiative-outcome.js";
 
 /**
@@ -13,7 +14,13 @@ export const actorPartyInitiativeAction = async () => {
   });
 
   if (game.combats && game.combat) {
-    await game.combat.setPartyInitiative(outcome.roll.total);
+    if (game.user.isGM) {
+      await game.combat.setPartyInitiative(outcome.roll.total);
+    } else if (game.users.activeGM) {
+      emitPartyInitiative({ combatId: game.combat.id, rollTotal: outcome.roll.total, processorId: game.users.activeGM.id });
+    } else {
+      ui.notifications.warn(game.i18n.localize("PB.PartyInitiativeNoGM"));
+    }
   }
 
   return outcome;
