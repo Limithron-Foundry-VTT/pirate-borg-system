@@ -369,6 +369,7 @@
   "PB.OutcomeSuccess": "Success",
   "PB.Party": "Party",
   "PB.PartyInitiative": "Party Initiative",
+  "PB.PartyInitiativeNoGM": "Combat can only start with an active GM.",
   "PB.PerDay": "per day",
   "PB.PerRest": "per rest",
   "PB.PirateBorg": "PIRATE BORG",

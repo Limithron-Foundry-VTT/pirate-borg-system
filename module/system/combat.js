@@ -90,7 +90,7 @@ export class PBCombat extends Combat {
       _id: t.id,
       initiative: getCombatantInitiative(t),
     }));
-    await game.combat.resetAll();
+    await this.resetAll();
     await this.updateEmbeddedDocuments("Combatant", updates);
   }
 
