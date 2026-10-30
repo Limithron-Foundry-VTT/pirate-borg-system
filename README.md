@@ -11,20 +11,10 @@ PIRATE BORG is an independent production by community contributors, and is not a
 - Read [how to use this system](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/blob/main/how-to-use-this-system.md).
 - The above link also shows you how to create your own custom classes, including how to have them appear in The Tavern.
 
-## Installation - Auto Installer (Recommended)
+## Installation
 
 1. In the Game Systems Tab, click `Install System`
 2. Search for "Pirate Borg" using the `Filter Packages` and click the `Install` button.
-
-## Installation - Manual - Foundry V10
-
-1. In the Game Systems Tab, click `Install System`
-2. Enter the Manifest URL: `https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v0.6.15/system.json`
-
-## Installation - Manual - Foundry V9
-
-1. In the Game Systems Tab, click `Install System`
-2. Enter the Manifest URL: `https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v0.6.2/system.json`
 
 ## Questions? Suggestions? Bugs?
 
