@@ -88,7 +88,9 @@
         },
         "luck": {
           "value": 1,
-          "modifier": 0
+          "modifier": 0,
+          "die": "",
+          "dieSizeModifier": 0
         },
         "rituals": {
           "min": 0,

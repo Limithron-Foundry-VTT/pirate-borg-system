@@ -8,6 +8,12 @@ import { createTestAbilityOutcome } from "../../outcome/actor/test-ability-outco
  * @returns {Promise<Object>}
  */
 export const actorRollAbilityAction = async (actor, ability, drModifiers = []) => {
+  if (actor.attributes?.combat?.drModifier) {
+    drModifiers = [
+      ...drModifiers,
+      ...actor.getCombatEffectInfo().dr.map(({ name, value }) => `${name} (${game.i18n.localize("PB.DR")} ${value > 0 ? "+" : "-"} ${Math.abs(value)})`),
+    ];
+  }
   const outcome = await createTestAbilityOutcome({ actor, ability });
 
   await showGenericCard({

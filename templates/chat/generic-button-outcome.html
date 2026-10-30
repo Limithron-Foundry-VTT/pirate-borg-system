@@ -10,7 +10,7 @@
           {{/if}}  
           {{#if outcome.formulaLabel}}
             <div class="roll-title">
-              <span>{{outcome.formulaLabel}} {{#if outcome.dr}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{outcome.dr}}{{/if}}</span>
+              <span>{{outcome.formulaLabel}} {{#if outcome.dr}}{{localize "PB.Vs"}} {{localize "PB.DR"}} {{outcome.dr}}{{#if outcome.drLabel}} ({{outcome.drLabel}}){{/if}}{{/if}}</span>
             </div>        
           {{/if}} 
           {{#if outcome.roll}} 

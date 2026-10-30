@@ -36,6 +36,7 @@ export const createInvokeExtraResourceOutcome = async ({ actor }) =>
         formula: actor.extraResourceTestFormula,
         formulaLabel: actor.extraResourceTestFormulaLabel,
         data: actor.getRollData(),
+        ...actor.getModifiedDR(12),
       }),
     ),
     withWhen(
