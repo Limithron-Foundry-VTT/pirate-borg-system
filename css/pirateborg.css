@@ -2307,6 +2307,109 @@ li.folder > .folder-header {
   opacity: 0.8;
 }
 
+#combat .encounter-title .pb-party-order,
+.combat-sidebar .encounter-title .pb-party-order {
+  display: block;
+  font-size: var(--font-size-12);
+  font-weight: normal;
+}
+#combat .pb-block-header,
+#combat li.combatant.pb-side-based,
+.combat-sidebar .pb-block-header,
+.combat-sidebar li.combatant.pb-side-based {
+  position: relative;
+}
+#combat .pb-block-header::after,
+#combat li.combatant.pb-side-based::after,
+.combat-sidebar .pb-block-header::after,
+.combat-sidebar li.combatant.pb-side-based::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: color-mix(in srgb, var(--color-text-primary) 20%, transparent);
+  pointer-events: none;
+}
+#combat .pb-block-header.pb-acting::after,
+#combat li.combatant.pb-side-based.pb-acting::after,
+.combat-sidebar .pb-block-header.pb-acting::after,
+.combat-sidebar li.combatant.pb-side-based.pb-acting::after {
+  background: var(--color-warm-2);
+}
+#combat .pb-block-header,
+.combat-sidebar .pb-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.25rem 0 0;
+  padding: 0.125rem 0.5rem;
+  line-height: 1.4;
+  font-family: var(--h2-font);
+  font-size: var(--font-size-14);
+  text-transform: uppercase;
+  opacity: 0.7;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+}
+#combat .pb-block-header:first-child,
+.combat-sidebar .pb-block-header:first-child {
+  margin-top: 0;
+}
+#combat .pb-block-header.pb-acting,
+.combat-sidebar .pb-block-header.pb-acting {
+  opacity: 1;
+  border-bottom-color: var(--color-warm-2);
+}
+#combat .pb-block-header .pb-block-roll,
+.combat-sidebar .pb-block-header .pb-block-roll {
+  font-family: var(--font-body);
+  font-weight: bold;
+}
+#combat li.combatant.pb-side-based .token-initiative,
+.combat-sidebar li.combatant.pb-side-based .token-initiative {
+  display: none;
+}
+#combat li.combatant.pb-ship,
+.combat-sidebar li.combatant.pb-ship {
+  align-items: flex-start;
+}
+#combat .pb-crew,
+.combat-sidebar .pb-crew {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 6px;
+}
+#combat .pb-crew .pb-crew-member,
+.combat-sidebar .pb-crew .pb-crew-member {
+  position: relative;
+  flex: 0 0 20px;
+  height: 20px;
+}
+#combat .pb-crew .pb-crew-member img,
+.combat-sidebar .pb-crew .pb-crew-member img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border: none;
+  border-radius: 2px;
+}
+#combat .pb-crew .pb-crew-member.captain::before,
+.combat-sidebar .pb-crew .pb-crew-member.captain::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--color-warm-2);
+}
+#combat .pb-crew .pb-crew-member.viewable,
+.combat-sidebar .pb-crew .pb-crew-member.viewable {
+  cursor: pointer;
+}
+
 .chat-sidebar outcome-tray {
   display: block;
 }

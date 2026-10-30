@@ -3,9 +3,11 @@ import { emitPartyInitiative } from "../../../system/sockets.js";
 import { createPartyInitiativeOutcome } from "../../outcome/actor/party-initiative-outcome.js";
 
 /**
+ * @param {Combat} [combat=game.combat]
+ * @param {Object} [options] - Passed to PBCombat#setPartyInitiative when the roller is a GM.
  * @returns {Promise<Object>}
  */
-export const actorPartyInitiativeAction = async () => {
+export const actorPartyInitiativeAction = async (combat = game.combat, options = {}) => {
   const outcome = await createPartyInitiativeOutcome();
 
   await showGenericCard({
@@ -13,11 +15,11 @@ export const actorPartyInitiativeAction = async () => {
     outcomes: [outcome],
   });
 
-  if (game.combats && game.combat) {
+  if (combat) {
     if (game.user.isGM) {
-      await game.combat.setPartyInitiative(outcome.roll.total);
+      await combat.setPartyInitiative(outcome.roll.total, options);
     } else if (game.users.activeGM) {
-      emitPartyInitiative({ combatId: game.combat.id, rollTotal: outcome.roll.total, processorId: game.users.activeGM.id });
+      emitPartyInitiative({ combatId: combat.id, rollTotal: outcome.roll.total, processorId: game.users.activeGM.id });
     } else {
       ui.notifications.warn(game.i18n.localize("PB.PartyInitiativeNoGM"));
     }
