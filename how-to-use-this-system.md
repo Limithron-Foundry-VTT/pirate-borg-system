@@ -86,7 +86,7 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
     - _Damage Modifier_: added to weapon damage.
     - _Armor Tier Modifier_: raises or lowers your equipped armor's tier (0 to 3) for damage reduction.
     - _Speed Modifier_: added to your speed.
-    - _DR Modifier_: currently not applied to any rolls.
+    - _DR Modifier_: added to the DR of every character test (attack, defense, relic, ritual, class resource and grog). Ability rolls list it as a DR note, like encumbrance. Ship actions are not affected.
   - **Devil's Luck**:
     - _Luck (Current)_ / _Luck Modifier_: change your current Devil's Luck, or how much you have available to use.
     - _Luck Die Formula_: replace your class's luck die, e.g. `1d6`. An effect with an invalid formula isn't saved.
