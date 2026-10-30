@@ -16,6 +16,11 @@ PIRATE BORG is an independent production by community contributors, and is not a
 1. In the Game Systems Tab, click `Install System`
 2. Search for "Pirate Borg" using the `Filter Packages` and click the `Install` button.
 
+## Installation - Manual - Foundry V12
+
+1. In the Game Systems Tab, click `Install System`
+2. Enter the Manifest URL: `https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v1.9.0/system.json`
+
 ## Questions? Suggestions? Bugs?
 
 [File an issue](https://github.com/Limithron-Foundry-VTT/pirate-borg-system/issues), or hop on the [PIRATE BORG Discord](https://discord.gg/ZbGPQ34XWU),
