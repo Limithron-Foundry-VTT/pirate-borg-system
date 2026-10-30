@@ -19,6 +19,7 @@
   "PB.ActorBaseClassWarning": "Warning: this class doesn't require a base class",
   "PB.AllowedCharacterGeneratorClassesEdit": "Edit allowed classes",
   "PB.AllowedCharacterGeneratorClassesSelect": "Select allowed classes",
+  "PB.AmmoHasNoDamageDie": "{ammo} has no damage die, but this weapon uses ammo damage.",
   "PB.Animation": "Animation",
   "PB.AnimationMissingJB2A": "Animations require the JB2A module to be enabled.",
   "PB.Armor": "Armor",
