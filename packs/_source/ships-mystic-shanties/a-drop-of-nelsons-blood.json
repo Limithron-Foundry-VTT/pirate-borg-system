@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/shanty.png",
   "effects": [
     {
-      "_id": "pbEffNelsonBld1",
+      "_id": "d4lPaQiA97U1JUzI",
       "name": "A Drop of Nelson's Blood",
       "icon": "systems/pirateborg/icons/misc/shanty.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!EqhO6liqxQIjj4fx.pbEffNelsonBld1"
+      "_key": "!items.effects!EqhO6liqxQIjj4fx.d4lPaQiA97U1JUzI"
     }
   ],
   "folder": null,

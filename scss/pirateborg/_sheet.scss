@@ -181,7 +181,7 @@
         }
       }
 
-      form {
+      :is(form, .pb-sheet-form) {
         height: 100%;
         overflow: hidden;
 

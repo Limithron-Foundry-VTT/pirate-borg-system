@@ -23,10 +23,7 @@ export const asyncPipe =
  */
 export const evaluateFormula = async (formula, data) => {
   const roll = new Roll(formula, data);
-  if (game.release.generation >= 12) {
-    return roll.evaluate();
-  }
-  return roll.evaluate({ async: true });
+  return roll.evaluate();
 };
 
 /**
@@ -105,17 +102,13 @@ export const getResultType = (result) => {
  * @return {String}
  */
 export const getResultCollection = (result) => {
-  if (game.release.generation >= 13) {
-    const source = result?._source ?? {};
-    const documentUuid = source.documentUuid;
-    if (documentUuid) {
-      const parsedUuid = foundry.utils.parseUuid(documentUuid);
-      return parsedUuid?.collection?.metadata?.id ?? parsedUuid?.type ?? "";
-    }
-    return source.documentCollection ?? "";
+  const source = result?._source ?? {};
+  const documentUuid = source.documentUuid;
+  if (documentUuid) {
+    const parsedUuid = foundry.utils.parseUuid(documentUuid);
+    return parsedUuid?.collection?.metadata?.id ?? parsedUuid?.type ?? "";
   }
-
-  return result.documentCollection;
+  return "";
 };
 
 /**
@@ -136,12 +129,6 @@ export const getResultText = (result) => {
   } else {
     const text = data.name ?? source.name ?? data.description ?? source.description ?? data.text ?? source.text ?? "";
     if (text) return String(text).replaceAll(" &amp; ", " & ");
-  }
-
-  // Final fallback for legacy generations only (v12 and earlier).
-  if (game.release.generation < 13) {
-    const legacyText = result?.text ?? result?.data?.text ?? "";
-    return String(legacyText).replaceAll(" &amp; ", " & ");
   }
 
   return "";
@@ -199,15 +186,4 @@ export const getModuleDependencies = (module) => module?.relationships?.requires
  */
 export const getActorDefaults = (type) => {
   return CONFIG.PB.actorDefaults[type] ?? {};
-};
-
-export const confirmDialog = ({ title, content }) => {
-  if (game.release.generation >= 13) {
-    return foundry.applications.api.DialogV2.confirm({
-      window: { title },
-      content,
-      rejectClose: false,
-    });
-  }
-  return Dialog.confirm({ title, content });
 };

@@ -1,4 +1,4 @@
-<form class="{{cssClass}} flexcol loot-sheet" autocomplete="off">
+<div class="{{cssClass}} flexcol loot-sheet pb-sheet-form">
   {{!-- Sheet Header --}}
   <header class="sheet-header flexrow">
     <div class="header-left">
@@ -26,19 +26,19 @@
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="inventory">{{ localize "PB.LootInventory" }}</a>
+    <a class="item {{tabs.inventory.cssClass}}" data-action="tab" data-group="sheet" data-tab="inventory">{{ localize "PB.LootInventory" }}</a>
     {{#if loot.isOwner}}
-    <a class="item" data-tab="permissions">{{ localize "PB.LootPermissions" }}</a>
+    <a class="item {{tabs.permissions.cssClass}}" data-action="tab" data-group="sheet" data-tab="permissions">{{ localize "PB.LootPermissions" }}</a>
     {{/if}}
-    <a class="item" data-tab="description">{{ localize "PB.TabDescription" }}</a>
+    <a class="item {{tabs.description.cssClass}}" data-action="tab" data-group="sheet" data-tab="description">{{ localize "PB.TabDescription" }}</a>
     <span class="spacer"></span>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="tab inventory-tab" data-group="primary" data-tab="inventory">
+    <div class="tab inventory-tab {{tabs.inventory.cssClass}}" data-group="sheet" data-tab="inventory">
       <div class="sheet-content flexrow">
         {{!-- Main Content --}}
         <div class="main-content flexcol">
@@ -92,7 +92,7 @@
 
               <ol class="item-list">
                 {{#each loot.items}}
-                <li class="item flexrow" data-item-id="{{_id}}">
+                <li class="item draggable flexrow" data-item-id="{{_id}}">
                   <div class="item-name flexrow">
                     <img class="item-image" src="{{img}}" title="{{name}}" />
                     <span class="item-name-text">{{name}}</span>
@@ -148,7 +148,7 @@
 
     {{!-- Permissions Tab --}}
     {{#if loot.isOwner}}
-    <div class="tab permissions-tab" data-group="primary" data-tab="permissions">
+    <div class="tab permissions-tab {{tabs.permissions.cssClass}}" data-group="sheet" data-tab="permissions">
       <section class="permissions-section">
         <h3><i class="fas fa-lock"></i> {{ localize "PB.LootPermissions" }}</h3>
         <ul class="permissions-list">
@@ -172,8 +172,12 @@
     {{/if}}
 
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab {{tabs.description.cssClass}}" data-group="sheet" data-tab="description">
+      {{#if editable}}
+        <prose-mirror name="system.description" value="{{data.system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
   </section>
-</form>
+</div>

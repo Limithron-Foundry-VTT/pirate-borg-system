@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/electric-eel.png",
   "effects": [
     {
-      "_id": "pbEffElectEel1",
+      "_id": "0zNN3T8yVbNYuHnq",
       "name": "Electric Eel",
       "icon": "systems/pirateborg/tokens/electric-eel.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!GGf7XeEppvQ7j6BX.pbEffElectEel1"
+      "_key": "!items.effects!GGf7XeEppvQ7j6BX.0zNN3T8yVbNYuHnq"
     }
   ],
   "folder": null,

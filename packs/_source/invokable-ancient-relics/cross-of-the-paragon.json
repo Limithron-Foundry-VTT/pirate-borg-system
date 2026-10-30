@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/relic.png",
   "effects": [
     {
-      "_id": "pbEffParagon001",
+      "_id": "JHy80spVv7KE0phC",
       "name": "Cross of the Paragon - Attack Bonus",
       "icon": "systems/pirateborg/icons/misc/relic.png",
       "changes": [
@@ -28,10 +28,10 @@
           "targetType": "ally"
         }
       },
-      "_key": "!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon001"
+      "_key": "!items.effects!8DBLdGGmQMr5H1B9.JHy80spVv7KE0phC"
     },
     {
-      "_id": "pbEffParagon002",
+      "_id": "Nko55kKt6qcDqq4A",
       "name": "Cross of the Paragon - Damage Bonus",
       "icon": "systems/pirateborg/icons/misc/relic.png",
       "changes": [
@@ -54,7 +54,7 @@
           "targetType": "ally"
         }
       },
-      "_key": "!items.effects!8DBLdGGmQMr5H1B9.pbEffParagon002"
+      "_key": "!items.effects!8DBLdGGmQMr5H1B9.Nko55kKt6qcDqq4A"
     }
   ],
   "folder": null,

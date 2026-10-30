@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/lucky-parrot.png",
   "effects": [
     {
-      "_id": "pbEffLuckyParr1",
+      "_id": "85ZG7ZVjAYzt1kf7",
       "name": "Lucky Parrot",
       "icon": "systems/pirateborg/tokens/lucky-parrot.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!sdTjTdmBYkJ4Ak97.pbEffLuckyParr1"
+      "_key": "!items.effects!sdTjTdmBYkJ4Ak97.85ZG7ZVjAYzt1kf7"
     }
   ],
   "folder": null,

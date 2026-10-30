@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/tokens/jaguar.png",
   "effects": [
     {
-      "_id": "pbEffJaguar001",
+      "_id": "FdvozJ7qWO0eSSRI",
       "name": "Jaguar",
       "icon": "systems/pirateborg/tokens/jaguar.png",
       "changes": [
@@ -27,7 +27,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!iDVD29wjXnI9oDBf.pbEffJaguar001"
+      "_key": "!items.effects!iDVD29wjXnI9oDBf.FdvozJ7qWO0eSSRI"
     }
   ],
   "folder": null,

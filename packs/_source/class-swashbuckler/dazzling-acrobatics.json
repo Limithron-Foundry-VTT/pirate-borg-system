@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/class-feature.png",
   "effects": [
     {
-      "_id": "pbEffDazzling01",
+      "_id": "WBJublgXPSzGblFc",
       "name": "Dazzling Acrobatics",
       "icon": "systems/pirateborg/icons/misc/class-feature.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!MX7IBXzkNpkY3an3.pbEffDazzling01"
+      "_key": "!items.effects!MX7IBXzkNpkY3an3.WBJublgXPSzGblFc"
     }
   ],
   "folder": null,

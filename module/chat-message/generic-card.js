@@ -28,12 +28,7 @@ export const showGenericCard = async ({ actor, target, title, description, outco
     buttons,
     items,
   };
-  let content;
-  if (game.release.generation >= 13) {
-    content = await foundry.applications.handlebars.renderTemplate(GENERIC_CARD_TEMPLATE, data);
-  } else {
-    content = await renderTemplate(GENERIC_CARD_TEMPLATE, data);
-  }
+  const content = await foundry.applications.handlebars.renderTemplate(GENERIC_CARD_TEMPLATE, data);
 
   const messageData = {
     content: content,

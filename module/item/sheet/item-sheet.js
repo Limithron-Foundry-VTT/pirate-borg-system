@@ -1,230 +1,192 @@
+import { buildAddChange } from "../../api/effect-duration.js";
 import { PB } from "../../config.js";
 import { showAnimationDialog } from "../../dialog/animation-dialog.js";
-import { configureEditor } from "../../system/configure-editor.js";
-import { bindProseMirrorDescriptionEditor, getCachedEditorDraft } from "../../system/prosemirror-editor-state.js";
 import PBActorSheet from "../../actor/sheet/actor-sheet.js";
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ItemSheetV2 } = foundry.applications.sheets;
 
-/*
- * @extends {ItemSheet}
- */
-export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet) {
-  /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["pirateborg", "sheet", "item"],
-      width: 500,
-      height: 500,
-      scrollY: [".tab"],
-      tabs: [
+export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+  get item() {
+    return this.document;
+  }
+
+  static DEFAULT_OPTIONS = {
+    classes: ["themed", "theme-light", "pirateborg", "sheet", "item"],
+    position: { width: 500, height: 500 },
+    form: {
+      handler: PBItemSheet.#onSubmitForm,
+      submitOnChange: true,
+      closeOnSubmit: false,
+    },
+    window: {
+      resizable: true,
+      controls: [
         {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "description",
+          action: "editAnimation",
+          icon: "fas fa-edit",
+          label: "PB.EditAnimation",
         },
       ],
-      dragDrop: [
-        { dropSelector: 'textarea[name="system.startingBonusItems"]' },
-        { dropSelector: 'textarea[name="system.startingBonusRolls"]' },
-        { dropSelector: 'input[name="system.startingMacro"]' },
+    },
+    actions: {
+      editAnimation: PBItemSheet.#onEditAnimation,
+      createEffect: PBItemSheet.#onEffectCreate,
+      editEffect: PBItemSheet.#onEffectEdit,
+      deleteEffect: PBItemSheet.#onEffectDelete,
+    },
+  };
+
+  static PARTS = {
+    main: {
+      template: "systems/pirateborg/templates/item/item-sheet.html",
+      scrollable: [".tab"],
+    },
+  };
+
+  static TABS = {
+    sheet: {
+      tabs: [
+        { id: "description", group: "sheet", label: "PB.TabDescription" },
+        { id: "details", group: "sheet", label: "PB.TabDetails" },
+        { id: "effects", group: "sheet", label: "PB.TabEffects" },
       ],
-    });
-  }
+      initial: "description",
+      labelAttr: "label",
+    },
+  };
 
-  /** @override */
-  async _onRevealSecret(event) {
-    if (super._onRevealSecret(event)) return true;
-
-    const secretBlock = event?.target?.closest?.("secret-block") ?? event?.target;
-    const target =
-      secretBlock?.closest?.("[data-target]")?.dataset?.target ??
-      secretBlock?.closest?.("prose-mirror")?.dataset?.target ??
-      secretBlock?.closest?.("prose-mirror")?.getAttribute?.("name");
-    if (!target || typeof secretBlock?.toggleRevealed !== "function") return false;
-
-    const document = this.document ?? this.item;
-    const content = foundry.utils.getProperty(document, target);
-    const modified = secretBlock.toggleRevealed(content ?? "");
-    await document.update({ [target]: modified });
-    return true;
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Handle ProseMirror editor toggle (v13+)
-    if (game.release.generation >= 13) {
-      bindProseMirrorDescriptionEditor(this, html);
-    }
-
-    html.find(".effect-create").click(async () => {
-      const effectData = {
-        name: "",
-        label: this.item.name,
-        icon: this.item.img,
-        origin: this.item.uuid,
-        transfer: true,
-      };
-
-      const template = "systems/pirateborg/templates/dialog/quick-effect.html";
-      let html;
-      if (game.release.generation >= 13) {
-        html = await foundry.applications.handlebars.renderTemplate(template, effectData);
-      } else {
-        html = await renderTemplate(template, effectData);
-      }
-      const dialog = new Dialog({
-        title: game.i18n.localize("PB.EffectsQuick"),
-        content: html,
-        buttons: {
-          create: {
-            label: game.i18n.localize("PB.EffectsCreate"),
-            callback: (html) => {
-              effectData.name = html.find(".label").val();
-              effectData.changes = [
-                {
-                  key: html.find(".key").val(),
-                  mode: CONST.ACTIVE_EFFECT_MODES.ADD,
-                  value: parseInt(html.find(".modifier").val()),
-                },
-              ];
-              this.object.createEmbeddedDocuments("ActiveEffect", [effectData]);
-            },
-          },
-          skip: {
-            label: game.i18n.localize("PB.EffectsSkip"),
-            callback: () => {
-              effectData.name = game.i18n.localize("PB.EffectsNew");
-              this.object.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render(true));
-            },
-          },
-        },
-      });
-      await dialog._render(true);
-      dialog._element.find(".label").select();
-    });
-
-    html.find(".effect-edit").click((ev) => {
-      const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-      this.object.effects.get(id).sheet.render(true);
-    });
-
-    html.find(".effect-delete").click((ev) => {
-      const id = $(ev.currentTarget).parents(".item").attr("data-effect-id");
-      this.object.deleteEmbeddedDocuments("ActiveEffect", [id]);
-    });
-  }
-
-  /** @override */
-  get template() {
+  _configureRenderParts(options) {
+    const parts = super._configureRenderParts(options);
     const path = "systems/pirateborg/templates/item";
-    if (Object.keys(PB.itemTypeKeys).includes(this.item.type)) {
-      return `${path}/${this.item.type}-sheet.html`;
-    }
-    return `${path}/item-sheet.html`;
+    parts.main.template = Object.keys(PB.itemTypeKeys).includes(this.item.type) ? `${path}/${this.item.type}-sheet.html` : `${path}/item-sheet.html`;
+    return parts;
   }
 
-  /** @override */
-  _getHeaderButtons() {
-    const buttons = super._getHeaderButtons();
-    if (this.item.isWeapon && typeof Sequencer !== "undefined") {
-      return [this._getHeaderAnimationButton(), ...buttons];
+  _getHeaderControls() {
+    const controls = super._getHeaderControls();
+    if (!this.item.isWeapon || typeof Sequencer === "undefined") {
+      return controls.filter((c) => c.action !== "editAnimation");
     }
-    return buttons;
+    return controls;
   }
 
-  _getHeaderAnimationButton() {
-    return {
-      class: `edit-animation-dialog-button-${this.item.id}`,
-      label: game.i18n.localize("PB.EditAnimation"),
-      icon: "fas fa-edit",
-      onclick: this._onEditAnimation.bind(this),
-    };
-  }
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    context.config = CONFIG.PB;
+    context.editable = this.isEditable;
+    context.data = this.item;
 
-  /** @override */
-  async getData(options) {
-    const formData = super.getData(options);
-    formData.config = CONFIG.PB;
-    if (!this.item.system) {
-      formData.data.system = formData.data.data;
-      delete formData.data.data;
-    }
-
-    // Ensure editable flag is available for templates
-    formData.editable = this.isEditable;
-
-    // Editor data for v13+ ProseMirror
-    formData.descriptionSource = formData.data.system.description || "";
-    formData.documentUuid = this.item.uuid;
-
-    // Check if we're in editing mode
-    if (this._editingDescriptionTarget) {
-      const draft = getCachedEditorDraft(this, this._editingDescriptionTarget, formData.data.system.description || "");
-      formData.editingDescription = {
-        target: this._editingDescriptionTarget,
-        value: draft,
-      };
-    }
-
-    formData.descriptionHTML = formData.data.system.description
-      ? await (game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor).enrichHTML(formData.data.system.description, {
+    const system = this.item.system;
+    context.descriptionHTML = system.description
+      ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(system.description, {
           secrets: this.item.isOwner,
           relativeTo: this.item,
           rollData: this.item.getRollData?.() ?? {},
         })
       : "";
 
-    formData.item.effects?.map(PBActorSheet.addModifierDisplay);
+    context.item = this.item;
+    context.effects = [...this.item.effects].map(PBActorSheet.addModifierDisplay);
 
-    if (formData.data.system.rollBaseTables !== false) {
-      formData.data.system.rollBaseTables = true;
-    }
-
-    return formData;
+    return context;
   }
 
-  /** @override */
-  async _updateObject(event, formData) {
-    // V10
-    if (!this.item.system) {
-      formData = Object.keys(formData).reduce((data, key) => {
-        data[key.replace("system.", "data.")] = formData[key];
-        return data;
-      }, {});
-    }
+  async _onRevealSecret(event) {
+    if (await super._onRevealSecret(event)) return true;
 
-    if (this.object.type === CONFIG.PB.itemTypes.weapon) {
-      // Ensure weapons that need reloading have a reloading time
-      if (formData["system.needsReloading"] && (!formData["system.reloadTime"] || formData["system.reloadTime"] < 0)) {
-        formData["system.reloadTime"] = 1;
+    const secretBlock = event?.target?.closest?.("secret-block") ?? event?.target;
+    const target = secretBlock?.closest?.("[data-target]")?.dataset?.target ?? secretBlock?.closest?.("prose-mirror")?.getAttribute?.("name");
+    if (!target || typeof secretBlock?.toggleRevealed !== "function") return false;
+
+    const content = foundry.utils.getProperty(this.document, target);
+    const modified = secretBlock.toggleRevealed(content ?? "");
+    await this.document.update({ [target]: modified });
+    return true;
+  }
+
+  static async #onSubmitForm(event, form, formData) {
+    const data = formData.object;
+
+    if (this.item.type === CONFIG.PB.itemTypes.weapon) {
+      if (data["system.needsReloading"] && (!data["system.reloadTime"] || data["system.reloadTime"] < 0)) {
+        data["system.reloadTime"] = 1;
       }
     }
 
-    return super._updateObject(event, formData);
+    await this.item.update(data);
   }
 
-  /** @override */
-  setPosition(options = {}) {
-    const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
-    const bodyHeight = position.height - 192;
-    sheetBody.css("height", bodyHeight);
-    return position;
-  }
-
-  /** @override */
-  activateEditor(name, options = {}, initialContent = "") {
-    configureEditor(options);
-    super.activateEditor(name, options, initialContent);
-  }
-
-  async _onEditAnimation() {
+  static async #onEditAnimation() {
     await showAnimationDialog(this.item);
   }
 
-  /** @inheritdoc */
+  static async #onEffectCreate() {
+    const effectData = {
+      name: "",
+      label: this.item.name,
+      icon: this.item.img,
+      origin: this.item.uuid,
+      transfer: true,
+    };
+
+    const template = "systems/pirateborg/templates/dialog/quick-effect.html";
+    const html = await foundry.applications.handlebars.renderTemplate(template, effectData);
+
+    await foundry.applications.api.DialogV2.wait({
+      window: { title: game.i18n.localize("PB.EffectsQuick") },
+      content: html,
+      buttons: [
+        {
+          action: "create",
+          label: game.i18n.localize("PB.EffectsCreate"),
+          default: true,
+          callback: (event, button) => {
+            effectData.name = button.form.elements.label.value;
+            effectData.changes = [buildAddChange(button.form.elements.key.value, parseInt(button.form.elements.modifier.value))];
+            this.item.createEmbeddedDocuments("ActiveEffect", [effectData]);
+          },
+        },
+        {
+          action: "skip",
+          label: game.i18n.localize("PB.EffectsSkip"),
+          callback: () => {
+            effectData.name = game.i18n.localize("PB.EffectsNew");
+            this.item.createEmbeddedDocuments("ActiveEffect", [effectData]).then((effect) => effect[0].sheet.render({ force: true }));
+          },
+        },
+      ],
+    });
+  }
+
+  static #onEffectEdit(event, target) {
+    const id = target.closest(".item")?.dataset.effectId;
+    this.item.effects.get(id)?.sheet.render({ force: true });
+  }
+
+  static #onEffectDelete(event, target) {
+    const id = target.closest(".item")?.dataset.effectId;
+    if (id) this.item.deleteEmbeddedDocuments("ActiveEffect", [id]);
+  }
+
+  _onSubmitForm(formConfig, event) {
+    // Check if the document exists before ProseMirror tries to save a deleted document.
+    if (!this.document.collection?.has(this.document.id)) return;
+    return super._onSubmitForm(formConfig, event);
+  }
+
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    // v13 ItemSheetV2 has no DragDrop so add it in manually.
+    if (!("_dragDrop" in this)) {
+      new foundry.applications.ux.DragDrop.implementation({
+        permissions: { drop: () => this.isEditable },
+        callbacks: { drop: this._onDrop.bind(this) },
+      }).bind(this.element);
+    }
+  }
+
   async _onDrop(event) {
-    if (!this.options.editable) return;
+    if (!this.isEditable) return;
 
     let data;
     try {
@@ -246,16 +208,13 @@ export class PBItemSheet extends (foundry.appv1?.sheets?.ItemSheet ?? ItemSheet)
     }
 
     const item = await fromUuid(`Compendium.${data.pack}.${data.id}`);
-    if (!item) {
-      return;
-    }
+    if (!item) return;
 
     let content = event.target.value ? "\n" : "";
     let droppedValue = `${data.pack};${item.name}`;
-    if (data.type === "RollTable") {
-      droppedValue += `;1`;
-    }
+    if (data.type === "RollTable") droppedValue += `;1`;
     content += droppedValue;
     event.target.value += content;
+    event.target.dispatchEvent(new Event("change", { bubbles: true }));
   }
 }

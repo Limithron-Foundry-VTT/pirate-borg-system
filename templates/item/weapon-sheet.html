@@ -1,4 +1,4 @@
-<form class="flexcol {{cssClass}}" autocomplete="off">
+<div class="flexcol {{cssClass}} pb-sheet-form">
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
@@ -15,116 +15,120 @@
   </header>
 
   {{! Sheet Tab Navigation }}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="description">{{localize "PB.TabDescription"}}</a>
-    <a class="item" data-tab="details">{{localize "PB.TabDetails"}}</a>
-    <a class="item" data-tab="effects">{{ localize "PB.TabEffects" }}</a>
+    <a class="item {{tabs.description.cssClass}}" data-action="tab" data-group="sheet" data-tab="description">{{localize "PB.TabDescription"}}</a>
+    <a class="item {{tabs.details.cssClass}}" data-action="tab" data-group="sheet" data-tab="details">{{localize "PB.TabDetails"}}</a>
+    <a class="item {{tabs.effects.cssClass}}" data-action="tab" data-group="sheet" data-tab="effects">{{ localize "PB.TabEffects" }}</a>
     <span class="spacer"></span>
   </nav>
 
   {{! Sheet Body }}
   <section class="sheet-body">
     {{! Description Tab }}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab {{tabs.description.cssClass}}" data-group="sheet" data-tab="description">
+      {{#if editable}}
+        <prose-mirror name="system.description" value="{{data.system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
 
     {{! Details Tab }}
-    <div class="tab" data-group="primary" data-tab="details">
+    <div class="tab {{tabs.details.cssClass}}" data-group="sheet" data-tab="details">
       {{! Price }}
       <div class="form-group">
-        <label for="price">{{localize "PB.ItemPrice"}}:</label>
-        <input type="text" id="price" name="system.price" value="{{data.system.price}}" placeholder="2" data-dtype="Number" />
+        <label for="{{rootId}}-price">{{localize "PB.ItemPrice"}}:</label>
+        <input type="text" id="{{rootId}}-price" name="system.price" value="{{data.system.price}}" placeholder="2" data-dtype="Number" />
       </div>
 
       {{! Carry weight }}
       <div class="form-group">
-        <label for="carry-weight">{{localize "PB.CarryWeight"}}:</label>
-        <input type="text" id="carry-weight" name="system.carryWeight" value="{{data.system.carryWeight}}" placeholder="1" data-dtype="Number" />
+        <label for="{{rootId}}-carry-weight">{{localize "PB.CarryWeight"}}:</label>
+        <input type="text" id="{{rootId}}-carry-weight" name="system.carryWeight" value="{{data.system.carryWeight}}" placeholder="1" data-dtype="Number" />
       </div>
 
       {{! Container space }}
       <div class="form-group">
-        <label for="container-space">{{localize "PB.ContainerSpace"}}:</label>
-        <input type="text" id="container-space" name="system.containerSpace" value="{{data.system.containerSpace}}" placeholder="1" data-dtype="Number" />
+        <label for="{{rootId}}-container-space">{{localize "PB.ContainerSpace"}}:</label>
+        <input type="text" id="{{rootId}}-container-space" name="system.containerSpace" value="{{data.system.containerSpace}}" placeholder="1" data-dtype="Number" />
       </div>
 
       <br />
 
       {{! Weapon Type }}
       <div class="form-group">
-        <label for="weapon-type">{{localize "PB.ItemWeaponType"}}:</label>
-        <select id="weapon-type" name="system.weaponType">
+        <label for="{{rootId}}-weapon-type">{{localize "PB.ItemWeaponType"}}:</label>
+        <select id="{{rootId}}-weapon-type" name="system.weaponType">
           {{selectOptions config.weaponTypes selected=data.system.weaponType localize=true}}
         </select>
       </div>
 
       {{! Damage Die }}
       <div class="form-group">
-        <label for="damage-die">{{localize "PB.ItemDamageDie"}}:</label>
-        <input type="text" id="damage-die" name="system.damageDie" value="{{data.system.damageDie}}" placeholder="1d4" data-dtype="String" />
+        <label for="{{rootId}}-damage-die">{{localize "PB.ItemDamageDie"}}:</label>
+        <input type="text" id="{{rootId}}-damage-die" name="system.damageDie" value="{{data.system.damageDie}}" placeholder="1d4" data-dtype="String" />
       </div>
 
       {{! Handed }}
       <div class="form-group">
-        <label for="handed">{{localize "PB.ItemHanded"}}:</label>
-        <select id="handed" name="system.handed">
+        <label for="{{rootId}}-handed">{{localize "PB.ItemHanded"}}:</label>
+        <select id="{{rootId}}-handed" name="system.handed">
           {{selectOptions config.handed selected=data.system.handed localize=true}}
         </select>
       </div>
 
       <div class="form-group">
-        <label for="is-gunpowder-weapon">{{localize "PB.ItemIsGunpowderWeapon"}}:</label>
-        <input type="checkbox" id="is-gunpowder-weapon" name="system.isGunpowderWeapon" {{checked data.system.isGunpowderWeapon}} data-dtype="Boolean" />
+        <label for="{{rootId}}-is-gunpowder-weapon">{{localize "PB.ItemIsGunpowderWeapon"}}:</label>
+        <input type="checkbox" id="{{rootId}}-is-gunpowder-weapon" name="system.isGunpowderWeapon" {{checked data.system.isGunpowderWeapon}} data-dtype="Boolean" />
       </div>
 
       <br />
 
       {{! Uses ammo }}
       <div class="form-group">
-        <label for="uses-ammo">{{localize "PB.ItemUsesAmmo"}}:</label>
-        <input type="checkbox" id="uses-ammo" name="system.usesAmmo" {{checked data.system.usesAmmo}} data-dtype="Boolean" />
+        <label for="{{rootId}}-uses-ammo">{{localize "PB.ItemUsesAmmo"}}:</label>
+        <input type="checkbox" id="{{rootId}}-uses-ammo" name="system.usesAmmo" {{checked data.system.usesAmmo}} data-dtype="Boolean" />
       </div>
 
       <div class="form-group">
-        <label for="use-ammo-damage">{{localize "PB.ItemUseAmmoDamage"}}:</label>
-        <input type="checkbox" id="use-ammo-damage" name="system.useAmmoDamage" {{checked data.system.useAmmoDamage}} data-dtype="Boolean" />
+        <label for="{{rootId}}-use-ammo-damage">{{localize "PB.ItemUseAmmoDamage"}}:</label>
+        <input type="checkbox" id="{{rootId}}-use-ammo-damage" name="system.useAmmoDamage" {{checked data.system.useAmmoDamage}} data-dtype="Boolean" />
       </div>
 
       <div class="form-group">
-        <label for="needs-reloading">{{localize "PB.ItemNeedsReloading"}}:</label>
-        <input type="checkbox" id="needs-reloading" name="system.needsReloading" {{checked data.system.needsReloading}} data-dtype="Boolean" />
+        <label for="{{rootId}}-needs-reloading">{{localize "PB.ItemNeedsReloading"}}:</label>
+        <input type="checkbox" id="{{rootId}}-needs-reloading" name="system.needsReloading" {{checked data.system.needsReloading}} data-dtype="Boolean" />
       </div>
       {{#if data.system.needsReloading}}
       <div class="form-group">
-        <label for="reload-time" title="{{localize 'PB.ItemReloadTimeHelp'}}">{{localize "PB.ItemReloadTime"}}:</label>
-        <input type="text" id="reload-time" name="system.reloadTime" value="{{data.system.reloadTime}}" placeholder="0" data-dtype="Number" />
+        <label for="{{rootId}}-reload-time" title="{{localize 'PB.ItemReloadTimeHelp'}}">{{localize "PB.ItemReloadTime"}}:</label>
+        <input type="text" id="{{rootId}}-reload-time" name="system.reloadTime" value="{{data.system.reloadTime}}" placeholder="0" data-dtype="Number" />
       </div>
       {{/if}}
 
       <br />
 
       <div class="form-group">
-        <label for="crit-on">{{localize "PB.ItemCritOn"}}:</label>
-        <input type="text" id="crit-on" name="system.critOn" value="{{data.system.critOn}}" placeholder="20" data-dtype="Number" />
+        <label for="{{rootId}}-crit-on">{{localize "PB.ItemCritOn"}}:</label>
+        <input type="text" id="{{rootId}}-crit-on" name="system.critOn" value="{{data.system.critOn}}" placeholder="20" data-dtype="Number" />
       </div>
 
       {{! Crit Extra Damage Die }}
       <div class="form-group">
-        <label for="crit-extra-damage">{{localize "PB.ItemCritExtraDamageFormula"}}:</label>
-        <input type="text" id="crit-extra-damage" name="system.critExtraDamage" value="{{data.system.critExtraDamage}}" placeholder="1d4" data-dtype="String" />
+        <label for="{{rootId}}-crit-extra-damage">{{localize "PB.ItemCritExtraDamageFormula"}}:</label>
+        <input type="text" id="{{rootId}}-crit-extra-damage" name="system.critExtraDamage" value="{{data.system.critExtraDamage}}" placeholder="1d4" data-dtype="String" />
       </div>
 
       <div class="form-group">
-        <label for="fumble-on">{{localize "PB.ItemFumbleOn"}}:</label>
-        <input type="text" id="fumble-on" name="system.fumbleOn" value="{{data.system.fumbleOn}}" placeholder="1" data-dtype="Number" />
+        <label for="{{rootId}}-fumble-on">{{localize "PB.ItemFumbleOn"}}:</label>
+        <input type="text" id="{{rootId}}-fumble-on" name="system.fumbleOn" value="{{data.system.fumbleOn}}" placeholder="1" data-dtype="Number" />
       </div>
     </div>
 
     {{! Effects }}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab {{tabs.effects.cssClass}}" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/item/tab/effects.html}}
     </div>
   </section>
-</form>
+</div>

@@ -26,7 +26,7 @@ body {
   }
 }
 
-.pirateborg.sheet form button:not(.tinymce *) {
+.pirateborg.sheet :is(form, .pb-sheet-form) button:not(.tinymce *, prose-mirror menu *) {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -130,8 +130,20 @@ form.editable .results {
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 
-.window-app {
-  &.sheet .window-content form {
+.window-app,
+.application.pirateborg {
+  &.sheet .window-content :is(form, .pb-sheet-form) {
+    nav.tabs {
+      gap: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--background-color);
+    }
     .tabs {
       border: none;
       padding: 0;
@@ -151,6 +163,7 @@ form.editable .results {
         text-transform: none;
         padding-left: 16px;
         padding-right: 16px;
+        color: var(--color-dark-1);
         &.active {
           border-top-left-radius: 8px;
           border-top-right-radius: 8px;
@@ -167,7 +180,7 @@ form.editable .results {
   .window-content {
     background: var(--window-background);
 
-    form {
+    :is(form, .pb-sheet-form) {
       .tab {
         margin-bottom: 16px;
         border-bottom-left-radius: 16px;
@@ -801,6 +814,15 @@ div#sidebar {
   }
 }
 
+a.content-link,
+a.inline-roll {
+  color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
+  > i {
+    color: var(--foreground-color);
+  }
+}
+
 /* ================== 11. JOURNAL ENTRIES =================== */
 
 .journal-sheet form {
@@ -980,5 +1002,86 @@ li.folder > .folder-header {
     &:hover .effect-control {
       opacity: 0.8;
     }
+  }
+}
+
+@layer pirateborg-baseline {
+  .pirateborg.sheet .pb-sheet-form {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 1px 3px;
+    }
+
+    button:not(prose-mirror menu *) {
+      display: inline-block;
+      min-height: 0;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 3px 0;
+
+      > * {
+        flex: 3;
+      }
+
+      > label {
+        flex: 2;
+        line-height: var(--form-field-height);
+      }
+    }
+
+    input[type="checkbox"] {
+      flex: 0 0 20px;
+      width: 20px;
+      height: 20px;
+      margin: 3px 5px;
+      appearance: revert;
+      accent-color: var(--button-background);
+
+      &::before,
+      &::after {
+        content: unset;
+      }
+    }
+
+    .form-group > input[type="checkbox"] {
+      margin-right: calc(60% - 25px);
+    }
+  }
+}
+
+.pirateborg.sheet prose-mirror.inactive {
+  border: none;
+  background: none;
+
+  > button.toggle {
+    display: block;
+    top: 8px;
+    right: 8px;
+    width: auto;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  &:hover > button.toggle {
+    opacity: 0.4;
+  }
+
+  > button.toggle:hover,
+  > button.toggle:focus-visible {
+    opacity: 1;
   }
 }

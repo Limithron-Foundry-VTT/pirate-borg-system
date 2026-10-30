@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/arcane-ritual.png",
   "effects": [
     {
-      "_id": "pbEffMermaid001",
+      "_id": "hpltVP21mUIz3m6d",
       "name": "Mermaid's Kiss - Strength Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -28,10 +28,10 @@
           "targetType": "creature"
         }
       },
-      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid001"
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.hpltVP21mUIz3m6d"
     },
     {
-      "_id": "pbEffMermaid002",
+      "_id": "mZISbERb6LqHxvUj",
       "name": "Mermaid's Kiss - Agility Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -54,10 +54,10 @@
           "targetType": "creature"
         }
       },
-      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid002"
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.mZISbERb6LqHxvUj"
     },
     {
-      "_id": "pbEffMermaid003",
+      "_id": "bKdzAFPRImnCdLdt",
       "name": "Mermaid's Kiss - Toughness Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -80,10 +80,10 @@
           "targetType": "creature"
         }
       },
-      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid003"
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.bKdzAFPRImnCdLdt"
     },
     {
-      "_id": "pbEffMermaid004",
+      "_id": "qmSKv92SdDe4HWM4",
       "name": "Mermaid's Kiss - Presence Bonus",
       "icon": "systems/pirateborg/icons/misc/arcane-ritual.png",
       "changes": [
@@ -106,7 +106,7 @@
           "targetType": "creature"
         }
       },
-      "_key": "!items.effects!8qy6kGcq6YfiiWYX.pbEffMermaid004"
+      "_key": "!items.effects!8qy6kGcq6YfiiWYX.qmSKv92SdDe4HWM4"
     }
   ],
   "folder": null,

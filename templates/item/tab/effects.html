@@ -18,23 +18,22 @@
     <li class="items-header flexrow">
       <span class="item-property item-name">{{localize "PB.TabEffects"}}</span>
       <div class="item-create-button">
-        <a class="effect-create" data-tooltip="{{localize 'PB.EffectsCreate'}}"><i class="fas fa-plus"></i></a>
+        <button type="button" data-action="createEffect" data-tooltip="{{localize 'PB.EffectsCreate'}}"><i class="fas fa-plus"></i></button>
       </div>
     </li>
     <ol class="item-list">
     {{#each item.effects as |effect|}}
     <li class="item flexrow item-content" data-effect-id="{{effect.id}}">
       <img class="item-property item-image" src="{{effect.img}}">
-      <div class="item-property item-name effect-edit">{{effect.name}}</div>
+      <div class="item-property item-name" data-action="editEffect">{{effect.name}}</div>
       {{#if effect.modifierDisplay}}
       <span class="item-property effect-modifier">
         {{effect.modifierDisplay}}
       </span>
       {{/if}}
-      {{log effect}}
 
       <div class="item-controls">
-        <a class="item-control effect-delete" data-tooltip="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></a>
+        <button type="button" class="item-control" data-action="deleteEffect" data-tooltip="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></button>
       </div>
     </li>
     {{/each}}

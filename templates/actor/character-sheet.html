@@ -1,4 +1,4 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
+<div class="{{cssClass}} flexcol pb-sheet-form">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <div class="header-col1">
@@ -117,26 +117,30 @@
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
-    <a class="item" data-tab="powers">{{ localize 'PB.Powers' }}</a>
-    <a class="item" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>
-    <a class="item" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
-    <a class="item" data-tab="history">{{ localize 'PB.TabHistory' }}</a>
-    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
+    <a class="item {{tabs.combat.cssClass}}" data-action="tab" data-group="sheet" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
+    <a class="item {{tabs.powers.cssClass}}" data-action="tab" data-group="sheet" data-tab="powers">{{ localize 'PB.Powers' }}</a>
+    <a class="item {{tabs.equipment.cssClass}}" data-action="tab" data-group="sheet" data-tab="equipment">{{ localize 'PB.TabEquipment' }}</a>
+    <a class="item {{tabs.features.cssClass}}" data-action="tab" data-group="sheet" data-tab="features">{{ localize 'PB.TabFeatures' }}</a>
+    <a class="item {{tabs.history.cssClass}}" data-action="tab" data-group="sheet" data-tab="history">{{ localize 'PB.TabHistory' }}</a>
+    <a class="item {{tabs.effects.cssClass}}" data-action="tab" data-group="sheet" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
     <span class="spacer"></span>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- History Tab --}}
-    <div class="tab class-tab" data-group="primary" data-tab="history">
-      {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=editable owner=owner editingDescription=editingDescription}}
+    <div class="tab class-tab {{tabs.history.cssClass}}" data-group="sheet" data-tab="history">
+      {{#if editable}}
+        <prose-mirror name="system.description" value="{{data.system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
+      {{else}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
+      {{/if}}
     </div>
 
     {{!-- Combat Tab --}}
-    <div class="tab combat-tab" data-group="primary" data-tab="combat">
+    <div class="tab combat-tab {{tabs.combat.cssClass}}" data-group="sheet" data-tab="combat">
       {{!-- Initiative buttons --}}
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
@@ -166,7 +170,7 @@
         </li>
         <ol class="item-list weapon-list">
           {{#each data.system.dynamic.equippedWeapons as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <div class="weapon-name-col">
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
@@ -229,7 +233,7 @@
         </li>
         <ol class="item-list armor-list">
           {{#if data.system.dynamic.equippedArmor}}
-          <li class="item flexrow" data-item-id="{{data.system.dynamic.equippedArmor._id}}">
+          <li class="item draggable flexrow" data-item-id="{{data.system.dynamic.equippedArmor._id}}">
             <img src="{{data.system.dynamic.equippedArmor.img}}" title="{{data.dynamic.equippedArmor.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{data.system.dynamic.equippedArmor.name}}</h4>
             <div class="item-armor-tier">
@@ -276,7 +280,7 @@
           </li>
           {{/if}} 
           {{#if data.system.dynamic.equippedHat}}
-          <li class="item flexrow" data-item-id="{{data.system.dynamic.equippedHat._id}}">
+          <li class="item draggable flexrow" data-item-id="{{data.system.dynamic.equippedHat._id}}">
             <img src="{{data.system.dynamic.equippedHat.img}}" title="{{data.system.dynamic.equippedHat.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{data.system.dynamic.equippedHat.name}}</h4>
             <div class="item-hat-rule">
@@ -305,14 +309,14 @@
       <div class="underarmor-row">
         <div class="incoming-attack">
           <div>
-            <button type="button" class="item-button rollable defend-button button" title="{{localize 'PB.Defend'}}" draggable="true" data-action="defend">{{localize "PB.Defend"}}</button>
+            <button type="button" class="item-button rollable defend-button button draggable" title="{{localize 'PB.Defend'}}" draggable="true" data-action="defend">{{localize "PB.Defend"}}</button>
           </div>
         </div>
       </div>
     </div>
 
     {{!-- Features Tab --}}
-    <div class="tab specials-tab" data-group="primary" data-tab="features">
+    <div class="tab specials-tab {{tabs.features.cssClass}}" data-group="sheet" data-tab="features">
       {{#if data.system.dynamic.useExtraResource}}
       <div class="powers-top-row">
         <div class="stats-block">
@@ -329,7 +333,7 @@
           </li>
           <ol class="item-list">
             {{#each item.items as |item id|}}
-            <li class="item flexrow" data-item-id="{{item._id}}">
+            <li class="item draggable flexrow" data-item-id="{{item._id}}">
               <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
               <h4 class="item-name item-edit rollable">{{item.name}} {{#ifGt item.system.quantity 1}} ({{item.system.quantity}}) {{/ifGt}}</h4>
               <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
@@ -365,7 +369,7 @@
     </div>
 
     {{!-- Powers Tab --}}
-    <div class="tab powers-tab" data-group="primary" data-tab="powers">
+    <div class="tab powers-tab {{tabs.powers.cssClass}}" data-group="sheet" data-tab="powers">
       <div class="powers-top-row">
         <div class="stats-block">
           <label class="stat-label uses-remaining-label">{{localize "PB.RitualRemaining"}}</label>
@@ -382,7 +386,7 @@
         </li>
         <ol class="item-list">
           {{#each group.items as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}}</h4>
             <div class="item-buttons">{{> "systems/pirateborg/templates/actor/common/actor-item-button.html" item=item}}</div>
@@ -405,7 +409,7 @@
     </div>
 
     {{!-- Equipment Tab --}}
-    <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
+    <div class="tab equipment-tab {{tabs.equipment.cssClass}}" data-group="sheet" data-tab="equipment">
       <div class="equipment-top-row">
         <div class="stats-block">
           <span class="stat-label silver-label">{{ localize "PB.Silver" }}</span>
@@ -435,7 +439,7 @@
         </li>
         <ol class="item-list">
           {{#each data.system.dynamic.grog as |item id|}}
-          <li class="item flexrow item-type-grog" data-item-id="{{item._id}}">
+          <li class="item draggable flexrow item-type-grog" data-item-id="{{item._id}}">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
             <h4 class="item-name item-edit rollable">{{item.name}} ({{item.system.quantity}})</h4>
             <div class="item-buttons">
@@ -466,8 +470,8 @@
     </div>
 
     {{!-- Effects Tab --}}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab {{tabs.effects.cssClass}}" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>
-</form>
+</div>

@@ -1,4 +1,4 @@
-<form class="{{cssClass}} pirateborg sheet actor vehicle character vehicle-sheet-form flexcol" autocomplete="off">
+<div class="{{cssClass}} pirateborg sheet actor vehicle character vehicle-sheet-form flexcol pb-sheet-form">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
 
@@ -11,7 +11,7 @@
         <input class="actor-name container-name" name="name" type="text" value="{{data.name}}" placeholder="{{ localize 'PB.Name' }}" />
       </div>
       <div class="header-subtitle-row">
-        <div class="actor-type">{{localize data.localizedType}}</div>
+        <div class="actor-type">{{localize localizedType}}</div>
       </div>
 
       <div class="header-stats-row">
@@ -49,7 +49,7 @@
           class="ability-input"
           type="text"
           name="system.abilities.skill.value"
-          value="{{numberFormat data.system.abilities.skill.value decimals=0 sign=true}}"
+          value="{{#unless (eq data.system.abilities.skill.value null)}}{{numberFormat data.system.abilities.skill.value decimals=0 sign=true}}{{/unless}}"
           data-dtype="Number"
           size="3"
         />
@@ -71,18 +71,18 @@
   </header>
 
   {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
+  <nav class="sheet-tabs tabs" data-group="sheet">
     <span class="spacer"></span>
-    <a class="item" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
-    <a class="item" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
+    <a class="item {{tabs.combat.cssClass}}" data-action="tab" data-group="sheet" data-tab="combat">{{ localize 'PB.TabCombat' }}</a>
+    <a class="item {{tabs.effects.cssClass}}" data-action="tab" data-group="sheet" data-tab="effects">{{ localize 'PB.TabEffects' }}</a>
     <span class="spacer"></span>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    <div class="tab combat-tab" data-group="primary" data-tab="combat">
+    <div class="tab combat-tab {{tabs.combat.cssClass}}" data-group="sheet" data-tab="combat">
       <div class="description">
-        {{> "systems/pirateborg/templates/common/editor.html" enrichedContent=descriptionHTML sourceContent=descriptionSource documentUuid=documentUuid target="system.description" editable=false owner=owner editingDescription=editingDescription}}
+        <div class="editor-content">{{{descriptionHTML}}}</div>
       </div>      
 
       {{#if special}}
@@ -255,8 +255,8 @@
     </div>
 
     {{!-- Effects Tab --}}
-    <div class="tab" data-group="primary" data-tab="effects">
+    <div class="tab {{tabs.effects.cssClass}}" data-group="sheet" data-tab="effects">
       {{> systems/pirateborg/templates/actor/common/effects.html}}
     </div>
   </section>
-</form>
+</div>

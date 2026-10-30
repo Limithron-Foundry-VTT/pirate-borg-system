@@ -2,7 +2,6 @@ import { createPirateBorgMacro } from "./api/macros.js";
 import { migrate } from "./system/migrate.js";
 import { configureHandlebar } from "./system/configure-handlebar.js";
 import { configureSystem } from "./system/configure-system.js";
-import { renderCombatTracker } from "./system/render-combat-tracker.js";
 import { handleChatMessageAutomation, handleChatMessageButton, handleChatMessageGMOnly } from "./system/render-chat-message.js";
 import { renderActorDirectory } from "./system/render-actor-directory.js";
 import { registerSystemSettings, isCreateLootFromDropEnabled } from "./system/settings.js";
@@ -21,7 +20,6 @@ Hooks.once("init", async () => {
   console.log(`Initializing Pirate Borg System`);
 
   Hooks.on("renderActorDirectory", renderActorDirectory);
-  Hooks.on("renderCombatTracker", renderCombatTracker);
   Hooks.on("renderSettings", renderSettings);
   if (foundry.utils.isNewerVersion(game.version, "13")) {
     Hooks.on("renderChatMessageHTML", handleChatMessageButton);

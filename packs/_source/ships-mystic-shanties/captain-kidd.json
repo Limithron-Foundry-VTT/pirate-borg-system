@@ -5,7 +5,7 @@
   "img": "systems/pirateborg/icons/misc/shanty.png",
   "effects": [
     {
-      "_id": "pbEffCaptKidd01",
+      "_id": "jyyhabwBdslWGsxd",
       "name": "Captain Kidd",
       "icon": "systems/pirateborg/icons/misc/shanty.png",
       "changes": [
@@ -22,7 +22,7 @@
         "units": "seconds"
       },
       "flags": {},
-      "_key": "!items.effects!5sGIaD4NrgbDmBhF.pbEffCaptKidd01"
+      "_key": "!items.effects!5sGIaD4NrgbDmBhF.jyyhabwBdslWGsxd"
     }
   ],
   "folder": null,

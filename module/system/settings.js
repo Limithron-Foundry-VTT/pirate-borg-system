@@ -107,6 +107,36 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  game.settings.register("pirateborg", "initiativeMode", {
+    name: "PB.SettingsInitiativeMode",
+    hint: "PB.SettingsInitiativeModeHint",
+    scope: "world",
+    config: true,
+    type: String,
+    choices: {
+      side: "PB.InitiativeModeSide",
+      individual: "PB.InitiativeModeIndividual",
+    },
+    default: "side",
+    onChange: () => {
+      game.combats?.forEach((combat) => {
+        combat.setupTurns();
+        combat._updateTurnMarkers();
+      });
+      ui.combat?.render();
+    },
+  });
+
+  /** Whether crew initiative is re-rolled at the start of each combat round */
+  game.settings.register("pirateborg", "rerollInitiativeEachRound", {
+    name: "PB.SettingsRerollInitiativeEachRound",
+    hint: "PB.SettingsRerollInitiativeEachRoundHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+  });
+
   /** Whether to enable grog drinking mechanics */
   game.settings.register("pirateborg", "enableGrog", {
     name: "PB.SettingsEnableGrog",
@@ -305,6 +335,16 @@ export const setCharacterGeneratorGroupStates = async (groupStates) => {
  * @returns {Boolean}
  */
 export const isAutoExpireEffectsEnabled = () => game.settings.get("pirateborg", "autoExpireEffects");
+
+/**
+ * @returns {String} "side" or "individual"
+ */
+export const getInitiativeMode = () => game.settings.get("pirateborg", "initiativeMode");
+
+/**
+ * @returns {Boolean}
+ */
+export const isRerollInitiativeEachRoundEnabled = () => game.settings.get("pirateborg", "rerollInitiativeEachRound");
 
 /**
  * @returns {Boolean}

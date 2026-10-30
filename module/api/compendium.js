@@ -56,10 +56,7 @@ export const drawTableText = async (compendium, table) => {
     return "";
   }
 
-  if (game.release.generation >= 13) {
-    return result.description;
-  }
-  return result.getChatText();
+  return result.description;
 };
 
 /**
@@ -135,34 +132,20 @@ export const findItemsFromCompendiumString = async (compendiumString) => {
 export const findTableItems = async (results) => {
   const items = [];
   let item = null;
-  const textEditor = game.release.generation >= 13 ? foundry.applications.ux.TextEditor.implementation : TextEditor;
+  const textEditor = foundry.applications.ux.TextEditor.implementation;
   const textType = CONST.TABLE_RESULT_TYPES?.TEXT;
   const documentType = CONST.TABLE_RESULT_TYPES?.DOCUMENT;
-  const compendiumType = CONST.TABLE_RESULT_TYPES?.COMPENDIUM;
   const isTextResult = (type) => type === "text" || (textType !== undefined && type === textType);
-  const isCompendiumResult = (type) =>
-    type === "pack" ||
-    type === "document" ||
-    (documentType !== undefined && type === documentType) ||
-    (compendiumType !== undefined && type === compendiumType);
+  const isCompendiumResult = (type) => type === "pack" || type === "document" || (documentType !== undefined && type === documentType);
 
   for (const result of results) {
-    // Read from `_source` to avoid the deprecated `documentCollection`/`documentId`
-    // getters on V13/V14 (removed in V15), which crash when `documentUuid` is null.
     const source = result?._source ?? {};
     const data = result?.toObject?.() ?? {};
     const type = getResultType(result);
     if (isCompendiumResult(type)) {
       item = null;
       const documentUuid = source.documentUuid ?? data.documentUuid;
-      const documentCollection = source.documentCollection ?? data.documentCollection;
-      const documentId = source.documentId ?? data.documentId;
-
-      if (documentUuid) {
-        item = await fromUuid(documentUuid);
-      } else if (documentCollection && documentId) {
-        item = await game.packs.get(documentCollection)?.getDocument(documentId);
-      }
+      if (documentUuid) item = await fromUuid(documentUuid);
 
       if (!item) {
         const fallbackName = source.name ?? data.name ?? source.text ?? data.text ?? source.description ?? data.description ?? getResultText(result);
