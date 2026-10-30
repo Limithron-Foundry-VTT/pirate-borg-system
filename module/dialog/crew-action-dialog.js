@@ -44,7 +44,7 @@ class CrewActionDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["crew-action-dialog", "standard-form"],
+    classes: ["themed", "theme-light", "crew-action-dialog", "standard-form"],
     window: { title: "PB.ShipCrewAction" },
     position: { width: 420, height: "auto" },
   };

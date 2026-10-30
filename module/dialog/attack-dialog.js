@@ -21,7 +21,7 @@ class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["attack-dialog", "standard-form"],
+    classes: ["themed", "theme-light", "attack-dialog", "standard-form"],
     window: { title: "PB.Attack" },
     position: { width: 460, height: "auto" },
   };

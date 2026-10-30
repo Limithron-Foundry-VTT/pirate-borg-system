@@ -259,11 +259,11 @@
 .pirateborg.sheet .window-content .stats-block .stat-separator {
   font-size: 18px;
 }
-.pirateborg.sheet .window-content form {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) {
   height: 100%;
   overflow: hidden;
 }
-.pirateborg.sheet .window-content form .sheet-body {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body {
   overflow: hidden;
   font-family: var(--item-font);
   flex: 1;
@@ -271,24 +271,24 @@
   flex-direction: column;
   min-height: 0;
 }
-.pirateborg.sheet .window-content form .sheet-body .tab {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body .tab {
   height: 100%;
   border-radius: 0;
 }
-.pirateborg.sheet .window-content form .sheet-body .tab.active {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body .tab.active {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-.pirateborg.sheet .window-content form .sheet-body .tab:only-of-type {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body .tab:only-of-type {
   border-top: 2px groove var(--light-border-color);
 }
-.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] prose-mirror,
-.pirateborg.sheet .window-content form .sheet-body .tab[data-tab=description] .pb-editor-wrapper {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body .tab[data-tab=description] prose-mirror,
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-body .tab[data-tab=description] .pb-editor-wrapper {
   flex: 1;
   min-height: 0;
 }
-.pirateborg.sheet .window-content form .sheet-tabs .spacer {
+.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .sheet-tabs .spacer {
   border-bottom: 1px solid var(--dark-border-color);
   display: block;
   padding-left: 16px;
@@ -686,13 +686,13 @@
   margin: 0;
 }
 
-form.vehicle-sheet-form {
+.vehicle-sheet-form {
   height: 100%;
   overflow: hidden;
   font-size: 13px;
   color: var(--foreground-color);
 }
-form.vehicle-sheet-form .sheet-header {
+.vehicle-sheet-form .sheet-header {
   margin: 16px;
   display: flex;
   flex-direction: row;
@@ -700,36 +700,36 @@ form.vehicle-sheet-form .sheet-header {
   align-items: flex-start;
   gap: 16px;
 }
-form.vehicle-sheet-form .sheet-header .header-col1 {
+.vehicle-sheet-form .sheet-header .header-col1 {
   flex: 0 0 100px;
   padding: 0;
   line-height: 0;
 }
-form.vehicle-sheet-form .sheet-header .header-col1 .profile-img {
+.vehicle-sheet-form .sheet-header .header-col1 .profile-img {
   height: 100px;
   width: 100px;
   border-radius: 24px;
   border: none;
   object-fit: contain;
 }
-form.vehicle-sheet-form .sheet-header .header-col2 {
+.vehicle-sheet-form .sheet-header .header-col2 {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-form.vehicle-sheet-form .sheet-header .header-col2 .header-title-row {
+.vehicle-sheet-form .sheet-header .header-col2 .header-title-row {
   margin-left: -4px;
   margin-top: -4px;
 }
-form.vehicle-sheet-form .sheet-header .header-col2 .header-title-row input {
+.vehicle-sheet-form .sheet-header .header-col2 .header-title-row input {
   font-family: var(--h1-font);
   font-size: 32px;
   border: none;
   height: 40px;
   line-height: 40px;
 }
-form.vehicle-sheet-form .sheet-header .header-col2 .header-subtitle-row {
+.vehicle-sheet-form .sheet-header .header-col2 .header-subtitle-row {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -740,30 +740,30 @@ form.vehicle-sheet-form .sheet-header .header-col2 .header-subtitle-row {
   margin-bottom: 4px;
   width: 280px;
 }
-form.vehicle-sheet-form .sheet-header .header-col2 .header-stats-row {
+.vehicle-sheet-form .sheet-header .header-col2 .header-stats-row {
   display: flex;
   align-items: center;
   gap: 4px;
 }
-form.vehicle-sheet-form .sheet-header .header-col3 {
+.vehicle-sheet-form .sheet-header .header-col3 {
   flex: 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-form.vehicle-sheet-form .sheet-header .header-col3 .ability-row {
+.vehicle-sheet-form .sheet-header .header-col3 .ability-row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-form.vehicle-sheet-form .sheet-header .header-col3 .ability-label {
+.vehicle-sheet-form .sheet-header .header-col3 .ability-label {
   font-family: var(--item-font);
   font-size: 16px;
   margin-left: 5px;
   display: block;
   padding-top: 2px;
 }
-form.vehicle-sheet-form .sheet-header .header-col3 .ability-input {
+.vehicle-sheet-form .sheet-header .header-col3 .ability-input {
   border: none;
   font-family: var(--item-font);
   font-size: 24px;
@@ -775,23 +775,23 @@ form.vehicle-sheet-form .sheet-header .header-col3 .ability-input {
   border-radius: 4px;
   text-align: right;
 }
-form.vehicle-sheet-form .stats-block {
+.vehicle-sheet-form .stats-block {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
   line-height: 20px;
 }
-form.vehicle-sheet-form .stats-block .stat-label {
+.vehicle-sheet-form .stats-block .stat-label {
   font-family: var(--item-font);
   font-size: 16px;
 }
-form.vehicle-sheet-form .stats-block .stat-rule {
+.vehicle-sheet-form .stats-block .stat-rule {
   font-family: var(--item-font);
   font-size: 14px;
   line-height: 20px;
 }
-form.vehicle-sheet-form .stats-block input {
+.vehicle-sheet-form .stats-block input {
   border: none;
   font-family: var(--item-font);
   text-align: center;
@@ -804,10 +804,10 @@ form.vehicle-sheet-form .stats-block input {
   padding: 0 0 4px;
   border-radius: 4px;
 }
-form.vehicle-sheet-form .stats-block .stat-separator {
+.vehicle-sheet-form .stats-block .stat-separator {
   font-size: 18px;
 }
-form.vehicle-sheet-form .sheet-body {
+.vehicle-sheet-form .sheet-body {
   overflow: hidden;
   font-family: var(--item-font);
   flex: 1;
@@ -815,16 +815,16 @@ form.vehicle-sheet-form .sheet-body {
   flex-direction: column;
   min-height: 0;
 }
-form.vehicle-sheet-form .sheet-body .tab {
+.vehicle-sheet-form .sheet-body .tab {
   height: 100%;
   border-radius: 0;
 }
-form.vehicle-sheet-form .sheet-body .tab.active {
+.vehicle-sheet-form .sheet-body .tab.active {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-form.vehicle-sheet-form .sheet-tabs .spacer {
+.vehicle-sheet-form .sheet-tabs .spacer {
   border-bottom: 1px solid var(--dark-border-color);
   display: block;
   padding-left: 16px;
@@ -1050,6 +1050,7 @@ form.vehicle-sheet-form .sheet-tabs .spacer {
 .pirateborg.sheet.actor.container .sheet-content {
   flex: 1;
   display: flex;
+  align-items: stretch;
   gap: 12px;
   overflow: hidden;
   container-type: inline-size;
@@ -1492,7 +1493,7 @@ body {
   outline: none;
 }
 
-.pirateborg.sheet form button:not(.tinymce *) {
+.pirateborg.sheet :is(form, .pb-sheet-form) button:not(.tinymce *, prose-mirror menu *) {
   background: var(--button-background);
   color: var(--button-color);
   font-family: var(--button-font);
@@ -1506,7 +1507,7 @@ body {
   white-space: nowrap;
   width: auto;
 }
-.pirateborg.sheet form button:not(.tinymce *):hover {
+.pirateborg.sheet :is(form, .pb-sheet-form) button:not(.tinymce *, prose-mirror menu *):hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1562,33 +1563,33 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
 
 /* Fixes Module Management dialog */
 /* Fixes hard-to-read dark text on various system Dialogs */
-.window-app.sheet .window-content form nav.tabs,
-.application.pirateborg.sheet .window-content form nav.tabs {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) nav.tabs,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) nav.tabs {
   gap: 0;
 }
-.window-app.sheet .window-content form h1,
-.window-app.sheet .window-content form h2,
-.window-app.sheet .window-content form h3,
-.window-app.sheet .window-content form h4,
-.window-app.sheet .window-content form h5,
-.window-app.sheet .window-content form h6,
-.application.pirateborg.sheet .window-content form h1,
-.application.pirateborg.sheet .window-content form h2,
-.application.pirateborg.sheet .window-content form h3,
-.application.pirateborg.sheet .window-content form h4,
-.application.pirateborg.sheet .window-content form h5,
-.application.pirateborg.sheet .window-content form h6 {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h1,
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h2,
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h3,
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h4,
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h5,
+.window-app.sheet .window-content :is(form, .pb-sheet-form) h6,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h1,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h2,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h3,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h4,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h5,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) h6 {
   color: var(--background-color);
 }
-.window-app.sheet .window-content form .tabs,
-.application.pirateborg.sheet .window-content form .tabs {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) .tabs,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .tabs {
   border: none;
   padding: 0;
   margin: 0;
   flex: 0;
 }
-.window-app.sheet .window-content form .tabs .item,
-.application.pirateborg.sheet .window-content form .tabs .item {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) .tabs .item,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .tabs .item {
   text-align: center;
   font-family: var(--h2-font);
   font-size: 18px;
@@ -1604,24 +1605,24 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   padding-right: 16px;
   color: var(--color-dark-1);
 }
-.window-app.sheet .window-content form .tabs .item.active,
-.application.pirateborg.sheet .window-content form .tabs .item.active {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) .tabs .item.active,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .tabs .item.active {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid var(--dark-border-color);
   border-bottom: 0;
 }
-.window-app.sheet .window-content form .tabs .item.active:hover,
-.application.pirateborg.sheet .window-content form .tabs .item.active:hover {
+.window-app.sheet .window-content :is(form, .pb-sheet-form) .tabs .item.active:hover,
+.application.pirateborg.sheet .window-content :is(form, .pb-sheet-form) .tabs .item.active:hover {
   text-shadow: none;
 }
 .window-app .window-content,
 .application.pirateborg .window-content {
   background: var(--window-background);
 }
-.window-app .window-content form .tab,
-.application.pirateborg .window-content form .tab {
+.window-app .window-content :is(form, .pb-sheet-form) .tab,
+.application.pirateborg .window-content :is(form, .pb-sheet-form) .tab {
   margin-bottom: 16px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -1631,18 +1632,18 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   padding: 16px;
   overflow-y: auto;
 }
-.window-app .window-content form .tab .tabs .item,
-.application.pirateborg .window-content form .tab .tabs .item {
+.window-app .window-content :is(form, .pb-sheet-form) .tab .tabs .item,
+.application.pirateborg .window-content :is(form, .pb-sheet-form) .tab .tabs .item {
   font-size: 16px;
   font-weight: 400;
 }
-.window-app .window-content form .tab .tab,
-.application.pirateborg .window-content form .tab .tab {
+.window-app .window-content :is(form, .pb-sheet-form) .tab .tab,
+.application.pirateborg .window-content :is(form, .pb-sheet-form) .tab .tab {
   margin-bottom: 0;
   padding: 8px;
 }
-.window-app .window-content form .tab button label,
-.application.pirateborg .window-content form .tab button label {
+.window-app .window-content :is(form, .pb-sheet-form) .tab button label,
+.application.pirateborg .window-content :is(form, .pb-sheet-form) .tab button label {
   font-size: 14px;
   font-weight: 400;
 }
@@ -2305,6 +2306,72 @@ li.folder > .folder-header {
 }
 #token-hud .status-effect-container:hover .status-effect-title, #token-hud .status-effect-container:hover .effect-control {
   opacity: 0.8;
+}
+
+@layer pirateborg-baseline {
+  .pirateborg.sheet .pb-sheet-form h1,
+  .pirateborg.sheet .pb-sheet-form h2,
+  .pirateborg.sheet .pb-sheet-form h3,
+  .pirateborg.sheet .pb-sheet-form h4,
+  .pirateborg.sheet .pb-sheet-form h5,
+  .pirateborg.sheet .pb-sheet-form h6 {
+    font-weight: normal;
+  }
+  .pirateborg.sheet .pb-sheet-form input[type=text],
+  .pirateborg.sheet .pb-sheet-form input[type=number] {
+    padding: 1px 3px;
+  }
+  .pirateborg.sheet .pb-sheet-form button:not(prose-mirror menu *) {
+    display: inline-block;
+    min-height: 0;
+  }
+  .pirateborg.sheet .pb-sheet-form .form-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 3px 0;
+  }
+  .pirateborg.sheet .pb-sheet-form .form-group > * {
+    flex: 3;
+  }
+  .pirateborg.sheet .pb-sheet-form .form-group > label {
+    flex: 2;
+    line-height: var(--form-field-height);
+  }
+  .pirateborg.sheet .pb-sheet-form input[type=checkbox] {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    margin: 3px 5px;
+    appearance: revert;
+    accent-color: var(--button-background);
+  }
+  .pirateborg.sheet .pb-sheet-form input[type=checkbox]::before, .pirateborg.sheet .pb-sheet-form input[type=checkbox]::after {
+    content: unset;
+  }
+  .pirateborg.sheet .pb-sheet-form .form-group > input[type=checkbox] {
+    margin-right: calc(60% - 25px);
+  }
+}
+.pirateborg.sheet prose-mirror.inactive {
+  border: none;
+  background: none;
+}
+.pirateborg.sheet prose-mirror.inactive > button.toggle {
+  display: block;
+  top: 8px;
+  right: 8px;
+  width: auto;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.pirateborg.sheet prose-mirror.inactive:hover > button.toggle {
+  opacity: 0.4;
+}
+.pirateborg.sheet prose-mirror.inactive > button.toggle:hover,
+.pirateborg.sheet prose-mirror.inactive > button.toggle:focus-visible {
+  opacity: 1;
 }
 
 #combat .encounter-title .pb-party-order,

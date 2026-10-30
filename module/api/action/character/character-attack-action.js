@@ -92,8 +92,9 @@ const getItems = async (weapon, ammo) => {
  * @returns {Boolean}
  */
 const isAttackValid = (weapon, ammo) => {
-  if (trackAmmo() && !isAmmoValid(weapon, ammo)) {
-    ui.notifications.error(game.i18n.format("PB.NoAmmoEquipped"));
+  const problem = trackAmmo() ? getAmmoProblem(weapon, ammo) : null;
+  if (problem) {
+    ui.notifications.error(game.i18n.format(problem, { ammo: ammo?.name }));
     return false;
   }
   return true;
@@ -102,24 +103,11 @@ const isAttackValid = (weapon, ammo) => {
 /**
  * @param {PBItem} weapon
  * @param {PBItem} ammo
- * @returns {Boolean}
+ * @returns {String|null} The localization key describing why the ammo can't be used, or null if it can
  */
-const isAmmoValid = (weapon, ammo) => {
-  if (!weapon.usesAmmo) {
-    return true;
-  }
-  if (!ammo) {
-    return false;
-  }
-  if (!weapon.useAmmoDamage) {
-    return true;
-  }
-  if (!weapon?.hasAmmo) {
-    return false;
-  }
-
-  if (!ammo?.damageDie) {
-    return false;
-  }
-  return true;
+const getAmmoProblem = (weapon, ammo) => {
+  if (!weapon.usesAmmo) return null;
+  if (!ammo) return "PB.NoAmmoEquipped";
+  if (weapon.useAmmoDamage && !ammo.damageDie) return "PB.AmmoHasNoDamageDie";
+  return null;
 };

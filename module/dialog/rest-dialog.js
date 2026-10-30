@@ -11,7 +11,7 @@ class RestDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static DEFAULT_OPTIONS = {
     id: "rest-dialog",
-    classes: ["custom-dialog", "rest-dialog"],
+    classes: ["themed", "theme-light", "custom-dialog", "rest-dialog"],
     window: { title: "PB.Rest" },
     position: { width: 420, height: "auto" },
   };

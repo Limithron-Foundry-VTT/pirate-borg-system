@@ -9,6 +9,7 @@ class AddItemDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static DEFAULT_OPTIONS = {
+    classes: ["themed", "theme-light"],
     window: { title: "PB.CreateNewItem" },
     position: { width: 420, height: "auto" },
   };

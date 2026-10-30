@@ -11,7 +11,7 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["pirateborg", "sheet", "item"],
+    classes: ["themed", "theme-light", "pirateborg", "sheet", "item"],
     position: { width: 500, height: 500 },
     form: {
       handler: PBItemSheet.#onSubmitForm,
@@ -19,6 +19,7 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       closeOnSubmit: false,
     },
     window: {
+      resizable: true,
       controls: [
         {
           action: "editAnimation",
