@@ -2,7 +2,7 @@
   "id": "pirateborg",
   "title": "PIRATE BORG",
   "description": "Foundry VTT system for PIRATE BORG.",
-  "version": "v1.9.0",
+  "version": "v2.0.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -15,8 +15,13 @@
     }
   ],
   "license": "LICENSE.MB3PL",
-  "esmodules": ["module/pirateborg.js"],
-  "styles": ["css/editor.css", "css/pirateborg.css"],
+  "esmodules": [
+    "module/pirateborg.js"
+  ],
+  "styles": [
+    "css/editor.css",
+    "css/pirateborg.css"
+  ],
   "packs": [
     {
       "name": "containers",
@@ -759,7 +764,14 @@
         },
         {
           "name": "Ships",
-          "packs": ["ships-features", "ships-cargo", "rolls-ships", "ships-mystic-shanties", "ships", "ships-npc"],
+          "packs": [
+            "ships-features",
+            "ships-cargo",
+            "rolls-ships",
+            "ships-mystic-shanties",
+            "ships",
+            "ships-npc"
+          ],
           "color": null,
           "folders": []
         }
@@ -796,14 +808,20 @@
   "flags": {
     "allowBugReporter": true,
     "hotReload": {
-      "extensions": ["css", "hbs"],
-      "paths": ["css", "templates"]
+      "extensions": [
+        "css",
+        "hbs"
+      ],
+      "paths": [
+        "css",
+        "templates"
+      ]
     }
   },
   "primaryTokenAttribute": "attributes.hp",
   "background": "systems/pirateborg/ui/pirate-borg.png",
   "url": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system",
-  "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v1.9.0/system.json",
-  "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v1.9.0/system.zip",
+  "manifest": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v2.0.0/system.json",
+  "download": "https://github.com/Limithron-Foundry-VTT/pirate-borg-system/releases/download/v2.0.0/system.zip",
   "changelog": "https://raw.githubusercontent.com/Limithron-Foundry-VTT/pirate-borg-system/main/CHANGELOG.md"
 }
