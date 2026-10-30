@@ -7,6 +7,7 @@ const ACTION = {
   LOOT_ITEMS: "loot-items",
   LOOT_CURRENCY: "loot-currency",
   DISTRIBUTE_CURRENCY: "distribute-currency",
+  PARTY_INITIATIVE: "party-initiative",
 };
 
 export const registerSocketHandler = () => {
@@ -28,6 +29,11 @@ export const registerSocketHandler = () => {
       case ACTION.DISTRIBUTE_CURRENCY:
         if (game.user.isGM && data?.processorId === game.user.id) {
           await handleDistributeCurrency(data);
+        }
+        break;
+      case ACTION.PARTY_INITIATIVE:
+        if (game.user.isGM && data?.processorId === game.user.id) {
+          await game.combats.get(data.combatId)?.setPartyInitiative(data.rollTotal);
         }
         break;
     }
@@ -69,6 +75,17 @@ export const emitLootCurrency = (data) => {
  */
 export const emitDistributeCurrency = (data) => {
   game.socket.emit("system.pirateborg", { action: ACTION.DISTRIBUTE_CURRENCY, data });
+};
+
+/**
+ * Emit a party initiative request via socket.
+ * @param {Object} data
+ * @param {string} data.combatId
+ * @param {number} data.rollTotal
+ * @param {string} data.processorId - The GM user ID to process this
+ */
+export const emitPartyInitiative = (data) => {
+  game.socket.emit("system.pirateborg", { action: ACTION.PARTY_INITIATIVE, data });
 };
 
 /**

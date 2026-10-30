@@ -1,0 +1,100 @@
+#combat,
+.combat-sidebar {
+  .encounter-title .pb-party-order {
+    display: block;
+    font-size: var(--font-size-12);
+    font-weight: normal;
+  }
+
+  .pb-block-header,
+  li.combatant.pb-side-based {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: color-mix(in srgb, var(--color-text-primary) 20%, transparent);
+      pointer-events: none;
+    }
+
+    &.pb-acting::after {
+      background: var(--color-warm-2);
+    }
+  }
+
+  .pb-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.25rem 0 0;
+    padding: 0.125rem 0.5rem;
+    line-height: 1.4;
+    font-family: var(--h2-font);
+    font-size: var(--font-size-14);
+    text-transform: uppercase;
+    opacity: 0.7;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text-primary) 25%, transparent);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.pb-acting {
+      opacity: 1;
+      border-bottom-color: var(--color-warm-2);
+    }
+
+    .pb-block-roll {
+      font-family: var(--font-body);
+      font-weight: bold;
+    }
+  }
+
+  li.combatant.pb-side-based .token-initiative {
+    display: none;
+  }
+
+  li.combatant.pb-ship {
+    align-items: flex-start;
+  }
+
+  .pb-crew {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin-top: 6px;
+
+    .pb-crew-member {
+      position: relative;
+      flex: 0 0 20px;
+      height: 20px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        border: none;
+        border-radius: 2px;
+      }
+
+      // A dot above the captain's portrait.
+      &.captain::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        margin-left: -2px;
+        border-radius: 50%;
+        background: var(--color-warm-2);
+      }
+
+      &.viewable {
+        cursor: pointer;
+      }
+    }
+  }
+}

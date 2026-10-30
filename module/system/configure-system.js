@@ -3,6 +3,8 @@ import { PBActorSheetCharacter } from "../actor/sheet/character-sheet.js";
 import { PBActorSheetContainer } from "../actor/sheet/container-sheet.js";
 import { PBActorSheetCreature } from "../actor/sheet/creature-sheet.js";
 import { PBCombat } from "./combat.js";
+import { PBCombatant } from "./combatant.js";
+import { PBCombatTracker } from "./combat-tracker.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
@@ -98,6 +100,9 @@ export const configureSystem = () => {
   });
 
   CONFIG.Combat.documentClass = PBCombat;
+  CONFIG.Combatant.documentClass = PBCombatant;
+  CONFIG.ui.combat = PBCombatTracker;
+  PBCombatTracker.registerHooks();
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
   };
