@@ -1,4 +1,4 @@
-import { buildAddChange } from "../../api/effect-duration.js";
+import { buildQuickEffectChange } from "../../api/effect-duration.js";
 import { PB } from "../../config.js";
 import { showAnimationDialog } from "../../dialog/animation-dialog.js";
 import PBActorSheet from "../../actor/sheet/actor-sheet.js";
@@ -142,7 +142,7 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
           default: true,
           callback: (event, button) => {
             effectData.name = button.form.elements.label.value;
-            effectData.changes = [buildAddChange(button.form.elements.key.value, parseInt(button.form.elements.modifier.value))];
+            effectData.changes = [buildQuickEffectChange(button.form.elements.key.value, button.form.elements.modifier.value)];
             this.item.createEmbeddedDocuments("ActiveEffect", [effectData]);
           },
         },

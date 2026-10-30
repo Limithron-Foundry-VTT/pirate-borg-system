@@ -26,14 +26,18 @@
           <option value="system.attributes.combat.damageModifier">{{localize "PB.DamageBonus"}}</option>
           <option value="system.attributes.combat.armorTierModifier">{{localize "PB.ArmorTierBonus"}}</option>
           <option value="system.attributes.combat.speedModifier">{{localize "PB.SpeedBonus"}}</option>
-          <option value="system.attributes.combat.luckDieModifier">{{localize "PB.LuckDieBonus"}}</option>
           <option value="system.attributes.combat.drModifier">{{localize "PB.DRBonus"}}</option>
+        </optgroup>
+        <optgroup label="{{ localize 'PB.Luck' }}">
+          <option value="system.attributes.luck.value">{{localize "PB.LuckCurrent"}}</option>
+          <option value="system.attributes.luck.modifier">{{localize "PB.LuckModifier"}}</option>
+          <option value="system.attributes.luck.die">{{localize "PB.LuckDieFormula"}}</option>
+          <option value="system.attributes.luck.dieSizeModifier">{{localize "PB.LuckDieSize"}}</option>
+          <option value="system.attributes.combat.luckDieModifier">{{localize "PB.LuckDieBonus"}}</option>
         </optgroup>
         <optgroup label="{{ localize 'PB.Attributes' }}">
           <option value="system.attributes.hp.max">{{localize "PB.HitPointsMax"}}</option>
           <option value="system.attributes.hp.value">{{localize "PB.HitPointsCurrent"}}</option>
-          <option value="system.attributes.luck.value">{{localize "PB.LuckCurrent"}}</option>
-          <option value="system.attributes.luck.modifier">{{localize "PB.LuckModifier"}}</option>
           <option value="system.attributes.rituals.max">{{localize "PB.RitualsMax"}}</option>
           <option value="system.attributes.rituals.value">{{localize "PB.RitualsCurrent"}}</option>
           <option value="system.attributes.extraResource.max">{{localize "PB.ExtraResourceMax"}}</option>
@@ -62,7 +66,7 @@
     <div>
       <label for="quick-effect-modifier">{{ localize "PB.Modifier" }}</label>
       <div class="form-fields">
-        <input type="number" class="modifier" id="quick-effect-modifier" name="modifier" value="0">
+        <input type="text" class="modifier" id="quick-effect-modifier" name="modifier" value="0">
       </div>
     </div>
 
