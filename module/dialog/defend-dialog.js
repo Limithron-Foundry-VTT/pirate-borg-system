@@ -21,7 +21,7 @@ class DefendDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["defend-dialog", "standard-form"],
+    classes: ["themed", "theme-light", "defend-dialog", "standard-form"],
     window: { title: "PB.Defend" },
     position: { width: 460, height: "auto" },
   };

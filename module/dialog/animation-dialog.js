@@ -11,7 +11,7 @@ class AnimationDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["animation-dialog"],
+    classes: ["themed", "theme-light", "animation-dialog"],
     window: { title: "PB.Animation" },
     position: { width: 460, height: "auto" },
   };

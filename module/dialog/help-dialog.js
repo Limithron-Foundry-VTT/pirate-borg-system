@@ -5,7 +5,7 @@ const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 export class HelpDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
     id: "help-dialog",
-    classes: ["pirateborg", "sheet"],
+    classes: ["themed", "theme-light", "pirateborg", "sheet"],
     window: { title: "PB.PirateBorg" },
     position: { width: 600, height: 690 },
     actions: {

@@ -22,7 +22,7 @@ class CharacterGeneratorDialog extends HandlebarsApplicationMixin(ApplicationV2)
 
   static DEFAULT_OPTIONS = {
     id: "character-generator-dialog",
-    classes: ["pirateborg"],
+    classes: ["themed", "theme-light", "pirateborg"],
     window: { title: "PB.CharacterGenerator" },
     position: { width: 420, height: "auto" },
   };

@@ -7,6 +7,10 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
 export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+  static DEFAULT_OPTIONS = {
+    classes: ["themed", "theme-light"],
+  };
+
   static addModifierDisplay = (effect) => {
     const modifiers = [];
     effect.changes.forEach((change) => {
