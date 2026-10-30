@@ -7,7 +7,6 @@ export class PBActorSheetContainer extends PBActorSheet {
   static DEFAULT_OPTIONS = {
     classes: ["pirateborg", "sheet", "actor", "container"],
     position: { width: 600, height: 700 },
-    resizable: true,
     form: {
       handler: PBActorSheetContainer.#onSubmitForm,
       submitOnChange: true,

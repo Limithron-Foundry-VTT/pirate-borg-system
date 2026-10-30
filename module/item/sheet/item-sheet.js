@@ -19,6 +19,7 @@ export class PBItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       closeOnSubmit: false,
     },
     window: {
+      resizable: true,
       controls: [
         {
           action: "editAnimation",

@@ -1,4 +1,4 @@
-<div class="{{cssClass}} flexcol">
+<div class="{{cssClass}} flexcol pb-sheet-form">
   {{! Sheet Header }}
   <header class="sheet-header flexrow">
     <div class="header-col1">
@@ -41,7 +41,7 @@
     {{! Description Tab }}
     <div class="tab {{tabs.description.cssClass}}" data-group="sheet" data-tab="description">
       {{#if editable}}
-        <prose-mirror name="system.description" value="{{data.system.description}}"></prose-mirror>
+        <prose-mirror name="system.description" value="{{data.system.description}}" toggled>{{{descriptionHTML}}}</prose-mirror>
       {{else}}
         <div class="editor-content">{{{descriptionHTML}}}</div>
       {{/if}}
