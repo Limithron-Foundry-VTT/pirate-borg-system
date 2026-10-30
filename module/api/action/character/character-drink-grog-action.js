@@ -18,7 +18,7 @@ const createDrinkGrogTestOutcome = async ({ actor, dr }) =>
       formula: `d20+@abilities.toughness.value`,
       formulaLabel: `d20 + ${game.i18n.localize("PB.AbilityToughness")}`,
       data: actor.getRollData(),
-      dr,
+      ...actor.getModifiedDR(dr),
     }),
     withAsyncProps({
       title: () => game.i18n.localize("PB.GrogToughnessTest"),
