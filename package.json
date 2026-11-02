@@ -41,7 +41,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/js": "^10.0.1",
     "@foundryvtt/foundryvtt-cli": "^3.0.5",
