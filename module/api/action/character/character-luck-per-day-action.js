@@ -10,7 +10,7 @@ import { createLuckPerDayOutcome } from "../../outcome/character/luck-per-day-ou
 export const characterLuckPerDayAction = async (actor, { silent = false } = {}) => {
   const outcome = await createLuckPerDayOutcome({ actor });
 
-  await actor.updateLuck({ value: outcome.roll.total });
+  await actor.updateLuck({ value: Math.max(0, outcome.roll.total) });
 
   if (!silent) {
     await showGenericCard({

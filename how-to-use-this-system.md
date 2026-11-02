@@ -69,6 +69,34 @@ This is an implementation of the PIRATE BORG rules, with limited adaptations to 
 - There is a _Rest_ button on the character sheet that will open a dialog window, where you can choose between short or long rest, eat or don't eat or starve, and whether you are infected.
   - Starvation and Infection will only damage you during long rests, but will prevent healing on both short and long rests.
 
+## Effects
+
+- Actor sheets have an _Effects_ tab with _Temporary Effects_ (they last a number of rounds) and _Passive Effects_ (they last until removed). Items also have an _Effects_ tab. An item's effects apply to whoever has equipped it.
+- Click the _+_ on a list to open the _Quick Effect_ dialog:
+  - _Label_: the effect's name.
+  - _Change_: what the effect changes (see below).
+  - _Modifier_: the amount to add (use a negative number to subtract). For _Luck Die Formula_, enter a die instead, e.g. `1d6`.
+  - _Duration (Rounds)_: temporary effects only.
+  - _Create Effect_ adds it; _Skip_ adds a blank effect and opens the full Active Effect editor for anything the dialog doesn't cover.
+- Hover an effect's name to see what it changes. Use the controls on its row to disable or delete it.
+- What each _Change_ does:
+  - **Abilities**: Strength, Agility, Presence, Toughness, Spirit, Skill: added to the ability score.
+  - **Combat**:
+    - _Attack Modifier_ / _Defense Modifier_ / _Initiative Modifier_: added to the attack, defense or initiative roll.
+    - _Damage Modifier_: added to weapon damage.
+    - _Armor Tier Modifier_: raises or lowers your equipped armor's tier (0 to 3) for damage reduction.
+    - _Speed Modifier_: added to your speed.
+    - _DR Modifier_: added to the DR of every character test (attack, defense, relic, ritual, class resource and grog). Ability rolls list it as a DR note, like encumbrance. Ship actions are not affected.
+  - **Devil's Luck**:
+    - _Luck (Current)_ / _Luck Modifier_: change your current Devil's Luck, or how much you have available to use.
+    - _Luck Die Formula_: replace your class's luck die, e.g. `1d6`. An effect with an invalid formula isn't saved.
+    - _Luck Die Size_: move the luck die up or down the standard dice (d2 → d4 → d6 → d8 → d10 → d12 → d20 → d100). Going below d2 means d0: no Devil's Luck.
+    - _Luck Die Modifier_: added to the luck roll, e.g. +2 on a d2 rolls a 3 or 4.
+    - These apply in that order (Formula, then Size, then Modifier).
+  - **Attributes**: Hit Points, Rituals and Extra Resource (max or current), Carrying Modifier (added to STR to get your carrying capacity) and Silver.
+  - **Creature Attributes**: Speed (max or current) and Morale.
+  - **Vehicle Attributes**: Cargo, Crew, Hull and Shanties (max or current).
+
 ## Relics & Rituals
 
 - Any _Relics_ in your inventory will show up on both your sheet's _Equipment_ and _Relics & Rituals_ tabs.

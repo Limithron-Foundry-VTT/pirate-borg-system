@@ -48,6 +48,7 @@ export const createTestRelicOutcome = async ({ actor }) =>
       formula: "d20+@abilities.spirit.value",
       formulaLabel: `1d20 + ${game.i18n.localize("PB.AbilitySpirit")}`,
       data: actor.getRollData(),
+      ...actor.getModifiedDR(12),
     }),
     withAsyncProps({
       title: (outcome) => game.i18n.localize(getTitle(outcome)),

@@ -2,7 +2,7 @@ import { showAddItemDialog } from "../../dialog/add-item-dialog.js";
 import { actorInitiativeAction } from "../../api/action/actions.js";
 import { findStartingBonusItems, findStartingBonusRollsItems } from "../../api/generator/character-generator.js";
 import { getInfoFromDropData } from "../../api/utils.js";
-import { buildAddChange, buildEffectDuration } from "../../api/effect-duration.js";
+import { buildEffectDuration, buildQuickEffectChange } from "../../api/effect-duration.js";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -46,6 +46,11 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
             break;
         }
         if (displayName && value !== 0) modifiers.push(`${value > 0 ? "+" : ""}${value} ${displayName}`);
+      } else if (change.key === "system.attributes.luck.die") {
+        if (change.value) modifiers.push(`${game.i18n.localize("PB.LuckDie")}: ${change.value}`);
+      } else if (change.key === "system.attributes.luck.dieSizeModifier") {
+        const value = change.value;
+        if (Number(value) !== 0) modifiers.push(`${value > 0 ? "+" : ""}${value} ${game.i18n.localize("PB.LuckDieSize")}`);
       } else if (change.key.includes("abilities.") || change.key.includes("attributes.")) {
         const parts = change.key.split(".");
         const attrName = parts[parts.length - 2] || parts[parts.length - 1];
@@ -161,7 +166,7 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
           default: true,
           callback: (event, button) => {
             effectData.name = button.form.elements.label.value || defaultName;
-            effectData.changes = [buildAddChange(button.form.elements.key.value, parseInt(button.form.elements.modifier.value) || 0)];
+            effectData.changes = [buildQuickEffectChange(button.form.elements.key.value, button.form.elements.modifier.value)];
             if (isTemporary) {
               const combatStarted = game.combat?.started;
               effectData.duration = buildEffectDuration({

@@ -115,6 +115,13 @@ class DefendDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       modifiers.total += 2;
       modifiers.warning.push(`${game.i18n.localize("PB.Encumbered")}: ${game.i18n.localize("PB.DR")} + 2`);
     }
+    const drModifier = this.actor.attributes?.combat?.drModifier;
+    if (drModifier) {
+      modifiers.total += drModifier;
+      for (const { name, value } of this.actor.getCombatEffectInfo().dr) {
+        modifiers.warning.push(`${name}: ${game.i18n.localize("PB.DR")} ${value > 0 ? "+" : "-"} ${Math.abs(value)}`);
+      }
+    }
     return modifiers;
   }
 

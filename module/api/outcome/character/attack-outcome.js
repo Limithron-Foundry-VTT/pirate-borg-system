@@ -84,7 +84,7 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
         actor.attributes?.combat?.attackModifier ? ` + ${game.i18n.localize("PB.AttackBonus")} (${actor._getAttackEffectDetails()})` : ""
       }`,
       data: actor.getRollData(),
-      dr,
+      ...actor.getModifiedDR(dr),
       item: weapon?.id,
       isGunpowderWeapon: weapon?.isGunpowderWeapon,
     }),

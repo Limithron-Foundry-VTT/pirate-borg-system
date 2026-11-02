@@ -20,6 +20,24 @@ const toInteger = (n) => {
 export const buildAddChange = (key, value) => (isV14OrNewer() ? { key, type: "add", value } : { key, mode: CONST.ACTIVE_EFFECT_MODES.ADD, value });
 
 /**
+ * An OVERRIDE-type ActiveEffect change in the v13 (numeric mode) or v14+ (string type) shape.
+ * @param {String} key
+ * @param {*} value
+ * @returns {Object}
+ */
+export const buildOverrideChange = (key, value) =>
+  isV14OrNewer() ? { key, type: "override", value } : { key, mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE, value };
+
+/**
+ * The change for a quick-effect dialog entry: luck die keys set a die formula, everything else adds a number.
+ * @param {String} key
+ * @param {String} value
+ * @returns {Object}
+ */
+export const buildQuickEffectChange = (key, value) =>
+  key === "system.attributes.luck.die" ? buildOverrideChange(key, value.trim()) : buildAddChange(key, parseInt(value) || 0);
+
+/**
  * @param {{ rounds?: Number, turns?: Number, seconds?: Number, startRound?: Number, startTurn?: Number }} [input]
  * @returns {Object}
  */

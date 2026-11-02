@@ -2,6 +2,8 @@ import { trackCarryingCapacity, isGrogEnabled } from "../system/settings.js";
 import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
 import { buildAddChange, normalizeDocumentEffectDurations } from "../api/effect-duration.js";
+import { luckDieFormula } from "../api/luck/luck-die.js";
+import { modifyDR } from "../api/dr-modifier.js";
 
 /**
  * @extends {Actor}
@@ -80,7 +82,7 @@ export class PBActor extends Actor {
     this.dynamic.extraResourceTestFormula = this.characterClass?.extraResourceTestFormula || this.characterBaseClass?.extraResourceTestFormula;
     this.dynamic.extraResourceTestFormulaLabel = this.characterClass?.extraResourceTestFormulaLabel || this.characterBaseClass?.extraResourceTestFormulaLabel;
 
-    this.dynamic.luckDie = this.characterClass?.luckDie || this.characterBaseClass?.luckDie;
+    this.dynamic.luckDie = this.luckDie;
   }
 
   /**
@@ -442,18 +444,13 @@ export class PBActor extends Actor {
    * @return {String}
    */
   get luckDie() {
-    const baseLuckDie = this.dynamic.luckDie;
-    const luckDieModifier = this.attributes?.combat?.luckDieModifier || 0;
-
-    if (!baseLuckDie || luckDieModifier === 0) return baseLuckDie;
-
-    // Use Foundry's Roll API to extract die faces
-    const roll = Roll.defaultImplementation.create(baseLuckDie);
-    const baseDieSize = roll?.terms?.[0]?.faces;
-    if (!baseDieSize) return baseLuckDie;
-
-    const newDieSize = Math.max(1, baseDieSize + luckDieModifier);
-    return `d${newDieSize}`;
+    const setDie = this.attributes?.luck?.die;
+    const die = setDie && Roll.validate(setDie) ? setDie : this.characterClass?.luckDie || this.characterBaseClass?.luckDie;
+    return luckDieFormula({
+      die,
+      sizeModifier: this.attributes?.luck?.dieSizeModifier,
+      resultModifier: this.attributes?.combat?.luckDieModifier,
+    });
   }
 
   /**
@@ -836,6 +833,7 @@ export class PBActor extends Actor {
       armorTier: [],
       speed: [],
       luckDie: [],
+      dr: [],
     };
 
     for (const effect of this.allApplicableEffects()) {
@@ -859,11 +857,22 @@ export class PBActor extends Actor {
           effectInfo.speed.push({ name: sourceName, value });
         } else if (change.key === "system.attributes.combat.luckDieModifier" && value !== 0) {
           effectInfo.luckDie.push({ name: sourceName, value });
+        } else if (change.key === "system.attributes.combat.drModifier" && value !== 0) {
+          effectInfo.dr.push({ name: sourceName, value });
         }
       });
     }
 
     return effectInfo;
+  }
+
+  /**
+   * Apply DR Modifier effects to a test's DR
+   * @param {Number} dr base DR
+   * @returns {{dr: Number, drLabel?: String}} modified DR and its sources for chat display
+   */
+  getModifiedDR(dr) {
+    return modifyDR(dr, this.attributes?.combat?.drModifier, this.getCombatEffectInfo().dr);
   }
 
   /**
