@@ -1557,6 +1557,17 @@ form.editable .results input[type=text]:hover, form.editable .results input[type
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
+/* Roll table sheets use a dark theme, not our parchment design, making the black text on the dark bg unreadable*/
+.roll-table-sheet .details {
+  color: var(--foreground-alt-color);
+}
+.roll-table-sheet .details :is(a.content-link, a.inline-roll) {
+  color: var(--foreground-alt-color);
+}
+.roll-table-sheet .details :is(a.content-link, a.inline-roll) > i {
+  color: var(--foreground-alt-color);
+}
+
 .chat-message .table-draw .table-description {
   font-size: var(--font-size-14);
 }
