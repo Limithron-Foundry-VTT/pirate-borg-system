@@ -230,6 +230,13 @@ export class PBCombat extends Combat {
     this._updateTurnMarkers();
   }
 
+  /** Core only refreshes the current combatant's marker, but PBToken marks the whole acting block. */
+  _updateTurnMarkers() {
+    super._updateTurnMarkers();
+    if (!canvas.ready || !this.isView || !this.usesSideBasedCombat) return;
+    for (const combatant of this.getActiveBlock()) combatant.token?._object?.renderFlags.set({ refreshTurnMarker: true });
+  }
+
   /** @private */
   _sortCombatants(a, b) {
     const combat = a.combat; // game.combats is not initialized at first render

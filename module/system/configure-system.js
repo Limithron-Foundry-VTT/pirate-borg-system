@@ -5,6 +5,7 @@ import { PBActorSheetCreature } from "../actor/sheet/creature-sheet.js";
 import { PBCombat } from "./combat.js";
 import { PBCombatant } from "./combatant.js";
 import { PBCombatTracker } from "./combat-tracker.js";
+import { PBToken } from "./token.js";
 import { PB } from "../config.js";
 import { PBItem } from "../item/item.js";
 import { PBItemSheet } from "../item/sheet/item-sheet.js";
@@ -102,6 +103,7 @@ export const configureSystem = () => {
   CONFIG.Combat.documentClass = PBCombat;
   CONFIG.Combatant.documentClass = PBCombatant;
   CONFIG.ui.combat = PBCombatTracker;
+  CONFIG.Token.objectClass = PBToken;
   PBCombatTracker.registerHooks();
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
