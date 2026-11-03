@@ -106,6 +106,19 @@ form.editable .results {
   }
 }
 
+/* Roll table sheets use a dark theme, not our parchment design, making the black text on the dark bg unreadable*/
+.roll-table-sheet .details {
+  color: var(--foreground-alt-color);
+
+  :is(a.content-link, a.inline-roll) {
+    color: var(--foreground-alt-color);
+
+    > i {
+      color: var(--foreground-alt-color);
+    }
+  }
+}
+
 .chat-message .table-draw .table-description {
   font-size: var(--font-size-14);
 }
