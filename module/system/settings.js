@@ -137,6 +137,16 @@ export const registerSystemSettings = () => {
     default: false,
   });
 
+  /** Whether NPC combatants are marked defeated when their hp drops to 0 or below */
+  game.settings.register("pirateborg", "autoDefeatNpcs", {
+    name: "PB.SettingsAutoDefeatNpcs",
+    hint: "PB.SettingsAutoDefeatNpcsHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** Whether to enable grog drinking mechanics */
   game.settings.register("pirateborg", "enableGrog", {
     name: "PB.SettingsEnableGrog",
@@ -345,6 +355,11 @@ export const getInitiativeMode = () => game.settings.get("pirateborg", "initiati
  * @returns {Boolean}
  */
 export const isRerollInitiativeEachRoundEnabled = () => game.settings.get("pirateborg", "rerollInitiativeEachRound");
+
+/**
+ * @returns {Boolean}
+ */
+export const isAutoDefeatNpcsEnabled = () => game.settings.get("pirateborg", "autoDefeatNpcs");
 
 /**
  * @returns {Boolean}
