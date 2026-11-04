@@ -439,6 +439,8 @@
   "PB.SettingsLootCurrencyHint": "Players can loot silver from containers.",
   "PB.SettingsRerollInitiativeEachRound": "Re-roll initiative each round",
   "PB.SettingsRerollInitiativeEachRoundHint": "At the start of each new round of combat, re-roll initiative. Note: ships always re-roll.",
+  "PB.SettingsAutoDefeatNpcs": "Automatically mark NPCs as defeated",
+  "PB.SettingsAutoDefeatNpcsHint": "When a creature or NPC ship's HP drops to 0 or below, mark it as defeated in the combat tracker.",
   "PB.SettingsTrackAmmo": "Track Ammo",
   "PB.SettingsTrackAmmoHint": "Select and auto-decrement ammo for ranged weapons.",
   "PB.ShantiesCurrent": "Shanties (Current)",

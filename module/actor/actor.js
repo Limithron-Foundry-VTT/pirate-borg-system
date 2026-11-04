@@ -1,4 +1,4 @@
-import { trackCarryingCapacity, isGrogEnabled } from "../system/settings.js";
+import { trackCarryingCapacity, isAutoDefeatNpcsEnabled, isGrogEnabled } from "../system/settings.js";
 import { getActorDefaults, setSystemFlag } from "../api/utils.js";
 import { findCompendiumItem } from "../api/compendium.js";
 import { buildAddChange, normalizeDocumentEffectDurations } from "../api/effect-duration.js";
@@ -155,6 +155,23 @@ export class PBActor extends Actor {
     if (this.type === CONFIG.PB.actorTypes.character && isGrogEnabled() && changed.system?.attributes?.grog?.drinks !== undefined) {
       await this._updateGrogIntoxicationEffect(changed.system.attributes.grog.drinks);
     }
+
+    // Only on an hp change
+    const hp = changed.system?.attributes?.hp?.value;
+    if (hp !== undefined && hp <= 0 && (this.isCreature || this.isVehicleNpc) && isAutoDefeatNpcsEnabled() && game.users.activeGM?.isSelf) {
+      await this._markNpcCombatantsDefeated();
+    }
+  }
+
+  /**
+   * Mark this actor's combatants as defeated.
+   * @private
+   */
+  async _markNpcCombatantsDefeated() {
+    const combatants = game.combats.contents.flatMap((combat) => combat.combatants.filter((c) => c.actor === this && !c.isDefeated));
+    if (!combatants.length) return;
+    for (const combatant of combatants) await combatant.update({ defeated: true });
+    await this.toggleStatusEffect(CONFIG.specialStatusEffects.DEFEATED, { overlay: true, active: true });
   }
 
   /**
