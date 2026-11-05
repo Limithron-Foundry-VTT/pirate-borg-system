@@ -59,7 +59,7 @@ export const createPirateBorgMacro = (data, slot) => {
     return true;
   }
 
-  if (["feature", "misc"].includes(item.type) && !item.actionMacro) {
+  if (["feature", "misc"].includes(item.type) && !item.actionMacro && !item.isConsumable) {
     ui.notifications.warn("Macros only supported for features and items with a macro.");
     return true;
   }
