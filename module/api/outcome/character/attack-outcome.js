@@ -85,6 +85,8 @@ export const createAttackOutcome = async ({ actor, dr = 12, weapon, ammo, target
       }`,
       data: actor.getRollData(),
       ...actor.getModifiedDR(dr),
+      critOn: Number(weapon.critOn) || 20,
+      fumbleOn: Number(weapon.fumbleOn) || 1,
       item: weapon?.id,
       isGunpowderWeapon: weapon?.isGunpowderWeapon,
     }),
