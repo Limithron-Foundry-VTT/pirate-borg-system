@@ -17,7 +17,11 @@
         {{localize "PB.Invoke"}}
       </button>
     {{else}} 
-      {{#if item.system.actionMacroLabel}}
+      {{#if item.system.consumable}}
+        <button type="button" class="item-button rollable action-macro-button" data-label="{{localize 'PB.Use'}}" title="{{localize 'PB.Use'}}">
+          {{#if item.system.actionMacroLabel}}{{item.system.actionMacroLabel}}{{else}}{{localize "PB.Use"}}{{/if}}
+        </button>
+      {{else if item.system.actionMacroLabel}}
         <button type="button" class="item-button rollable action-macro-button" data-label="{{item.system.actionMacroLabel}}" title="{{item.system.actionMacroLabel}}">
           {{item.system.actionMacroLabel}}
         </button>

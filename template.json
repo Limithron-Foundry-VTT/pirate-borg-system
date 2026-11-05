@@ -197,7 +197,8 @@
       "loadingCount": 0
     },
     "misc": {
-      "templates": ["equipment"]
+      "templates": ["equipment"],
+      "consumable": false
     },
     "ammo": {
       "templates": ["equipment"],

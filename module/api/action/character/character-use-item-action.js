@@ -3,6 +3,7 @@ import { executeMacro } from "../../macros.js";
 import { isJokerTableItem, isLuckyDevilItem } from "../../luck/luck-consume-features.js";
 import { characterShowDevilLuckAction } from "./character-show-devil-luck-action.js";
 import { characterShowJokerTableAction } from "./character-show-joker-table-action.js";
+import { characterUseConsumableAction } from "./character-use-consumable-action.js";
 
 /**
  * @param {PBActor} actor
@@ -17,6 +18,10 @@ export const characterUseItemAction = async (actor, item, outcome = null, chatMe
   }
   if (isJokerTableItem(item)) {
     return characterShowJokerTableAction(actor);
+  }
+
+  if (item.isConsumable) {
+    await characterUseConsumableAction(actor, item);
   }
 
   if (!item.actionMacro) {

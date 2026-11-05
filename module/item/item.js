@@ -760,6 +760,10 @@ export class PBItem extends Item {
     return this.type === CONFIG.PB.itemTypes.misc;
   }
 
+  get isConsumable() {
+    return this.isMisc && !!this.getData().consumable;
+  }
+
   /**
    * @returns {Boolean}
    */
