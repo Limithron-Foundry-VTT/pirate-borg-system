@@ -506,7 +506,7 @@
   padding-left: 8px;
 }
 
-.pirateborg.sheet.actor.character {
+.pirateborg.sheet.actor.character:not(.minimized) {
   min-width: 700px;
   min-height: 700px;
 }
@@ -590,7 +590,7 @@
   font-weight: bold;
 }
 
-.pirateborg.sheet.actor.vehicle {
+.pirateborg.sheet.actor.vehicle:not(.minimized) {
   min-width: 540px;
 }
 .pirateborg.sheet.actor.vehicle .sheet-header .header-col2 .header-stats-row .stats-block input {
@@ -967,7 +967,7 @@
   min-width: 500px;
 }
 
-.pirateborg.sheet.item {
+.pirateborg.sheet.item:not(.minimized) {
   min-width: 500px;
 }
 
@@ -2816,6 +2816,10 @@ li.folder > .folder-header {
 }
 .character-generator-dialog .module-group .module-classes ul {
   margin: 0;
+}
+
+.application.pirateborg.standard-form {
+  gap: 0;
 }
 
 .defense-dialog .form-group,

@@ -2,7 +2,9 @@
   &.sheet {
     &.actor {
       &.vehicle {
-        min-width: 540px;
+        &:not(.minimized) {
+          min-width: 540px;
+        }
 
         .sheet-header .header-col2 .header-stats-row .stats-block input {
           width: 38px;
