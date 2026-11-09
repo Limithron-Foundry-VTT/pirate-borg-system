@@ -1,6 +1,6 @@
 .pirateborg {
   &.sheet {
-    &.item {
+    &.item:not(.minimized) {
       min-width: 500px;
     }
   }

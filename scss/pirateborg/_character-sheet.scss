@@ -1,8 +1,10 @@
 .pirateborg {
   &.sheet {
     &.actor.character {
-      min-width: 700px;
-      min-height: 700px;
+      &:not(.minimized) {
+        min-width: 700px;
+        min-height: 700px;
+      }
 
       .sheet-header {
         .grog-status-row {
