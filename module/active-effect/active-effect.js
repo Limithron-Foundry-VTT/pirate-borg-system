@@ -43,8 +43,11 @@ export class PBActiveEffect extends ActiveEffect {
 
   /** @override */
   get isSuppressed() {
+    if (super.isSuppressed) return true;
     const item = this.parent;
     if (!item || item.documentName !== "Item") return false;
+    // Consumable effects only apply once the item is used.
+    if (item.isConsumable) return true;
     if (!CONFIG.PB.equippableItemTypes.includes(item.type)) return false;
     return !item.equipped;
   }

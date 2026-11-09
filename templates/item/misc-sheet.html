@@ -60,6 +60,12 @@
         <input type="text" name="system.quantity" value="{{data.system.quantity}}" placeholder="1" data-dtype="Number" />
       </div>
 
+      {{! Consumable }}
+      <div class="form-group">
+        <label>{{localize "PB.ItemConsumable"}}:</label>
+        <input type="checkbox" name="system.consumable" {{checked data.system.consumable}} data-dtype="Boolean" />
+      </div>
+
       {{! Action Macro }}
       <div class="form-group">
         <label>{{localize "PB.ActionMacro"}}:</label>

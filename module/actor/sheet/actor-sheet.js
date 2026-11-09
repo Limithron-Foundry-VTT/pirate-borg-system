@@ -70,15 +70,17 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     const duration = effect.duration;
     // v14 reports Infinity remaining outside combat; v14 deprecates duration.rounds in favour of value.
     effect.durationRemaining = Number.isFinite(duration.remaining) && duration.remaining > 0 ? duration.remaining : null;
-    effect.durationTotal = "value" in duration ? duration.value : duration.rounds;
+    const total = "value" in duration ? duration.value : duration.rounds;
+    effect.durationTotal = Number.isFinite(total) ? total : duration.expiry ? game.i18n.localize(`EFFECT.DURATION.EXPIRY_EVENTS.${duration.expiry}`) : null;
     return effect;
   };
 
   _buildEffectLists(context) {
     const effects = [...this.actor.allApplicableEffects()].map(PBActorSheet.addDurationDisplay);
+    const isExpired = (i) => !!i.duration?.expired;
     context.effects = {
       temporary: effects.filter((i) => i.isTemporary && !i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
-      disabled: effects.filter((i) => i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
+      disabled: effects.filter((i) => ((i.disabled && !i.isSuppressed) || isExpired(i)) && !i.isCondition).map(PBActorSheet.addModifierDisplay),
       passive: effects.filter((i) => !i.isTemporary && !i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
     };
   }
