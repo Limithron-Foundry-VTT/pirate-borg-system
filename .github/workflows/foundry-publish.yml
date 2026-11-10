@@ -15,9 +15,13 @@ jobs:
   publish:
     name: Publish to Foundry VTT
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Validate system.json shape
         run: |
@@ -40,6 +44,7 @@ jobs:
           PACKAGE_RELEASE_TOKEN: ${{ secrets.PACKAGE_RELEASE_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_SERVER_URL: ${{ github.server_url }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
           VERSION=$(jq -r '.version' system.json)
@@ -47,7 +52,6 @@ jobs:
           MANIFEST=$(jq -r '.manifest' system.json)
           NOTES="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${VERSION}"
           COMPAT=$(jq -c '.compatibility' system.json)
-          DRY_RUN=${{ inputs.dry_run }}
 
           BODY=$(jq -n \
             --arg id "$PACKAGE_ID" \
@@ -63,7 +67,7 @@ jobs:
           echo "- manifest: \`$MANIFEST\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- release notes link: \`$NOTES\`" >> "$GITHUB_STEP_SUMMARY"
 
-          HTTP_CODE=$(curl -sS -o /tmp/foundry_response.txt -w "%{http_code}" \
+          HTTP_CODE=$(curl -sS --max-time 60 -o /tmp/foundry_response.txt -w "%{http_code}" \
             -X POST "https://foundryvtt.com/_api/packages/release_version/" \
             -H "Content-Type: application/json" \
             -H "Authorization: ${PACKAGE_RELEASE_TOKEN}" \
@@ -86,7 +90,7 @@ jobs:
             exit 1
           fi
 
-          STATUS=$(jq -r '.status // "unknown"' /tmp/foundry_response.txt)
+          STATUS=$(jq -r '.status // "unknown"' /tmp/foundry_response.txt 2>/dev/null || echo "not JSON")
           if [ "$STATUS" != "success" ]; then
             echo "::error::Foundry API returned HTTP $HTTP_CODE but body status was '$STATUS'"
             jq '.' /tmp/foundry_response.txt || cat /tmp/foundry_response.txt
