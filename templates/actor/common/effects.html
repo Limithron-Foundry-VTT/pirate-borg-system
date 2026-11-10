@@ -17,8 +17,8 @@
   <ol class="items-list flexcol">
     <li class="items-header flexrow">
       <span class="item-property item-name">{{localize "PB.EffectsTemporary"}}</span>
-      <span class="item-property effect-duration-header">{{localize "PB.EffectsDuration"}}</span>
       <span class="item-property item-source">{{localize "PB.EffectsSource"}}</span>
+      <span class="item-property effect-duration-header">{{localize "PB.EffectsDuration"}}</span>
       <div class="item-create-button">
         <a class="effect-create" data-tooltip="{{localize 'PB.EffectsCreate'}}" data-type="temporary"><i class="fas fa-plus"></i></a>
       </div>
@@ -32,6 +32,7 @@
         {{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}
       </div>
 
+      <div class="item-property item-source" data-tooltip-text="{{effect.sourceLabel}}">{{#if effect.sourceUuid}}<a class="effect-source" data-uuid="{{effect.sourceUuid}}">{{effect.sourceLabel}}</a>{{else}}{{effect.sourceLabel}}{{/if}}</div>
       <div class="item-property effect-duration">
         {{#if effect.durationRemaining}}
         <i class="fas fa-clock" data-tooltip="{{localize 'PB.EffectsRoundsRemaining'}}"></i>
@@ -41,7 +42,6 @@
         <span>{{effect.durationTotal}}</span>
         {{/if}}
       </div>
-      <div class="item-property item-source">{{effect.sourceName}}</div>
       <div class="item-controls">
         <a class="item-control effect-toggle" data-tooltip="{{localize 'PB.EffectsDisable'}}"><i class="far fa-check-circle"></i></a>
         <a class="item-control effect-delete" data-tooltip="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></a>
@@ -70,7 +70,7 @@
         {{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}
       </div>
 
-      <div class="item-property item-source">{{effect.sourceName}}</div>
+      <div class="item-property item-source" data-tooltip-text="{{effect.sourceLabel}}">{{#if effect.sourceUuid}}<a class="effect-source" data-uuid="{{effect.sourceUuid}}">{{effect.sourceLabel}}</a>{{else}}{{effect.sourceLabel}}{{/if}}</div>
       <div class="item-controls">
         <a class="item-control effect-toggle" data-tooltip="{{localize 'PB.EffectsDisable'}}"><i class="far fa-check-circle"></i></a>
         <a class="item-control effect-delete" data-tooltip="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></a>
@@ -98,7 +98,7 @@
         {{#if effect.modifierDisplay}} <i class="fas fa-info-circle effect-info"></i>{{/if}}
       </div>
 
-      <div class="item-property item-source">{{effect.sourceName}}</div>
+      <div class="item-property item-source" data-tooltip-text="{{effect.sourceLabel}}">{{#if effect.sourceUuid}}<a class="effect-source" data-uuid="{{effect.sourceUuid}}">{{effect.sourceLabel}}</a>{{else}}{{effect.sourceLabel}}{{/if}}</div>
       <div class="item-controls">
         <a class="item-control effect-toggle" data-tooltip="{{localize 'PB.EffectsEnable'}}"><i class="far fa-circle"></i></a>
         <a class="item-control effect-delete" data-tooltip="{{localize 'PB.EffectsDelete'}}"><i class="fas fa-times"></i></a>
