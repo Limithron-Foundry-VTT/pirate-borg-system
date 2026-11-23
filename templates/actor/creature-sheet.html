@@ -59,6 +59,9 @@
       <div class="form-group">
         <label>{{localize "PB.CreatureArmor"}}:</label>
         <input type="text" name="system.attributes.armor.formula" value="{{data.system.attributes.armor.formula}}" placeholder="None" data-dtype="String" />
+        {{#if armorFormulaNegative}}
+        <div class="form-warning-icon" data-tooltip="{{localize "PB.CreatureArmorNegative"}}"><i class="fas fa-exclamation-circle"></i></div>
+        {{/if}}
       </div>
 
       {{! Armor }}

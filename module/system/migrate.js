@@ -1,6 +1,7 @@
 import { findCompendiumItem } from "../api/compendium.js";
 import { getSystemMigrationVersion, setSystemMigrationVersion } from "./settings.js";
 import { getSystemVersion } from "../api/utils.js";
+import { migrateCreatureArmor } from "./migrate-creature-armor.js";
 
 export const migrate = async () => {
   // Determine whether a system migration is required and feasible
@@ -11,12 +12,14 @@ export const migrate = async () => {
 
   const NEEDS_MIGRATION_VERSION = "v0.4.2";
   const EFFECT_CLONE_MIGRATION_VERSION = "v1.8.2";
+  const CREATURE_ARMOR_MIGRATION_VERSION = "v2.1.1";
   const needsMigration = currentVersion === null || foundry.utils.isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   const needsEffectCloneMigration = !currentVersion || foundry.utils.isNewerVersion(EFFECT_CLONE_MIGRATION_VERSION, currentVersion);
+  const needsCreatureArmorMigration = !currentVersion || foundry.utils.isNewerVersion(CREATURE_ARMOR_MIGRATION_VERSION, currentVersion);
 
   console.log(`Current version: ${currentVersion}`);
 
-  if (!needsMigration && !needsEffectCloneMigration) {
+  if (!needsMigration && !needsEffectCloneMigration && !needsCreatureArmorMigration) {
     console.log(`Version doesn't need migration.`);
     return;
   }
@@ -28,6 +31,10 @@ export const migrate = async () => {
     await migrateEmbeddedItemEffectClones();
     await migrateOwnedItemEffectTransfer();
     await setSystemMigrationVersion(EFFECT_CLONE_MIGRATION_VERSION);
+  }
+  if (needsCreatureArmorMigration) {
+    await migrateCreatureArmor();
+    await setSystemMigrationVersion(CREATURE_ARMOR_MIGRATION_VERSION);
   }
 };
 
