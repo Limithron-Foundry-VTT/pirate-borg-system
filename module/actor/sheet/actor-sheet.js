@@ -12,10 +12,20 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     window: { resizable: true },
   };
 
+  static thresholdLabels = {
+    "system.attributes.combat.critOn": "PB.ItemCritOn",
+    "system.attributes.combat.fumbleOn": "PB.ItemFumbleOn",
+    "system.attributes.combat.defenseCritOn": "PB.DefenseCritOn",
+    "system.attributes.combat.defenseFumbleOn": "PB.DefenseFumbleOn",
+  };
+
   static addModifierDisplay = (effect) => {
     const modifiers = [];
     effect.changes.forEach((change) => {
-      if (change.key.includes("combat.")) {
+      const thresholdLabel = PBActorSheet.thresholdLabels[change.key];
+      if (thresholdLabel) {
+        modifiers.push(`${game.i18n.localize(thresholdLabel)} ${change.value}`);
+      } else if (change.key.includes("combat.")) {
         const modifier = change.key.replace("system.attributes.combat.", "");
         const value = change.value;
         let displayName = "";
@@ -75,8 +85,40 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     return effect;
   };
 
+  /**
+   * Find the document an effect came from, for the Source column.
+   * @param {ActiveEffect} effect
+   * @returns {Document|null}
+   */
+  static findEffectSource = (effect) => {
+    // Effects on an item come from that item. They rarely have an origin, so core's sourceName would say "None".
+    if (effect.parent?.documentName === "Item") {
+      return effect.parent;
+    }
+    // Effects on the actor may record where they came from, e.g. a used consumable.
+    if (effect.origin) {
+      return fromUuidSync(effect.origin, { strict: false });
+    }
+    return null;
+  };
+
+  static addSourceDisplay = (effect) => {
+    const source = PBActorSheet.findEffectSource(effect);
+    if (source) {
+      effect.sourceLabel = source.name;
+    } else if (effect.origin) {
+      // Has an origin but it couldn't be found (e.g. a used-up consumable), so use core's label ("Unknown")
+      effect.sourceLabel = effect.sourceName;
+    } else {
+      effect.sourceLabel = "";
+    }
+    // Only link to sources that can be opened (compendium index entries have no sheet)
+    effect.sourceUuid = source?.sheet ? source.uuid : null;
+    return effect;
+  };
+
   _buildEffectLists(context) {
-    const effects = [...this.actor.allApplicableEffects()].map(PBActorSheet.addDurationDisplay);
+    const effects = [...this.actor.allApplicableEffects()].map(PBActorSheet.addDurationDisplay).map(PBActorSheet.addSourceDisplay);
     const isExpired = (i) => !!i.duration?.expired;
     context.effects = {
       temporary: effects.filter((i) => i.isTemporary && !i.disabled && !i.isSuppressed && !i.isCondition).map(PBActorSheet.addModifierDisplay),
@@ -148,6 +190,12 @@ export default class PBActorSheet extends HandlebarsApplicationMixin(ActorSheetV
     this.element.querySelectorAll(".effect-delete").forEach((el) => el.addEventListener("click", this._onEffectDelete.bind(this)));
     this.element.querySelectorAll(".effect-toggle").forEach((el) => el.addEventListener("click", this._onEffectToggle.bind(this)));
     this.element.querySelectorAll(".effect-select").forEach((el) => el.addEventListener("change", this._onEffectSelect.bind(this)));
+    this.element.querySelectorAll(".effect-source").forEach((el) => el.addEventListener("click", this._onEffectSource.bind(this)));
+  }
+
+  async _onEffectSource(ev) {
+    const source = await fromUuid(ev.currentTarget.dataset.uuid);
+    source?.sheet?.render({ force: true });
   }
 
   async _onEffectCreate(ev) {

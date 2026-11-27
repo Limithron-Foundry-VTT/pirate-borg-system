@@ -96,6 +96,8 @@
   "PB.DefendFumbleText": "PC takes double damage, then their armor is reduced one tier.",
   "PB.Defense": "Defense",
   "PB.DefenseBonus": "Defense Modifier",
+  "PB.DefenseCritOn": "Defense Crit On",
+  "PB.DefenseFumbleOn": "Defense Fumble On",
   "PB.Dodge": "Dodge",
   "PB.EditAllowedCharacterGeneratorClassesMenu": "Allowed classes",
   "PB.EditAllowedCharacterGeneratorClassesMenuButtonLabel": "Edit",

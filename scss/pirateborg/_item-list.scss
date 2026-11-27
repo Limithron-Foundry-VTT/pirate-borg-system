@@ -117,6 +117,41 @@
     }
   }
 
+  /* Effects lists: match the header's spacing to the rows so the columns line up */
+  .effects {
+    .items-header {
+      padding: 0 8px;
+      gap: 8px;
+    }
+
+    .item-name {
+      flex: 0 0 calc(50% - 32px);
+      min-width: 0;
+    }
+
+    .items-header .item-name {
+      flex-basis: 50%;
+    }
+
+    .item-source {
+      flex: 1 1 0;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-list .item-source {
+      font-family: var(--item-font);
+      font-size: 12pt;
+    }
+
+    .item-list .item-controls {
+      flex: 0 0 80px;
+      padding-right: 8px;
+    }
+  }
+
   /* Effect duration styling */
   .effect-duration-header {
     flex: 0 0 60px;

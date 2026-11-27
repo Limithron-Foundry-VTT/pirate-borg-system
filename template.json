@@ -118,7 +118,11 @@
           "armorTierModifier": 0,
           "speedModifier": 0,
           "luckDieModifier": 0,
-          "drModifier": 0
+          "drModifier": 0,
+          "critOn": 20,
+          "defenseCritOn": 20,
+          "fumbleOn": 1,
+          "defenseFumbleOn": 1
         },
         "grog": {
           "drinks": 0,

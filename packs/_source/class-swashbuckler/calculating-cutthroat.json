@@ -3,7 +3,33 @@
   "name": "Calculating Cutthroat",
   "type": "feature",
   "img": "systems/pirateborg/icons/misc/class-feature.png",
-  "effects": [],
+  "effects": [
+    {
+      "_id": "GPJoNBeyQIpbNN2F",
+      "name": "Calculating Cutthroat",
+      "icon": "systems/pirateborg/icons/misc/class-feature.png",
+      "changes": [
+        {
+          "key": "system.attributes.combat.critOn",
+          "mode": 3,
+          "value": "19"
+        },
+        {
+          "key": "system.attributes.combat.defenseCritOn",
+          "mode": 3,
+          "value": "19"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "duration": {
+        "value": null,
+        "units": "seconds"
+      },
+      "flags": {},
+      "_key": "!items.effects!LDoVK8giitqlSfDt.GPJoNBeyQIpbNN2F"
+    }
+  ],
   "folder": null,
   "sort": 0,
   "flags": {},
@@ -20,7 +46,7 @@
     "duplicateSource": null
   },
   "system": {
-    "description": "<p>You critical hit on natural dice rolls of 19 and 20 ( when attack &amp; defending).</p>\n<p>Foundry note: Not automatic, update the \"Crit On\" value of your weapons</p>",
+    "description": "<p>You critical hit on natural dice rolls of 19 and 20 (when attacking &amp; defending).</p>",
     "featureType": "Class",
     "maxQuantity": 1,
     "quantity": 1,

@@ -930,6 +930,35 @@
   text-align: center;
 }
 .pirateborg {
+  /* Effects lists: match the header's spacing to the rows so the columns line up */
+}
+.pirateborg .effects .items-header {
+  padding: 0 8px;
+  gap: 8px;
+}
+.pirateborg .effects .item-name {
+  flex: 0 0 calc(50% - 32px);
+  min-width: 0;
+}
+.pirateborg .effects .items-header .item-name {
+  flex-basis: 50%;
+}
+.pirateborg .effects .item-source {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pirateborg .effects .item-list .item-source {
+  font-family: var(--item-font);
+  font-size: 12pt;
+}
+.pirateborg .effects .item-list .item-controls {
+  flex: 0 0 80px;
+  padding-right: 8px;
+}
+.pirateborg {
   /* Effect duration styling */
 }
 .pirateborg .effect-duration-header {
