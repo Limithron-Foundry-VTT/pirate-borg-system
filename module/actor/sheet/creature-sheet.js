@@ -31,6 +31,13 @@ export class PBActorSheetCreature extends PBActorSheet {
     },
   };
 
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    // Armor is damage reduction, so "-d4" (as stat blocks print it) would add damage instead.
+    context.armorFormulaNegative = /^\s*[-–−]/.test(this.actor.system.attributes?.armor?.formula ?? "");
+    return context;
+  }
+
   async _onRender(context, options) {
     await super._onRender(context, options);
     if (!this.isEditable) return;

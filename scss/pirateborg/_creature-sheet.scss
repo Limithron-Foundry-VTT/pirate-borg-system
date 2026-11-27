@@ -4,6 +4,13 @@
       .creature {
         min-width: 500px;
       }
+
+      .form-warning-icon {
+        color: var(--warning-color);
+        flex: 0 0 20px;
+        cursor: help;
+        text-align: center;
+      }
     }
   }
 }

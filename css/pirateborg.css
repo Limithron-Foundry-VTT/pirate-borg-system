@@ -995,6 +995,12 @@
 .pirateborg.sheet.actor .creature {
   min-width: 500px;
 }
+.pirateborg.sheet.actor .form-warning-icon {
+  color: var(--warning-color);
+  flex: 0 0 20px;
+  cursor: help;
+  text-align: center;
+}
 
 .pirateborg.sheet.item:not(.minimized) {
   min-width: 500px;
