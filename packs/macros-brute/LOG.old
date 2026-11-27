@@ -1,15 +1,15 @@
-2026/11/03-22:57:03.838730 7d37377fe6c0 Recovering log #248
-2026/11/03-22:57:03.839901 7d37377fe6c0 Delete type=0 #248
-2026/11/03-22:57:03.839920 7d37377fe6c0 Delete type=3 #246
-2026/11/03-22:57:03.840682 7d3736ffd6c0 Level-0 table #254: started
-2026/11/03-22:57:03.841223 7d3736ffd6c0 Level-0 table #254: 1110 bytes OK
-2026/11/03-22:57:03.841558 7d3736ffd6c0 Delete type=0 #252
-2026/11/03-22:57:03.841610 7d3736ffd6c0 Manual compaction at level-0 from '!macros!VEgbm3JcVOR5aFVa' @ 72057594037927935 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at (end)
-2026/11/03-22:57:03.841634 7d3736ffd6c0 Manual compaction at level-1 from '!macros!VEgbm3JcVOR5aFVa' @ 72057594037927935 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at '!macros!hfmwHZOb042Rad2C' @ 70 : 1
-2026/11/03-22:57:03.841637 7d3736ffd6c0 Compacting 1@1 + 1@2 files
-2026/11/03-22:57:03.842141 7d3736ffd6c0 Generated table #255@1: 2 keys, 1110 bytes
-2026/11/03-22:57:03.842148 7d3736ffd6c0 Compacted 1@1 + 1@2 files => 1110 bytes
-2026/11/03-22:57:03.842394 7d3736ffd6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
-2026/11/03-22:57:03.842459 7d3736ffd6c0 Delete type=2 #250
-2026/11/03-22:57:03.842581 7d3736ffd6c0 Delete type=2 #254
-2026/11/03-22:57:03.842702 7d3736ffd6c0 Manual compaction at level-1 from '!macros!hfmwHZOb042Rad2C' @ 70 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at (end)
+2026/11/03-23:06:10.009410 72e642fed6c0 Recovering log #253
+2026/11/03-23:06:10.011921 72e642fed6c0 Delete type=3 #251
+2026/11/03-23:06:10.011931 72e642fed6c0 Delete type=0 #253
+2026/11/03-23:06:10.012419 72e641feb6c0 Level-0 table #259: started
+2026/11/03-23:06:10.013479 72e641feb6c0 Level-0 table #259: 1110 bytes OK
+2026/11/03-23:06:10.014280 72e641feb6c0 Delete type=0 #257
+2026/11/03-23:06:10.014327 72e641feb6c0 Manual compaction at level-0 from '!macros!VEgbm3JcVOR5aFVa' @ 72057594037927935 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at (end)
+2026/11/03-23:06:10.014360 72e641feb6c0 Manual compaction at level-1 from '!macros!VEgbm3JcVOR5aFVa' @ 72057594037927935 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at '!macros!hfmwHZOb042Rad2C' @ 72 : 1
+2026/11/03-23:06:10.014361 72e641feb6c0 Compacting 1@1 + 1@2 files
+2026/11/03-23:06:10.015340 72e641feb6c0 Generated table #260@1: 2 keys, 1110 bytes
+2026/11/03-23:06:10.015342 72e641feb6c0 Compacted 1@1 + 1@2 files => 1110 bytes
+2026/11/03-23:06:10.016114 72e641feb6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/11/03-23:06:10.016130 72e641feb6c0 Delete type=2 #259
+2026/11/03-23:06:10.016148 72e641feb6c0 Delete type=2 #255
+2026/11/03-23:06:10.016185 72e641feb6c0 Manual compaction at level-1 from '!macros!hfmwHZOb042Rad2C' @ 72 : 1 .. '!macros!hfmwHZOb042Rad2C' @ 0 : 0; will stop at (end)
